@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Programs — threats.top</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body { background:#0d1117; color:#c9d1d9; font-family:monospace; padding:30px; max-width:900px; margin:auto; }
+  a { color:#58a6ff; }
+  table { width:100%; border-collapse:collapse; margin-top:20px; }
+  th, td { text-align:left; padding:8px; border-bottom:1px solid #30363d; }
+  th { color:#58a6ff; }
+  input { background:#161b22; border:1px solid #30363d; color:#c9d1d9; padding:8px; width:100%; margin-top:10px; }
+</style>
+</head>
+<body>
+  <p><a href="/">&larr; back</a></p>
+  <h2>Bug Bounty Programs</h2>
+  <input id="search" placeholder="Search program name or domain...">
+  <table id="tbl"><thead><tr><th>Program</th><th>Domains</th></tr></thead><tbody id="rows"></tbody></table>
+
+<script>
+let all = [];
+fetch('/data/domains.json').then(r => r.json()).then(data => {
+  all = data.programs || [];
+  render(all);
+});
+
+function render(list) {
+  document.getElementById('rows').innerHTML = list.map(p =>
+    `<tr><td>${p.name}</td><td>${p.domains.join(', ')}</td></tr>`
+  ).join('');
+}
+
+document.getElementById('search').addEventListener('input', e => {
+  const q = e.target.value.toLowerCase();
+  render(all.filter(p =>
+    p.name.toLowerCase().includes(q) ||
+    p.domains.some(d => d.toLowerCase().includes(q))
+  ));
+});
+</script>
+</body>
+</html>
