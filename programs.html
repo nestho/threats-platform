@@ -125,7 +125,11 @@
 </div>
 
 <div class="toast" id="toast">copied</div>
-
+function esc(s) {
+  const div = document.createElement('div');
+  div.textContent = s ?? '';
+  return div.innerHTML;
+}
 <script>
 const PAGE_SIZE = 30;
 let all = [];
