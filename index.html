@@ -2,47 +2,226 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Threats.top — Threat Intelligence</title>
+<title>threats.top — threat intelligence data</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  body { background:#0d1117; color:#c9d1d9; font-family:monospace; padding:40px; max-width:700px; margin:auto; }
-  h1 { color:#58a6ff; }
-  a { color:#58a6ff; }
-  .stat { font-size:2em; color:#3fb950; }
-  .box { border:1px solid #30363d; border-radius:8px; padding:20px; margin-top:20px; }
+  :root {
+    --bg: #0a0e14;
+    --panel: #131922;
+    --border: #232b38;
+    --text: #c9d3de;
+    --text-dim: #6b7688;
+    --accent: #ff6b35;
+    --accent-dim: #4a9d9c;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  .scan {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-dim), transparent);
+    opacity: 0.5;
+    animation: sweep 8s linear infinite;
+  }
+  @keyframes sweep {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100vh); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .scan { animation: none; display: none; }
+  }
+  .wrap {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 64px 24px 40px;
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 72px;
+    font-size: 14px;
+  }
+  nav .brand { color: var(--text); font-weight: 500; }
+  nav a { color: var(--text-dim); text-decoration: none; }
+  nav a:hover { color: var(--accent-dim); }
+
+  .hero {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 40px;
+    align-items: end;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 40px;
+  }
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(40px, 6vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0 0 16px;
+  }
+  .tagline {
+    color: var(--text-dim);
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 46ch;
+  }
+  .stats {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 24px;
+    border-left: 1px solid var(--border);
+  }
+  .stat-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .stat-label {
+    color: var(--text-dim);
+    font-size: 13px;
+    margin-top: 4px;
+  }
+
+  section { margin-top: 48px; }
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .row-title { font-size: 15px; color: var(--text); }
+  .row-desc { color: var(--text-dim); font-size: 13px; margin-top: 4px; }
+  .row a {
+    color: var(--accent-dim);
+    text-decoration: none;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  .row a:hover { color: var(--accent); }
+
+  .support {
+    margin-top: 56px;
+    padding: 20px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .support-title { color: var(--text); font-size: 14px; margin-bottom: 12px; }
+  .support code {
+    color: var(--accent-dim);
+    background: rgba(255,255,255,0.03);
+    padding: 2px 6px;
+    word-break: break-all;
+  }
+  .support .line { margin-top: 8px; color: var(--text-dim); }
+
+  footer {
+    margin-top: 64px;
+    color: var(--text-dim);
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+  }
+  footer a { color: var(--text-dim); }
+
+  @media (max-width: 640px) {
+    .hero { grid-template-columns: 1fr; }
+    .stats { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 20px; flex-direction: row; flex-wrap: wrap; }
+  }
 </style>
 </head>
 <body>
-  <h1>threats.top</h1>
-  <p>Threat intelligence data platform — currently in early build.</p>
+<div class="scan"></div>
+<div class="wrap">
 
-  <div class="box">
-    <div id="stats">Loading data...</div>
+  <nav>
+    <span class="brand">threats.top</span>
+    <a href="mailto:contact@threats.top">contact@threats.top</a>
+  </nav>
+
+  <div class="hero">
+    <div>
+      <h1>Signal on the<br>threat surface.</h1>
+      <p class="tagline">An open data feed tracking bug bounty program scope and emerging vulnerabilities — built for researchers and security teams who need the raw signal, not another dashboard.</p>
+    </div>
+    <div class="stats" id="stats">
+      <div>
+        <div class="stat-num">—</div>
+        <div class="stat-label">bug bounty programs</div>
+      </div>
+      <div>
+        <div class="stat-num">—</div>
+        <div class="stat-label">unique domains tracked</div>
+      </div>
+    </div>
   </div>
 
-  <p style="margin-top:30px;">
-    Full dataset: <a href="/data/domains.json">/data/domains.json</a><br>
-    Contact: <a href="mailto:contact@threats.top">contact@threats.top</a>
-  </p>
+  <section>
+    <div class="row">
+      <div>
+        <div class="row-title">Bug bounty program scope</div>
+        <div class="row-desc">Domains across public bounty programs, updated daily</div>
+      </div>
+      <a href="/programs.html">browse</a>
+    </div>
+    <div class="row">
+      <div>
+        <div class="row-title">Recent CVEs</div>
+        <div class="row-desc">Published vulnerabilities, last 3 days, via NVD</div>
+      </div>
+      <a href="/data/cves.json">raw json</a>
+    </div>
+    <div class="row">
+      <div>
+        <div class="row-title">Full domain dataset</div>
+        <div class="row-desc">Every program and domain in one file</div>
+      </div>
+      <a href="/data/domains.json">raw json</a>
+    </div>
+  </section>
+
+  <div class="support">
+    <div class="support-title">Support this project</div>
+    <div class="line">USDT (TRC20) &nbsp; <code>TAH1B9ksFekoqBmQaRbGqooca7MSUadvn2</code></div>
+    <div class="line">BTC &nbsp; <code>bc1q6x9fek8970t38dvh7s4utt4ge47uhz3jl0etjq</code></div>
+  </div>
+
+  <footer>
+    <span id="updated">loading...</span>
+    <span>built in the open</span>
+  </footer>
+
+</div>
 
 <script>
 fetch('/data/domains.json')
   .then(r => r.json())
   .then(data => {
-    document.getElementById('stats').innerHTML =
-      `<span class="stat">${data.total_programs}</span> bug bounty programs tracked<br>` +
-      `<span class="stat">${data.total_unique_domains}</span> unique domains<br>` +
-      `<small>last updated: ${data.updated_at}</small>`;
+    const nums = document.querySelectorAll('.stat-num');
+    nums[0].textContent = data.total_programs;
+    nums[1].textContent = data.total_unique_domains;
+    document.getElementById('updated').textContent = 'last updated ' + data.updated_at.slice(0, 16).replace('T', ' ') + ' UTC';
   })
   .catch(() => {
-    document.getElementById('stats').innerText = 'Data not available yet.';
+    document.getElementById('updated').textContent = 'data unavailable';
   });
 </script>
-  <p><a href="/programs.html">Browse all programs &rarr;</a></p>
-  <div class="box" style="margin-top:20px; font-size:0.9em;">
-  <strong>Support this project</strong><br>
-  USDT (TRC20): <code>TAH1B9ksFekoqBmQaRbGqooca7MSUadvn2</code><br>
-  BTC: <code>bc1q6x9fek8970t38dvh7s4utt4ge47uhz3jl0etjq</code>
-</div>
 </body>
 </html>
