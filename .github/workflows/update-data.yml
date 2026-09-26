@@ -1,11 +1,10 @@
 name: Update Threat Data
 
 on:
+  # Single hourly cron. Which feeds run is decided inside the job
+  # based on the current hour (cleaner than many overlapping crons).
   schedule:
-    - cron: '*/15 * * * *'   # URLhaus: every 15 minutes
-    - cron: '7 * * * *'      # GHSA: every hour
-    - cron: '17 */2 * * *'   # CVE/KEV: every 2 hours
-    - cron: '37 */6 * * *'   # ProjectDiscovery: every 6 hours
+    - cron: '0 * * * *'
 
   workflow_dispatch:
     inputs:
@@ -18,6 +17,8 @@ on:
           - ghsa
           - cve
           - collector
+          - exploitdb
+          - cert_eu
           - all
         default: all
 
@@ -36,42 +37,28 @@ jobs:
     timeout-minutes: 15
 
     steps:
-      # ------------------------------------------------------------
-      # Checkout
-      # ------------------------------------------------------------
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ref: main
 
-      # ------------------------------------------------------------
-      # Python
-      # ------------------------------------------------------------
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
           cache: pip
 
-      # ------------------------------------------------------------
-      # Dependencies
-      # ------------------------------------------------------------
       - name: Install dependencies
         run: |
           set -euo pipefail
-
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
 
-      # ------------------------------------------------------------
-      # Determine which feed should run
-      # ------------------------------------------------------------
-      - name: Select feed
+      - name: Select feed(s)
         id: feed
         env:
           EVENT_NAME: ${{ github.event_name }}
-          SCHEDULE: ${{ github.event.schedule }}
           INPUT_FEED: ${{ inputs.feed }}
         run: |
           set -euo pipefail
@@ -79,54 +66,46 @@ jobs:
           if [[ "${EVENT_NAME}" == "workflow_dispatch" ]]; then
             feed="${INPUT_FEED}"
           else
-            case "${SCHEDULE}" in
-              '*/15 * * * *')
-                feed="urlhaus"
-                ;;
+            # Hourly schedule logic (UTC hour):
+            #   every hour  -> urlhaus
+            #   every 2h    -> cve   (even hours)
+            #   every 3h    -> ghsa  (hours % 3 == 0)
+            #   every 4h    -> exploitdb + cert_eu
+            #   every 6h    -> collector
+            HOUR=$(date -u +%H)
+            HOUR=$((10#$HOUR))   # force decimal
 
-              '7 * * * *')
-                feed="ghsa"
-                ;;
+            feeds=("urlhaus")
 
-              '17 */2 * * *')
-                feed="cve"
-                ;;
+            if (( HOUR % 2 == 0 )); then
+              feeds+=("cve")
+            fi
+            if (( HOUR % 3 == 0 )); then
+              feeds+=("ghsa")
+            fi
+            if (( HOUR % 4 == 0 )); then
+              feeds+=("exploitdb")
+              feeds+=("cert_eu")
+            fi
+            if (( HOUR % 6 == 0 )); then
+              feeds+=("collector")
+            fi
 
-              '37 */6 * * *')
-                feed="collector"
-                ;;
-
-              *)
-                echo "::error::Unknown schedule: ${SCHEDULE}"
-                exit 1
-                ;;
-            esac
+            # Join with comma for the next step
+            feed=$(IFS=,; echo "${feeds[*]}")
           fi
 
           echo "feed=${feed}" >> "${GITHUB_OUTPUT}"
-
           echo "========================================"
-          echo "Selected feed: ${feed}"
+          echo "Selected feed(s): ${feed}"
           echo "========================================"
 
-      # ------------------------------------------------------------
-      # Update selected feed
-      # ------------------------------------------------------------
-      - name: Update selected feed
+      - name: Update selected feed(s)
         env:
           FEED: ${{ steps.feed.outputs.feed }}
         run: |
           set -euo pipefail
 
-          # ----------------------------------------------------------
-          # Generic retry helper
-          #
-          # 4 attempts:
-          #   1st -> immediately
-          #   2nd -> +5s
-          #   3rd -> +10s
-          #   4th -> +20s
-          # ----------------------------------------------------------
           retry() {
             local attempts=4
             local delay=5
@@ -134,91 +113,76 @@ jobs:
 
             while true; do
               echo "Attempt ${attempt}/${attempts}: $*"
-
               if "$@"; then
                 return 0
               fi
-
               if (( attempt >= attempts )); then
                 echo "::error::Command failed after ${attempts} attempts"
                 return 1
               fi
-
-              echo "Command failed."
-              echo "Retrying in ${delay}s..."
-
+              echo "Command failed. Retrying in ${delay}s..."
               sleep "${delay}"
-
               delay=$((delay * 2))
               attempt=$((attempt + 1))
             done
           }
 
-          # ----------------------------------------------------------
-          # Feed dispatcher
-          # ----------------------------------------------------------
-          run_feed() {
-            case "${FEED}" in
-
+          run_one() {
+            case "$1" in
               urlhaus)
                 echo "Updating URLhaus..."
                 retry python scripts/urlhaus_feed.py
                 ;;
-
               ghsa)
                 echo "Updating GitHub Security Advisories..."
                 retry python scripts/ghsa_feed.py
                 ;;
-
               cve)
                 echo "Updating CVE / CISA KEV..."
                 retry python scripts/cve_feed.py
                 ;;
-
               collector)
                 echo "Updating ProjectDiscovery programs/domains..."
                 retry python scripts/collector.py
                 ;;
-
-              all)
-                echo "Updating ALL threat feeds..."
-
-                retry python scripts/collector.py
-                retry python scripts/cve_feed.py
-                retry python scripts/ghsa_feed.py
-                retry python scripts/urlhaus_feed.py
+              exploitdb)
+                echo "Updating Exploit-DB..."
+                retry python scripts/exploitdb_feed.py
                 ;;
-
+              cert_eu)
+                echo "Updating CERT-EU..."
+                retry python scripts/cert_eu_feed.py
+                ;;
               *)
-                echo "::error::Unsupported feed: ${FEED}"
+                echo "::error::Unsupported feed: $1"
                 return 1
                 ;;
             esac
           }
 
-          run_feed
+          if [[ "${FEED}" == "all" ]]; then
+            for f in collector cve ghsa urlhaus exploitdb cert_eu; do
+              run_one "$f"
+            done
+          else
+            # FEED can be a single name or comma-separated list
+            IFS=',' read -ra FEEDS <<< "${FEED}"
+            for f in "${FEEDS[@]}"; do
+              run_one "$(echo "$f" | xargs)"
+            done
+          fi
 
-      # ------------------------------------------------------------
-      # Commit and push
-      # ------------------------------------------------------------
       - name: Commit and push
         env:
           FEED: ${{ steps.feed.outputs.feed }}
         run: |
           set -euo pipefail
 
-          # Git identity
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # ----------------------------------------------------------
-          # Stage only generated threat data
-          # ----------------------------------------------------------
           git add data/
 
-          # ----------------------------------------------------------
-          # Nothing changed
-          # ----------------------------------------------------------
           if git diff --cached --quiet; then
             echo "========================================"
             echo "No data changes for: ${FEED}"
@@ -227,24 +191,11 @@ jobs:
             exit 0
           fi
 
-          # ----------------------------------------------------------
-          # Commit
-          # ----------------------------------------------------------
-          git commit -m "chore(data): update ${FEED} feed"
+          git commit -m "chore(data): update ${FEED} feed(s)"
 
-          # ----------------------------------------------------------
-          # Refresh main before pushing.
-          #
-          # This protects against another commit landing on main
-          # while the feed was being fetched.
-          # ----------------------------------------------------------
           git fetch origin main
-
           git rebase origin/main
 
-          # ----------------------------------------------------------
-          # Push with retry
-          # ----------------------------------------------------------
           retry_push() {
             local attempts=4
             local delay=5
@@ -252,29 +203,19 @@ jobs:
 
             while true; do
               echo "Push attempt ${attempt}/${attempts}"
-
               if git push origin HEAD:main; then
                 echo "Push successful."
                 return 0
               fi
-
               if (( attempt >= attempts )); then
                 echo "::error::git push failed after ${attempts} attempts"
                 return 1
               fi
-
-              echo "Push failed."
-              echo "Refreshing main and retrying in ${delay}s..."
-
+              echo "Push failed. Refreshing main and retrying in ${delay}s..."
               sleep "${delay}"
-
               delay=$((delay * 2))
               attempt=$((attempt + 1))
-
-              # Refresh remote main
               git fetch origin main
-
-              # Rebase our generated commit onto latest main
               git rebase origin/main
             done
           }
