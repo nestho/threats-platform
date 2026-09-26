@@ -17,12 +17,31 @@ def fetch_source():
         return json.loads(resp.read().decode("utf-8"))
 
 
+def normalize_entries(raw):
+    """Handle whatever shape the source JSON turns out to be."""
+    if isinstance(raw, list):
+        return raw
+    if isinstance(raw, dict):
+        for key in ("programs", "data", "entries"):
+            if key in raw and isinstance(raw[key], list):
+                return raw[key]
+        # fallback: maybe it's {name: {...}} style
+        values = list(raw.values())
+        if values and isinstance(values[0], dict):
+            return values
+    raise ValueError(f"Unrecognized data shape: {type(raw)}")
+
+
 def main():
     raw = fetch_source()
+    entries = normalize_entries(raw)
+
     programs_out = []
     all_domains = set()
 
-    for program in raw:
+    for program in entries:
+        if not isinstance(program, dict):
+            continue
         if not program.get("bounty"):
             continue
         domains = program.get("domains", [])
