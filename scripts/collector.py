@@ -7,7 +7,7 @@ import json
 import urllib.request
 from datetime import datetime, timezone
 
-SOURCE_URL = "https://raw.githubusercontent.com/projectdiscovery/public-bugbounty-programs/master/chaos-bugbounty-list.json"
+SOURCE_URL = "https://raw.githubusercontent.com/projectdiscovery/public-bugbounty-programs/main/dist/data.json"
 OUTPUT_PATH = "data/domains.json"
 
 
@@ -22,7 +22,7 @@ def main():
     programs_out = []
     all_domains = set()
 
-    for program in raw.get("programs", []):
+    for program in raw:
         if not program.get("bounty"):
             continue
         domains = program.get("domains", [])
