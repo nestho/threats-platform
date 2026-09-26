@@ -17,109 +17,77 @@
     --accent-dim: #4a9d9c;
   }
   * { box-sizing: border-box; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'JetBrains Mono', monospace;
-    margin: 0;
-  }
-  .wrap { max-width: 1000px; margin: 0 auto; padding: 48px 24px 60px; }
+  body { background: var(--bg); color: var(--text); font-family: 'JetBrains Mono', monospace; margin: 0; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 48px 24px 60px; }
   a.back { color: var(--text-dim); text-decoration: none; font-size: 13px; }
   a.back:hover { color: var(--accent-dim); }
-  h1 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 32px;
-    margin: 20px 0 24px;
-  }
+  h1 { font-family: 'Space Grotesk', sans-serif; font-size: 32px; margin: 20px 0 24px; }
 
-  .controls {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
-  }
+  .controls { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
   input, select {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    color: var(--text);
-    font-family: inherit;
-    font-size: 13px;
-    padding: 10px 12px;
+    background: var(--panel); border: 1px solid var(--border); color: var(--text);
+    font-family: inherit; font-size: 13px; padding: 10px 12px;
   }
   input { flex: 1; min-width: 200px; }
 
-  .meta-bar {
-    display: flex;
-    justify-content: space-between;
-    color: var(--text-dim);
-    font-size: 12px;
-    margin-bottom: 8px;
+  .tabs { display: flex; gap: 4px; margin-bottom: 16px; }
+  .tab {
+    background: var(--panel); border: 1px solid var(--border); color: var(--text-dim);
+    font-family: inherit; font-size: 13px; padding: 8px 14px; cursor: pointer;
   }
+  .tab.active { color: var(--accent); border-color: var(--accent-dim); }
 
-  .card {
-    border: 1px solid var(--border);
-    border-top: none;
-    padding: 14px 16px;
-    cursor: pointer;
+  .meta-bar { display: flex; justify-content: space-between; color: var(--text-dim); font-size: 12px; margin-bottom: 8px; }
+  .meta-bar button {
+    background: none; border: 1px solid var(--border); color: var(--accent-dim);
+    font-family: inherit; font-size: 12px; padding: 4px 10px; cursor: pointer;
   }
-  .card:first-of-type { border-top: 1px solid var(--border); }
-  .card-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .meta-bar button:hover { color: var(--accent); }
+
+  .group-title {
+    font-family: 'Space Grotesk', sans-serif; color: var(--text); font-size: 15px;
+    margin: 28px 0 8px; padding-bottom: 6px; border-bottom: 1px solid var(--border);
   }
+  .group-title .n { color: var(--text-dim); font-size: 12px; font-family: 'JetBrains Mono', monospace; margin-left: 8px; }
+
+  .card { border: 1px solid var(--border); border-top: none; padding: 14px 16px; cursor: pointer; }
+  .card:first-of-type, .group-title + .card { border-top: 1px solid var(--border); }
+  .card-head { display: flex; justify-content: space-between; align-items: center; }
   .card-name { color: var(--text); font-size: 14px; }
   .card-badges { display: flex; gap: 8px; align-items: center; }
-  .badge {
-    font-size: 11px;
-    color: var(--text-dim);
-    border: 1px solid var(--border);
-    padding: 2px 8px;
-  }
+  .badge { font-size: 11px; color: var(--text-dim); border: 1px solid var(--border); padding: 2px 8px; }
   .badge.count { color: var(--accent-dim); }
+  .badge.manual { color: var(--accent); }
   .caret { color: var(--text-dim); font-size: 12px; transition: transform 0.15s; }
   .card.open .caret { transform: rotate(90deg); }
-
-  .card-body {
-    display: none;
-    margin-top: 12px;
-    padding-top: 12px;
-    border-top: 1px solid var(--border);
-    font-size: 12.5px;
-    line-height: 1.9;
-    color: var(--text-dim);
-  }
+  .card-body { display: none; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 12.5px; line-height: 1.9; color: var(--text-dim); }
   .card.open .card-body { display: block; }
-  .domain-tag {
-    display: inline-block;
-    color: var(--text);
-    margin-right: 6px;
+  .domain-tag { display: inline-block; color: var(--text); margin-right: 6px; }
+  .copy-btn {
+    background: none; border: 1px solid var(--border); color: var(--accent-dim);
+    font-family: inherit; font-size: 11px; padding: 3px 8px; cursor: pointer; margin-top: 10px;
   }
+  .copy-btn:hover { color: var(--accent); }
 
-  /* Placeholders for data types not yet collected — rendered only when present */
-  .extra-row { margin-top: 8px; }
-  .extra-row .label { color: var(--accent-dim); margin-right: 8px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { color: var(--accent-dim); font-weight: 500; font-size: 12px; }
+  td.domains { color: var(--text-dim); max-width: 420px; }
+  td.name { color: var(--text); white-space: nowrap; }
+  td.platform { color: var(--text-dim); white-space: nowrap; }
 
-  .pager {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 24px;
-  }
-  .pager button {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    color: var(--text-dim);
-    font-family: inherit;
-    font-size: 13px;
-    padding: 8px 14px;
-    cursor: pointer;
-  }
+  .pager { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
+  .pager button { background: var(--panel); border: 1px solid var(--border); color: var(--text-dim); font-family: inherit; font-size: 13px; padding: 8px 14px; cursor: pointer; }
   .pager button:hover:not(:disabled) { color: var(--accent-dim); }
   .pager button:disabled { opacity: 0.35; cursor: default; }
   .pager span { color: var(--text-dim); font-size: 13px; padding: 8px 4px; }
-
   .empty { color: var(--text-dim); padding: 40px 0; text-align: center; }
+  .toast {
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+    background: var(--panel); border: 1px solid var(--accent-dim); color: var(--accent-dim);
+    font-size: 13px; padding: 10px 18px; opacity: 0; transition: opacity 0.2s;
+  }
+  .toast.show { opacity: 1; }
 </style>
 </head>
 <body>
@@ -132,24 +100,38 @@
     <select id="sort">
       <option value="domains-desc">Most domains</option>
       <option value="domains-asc">Fewest domains</option>
-      <option value="name-asc">Name A–Z</option>
+      <option value="name-asc">Name A&ndash;Z</option>
+      <option value="platform-asc">Platform</option>
     </select>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-view="cards">Cards</button>
+    <button class="tab" data-view="table">Table</button>
+    <button class="tab" data-view="grouped">By platform</button>
   </div>
 
   <div class="meta-bar">
     <span id="count-label"></span>
-    <span id="updated-label"></span>
+    <span>
+      <span id="updated-label"></span>
+      &nbsp;&middot;&nbsp;
+      <button id="copy-md">copy as markdown</button>
+    </span>
   </div>
 
   <div id="list"></div>
   <div class="pager" id="pager"></div>
 </div>
 
+<div class="toast" id="toast">copied</div>
+
 <script>
 const PAGE_SIZE = 30;
 let all = [];
 let filtered = [];
 let page = 0;
+let view = 'cards';
 
 fetch('/data/domains.json')
   .then(r => r.json())
@@ -170,26 +152,96 @@ function sortList(list) {
   if (mode === 'domains-desc') copy.sort((a, b) => (b.domains?.length || 0) - (a.domains?.length || 0));
   if (mode === 'domains-asc') copy.sort((a, b) => (a.domains?.length || 0) - (b.domains?.length || 0));
   if (mode === 'name-asc') copy.sort((a, b) => a.name.localeCompare(b.name));
+  if (mode === 'platform-asc') copy.sort((a, b) => (a.platform || '').localeCompare(b.platform || ''));
   return copy;
 }
 
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 1400);
+}
+
+function copyText(text) {
+  navigator.clipboard.writeText(text).then(() => showToast('copied')).catch(() => showToast('copy failed'));
+}
+
+function toMarkdownTable(list) {
+  const rows = list.map(p =>
+    `| ${p.name} | ${p.platform || ''} | ${p.domains.length} | ${p.domains.join(', ')} |`
+  );
+  return `| Program | Platform | Domains | List |\n|---|---|---|---|\n` + rows.join('\n');
+}
+
+document.getElementById('copy-md').addEventListener('click', () => {
+  copyText(toMarkdownTable(sortList(filtered)));
+});
+
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    view = tab.dataset.view;
+    page = 0;
+    render();
+  });
+});
+
 function render() {
   const sorted = sortList(filtered);
-  const start = page * PAGE_SIZE;
-  const pageItems = sorted.slice(start, start + PAGE_SIZE);
-
   document.getElementById('count-label').textContent =
     filtered.length + ' program' + (filtered.length === 1 ? '' : 's');
 
   const list = document.getElementById('list');
-  if (pageItems.length === 0) {
+  const pager = document.getElementById('pager');
+
+  if (sorted.length === 0) {
     list.innerHTML = '<div class="empty">No matches.</div>';
-  } else {
-    list.innerHTML = pageItems.map((p, i) => cardHtml(p, start + i)).join('');
+    pager.innerHTML = '';
+    return;
   }
 
+  if (view === 'grouped') {
+    pager.innerHTML = '';
+    const groups = {};
+    sorted.forEach(p => {
+      const key = p.platform || 'Self-hosted / Other';
+      (groups[key] = groups[key] || []).push(p);
+    });
+    list.innerHTML = Object.keys(groups).sort().map(key =>
+      `<div class="group-title">${key}<span class="n">${groups[key].length}</span></div>` +
+      groups[key].map(cardHtml).join('')
+    ).join('');
+    bindCards();
+    return;
+  }
+
+  const start = page * PAGE_SIZE;
+  const pageItems = sorted.slice(start, start + PAGE_SIZE);
   const totalPages = Math.max(1, Math.ceil(sorted.length / PAGE_SIZE));
-  const pager = document.getElementById('pager');
+
+  if (view === 'table') {
+    list.innerHTML = `
+      <table>
+        <thead><tr><th>Program</th><th>Platform</th><th>#</th><th>Domains</th></tr></thead>
+        <tbody>
+          ${pageItems.map(p => `
+            <tr>
+              <td class="name">${p.name}</td>
+              <td class="platform">${p.platform || ''}</td>
+              <td>${p.domains.length}</td>
+              <td class="domains">${p.domains.join(', ')}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    `;
+  } else {
+    list.innerHTML = pageItems.map(cardHtml).join('');
+    bindCards();
+  }
+
   pager.innerHTML = `
     <button id="prev" ${page === 0 ? 'disabled' : ''}>&larr; prev</button>
     <span>${page + 1} / ${totalPages}</span>
@@ -197,34 +249,42 @@ function render() {
   `;
   document.getElementById('prev').onclick = () => { page--; render(); window.scrollTo(0,0); };
   document.getElementById('next').onclick = () => { page++; render(); window.scrollTo(0,0); };
+}
 
+function bindCards() {
   document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', () => card.classList.toggle('open'));
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('.copy-btn')) return;
+      card.classList.toggle('open');
+    });
+  });
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      copyText(btn.dataset.domains);
+    });
   });
 }
 
-function cardHtml(p, idx) {
+function cardHtml(p) {
   const domains = p.domains || [];
   const domainTags = domains.map(d => `<span class="domain-tag">${d}</span>`).join(' &middot; ');
-
-  // Future data types render only if present on the record — safe no-op today.
-  const extras = [];
-  if (p.ports) extras.push(`<div class="extra-row"><span class="label">ports</span>${p.ports.join(', ')}</div>`);
-  if (p.tech) extras.push(`<div class="extra-row"><span class="label">tech</span>${p.tech.join(', ')}</div>`);
-  if (p.services) extras.push(`<div class="extra-row"><span class="label">services</span>${p.services.join(', ')}</div>`);
+  const manualBadge = p.manual ? '<span class="badge manual">manual</span>' : '';
 
   return `
-    <div class="card" data-idx="${idx}">
+    <div class="card">
       <div class="card-head">
         <span class="card-name">${p.name}</span>
         <span class="card-badges">
+          <span class="badge">${p.platform || ''}</span>
+          ${manualBadge}
           <span class="badge count">${domains.length} domain${domains.length === 1 ? '' : 's'}</span>
           <span class="caret">&#9656;</span>
         </span>
       </div>
       <div class="card-body">
         ${domainTags}
-        ${extras.join('')}
+        <div><button class="copy-btn" data-domains="${domains.join('\\n')}">copy domains</button></div>
       </div>
     </div>
   `;
