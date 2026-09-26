@@ -14,6 +14,7 @@ jobs:
           python-version: '3.12'
       - run: pip install -r requirements.txt
       - run: python scripts/collector.py
+      - run: python scripts/cve_feed.py
       - name: Commit and push
         run: |
           git config user.name "github-actions"
