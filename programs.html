@@ -151,6 +151,18 @@ fetch('/data/domains.json')
     filtered = all;
     document.getElementById('updated-label').textContent =
       'updated ' + (data.updated_at || '').slice(0, 16).replace('T', ' ') + ' UTC';
+
+    // Pre-fill search if arriving from the homepage's global search box
+    const params = new URLSearchParams(window.location.search);
+    const q = params.get('q');
+    if (q) {
+      document.getElementById('search').value = q;
+      const ql = q.toLowerCase();
+      filtered = all.filter(p =>
+        p.name.toLowerCase().includes(ql) ||
+        (p.domains || []).some(d => d.toLowerCase().includes(ql))
+      );
+    }
     render();
   })
   .catch(() => {
