@@ -1,26 +1,282 @@
 name: Update Threat Data
+
 on:
   schedule:
-    - cron: '0 3 * * *'   # هر روز ساعت ۳ بامداد UTC
-  workflow_dispatch: {}
+    - cron: '*/15 * * * *'   # URLhaus: every 15 minutes
+    - cron: '7 * * * *'      # GHSA: every hour
+    - cron: '17 */2 * * *'   # CVE/KEV: every 2 hours
+    - cron: '37 */6 * * *'   # ProjectDiscovery: every 6 hours
+
+  workflow_dispatch:
+    inputs:
+      feed:
+        description: 'Feed to update'
+        required: true
+        type: choice
+        options:
+          - urlhaus
+          - ghsa
+          - cve
+          - collector
+          - all
+        default: all
+
+permissions:
+  contents: write
+
+# Serialize all data updates so multiple feeds cannot race
+# while committing/pushing to main.
+concurrency:
+  group: threat-data-update
+  cancel-in-progress: false
 
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      # ------------------------------------------------------------
+      # Checkout
+      # ------------------------------------------------------------
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      # ------------------------------------------------------------
+      # Python
+      # ------------------------------------------------------------
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: pip install -r requirements.txt
-      - run: python scripts/collector.py
-      - run: python scripts/cve_feed.py
-      - run: python scripts/ghsa_feed.py
-      - run: python scripts/urlhaus_feed.py
-      - name: Commit and push
+          cache: pip
+
+      # ------------------------------------------------------------
+      # Dependencies
+      # ------------------------------------------------------------
+      - name: Install dependencies
         run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
+          set -euo pipefail
+
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      # ------------------------------------------------------------
+      # Determine which feed should run
+      # ------------------------------------------------------------
+      - name: Select feed
+        id: feed
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          SCHEDULE: ${{ github.event.schedule }}
+          INPUT_FEED: ${{ inputs.feed }}
+        run: |
+          set -euo pipefail
+
+          if [[ "${EVENT_NAME}" == "workflow_dispatch" ]]; then
+            feed="${INPUT_FEED}"
+          else
+            case "${SCHEDULE}" in
+              '*/15 * * * *')
+                feed="urlhaus"
+                ;;
+
+              '7 * * * *')
+                feed="ghsa"
+                ;;
+
+              '17 */2 * * *')
+                feed="cve"
+                ;;
+
+              '37 */6 * * *')
+                feed="collector"
+                ;;
+
+              *)
+                echo "::error::Unknown schedule: ${SCHEDULE}"
+                exit 1
+                ;;
+            esac
+          fi
+
+          echo "feed=${feed}" >> "${GITHUB_OUTPUT}"
+
+          echo "========================================"
+          echo "Selected feed: ${feed}"
+          echo "========================================"
+
+      # ------------------------------------------------------------
+      # Update selected feed
+      # ------------------------------------------------------------
+      - name: Update selected feed
+        env:
+          FEED: ${{ steps.feed.outputs.feed }}
+        run: |
+          set -euo pipefail
+
+          # ----------------------------------------------------------
+          # Generic retry helper
+          #
+          # 4 attempts:
+          #   1st -> immediately
+          #   2nd -> +5s
+          #   3rd -> +10s
+          #   4th -> +20s
+          # ----------------------------------------------------------
+          retry() {
+            local attempts=4
+            local delay=5
+            local attempt=1
+
+            while true; do
+              echo "Attempt ${attempt}/${attempts}: $*"
+
+              if "$@"; then
+                return 0
+              fi
+
+              if (( attempt >= attempts )); then
+                echo "::error::Command failed after ${attempts} attempts"
+                return 1
+              fi
+
+              echo "Command failed."
+              echo "Retrying in ${delay}s..."
+
+              sleep "${delay}"
+
+              delay=$((delay * 2))
+              attempt=$((attempt + 1))
+            done
+          }
+
+          # ----------------------------------------------------------
+          # Feed dispatcher
+          # ----------------------------------------------------------
+          run_feed() {
+            case "${FEED}" in
+
+              urlhaus)
+                echo "Updating URLhaus..."
+                retry python scripts/urlhaus_feed.py
+                ;;
+
+              ghsa)
+                echo "Updating GitHub Security Advisories..."
+                retry python scripts/ghsa_feed.py
+                ;;
+
+              cve)
+                echo "Updating CVE / CISA KEV..."
+                retry python scripts/cve_feed.py
+                ;;
+
+              collector)
+                echo "Updating ProjectDiscovery programs/domains..."
+                retry python scripts/collector.py
+                ;;
+
+              all)
+                echo "Updating ALL threat feeds..."
+
+                retry python scripts/collector.py
+                retry python scripts/cve_feed.py
+                retry python scripts/ghsa_feed.py
+                retry python scripts/urlhaus_feed.py
+                ;;
+
+              *)
+                echo "::error::Unsupported feed: ${FEED}"
+                return 1
+                ;;
+            esac
+          }
+
+          run_feed
+
+      # ------------------------------------------------------------
+      # Commit and push
+      # ------------------------------------------------------------
+      - name: Commit and push
+        env:
+          FEED: ${{ steps.feed.outputs.feed }}
+        run: |
+          set -euo pipefail
+
+          # Git identity
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # ----------------------------------------------------------
+          # Stage only generated threat data
+          # ----------------------------------------------------------
           git add data/
-          git commit -m "auto-update $(date -u +%F)" || echo "no changes"
-          git push
+
+          # ----------------------------------------------------------
+          # Nothing changed
+          # ----------------------------------------------------------
+          if git diff --cached --quiet; then
+            echo "========================================"
+            echo "No data changes for: ${FEED}"
+            echo "Nothing to commit."
+            echo "========================================"
+            exit 0
+          fi
+
+          # ----------------------------------------------------------
+          # Commit
+          # ----------------------------------------------------------
+          git commit -m "chore(data): update ${FEED} feed"
+
+          # ----------------------------------------------------------
+          # Refresh main before pushing.
+          #
+          # This protects against another commit landing on main
+          # while the feed was being fetched.
+          # ----------------------------------------------------------
+          git fetch origin main
+
+          git rebase origin/main
+
+          # ----------------------------------------------------------
+          # Push with retry
+          # ----------------------------------------------------------
+          retry_push() {
+            local attempts=4
+            local delay=5
+            local attempt=1
+
+            while true; do
+              echo "Push attempt ${attempt}/${attempts}"
+
+              if git push origin HEAD:main; then
+                echo "Push successful."
+                return 0
+              fi
+
+              if (( attempt >= attempts )); then
+                echo "::error::git push failed after ${attempts} attempts"
+                return 1
+              fi
+
+              echo "Push failed."
+              echo "Refreshing main and retrying in ${delay}s..."
+
+              sleep "${delay}"
+
+              delay=$((delay * 2))
+              attempt=$((attempt + 1))
+
+              # Refresh remote main
+              git fetch origin main
+
+              # Rebase our generated commit onto latest main
+              git rebase origin/main
+            done
+          }
+
+          retry_push
