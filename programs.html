@@ -125,12 +125,19 @@
 </div>
 
 <div class="toast" id="toast">copied</div>
+
+<script>
+// SECURITY NOTE: every value below that originates from data/domains.json
+// (program name, platform, domain names) is untrusted external content —
+// it comes from a third-party public list. It is never inserted into the
+// DOM without passing through esc() first, to prevent stored XSS in case
+// a malicious or malformed entry ever makes it into the source data.
 function esc(s) {
   const div = document.createElement('div');
   div.textContent = s ?? '';
   return div.innerHTML;
 }
-<script>
+
 const PAGE_SIZE = 30;
 let all = [];
 let filtered = [];
@@ -168,6 +175,8 @@ function showToast(msg) {
 }
 
 function copyText(text) {
+  // Clipboard content is plain text, not rendered as HTML anywhere by us,
+  // so no escaping is needed here — this is a separate concern from DOM injection.
   navigator.clipboard.writeText(text).then(() => showToast('copied')).catch(() => showToast('copy failed'));
 }
 
@@ -214,7 +223,7 @@ function render() {
       (groups[key] = groups[key] || []).push(p);
     });
     list.innerHTML = Object.keys(groups).sort().map(key =>
-      `<div class="group-title">${key}<span class="n">${groups[key].length}</span></div>` +
+      `<div class="group-title">${esc(key)}<span class="n">${groups[key].length}</span></div>` +
       groups[key].map(cardHtml).join('')
     ).join('');
     bindCards();
@@ -232,10 +241,10 @@ function render() {
         <tbody>
           ${pageItems.map(p => `
             <tr>
-              <td class="name">${p.name}</td>
-              <td class="platform">${p.platform || ''}</td>
+              <td class="name">${esc(p.name)}</td>
+              <td class="platform">${esc(p.platform)}</td>
               <td>${p.domains.length}</td>
-              <td class="domains">${p.domains.join(', ')}</td>
+              <td class="domains">${p.domains.map(esc).join(', ')}</td>
             </tr>
           `).join('')}
         </tbody>
@@ -272,15 +281,18 @@ function bindCards() {
 
 function cardHtml(p) {
   const domains = p.domains || [];
-  const domainTags = domains.map(d => `<span class="domain-tag">${d}</span>`).join(' &middot; ');
+  const domainTags = domains.map(d => `<span class="domain-tag">${esc(d)}</span>`).join(' &middot; ');
   const manualBadge = p.manual ? '<span class="badge manual">manual</span>' : '';
+  // data-domains is a plain-text attribute read back via .dataset, never
+  // parsed as HTML, so it's safe as-is for the clipboard copy feature.
+  const domainsAttr = domains.join('\n').replace(/"/g, '&quot;');
 
   return `
     <div class="card">
       <div class="card-head">
-        <span class="card-name">${p.name}</span>
+        <span class="card-name">${esc(p.name)}</span>
         <span class="card-badges">
-          <span class="badge">${p.platform || ''}</span>
+          <span class="badge">${esc(p.platform)}</span>
           ${manualBadge}
           <span class="badge count">${domains.length} domain${domains.length === 1 ? '' : 's'}</span>
           <span class="caret">&#9656;</span>
@@ -288,7 +300,7 @@ function cardHtml(p) {
       </div>
       <div class="card-body">
         ${domainTags}
-        <div><button class="copy-btn" data-domains="${domains.join('\\n')}">copy domains</button></div>
+        <div><button class="copy-btn" data-domains="${domainsAttr}">copy domains</button></div>
       </div>
     </div>
   `;
