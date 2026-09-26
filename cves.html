@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>CVEs — threats.top</title>
+<title>Vulnerabilities — threats.top</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -18,9 +18,9 @@
   a.back { color: var(--text-dim); text-decoration: none; font-size: 13px; }
   a.back:hover { color: var(--accent-dim); }
   h1 { font-family: 'Space Grotesk', sans-serif; font-size: 32px; margin: 20px 0 8px; }
-  .sub { color: var(--text-dim); font-size: 13px; margin-bottom: 24px; }
+  .sub { color: var(--text-dim); font-size: 13px; margin-bottom: 24px; line-height: 1.5; }
 
-  .tabs { display: flex; gap: 4px; margin-bottom: 16px; }
+  .tabs { display: flex; gap: 4px; margin-bottom: 16px; flex-wrap: wrap; }
   .tab {
     background: var(--panel); border: 1px solid var(--border); color: var(--text-dim);
     font-family: inherit; font-size: 13px; padding: 8px 14px; cursor: pointer;
@@ -34,7 +34,7 @@
   }
   input { flex: 1; min-width: 200px; }
 
-  .meta-bar { display: flex; justify-content: space-between; color: var(--text-dim); font-size: 12px; margin-bottom: 8px; }
+  .meta-bar { display: flex; justify-content: space-between; color: var(--text-dim); font-size: 12px; margin-bottom: 8px; gap: 12px; flex-wrap: wrap; }
 
   .card { border: 1px solid var(--border); border-top: none; padding: 16px; }
   .card:first-of-type { border-top: 1px solid var(--border); }
@@ -42,7 +42,7 @@
   .cve-id { font-family: 'Space Grotesk', sans-serif; font-size: 16px; color: var(--text); }
   .cve-id a { color: inherit; text-decoration: none; }
   .cve-id a:hover { color: var(--accent-dim); }
-  .badges { display: flex; gap: 6px; flex-shrink: 0; }
+  .badges { display: flex; gap: 6px; flex-shrink: 0; flex-wrap: wrap; justify-content: flex-end; }
   .sev-badge { font-size: 11px; padding: 3px 9px; border: 1px solid; white-space: nowrap; }
   .sev-CRITICAL { color: var(--crit); border-color: var(--crit); }
   .sev-HIGH { color: var(--high); border-color: var(--high); }
@@ -50,7 +50,7 @@
   .sev-LOW { color: var(--low); border-color: var(--low); }
   .kev-badge { font-size: 11px; padding: 3px 9px; background: var(--crit); color: #0a0e14; font-weight: 500; }
   .ransomware-badge { font-size: 11px; padding: 3px 9px; background: var(--text); color: #0a0e14; font-weight: 500; }
-  .exploit-badge { font-size: 11px; padding: 3px 9px; border: 1px solid var(--accent); color: var(--accent); white-space: nowrap; }
+  .type-badge { font-size: 11px; padding: 3px 9px; border: 1px solid var(--accent); color: var(--accent); white-space: nowrap; }
   .desc { color: var(--text-dim); font-size: 12.5px; line-height: 1.6; margin-top: 8px; max-width: 800px; }
   .meta-row { color: var(--text-dim); font-size: 11.5px; margin-top: 8px; }
   .empty { color: var(--text-dim); padding: 40px 0; text-align: center; }
@@ -60,16 +60,18 @@
 <div class="wrap">
   <a class="back" href="/">&larr; back</a>
   <h1>Vulnerabilities</h1>
-  <div class="sub">Recently published CVEs (NVD) and actively exploited vulnerabilities (CISA KEV)</div>
+  <div class="sub">Recent CVEs (NVD) · Actively exploited (CISA KEV) · Public exploits (Exploit-DB) · CERT-EU advisories</div>
 
   <div class="tabs">
     <button class="tab active" data-view="recent">Recently published</button>
     <button class="tab" data-view="kev">Actively exploited</button>
+    <button class="tab" data-view="exploitdb">Exploit-DB</button>
+    <button class="tab" data-view="cert_eu">CERT-EU</button>
   </div>
 
   <div class="controls">
-    <input id="search" placeholder="Search CVE ID or description...">
-    <select id="sev-filter" style="display:none;">
+    <input id="search" placeholder="Search ID, title, or description...">
+    <select id="sev-filter">
       <option value="">All severities</option>
       <option value="CRITICAL">Critical</option>
       <option value="HIGH">High</option>
@@ -93,46 +95,54 @@ function esc(s) {
   return div.innerHTML;
 }
 
-let data = null;
+let cveData = null;
+let edbData = null;
+let certData = null;
 let view = 'recent';
 
-fetch('/data/cves.json')
-  .then(r => r.json())
-  .then(d => {
-    data = d;
-    document.getElementById('updated-label').textContent =
-      'updated ' + (d.updated_at || '').slice(0, 16).replace('T', ' ') + ' UTC';
+Promise.allSettled([
+  fetch('/data/cves.json').then(r => r.json()),
+  fetch('/data/exploitdb.json').then(r => r.json()),
+  fetch('/data/cert_eu.json').then(r => r.json()),
+]).then(([cveRes, edbRes, certRes]) => {
+  if (cveRes.status === 'fulfilled') cveData = cveRes.value;
+  if (edbRes.status === 'fulfilled') edbData = edbRes.value;
+  if (certRes.status === 'fulfilled') certData = certRes.value;
 
-    // Pre-fill search if arriving from the homepage's global search box
-    const params = new URLSearchParams(window.location.search);
-    const q = params.get('q');
-    if (q) document.getElementById('search').value = q;
+  const ts = cveData?.updated_at || edbData?.updated_at || certData?.updated_at || '';
+  document.getElementById('updated-label').textContent =
+    ts ? 'updated ' + ts.slice(0, 16).replace('T', ' ') + ' UTC' : '';
 
-    render();
-  })
-  .catch(() => {
-    document.getElementById('list').innerHTML = '<div class="empty">Data not available.</div>';
-  });
+  const params = new URLSearchParams(window.location.search);
+  const q = params.get('q');
+  if (q) document.getElementById('search').value = q;
+
+  render();
+}).catch(() => {
+  document.getElementById('list').innerHTML = '<div class="empty">Data not available.</div>';
+});
 
 document.querySelectorAll('.tab').forEach(tab => {
   tab.addEventListener('click', () => {
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
     tab.classList.add('active');
     view = tab.dataset.view;
-    document.getElementById('sev-filter').style.display = view === 'recent' ? 'block' : 'none';
+    document.getElementById('sev-filter').style.display =
+      view === 'recent' ? 'block' : 'none';
     render();
   });
 });
 
 function recentCard(item) {
-  const sevBadge = item.severity ? `<span class="sev-badge sev-${esc(item.severity)}">${esc(item.severity)}${item.score ? ' ' + item.score : ''}</span>` : '';
+  const sevBadge = item.severity
+    ? `<span class="sev-badge sev-${esc(item.severity)}">${esc(item.severity)}${item.score ? ' ' + item.score : ''}</span>`
+    : '';
   const kevBadge = item.kev ? '<span class="kev-badge">ACTIVELY EXPLOITED</span>' : '';
-  const exploitBadge = item.exploit_available ? `<span class="exploit-badge">EXPLOIT (${item.exploit_ids.length})</span>` : '';
   return `
     <div class="card">
       <div class="card-head">
         <span class="cve-id"><a href="${esc(item.link)}" target="_blank" rel="noopener">${esc(item.id)}</a></span>
-        <div class="badges">${kevBadge}${exploitBadge}${sevBadge}</div>
+        <div class="badges">${kevBadge}${sevBadge}</div>
       </div>
       <div class="desc">${esc(item.description)}</div>
       <div class="meta-row">published ${esc((item.published || '').slice(0, 10))}</div>
@@ -141,7 +151,8 @@ function recentCard(item) {
 }
 
 function kevCard(item) {
-  const ransomBadge = item.ransomware_use === 'Known' ? '<span class="ransomware-badge">RANSOMWARE USE</span>' : '';
+  const ransomBadge = item.ransomware_use === 'Known'
+    ? '<span class="ransomware-badge">RANSOMWARE USE</span>' : '';
   return `
     <div class="card">
       <div class="card-head">
@@ -150,34 +161,82 @@ function kevCard(item) {
       </div>
       <div class="desc">${esc(item.name)} &mdash; ${esc(item.vendor)} / ${esc(item.product)}</div>
       <div class="desc">${esc(item.description)}</div>
-      <div class="meta-row">added to KEV catalog ${esc(item.date_added)}</div>
+      <div class="meta-row">added to KEV ${esc(item.date_added)}</div>
+    </div>
+  `;
+}
+
+function edbCard(item) {
+  const typeBadge = item.type
+    ? `<span class="type-badge">${esc(item.type)}</span>` : '';
+  return `
+    <div class="card">
+      <div class="card-head">
+        <span class="cve-id"><a href="${esc(item.link)}" target="_blank" rel="noopener">EDB-${esc(item.id)}</a></span>
+        <div class="badges">${typeBadge}</div>
+      </div>
+      <div class="desc">${esc(item.title)}</div>
+      <div class="meta-row">${esc(item.published || '')}</div>
+    </div>
+  `;
+}
+
+function certCard(item) {
+  return `
+    <div class="card">
+      <div class="card-head">
+        <span class="cve-id"><a href="${esc(item.link)}" target="_blank" rel="noopener">${esc(item.id)}</a></span>
+        <div class="badges"><span class="type-badge">CERT-EU</span></div>
+      </div>
+      <div class="desc">${esc(item.title)}</div>
+      <div class="desc">${esc(item.summary || '')}</div>
+      <div class="meta-row">${esc(item.published || '')}</div>
     </div>
   `;
 }
 
 function render() {
-  if (!data) return;
   const q = document.getElementById('search').value.toLowerCase();
   const sevFilter = document.getElementById('sev-filter').value;
+  let items = [];
+  let cardFn = () => '';
 
-  let items, cardFn;
   if (view === 'recent') {
-    items = data.recent.items.filter(i =>
+    if (!cveData) { document.getElementById('list').innerHTML = '<div class="empty">CVE data not available.</div>'; return; }
+    items = (cveData.recent?.items || []).filter(i =>
       (!q || i.id.toLowerCase().includes(q) || (i.description || '').toLowerCase().includes(q)) &&
       (!sevFilter || i.severity === sevFilter)
     );
     cardFn = recentCard;
-  } else {
-    items = data.actively_exploited.items.filter(i =>
+  } else if (view === 'kev') {
+    if (!cveData) { document.getElementById('list').innerHTML = '<div class="empty">KEV data not available.</div>'; return; }
+    items = (cveData.actively_exploited?.items || []).filter(i =>
       !q || i.id.toLowerCase().includes(q) ||
       (i.description || '').toLowerCase().includes(q) ||
       (i.vendor || '').toLowerCase().includes(q) ||
       (i.product || '').toLowerCase().includes(q)
     );
     cardFn = kevCard;
+  } else if (view === 'exploitdb') {
+    if (!edbData) { document.getElementById('list').innerHTML = '<div class="empty">Exploit-DB data not available.</div>'; return; }
+    items = (edbData.items || []).filter(i =>
+      !q || (i.id || '').toLowerCase().includes(q) ||
+      (i.title || '').toLowerCase().includes(q) ||
+      (i.type || '').toLowerCase().includes(q)
+    );
+    cardFn = edbCard;
+  } else if (view === 'cert_eu') {
+    if (!certData) { document.getElementById('list').innerHTML = '<div class="empty">CERT-EU data not available.</div>'; return; }
+    items = (certData.items || []).filter(i =>
+      !q || (i.id || '').toLowerCase().includes(q) ||
+      (i.title || '').toLowerCase().includes(q) ||
+      (i.summary || '').toLowerCase().includes(q)
+    );
+    cardFn = certCard;
   }
 
-  document.getElementById('count-label').textContent = items.length + ' result' + (items.length === 1 ? '' : 's');
+  document.getElementById('count-label').textContent =
+    items.length + ' result' + (items.length === 1 ? '' : 's');
   const list = document.getElementById('list');
   list.innerHTML = items.length ? items.map(cardFn).join('') : '<div class="empty">No matches.</div>';
 }

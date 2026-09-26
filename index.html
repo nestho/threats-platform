@@ -99,7 +99,7 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: 4px;
+    margin-bottom: 12px;
   }
   .section-title {
     font-family: 'Space Grotesk', sans-serif;
@@ -117,23 +117,63 @@
   @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
   @media (prefers-reduced-motion: reduce) { .live-dot { animation: none; } }
 
-  .row {
+  /* Clearer main links — cards instead of thin rows */
+  .nav-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .nav-card {
+    display: block;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 18px 20px;
+    text-decoration: none;
+    transition: border-color 0.15s;
+  }
+  .nav-card:hover { border-color: var(--accent-dim); }
+  .nav-card-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .nav-card-desc {
+    color: var(--text-dim);
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+  .nav-card-meta {
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--accent-dim);
+  }
+
+  .sources-list {
+    margin-top: 20px;
+    border-top: 1px solid var(--border);
+    padding-top: 8px;
+  }
+  .source-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 0;
+    padding: 11px 0;
     border-bottom: 1px solid var(--border);
-    gap: 16px;
+    gap: 12px;
+    font-size: 13px;
   }
-  .row-title { font-size: 14px; color: var(--text); }
-  .row-desc { color: var(--text-dim); font-size: 12.5px; margin-top: 3px; }
-  .row a {
+  .source-row:last-child { border-bottom: none; }
+  .source-name { color: var(--text); }
+  .source-desc { color: var(--text-dim); font-size: 12px; margin-top: 2px; }
+  .source-row a {
     color: var(--accent-dim);
     text-decoration: none;
-    font-size: 13px;
+    font-size: 12px;
     white-space: nowrap;
   }
-  .row a:hover { color: var(--accent); }
+  .source-row a:hover { color: var(--accent); }
 
   .feed-item {
     display: flex;
@@ -154,7 +194,7 @@
     white-space: nowrap;
     align-self: flex-start;
   }
-  .feed-tag.kev { color: var(--accent); border-color: var(--accent); }
+  .feed-tag.hot { color: var(--accent); border-color: var(--accent); }
   .feed-time { color: var(--text-dim); font-size: 11px; white-space: nowrap; }
   .feed-loading { color: var(--text-dim); font-size: 12.5px; padding: 20px 0; }
 
@@ -188,6 +228,7 @@
     .stats { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 20px; flex-direction: row; flex-wrap: wrap; }
     nav { flex-wrap: wrap; }
     .search-form { order: 3; max-width: 100%; }
+    .nav-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -205,7 +246,7 @@
   <div class="hero">
     <div>
       <h1>Signal on the<br>threat surface.</h1>
-      <p class="tagline">An open data feed tracking bug bounty program scope, emerging vulnerabilities, and exploit activity — built for researchers and security teams who need the raw signal, not another dashboard.</p>
+      <p class="tagline">Open data tracking bug bounty scope, emerging vulnerabilities, public exploits, and malware URLs — raw signal for researchers, not another dashboard.</p>
     </div>
     <div class="stats" id="stats">
       <div>
@@ -222,39 +263,57 @@
   <section>
     <div class="section-head">
       <span class="section-title"><span class="live-dot"></span>Latest activity</span>
-      <span class="row-desc" id="feed-updated"></span>
+      <span style="color:var(--text-dim);font-size:12px;" id="feed-updated"></span>
     </div>
     <div id="live-feed"><div class="feed-loading">loading recent activity...</div></div>
   </section>
 
   <section>
-    <div class="row">
-      <div>
-        <div class="row-title">Bug bounty program scope</div>
-        <div class="row-desc">Domains across public bounty programs, updated daily</div>
-      </div>
-      <a href="/programs.html">browse</a>
+    <div class="section-head">
+      <span class="section-title">Browse</span>
     </div>
-    <div class="row">
-      <div>
-        <div class="row-title">Vulnerabilities</div>
-        <div class="row-desc">Recent CVEs, actively exploited (CISA KEV), public exploits (Exploit-DB)</div>
-      </div>
-      <a href="/cves.html">browse</a>
+    <div class="nav-grid">
+      <a class="nav-card" href="/programs.html">
+        <div class="nav-card-title">Bug bounty programs</div>
+        <div class="nav-card-desc">Public program scope and domains from ProjectDiscovery + manual entries. Search by name or domain.</div>
+        <div class="nav-card-meta" id="prog-meta">loading...</div>
+      </a>
+      <a class="nav-card" href="/cves.html">
+        <div class="nav-card-title">Vulnerabilities</div>
+        <div class="nav-card-desc">Recent CVEs (NVD), actively exploited (CISA KEV), public exploits (Exploit-DB), and CERT-EU advisories.</div>
+        <div class="nav-card-meta">NVD · KEV · ExploitDB · CERT-EU</div>
+      </a>
     </div>
-    <div class="row">
-      <div>
-        <div class="row-title">Open-source advisories</div>
-        <div class="row-desc">GitHub Security Advisories (GHSA) — npm, PyPI, and other ecosystems</div>
+
+    <div class="sources-list">
+      <div class="source-row">
+        <div>
+          <div class="source-name">GitHub Security Advisories</div>
+          <div class="source-desc">Open-source package vulns (npm, PyPI, Go, etc.)</div>
+        </div>
+        <a href="/data/ghsa.json">raw json</a>
       </div>
-      <a href="/data/ghsa.json">raw json</a>
-    </div>
-    <div class="row">
-      <div>
-        <div class="row-title">Active malware URLs</div>
-        <div class="row-desc">Recent malicious URLs via URLhaus (abuse.ch) — defanged for safety</div>
+      <div class="source-row">
+        <div>
+          <div class="source-name">URLhaus malware URLs</div>
+          <div class="source-desc">Active malware distribution links — defanged</div>
+        </div>
+        <a href="/data/urlhaus.json">raw json</a>
       </div>
-      <a href="/data/urlhaus.json">raw json</a>
+      <div class="source-row">
+        <div>
+          <div class="source-name">Exploit-DB</div>
+          <div class="source-desc">Public exploit proofs of concept</div>
+        </div>
+        <a href="/data/exploitdb.json">raw json</a>
+      </div>
+      <div class="source-row">
+        <div>
+          <div class="source-name">CERT-EU advisories</div>
+          <div class="source-desc">Official EU institution security advisories</div>
+        </div>
+        <a href="/data/cert_eu.json">raw json</a>
+      </div>
     </div>
   </section>
 
@@ -280,75 +339,97 @@ function esc(s) {
 
 function timeAgo(iso) {
   if (!iso) return '';
-  const diff = (Date.now() - new Date(iso).getTime()) / 1000;
+  const d = new Date(iso);
+  if (isNaN(d)) return '';
+  const diff = (Date.now() - d.getTime()) / 1000;
   if (diff < 3600) return Math.floor(diff / 60) + 'm ago';
   if (diff < 86400) return Math.floor(diff / 3600) + 'h ago';
   return Math.floor(diff / 86400) + 'd ago';
 }
 
-// Domain/program stats
 fetch('/data/domains.json')
   .then(r => r.json())
   .then(data => {
     const nums = document.querySelectorAll('.stat-num');
     nums[0].textContent = data.total_programs;
     nums[1].textContent = data.total_unique_domains;
-    document.getElementById('updated').textContent = 'data last synced ' + (data.updated_at || '').slice(0, 16).replace('T', ' ') + ' UTC';
+    document.getElementById('prog-meta').textContent =
+      data.total_programs + ' programs · ' + data.total_unique_domains + ' domains';
+    document.getElementById('updated').textContent =
+      'data last synced ' + (data.updated_at || '').slice(0, 16).replace('T', ' ') + ' UTC';
   })
   .catch(() => {
     document.getElementById('updated').textContent = 'data unavailable';
+    document.getElementById('prog-meta').textContent = 'unavailable';
   });
 
-// Combined "latest activity" feed from CVEs, GitHub Security Advisories,
-// and URLhaus. This reflects the last data sync (daily cron), not a live
-// socket — framed honestly as "latest since last sync", not real-time streaming.
+// Combined activity: CVE + GHSA + ExploitDB + CERT-EU + URLhaus
 Promise.allSettled([
   fetch('/data/cves.json').then(r => r.json()),
   fetch('/data/ghsa.json').then(r => r.json()),
   fetch('/data/urlhaus.json').then(r => r.json()),
-]).then(([cveRes, ghsaRes, urlhausRes]) => {
+  fetch('/data/exploitdb.json').then(r => r.json()),
+  fetch('/data/cert_eu.json').then(r => r.json()),
+]).then(([cveRes, ghsaRes, urlhausRes, edbRes, certRes]) => {
   const events = [];
 
   if (cveRes.status === 'fulfilled') {
-    const cves = cveRes.value.recent?.items || [];
-    cves.slice(0, 6).forEach(c => {
+    (cveRes.value.recent?.items || []).slice(0, 5).forEach(c => {
       events.push({
         time: c.published,
-        html: `<a href="${esc(c.link)}" target="_blank" rel="noopener">${esc(c.id)}</a> &mdash; ${esc((c.description || '').slice(0, 90))}${c.description && c.description.length > 90 ? '&hellip;' : ''}`,
+        html: `<a href="${esc(c.link)}" target="_blank" rel="noopener">${esc(c.id)}</a> &mdash; ${esc((c.description || '').slice(0, 85))}${(c.description||'').length > 85 ? '&hellip;' : ''}`,
         tag: c.kev ? 'KEV' : 'CVE',
-        kev: !!c.kev,
+        hot: !!c.kev,
       });
     });
   }
 
   if (ghsaRes.status === 'fulfilled') {
-    const items = ghsaRes.value.items || [];
-    items.slice(0, 6).forEach(g => {
+    (ghsaRes.value.items || []).slice(0, 4).forEach(g => {
       events.push({
         time: g.published,
         html: `<a href="${esc(g.link)}" target="_blank" rel="noopener">${esc(g.id)}</a> &mdash; ${esc(g.title)}`,
         tag: esc(g.ecosystem) || 'GHSA',
-        kev: false,
+        hot: false,
+      });
+    });
+  }
+
+  if (edbRes.status === 'fulfilled') {
+    (edbRes.value.items || []).slice(0, 4).forEach(e => {
+      events.push({
+        time: e.published,
+        html: `<a href="${esc(e.link)}" target="_blank" rel="noopener">EDB-${esc(e.id)}</a> &mdash; ${esc(e.title)}`,
+        tag: esc(e.type) || 'EXPLOIT',
+        hot: true,
+      });
+    });
+  }
+
+  if (certRes.status === 'fulfilled') {
+    (certRes.value.items || []).slice(0, 3).forEach(c => {
+      events.push({
+        time: c.published || null,
+        html: `<a href="${esc(c.link)}" target="_blank" rel="noopener">${esc(c.id)}</a> &mdash; ${esc(c.title)}`,
+        tag: 'CERT-EU',
+        hot: false,
       });
     });
   }
 
   if (urlhausRes.status === 'fulfilled') {
-    const items = urlhausRes.value.items || [];
-    items.slice(0, 4).forEach(u => {
+    (urlhausRes.value.items || []).slice(0, 3).forEach(u => {
       events.push({
         time: u.date_added,
-        // Defanged URL is shown as plain text, never a clickable link —
-        // this is a live malware-distribution indicator, not a page to visit.
         html: `<span title="defanged for safety">${esc(u.url_defanged)}</span> &mdash; ${esc(u.threat)}`,
-        tag: 'MALWARE URL',
-        kev: true,
+        tag: 'MALWARE',
+        hot: true,
       });
     });
   }
 
   events.sort((a, b) => new Date(b.time || 0) - new Date(a.time || 0));
-  const top = events.slice(0, 10);
+  const top = events.slice(0, 12);
 
   const feed = document.getElementById('live-feed');
   if (top.length === 0) {
@@ -359,7 +440,7 @@ Promise.allSettled([
   feed.innerHTML = top.map(e => `
     <div class="feed-item">
       <div>
-        <span class="feed-tag${e.kev ? ' kev' : ''}">${esc(e.tag)}</span>
+        <span class="feed-tag${e.hot ? ' hot' : ''}">${esc(e.tag)}</span>
         &nbsp; ${e.html}
       </div>
       <span class="feed-time">${timeAgo(e.time)}</span>
@@ -371,7 +452,6 @@ Promise.allSettled([
   document.getElementById('live-feed').innerHTML = '<div class="feed-loading">Activity feed unavailable.</div>';
 });
 
-// Global search: route to the right page based on what looks like a CVE ID
 document.getElementById('search-form').addEventListener('submit', (e) => {
   e.preventDefault();
   const q = document.getElementById('global-search').value.trim();
