@@ -244,10 +244,17 @@
     </div>
     <div class="row">
       <div>
-        <div class="row-title">Security releases</div>
-        <div class="row-desc">Latest advisories, exploits, and tools via PacketStorm</div>
+        <div class="row-title">Open-source advisories</div>
+        <div class="row-desc">GitHub Security Advisories (GHSA) — npm, PyPI, and other ecosystems</div>
       </div>
-      <a href="/data/packetstorm.json">raw json</a>
+      <a href="/data/ghsa.json">raw json</a>
+    </div>
+    <div class="row">
+      <div>
+        <div class="row-title">Active malware URLs</div>
+        <div class="row-desc">Recent malicious URLs via URLhaus (abuse.ch) — defanged for safety</div>
+      </div>
+      <a href="/data/urlhaus.json">raw json</a>
     </div>
   </section>
 
@@ -292,18 +299,19 @@ fetch('/data/domains.json')
     document.getElementById('updated').textContent = 'data unavailable';
   });
 
-// Combined "latest activity" feed from CVEs + PacketStorm.
-// This reflects the last data sync (daily cron), not a live socket —
-// framed honestly as "latest since last sync", not real-time streaming.
+// Combined "latest activity" feed from CVEs, GitHub Security Advisories,
+// and URLhaus. This reflects the last data sync (daily cron), not a live
+// socket — framed honestly as "latest since last sync", not real-time streaming.
 Promise.allSettled([
   fetch('/data/cves.json').then(r => r.json()),
-  fetch('/data/packetstorm.json').then(r => r.json()),
-]).then(([cveRes, psRes]) => {
+  fetch('/data/ghsa.json').then(r => r.json()),
+  fetch('/data/urlhaus.json').then(r => r.json()),
+]).then(([cveRes, ghsaRes, urlhausRes]) => {
   const events = [];
 
   if (cveRes.status === 'fulfilled') {
     const cves = cveRes.value.recent?.items || [];
-    cves.slice(0, 8).forEach(c => {
+    cves.slice(0, 6).forEach(c => {
       events.push({
         time: c.published,
         html: `<a href="${esc(c.link)}" target="_blank" rel="noopener">${esc(c.id)}</a> &mdash; ${esc((c.description || '').slice(0, 90))}${c.description && c.description.length > 90 ? '&hellip;' : ''}`,
@@ -313,14 +321,28 @@ Promise.allSettled([
     });
   }
 
-  if (psRes.status === 'fulfilled') {
-    const items = psRes.value.items || [];
-    items.slice(0, 8).forEach(i => {
+  if (ghsaRes.status === 'fulfilled') {
+    const items = ghsaRes.value.items || [];
+    items.slice(0, 6).forEach(g => {
       events.push({
-        time: i.published,
-        html: `<a href="${esc(i.link)}" target="_blank" rel="noopener">${esc(i.title)}</a>`,
-        tag: (i.category || 'release').toUpperCase(),
+        time: g.published,
+        html: `<a href="${esc(g.link)}" target="_blank" rel="noopener">${esc(g.id)}</a> &mdash; ${esc(g.title)}`,
+        tag: esc(g.ecosystem) || 'GHSA',
         kev: false,
+      });
+    });
+  }
+
+  if (urlhausRes.status === 'fulfilled') {
+    const items = urlhausRes.value.items || [];
+    items.slice(0, 4).forEach(u => {
+      events.push({
+        time: u.date_added,
+        // Defanged URL is shown as plain text, never a clickable link —
+        // this is a live malware-distribution indicator, not a page to visit.
+        html: `<span title="defanged for safety">${esc(u.url_defanged)}</span> &mdash; ${esc(u.threat)}`,
+        tag: 'MALWARE URL',
+        kev: true,
       });
     });
   }
