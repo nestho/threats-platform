@@ -2,105 +2,169 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Programs — threats.top</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Programs — threats.top</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0a0e14;
-    --panel: #131922;
-    --border: #232b38;
-    --text: #c9d3de;
-    --text-dim: #6b7688;
-    --accent: #ff6b35;
-    --accent-dim: #4a9d9c;
+    --bg: #09090b; --surface: #111113; --border: #27272a; --border-hover: #3f3f46;
+    --text: #fafafa; --text-secondary: #a1a1aa; --text-muted: #71717a;
+    --accent: #f97316; --link: #38bdf8;
   }
-  * { box-sizing: border-box; }
-  body { background: var(--bg); color: var(--text); font-family: 'JetBrains Mono', monospace; margin: 0; }
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 48px 24px 60px; }
-  a.back { color: var(--text-dim); text-decoration: none; font-size: 13px; }
-  a.back:hover { color: var(--accent-dim); }
-  h1 { font-family: 'Space Grotesk', sans-serif; font-size: 32px; margin: 20px 0 24px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: Inter, system-ui, sans-serif; font-size: 14px; line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 24px 80px; }
 
-  .controls { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
-  input, select {
-    background: var(--panel); border: 1px solid var(--border); color: var(--text);
-    font-family: inherit; font-size: 13px; padding: 10px 12px;
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px; border-bottom: 1px solid var(--border); margin-bottom: 32px;
   }
-  input { flex: 1; min-width: 200px; }
+  .brand { font-weight: 600; font-size: 15px; letter-spacing: -0.02em; }
+  .brand span { color: var(--text-muted); font-weight: 400; }
+  .back { font-size: 13px; color: var(--text-muted); }
+  .back:hover { color: var(--text-secondary); }
+
+  h1 {
+    font-size: 28px; font-weight: 700; letter-spacing: -0.03em;
+    margin-bottom: 24px;
+  }
+
+  .controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+  input, select {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
+    color: var(--text); font-family: inherit; font-size: 13px; padding: 8px 12px;
+    outline: none;
+  }
+  input { flex: 1; min-width: 180px; }
+  input:focus, select:focus { border-color: var(--border-hover); }
 
   .tabs { display: flex; gap: 4px; margin-bottom: 16px; }
   .tab {
-    background: var(--panel); border: 1px solid var(--border); color: var(--text-dim);
-    font-family: inherit; font-size: 13px; padding: 8px 14px; cursor: pointer;
+    background: transparent; border: 1px solid var(--border); border-radius: 6px;
+    color: var(--text-muted); font-family: inherit; font-size: 13px;
+    padding: 7px 12px; cursor: pointer;
   }
-  .tab.active { color: var(--accent); border-color: var(--accent-dim); }
+  .tab:hover { border-color: var(--border-hover); color: var(--text-secondary); }
+  .tab.active {
+    background: var(--surface); border-color: var(--border-hover);
+    color: var(--text); font-weight: 500;
+  }
 
-  .meta-bar { display: flex; justify-content: space-between; color: var(--text-dim); font-size: 12px; margin-bottom: 8px; }
-  .meta-bar button {
-    background: none; border: 1px solid var(--border); color: var(--accent-dim);
-    font-family: inherit; font-size: 12px; padding: 4px 10px; cursor: pointer;
+  .meta-bar {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 12px; flex-wrap: wrap; font-size: 12px; color: var(--text-muted);
+    margin-bottom: 12px;
   }
-  .meta-bar button:hover { color: var(--accent); }
+  .meta-bar button {
+    background: transparent; border: 1px solid var(--border); border-radius: 6px;
+    color: var(--text-muted); font-family: inherit; font-size: 12px;
+    padding: 4px 10px; cursor: pointer;
+  }
+  .meta-bar button:hover { border-color: var(--border-hover); color: var(--text-secondary); }
 
   .group-title {
-    font-family: 'Space Grotesk', sans-serif; color: var(--text); font-size: 15px;
-    margin: 28px 0 8px; padding-bottom: 6px; border-bottom: 1px solid var(--border);
+    font-size: 13px; font-weight: 600; color: var(--text);
+    margin: 24px 0 8px; padding-bottom: 6px; border-bottom: 1px solid var(--border);
   }
-  .group-title .n { color: var(--text-dim); font-size: 12px; font-family: 'JetBrains Mono', monospace; margin-left: 8px; }
+  .group-title .n {
+    color: var(--text-muted); font-weight: 400; font-size: 12px;
+    font-family: 'JetBrains Mono', monospace; margin-left: 8px;
+  }
 
-  .card { border: 1px solid var(--border); border-top: none; padding: 14px 16px; cursor: pointer; }
-  .card:first-of-type, .group-title + .card { border-top: 1px solid var(--border); }
-  .card-head { display: flex; justify-content: space-between; align-items: center; }
-  .card-name { color: var(--text); font-size: 14px; }
-  .card-badges { display: flex; gap: 8px; align-items: center; }
-  .badge { font-size: 11px; color: var(--text-dim); border: 1px solid var(--border); padding: 2px 8px; }
-  .badge.count { color: var(--accent-dim); }
-  .badge.manual { color: var(--accent); }
-  .caret { color: var(--text-dim); font-size: 12px; transition: transform 0.15s; }
-  .card.open .caret { transform: rotate(90deg); }
-  .card-body { display: none; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 12.5px; line-height: 1.9; color: var(--text-dim); }
-  .card.open .card-body { display: block; }
-  .domain-tag { display: inline-block; color: var(--text); margin-right: 6px; }
-  .copy-btn {
-    background: none; border: 1px solid var(--border); color: var(--accent-dim);
-    font-family: inherit; font-size: 11px; padding: 3px 8px; cursor: pointer; margin-top: 10px;
+  .card {
+    border: 1px solid var(--border); border-radius: 8px;
+    padding: 14px 16px; margin-bottom: 6px; background: var(--surface);
+    cursor: pointer; transition: border-color 0.12s;
   }
-  .copy-btn:hover { color: var(--accent); }
+  .card:hover { border-color: var(--border-hover); }
+  .card-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .card-name { font-weight: 500; font-size: 14px; }
+  .card-badges { display: flex; gap: 6px; align-items: center; flex-shrink: 0; }
+  .badge {
+    font-size: 11px; color: var(--text-muted); border: 1px solid var(--border);
+    border-radius: 4px; padding: 2px 7px;
+  }
+  .badge.count { color: var(--accent); border-color: rgba(249,115,22,0.35); }
+  .badge.manual { color: var(--link); border-color: rgba(56,189,248,0.35); }
+  .caret { color: var(--text-muted); font-size: 11px; transition: transform 0.12s; }
+  .card.open .caret { transform: rotate(90deg); }
+  .card-body {
+    display: none; margin-top: 12px; padding-top: 12px;
+    border-top: 1px solid var(--border); font-size: 12.5px;
+    line-height: 1.8; color: var(--text-secondary);
+  }
+  .card.open .card-body { display: block; }
+  .domain-tag {
+    display: inline-block; color: var(--text);
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; margin-right: 4px;
+  }
+  .copy-btn {
+    background: transparent; border: 1px solid var(--border); border-radius: 4px;
+    color: var(--text-muted); font-family: inherit; font-size: 11px;
+    padding: 3px 8px; cursor: pointer; margin-top: 10px;
+  }
+  .copy-btn:hover { color: var(--text-secondary); border-color: var(--border-hover); }
 
   table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
-  th { color: var(--accent-dim); font-weight: 500; font-size: 12px; }
-  td.domains { color: var(--text-dim); max-width: 420px; }
-  td.name { color: var(--text); white-space: nowrap; }
-  td.platform { color: var(--text-dim); white-space: nowrap; }
+  th, td {
+    text-align: left; padding: 10px 12px 10px 0;
+    border-bottom: 1px solid var(--border); vertical-align: top;
+  }
+  th {
+    color: var(--text-muted); font-weight: 500; font-size: 11px;
+    letter-spacing: 0.04em; text-transform: uppercase;
+  }
+  td.domains {
+    color: var(--text-secondary); max-width: 380px;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  }
+  td.name { font-weight: 500; white-space: nowrap; }
+  td.platform { color: var(--text-muted); white-space: nowrap; }
 
-  .pager { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
-  .pager button { background: var(--panel); border: 1px solid var(--border); color: var(--text-dim); font-family: inherit; font-size: 13px; padding: 8px 14px; cursor: pointer; }
-  .pager button:hover:not(:disabled) { color: var(--accent-dim); }
+  .pager {
+    display: flex; justify-content: center; align-items: center;
+    gap: 8px; margin-top: 24px;
+  }
+  .pager button {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
+    color: var(--text-muted); font-family: inherit; font-size: 13px;
+    padding: 7px 12px; cursor: pointer;
+  }
+  .pager button:hover:not(:disabled) { border-color: var(--border-hover); color: var(--text-secondary); }
   .pager button:disabled { opacity: 0.35; cursor: default; }
-  .pager span { color: var(--text-dim); font-size: 13px; padding: 8px 4px; }
-  .empty { color: var(--text-dim); padding: 40px 0; text-align: center; }
+  .pager span { color: var(--text-muted); font-size: 12px; }
+
+  .empty { color: var(--text-muted); padding: 48px 0; text-align: center; }
   .toast {
-    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
-    background: var(--panel); border: 1px solid var(--accent-dim); color: var(--accent-dim);
-    font-size: 13px; padding: 10px 18px; opacity: 0; transition: opacity 0.2s;
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+    background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
+    color: var(--text-secondary); font-size: 13px; padding: 10px 16px;
+    opacity: 0; transition: opacity 0.2s; pointer-events: none;
   }
   .toast.show { opacity: 1; }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <a class="back" href="/">&larr; back</a>
+  <nav>
+    <a class="brand" href="/">threats.top <span>/ programs</span></a>
+    <a class="back" href="/">← home</a>
+  </nav>
+
   <h1>Bug bounty programs</h1>
 
   <div class="controls">
-    <input id="search" placeholder="Search program name or domain...">
+    <input id="search" placeholder="Search program or domain…">
     <select id="sort">
       <option value="domains-desc">Most domains</option>
       <option value="domains-asc">Fewest domains</option>
-      <option value="name-asc">Name A&ndash;Z</option>
+      <option value="name-asc">Name A–Z</option>
       <option value="platform-asc">Platform</option>
     </select>
   </div>
@@ -115,8 +179,8 @@
     <span id="count-label"></span>
     <span>
       <span id="updated-label"></span>
-      &nbsp;&middot;&nbsp;
-      <button id="copy-md">copy as markdown</button>
+      &nbsp;·&nbsp;
+      <button id="copy-md">copy markdown</button>
     </span>
   </div>
 
@@ -127,22 +191,14 @@
 <div class="toast" id="toast">copied</div>
 
 <script>
-// SECURITY NOTE: every value below that originates from data/domains.json
-// (program name, platform, domain names) is untrusted external content —
-// it comes from a third-party public list. It is never inserted into the
-// DOM without passing through esc() first, to prevent stored XSS in case
-// a malicious or malformed entry ever makes it into the source data.
 function esc(s) {
-  const div = document.createElement('div');
-  div.textContent = s ?? '';
-  return div.innerHTML;
+  const d = document.createElement('div');
+  d.textContent = s ?? '';
+  return d.innerHTML;
 }
 
 const PAGE_SIZE = 30;
-let all = [];
-let filtered = [];
-let page = 0;
-let view = 'cards';
+let all = [], filtered = [], page = 0, view = 'cards';
 
 fetch('/data/domains.json')
   .then(r => r.json())
@@ -151,10 +207,7 @@ fetch('/data/domains.json')
     filtered = all;
     document.getElementById('updated-label').textContent =
       'updated ' + (data.updated_at || '').slice(0, 16).replace('T', ' ') + ' UTC';
-
-    // Pre-fill search if arriving from the homepage's global search box
-    const params = new URLSearchParams(window.location.search);
-    const q = params.get('q');
+    const q = new URLSearchParams(location.search).get('q');
     if (q) {
       document.getElementById('search').value = q;
       const ql = q.toLowerCase();
@@ -166,7 +219,7 @@ fetch('/data/domains.json')
     render();
   })
   .catch(() => {
-    document.getElementById('list').innerHTML = '<div class="empty">Data not available.</div>';
+    document.getElementById('list').innerHTML = '<div class="empty">Data unavailable.</div>';
   });
 
 function sortList(list) {
@@ -187,20 +240,15 @@ function showToast(msg) {
 }
 
 function copyText(text) {
-  // Clipboard content is plain text, not rendered as HTML anywhere by us,
-  // so no escaping is needed here — this is a separate concern from DOM injection.
   navigator.clipboard.writeText(text).then(() => showToast('copied')).catch(() => showToast('copy failed'));
 }
 
-function toMarkdownTable(list) {
+document.getElementById('copy-md').addEventListener('click', () => {
+  const list = sortList(filtered);
   const rows = list.map(p =>
     `| ${p.name} | ${p.platform || ''} | ${p.domains.length} | ${p.domains.join(', ')} |`
   );
-  return `| Program | Platform | Domains | List |\n|---|---|---|---|\n` + rows.join('\n');
-}
-
-document.getElementById('copy-md').addEventListener('click', () => {
-  copyText(toMarkdownTable(sortList(filtered)));
+  copyText('| Program | Platform | Domains | List |\n|---|---|---|---|\n' + rows.join('\n'));
 });
 
 document.querySelectorAll('.tab').forEach(tab => {
@@ -213,15 +261,51 @@ document.querySelectorAll('.tab').forEach(tab => {
   });
 });
 
+function cardHtml(p) {
+  const domains = p.domains || [];
+  const tags = domains.map(d => `<span class="domain-tag">${esc(d)}</span>`).join(' · ');
+  const manual = p.manual ? '<span class="badge manual">manual</span>' : '';
+  const attr = domains.join('\n').replace(/"/g, '&quot;');
+  return `<div class="card">
+    <div class="card-head">
+      <span class="card-name">${esc(p.name)}</span>
+      <span class="card-badges">
+        <span class="badge">${esc(p.platform)}</span>
+        ${manual}
+        <span class="badge count">${domains.length}</span>
+        <span class="caret">▸</span>
+      </span>
+    </div>
+    <div class="card-body">
+      ${tags}
+      <div><button class="copy-btn" data-domains="${attr}">copy domains</button></div>
+    </div>
+  </div>`;
+}
+
+function bindCards() {
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', e => {
+      if (e.target.closest('.copy-btn')) return;
+      card.classList.toggle('open');
+    });
+  });
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      copyText(btn.dataset.domains);
+    });
+  });
+}
+
 function render() {
   const sorted = sortList(filtered);
   document.getElementById('count-label').textContent =
     filtered.length + ' program' + (filtered.length === 1 ? '' : 's');
-
   const list = document.getElementById('list');
   const pager = document.getElementById('pager');
 
-  if (sorted.length === 0) {
+  if (!sorted.length) {
     list.innerHTML = '<div class="empty">No matches.</div>';
     pager.innerHTML = '';
     return;
@@ -231,12 +315,12 @@ function render() {
     pager.innerHTML = '';
     const groups = {};
     sorted.forEach(p => {
-      const key = p.platform || 'Self-hosted / Other';
-      (groups[key] = groups[key] || []).push(p);
+      const k = p.platform || 'Other';
+      (groups[k] = groups[k] || []).push(p);
     });
-    list.innerHTML = Object.keys(groups).sort().map(key =>
-      `<div class="group-title">${esc(key)}<span class="n">${groups[key].length}</span></div>` +
-      groups[key].map(cardHtml).join('')
+    list.innerHTML = Object.keys(groups).sort().map(k =>
+      `<div class="group-title">${esc(k)}<span class="n">${groups[k].length}</span></div>` +
+      groups[k].map(cardHtml).join('')
     ).join('');
     bindCards();
     return;
@@ -247,75 +331,27 @@ function render() {
   const totalPages = Math.max(1, Math.ceil(sorted.length / PAGE_SIZE));
 
   if (view === 'table') {
-    list.innerHTML = `
-      <table>
-        <thead><tr><th>Program</th><th>Platform</th><th>#</th><th>Domains</th></tr></thead>
-        <tbody>
-          ${pageItems.map(p => `
-            <tr>
-              <td class="name">${esc(p.name)}</td>
-              <td class="platform">${esc(p.platform)}</td>
-              <td>${p.domains.length}</td>
-              <td class="domains">${p.domains.map(esc).join(', ')}</td>
-            </tr>
-          `).join('')}
-        </tbody>
-      </table>
-    `;
+    list.innerHTML = `<table>
+      <thead><tr><th>Program</th><th>Platform</th><th>#</th><th>Domains</th></tr></thead>
+      <tbody>${pageItems.map(p => `
+        <tr>
+          <td class="name">${esc(p.name)}</td>
+          <td class="platform">${esc(p.platform)}</td>
+          <td>${p.domains.length}</td>
+          <td class="domains">${p.domains.map(esc).join(', ')}</td>
+        </tr>`).join('')}</tbody>
+    </table>`;
   } else {
     list.innerHTML = pageItems.map(cardHtml).join('');
     bindCards();
   }
 
   pager.innerHTML = `
-    <button id="prev" ${page === 0 ? 'disabled' : ''}>&larr; prev</button>
+    <button id="prev" ${page === 0 ? 'disabled' : ''}>← prev</button>
     <span>${page + 1} / ${totalPages}</span>
-    <button id="next" ${page >= totalPages - 1 ? 'disabled' : ''}>next &rarr;</button>
-  `;
-  document.getElementById('prev').onclick = () => { page--; render(); window.scrollTo(0,0); };
-  document.getElementById('next').onclick = () => { page++; render(); window.scrollTo(0,0); };
-}
-
-function bindCards() {
-  document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', (e) => {
-      if (e.target.closest('.copy-btn')) return;
-      card.classList.toggle('open');
-    });
-  });
-  document.querySelectorAll('.copy-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      copyText(btn.dataset.domains);
-    });
-  });
-}
-
-function cardHtml(p) {
-  const domains = p.domains || [];
-  const domainTags = domains.map(d => `<span class="domain-tag">${esc(d)}</span>`).join(' &middot; ');
-  const manualBadge = p.manual ? '<span class="badge manual">manual</span>' : '';
-  // data-domains is a plain-text attribute read back via .dataset, never
-  // parsed as HTML, so it's safe as-is for the clipboard copy feature.
-  const domainsAttr = domains.join('\n').replace(/"/g, '&quot;');
-
-  return `
-    <div class="card">
-      <div class="card-head">
-        <span class="card-name">${esc(p.name)}</span>
-        <span class="card-badges">
-          <span class="badge">${esc(p.platform)}</span>
-          ${manualBadge}
-          <span class="badge count">${domains.length} domain${domains.length === 1 ? '' : 's'}</span>
-          <span class="caret">&#9656;</span>
-        </span>
-      </div>
-      <div class="card-body">
-        ${domainTags}
-        <div><button class="copy-btn" data-domains="${domainsAttr}">copy domains</button></div>
-      </div>
-    </div>
-  `;
+    <button id="next" ${page >= totalPages - 1 ? 'disabled' : ''}>next →</button>`;
+  document.getElementById('prev').onclick = () => { page--; render(); scrollTo(0, 0); };
+  document.getElementById('next').onclick = () => { page++; render(); scrollTo(0, 0); };
 }
 
 document.getElementById('search').addEventListener('input', e => {
@@ -327,7 +363,6 @@ document.getElementById('search').addEventListener('input', e => {
   page = 0;
   render();
 });
-
 document.getElementById('sort').addEventListener('change', () => { page = 0; render(); });
 </script>
 </body>
