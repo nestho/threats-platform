@@ -1,0 +1,23 @@
+name: Update Threat Data
+on:
+  schedule:
+    - cron: '0 3 * * *'   # هر روز ساعت ۳ بامداد UTC
+  workflow_dispatch: {}
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - run: python scripts/collector.py
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add data/
+          git commit -m "auto-update $(date -u +%F)" || echo "no changes"
+          git push
