@@ -8,12 +8,35 @@
   body { background:#0d1117; color:#c9d1d9; font-family:monospace; padding:40px; max-width:700px; margin:auto; }
   h1 { color:#58a6ff; }
   a { color:#58a6ff; }
+  .stat { font-size:2em; color:#3fb950; }
+  .box { border:1px solid #30363d; border-radius:8px; padding:20px; margin-top:20px; }
 </style>
 </head>
 <body>
   <h1>threats.top</h1>
   <p>Threat intelligence data platform — currently in early build.</p>
-  <p>Live data feeds coming soon.</p>
-  <p>Contact: <a href="mailto:contact@threats.top">contact@threats.top</a></p>
+
+  <div class="box">
+    <div id="stats">Loading data...</div>
+  </div>
+
+  <p style="margin-top:30px;">
+    Full dataset: <a href="/data/domains.json">/data/domains.json</a><br>
+    Contact: <a href="mailto:contact@threats.top">contact@threats.top</a>
+  </p>
+
+<script>
+fetch('/data/domains.json')
+  .then(r => r.json())
+  .then(data => {
+    document.getElementById('stats').innerHTML =
+      `<span class="stat">${data.total_programs}</span> bug bounty programs tracked<br>` +
+      `<span class="stat">${data.total_unique_domains}</span> unique domains<br>` +
+      `<small>last updated: ${data.updated_at}</small>`;
+  })
+  .catch(() => {
+    document.getElementById('stats').innerText = 'Data not available yet.';
+  });
+</script>
 </body>
 </html>
