@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Programs — threats.top</title>
+<title>Programs — Threats</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -19,34 +19,37 @@
     -webkit-font-smoothing: antialiased;
   }
   a { color: inherit; text-decoration: none; }
-  .wrap { max-width: 920px; margin: 0 auto; padding: 0 24px 80px; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px 80px; }
 
-  nav {
+  header.site {
     display: flex; align-items: center; justify-content: space-between;
-    height: 56px; border-bottom: 1px solid var(--border); margin-bottom: 32px;
+    height: 64px; border-bottom: 1px solid var(--border); margin-bottom: 36px;
   }
-  .brand { font-weight: 600; font-size: 15px; letter-spacing: -0.02em; }
-  .brand span { color: var(--text-muted); font-weight: 400; }
+  .logo { display: flex; align-items: center; gap: 10px; }
+  .logo-mark {
+    width: 28px; height: 28px; border-radius: 7px;
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 13px; color: #0a0a0a;
+  }
+  .logo-name { font-weight: 600; font-size: 15px; letter-spacing: -0.02em; }
+  .logo-name span { color: var(--text-muted); font-weight: 400; }
   .back { font-size: 13px; color: var(--text-muted); }
   .back:hover { color: var(--text-secondary); }
 
-  h1 {
-    font-size: 28px; font-weight: 700; letter-spacing: -0.03em;
-    margin-bottom: 24px;
-  }
+  h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 24px; }
 
   .controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
   input, select {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
-    color: var(--text); font-family: inherit; font-size: 13px; padding: 8px 12px;
-    outline: none;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    color: var(--text); font-family: inherit; font-size: 13px; padding: 9px 12px; outline: none;
   }
   input { flex: 1; min-width: 180px; }
   input:focus, select:focus { border-color: var(--border-hover); }
 
-  .tabs { display: flex; gap: 4px; margin-bottom: 16px; }
+  .tabs { display: flex; gap: 6px; margin-bottom: 16px; }
   .tab {
-    background: transparent; border: 1px solid var(--border); border-radius: 6px;
+    background: transparent; border: 1px solid var(--border); border-radius: 8px;
     color: var(--text-muted); font-family: inherit; font-size: 13px;
     padding: 7px 12px; cursor: pointer;
   }
@@ -58,8 +61,7 @@
 
   .meta-bar {
     display: flex; justify-content: space-between; align-items: center;
-    gap: 12px; flex-wrap: wrap; font-size: 12px; color: var(--text-muted);
-    margin-bottom: 12px;
+    gap: 12px; flex-wrap: wrap; font-size: 12px; color: var(--text-muted); margin-bottom: 12px;
   }
   .meta-bar button {
     background: transparent; border: 1px solid var(--border); border-radius: 6px;
@@ -78,7 +80,7 @@
   }
 
   .card {
-    border: 1px solid var(--border); border-radius: 8px;
+    border: 1px solid var(--border); border-radius: 10px;
     padding: 14px 16px; margin-bottom: 6px; background: var(--surface);
     cursor: pointer; transition: border-color 0.12s;
   }
@@ -143,7 +145,7 @@
   .empty { color: var(--text-muted); padding: 48px 0; text-align: center; }
   .toast {
     position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
-    background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
     color: var(--text-secondary); font-size: 13px; padding: 10px 16px;
     opacity: 0; transition: opacity 0.2s; pointer-events: none;
   }
@@ -152,10 +154,13 @@
 </head>
 <body>
 <div class="wrap">
-  <nav>
-    <a class="brand" href="/">threats.top <span>/ programs</span></a>
-    <a class="back" href="/">← home</a>
-  </nav>
+  <header class="site">
+    <a class="logo" href="/">
+      <span class="logo-mark">T</span>
+      <span class="logo-name">Threats <span>/ Programs</span></span>
+    </a>
+    <a class="back" href="/">← Home</a>
+  </header>
 
   <h1>Bug bounty programs</h1>
 
@@ -180,7 +185,7 @@
     <span>
       <span id="updated-label"></span>
       &nbsp;·&nbsp;
-      <button id="copy-md">copy markdown</button>
+      <button id="copy-md">Copy markdown</button>
     </span>
   </div>
 
@@ -188,7 +193,7 @@
   <div class="pager" id="pager"></div>
 </div>
 
-<div class="toast" id="toast">copied</div>
+<div class="toast" id="toast">Copied</div>
 
 <script>
 function esc(s) {
@@ -206,7 +211,7 @@ fetch('/data/domains.json')
     all = data.programs || [];
     filtered = all;
     document.getElementById('updated-label').textContent =
-      'updated ' + (data.updated_at || '').slice(0, 16).replace('T', ' ') + ' UTC';
+      'Updated ' + (data.updated_at || '').slice(0, 16).replace('T', ' ') + ' UTC';
     const q = new URLSearchParams(location.search).get('q');
     if (q) {
       document.getElementById('search').value = q;
@@ -240,7 +245,7 @@ function showToast(msg) {
 }
 
 function copyText(text) {
-  navigator.clipboard.writeText(text).then(() => showToast('copied')).catch(() => showToast('copy failed'));
+  navigator.clipboard.writeText(text).then(() => showToast('Copied')).catch(() => showToast('Copy failed'));
 }
 
 document.getElementById('copy-md').addEventListener('click', () => {
@@ -278,7 +283,7 @@ function cardHtml(p) {
     </div>
     <div class="card-body">
       ${tags}
-      <div><button class="copy-btn" data-domains="${attr}">copy domains</button></div>
+      <div><button class="copy-btn" data-domains="${attr}">Copy domains</button></div>
     </div>
   </div>`;
 }
@@ -347,9 +352,9 @@ function render() {
   }
 
   pager.innerHTML = `
-    <button id="prev" ${page === 0 ? 'disabled' : ''}>← prev</button>
+    <button id="prev" ${page === 0 ? 'disabled' : ''}>← Prev</button>
     <span>${page + 1} / ${totalPages}</span>
-    <button id="next" ${page >= totalPages - 1 ? 'disabled' : ''}>next →</button>`;
+    <button id="next" ${page >= totalPages - 1 ? 'disabled' : ''}>Next →</button>`;
   document.getElementById('prev').onclick = () => { page--; render(); scrollTo(0, 0); };
   document.getElementById('next').onclick = () => { page++; render(); scrollTo(0, 0); };
 }

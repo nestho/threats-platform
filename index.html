@@ -3,20 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>threats.top — open threat intelligence</title>
+<title>Threats — Open threat intelligence</title>
+<meta name="description" content="Open threat intelligence for researchers: bug bounty scope, CVEs, exploits, and malware URLs as structured data feeds.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #09090b;
     --surface: #111113;
+    --surface-2: #18181b;
     --border: #27272a;
     --border-hover: #3f3f46;
     --text: #fafafa;
     --text-secondary: #a1a1aa;
     --text-muted: #71717a;
     --accent: #f97316;
-    --accent-soft: #fb923c;
     --link: #38bdf8;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,83 +30,117 @@
     -webkit-font-smoothing: antialiased;
   }
   a { color: inherit; text-decoration: none; }
-  .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
 
   .wrap {
-    max-width: 920px;
+    max-width: 960px;
     margin: 0 auto;
-    padding: 0 24px 80px;
+    padding: 0 24px 96px;
   }
 
-  /* ── Nav ── */
-  nav {
+  /* ── Header ── */
+  header.site {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
-    height: 56px;
+    gap: 20px;
+    height: 64px;
     border-bottom: 1px solid var(--border);
-    margin-bottom: 48px;
+    margin-bottom: 56px;
   }
-  .brand {
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .logo-mark {
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 13px;
+    color: #0a0a0a;
+    letter-spacing: -0.04em;
+  }
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+  }
+  .logo-name {
     font-weight: 600;
     font-size: 15px;
     letter-spacing: -0.02em;
-    white-space: nowrap;
   }
-  .search-form { flex: 1; max-width: 320px; }
+  .logo-tag {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+  .search-form { flex: 1; max-width: 340px; }
   .search-form input {
     width: 100%;
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 6px;
+    border-radius: 8px;
     color: var(--text);
     font-family: inherit;
     font-size: 13px;
-    padding: 8px 12px;
+    padding: 9px 14px;
     outline: none;
     transition: border-color 0.15s;
   }
   .search-form input::placeholder { color: var(--text-muted); }
   .search-form input:focus { border-color: var(--border-hover); }
-  .nav-right a {
-    color: var(--text-muted);
-    font-size: 13px;
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
   }
-  .nav-right a:hover { color: var(--text-secondary); }
+  .header-actions a.email {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .header-actions a.email:hover { color: var(--text); }
 
   /* ── Hero ── */
   .hero {
     display: grid;
-    grid-template-columns: 1.4fr 1fr;
+    grid-template-columns: 1.45fr 1fr;
     gap: 48px;
     align-items: end;
-    padding-bottom: 40px;
+    padding-bottom: 44px;
     border-bottom: 1px solid var(--border);
-    margin-bottom: 40px;
+    margin-bottom: 44px;
   }
   h1 {
-    font-size: clamp(32px, 5vw, 44px);
+    font-size: clamp(34px, 5vw, 46px);
     font-weight: 700;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-    margin-bottom: 12px;
+    letter-spacing: -0.035em;
+    line-height: 1.08;
+    margin-bottom: 14px;
   }
   .tagline {
     color: var(--text-secondary);
     font-size: 15px;
-    max-width: 42ch;
+    max-width: 44ch;
     line-height: 1.55;
   }
   .stats {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 22px;
     padding-left: 28px;
     border-left: 1px solid var(--border);
   }
   .stat-value {
-    font-size: 32px;
+    font-size: 34px;
     font-weight: 700;
     letter-spacing: -0.03em;
     color: var(--accent);
@@ -114,21 +149,28 @@
   .stat-label {
     font-size: 12px;
     color: var(--text-muted);
-    margin-top: 4px;
+    margin-top: 5px;
   }
 
-  /* ── Section ── */
-  section { margin-bottom: 48px; }
+  /* ── Sections ── */
+  section { margin-bottom: 52px; }
   .section-label {
     font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
+    font-weight: 600;
+    letter-spacing: 0.07em;
     text-transform: uppercase;
     color: var(--text-muted);
-    margin-bottom: 12px;
+    margin-bottom: 14px;
+  }
+  .section-intro {
+    color: var(--text-secondary);
+    font-size: 13px;
+    margin: -6px 0 16px;
+    max-width: 62ch;
+    line-height: 1.5;
   }
 
-  /* ── Browse cards ── */
+  /* ── Browse ── */
   .browse-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -138,16 +180,19 @@
     display: block;
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 20px 22px;
-    transition: border-color 0.15s;
+    border-radius: 10px;
+    padding: 22px 24px;
+    transition: border-color 0.15s, background 0.15s;
   }
-  .browse-card:hover { border-color: var(--border-hover); }
+  .browse-card:hover {
+    border-color: var(--border-hover);
+    background: var(--surface-2);
+  }
   .browse-card h2 {
     font-size: 15px;
     font-weight: 600;
     letter-spacing: -0.01em;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
   .browse-card p {
     font-size: 13px;
@@ -155,55 +200,75 @@
     line-height: 1.5;
   }
   .browse-card .meta {
-    margin-top: 14px;
+    margin-top: 16px;
     font-size: 12px;
     color: var(--text-muted);
     font-family: 'JetBrains Mono', monospace;
   }
 
-  /* ── Sources table ── */
-  .sources-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
+  /* ── API catalog ── */
+  .api-list {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--surface);
   }
-  .sources-table th {
-    text-align: left;
-    font-weight: 500;
+  .api-row {
+    display: grid;
+    grid-template-columns: 72px 1fr auto auto;
+    gap: 16px;
+    align-items: center;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .api-row:last-child { border-bottom: none; }
+  .api-row:hover { background: var(--surface-2); }
+  .method {
+    font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    padding: 0 12px 10px 0;
-    border-bottom: 1px solid var(--border);
+    font-weight: 600;
+    color: #4ade80;
+    letter-spacing: 0.02em;
   }
-  .sources-table th:last-child { text-align: right; padding-right: 0; }
-  .sources-table td {
-    padding: 12px 12px 12px 0;
-    border-bottom: 1px solid var(--border);
-    vertical-align: middle;
-  }
-  .sources-table td:last-child {
-    text-align: right;
-    padding-right: 0;
-  }
-  .sources-table tr:last-child td { border-bottom: none; }
-  .src-name { font-weight: 500; color: var(--text); }
-  .src-type {
-    color: var(--text-muted);
-    font-size: 12px;
-  }
-  .src-updated {
-    color: var(--text-muted);
-    font-size: 12px;
+  .api-path {
     font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text);
   }
-  .src-link {
-    color: var(--link);
+  .api-desc {
     font-size: 12px;
-    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-muted);
+    margin-top: 2px;
   }
-  .src-link:hover { text-decoration: underline; }
+  .api-updated {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+  .api-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .btn-ghost {
+    font-family: inherit;
+    font-size: 12px;
+    color: var(--text-muted);
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: border-color 0.12s, color 0.12s;
+  }
+  .btn-ghost:hover {
+    border-color: var(--border-hover);
+    color: var(--text-secondary);
+  }
+  .btn-ghost a {
+    color: inherit;
+  }
 
   /* ── Recent ── */
   .recent-head {
@@ -213,16 +278,21 @@
     margin-bottom: 12px;
   }
   .recent-head a {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--link);
   }
   .recent-head a:hover { text-decoration: underline; }
-  .recent-list { border-top: 1px solid var(--border); }
+  .recent-list {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+    overflow: hidden;
+  }
   .recent-item {
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    padding: 11px 0;
+    padding: 12px 18px;
     border-bottom: 1px solid var(--border);
     font-size: 13px;
   }
@@ -230,20 +300,20 @@
   .tag {
     flex-shrink: 0;
     font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.03em;
+    font-weight: 600;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     color: var(--text-muted);
     border: 1px solid var(--border);
     border-radius: 4px;
     padding: 2px 6px;
-    margin-top: 1px;
+    margin-top: 2px;
   }
   .tag.hot {
     color: var(--accent);
     border-color: rgba(249, 115, 22, 0.4);
   }
-  .recent-body { flex: 1; min-width: 0; }
+  .recent-body { flex: 1; min-width: 0; color: var(--text-secondary); }
   .recent-body a { color: var(--text); }
   .recent-body a:hover { color: var(--link); }
   .recent-time {
@@ -255,27 +325,38 @@
   }
   .recent-empty {
     color: var(--text-muted);
-    padding: 24px 0;
+    padding: 28px 18px;
     font-size: 13px;
   }
 
   /* ── Footer ── */
   footer {
-    margin-top: 64px;
-    padding-top: 24px;
+    margin-top: 72px;
+    padding-top: 28px;
     border-top: 1px solid var(--border);
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    gap: 16px;
+    align-items: flex-start;
+    gap: 24px;
     flex-wrap: wrap;
     font-size: 12px;
     color: var(--text-muted);
   }
+  .footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .footer-brand {
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 13px;
+  }
   .support {
     display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-end;
   }
   .support code {
     font-family: 'JetBrains Mono', monospace;
@@ -284,58 +365,88 @@
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 4px;
-    padding: 2px 6px;
+    padding: 2px 7px;
   }
 
-  @media (max-width: 640px) {
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    padding: 10px 16px;
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+    z-index: 50;
+  }
+  .toast.show { opacity: 1; }
+
+  @media (max-width: 720px) {
     .hero { grid-template-columns: 1fr; gap: 28px; }
     .stats {
       flex-direction: row;
-      gap: 32px;
+      gap: 36px;
       padding-left: 0;
       border-left: none;
       border-top: 1px solid var(--border);
       padding-top: 20px;
     }
     .browse-grid { grid-template-columns: 1fr; }
-    nav { flex-wrap: wrap; height: auto; padding: 12px 0; gap: 10px; }
+    header.site { flex-wrap: wrap; height: auto; padding: 14px 0; gap: 12px; }
     .search-form { order: 3; max-width: 100%; width: 100%; }
-    .sources-table .hide-sm { display: none; }
+    .api-row {
+      grid-template-columns: 56px 1fr;
+      gap: 8px 12px;
+    }
+    .api-updated, .api-actions { grid-column: 2; }
+    .api-actions { justify-content: flex-start; }
+    .support { align-items: flex-start; }
   }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <nav>
-    <span class="brand">threats.top</span>
+  <header class="site">
+    <a class="logo" href="/">
+      <span class="logo-mark">T</span>
+      <span class="logo-text">
+        <span class="logo-name">Threats</span>
+        <span class="logo-tag">threat intelligence</span>
+      </span>
+    </a>
     <form class="search-form" id="search-form">
-      <input id="global-search" type="search" placeholder="CVE, domain, or program…" autocomplete="off">
+      <input id="global-search" type="search" placeholder="Search CVE, domain, or program…" autocomplete="off">
     </form>
-    <div class="nav-right">
-      <a href="mailto:contact@threats.top">contact</a>
+    <div class="header-actions">
+      <a class="email" href="mailto:contact@threats.top">contact@threats.top</a>
     </div>
-  </nav>
+  </header>
 
-  <header class="hero">
+  <div class="hero">
     <div>
       <h1>Signal on the<br>threat surface.</h1>
-      <p class="tagline">Open data on bug bounty scope, emerging CVEs, public exploits, and malware URLs — raw signal for researchers.</p>
+      <p class="tagline">Structured feeds for bug bounty scope, emerging CVEs, public exploits, and malware URLs — built for researchers and security teams.</p>
     </div>
     <div class="stats">
       <div>
         <div class="stat-value" id="stat-programs">—</div>
-        <div class="stat-label">programs</div>
+        <div class="stat-label">programs tracked</div>
       </div>
       <div>
         <div class="stat-value" id="stat-domains">—</div>
         <div class="stat-label">unique domains</div>
       </div>
     </div>
-  </header>
+  </div>
 
   <section>
-    <div class="section-label">Browse</div>
+    <div class="section-label">Explore</div>
     <div class="browse-grid">
       <a class="browse-card" href="/programs.html">
         <h2>Bug bounty programs</h2>
@@ -351,41 +462,37 @@
   </section>
 
   <section>
-    <div class="section-label">Sources</div>
-    <table class="sources-table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th class="hide-sm">Type</th>
-          <th>Updated</th>
-          <th>Data</th>
-        </tr>
-      </thead>
-      <tbody id="sources-body">
-        <tr><td colspan="4" style="color:var(--text-muted);padding:16px 0;">loading sources…</td></tr>
-      </tbody>
-    </table>
+    <div class="section-label">Data API</div>
+    <p class="section-intro">Public JSON endpoints, updated on a schedule. No key required for read access. Use them in scripts, dashboards, or pipelines.</p>
+    <div class="api-list" id="api-list">
+      <div class="api-row" style="color:var(--text-muted);">Loading endpoints…</div>
+    </div>
   </section>
 
   <section>
     <div class="recent-head">
-      <div class="section-label" style="margin:0;">Recent</div>
-      <a href="/cves.html">view all →</a>
+      <div class="section-label" style="margin:0;">Recent activity</div>
+      <a href="/cves.html">View all →</a>
     </div>
     <div class="recent-list" id="recent-feed">
-      <div class="recent-empty">loading…</div>
+      <div class="recent-empty">Loading…</div>
     </div>
   </section>
 
   <footer>
-    <span id="footer-sync">—</span>
+    <div class="footer-left">
+      <span class="footer-brand">Threats</span>
+      <span id="footer-sync">—</span>
+    </div>
     <div class="support">
+      <span>Support the project</span>
       <span>USDT <code>TAH1B9ksFekoqBmQaRbGqooca7MSUadvn2</code></span>
       <span>BTC <code>bc1q6x9fek8970t38dvh7s4utt4ge47uhz3jl0etjq</code></span>
     </div>
   </footer>
 
 </div>
+<div class="toast" id="toast">Copied</div>
 
 <script>
 function esc(s) {
@@ -405,16 +512,28 @@ function timeAgo(iso) {
   return Math.floor(s / 86400) + 'd ago';
 }
 
-const SOURCES = [
-  { name: 'NVD + CISA KEV', type: 'vulnerabilities', file: 'cves.json', key: 'cves' },
-  { name: 'Exploit-DB', type: 'exploits', file: 'exploitdb.json', key: 'edb' },
-  { name: 'CERT-EU', type: 'advisories', file: 'cert_eu.json', key: 'cert' },
-  { name: 'GitHub Advisories', type: 'packages', file: 'ghsa.json', key: 'ghsa' },
-  { name: 'URLhaus', type: 'malware urls', file: 'urlhaus.json', key: 'urlhaus' },
-  { name: 'Bug bounty scope', type: 'programs', file: 'domains.json', key: 'domains' },
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 1400);
+}
+
+function copyUrl(path) {
+  const url = location.origin + path;
+  navigator.clipboard.writeText(url).then(() => showToast('Copied endpoint')).catch(() => showToast('Copy failed'));
+}
+
+const ENDPOINTS = [
+  { path: '/data/cves.json', desc: 'Recent CVEs (NVD) + actively exploited (CISA KEV)', key: 'cves' },
+  { path: '/data/exploitdb.json', desc: 'Public exploits from Exploit-DB', key: 'edb' },
+  { path: '/data/cert_eu.json', desc: 'CERT-EU security advisories', key: 'cert' },
+  { path: '/data/ghsa.json', desc: 'GitHub Security Advisories (packages)', key: 'ghsa' },
+  { path: '/data/urlhaus.json', desc: 'Malware distribution URLs (defanged)', key: 'urlhaus' },
+  { path: '/data/domains.json', desc: 'Bug bounty programs and in-scope domains', key: 'domains' },
 ];
 
-const dataCache = {};
+const cache = {};
 
 Promise.allSettled([
   fetch('/data/domains.json').then(r => r.json()),
@@ -424,39 +543,46 @@ Promise.allSettled([
   fetch('/data/exploitdb.json').then(r => r.json()),
   fetch('/data/cert_eu.json').then(r => r.json()),
 ]).then(([domains, cves, ghsa, urlhaus, edb, cert]) => {
-  if (domains.status === 'fulfilled') dataCache.domains = domains.value;
-  if (cves.status === 'fulfilled') dataCache.cves = cves.value;
-  if (ghsa.status === 'fulfilled') dataCache.ghsa = ghsa.value;
-  if (urlhaus.status === 'fulfilled') dataCache.urlhaus = urlhaus.value;
-  if (edb.status === 'fulfilled') dataCache.edb = edb.value;
-  if (cert.status === 'fulfilled') dataCache.cert = cert.value;
+  if (domains.status === 'fulfilled') cache.domains = domains.value;
+  if (cves.status === 'fulfilled') cache.cves = cves.value;
+  if (ghsa.status === 'fulfilled') cache.ghsa = ghsa.value;
+  if (urlhaus.status === 'fulfilled') cache.urlhaus = urlhaus.value;
+  if (edb.status === 'fulfilled') cache.edb = edb.value;
+  if (cert.status === 'fulfilled') cache.cert = cert.value;
 
-  // Stats
-  if (dataCache.domains) {
-    document.getElementById('stat-programs').textContent = dataCache.domains.total_programs ?? '—';
-    document.getElementById('stat-domains').textContent = dataCache.domains.total_unique_domains ?? '—';
+  if (cache.domains) {
+    document.getElementById('stat-programs').textContent = cache.domains.total_programs ?? '—';
+    document.getElementById('stat-domains').textContent = cache.domains.total_unique_domains ?? '—';
     document.getElementById('prog-meta').textContent =
-      (dataCache.domains.total_programs ?? '—') + ' programs · ' +
-      (dataCache.domains.total_unique_domains ?? '—') + ' domains';
+      (cache.domains.total_programs ?? '—') + ' programs · ' +
+      (cache.domains.total_unique_domains ?? '—') + ' domains';
   } else {
     document.getElementById('prog-meta').textContent = 'unavailable';
   }
 
-  // Sources table
-  const tbody = document.getElementById('sources-body');
-  tbody.innerHTML = SOURCES.map(s => {
-    const d = dataCache[s.key];
+  // API catalog
+  document.getElementById('api-list').innerHTML = ENDPOINTS.map(ep => {
+    const d = cache[ep.key];
     const updated = d?.updated_at ? timeAgo(d.updated_at) : '—';
-    return `<tr>
-      <td><span class="src-name">${esc(s.name)}</span></td>
-      <td class="hide-sm"><span class="src-type">${esc(s.type)}</span></td>
-      <td><span class="src-updated">${esc(updated)}</span></td>
-      <td><a class="src-link" href="/data/${esc(s.file)}">json</a></td>
-    </tr>`;
+    return `<div class="api-row">
+      <span class="method">GET</span>
+      <div>
+        <div class="api-path">${esc(ep.path)}</div>
+        <div class="api-desc">${esc(ep.desc)}</div>
+      </div>
+      <span class="api-updated">${esc(updated)}</span>
+      <div class="api-actions">
+        <button type="button" class="btn-ghost" data-copy="${esc(ep.path)}">Copy</button>
+        <a class="btn-ghost" href="${esc(ep.path)}" target="_blank" rel="noopener">Open</a>
+      </div>
+    </div>`;
   }).join('');
 
-  // Footer sync time — use newest updated_at
-  const times = Object.values(dataCache)
+  document.querySelectorAll('[data-copy]').forEach(btn => {
+    btn.addEventListener('click', () => copyUrl(btn.dataset.copy));
+  });
+
+  const times = Object.values(cache)
     .map(d => d?.updated_at)
     .filter(Boolean)
     .map(t => new Date(t).getTime())
@@ -464,26 +590,23 @@ Promise.allSettled([
   if (times.length) {
     const newest = new Date(Math.max(...times)).toISOString();
     document.getElementById('footer-sync').textContent =
-      'last sync ' + newest.slice(0, 16).replace('T', ' ') + ' UTC';
-  } else {
-    document.getElementById('footer-sync').textContent = 'sync unavailable';
+      'Last sync ' + newest.slice(0, 16).replace('T', ' ') + ' UTC';
   }
 
-  // Recent feed (compact, max 8)
+  // Recent (compact)
   const events = [];
-
-  if (dataCache.cves?.recent?.items) {
-    dataCache.cves.recent.items.slice(0, 4).forEach(c => {
+  if (cache.cves?.recent?.items) {
+    cache.cves.recent.items.slice(0, 3).forEach(c => {
       events.push({
         time: c.published,
         tag: c.kev ? 'KEV' : 'CVE',
         hot: !!c.kev,
-        html: `<a href="${esc(c.link)}" target="_blank" rel="noopener">${esc(c.id)}</a> — ${esc((c.description || '').slice(0, 72))}${(c.description||'').length > 72 ? '…' : ''}`,
+        html: `<a href="${esc(c.link)}" target="_blank" rel="noopener">${esc(c.id)}</a> — ${esc((c.description || '').slice(0, 70))}${(c.description||'').length > 70 ? '…' : ''}`,
       });
     });
   }
-  if (dataCache.edb?.items) {
-    dataCache.edb.items.slice(0, 3).forEach(e => {
+  if (cache.edb?.items) {
+    cache.edb.items.slice(0, 2).forEach(e => {
       events.push({
         time: e.published,
         tag: e.type || 'exploit',
@@ -492,8 +615,8 @@ Promise.allSettled([
       });
     });
   }
-  if (dataCache.cert?.items) {
-    dataCache.cert.items.slice(0, 2).forEach(c => {
+  if (cache.cert?.items) {
+    cache.cert.items.slice(0, 2).forEach(c => {
       events.push({
         time: c.published,
         tag: 'CERT-EU',
@@ -502,8 +625,8 @@ Promise.allSettled([
       });
     });
   }
-  if (dataCache.ghsa?.items) {
-    dataCache.ghsa.items.slice(0, 2).forEach(g => {
+  if (cache.ghsa?.items) {
+    cache.ghsa.items.slice(0, 2).forEach(g => {
       events.push({
         time: g.published,
         tag: g.ecosystem || 'GHSA',
@@ -512,26 +635,14 @@ Promise.allSettled([
       });
     });
   }
-  if (dataCache.urlhaus?.items) {
-    dataCache.urlhaus.items.slice(0, 2).forEach(u => {
-      events.push({
-        time: u.date_added,
-        tag: 'malware',
-        hot: true,
-        html: `<span title="defanged">${esc(u.url_defanged)}</span> — ${esc(u.threat)}`,
-      });
-    });
-  }
 
   events.sort((a, b) => new Date(b.time || 0) - new Date(a.time || 0));
-  const top = events.slice(0, 8);
+  const top = events.slice(0, 7);
   const feed = document.getElementById('recent-feed');
-
   if (!top.length) {
     feed.innerHTML = '<div class="recent-empty">No recent items.</div>';
     return;
   }
-
   feed.innerHTML = top.map(e => `
     <div class="recent-item">
       <span class="tag${e.hot ? ' hot' : ''}">${esc(e.tag)}</span>
@@ -540,10 +651,10 @@ Promise.allSettled([
     </div>
   `).join('');
 }).catch(() => {
-  document.getElementById('sources-body').innerHTML =
-    '<tr><td colspan="4" style="color:var(--text-muted);">Failed to load data.</td></tr>';
+  document.getElementById('api-list').innerHTML =
+    '<div class="api-row" style="color:var(--text-muted);">Failed to load endpoints.</div>';
   document.getElementById('recent-feed').innerHTML =
-    '<div class="recent-empty">Failed to load feed.</div>';
+    '<div class="recent-empty">Failed to load activity.</div>';
 });
 
 document.getElementById('search-form').addEventListener('submit', e => {
