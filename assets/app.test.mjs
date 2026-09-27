@@ -163,3 +163,53 @@ test("timeKey: sorts unparseable timestamps last instead of corrupting order", (
     assert.ok(!Number.isNaN(timeKey(value)), `timeKey(${JSON.stringify(value)}) must not be NaN`);
   }
 });
+
+/*
+ * Guard: no literal control bytes in source.
+ *
+ * Added after worker/admin.js shipped with a control-character regex written as
+ * /[<NUL>-<US><DEL>]/ -- real 0x00/0x1f/0x7f bytes in the file rather than
+ * escape sequences. It behaved correctly, but it made git classify the file as
+ * binary, so diffs and code review were useless, and the bytes are invisible in
+ * every editor.
+ *
+ * The companion bug was worse: a test payload whose NUL was also literal, so the
+ * test passed for a reason its name did not describe ("Acme Admin" with a space
+ * in the name and a NUL in the string).
+ *
+ * A repo-wide lint does not belong in a test file on principle, but it runs in
+ * the same `node --test assets worker` invocation as everything else, so the
+ * check is actually executed rather than merely written down.
+ */
+test("repo: no source file contains a literal control byte", async () => {
+  const { readdir, readFile } = await import("node:fs/promises");
+  const { join, extname } = await import("node:path");
+
+  const ROOT = new URL("../", import.meta.url).pathname;
+  const TEXT_EXT = new Set([".js", ".mjs", ".css", ".py", ".html", ".yml", ".toml", ".md", ".json"]);
+  const SKIP = new Set([".git", "node_modules", "__pycache__", "data"]);
+
+  const offenders = [];
+  async function walk(dir) {
+    for (const entry of await readdir(dir, { withFileTypes: true })) {
+      if (SKIP.has(entry.name)) continue;
+      const full = join(dir, entry.name);
+      if (entry.isDirectory()) { await walk(full); continue; }
+      if (!TEXT_EXT.has(extname(entry.name))) continue;
+      const raw = await readFile(full);
+      for (let i = 0; i < raw.length; i += 1) {
+        const b = raw[i];
+        // Tab (9), LF (10) and CR (13) are legitimate whitespace. Everything else
+        // below 32, plus DEL, is a byte someone meant to write as an escape.
+        const illegal = b < 9 || (b > 10 && b < 13) || (b > 13 && b < 32) || b === 127;
+        if (illegal) {
+          const line = raw.subarray(0, i).toString("utf8").split("\n").length;
+          offenders.push(`${full.replace(ROOT, "")}:${line} byte 0x${b.toString(16).padStart(2, "0")}`);
+          break;
+        }
+      }
+    }
+  }
+  await walk(ROOT);
+  assert.deepEqual(offenders, [], `literal control bytes found:\n${offenders.join("\n")}`);
+});
