@@ -1,13 +1,263 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-09-27T08:55:54Z",
+  "updated_at": "2026-09-27T14:24:45Z",
   "recent": {
     "lookback_days": 3,
-    "total": 1533,
-    "items_available": 1533,
+    "total": 1508,
+    "items_available": 1508,
     "normalisation_failures": [],
-    "items_parsed": 1533,
+    "items_parsed": 1508,
     "items": [
+      {
+        "id": "CVE-2026-101033",
+        "published": "2026-09-27T14:16:29Z",
+        "description": "KitchenOwl through 0.7.10 fails to verify that category IDs belong to the caller's household in expense and item operations. Authenticated attackers can enumerate category IDs from other households to read their category names, budgets, and colors, breaking household isolation.",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101033",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101032",
+        "published": "2026-09-27T14:16:28Z",
+        "description": "navi through 2.24.0 fails to properly escape cheatsheet variable values when substituting them into shell commands. Attackers can inject shell metacharacters through crafted file names in suggestion command directories to execute arbitrary commands with victim privileges.",
+        "severity": "HIGH",
+        "score": 7.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101032",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100869",
+        "published": "2026-09-27T13:16:38Z",
+        "description": "Sylius versions before 2.1.16 and 2.2.9 fail to restrict payment request actions in the Shop API endpoint, allowing customers to trigger refunds on completed orders. Attackers with order tokens can submit arbitrary payment actions like refunds that payment gateways execute while Sylius maintains ord",
+        "severity": "HIGH",
+        "score": 8.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100869",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100870",
+        "published": "2026-09-27T13:16:38Z",
+        "description": "Sylius versions before 1.12.25, 1.13.17, 1.14.20, 2.1.16, and 2.2.9 build administrator password-reset links using the request Host header without validation, allowing unauthenticated attackers to redirect reset tokens to attacker-controlled domains. Attackers can request password resets for known a",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100870",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100871",
+        "published": "2026-09-27T13:16:38Z",
+        "description": "Sylius versions before 1.12.25, 1.13.17, 1.14.20, 2.1.16, and 2.2.9 fail to include firewall identification in JWT tokens issued by separate Admin and Shop API endpoints. Attackers can register a shop customer account using an administrator's email address and obtain a token that the Admin API resol",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100871",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100872",
+        "published": "2026-09-27T13:16:38Z",
+        "description": "Sylius versions before 2.1.16 and 2.2.9 fail to validate payment amounts during cart recalculation, allowing unauthenticated attackers to modify order totals after gateway transaction initiation. Attackers can pay a small amount, enlarge the order after gateway capture, and have the system mark the ",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100872",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100867",
+        "published": "2026-09-27T13:16:37Z",
+        "description": "spaceship-prompt through 4.22.5 fails to sanitize control characters from project manifest version fields before rendering them in the zsh prompt. Attackers can embed ANSI/OSC escape sequences in version fields of package manifests to manipulate terminal output, rewrite window titles, or spoof displ",
+        "severity": "MEDIUM",
+        "score": 4.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100867",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100868",
+        "published": "2026-09-27T13:16:37Z",
+        "description": "Penpot before 2.18.0 binds the MCP server plugin WebSocket bridge to all network interfaces without authentication in single-user mode. Unauthenticated attackers on adjacent networks can connect to the WebSocket port to impersonate the Penpot browser plugin, intercept task payloads, and return forge",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100868",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100866",
+        "published": "2026-09-27T13:16:36Z",
+        "description": "onefetch through 2.28.1 writes repository information field values to the terminal without removing control characters, allowing terminal escape sequence injection. Attackers can embed ANSI/OSC escape sequences in project manifest version and name fields to manipulate terminal output, rewrite window",
+        "severity": "MEDIUM",
+        "score": 4.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100866",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-97165",
+        "published": "2026-09-27T12:17:12Z",
+        "description": "Joomla Extension - svenbluege.de - Reflected XSS and open redirect in Event Gallery extension < 6.5.0 - The “return” parameter is base64-decoded and written to the “Back” link without being validated.",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97165",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100748",
+        "published": "2026-09-27T12:17:11Z",
+        "description": "Joomla Extension - svenbluege.de - CSRF in various cart actions in Event Gallery extension < 6.5.0",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100748",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100749",
+        "published": "2026-09-27T12:17:11Z",
+        "description": "Joomla Extension - svenbluege.de - CSRF in backend cleanup actions in Event Gallery extension < 6.5.0 - Only orphaned file entries and shopping carts that are older than 30 days will be deleted.",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100749",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-97164",
+        "published": "2026-09-27T12:17:11Z",
+        "description": "Joomla Extension - svenbluege.de - Authenticated arbitrary path deletion in `clear cache` task in Event Gallery extension < 6.5.0 - Using the `images` parameter of the `cache.process` task, you can recursively delete any directories that the web server is authorized to write to.",
+        "severity": "HIGH",
+        "score": 7.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97164",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100747",
+        "published": "2026-09-27T12:17:10Z",
+        "description": "Joomla Extension - svenbluege.de - CSRF in image upload in Event Gallery extension < 6.5.0 - Due to lack of an CSRF token check, a third-party site can upload files to an event and overwrite existing files with the same name.",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100747",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-89134",
+        "published": "2026-09-27T10:16:59Z",
+        "description": "A certificate with no dNSName SAN but another SAN type present (e.g. registeredID or iPAddress) bypassed the Subject CN dNSName name-constraint check. The CN-as-DNS fallback was gated on cert->subjectCN != NULL && cert->altNames == NULL && !cert->isCA instead of \"no dNSName SAN\", so an out-of-scope ",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-89134",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-89135",
+        "published": "2026-09-27T10:16:59Z",
+        "description": "A failed X509_verify_cert call permanently plants an unverified attacker CA in the shared CertManager, bypassing certificate validation in every type-blind sibling consumer (native TLS, OCSP, CRL, direct CM verify). This affects version 5.8.4 through 5.9.2 of wolfSSL with the macros (OPENSSL_EXTRA &",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-89135",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-89136",
+        "published": "2026-09-27T10:16:59Z",
+        "description": "When using RPK (Raw Public Key), the client side of a TLS 1.2, 1.3 and DTLS 1.2 connection could accept an unsolicited server_cert_type=RawPublicKey which allowed a malicious or misbehaving server to bypass authentication. RPK is off by default and only enabled in --enable-rpk OR --enable-all OR --e",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-89136",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93302",
+        "published": "2026-09-27T10:16:59Z",
+        "description": "MatchTrustedPeer ignores the public key used, leading to forged CA clones passing verification. Affected builds are any that enable the macro WOLFSSL_TRUST_PEER_CERT and load CA certificates with wolfSSL_CTX_trust_peer_cert() or wolfSSL_trust_peer_cert(). The peer must know the certificates being lo",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93302",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93304",
+        "published": "2026-09-27T10:16:59Z",
+        "description": "A (D)TLS 1.2 client can accept a ChangeCipherSpec message before it has sent its ClientKeyExchange. No master secret has been derived at that point, so the client installs read keys derived from a known (deterministic) key and checks the server's Finished against that same key. An out-of-order Chang",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93304",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-94417",
+        "published": "2026-09-27T10:16:59Z",
+        "description": "When an application enables both OCSP and CRL revocation checking on one WOLFSSL_CTX or certificate manager, wolfSSL skips the CRL check for any peer certificate that carries no Authority Information Access OCSP URL, and accepts a certificate the loaded CRL lists as revoked. The soft-fail policy for",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-94417",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-89102",
+        "published": "2026-09-27T10:16:58Z",
+        "description": "In wolfSSL versions 5.7.2 through 5.9.2 there is a client-side implementation flaw in RFC 6961, multiple OCSP response stapling, which can lead to certificate forgery. When a wolfSSL client enables OCSP stapling with the HAVE_CERTIFICATE_STATUS_REQUEST_V2 feature and calls wolfSSL_UseOCSPStaplingV2(",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-89102",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-89133",
+        "published": "2026-09-27T10:16:58Z",
+        "description": "wolfSSL versions 5.9.2 and earlier contain a flaw in the X.509 certificate validation logic where it fails to properly enforce NameConstraints extensions when there is an unconstrained CA tier between a name-constrained intermediate CA and the leaf certificate. wolfSSL incorrectly accepted certifica",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-89133",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-15442",
+        "published": "2026-09-27T10:16:56Z",
+        "description": "In all builds that make use of (D)TLS, including default builds, there is a series of conditional states during the TLS shutdown which could lead to a heap-use-after free. If an application ended up getting a partial wolfSSL_read() which is sometimes caused by a small user buffer  passed in, then ca",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-15442",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-94418",
+        "published": "2026-09-27T09:16:36Z",
+        "description": "Under WOLFSSL_SMALL_CERT_VERIFY, ProcessPeerCertParse() runs the certificate signature check separately from the parse to keep peak memory down, then merges the two results, but it merged the signature result back only when the parse returned 0, so any parse error hid it. ParseCertRelative() reaches",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-94418",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-94419",
+        "published": "2026-09-27T09:16:36Z",
+        "description": "Without NO_SESSION_CACHE_REF, wolfSSL_get_session() does not return a session object but a ClientSession reference of the form {row, index, hash(sessionID)} into the process-global SessionCache, and ClientSessionToSession() validates it against that hash alone. Because the TLS 1.2 session ID is chos",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-94419",
+        "kev": false
+      },
       {
         "id": "CVE-2026-100741",
         "published": "2026-09-27T08:16:26Z",
@@ -14836,506 +15086,6 @@
         "score": 7.3,
         "cvss_version": "40",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-12559",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97061",
-        "published": "2026-09-24T14:18:22Z",
-        "description": "Black Candy through 3.2.1 fails to scope playlist search queries to the authenticated session user, allowing any authenticated user to enumerate all playlists on the instance. Attackers can query the SearchController or Search::PlaylistsController endpoints with blank or targeted search parameters t",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97061",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97062",
-        "published": "2026-09-24T14:18:22Z",
-        "description": "Aureus ERP through 1.6.0 stores uploaded SVG files on its public disk and serves them from the application origin, allowing authenticated users to upload malicious SVG files containing JavaScript. Attackers can craft SVG files with script elements that execute in the application's origin when the fi",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97062",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97359",
-        "published": "2026-09-24T14:18:22Z",
-        "description": "HFS2 version 2.4.0 and earlier contains a template injection vulnerability in the multipart upload handler that allows unauthenticated attackers to achieve remote code execution by embedding malicious template syntax in a filename. Attackers can craft a filename containing a closing template quoting",
-        "severity": "CRITICAL",
-        "score": 10.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97359",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97360",
-        "published": "2026-09-24T14:18:22Z",
-        "description": "HFS2 version 2.4.0 and earlier contains an unauthenticated arbitrary file access vulnerability that allows unauthenticated attackers to read, write, append, and delete files anywhere the HFS service account has filesystem access outside the shared folder. Attackers can exploit the macro dispatcher's",
-        "severity": "CRITICAL",
-        "score": 10.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97360",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97057",
-        "published": "2026-09-24T14:18:21Z",
-        "description": "redis-parser through 3.0.0 fails to validate the multi-bulk length value in RESP protocol parsing, allowing attackers to trigger an uncaught RangeError by supplying an excessively large declared length. A malicious or compromised Redis endpoint can deliver a crafted RESP header with a length above 2",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97057",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97058",
-        "published": "2026-09-24T14:18:21Z",
-        "description": "sprintf-js through 1.1.3 passes unbounded precision specifiers to toFixed, toExponential, and toPrecision methods without validation, causing uncaught RangeError exceptions. Attackers who control format strings can inject precision values exceeding ECMAScript limits to abort calling operations with ",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97058",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97059",
-        "published": "2026-09-24T14:18:21Z",
-        "description": "DCMTK through 3.7.0 contains a heap over-read vulnerability in ConcatenationLoader that copies pixel data frames without validating the PixelData buffer length against the declared NumberOfFrames. Attackers can craft malicious DICOM instances declaring more frames than the buffer contains to trigger",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97059",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-95519",
-        "published": "2026-09-24T14:18:20Z",
-        "description": "A flaw was found in rpm. An attacker can supply a crafted manifest file that, when processed by a user or automation using `rpm -q -p` or similar manifest-processing flows, leads to arbitrary code execution. This occurs because manifest entries are unexpectedly macro-expanded before being opened, al",
-        "severity": "HIGH",
-        "score": 7.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-95519",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-95521",
-        "published": "2026-09-24T14:18:20Z",
-        "description": "A command injection flaw was found in rpm. Installing or rebuilding a source RPM whose source or spec file basenames contain a %() macro construct causes rpm to execute an attacker-controlled shell command via popen() while relocating the source file list. This allows arbitrary command execution as ",
-        "severity": "HIGH",
-        "score": 7.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-95521",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-88359",
-        "published": "2026-09-24T14:18:18Z",
-        "description": "libfyaml 0.9.6 contains a stack exhaustion vulnerability in fy_atom_iter_format(). When processing a specially crafted YAML document containing a very large literal or folded block scalar, the function repeatedly grows an internal buffer using alloca() inside a loop. The allocated stack memory is no",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88359",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-88360",
-        "published": "2026-09-24T14:18:18Z",
-        "description": "libvips 8.19.0 contains a memory access vulnerability when processing little-endian PFM images. If the PFM text header length is not a multiple of four bytes, the mmap-based loader can expose pixel data at an address that is not properly aligned for float access. vips_avg_scan() subsequently derefer",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88360",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-91187",
-        "published": "2026-09-24T14:18:18Z",
-        "description": "Improper Verification of Cryptographic Signature vulnerability in dashbit nimble_zta allows an unauthenticated remote attacker to authenticate as an arbitrary Cloudflare service token. Applications using the Cloudflare Zero Trust authentication strategy are affected.\n\nverify_token/2 in lib/nimble_zt",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-91187",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-77797",
-        "published": "2026-09-24T14:18:17Z",
-        "description": "Velociraptor's prefetch library contains an out of bound vulnerability which may cause a crash when parsing certain malformed prefetch files.",
-        "severity": "LOW",
-        "score": 3.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-77797",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-77798",
-        "published": "2026-09-24T14:18:17Z",
-        "description": "Velociraptor contains a deadlock condition that may be triggered by authenticated users. The issue stems from a lock management bug in the user management module.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-77798",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-17503",
-        "published": "2026-09-24T14:17:12Z",
-        "description": "IBM PowerVM Hypervisor FW1120.00 through FW1120.01, FW1110.00 through FW1110.31, FW1060.00 through FW1060.81, and FW950.00 through FW950.H3 is affected by a vulnerability in the partition firmware runtime boot configuration. An attacker with root access to a partition can maliciously alter partition",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-17503",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-17504",
-        "published": "2026-09-24T14:17:12Z",
-        "description": "IBM PowerVM Hypervisor FW1120.00 through FW1120.01, FW1110.00 through FW1110.31, FW1060.00 through FW1060.81, and FW950.00 through FW950.H3 is affected by a vulnerability in the partition firmware runtime. An attacker with root access to a partition can send a specially crafted request to the partit",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-17504",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-17511",
-        "published": "2026-09-24T14:17:12Z",
-        "description": "IBM PowerVM Hypervisor FW1120.00 through FW1120.01, FW1110.00 through FW1110.31, FW1060.00 through FW1060.81, and FW950.00 through FW950.H3 is affected by a vulnerability in the partition resource dump interface. An attacker with authenticated administrator-level access to the HMC or service process",
-        "severity": "LOW",
-        "score": 3.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-17511",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-18104",
-        "published": "2026-09-24T14:17:12Z",
-        "description": "IBM Db2 Mirror for i 7.6, 7.5, and 7.4 could allow a local attacker to obtain sensitive information due to the use of the AES Electronic Codebook (ECB) mode for encryption.",
-        "severity": "LOW",
-        "score": 3.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18104",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-18857",
-        "published": "2026-09-24T14:17:12Z",
-        "description": "IBM OPENBMC FW1120.00 through FW1120.01, FW1110.00 through FW1110.31, and FW1060.00 through FW1060.81 is affected by a vulnerability in the BMC firmware management interface. The host system can cause the BMC firmware management service to crash or allow a limited amount of BMC internal memory to be",
-        "severity": "LOW",
-        "score": 3.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18857",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-17413",
-        "published": "2026-09-24T14:17:11Z",
-        "description": "IBM PowerVM Hypervisor FW1120.00 through FW1120.01, FW1110.00 through FW1110.31, FW1060.00 through FW1060.81, and FW950.00 through FW950.H3 is affected by a vulnerability in the RTAS firmware-to-OS interface. An attacker with administrator-level (root) access to a logical partition can send a specia",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-17413",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97182",
-        "published": "2026-09-24T13:17:19Z",
-        "description": "A security vulnerability has been detected in halo-dev Halo up to 2.25.4/2.26.1. Affected is an unknown function of the file application/src/main/java/run/halo/app/content/comment/ReplyNotificationSubscriptionHelper.java of the component SpEL Handler. Such manipulation leads to improper neutralizati",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97182",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-94416",
-        "published": "2026-09-24T13:17:17Z",
-        "description": "An authorization bypass was found in the Ansible Automation Platform (AAP) gateway. The gateway API allows an authenticated administrator to create a new service key for the Controller service cluster. Because service-key creation is not restricted to the installer-provisioned provisioning path, an ",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-94416",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96515",
-        "published": "2026-09-24T13:17:17Z",
-        "description": "This\nvulnerability exists in the Netlink ICT HG323RW router due to insufficient\nauthorization and input validation controls in the diagnostic script import\nfunctionality. An authenticated attacker could exploit this vulnerability by\nuploading and executing a specially crafted script through the web ",
-        "severity": "HIGH",
-        "score": 8.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96515",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-88916",
-        "published": "2026-09-24T13:17:16Z",
-        "description": "Incorrect Authorization vulnerability in TÜBİTAK ULAKBİM UlakPDF allows Privilege Escalation.\n\nThis issue affects UlakPDF: through 09092026.",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88916",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-88907",
-        "published": "2026-09-24T13:17:15Z",
-        "description": "Incorrect Authorization vulnerability in TÜBİTAK ULAKBİM UlakPDF allows Authentication Bypass.\n\nThis issue affects UlakPDF: through 09092026.",
-        "severity": "HIGH",
-        "score": 7.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88907",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-19072",
-        "published": "2026-09-24T13:17:09Z",
-        "description": "Velociraptor stores the compiled VQL in the hunt object internally to avoid having to recompile the artifacts for each endpoint in the hunt. Although the field \"compiled_collector_args\" is an internal field, Velociraptor allowed the field to be set from a user API call. This allows another user who ",
-        "severity": "CRITICAL",
-        "score": 9.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-19072",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97311",
-        "published": "2026-09-24T12:17:13Z",
-        "description": "A flaw was found in the Admin REST API of Keycloak, an identity and access management solution. The endpoints used to retrieve groups associated with a specific role do not properly check for individual group visibility permissions. This allows a delegated administrator with basic search privileges ",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97311",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-19532",
-        "published": "2026-09-24T12:17:12Z",
-        "description": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in HAVELSAN Inc. Liman MYS allows Path Traversal.\n\nThis issue affects Liman MYS: from 2.3.2 before 2.3.4-1124.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-19532",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-3253",
-        "published": "2026-09-24T12:17:12Z",
-        "description": "The MailerLite – Signup forms (official) plugin for WordPress is vulnerable to unauthorized modification of data due to a missing capability check on the forms() method of the AdminController class in all versions up to, and including, 1.7.21. This makes it possible for authenticated attackers, with",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-3253",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-4806",
-        "published": "2026-09-24T12:17:12Z",
-        "description": "The Custom Thank You Page for WooCommerce plugin for WordPress is vulnerable to unauthorized access and loss of data due to a missing capability check on the save_option() function in all versions up to, and including, 1.1.2. This makes it possible for unauthenticated attackers to to export or reset",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-4806",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-7169",
-        "published": "2026-09-24T12:17:12Z",
-        "description": "a vulnerability involving an unchecked search path element in Evope Collector, versions prior to 1.1.7.13, allows a local attacker without privileges to load a malicious DLL by placing a ‘wtsapi32.dll’ file in the ‘C:\\ProgramData\\Evope\\’ directory. The ‘Evope.Service.exe’ component, which runs with ",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-7169",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-16302",
-        "published": "2026-09-24T12:17:11Z",
-        "description": "The Spectra Legacy – Gutenberg Blocks plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 2.20.0 via the editor_assets function,  which exposes the uag_insta_linked_accounts option through the uagb_blocks_info object without a capability check. ",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-16302",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97179",
-        "published": "2026-09-24T11:17:06Z",
-        "description": "A security vulnerability has been detected in O2OA up to 9.5.3/10.0.2. This vulnerability affects the function list of the file o2server/x_base_core_project/src/main/java/com/x/base/core/project/connection/CipherConnectionAction.java of the component Cipher Connection Handler. Such manipulation of t",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97179",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-79680",
-        "published": "2026-09-24T11:16:47Z",
-        "description": "Authentication bypass vulnerability in the password authentication mechanism of the Qt VNC Server module. An attacker using a specially modified VNC client that violates the RFB protocol can bypass Qt VNC Server's password authentication and gain unauthorized remote access to the shared application,",
-        "severity": "MEDIUM",
-        "score": 4.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-79680",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-4638",
-        "published": "2026-09-24T11:16:45Z",
-        "description": "PRTG Network Monitor before version 26.2.120.1449 ships a demo EXE/Script sensor that multiplies two integer parameters using cscript.exe. If a non-numeric value is passed instead, cscript.exe raises a 'Type mismatch' runtime error that includes the offending parameter value in plaintext. PRTG provi",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-4638",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-57590",
-        "published": "2026-09-24T10:17:38Z",
-        "description": "A missing authorization vulnerability exists in the Task Group APIs of Apache DolphinScheduler. The affected APIs do not properly verify whether the authenticated user has permission to access the project associated with the target Task Group.\n\n\n\nThis issue affects Apache DolphinScheduler: before 3.",
-        "severity": "HIGH",
-        "score": 8.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57590",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-92905",
-        "published": "2026-09-24T10:17:38Z",
-        "description": "ZohoCorp ManageEngine EventLog Analyzer and Log360 before build 13071 were vulnerable to a DoS vulnerability that allowed attackers to crash the log collector using malformed syslog packets.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92905",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-18335",
-        "published": "2026-09-24T10:17:37Z",
-        "description": "The Kirki – Freeform Page Builder, Website Builder & Customizer plugin for WordPress is vulnerable to Blind Server-Side Request Forgery in all versions up to, and including, 6.2.0 via the 'kirki_data' Parameter. This makes it possible for unauthenticated attackers to make web requests to arbitrary l",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18335",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-4637",
-        "published": "2026-09-24T10:17:37Z",
-        "description": "Paessler PRTG Network Monitor before version 26.2.120.1449 is affected by a reflected Cross-Site Scripting (XSS) vulnerability. When a request is made for a non-existent resource ending in \\\".htm\\\", the web interface returns an HTTP 403 \\\"Forbidden Path\\\" error page that echoes the requested URL pat",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-4637",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-15731",
-        "published": "2026-09-24T10:17:36Z",
-        "description": "The WP Multilang – Translation and Multilingual Plugin plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the post content in all versions up to, and including, 2.4.31 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, w",
-        "severity": "MEDIUM",
-        "score": 6.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-15731",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-12227",
-        "published": "2026-09-24T10:17:32Z",
-        "description": "The Visual Composer Website Builder plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 45.16.0 via the `vcv-template` parameter. This makes it possible for unauthenticated attackers to include and execute arbitrary files on the server, allowing the execu",
-        "severity": "CRITICAL",
-        "score": 9.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-12227",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-78308",
-        "published": "2026-09-24T09:17:08Z",
-        "description": "Improper Authentication vulnerability in DIAEnergie allows Authentication Bypass.\n\nThis issue affects DIAEnergie: before 1.11.00.022.",
-        "severity": "CRITICAL",
-        "score": 9.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-78308",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-78309",
-        "published": "2026-09-24T09:17:08Z",
-        "description": "SQL Injection vulnerability in DIAEnergie.\n\nThis issue affects DIAEnergie: before 1.11.00.022.",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-78309",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-78310",
-        "published": "2026-09-24T09:17:08Z",
-        "description": "Authorization Bypass Through User-Controlled Key in DIAEnergie.\n\nThis issue affects DIAEnergie: before 1.11.00.022.",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-78310",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-78311",
-        "published": "2026-09-24T09:17:08Z",
-        "description": "SQL Injection vulnerability in DIAEnergie.\n\nThis issue affects DIAEnergie: before 1.11.00.022.",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-78311",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-78312",
-        "published": "2026-09-24T09:17:08Z",
-        "description": "Path Traversal in DIAEnergie.\n\nThis issue affects DIAEnergie: before 1.11.00.022.",
-        "severity": "CRITICAL",
-        "score": 9.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-78312",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-78313",
-        "published": "2026-09-24T09:17:08Z",
-        "description": "Improper Access Control in DIAEnergie.\n\nThis issue affects DIAEnergie: before 1.11.00.022.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-78313",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-85682",
-        "published": "2026-09-24T09:17:08Z",
-        "description": "The YOP Poll plugin for WordPress is vulnerable to Origin Validation Error in all versions up to, and including, 7.0.10. This is due to the plugin transmitting a wp_rest nonce to window.opener via postMessage() with a wildcard targetOrigin. This makes it possible for unauthenticated attackers to ste",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-85682",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97185",
-        "published": "2026-09-24T09:17:08Z",
-        "description": "A flaw was found in GIMP. When processing a specially crafted GIMPressionist preset file, the plug-in does not properly validate vector indices before writing into fixed-size arrays. This can lead to an out-of-bounds write, corrupting memory. An attacker could exploit this by convincing a user to lo",
-        "severity": "HIGH",
-        "score": 7.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97185",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-77193",
-        "published": "2026-09-24T09:17:07Z",
-        "description": "The eesy_ID2WP – Publish InDesign HTML5 plugin for WordPress is vulnerable to Path Traversal in all versions up to, and including, 1.0.3 via the `id2wp_path` parameter. This makes it possible for unauthenticated attackers to read the contents of arbitrary files on the server, which can contain sensi",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-77193",
         "kev": false
       }
     ]
