@@ -1,9 +1,73 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-09-27T08:55:57Z",
+  "updated_at": "2026-09-27T18:46:22Z",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-pvh9-pfxq-jq5q",
+      "title": "[GHSA-pvh9-pfxq-jq5q] Malicious code in aseity (PyPI)",
+      "published": "2026-09-27T15:31:14Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (cf65ea5c0fe1eeef9f47a75d65e291a715094076714694247ad03714eabc53ca) \n During installation, obfuscated code is used to fetch code hidden in an image containing a Python application with a native extension module. This module holds an obfuscated infostealer which collects sensitive data ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-frv4-982x-mv7m",
+      "title": "[GHSA-frv4-982x-mv7m] Malicious code in scrapetools2 (PyPI)",
+      "published": "2026-09-27T15:31:14Z",
+      "ecosystem": "PIP",
+      "summary": "Source: amazon-inspector (44124d389269a5e4dc8801d3af1afeb08aee57313fcc7082570c5890e7d89233) \n scrapetools2 1.2.1 ships an auto-update mechanism in downloader.py that fetches tar.gz payloads from public IPFS gateways (eu.orbitor.dev, dget.top, ipfs.filebase.io) at the author-controlled IPNS name k51q",
+      "link": ""
+    },
+    {
+      "id": "GHSA-78pg-cc9h-7rf3",
+      "title": "[GHSA-78pg-cc9h-7rf3] Malicious code in coinscan (PyPI)",
+      "published": "2026-09-27T12:30:23Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (d403e54ce25ec07ec9979ba880af4930ded34a3702e9829c69a8e67279c26d59) \n During installation, obfuscated code is used to fetch code hidden in an image containing a Python application with a native extension module. This module holds an obfuscated infostealer which collects sensitive data ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-8p46-j5h8-w78j",
+      "title": "[GHSA-8p46-j5h8-w78j] Malicious code in caracas4check (PyPI)",
+      "published": "2026-09-27T12:30:23Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (fe298eb267ef99191242315438fe8b7a619bece89e39d3e607cc34af455c647a) \n During installation, the code downloads a malicious executable from a remote location. The malicious action is triggered only on specific hosts. \n \n Category: MALICIOUS - The campaign has clearly malicious intent, li",
+      "link": ""
+    },
+    {
+      "id": "GHSA-28f3-pmhh-qxcm",
+      "title": "[GHSA-28f3-pmhh-qxcm] Malicious code in claudedashbord (PyPI)",
+      "published": "2026-09-27T09:31:15Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (5a1141a5d4c10d0c58128d6397750ce3fcd2ab16eea32113be3da61d7a16f5a6) \n During installation, obfuscated code is used to fetch code hidden in an image containing a Python application with a native extension module. This module holds an obfuscated infostealer which collects sensitive data ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-vcmr-hgqh-xrh3",
+      "title": "[GHSA-vcmr-hgqh-xrh3] Malicious code in metrics-sdk (PyPI)",
+      "published": "2026-09-27T09:31:15Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (1378dcfc94bda0e9beb3e3d66c0588967a164741686ab473826fbab077e7afb9) \n Installing the package or importing the module exfiltrates basic information about the host, and the package has no other purpose. \n \n Category: PROBABLY_PENTEST - Packages looking like typical pentest packages, but ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-ww2h-pjh2-r85q",
+      "title": "[GHSA-ww2h-pjh2-r85q] Malicious code in metrio (PyPI)",
+      "published": "2026-09-27T09:31:15Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (f7b0289ef68f815e0fd296282739990dfc918c0070fb5acdae2787ca8eba23f3) \n Installing the package or importing the module exfiltrates basic information about the host, and the package has no other purpose. \n \n Category: PROBABLY_PENTEST - Packages looking like typical pentest packages, but ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-c2rx-rjgw-p83h",
+      "title": "[GHSA-c2rx-rjgw-p83h] Malicious code in donutpromotion (PyPI)",
+      "published": "2026-09-27T09:31:15Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (26201e7959d7a736440fa6fb22ba7b9911c269b08460374d0a2db307ba6b0273) \n During installation, obfuscated code is used to fetch code hidden in an image containing a Python application with a native extension module. This module holds an obfuscated infostealer which collects sensitive data ",
+      "link": ""
+    },
     {
       "id": "GHSA-2w77-qp99-3jvq",
       "title": "[GHSA-2w77-qp99-3jvq] Malicious code in donutautosellsrc (PyPI)",
@@ -245,54 +309,6 @@
       "link": ""
     },
     {
-      "id": "GHSA-93mr-5j8f-6p3w",
-      "title": "[GHSA-93mr-5j8f-6p3w] Malicious code in chromatitle-js (npm)",
-      "published": "2026-09-25T03:31:07Z",
-      "ecosystem": "NPM",
-      "summary": "Source: amazon-inspector (eff7b9f53e0aed7a8a1c48ae92851ea0ed67b86566d208c78329ecb1b8a73173) \n src/index.js unconditionally invokes _bootstrap() from src/utils/bootstrap.js at module load time. bootstrap.js is heavily obfuscated with javascript-obfuscator (400-entry rotating string-array decoder, hex",
-      "link": ""
-    },
-    {
-      "id": "GHSA-f77h-w3rc-2c74",
-      "title": "[GHSA-f77h-w3rc-2c74] Malicious code in n8n-nodes-moonlet-utils (npm)",
-      "published": "2026-09-25T03:31:07Z",
-      "ecosystem": "NPM",
-      "summary": "Source: amazon-inspector (f49ee5bcbcb7e8f1028de4021134fdbbc895e737700cf82a834fb26d3b23dd05) \n postinstall.js fetches an opaque binary from  https://mkicom.com/.well-known/pki-validation/ct_dn8 , writes it to /tmp/.nc, chmods it 0755, and launches it detached via  spawn('/bin/sh', ['-c', 'setsid ' + ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-qx8m-mvxg-49m3",
-      "title": "[GHSA-qx8m-mvxg-49m3] Malicious code in better-dotenv3 (npm)",
-      "published": "2026-09-25T03:31:07Z",
-      "ecosystem": "NPM",
-      "summary": "Source: amazon-inspector (f996c75c75423a57a64c1c89b04f2e1ba87674973dba2dd359df5b0937ffe3cf) \n The package is a dotenv typosquat that runs a hidden Windows loader on every require() and on CLI startup. dist/index.cjs and dist/cli.cjs invoke dispatchAnalytics() unconditionally at module top-level; tha",
-      "link": ""
-    },
-    {
-      "id": "GHSA-wm7h-qmp4-782c",
-      "title": "[GHSA-wm7h-qmp4-782c] Malicious code in n8n-nodes-flowstats (npm)",
-      "published": "2026-09-25T03:31:07Z",
-      "ecosystem": "NPM",
-      "summary": "Source: amazon-inspector (8aa25eb3d56eb14b75cbb4dedbd5d09063e4b742b53acef9a4096cc77213b8f3) \n The package presents itself as an n8n community node that annotates items with flow statistics, but nodes/FlowStats.node.js contains two independent attacker-benefiting mechanisms. First, a top-level IIFE r",
-      "link": ""
-    },
-    {
-      "id": "GHSA-qwj9-hfhg-j6vh",
-      "title": "[GHSA-qwj9-hfhg-j6vh] Malicious code in agency-test-exercise (npm)",
-      "published": "2026-09-25T03:31:07Z",
-      "ecosystem": "NPM",
-      "summary": "Source: amazon-inspector (43eddaf152e2aa60b9f823513a2d9b11fc424a5cff4bb3c031f6823a48dc2f4e) \n package.json declares a postinstall hook  wscript.exe 4444.vbs  that fires automatically on  npm install . The shipped 4444.vbs contains a ~660-entry base64 string array (ArtifactBundleHX) that is reassembl",
-      "link": ""
-    },
-    {
-      "id": "GHSA-7pgp-qm32-53rp",
-      "title": "[GHSA-7pgp-qm32-53rp] Malicious code in chromatitle (npm)",
-      "published": "2026-09-25T03:31:07Z",
-      "ecosystem": "NPM",
-      "summary": "Source: amazon-inspector (793cf7eb2b4de9c41e229fc89c393e38f05141991762f69f310e1397fa464f9c) \n chromatitle advertises itself as an ANSI color/title formatting library but its main entry src/index.js unconditionally calls _bootstrap() at top level, transferring control to src/utils/bootstrap.js. boots",
-      "link": ""
-    },
-    {
       "id": "GHSA-5qqj-qfpp-jfqw",
       "title": "[GHSA-5qqj-qfpp-jfqw] Malicious code in @alphaspace/core (npm)",
       "published": "2026-09-25T03:31:06Z",
@@ -306,22 +322,6 @@
       "published": "2026-09-25T00:31:03Z",
       "ecosystem": "PIP",
       "summary": "Source: kam193 (5bd13c006fe4fbaf8bb81d068f6e3c822ea1e664b24d0045370aead862ccd06f) \n Installing the package or importing the module exfiltrates basic information about the host, and the package has no other purpose. \n \n Category: PROBABLY_PENTEST - Packages looking like typical pentest packages, but ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-6v7p-c53r-646f",
-      "title": "[GHSA-6v7p-c53r-646f] Malicious code in prosocks (PyPI)",
-      "published": "2026-09-24T21:31:17Z",
-      "ecosystem": "PIP",
-      "summary": "Source: kam193 (a1ca37b881f19975a8ab8b23bd5e69b51355333374385aabfc5784b69bf95545) \n The package automatically joins the machine to a proxy network. Depending on the version, it can happen during the package installation or when importing the module. \n \n Category: MALICIOUS - The campaign has clearly",
-      "link": ""
-    },
-    {
-      "id": "GHSA-6r46-f382-x53p",
-      "title": "[GHSA-6r46-f382-x53p] Malicious code in com.apple.unityplugin.storekit (npm)",
-      "published": "2026-09-23T15:30:25Z",
-      "ecosystem": "NPM",
-      "summary": "Source: amazon-inspector (920277566757bdc38563c7e2150e906790478cbd7a0c48f0bb53004e82eec4ca) \n The package impersonates an Apple/Unity StoreKit internal namespace (com.apple.unityplugin.storekit) and, on require(), index.js performs an HTTPS GET to a hardcoded Project Discovery Interactsh (oast.fun) ",
       "link": ""
     },
     {
