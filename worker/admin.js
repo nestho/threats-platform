@@ -1,0 +1,422 @@
+/**
+ * threats.top admin Worker — the only write path into published data.
+ *
+ * REPLACES the version that previously existed only in the Cloudflare dashboard
+ * and was not in version control. This file is a clean-room reconstruction: the
+ * behaviour is inferred from admin/index.html and the documented data flow, so
+ * DIFF IT AGAINST THE DASHBOARD VERSION before deploying. Anything marked
+ * "VERIFY" is an assumption, not a known fact.
+ *
+ * Data flow:
+ *   admin/index.html --(X-Admin-Password)--> this worker
+ *   this worker --(GitHub Contents API, fine-grained PAT)--> data/manual.json
+ *   collector.py merges manual.json into domains.json on its next run
+ *
+ * Secrets (set with `wrangler secret put <NAME>`, never in this file):
+ *   ADMIN_PASSWORD_HASH  SHA-256 hex of the admin password. The plaintext is
+ *                        never stored, so a leaked Worker source does not leak
+ *                        the password. Generate with:
+ *                          printf %s 'yourpassword' | shasum -a 256
+ *   GITHUB_TOKEN         fine-grained PAT, Contents: read+write, scoped to this
+ *                        one repo only, no other permissions.
+ *
+ * Why this is the most security-sensitive file in the repo: everything it writes
+ * lands in data/manual.json, is merged into data/domains.json by an
+ * unauthenticated script, and is then served on a public page and a public API.
+ * A bug here is a content-injection hole in a security product.
+ */
+
+const ALLOWED_ORIGIN = "https://threats.top"; // VERIFY: must match the deployed origin exactly
+
+// Same canonical enum as scripts/collector.py. Kept literal rather than imported
+// because the Worker has no build step; validate_feeds.py is what actually
+// enforces it downstream, so drift here fails the build rather than shipping.
+const CANONICAL_PLATFORMS = new Set([
+  "HackerOne",
+  "Bugcrowd",
+  "Intigriti",
+  "YesWeHack",
+  "HackenProof",
+  "Immunefi",
+  "Self-hosted / Other",
+]);
+
+// VERIFY: confirm the repo/branch/path match the deployment.
+const REPO = "nestho/threats-platform";
+const BRANCH = "main";
+const MANUAL_PATH = "data/manual.json";
+
+const LIMITS = {
+  maxBodyBytes: 16 * 1024,
+  maxPrograms: 2000,
+  maxDomainsPerProgram: 500,
+  maxNameLength: 120,
+  maxUrlLength: 300,
+  // Per-isolate, in-memory. Best-effort only: a Worker isolate can be recycled
+  // at any time, so this raises the cost of a guess but is not a hard guarantee.
+  // Cloudflare Rate Limiting Rules or a Durable Object would be the real control.
+  authAttemptsPerMinute: 8,
+  writeAttemptsPerMinute: 12,
+};
+
+const attempts = new Map();
+
+/** Fixed-window per-IP limiter. Best-effort; see LIMITS.authAttemptsPerMinute. */
+function rateLimited(request, limit) {
+  const ip = request.headers.get("CF-Connecting-IP") || "unknown";
+  const now = Date.now();
+  const window = Math.floor(now / 60000);
+  const key = `${ip}:${window}`;
+  const count = (attempts.get(key) || 0) + 1;
+  attempts.set(key, count);
+  // Opportunistic cleanup so the map does not grow without bound.
+  if (attempts.size > 5000) {
+    for (const [k, v] of attempts) {
+      if (!k.endsWith(`:${window}`)) attempts.delete(k);
+      if (attempts.size <= 2500) break;
+    }
+  }
+  return count > limit;
+}
+
+function json(body, status, extraHeaders = {}) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      "Cache-Control": "no-store",
+      "X-Content-Type-Options": "nosniff",
+      ...extraHeaders,
+    },
+  });
+}
+
+/**
+ * CORS, strictly.
+ *
+ * Reflecting an arbitrary Origin with credentials is the classic way an admin
+ * panel becomes a CSRF target, so this echoes exactly one origin and nothing
+ * else. Preflight is answered without auth because the browser will not send
+ * credentials on a preflight.
+ */
+function corsHeaders(request) {
+  const origin = request.headers.get("Origin");
+  if (origin !== ALLOWED_ORIGIN) return null;
+  return {
+    "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
+    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type, X-Admin-Password",
+    "Access-Control-Max-Age": "600",
+    "Vary": "Origin",
+  };
+}
+
+async function sha256Hex(text) {
+  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+  return [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+/**
+ * Authenticate by comparing SHA-256 digests.
+ *
+ * The comparison is length-independent and byte-by-byte with an accumulate, so
+ * it does not short-circuit on the first differing character. Over TLS with a
+ * strong secret that is defence in depth rather than the main control — the main
+ * control is the rate limiter plus keeping the plaintext out of source.
+ */
+async function authorized(request, env) {
+  const presented = request.headers.get("X-Admin-Password") || "";
+  if (!presented) return false;
+
+  let expectedHash;
+  try {
+    expectedHash = await sha256Hex(presented);
+  } catch {
+    return false;
+  }
+
+  const configured = env.ADMIN_PASSWORD_HASH || "";
+  if (!configured) {
+    // Fail closed and loudly. An unset secret must never mean "no auth required".
+    console.error("ADMIN_PASSWORD_HASH is not set — refusing every request");
+    return false;
+  }
+
+  const a = new TextEncoder().encode(expectedHash);
+  const b = new TextEncoder().encode(configured.trim().toLowerCase());
+  if (a.length !== b.length) return false;
+  let diff = 0;
+  for (let i = 0; i < a.length; i += 1) diff |= a[i] ^ b[i];
+  return diff === 0;
+}
+
+/**
+ * Validate a program payload. This is the security boundary that was missing
+ * when admin/index.html posted straight into manual.json: an unvalidated
+ * platform string is what split the published enum into "Bugcrowd" and
+ * "BugCrowd", and there is no other check between here and the public site.
+ */
+function validateProgram(input) {
+  const errors = [];
+
+  if (!input || typeof input !== "object" || Array.isArray(input)) {
+    return { errors: ["body must be a JSON object"] };
+  }
+
+  const name = typeof input.name === "string" ? input.name.trim() : "";
+  if (!name) errors.push("name is required");
+  else if (name.length > LIMITS.maxNameLength) {
+    errors.push(`name must be <= ${LIMITS.maxNameLength} characters`);
+  }
+  // Control characters in a name would corrupt the rendered page and can be used
+  // to spoof another program's display.
+  // Written with explicit escapes, not literal control bytes: a raw 0x00 in
+  // source makes git classify the file as binary and is invisible in editors.
+  else if (/[\x00-\x1f\x7f]/.test(name)) {
+    errors.push("name contains control characters");
+  }
+
+  let url = typeof input.url === "string" ? input.url.trim() : "";
+  if (url) {
+    if (url.length > LIMITS.maxUrlLength) {
+      errors.push(`url must be <= ${LIMITS.maxUrlLength} characters`);
+    } else {
+      let parsed;
+      try {
+        parsed = new URL(url);
+      } catch {
+        errors.push("url is not a valid absolute URL");
+      }
+      if (parsed && parsed.protocol !== "https:") {
+        errors.push("url must use https");
+      }
+    }
+  } else {
+    url = "";
+  }
+
+  let platform = typeof input.platform === "string" ? input.platform.trim() : "";
+  if (!platform) {
+    platform = "Self-hosted / Other";
+  } else {
+    const match = [...CANONICAL_PLATFORMS].find((p) => p.toLowerCase() === platform.toLowerCase());
+    if (match) {
+      platform = match; // canonicalise, so "BugCrowd" cannot re-enter the enum
+    } else {
+      errors.push(`platform must be one of: ${[...CANONICAL_PLATFORMS].join(", ")}`);
+    }
+  }
+
+  const domains = Array.isArray(input.domains) ? input.domains : [];
+  if (domains.length > LIMITS.maxDomainsPerProgram) {
+    errors.push(`at most ${LIMITS.maxDomainsPerProgram} domains per program`);
+  }
+  const cleanDomains = [];
+  for (const raw of domains) {
+    if (typeof raw !== "string") {
+      errors.push("every domain must be a string");
+      break;
+    }
+    const domain = raw.trim().toLowerCase();
+    if (!domain) continue;
+    // Accept a hostname or a URL, store the hostname. Deliberately strict: a
+    // scope entry that is not a hostname is a mistake worth surfacing, and this
+    // value is rendered as a copyable "in-scope" token.
+    let host = domain;
+    if (host.includes("://")) {
+      try {
+        host = new URL(host).hostname;
+      } catch {
+        errors.push(`"${raw}" is not a valid URL`);
+        break;
+      }
+    }
+    host = host.split("/")[0].replace(/^\*\./, "");
+    if (!/^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)+$/.test(host)) {
+      errors.push(`"${raw}" is not a valid domain name`);
+      break;
+    }
+    if (!cleanDomains.includes(host)) cleanDomains.push(host);
+  }
+
+  if (errors.length) return { errors };
+  return { program: { name, url, platform, domains: cleanDomains } };
+}
+
+async function readManual(token) {
+  const res = await fetch(
+    `https://api.github.com/repos/${REPO}/contents/${MANUAL_PATH}?ref=${BRANCH}`,
+    { headers: { Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json" } },
+  );
+  if (res.status === 404) {
+    return { programs: [] }; // first write to a file that does not exist yet
+  }
+  if (!res.ok) {
+    throw new Error(`GitHub read failed: ${res.status}`);
+  }
+  const payload = await res.json();
+  const parsed = JSON.parse(decodeBase64(payload.content));
+  return { programs: Array.isArray(parsed.programs) ? parsed.programs : [] };
+}
+
+function decodeBase64(b64) {
+  const binary = atob(String(b64).replace(/\n/g, ""));
+  const bytes = Uint8Array.from(binary, (c) => c.charCodeAt(0));
+  return new TextDecoder().decode(bytes);
+}
+
+function encodeBase64(text) {
+  const bytes = new TextEncoder().encode(text);
+  let binary = "";
+  for (const byte of bytes) binary += String.fromCharCode(byte);
+  return btoa(binary);
+}
+
+async function writeManual(token, document) {
+  const res = await fetch(
+    `https://api.github.com/repos/${REPO}/contents/${MANUAL_PATH}`,
+    {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/vnd.github+json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        message: `chore(data): admin add/update ${document.programs.at(-1)?.name || "program"}`,
+        content: encodeBase64(JSON.stringify(document, null, 2) + "\n"),
+        branch: BRANCH,
+      }),
+    },
+  );
+  if (!res.ok) {
+    const detail = await res.text();
+    // Do not forward GitHub's response body to the client; it can contain
+    // repository metadata the admin UI has no business surfacing.
+    console.error("GitHub write failed:", res.status, detail.slice(0, 300));
+    throw new Error(`GitHub write failed: ${res.status}`);
+  }
+  return res.json();
+}
+
+async function handleList(request, env) {
+  if (rateLimited(request, LIMITS.authAttemptsPerMinute)) {
+    return json({ error: "too many attempts" }, 429);
+  }
+  if (!(await authorized(request, env))) {
+    // Same response for "no password" and "wrong password" so the endpoint does
+    // not confirm which.
+    return json({ error: "unauthorized" }, 401);
+  }
+  try {
+    const document = await readManual(env.GITHUB_TOKEN);
+    return json({ total: document.programs.length, programs: document.programs });
+  } catch (err) {
+    console.error("list failed:", err.message);
+    return json({ error: "internal error" }, 500);
+  }
+}
+
+async function handleAdd(request, env) {
+  if (rateLimited(request, LIMITS.writeAttemptsPerMinute)) {
+    return json({ error: "too many requests" }, 429);
+  }
+  if (!(await authorized(request, env))) {
+    return json({ error: "unauthorized" }, 401);
+  }
+
+  const declared = request.headers.get("Content-Length");
+  if (declared && Number(declared) > LIMITS.maxBodyBytes) {
+    return json({ error: "payload too large" }, 413);
+  }
+  let raw;
+  try {
+    raw = await request.text();
+  } catch {
+    return json({ error: "could not read body" }, 400);
+  }
+  if (raw.length > LIMITS.maxBodyBytes) {
+    return json({ error: "payload too large" }, 413);
+  }
+
+  let parsed;
+  try {
+    parsed = JSON.parse(raw);
+  } catch {
+    return json({ error: "body must be valid JSON" }, 400);
+  }
+
+  const { program, errors } = validateProgram(parsed);
+  if (errors) {
+    return json({ error: "validation failed", details: errors }, 422);
+  }
+
+  try {
+    const document = await readManual(env.GITHUB_TOKEN);
+    if (document.programs.length >= LIMITS.maxPrograms) {
+      return json({ error: "manual.json is full" }, 409);
+    }
+
+    const existing = document.programs.findIndex((p) => p.name === program.name);
+    let action;
+    if (existing >= 0) {
+      // Merge rather than replace, so re-adding a program never silently drops
+      // domains the operator entered earlier.
+      const merged = new Set([
+        ...(Array.isArray(document.programs[existing].domains) ? document.programs[existing].domains : []),
+        ...program.domains,
+      ]);
+      document.programs[existing] = { ...document.programs[existing], ...program, domains: [...merged] };
+      action = "updated";
+    } else {
+      document.programs.push(program);
+      action = "added";
+    }
+
+    await writeManual(env.GITHUB_TOKEN, document);
+    console.log(`admin write: ${action} ${program.name} (${program.domains.length} domains)`);
+    return json({ ok: true, action, total: document.programs.length });
+  } catch (err) {
+    console.error("add failed:", err.message);
+    return json({ error: "internal error" }, 500);
+  }
+}
+
+export default {
+  async fetch(request, env) {
+    // CORS first: an unknown origin gets nothing, not a permissive default.
+    const cors = corsHeaders(request);
+    if (!cors) {
+      return json({ error: "forbidden" }, 403);
+    }
+
+    if (request.method === "OPTIONS") {
+      return new Response(null, { status: 204, headers: cors });
+    }
+
+    const url = new URL(request.url);
+    try {
+      let response;
+      if (request.method === "GET" && url.pathname === "/list") {
+        response = await handleList(request, env);
+      } else if (request.method === "POST" && url.pathname === "/add") {
+        response = await handleAdd(request, env);
+      } else if (request.method === "GET" && url.pathname === "/health") {
+        // Unauthenticated liveness probe. Exposes nothing about configuration.
+        // Reports liveness only. Deliberately does not reveal whether the
+        // admin secret is configured — that is deployment state, not health.
+        response = json({ ok: true });
+      } else {
+        response = json({ error: "not found" }, 404);
+      }
+      for (const [key, value] of Object.entries(cors)) {
+        response.headers.set(key, value);
+      }
+      return response;
+    } catch (err) {
+      // Never surface a stack trace to the client.
+      console.error("unhandled:", err && err.message);
+      return json({ error: "internal error" }, 500);
+    }
+  },
+};

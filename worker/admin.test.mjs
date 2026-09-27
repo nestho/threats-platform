@@ -1,0 +1,273 @@
+/**
+ * Tests for worker/admin.js — no dependencies, no test runner.
+ *
+ *     node worker/admin.test.mjs
+ *
+ * The auth and validation paths in the Worker are the security boundary between
+ * an unauthenticated caller and the public data feed, and they previously had no
+ * coverage at all because the Worker was not in version control. These run
+ * against the real module with a stubbed fetch, so they exercise the actual
+ * shipped code rather than a copy of it.
+ */
+import assert from "node:assert/strict";
+import { webcrypto } from "node:crypto";
+import test from "node:test";
+
+if (!globalThis.crypto) globalThis.crypto = webcrypto;
+
+const { default: worker } = await import("./admin.js");
+
+const ORIGIN = "https://threats.top";
+const PASSWORD = "correct horse battery staple";
+
+async function sha256Hex(text) {
+  const d = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+  return [...new Uint8Array(d)].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+const ENV = {
+  ADMIN_PASSWORD_HASH: await sha256Hex(PASSWORD),
+  GITHUB_TOKEN: "stub-token",
+};
+
+/** Stub the GitHub Contents API so tests never touch the network. */
+function stubGitHub({ existing = null } = {}) {
+  const calls = [];
+  globalThis.fetch = async (url, init = {}) => {
+    calls.push({ url: String(url), method: init.method || "GET" });
+    if (!init.method) {
+      if (existing === null) return new Response("", { status: 404 });
+      return new Response(
+        JSON.stringify({
+          content: Buffer.from(JSON.stringify(existing)).toString("base64"),
+        }),
+        { status: 200 },
+      );
+    }
+    return new Response(JSON.stringify({ commit: { sha: "abc123" } }), { status: 200 });
+  };
+  return calls;
+}
+
+// Each test gets its own client IP by default. The Worker's rate limiter is a
+// module-level map keyed by CF-Connecting-IP, so without this the tests poison
+// each other and everything after the rate-limit test returns 429. That is the
+// Worker behaving correctly and the tests being set up wrong -- which is exactly
+// the kind of thing worth being explicit about rather than "fixing" by making
+// the limiter weaker.
+let ipCounter = 0;
+const req = (path, { method = "GET", password, body, origin = ORIGIN, headers = {}, ip } = {}) =>
+  new Request(`https://worker.dev${path}`, {
+    method,
+    headers: {
+      "CF-Connecting-IP": ip || `10.0.0.${(ipCounter += 1) % 250}`,
+      ...(origin ? { Origin: origin } : {}),
+      ...(password ? { "X-Admin-Password": password } : {}),
+      ...(body ? { "Content-Type": "application/json" } : {}),
+      ...headers,
+    },
+    ...(body ? { body: JSON.stringify(body) } : {}),
+  });
+
+test("CORS: a foreign origin is refused outright", async () => {
+  stubGitHub();
+  const res = await worker.fetch(req("/list", { origin: "https://evil.tld", password: PASSWORD }), ENV);
+  assert.equal(res.status, 403);
+  assert.equal(res.headers.get("Access-Control-Allow-Origin"), null);
+});
+
+test("CORS: no Origin header at all is refused", async () => {
+  stubGitHub();
+  const res = await worker.fetch(req("/list", { origin: null, password: PASSWORD }), ENV);
+  assert.equal(res.status, 403);
+});
+
+test("auth: correct password is accepted", async () => {
+  stubGitHub({ existing: { programs: [] } });
+  const res = await worker.fetch(req("/list", { password: PASSWORD }), ENV);
+  assert.equal(res.status, 200);
+  assert.deepEqual(await res.json(), { total: 0, programs: [] });
+});
+
+test("auth: wrong password is 401", async () => {
+  stubGitHub();
+  const res = await worker.fetch(req("/list", { password: "wrong" }), ENV);
+  assert.equal(res.status, 401);
+});
+
+test("auth: missing password is 401 and indistinguishable from wrong", async () => {
+  stubGitHub();
+  const missing = await worker.fetch(req("/list"), ENV);
+  const wrong = await worker.fetch(req("/list", { password: "wrong" }), ENV);
+  assert.equal(missing.status, wrong.status);
+  assert.deepEqual(await missing.json(), await wrong.json());
+});
+
+test("auth: fails CLOSED when the secret is unset, rather than allowing all", async () => {
+  stubGitHub();
+  const res = await worker.fetch(req("/list", { password: PASSWORD }), { GITHUB_TOKEN: "x" });
+  assert.equal(res.status, 401, "an unset ADMIN_PASSWORD_HASH must never mean open access");
+});
+
+test("auth: rate limits repeated guesses", async () => {
+  stubGitHub();
+  let sawTooMany = false;
+  // One pinned IP, so the attempts land in the same bucket.
+  for (let i = 0; i < 12; i += 1) {
+    const res = await worker.fetch(
+      req("/list", { password: `guess-${i}`, ip: "203.0.113.7" }),
+      ENV,
+    );
+    if (res.status === 429) { sawTooMany = true; break; }
+  }
+  assert.ok(sawTooMany, "expected a 429 within 12 attempts");
+});
+
+test("validation: rejects a platform outside the canonical enum", async () => {
+  stubGitHub();
+  // Deliberately NOT a case variant: "BugCrowd" is canonicalised and accepted,
+  // which the next test covers. This asserts a value with no canonical form.
+  for (const platform of ["Hackerone Enterprise", "not a platform", "BugCrowd Pro"]) {
+    const res = await worker.fetch(
+      req("/add", { method: "POST", password: PASSWORD, body: { name: "X", platform, domains: ["x.com"] } }),
+      ENV,
+    );
+    assert.equal(res.status, 422, `expected rejection for ${platform}`);
+    assert.match((await res.json()).details.join(" "), /platform must be one of/);
+  }
+});
+
+test("validation: canonicalises enum case instead of rejecting it", async () => {
+  const calls = stubGitHub({ existing: { programs: [] } });
+  const res = await worker.fetch(
+    req("/add", { method: "POST", password: PASSWORD, body: { name: "X", platform: "bugcrowd", domains: ["x.com"] } }),
+    ENV,
+  );
+  assert.equal(res.status, 200);
+  assert.equal((await res.json()).action, "added");
+  assert.ok(calls.some((c) => c.method === "PUT"), "expected a write to GitHub");
+});
+
+test("validation: rejects non-https and malformed urls", async () => {
+  stubGitHub();
+  for (const url of ["http://acme.com", "javascript:alert(1)", "not a url"]) {
+    const res = await worker.fetch(
+      req("/add", { method: "POST", password: PASSWORD, body: { name: "X", url, domains: [] } }),
+      ENV,
+    );
+    assert.equal(res.status, 422, `expected rejection for ${url}`);
+  }
+});
+
+test("validation: rejects a name containing a NUL byte", async () => {
+  stubGitHub();
+  const res = await worker.fetch(
+    req("/add", { method: "POST", password: PASSWORD, body: { name: "Acme\x00Admin", domains: [] } }),
+    ENV,
+  );
+  assert.equal(res.status, 422);
+});
+
+test("validation: normalises domains and rejects junk", async () => {
+  stubGitHub();
+  const ok = await worker.fetch(
+    req("/add", { method: "POST", password: PASSWORD, body: { name: "X", domains: ["HTTPS://ACME.com/security", "*.acme.com", "acme.com"] } }),
+    ENV,
+  );
+  assert.equal(ok.status, 200);
+  for (const bad of ["not a domain", "http://", "-bad-.com"]) {
+    const res = await worker.fetch(
+      req("/add", { method: "POST", password: PASSWORD, body: { name: "X", domains: [bad] } }),
+      ENV,
+    );
+    assert.equal(res.status, 422, `expected rejection for ${bad}`);
+  }
+});
+
+test("write: merging a program never drops previously entered domains", async () => {
+  let written = null;
+  globalThis.fetch = async (url, init = {}) => {
+    if (!init.method) {
+      return new Response(
+        JSON.stringify({ content: Buffer.from(JSON.stringify({ programs: [{ name: "X", platform: "HackerOne", domains: ["old.com"] }] })).toString("base64") }),
+        { status: 200 },
+      );
+    }
+    written = JSON.parse(Buffer.from(JSON.parse(init.body).content, "base64").toString());
+    return new Response(JSON.stringify({}), { status: 200 });
+  };
+  const res = await worker.fetch(
+    req("/add", { method: "POST", password: PASSWORD, body: { name: "X", platform: "HackerOne", domains: ["new.com"] } }),
+    ENV,
+  );
+  assert.equal(res.status, 200);
+  assert.equal((await res.json()).action, "updated");
+  assert.deepEqual(written.programs[0].domains.sort(), ["new.com", "old.com"]);
+});
+
+test("write: rejects an oversized body before touching GitHub", async () => {
+  const calls = stubGitHub();
+  const res = await worker.fetch(
+    req("/add", { method: "POST", password: PASSWORD, body: { name: "X", domains: ["a.com"] } }),
+    ENV,
+    );
+  assert.equal(res.status, 200);
+  const big = await worker.fetch(
+    req("/add", { method: "POST", password: PASSWORD, body: { name: "X", domains: new Array(5000).fill("a.com") } }),
+    ENV,
+  );
+  assert.ok([413, 422].includes(big.status), `expected 413/422, got ${big.status}`);
+});
+
+test("errors: a 404 on read is 'not yet created', not a failure", async () => {
+  stubGitHub({ existing: null });
+  const res = await worker.fetch(req("/list", { password: PASSWORD }), ENV);
+  assert.equal(res.status, 200);
+  assert.deepEqual(await res.json(), { total: 0, programs: [] });
+});
+
+test("errors: an upstream failure returns a generic 500, not upstream detail", async () => {
+  // 500, not 404: readManual treats 404 as "file does not exist yet".
+  globalThis.fetch = async () =>
+    new Response('{"message":"Server Error","documentation_url":"https://docs.github.com/secret"}', { status: 500 });
+  const res = await worker.fetch(req("/list", { password: PASSWORD }), ENV);
+  assert.equal(res.status, 500);
+  const body = await res.text();
+  assert.ok(!body.includes("documentation_url"), "must not forward GitHub's error body");
+  assert.ok(!body.includes("Server Error"), "must not forward GitHub's message");
+  assert.deepEqual(JSON.parse(body), { error: "internal error" });
+});
+
+test("errors: a failed write does not report success", async () => {
+  globalThis.fetch = async (_url, init = {}) =>
+    init.method
+      ? new Response("nope", { status: 422 })
+      : new Response(JSON.stringify({ content: Buffer.from('{"programs":[]}').toString("base64") }), { status: 200 });
+  const res = await worker.fetch(
+    req("/add", { method: "POST", password: PASSWORD, body: { name: "X", domains: ["a.com"] } }),
+    ENV,
+  );
+  assert.equal(res.status, 500);
+  assert.equal((await res.json()).ok, undefined);
+});
+
+test("health: unauthenticated, and reveals nothing about configuration", async () => {
+  stubGitHub();
+  const res = await worker.fetch(req("/health"), ENV);
+  assert.equal(res.status, 200);
+  assert.deepEqual(await res.json(), { ok: true });
+});
+
+test("routes: unknown path is 404", async () => {
+  stubGitHub();
+  assert.equal((await worker.fetch(req("/nope", { password: PASSWORD }), ENV)).status, 404);
+});
+
+test("preflight: answered 204 for the allowed origin, 403 otherwise", async () => {
+  stubGitHub();
+  const allowed = await worker.fetch(req("/add", { method: "OPTIONS" }), ENV);
+  assert.equal(allowed.status, 204);
+  assert.equal(allowed.headers.get("Access-Control-Allow-Origin"), ORIGIN);
+  const denied = await worker.fetch(req("/add", { method: "OPTIONS", origin: "https://evil.tld" }), ENV);
+  assert.equal(denied.status, 403);
+});

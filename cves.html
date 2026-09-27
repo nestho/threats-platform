@@ -4,115 +4,55 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vulnerabilities — Threats</title>
+<meta name="description" content="Recent CVEs, CISA KEV actively exploited vulnerabilities, Exploit-DB exploits, and CERT-EU advisories.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/app.css">
 <style>
-  :root {
-    --bg: #09090b; --surface: #111113; --surface-2: #18181b; --border: #27272a; --border-hover: #3f3f46;
-    --text: #fafafa; --text-secondary: #a1a1aa; --text-muted: #71717a;
-    --accent: #f97316; --link: #38bdf8;
-    --crit: #ef4444; --high: #f97316; --med: #eab308;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--bg); color: var(--text);
-    font-family: Inter, system-ui, sans-serif; font-size: 14px; line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-  }
-  a { color: inherit; text-decoration: none; }
-  .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px 80px; }
-
-  header.site {
-    display: flex; align-items: center; justify-content: space-between;
-    height: 64px; border-bottom: 1px solid var(--border); margin-bottom: 36px;
-  }
-  .logo {
-    display: flex; align-items: center; gap: 10px;
-  }
-  .logo-mark {
-    width: 28px; height: 28px; border-radius: 7px;
-    background: linear-gradient(135deg, #f97316, #ea580c);
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 700; font-size: 13px; color: #0a0a0a;
-  }
-  .logo-name { font-weight: 600; font-size: 15px; letter-spacing: -0.02em; }
-  .logo-name span { color: var(--text-muted); font-weight: 400; }
-  .back { font-size: 13px; color: var(--text-muted); }
-  .back:hover { color: var(--text-secondary); }
-
-  h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 6px; }
-  .sub { color: var(--text-muted); font-size: 13px; margin-bottom: 28px; }
-
-  .tabs { display: flex; gap: 6px; margin-bottom: 16px; flex-wrap: wrap; }
-  .tab {
-    background: transparent; border: 1px solid var(--border); border-radius: 8px;
-    color: var(--text-muted); font-family: inherit; font-size: 13px;
-    padding: 7px 12px; cursor: pointer;
-  }
-  .tab:hover { border-color: var(--border-hover); color: var(--text-secondary); }
-  .tab.active {
-    background: var(--surface); border-color: var(--border-hover);
-    color: var(--text); font-weight: 500;
-  }
-
-  .controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
-  input, select {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
-    color: var(--text); font-family: inherit; font-size: 13px; padding: 9px 12px; outline: none;
-  }
-  input { flex: 1; min-width: 180px; }
-  input:focus, select:focus { border-color: var(--border-hover); }
-
-  .meta-bar {
-    display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
-    font-size: 12px; color: var(--text-muted); margin-bottom: 10px;
-  }
-
-  .card {
-    border: 1px solid var(--border); border-radius: 10px;
-    padding: 16px 18px; margin-bottom: 8px; background: var(--surface);
-  }
+  .card { border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; margin-bottom: 8px; background: var(--surface); }
   .card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
   .id { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; }
   .id a:hover { color: var(--link); }
   .badges { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
-  .badge {
-    font-size: 10px; font-weight: 600; letter-spacing: 0.02em; text-transform: uppercase;
-    padding: 2px 7px; border-radius: 4px; border: 1px solid var(--border);
-    color: var(--text-muted); white-space: nowrap;
-  }
-  .badge.crit { color: var(--crit); border-color: rgba(239,68,68,0.4); }
-  .badge.high { color: var(--high); border-color: rgba(249,115,22,0.4); }
-  .badge.med { color: var(--med); border-color: rgba(234,179,8,0.35); }
-  .badge.kev { background: var(--crit); color: #fff; border-color: var(--crit); }
-  .badge.hot { color: var(--accent); border-color: rgba(249,115,22,0.4); }
   .desc { color: var(--text-secondary); font-size: 13px; line-height: 1.55; margin-top: 8px; max-width: 720px; }
   .meta-row { color: var(--text-muted); font-size: 11px; font-family: 'JetBrains Mono', monospace; margin-top: 8px; }
-  .empty { color: var(--text-muted); padding: 48px 0; text-align: center; font-size: 13px; }
+  .unscored { color: var(--text-muted); font-size: 11px; font-family: 'JetBrains Mono', monospace; }
+
+  /* GHSA had no UI anywhere before this: it was fetched on the homepage, listed
+     in the API catalog, and then never rendered. */
+  .badge.ecosystem { color: var(--link); border-color: rgba(56,189,248,0.35); text-transform: none; letter-spacing: 0; }
 </style>
 </head>
 <body>
 <div class="wrap">
+
   <header class="site">
     <a class="logo" href="/">
       <span class="logo-mark">T</span>
-      <span class="logo-name">Threats <span>/ Vulnerabilities</span></span>
+      <span class="logo-name">Threats <span class="sub">/ Vulnerabilities</span></span>
     </a>
-    <a class="back" href="/">← Home</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/programs.html">Programs</a>
+      <a href="/cves.html" aria-current="page">Vulnerabilities</a>
+      <a href="/threats.html">Cloud threats</a>
+    </nav>
   </header>
 
   <h1>Vulnerabilities</h1>
-  <p class="sub">NVD · CISA KEV · Exploit-DB · CERT-EU</p>
+  <p class="sub">NVD · CISA KEV · Exploit-DB · CERT-EU · GitHub Advisories</p>
 
-  <div class="tabs">
-    <button class="tab active" data-view="recent">Recent CVEs</button>
-    <button class="tab" data-view="kev">Actively exploited</button>
-    <button class="tab" data-view="exploitdb">Exploit-DB</button>
-    <button class="tab" data-view="cert_eu">CERT-EU</button>
+  <div class="tabs" role="tablist" aria-label="Vulnerability source">
+    <button class="tab" role="tab" id="tab-recent" aria-controls="list" aria-selected="true" data-view="recent">Recent CVEs</button>
+    <button class="tab" role="tab" id="tab-kev" aria-controls="list" aria-selected="false" data-view="kev" tabindex="-1">Actively exploited</button>
+    <button class="tab" role="tab" id="tab-exploitdb" aria-controls="list" aria-selected="false" data-view="exploitdb" tabindex="-1">Exploit-DB</button>
+    <button class="tab" role="tab" id="tab-cert_eu" aria-controls="list" aria-selected="false" data-view="cert_eu" tabindex="-1">CERT-EU</button>
+    <button class="tab" role="tab" id="tab-ghsa" aria-controls="list" aria-selected="false" data-view="ghsa" tabindex="-1">GitHub Advisories</button>
   </div>
 
   <div class="controls">
-    <input id="search" placeholder="Search ID, title, description…">
+    <label for="search" class="visually-hidden">Search vulnerabilities</label>
+    <input id="search" type="search" placeholder="Search ID, title, description…" autocomplete="off">
+    <label for="sev-filter" class="section-label" style="margin:0;">Severity</label>
     <select id="sev-filter">
       <option value="">All severities</option>
       <option value="CRITICAL">Critical</option>
@@ -123,156 +63,215 @@
   </div>
 
   <div class="meta-bar">
-    <span id="count-label"></span>
+    <span id="count-label" role="status" aria-live="polite"></span>
     <span id="updated-label"></span>
   </div>
-  <div id="list"></div>
+
+  <div id="list" role="tabpanel" aria-labelledby="tab-recent"></div>
 </div>
 
-<script>
-function esc(s) {
-  const d = document.createElement('div');
-  d.textContent = s ?? '';
-  return d.innerHTML;
-}
+<script type="module">
+import { esc, timeAgo, timeKey, fetchAll, initTabs, setResultCount } from '/assets/app.js';
 
-let cveData = null, edbData = null, certData = null;
-let view = 'recent';
+let store = {};
 
-Promise.allSettled([
-  fetch('/data/cves.json').then(r => r.json()),
-  fetch('/data/exploitdb.json').then(r => r.json()),
-  fetch('/data/cert_eu.json').then(r => r.json()),
-]).then(([a, b, c]) => {
-  if (a.status === 'fulfilled') cveData = a.value;
-  if (b.status === 'fulfilled') edbData = b.value;
-  if (c.status === 'fulfilled') certData = c.value;
-  const ts = cveData?.updated_at || edbData?.updated_at || certData?.updated_at || '';
-  if (ts) document.getElementById('updated-label').textContent =
-    'Updated ' + ts.slice(0, 16).replace('T', ' ') + ' UTC';
-  const q = new URLSearchParams(location.search).get('q');
-  if (q) document.getElementById('search').value = q;
-  render();
-}).catch(() => {
-  document.getElementById('list').innerHTML = '<div class="empty">Data unavailable.</div>';
-});
-
-document.querySelectorAll('.tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-    view = tab.dataset.view;
-    document.getElementById('sev-filter').style.display = view === 'recent' ? '' : 'none';
-    render();
-  });
-});
-
-function sevClass(s) {
-  if (s === 'CRITICAL') return 'crit';
-  if (s === 'HIGH') return 'high';
-  if (s === 'MEDIUM') return 'med';
+function sevClass(severity) {
+  if (severity === 'CRITICAL') return 'crit';
+  if (severity === 'HIGH') return 'high';
+  if (severity === 'MEDIUM') return 'med';
   return '';
 }
 
 function recentCard(i) {
   const sev = i.severity
-    ? `<span class="badge ${sevClass(i.severity)}">${esc(i.severity)}${i.score != null ? ' ' + i.score : ''}</span>` : '';
+    ? `<span class="badge ${sevClass(i.severity)}">${esc(i.severity)}${i.score != null ? ' ' + esc(i.score) : ''}</span>`
+    // ~35% of recent CVEs are genuinely unscored by NVD ("Awaiting Analysis").
+    // The old markup showed nothing at all for those, which read as "low
+    // priority" rather than "not yet assessed". Say which it is, and which CVSS
+    // version produced the number when there is one.
+    : '<span class="unscored">unscored by NVD</span>';
   const kev = i.kev ? '<span class="badge kev">exploited</span>' : '';
-  return `<div class="card">
+  const version = i.cvss_version ? ` · CVSS ${esc(i.cvss_version)}` : '';
+  return `<article class="card">
     <div class="card-head">
-      <span class="id"><a href="${esc(i.link)}" target="_blank" rel="noopener">${esc(i.id)}</a></span>
+      <h2 class="id"><a href="${esc(i.link)}" target="_blank" rel="noopener noreferrer">${esc(i.id)}</a></h2>
       <div class="badges">${kev}${sev}</div>
     </div>
-    <div class="desc">${esc(i.description)}</div>
-    <div class="meta-row">Published ${(i.published || '').slice(0, 10)}</div>
-  </div>`;
+    <p class="desc">${esc(i.description)}</p>
+    <p class="meta-row">${esc(timeAgo(i.published))}${version}</p>
+  </article>`;
 }
 
 function kevCard(i) {
-  const ransom = i.ransomware_use === 'Known'
-    ? '<span class="badge kev">ransomware</span>' : '';
-  return `<div class="card">
+  // ransomware_use is null when CISA publishes "Unknown"; normalised at the
+  // collector so a consumer can test for absence.
+  const ransom = i.ransomware_use
+    ? '<span class="badge kev">ransomware</span>'
+    : '<span class="badge">ransomware: unknown</span>';
+  return `<article class="card">
     <div class="card-head">
-      <span class="id"><a href="${esc(i.link)}" target="_blank" rel="noopener">${esc(i.id)}</a></span>
+      <h2 class="id"><a href="${esc(i.link)}" target="_blank" rel="noopener noreferrer">${esc(i.id)}</a></h2>
       <div class="badges"><span class="badge kev">exploited</span>${ransom}</div>
     </div>
-    <div class="desc">${esc(i.name)} — ${esc(i.vendor)} / ${esc(i.product)}</div>
-    <div class="desc">${esc(i.description)}</div>
-    <div class="meta-row">Added to KEV ${esc(i.date_added)}</div>
-  </div>`;
+    <p class="desc">${esc(i.name)} — ${esc(i.vendor)} / ${esc(i.product)}</p>
+    <p class="desc">${esc(i.description)}</p>
+    <p class="meta-row">Added to KEV ${esc(i.date_added)}</p>
+  </article>`;
 }
 
 function edbCard(i) {
   const type = i.type ? `<span class="badge hot">${esc(i.type)}</span>` : '';
-  return `<div class="card">
+  return `<article class="card">
     <div class="card-head">
-      <span class="id"><a href="${esc(i.link)}" target="_blank" rel="noopener">EDB-${esc(i.id)}</a></span>
+      <h2 class="id"><a href="${esc(i.link)}" target="_blank" rel="noopener noreferrer">EDB-${esc(i.id)}</a></h2>
       <div class="badges">${type}</div>
     </div>
-    <div class="desc">${esc(i.title)}</div>
-    <div class="meta-row">${esc(i.published || '')}</div>
-  </div>`;
+    <p class="desc">${esc(i.title)}</p>
+    <p class="meta-row">${esc(timeAgo(i.published))}</p>
+  </article>`;
 }
 
 function certCard(i) {
-  return `<div class="card">
+  return `<article class="card">
     <div class="card-head">
-      <span class="id"><a href="${esc(i.link)}" target="_blank" rel="noopener">${esc(i.id)}</a></span>
+      <h2 class="id"><a href="${esc(i.link)}" target="_blank" rel="noopener noreferrer">${esc(i.id)}</a></h2>
       <div class="badges"><span class="badge">CERT-EU</span></div>
     </div>
-    <div class="desc">${esc(i.title)}</div>
-    ${i.summary ? `<div class="desc">${esc(i.summary)}</div>` : ''}
-    <div class="meta-row">${esc(i.published || '')}</div>
-  </div>`;
+    <p class="desc">${esc(i.title)}</p>
+    ${i.summary ? `<p class="desc">${esc(i.summary)}</p>` : ''}
+    <p class="meta-row">${esc(timeAgo(i.published))}</p>
+  </article>`;
+}
+
+function ghsaCard(i) {
+  const eco = i.ecosystem ? `<span class="badge ecosystem">${esc(i.ecosystem)}</span>` : '';
+  return `<article class="card">
+    <div class="card-head">
+      <h2 class="id"><a href="${esc(i.link)}" target="_blank" rel="noopener noreferrer">${esc(i.id)}</a></h2>
+      <div class="badges">${eco}</div>
+    </div>
+    <p class="desc">${esc(i.title)}</p>
+    ${i.summary ? `<p class="desc">${esc(i.summary)}</p>` : ''}
+    <p class="meta-row">${esc(timeAgo(i.published))}</p>
+  </article>`;
+}
+
+const VIEWS = {
+  recent: {
+    key: 'cves',
+    card: recentCard,
+    empty: 'CVE data unavailable.',
+    pick: (d) => d?.recent?.items || [],
+    match: (i, q) =>
+      i.id.toLowerCase().includes(q) ||
+      (i.description || '').toLowerCase().includes(q) ||
+      (i.title || '').toLowerCase().includes(q),
+  },
+  kev: {
+    key: 'cves',
+    card: kevCard,
+    empty: 'KEV data unavailable.',
+    pick: (d) => d?.actively_exploited?.items || [],
+    match: (i, q) =>
+      i.id.toLowerCase().includes(q) ||
+      (i.description || '').toLowerCase().includes(q) ||
+      (i.vendor || '').toLowerCase().includes(q) ||
+      (i.product || '').toLowerCase().includes(q) ||
+      (i.name || '').toLowerCase().includes(q),
+  },
+  exploitdb: {
+    key: 'edb',
+    card: edbCard,
+    empty: 'Exploit-DB unavailable.',
+    pick: (d) => d?.items || [],
+    match: (i, q) =>
+      (i.id || '').toLowerCase().includes(q) ||
+      (i.title || '').toLowerCase().includes(q) ||
+      (i.type || '').toLowerCase().includes(q),
+  },
+  cert_eu: {
+    key: 'cert',
+    card: certCard,
+    empty: 'CERT-EU unavailable.',
+    pick: (d) => d?.items || [],
+    match: (i, q) =>
+      (i.id || '').toLowerCase().includes(q) ||
+      (i.title || '').toLowerCase().includes(q) ||
+      (i.summary || '').toLowerCase().includes(q),
+  },
+  ghsa: {
+    key: 'ghsa',
+    card: ghsaCard,
+    empty: 'GitHub Advisories unavailable.',
+    pick: (d) => d?.items || [],
+    match: (i, q) =>
+      (i.id || '').toLowerCase().includes(q) ||
+      (i.title || '').toLowerCase().includes(q) ||
+      (i.ecosystem || '').toLowerCase().includes(q) ||
+      (i.summary || '').toLowerCase().includes(q),
+  },
+};
+
+function currentView() {
+  return document.querySelector('.tab[aria-selected="true"]')?.dataset.view || 'recent';
 }
 
 function render() {
-  const q = document.getElementById('search').value.toLowerCase();
-  const sev = document.getElementById('sev-filter').value;
-  let items = [], fn = () => '';
+  const view = currentView();
+  const spec = VIEWS[view];
+  const source = store[spec.key];
+  const list = document.getElementById('list');
 
-  if (view === 'recent') {
-    if (!cveData) { document.getElementById('list').innerHTML = '<div class="empty">CVE data unavailable.</div>'; return; }
-    items = (cveData.recent?.items || []).filter(i =>
-      (!q || i.id.toLowerCase().includes(q) || (i.description || '').toLowerCase().includes(q)) &&
-      (!sev || i.severity === sev)
-    );
-    fn = recentCard;
-  } else if (view === 'kev') {
-    if (!cveData) { document.getElementById('list').innerHTML = '<div class="empty">KEV data unavailable.</div>'; return; }
-    items = (cveData.actively_exploited?.items || []).filter(i =>
-      !q || i.id.toLowerCase().includes(q) ||
-      (i.description || '').toLowerCase().includes(q) ||
-      (i.vendor || '').toLowerCase().includes(q) ||
-      (i.product || '').toLowerCase().includes(q)
-    );
-    fn = kevCard;
-  } else if (view === 'exploitdb') {
-    if (!edbData) { document.getElementById('list').innerHTML = '<div class="empty">Exploit-DB unavailable.</div>'; return; }
-    items = (edbData.items || []).filter(i =>
-      !q || (i.id || '').toLowerCase().includes(q) ||
-      (i.title || '').toLowerCase().includes(q) ||
-      (i.type || '').toLowerCase().includes(q)
-    );
-    fn = edbCard;
-  } else {
-    if (!certData) { document.getElementById('list').innerHTML = '<div class="empty">CERT-EU unavailable.</div>'; return; }
-    items = (certData.items || []).filter(i =>
-      !q || (i.id || '').toLowerCase().includes(q) ||
-      (i.title || '').toLowerCase().includes(q) ||
-      (i.summary || '').toLowerCase().includes(q)
-    );
-    fn = certCard;
+  // Severity only applies to the NVD recent list; every other source has no
+  // severity concept, so the control is hidden rather than inert.
+  const sevSelect = document.getElementById('sev-filter');
+  sevSelect.style.display = view === 'recent' ? '' : 'none';
+
+  if (!source) {
+    setResultCount(document.getElementById('count-label'), 0, 'result');
+    list.innerHTML = `<p class="empty">${esc(spec.empty)}</p>`;
+    return;
   }
 
-  document.getElementById('count-label').textContent =
-    items.length + ' result' + (items.length === 1 ? '' : 's');
-  document.getElementById('list').innerHTML =
-    items.length ? items.map(fn).join('') : '<div class="empty">No matches.</div>';
+  const q = document.getElementById('search').value.trim().toLowerCase();
+  const sev = view === 'recent' ? sevSelect.value : '';
+
+  let items = spec.pick(source);
+  if (q) items = items.filter((i) => spec.match(i, q));
+  if (sev) items = items.filter((i) => i.severity === sev);
+
+  setResultCount(document.getElementById('count-label'), items.length, 'result');
+  list.innerHTML = items.length
+    ? items.map(spec.card).join('')
+    : '<p class="empty">No matches.</p>';
 }
+
+initTabs('.tabs', (view) => {
+  document.getElementById('list').setAttribute('aria-labelledby', `tab-${view}`);
+  render();
+});
 
 document.getElementById('search').addEventListener('input', render);
 document.getElementById('sev-filter').addEventListener('change', render);
+
+const loaded = await fetchAll({
+  cves: '/data/cves.json',
+  edb: '/data/exploitdb.json',
+  cert: '/data/cert_eu.json',
+  ghsa: '/data/ghsa.json',
+});
+store = loaded;
+
+const times = Object.values(loaded).map((d) => d?.updated_at).filter(Boolean);
+if (times.length) {
+  const oldest = new Date(Math.min(...times.map((t) => new Date(t).getTime()))).toISOString();
+  document.getElementById('updated-label').textContent =
+    'All sources current as of ' + oldest.slice(0, 10) + ' UTC';
+}
+
+const q = new URLSearchParams(location.search).get('q');
+if (q) document.getElementById('search').value = q;
+render();
 </script>
 </body>
 </html>

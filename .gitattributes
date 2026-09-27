@@ -1,0 +1,35 @@
+# Normalise line endings and mark source as text.
+#
+# Added after worker/admin.js was committed with a literal NUL byte in a regex
+# character class, which made git classify it as binary -- so diffs, blame and
+# code review were silently useless for that file. The content is fixed, but
+# `* text=auto` plus explicit rules make the intent unambiguous and stop git
+# guessing from content alone.
+#
+# This does NOT override git's NUL-based binary detection; it removes the
+# line-ending ambiguity that leads to the same class of surprise. The check that
+# actually catches literal control bytes is in assets/app.test.mjs.
+
+* text=auto
+
+*.js   text
+*.mjs  text
+*.css  text
+*.html text
+*.py   text
+*.yml  text
+*.toml text
+*.md   text
+*.json text
+
+# Generated feed data: large, machine-written, and committed as-is.
+data/*.json text -diff
+
+# Binary-ish assets, if any are ever added.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.woff binary
+*.woff2 binary

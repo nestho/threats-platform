@@ -1,7 +1,25 @@
 {
-  "updated_at": "2026-09-26T20:22:52.705908+00:00",
+  "schema_version": 2,
+  "updated_at": "2026-09-27T08:12:16Z",
   "total": 100,
+  "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-2w77-qp99-3jvq",
+      "title": "[GHSA-2w77-qp99-3jvq] Malicious code in donutautosellsrc (PyPI)",
+      "published": "2026-09-27T03:31:06Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (2ac1203ac68b4bb062c4dd38f59fd8bd13fef695c5b1c8059160c6a5205717b1) \n During installation package fetches code hidden in an image containing a Python application with a native extension module. This module holds an obfuscated infostealer which collects sensitive data and exfiltrates th",
+      "link": ""
+    },
+    {
+      "id": "GHSA-mc8h-7wqw-2mcf",
+      "title": "[GHSA-mc8h-7wqw-2mcf] Malicious code in requests-cache-utils (PyPI)",
+      "published": "2026-09-27T00:31:17Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (1655ea47fc7ccd39294203776ee3dcb01a394c40d93e05b7b527700b19de42c8) \n During installation and importing the module, the code downloads and executes an infostealer. \n \n Category: MALICIOUS - The campaign has clearly malicious intent, like infostealers. \n Campaign: 2026-09-requests-cache",
+      "link": ""
+    },
     {
       "id": "GHSA-wjmh-pc3x-575f",
       "title": "[GHSA-wjmh-pc3x-575f] Malicious code in cma-self-hosted-sandbox-cf (npm)",
@@ -272,14 +290,6 @@
       "published": "2026-09-25T03:31:07Z",
       "ecosystem": "NPM",
       "summary": "Source: amazon-inspector (793cf7eb2b4de9c41e229fc89c393e38f05141991762f69f310e1397fa464f9c) \n chromatitle advertises itself as an ANSI color/title formatting library but its main entry src/index.js unconditionally calls _bootstrap() at top level, transferring control to src/utils/bootstrap.js. boots",
-      "link": ""
-    },
-    {
-      "id": "GHSA-75mh-8gwp-9cvf",
-      "title": "[GHSA-75mh-8gwp-9cvf] Malicious code in agency-testts (npm)",
-      "published": "2026-09-25T03:31:07Z",
-      "ecosystem": "NPM",
-      "summary": "Source: amazon-inspector (ac3bbe97b41f8d8d1a74e9f369318620c08d648365a4e78d49d1da31d085531d) \n package.json declares a postinstall lifecycle hook  wscript.exe 4444.vbs  that auto-runs on  npm install  on Windows. The bundled 4444.vbs is a ~674KB script containing large opaque base64 blobs and an AES ",
       "link": ""
     },
     {
@@ -752,14 +762,6 @@
       "published": "2026-06-24T15:31:47Z",
       "ecosystem": "MAVEN",
       "summary": "Jenkins Script Security Plugin provides a sandbox feature that allows running user-provided scripts safely by intercepting and checking potentially unsafe operations. \n Script Security Plugin 1402.v94c9ce464861 and earlier does not intercept the implicit type cast applied to each element of the iter",
-      "link": ""
-    },
-    {
-      "id": "GHSA-wpqr-6v78-jr5g",
-      "title": "[GHSA-wpqr-6v78-jr5g] Gemini CLI: Remote Code Execution via workspace trust and tool allowlisting bypasses",
-      "published": "2026-04-24T19:30:01Z",
-      "ecosystem": "ACTIONS",
-      "summary": "Summary \n Gemini CLI ( @google/gemini-cli ) and the  run-gemini-cli  GitHub Action are being updated to harden workspace trust and tool allowlisting, in particular when used in untrusted environments like GitHub Actions. This update introduces a breaking change to how non-interactive (headless) envi",
       "link": ""
     },
     {

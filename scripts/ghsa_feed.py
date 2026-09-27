@@ -8,37 +8,55 @@ angle.
 """
 import json
 import re
+import sys
+import time
+import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 
+from normalize import NormalisationTally
+
 FEED_URL = "https://github.com/security-advisories.atom"
 OUTPUT_PATH = "data/ghsa.json"
+SCHEMA_VERSION = 2
 MAX_ITEMS = 100
 
 ATOM_NS = "{http://www.w3.org/2005/Atom}"
 
 
-def fetch_text(url):
-    req = urllib.request.Request(
-        url,
-        headers={
-            "User-Agent": "threats-top-collector",
-            "Accept": "application/atom+xml",
-        },
-    )
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        return resp.read().decode("utf-8", errors="replace")
+def fetch_text(url, *, attempts=4):
+    last_error = None
+    for attempt in range(1, attempts + 1):
+        req = urllib.request.Request(
+            url,
+            headers={
+                "User-Agent": "threats-top-collector",
+                "Accept": "application/atom+xml",
+            },
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=60) as resp:
+                return resp.read().decode("utf-8", errors="replace")
+        except (urllib.error.URLError, TimeoutError) as exc:
+            last_error = exc
+            if attempt == attempts:
+                break
+            delay = 5 * (2 ** (attempt - 1))
+            print(f"  fetch failed ({exc}); retry {attempt}/{attempts - 1} in {delay}s")
+            time.sleep(delay)
+    raise RuntimeError(f"GET failed after {attempts} attempts: {url}") from last_error
 
 
 def strip_html(text):
     return re.sub(r"<[^>]+>", " ", text or "").strip()
 
 
-def main():
+def main() -> int:
     xml_text = fetch_text(FEED_URL)
     root = ET.fromstring(xml_text)
 
+    tally = NormalisationTally("ghsa")
     items = []
     for entry in root.findall(f"{ATOM_NS}entry")[:MAX_ITEMS]:
         entry_id = entry.findtext(f"{ATOM_NS}id") or ""
@@ -56,7 +74,7 @@ def main():
         items.append({
             "id": ghsa_match.group(0) if ghsa_match else entry_id,
             "title": title,
-            "published": published,
+            "published": tally.iso(published, field="items[].published"),
             "ecosystem": ecosystem,
             "summary": content,
             "link": link,
@@ -64,9 +82,13 @@ def main():
 
     items.sort(key=lambda x: x["published"] or "", reverse=True)
 
+    tally.raise_if_exceeded()
+
     output = {
-        "updated_at": datetime.now(timezone.utc).isoformat(),
+        "schema_version": SCHEMA_VERSION,
+        "updated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "total": len(items),
+        "normalisation_failures": tally.failures,
         "items": items,
     }
 
@@ -74,7 +96,11 @@ def main():
         json.dump(output, f, indent=2, ensure_ascii=False)
 
     print(f"Wrote {len(items)} GitHub Security Advisories.")
+    if not items:
+        print("::error::GHSA feed parsed to zero items -- refusing to publish an empty feed.", file=sys.stderr)
+        return 1
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

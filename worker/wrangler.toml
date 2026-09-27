@@ -1,0 +1,40 @@
+#:schema node_modules/wrangler/config-schema.json
+# Cloudflare Worker config for the threats.top admin write path.
+#
+# This file and worker/admin.js exist so the only path into published data is in
+# version control. The previous Worker lived only in the Cloudflare dashboard.
+#
+# DEPLOY
+#   npm i -g wrangler
+#   wrangler secret put ADMIN_PASSWORD_HASH   # printf %s 'pw' | shasum -a 256
+#   wrangler secret put GITHUB_TOKEN          # fine-grained PAT: Contents rw, this repo only
+#   wrangler deploy
+#
+# ADMIN_PASSWORD_HASH is a SHA-256 hex digest, not the password. The plaintext is
+# never stored, so a leaked copy of this repo does not leak the admin password.
+#
+# NOTE: the dashboard version of this Worker is the live one until you deploy this
+# over it. Diff worker/admin.js against it first -- this file is a reconstruction
+# from admin/index.html and the documented flow, not a copy.
+
+name = "threats-admin"
+main = "admin.js"
+compatibility_date = "2026-09-27"
+
+# No workers_dev subdomain: the Worker must not be reachable from a bare
+# *.workers.dev URL, because that origin is not covered by the CORS allowlist in
+# admin.js and would be a second, unreviewed entry point. Serve it from the
+# threats.top zone instead (route below) so there is exactly one origin.
+workers_dev = false
+
+# Deploy behind the same origin as the site, so ALLOWED_ORIGIN in admin.js is the
+# only origin that can ever be same-origin with it.
+routes = [
+  { pattern = "threats.top/admin-api/*", zone_name = "threats.top" },
+]
+
+# No observability by default: the Worker handles admin credentials, and
+# Workers Logs would persist request metadata. Turn on only if you add a
+# redaction story first.
+[observability]
+enabled = false
