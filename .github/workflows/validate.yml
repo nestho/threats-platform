@@ -1,0 +1,107 @@
+name: Validate
+
+# The gate on pull requests.
+#
+# update-data.yml already validates between fetch and commit, so a bad feed from
+# a scheduled run cannot reach main. That left one path open: data/*.json edited
+# by hand and merged through a pull request, which is exactly how the original
+# empty CERT-EU feed could have been introduced. This closes it.
+#
+# Two jobs rather than one, so a test failure does not hide a data failure.
+
+on:
+  pull_request:
+    branches: [main]
+
+# Deliberately read-only. The scheduled workflow needs contents:write because it
+# commits; this one must never have it, or a pull request could push to main.
+# `pull_request` (not `pull_request_target`) is the safe variant -- it runs with a
+# read-only token even for forks, so a malicious PR cannot exfiltrate secrets by
+# editing the workflow.
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+# Job-level so BOTH the fetch and the validate step see it.
+#
+# The first draft set this only on the fetch step, while the validate step read
+# "$BASE_SHA". That expands to an empty string there, and `git show :data/<feed>`
+# with an empty ref reads the INDEX rather than the base commit -- so the
+# regression check would have silently compared the working tree against itself
+# and passed. A gate that cannot fail is worse than no gate, which is the same
+# lesson as the exit-0 contract this whole branch exists to fix.
+env:
+  BASE_SHA: ${{ github.event.pull_request.base.sha }}
+
+jobs:
+  validate-data:
+    name: Feed data
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Fetch the base commit
+        # validate_feeds.py's regression check reads the previous version with
+        # `git show <ref>:data/<feed>`. A default shallow checkout does not
+        # contain the base branch, so fetch exactly that one commit rather than
+        # the whole history -- this repo commits data hourly and a full clone
+        # grows by megabytes per run.
+        #
+        # "$BASE_SHA" is quoted and unexpanded, never interpolated as
+        # ${{ }} inside the script body: GitHub's own guidance is that expression
+        # substitution in run: is a script-injection vector.
+        run: |
+          set -euo pipefail
+          git fetch --depth=1 origin "$BASE_SHA"
+          git cat-file -e "$BASE_SHA^{commit}"
+          echo "base commit fetched: $BASE_SHA"
+
+      - name: Setup Python
+        uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        with:
+          python-version: '3.12'
+
+      - name: Timestamp normalisation self-check
+        # Runs in a second: asserts every upstream date format still parses and
+        # that an unknown timezone is refused rather than guessed.
+        run: python3 scripts/normalize.py
+
+      - name: Validate feed data
+        # Compares against the base branch, so this answers "did THIS pull request
+        # empty or halve a feed" rather than "is the feed empty".
+        #
+        # A pull request that changes a collector's output shape without
+        # regenerating its data will fail here. That coupling is deliberate: it
+        # forces a contract change and the data that satisfies it to land together,
+        # instead of leaving main in a state where its own gate fails.
+        run: |
+          set -euo pipefail
+          if [[ -z "${BASE_SHA:-}" ]]; then
+            echo "::error::BASE_SHA is empty -- the regression check would silently compare the working tree against itself and pass"
+            exit 1
+          fi
+          python3 scripts/validate_feeds.py --against "$BASE_SHA"
+
+  test:
+    name: Unit tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Setup Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '20'
+
+      # No dependencies. These are the two places where a silent failure is
+      # worst: esc() is the site's only XSS control, and the admin Worker is the
+      # only write path into published data.
+      - name: Test
+        run: node --test assets worker
