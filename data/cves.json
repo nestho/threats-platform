@@ -1,9 +1,738 @@
 {
-  "updated_at": "2026-09-26T20:22:52.073668+00:00",
+  "updated_at": "2026-09-27T02:33:17.207273+00:00",
   "recent": {
     "lookback_days": 3,
     "total": 200,
     "items": [
+      {
+        "id": "CVE-2026-93256",
+        "published": "2026-09-24T16:17:22.157",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\narm64: hibernate: mask DAIF before restoring hibernated kernel\n\nThe arm64 hibernate code manages the exception masking in an unsound\nway, leading to potential crashes and/or warnings during resume.\n\nWhen a hibernation image is save",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93256",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93255",
+        "published": "2026-09-24T16:17:22.007",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nbtrfs: make sure EXTENT_BUFFER_READING is cleared under refs_lock\n\n[FALSE ALERTS]\nThere is a bug report that the warning inside\ninvalidate_and_check_btree_folios() got triggered during btrfs/298:\n\n BTRFS info (device sdd): first mo",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93255",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93254",
+        "published": "2026-09-24T16:17:21.807",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\narm64: entry: Avoid unnecessary local_irq_disable() on kernel exit\n\nCurrently, when exiting to kernel mode, we attempt involuntary\npreemption. The preemption logic expects IRQs to be disabled, which is\nwhy we call local_irq_disable",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93254",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93253",
+        "published": "2026-09-24T16:17:21.640",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nsched/isolation: Defer freeing of cpumask memblock memory to initcall\n\nWhen testing a linux-next kernel with commit 59bd1d914bb5 (\"memblock:\nwarn when freeing reserved memory before memory map is initialized\"),\nthe following warnin",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93253",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93252",
+        "published": "2026-09-24T16:17:21.463",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nocfs2: fix circular locking dependency in ocfs2_init_acl()\n\nA lockdep warning indicates a circular locking dependency between\n`&oi->ip_xattr_sem` and `&journal->j_trans_barrier`:\n\nWARNING: possible circular locking dependency detec",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93252",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93251",
+        "published": "2026-09-24T16:17:21.340",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nACPI: bus: Introduce acpi_bus_get_primary_device()\n\nThe function used for obtaining the first \"physical\" device for which\nthe given ACPI one is the ACPI companion, acpi_get_first_physical_node(),\nmay return a stale device pointer (",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93251",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93250",
+        "published": "2026-09-24T16:17:21.187",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nvxlan: mdb: Fix use-after-free in vxlan_mdb_flush()\n\nvxlan_mdb_flush() iterates over the MDB entries using\nhlist_for_each_entry_safe(), which only tolerates the removal of the\ncurrent entry. Contrary to the comment above the loop, ",
+        "severity": "HIGH",
+        "score": 7.8,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93250",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93249",
+        "published": "2026-09-24T16:17:21.070",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nspi: amlogic-spisg: Make sure clk_init_data is fully initialized\n\nThe clk_init_data structure contains several mutually-exclusive members\nfor different methods to specify the possible parents of a clock,\nprompting drivers to initia",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93249",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93248",
+        "published": "2026-09-24T16:17:20.963",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/xe: don't WARN on kernel job timeout when device already wedged\n\nigt@xe_wedged@wedged-at-any-timeout wedges the device in mode 2\n(UPON_ANY_HANG_NO_RESET) and then rebinds the driver. During unbind,\na GSC proxy kernel submission",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93248",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93247",
+        "published": "2026-09-24T16:17:20.803",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nBluetooth: mgmt: fix 'hdev->discovery.uuids' NULL dereference\n\n'uuid_count' member of struct 'discovery_state' is assigned and read\nwithout any locks, so there is a chance of situation when\nuuid_count != 0, but uuids is NULL and th",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93247",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93246",
+        "published": "2026-09-24T16:17:20.647",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nocteontx2-af: fix out-of-bounds read setting MSI-X irq affinity\n\nrvu_register_interrupts() walks every MSI-X vector and uses strstr()\nto match \"Mbox\" or \"FLR\" in irq_name before pinning those interrupts\nto CPU 0. irq_name is a per-",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93246",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93245",
+        "published": "2026-09-24T16:17:20.473",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\napparmor: policy_int make sure list heads are initialized before fail path\n\nIf profile create fails before policy_init is complete the list heads\nare not properly initialized causing profile_free() sanity checks to\ntrigger the foll",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93245",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93244",
+        "published": "2026-09-24T16:17:20.360",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/sysfb: simpledrm: Improve stride validation\n\nValidate the computed stride against the maximum value INT_MAX.",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93244",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93243",
+        "published": "2026-09-24T16:17:20.230",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmm/secretmem: properly account locked pages\n\nsecretmem accounts folios by treating memory as if it were mlock()'d and\nthus limited by the RLIMIT_MEMLOCK limit.\n\nHowever the folios are unevictable and remain so until the inode is\nev",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93243",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93242",
+        "published": "2026-09-24T16:17:20.090",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nscsi: qla2xxx: Fix response queue over-consumption in __qla_consume_iocb()\n\nqla24xx_process_response_queue() advances ring_ptr past the head IOCB\nbefore dispatching, so by the time __qla_consume_iocb() runs, ring_ptr\nalready points",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93242",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93241",
+        "published": "2026-09-24T16:17:19.953",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmemcg: bypass the reclaim and oom killer for dying tasks once oom_reaper is done\n\nAt Meta, we are seeing instances where an OOM killed job is stuck in the\nexit path for several hours.  In one particular case, the job was stuck\nfor ",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93241",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93240",
+        "published": "2026-09-24T16:17:19.827",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmemcg: make the v1 soft limit knob inert\n\nThe v1 soft limit has been deprecated since v6.12 and nobody has reported\ndepending on it.  Start the removal by decoupling the interface from the\nimplementation: keep memory.soft_limit_in_",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93240",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93239",
+        "published": "2026-09-24T16:17:19.690",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\narm64: mm: Fix the lockless page-table walk in show_pte()\n\nshow_pte() walks page tables locklessly and can run with interrupts\nenabled. A concurrent teardown can free a table page while it is being\nwalked. It can also clear a paren",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93239",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93238",
+        "published": "2026-09-24T16:17:19.563",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ns390/vfio-ap: fix potential use of uninitialized apm_filtered bitmap\n\nThe DECLARE_BITMAP(apm_filtered, AP_DEVICES) macro allocates the bitmap\non the stack without zero-initializing it.\n\nIn vfio_ap_mdev_hot_plug_cfg(), the vfio_ap_m",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93238",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93237",
+        "published": "2026-09-24T16:17:19.447",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nLoongArch: Add DIRECT_MAP_PHYSMEM_END definition\n\nget_free_mem_region() and mhp_get_pluggable_range() bound their search\nto DIRECT_MAP_PHYSMEM_END. LoongArch does not define it, so the fallback\nin include/linux/mm.h applies: under ",
+        "severity": "HIGH",
+        "score": 7.8,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93237",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93236",
+        "published": "2026-09-24T16:17:19.297",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmedia: meson: vdec: fix NULL pointer deref in vdec_try_fmt_common\n\nWhen VIDIOC_TRY_FMT is called with an unsupported pixel format on the\nOUTPUT queue, vdec_try_fmt_common() falls back to V4L2_PIX_FMT_MPEG2.\nHowever, if a distro has",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93236",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93235",
+        "published": "2026-09-24T16:17:19.150",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nf2fs: fix to zero post-EOF data when extending file size\n\ngeneric/794  4s ... - output mismatch (see /share/git/fstests/results//generic/794.out.bad)\n    --- tests/generic/794.out   2026-06-12 08:46:32.766426241 +0800\n    +++ /shar",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93235",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93234",
+        "published": "2026-09-24T16:17:19.007",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/gud: validate TV mode names before creating enum property\n\nThe GUD protocol returns TV mode names as fixed-size\nGUD_CONNECTOR_TV_MODE_NAME_LEN entries and requires each name to be\nNUL-terminated.\n\ngud_connector_add_tv_mode() cu",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93234",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93233",
+        "published": "2026-09-24T16:17:18.887",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/nouveau/dmem: fix callocated underflow on large folio split\n\nnouveau_dmem_folio_free() drops chunk->callocated once per freed folio,\nwhile a large (compound) device-private folio is only counted once when\nit is allocated.  When",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93233",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93232",
+        "published": "2026-09-24T16:17:18.767",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmm/hugetlb: fix boot panic with CONFIG_DEBUG_VM and HVO bootmem pages\n\nPatch series \"mm: Refactor bootmem gigantic hugepage allocation\", v4.\n\nThis series is split out from the earlier larger series \"mm: Generalize\nHVO for HugeTLB a",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93232",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93231",
+        "published": "2026-09-24T16:17:18.637",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nlockd: fix swapped arguments in nlmsvc_match_ip()\n\nWhen releasing locks by server IP address via /proc/fs/nfsd/unlock_ip,\nnlmsvc_unlock_all_by_ip() calls nlm_traverse_files() with the server\nsockaddr as the opaque @data argument:\n\n",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93231",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93230",
+        "published": "2026-09-24T16:17:18.517",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmm/hugetlb: initialize gigantic bootmem hugepage struct pages earlier\n\nGigantic bootmem HugeTLB pages are currently initialized from\nhugetlb_init(), but page_alloc_init_late() runs earlier and walks\npageblocks to determine zone con",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93230",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93229",
+        "published": "2026-09-24T16:17:18.387",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnfsd: add missing read barrier to rpc_status_get dumpit seqcount retry\n\nThe hand-rolled seqcount-like protocol in nfsd_nl_rpc_status_get_dumpit()\nis missing a read memory barrier (smp_rmb) before its second counter\ncheck.  The stan",
+        "severity": "HIGH",
+        "score": 7.1,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93229",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93228",
+        "published": "2026-09-24T16:17:18.253",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nsvcrdma: Reject Write/Reply chunks with segcount 0\n\nA peer can send a Write or Reply chunk whose segcount field is zero.\nxdr_check_write_chunk() only rejects segcount > rc_maxpages, so zero\npasses the range check, and xdr_inline_de",
+        "severity": "CRITICAL",
+        "score": 9.1,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93228",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93227",
+        "published": "2026-09-24T16:17:18.130",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmm/mm_init: deferred_grow_zone(): fix out-of-range first_deferred_pfn\n\nWith CONFIG_DEFERRED_STRUCT_PAGE_INIT enabled, deferred_grow_zone()\ninitializes struct pages early in boot to satisfy an allocation.\n\nWith a large CMA reservati",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93227",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93226",
+        "published": "2026-09-24T16:17:17.973",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nipv6: use RCU iterator to dump route exceptions\n\nrt6_nh_dump_exceptions() uses hlist_for_each_entry() to iterate over\nRCU-protected exception lists. The caller holds rcu_read_lock(), but does\nnot hold rt6_exception_lock, so rt6_ins",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93226",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93225",
+        "published": "2026-09-24T16:17:17.857",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nphy: fsl-imx8mq-usb: fix typec switch leak on probe error path\n\nIf probe fails after imx95_usb_phy_get_tca() succeeds, the typec\nswitch leaks because the only cleanup path was in .remove(), which\nnever runs on probe failure.\n\nUse d",
+        "severity": "HIGH",
+        "score": 7.4,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93225",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93224",
+        "published": "2026-09-24T16:17:17.720",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nsvcrdma: Fix unmatched rn_unregister on failed accept\n\nWhen svc_rdma_accept() takes the errout path before\nrpcrdma_rn_register() has succeeded, the existing cleanup block\ncalls rpcrdma_rn_unregister(dev, &newxprt->sc_rn) unconditio",
+        "severity": "HIGH",
+        "score": 8.1,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93224",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93223",
+        "published": "2026-09-24T16:17:17.590",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nstaging: media: tegra-video: fix of_node_put() on VIP parse errors\n\ntegra_vip_channel_of_parse() initializes np from dev->of_node without\ntaking a reference, but its error paths drop one through the\nerr_node_put label. This underfl",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93223",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93222",
+        "published": "2026-09-24T16:17:17.437",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nsignal: avoid shared siginfo namespace rewrites\n\nsend_signal_locked() rewrites sender ids for the target namespace.  Group\nsends reuse the same siginfo, so one recipient can affect the next.\n\nCopy the siginfo before changing it.",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93222",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93221",
+        "published": "2026-09-24T16:17:17.310",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnfsd: convert nfsd_net boolean flags to unsigned long flags word\n\nnfsd_net contains several boolean fields that are accessed from\nconcurrent contexts without serialization.  In particular,\nnfsd4_end_grace() guards its drain path wi",
+        "severity": "HIGH",
+        "score": 8.1,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93221",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93220",
+        "published": "2026-09-24T16:17:17.197",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nsched_ext: Keep kick_sync waiting on the rq's own CPU\n\nkick_sync_wait_bal_cb() assumes it runs on the rq's CPU from the\n__schedule() tail: the snapshots it compares against live in that CPU's\npercpu area and the busy-wait runs with",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93220",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93219",
+        "published": "2026-09-24T16:17:17.030",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nclocksource/drivers/timer-sun4i: Advertise a real minimum delta\n\nsun4i_clkevt_next_event() compensates for the timer stop/start\nsynchronization delay by programming evt - TIMER_SYNC_TICKS into the\nhardware interval register. The cl",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93219",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93218",
+        "published": "2026-09-24T16:17:16.907",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmm/huge_memory: skip device-private PMDs in madvise_free_huge_pmd\n\nmadvise_free_pte_range() checks pmd_trans_huge(*pmd) unlocked, then\nmadvise_free_huge_pmd() takes pmd_trans_huge_lock().  pmd_is_huge()\nreturns true for a device-pr",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93218",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93217",
+        "published": "2026-09-24T16:17:16.790",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmm/madvise: skip device-private PMDs in cold and pageout walks\n\nmadvise_cold_or_pageout_pte_range() takes pmd_trans_huge_lock(), whose\npmd_is_huge() check returns true for a device-private PMD.  The subsequent\n!pmd_present() branch",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93217",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93216",
+        "published": "2026-09-24T16:17:16.670",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmm/page_owner: use memcg_data snapshot to avoid TOCTOU in print_page_owner_memcg()\n\nprint_page_owner_memcg() reads page->memcg_data via READ_ONCE() at the\nstart to guard against tail pages and NULL data.  However, it later\nre-reads",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93216",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93215",
+        "published": "2026-09-24T16:17:16.550",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ncdx: Fix double free when sysfs file creation fails\n\nIn cdx_create_res_attr(), if sysfs_create_bin_file() fails, the code\nfrees res_attr but doesn't set cdx_dev->res_attr[num] to NULL. This\nleaves a dangling pointer in the array. T",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93215",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93214",
+        "published": "2026-09-24T16:17:16.397",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nusb: gadget: f_tcm: fix deadlock in usbg_make_tpg()\n\nusbg_make_tpg() held dep_lock while calling\nconfigfs_depend_item_unlocked(), which acquires the configfs root\ninode lock when operating across subsystems. This creates a circular",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93214",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93213",
+        "published": "2026-09-24T16:17:16.257",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nof: fix out-of-bounds read in of_alias_scan() stem parser\n\nThe stem parser tests isdigit(*(end - 1)) before checking end > start\nand so reads one byte before the property name when the name is empty\nor all digits. Check the bound f",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93213",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93212",
+        "published": "2026-09-24T16:17:16.133",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnfsd: guard nfsd_serv deref in nfsd_file_net_dispose\n\nnfsd_file_net_dispose() is the consumer side of l->freeme: the nfsd\nservice thread loop calls it to drain entries that the filecache\ngarbage collector and shrinker append via\nnf",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93212",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93211",
+        "published": "2026-09-24T16:17:16.007",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnfsd: initialize DRC hash table before registering shrinker\n\nshrinker_register() precedes the INIT_LIST_HEAD loop and the\ndrc_hashsize store. On weakly-ordered architectures (arm64, ppc),\na shrinker scan can observe drc_hashsize be",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93211",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93210",
+        "published": "2026-09-24T16:17:15.877",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nsmb: client: harden DFS cache against invalid target hints\n\nCurrently, get_tgt_name() returns ERR_PTR(-ENOENT) when ce->tgthint is\nNULL, and dfs_cache_noreq_update_tgthint() assumes ce->tgthint is always\nvalid.\n\nIn preparation for ",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93210",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93209",
+        "published": "2026-09-24T16:17:15.710",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nBluetooth: hci_core: use skb_get() instead of skb_clone() for req_skb\n\nBT enable fails intermittently with -ETIMEDOUT (-110).  The kernel log\nshows the HCI Read Local Version command was sent and the firmware\nreplied with status 0x",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93209",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93208",
+        "published": "2026-09-24T16:17:15.497",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nkasan: fix cache shrink race with CPU hotplug\n\nkasan_quarantine_remove_cache() first invokes per_cpu_remove_cache() on\nall online CPUs.  Each callback moves objects belonging to the cache from\ncpu_quarantine to the CPU's shrink_qli",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93208",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93207",
+        "published": "2026-09-24T16:17:15.357",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nSUNRPC: Zero rpc_gss_wire_cred at svcauth_gss_decode_credbody() entry\n\nsvcauth_gss_decode_credbody() writes the caller's\nrpc_gss_wire_cred field by field and assigns gc_ctx.len only on\nthe success tail.  The caller storage is svcda",
+        "severity": "CRITICAL",
+        "score": 9.8,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93207",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93206",
+        "published": "2026-09-24T16:17:14.670",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nPCI/proc: Use file_ns_capable() when checking config space read access\n\nproc_bus_pci_read() decides how much of the config space is readable based\non capable(CAP_SYS_ADMIN), which checks the credentials of the task calling\nread(), ",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93206",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93205",
+        "published": "2026-09-24T16:17:14.523",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\niommu/arm-smmu-v3: Manage teardown with devm\n\narm_smmu_device_remove() manually frees the IOPF queue, destroys the\nvmid_map and disables the device, while the IRQs and queues are devm\nmanaged. devm unwinds only after remove() retur",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93205",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-92680",
+        "published": "2026-09-24T16:17:14.357",
+        "description": "Araxis Merge for Windows version 2011.4074 through 2026.0 stores user-configured credentials for remote servers in the Windows registry and does not apply sufficient cryptographic protection. An authenticated, non-administrative attacker could retrieve and unencrypt all credentials the target user h",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92680",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-88371",
+        "published": "2026-09-24T16:17:14.100",
+        "description": "ZBar commit 2ea2ca58 contains an undefined-behavior vulnerability in the Code 128 decode6() function. When processing specially crafted Code 128 input, decode_e() can return -1 for an invalid edge pattern, and decode6() subsequently left-shifts this negative signed value while constructing the edge ",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88371",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-88370",
+        "published": "2026-09-24T16:17:13.977",
+        "description": "libconfini 1.16.4 contains a heap out-of-bounds write condition involving the bundled load_ini_buffer.h utility and strip_ini_cache(). The bundled utility allocates exactly ini_length bytes, while strip_ini_cache() unconditionally writes a NUL terminator at ini_source[ini_length], requiring an addit",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88370",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-88369",
+        "published": "2026-09-24T16:17:13.850",
+        "description": "zserge jsmn commit 25647e6 is vulnerable to Buffer Overflow in example/jsondump.c dump().",
+        "severity": "HIGH",
+        "score": 7.3,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88369",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-88368",
+        "published": "2026-09-24T16:17:13.730",
+        "description": "NanoSVG commit 239e102ec contains an incorrect numeric conversion vulnerability in the rasterizer's nsvg__addActive() function. A specially crafted SVG document containing sufficiently large geometry coordinates can cause fixed-point-scaled edge coordinates to exceed the range representable by int. ",
+        "severity": "HIGH",
+        "score": 7.5,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88368",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-88366",
+        "published": "2026-09-24T16:17:13.607",
+        "description": "NanoSVG commit 239e102ec contains an incorrect numeric conversion vulnerability in nsvg__pathArcTo() when parsing SVG arc commands. A specially crafted SVG document containing extreme arc radius values can cause intermediate arc calculations to produce a NaN delta angle. The function subsequently co",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88366",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-88365",
+        "published": "2026-09-24T16:17:13.483",
+        "description": "minimp3 commit ea99364f contains an integer overflow vulnerability in mp3dec_skip_id3v1() when parsing the APEv2 tag-size field.",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88365",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-88362",
+        "published": "2026-09-24T16:17:13.350",
+        "description": "MuJS e892c9fdb contains an incorrect numeric conversion vulnerability in jsR_isindex() in jsrun.c. A specially crafted JavaScript input containing an excessively large numeric array index can cause an out-of-range floating-point value to be converted to an integer without proper range validation. Th",
+        "severity": "HIGH",
+        "score": 7.5,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88362",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-88361",
+        "published": "2026-09-24T16:17:13.217",
+        "description": "SumatraPDF 3.6.1 contains an integer overflow vulnerability in EngineMupdf::BuildPageLabelRec() when parsing PDF PageLabels /Nums entries.",
+        "severity": "HIGH",
+        "score": 7.5,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88361",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-88358",
+        "published": "2026-09-24T16:17:13.090",
+        "description": "simdjson 4.6.1 contains a one-byte out-of-bounds read vulnerability in dom::parser::parse_unpadded(). A specially crafted truncated JSON document whose final structural token closes a nested array or object can cause json_iterator::walk_document() to access buf[len] after the input buffer has been e",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88358",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-88357",
+        "published": "2026-09-24T16:17:12.957",
+        "description": "nDPI 5.1.0 contains a memory access issue in the DNS dissector and serializer deserialization code. Specially crafted network input can cause byte-buffer addresses at odd offsets to be cast to uint16_t or wider integer pointers and directly dereferenced without alignment checks. This results in unde",
+        "severity": "HIGH",
+        "score": 7.5,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88357",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-88355",
+        "published": "2026-09-24T16:17:12.833",
+        "description": "An incorrect buffer size calculation vulnerability exists in tinyexpr commit 4a7456e in new_expr(). For arity-0 expression nodes, including constants, variables, and zero-argument functions, the function allocates less memory than sizeof(te_expr) but treats the returned allocation as a complete te_e",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88355",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-79761",
+        "published": "2026-09-24T16:17:11.743",
+        "description": "Termix is a web-based server management platform with SSH terminal, tunneling, and file editing capabilities. From 1.7.0 until 2.5.1, the Termix SSH key deployment flow derives a grep pattern from a user-controlled public-key token and interpolates it into double-quoted shell commands executed on th",
+        "severity": "MEDIUM",
+        "score": 6.6,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-79761",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-79760",
+        "published": "2026-09-24T16:17:11.490",
+        "description": "Termix is a web-based server management platform with SSH terminal, tunneling, and file editing capabilities. From 2.5.0 until 2.5.1, Termix allows authenticated users to configure webhook or ntfy notification channels with attacker-controlled destination URLs and trigger server-side requests throug",
+        "severity": "MEDIUM",
+        "score": 6.4,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-79760",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-79759",
+        "published": "2026-09-24T16:17:11.283",
+        "description": "Termix is a web-based server management platform with SSH terminal, tunneling, and file editing capabilities. From 1.7.0 until 2.5.1, the POST /credentials/:id/deploy-to-host endpoint resolves credential and target-host records from attacker-controlled credentialId and targetHostId integer values wi",
+        "severity": "MEDIUM",
+        "score": 4.3,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-79759",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-79758",
+        "published": "2026-09-24T16:17:11.107",
+        "description": "Termix is a web-based server management platform with SSH terminal, tunneling, and file editing capabilities. From 1.8.0 until 2.5.1, authenticated Termix users can access the server-stats API without per-host authorization. GET /status returns statuses for hosts the requester cannot access, GET /st",
+        "severity": "MEDIUM",
+        "score": 5.4,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-79758",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-77581",
+        "published": "2026-09-24T16:17:10.943",
+        "description": "BentoPDF is a client-side PDF toolkit that is self hostable. In 2.8.6 and earlier, the certificate and timestamp CORS proxy in cloudflare/cors-proxy-worker.js uses isPrivateOrReservedHost() to validate a supplied hostname separately from the DNS resolution used by fetch(targetUrl), allowing an attac",
+        "severity": "HIGH",
+        "score": 8.6,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-77581",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-76907",
+        "published": "2026-09-24T16:17:10.500",
+        "description": "LaSuite Doc is a collaborative note taking, wiki and documentation platform. From 4.8.2 until 5.4.0, GET /api/v1.0/documents/search/ accepts sequential seven-digit document paths to scope descendant searches without requiring the caller to possess the public document UUID. An unauthenticated caller ",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76907",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-75907",
+        "published": "2026-09-24T16:17:10.387",
+        "description": "The door access control on a Norwegian Cruise Line asset grants entry based only on the credential's static 7-byte UID stored on an NTAG212 NFC chip. A UID is a manufacturer serial number sent in the clear on every read and is not intended to be secret or to authenticate the holder. Validating on th",
+        "severity": "HIGH",
+        "score": 7.5,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-75907",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-67233",
+        "published": "2026-09-24T16:17:09.520",
+        "description": "RabbitMQ is a messaging and streaming broker. Prior to versions 3.13.15, 4.0.20, 4.1.11, 4.2.6, and 4.3.1, The shovel management resource's is_authorized/2 delegates to rabbit_mgmt_util:is_authorized_monitor/2, which accepts the monitoring tag. But allowed_methods includes DELETE, and delete_resourc",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67233",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-63630",
+        "published": "2026-09-24T16:17:08.873",
+        "description": "BentoPDF is a client-side PDF toolkit that is self hostable. In 2.8.6 and earlier, deserializeWorkflow() accepts the Timestamp node's tsaUrl control from imported JSON without schema or destination validation. When a user imports the crafted workflow and runs it against a PDF, timestampPdf() sends a",
+        "severity": "LOW",
+        "score": 3.4,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63630",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-63203",
+        "published": "2026-09-24T16:17:08.700",
+        "description": "Logto is the modern, open-source auth infrastructure for SaaS and AI apps. From 1.31.0 until 1.42.0, the Account API handlers in packages/core/src/routes/account/third-party-tokens.ts allow a caller holding a same-user access token with only the openid scope to retrieve stored social or enterprise S",
+        "severity": "HIGH",
+        "score": 7.6,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63203",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-56739",
+        "published": "2026-09-24T16:17:07.803",
+        "description": "Logto is the modern, open-source auth infrastructure for SaaS and AI apps. Prior to 1.43.0, Logto fetches administrator-controlled outbound destinations without validating the address used for the connection. Webhook delivery in packages/core/src/libraries/hook/utils.ts can reach special-use and clo",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-56739",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-56737",
+        "published": "2026-09-24T16:17:07.637",
+        "description": "phpMyFAQ is an open source FAQ web application. Versions 3.2.0 through 4.1.5 contain an authentication bypass in its public two-factor authentication verification flow: an unauthenticated attacker can submit an account’s numeric user ID and a valid or brute-forced six-digit TOTP code without first a",
+        "severity": "HIGH",
+        "score": 8.1,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-56737",
+        "kev": false
+      },
+      {
+        "id": "CVE-2025-32000",
+        "published": "2026-09-24T16:17:06.087",
+        "description": "HCL Sametime is vulnerable to insufficient input sanitization. The application did not appropriately sanitize user input. When user input is implicitly or explicitly trusted without sufficient sanitization, malicious actors can leverage this vulnerability.",
+        "severity": "MEDIUM",
+        "score": 4.3,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-32000",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-97404",
+        "published": "2026-09-24T15:18:01.537",
+        "description": "In OpenStack Zaqar before 22.0.2, WSGI transport mishandles the URL-Signature header. By sending a request with an empty URL-Signature header, an unauthenticated remote attacker who knows a target project's UUID may bypass both Keystone authentication and pre-signed URL verification, resulting in th",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97404",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-97362",
+        "published": "2026-09-24T15:18:01.393",
+        "description": "HFS2 version 2.4.0 and earlier contains a denial of service vulnerability that allows unauthenticated attackers to cause a complete and persistent loss of availability by sending a single crafted request. Attackers can trigger a hung serving thread that enters a busy loop, rendering the entire file ",
+        "severity": "HIGH",
+        "score": 7.5,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97362",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-97224",
+        "published": "2026-09-24T15:18:01.227",
+        "description": "A vulnerability was detected in Excalidraw up to 0.18.1. The impacted element is an unknown function of the file packages/excalidraw/data/restore.ts of the component Imported File Handler. Performing a manipulation of the argument customData.generationData.html results in cross site scripting. The a",
+        "severity": "MEDIUM",
+        "score": 4.3,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97224",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-90959",
+        "published": "2026-09-24T15:17:53.540",
+        "description": "A path traversal vulnerability was found in pulpcore. The content upload API accepts a 'file_url' parameter that allows users with file repository privileges to specify a local file URL for Pulp to download and store. A URL scheme validation check uses a string prefix comparison that only rejects UR",
+        "severity": "HIGH",
+        "score": 8.1,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-90959",
+        "kev": false
+      },
       {
         "id": "CVE-2026-90481",
         "published": "2026-09-24T15:17:51.760",
@@ -1073,735 +1802,6 @@
         "severity": "MEDIUM",
         "score": 5.3,
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96881",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97056",
-        "published": "2026-09-24T02:16:54.500",
-        "description": "SigNoz versions from v0.98.0 up to (but not including) v0.143.0, when configured to use the opaque session tokenizer (which was not the default before v0.143.0), do not revoke a user's existing login sessions when the user's password is reset with a reset token (UpdatePasswordByResetPasswordToken, r",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97056",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97055",
-        "published": "2026-09-24T02:16:54.333",
-        "description": "SigNoz from v0.8.0 before v0.143.0 defaults the JWT tokenizer signing secret (tokenizer::jwt::secret, set via SIGNOZ_TOKENIZER_JWT_SECRET or the deprecated SIGNOZ_JWT_SECRET) to an empty string, and Config.Validate() does not reject the empty value, so a deployment that does not configure a secret s",
-        "severity": "HIGH",
-        "score": 8.1,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97055",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96880",
-        "published": "2026-09-24T02:16:54.147",
-        "description": "A vulnerability was found in TaleLin lin-cms-spring-boot up to 0.2.1. This impacts the function getBook of the file src/main/java/io/github/talelin/latticy/controller/v1/BookController.java of the component book Endpoint. Performing a manipulation of the argument ID results in improper authorization",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96880",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96810",
-        "published": "2026-09-24T02:16:53.960",
-        "description": "A vulnerability was identified in huanzi-qch base-admin up to 52816b760cd53244989fd664bbb2b3d4edbfdbf1. This issue affects the function Save of the file base-admin-master\\src\\main\\java\\cn\\huanzi\\qch\\baseadmin\\common\\controller\\CommonController.java of the component Add User Handler. The manipulation",
-        "severity": "LOW",
-        "score": 3.5,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96810",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96803",
-        "published": "2026-09-24T02:16:53.770",
-        "description": "A vulnerability was identified in java110 MicroCommunity up to 2.0. Affected is the function QueryServiceSMOImpl.fallBack of the file BusinessApi.java of the component fallBack API Endpoint. Such manipulation of the argument fallBackSql leads to sql injection. The attack may be launched remotely. Th",
-        "severity": "HIGH",
-        "score": 7.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96803",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96777",
-        "published": "2026-09-24T02:16:53.563",
-        "description": "A vulnerability was determined in Forma LMS up to 4.1.43. This impacts the function UserselectorAdmController::getDataTask of the file /appCore/ajax.adm_server.php?r=adm/userselector/getData of the component Multi-User-Selector AJAX Endpoint. This manipulation of the argument Name causes sql injecti",
-        "severity": "MEDIUM",
-        "score": 6.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96777",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-18467",
-        "published": "2026-09-24T02:16:52.943",
-        "description": "The Paytium: Mollie payment forms & donations plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 5.0.3. The 5.0.3 patch introduced a wp_hash()/hash_equals() signature gate on the pt-paytium-user-data field, but left a second filter — pt_cf_checkout_meta(",
-        "severity": "CRITICAL",
-        "score": 9.8,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18467",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96774",
-        "published": "2026-09-24T01:17:00.387",
-        "description": "A vulnerability was found in SPON Communications IP Network Audio Device XC-9603 1.2.3_20181106 Build 107. This affects the function loadCfg of the file /ini/sys_cfg.txt of the component Configuration File Download. The manipulation results in information disclosure. The attack can be launched remot",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96774",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96773",
-        "published": "2026-09-24T01:17:00.207",
-        "description": "A weakness has been identified in Intelliants Subrion CMS up to 4.2.1. This vulnerability affects the function iaUsers::authorize of the file front/login.php of the component Login Page. This manipulation of the argument $_SERVER['HTTP_REFERER'] causes open redirect. The attack is possible to be car",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96773",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96772",
-        "published": "2026-09-24T01:17:00.010",
-        "description": "A security flaw has been discovered in Intelliants Subrion CMS up to 4.2.1. This affects an unknown part of the file /actions.json?action=assign-owner. The manipulation of the argument q results in information disclosure. The attack can be executed remotely. The exploit has been released to the publ",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96772",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96764",
-        "published": "2026-09-24T01:16:59.813",
-        "description": "A weakness has been identified in kvcache-ai mooncake up to 0.3.12/0.3.14-rc1. Impacted is the function MasterService::GetReplicaListByRegex of the component Regular Expression Handler. Executing a manipulation can lead to allocation of resources. The attack may be performed from remote. The exploit",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96764",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96763",
-        "published": "2026-09-24T01:16:59.627",
-        "description": "A security flaw has been discovered in kvcache-ai mooncake up to 0.3.12/0.3.13.post1/0.3.14-rc1. This issue affects the function ScopedSegmentAccess::MountSegment of the file segment.cpp of the component MountSegment Request Processing. Performing a manipulation results in improper access controls. ",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96763",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96762",
-        "published": "2026-09-24T00:17:23.353",
-        "description": "A vulnerability was determined in kvcache-ai mooncake up to 0.3.12/0.3.13.post1. This affects the function UnmountSegment of the component RPC Path Handler. This manipulation of the argument client_id/segment_id causes authorization bypass. Remote exploitation of the attack is possible. The exploit ",
-        "severity": "HIGH",
-        "score": 7.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96762",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96751",
-        "published": "2026-09-24T00:17:23.170",
-        "description": "A vulnerability has been found in pmTicket Project-Management-Software up to 078fa56a782490c5059a0814f84df27984f4d7e2. This affects the function setSync of the file /ajax/add_project.php. Such manipulation of the argument conn_settings leads to sql injection. The attack may be launched remotely. Thi",
-        "severity": "HIGH",
-        "score": 7.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96751",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96739",
-        "published": "2026-09-24T00:17:22.990",
-        "description": "A flaw has been found in SEMCMS up to 4.2. Affected by this issue is some unknown functionality of the file /Edit/php/upload_json.php of the component KindEditor Upload Interface. This manipulation of the argument imgFile causes cross site scripting. The attack may be initiated remotely. The exploit",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96739",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-93577",
-        "published": "2026-09-24T00:17:22.850",
-        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 19.2 before 19.2.7, 19.3 before 19.3.3, and 19.4 before 19.4.1 that under certain conditions could have allowed an authenticated user to execute arbitrary code on the GitLab server due to an integer overflow issue when compil",
-        "severity": "CRITICAL",
-        "score": 9.9,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93577",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-92874",
-        "published": "2026-09-24T00:17:22.713",
-        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.3 before 19.2.7, 19.3 before 19.3.3, and 19.4 before 19.4.1 that under certain conditions could have allowed an authenticated user with an MCP-scoped token to perform actions beyond the intended scope of that token due to ",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92874",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-92628",
-        "published": "2026-09-24T00:17:22.583",
-        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.6 before 19.2.7, 19.3 before 19.3.3, and 19.4 before 19.4.1 that under a race condition, the MCP search tool's shared state handling could have caused search results to be returned under an incorrect user context.",
-        "severity": "LOW",
-        "score": 3.1,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92628",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-92530",
-        "published": "2026-09-24T00:17:22.453",
-        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 19.1 before 19.2.7, 19.3 before 19.3.3, and 19.4 before 19.4.1 that under certain conditions could have allowed an authenticated user to spoof merge request authorship and attribute content to arbitrary existing users on the ",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92530",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-92529",
-        "published": "2026-09-24T00:17:22.323",
-        "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 19.1 before 19.2.7, 19.3 before 19.3.3, and 19.4 before 19.4.1 that under certain conditions could have allowed an authenticated user with developer-role permissions to bypass admin-configured AI tool governance controls for wor",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92529",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-92470",
-        "published": "2026-09-24T00:17:22.193",
-        "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 18.7 before 19.2.7, 19.3 before 19.3.3, and 19.4 before 19.4.1 that under certain conditions could have allowed an authenticated user to access sensitive CI/CD variable values from debug-mode job traces through the Duo AI troubl",
-        "severity": "HIGH",
-        "score": 7.7,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92470",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-89078",
-        "published": "2026-09-24T00:17:22.060",
-        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 19.2 before 19.2.7, 19.3 before 19.3.3, and 19.4 before 19.4.1 that under certain conditions could have allowed an authenticated user to execute arbitrary code on the GitLab server due to a double free issue when parsing a sp",
-        "severity": "CRITICAL",
-        "score": 9.9,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-89078",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-82370",
-        "published": "2026-09-24T00:17:21.777",
-        "description": "Unauthenticated remote command injection in the Brocade SANnav orchestrator HTTP service permits network-adjacent attackers to execute arbitrary administrative switch CLI commands and issue container management instructions. This could allow an attacker to alter Fibre Channel fabric switch configura",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82370",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96680",
-        "published": "2026-09-23T23:18:50.117",
-        "description": "A vulnerability was detected in ByteDance Coze Scraper Extension up to 2.0.2. Affected by this vulnerability is the function chrome.runtime.onMessageExternal.addListener of the file static/background/index.js of the component External Message Handler. The manipulation of the argument body.url/pagina",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96680",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96678",
-        "published": "2026-09-23T23:18:49.923",
-        "description": "A security vulnerability has been detected in weiqingwen spring-boot-forum up to 538eecc3c6b85fdf0768ab4e8354b48c0c17d94f. Affected is the function validate of the file src/main/java/com/qingwenwei/util/NewUserFormValidator.java of the component Avatar Upload. The manipulation of the argument Userna",
-        "severity": "MEDIUM",
-        "score": 6.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96678",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96676",
-        "published": "2026-09-23T23:18:49.723",
-        "description": "A vulnerability was identified in Fast FAC1900R 20190827_2.0.2. The impacted element is the function get_alias_name of the component uhttpd. Such manipulation leads to stack-based buffer overflow. The attack may be performed from remote. The exploit is publicly available and might be used. The vendo",
-        "severity": "MEDIUM",
-        "score": 6.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96676",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96606",
-        "published": "2026-09-23T23:18:49.530",
-        "description": "A security flaw has been discovered in LB-Link BL-CPE600EU 5.8.13. This vulnerability affects unknown code of the file Mifi_config.bin of the component Configuration Backup Handler. The manipulation results in information disclosure. The attack can be launched remotely. The exploit has been released",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96606",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-70125",
-        "published": "2026-09-23T23:18:12.510",
-        "description": "Microsoft Office Outlook Remote Code Execution Vulnerability",
-        "severity": "HIGH",
-        "score": 8.8,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-70125",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-59980",
-        "published": "2026-09-23T23:17:11.473",
-        "description": "hpack is an HTTP/2 Header Encoding for Python. Prior to version 4.2.0, unbounded variable integer decoding can cause run-away computation on malformed input leading to O(n^2) runtime, effectively blocking further processing with large enough unsanitized input. A fix is available in python-hyper/hpac",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59980",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-57168",
-        "published": "2026-09-23T23:17:11.087",
-        "description": "Rejected reason: ** REJECT ** DO NOT USE THIS CANDIDATE NUMBER. ConsultIDs: CVE-2026-56120. Reason: This candidate is a duplicate of CVE-2026-56120. Notes: All CVE users should reference CVE-2026-56120 instead of this candidate.",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57168",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96604",
-        "published": "2026-09-23T22:17:00.297",
-        "description": "A vulnerability was identified in SoftNews Media Group DataLife Engine 18.0. This affects the function strip_data of the file engine/modules/search.php of the component Search Module. The manipulation of the argument story leads to sql injection. The attack can be initiated remotely. The exploit is ",
-        "severity": "HIGH",
-        "score": 7.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96604",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96603",
-        "published": "2026-09-23T22:17:00.107",
-        "description": "A vulnerability has been found in Abdurrab5 online-makeup-store. Affected is the function confirm_logged_in/confirm_user of the file functions.php of the component Admin Handler. Such manipulation of the argument adminid leads to missing authorization. The attack may be performed from remote. The ex",
-        "severity": "HIGH",
-        "score": 7.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96603",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96602",
-        "published": "2026-09-23T22:16:59.880",
-        "description": "A flaw has been found in Abdurrab5 online-makeup-store. This impacts an unknown function of the file customerSignin.php of the component Customer Login Handler. This manipulation of the argument username/password causes sql injection. The attack is possible to be carried out remotely. The exploit ha",
-        "severity": "HIGH",
-        "score": 7.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96602",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96601",
-        "published": "2026-09-23T22:16:59.687",
-        "description": "A vulnerability was detected in Abdurrab5 online-makeup-store. This affects an unknown function of the file index.php of the component Admin Login Handler. The manipulation of the argument id/password results in sql injection. The attack can be executed remotely. The exploit is now public and may be",
-        "severity": "HIGH",
-        "score": 7.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96601",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-93352",
-        "published": "2026-09-23T22:16:59.523",
-        "description": "Laravel-Mediable 7.0.0 before 7.0.2 contains an incomplete patch for CVE-2026-49972 in which the .pht extension is absent from the forbidden_extensions blocklist in config/mediable.php. The blocklist introduced to address CVE-2026-49972 includes phpt but omits pht, which Apache executes as PHP via t",
-        "severity": "CRITICAL",
-        "score": 9.8,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93352",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-86583",
-        "published": "2026-09-23T22:16:59.220",
-        "description": "The Import and export users and customers plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 2.4.17 via the plugin's own export and re-import workflow. The vulnerability exists because the exporter writes CSV cells using fputcsv() with a NUL byte (\\0) as",
-        "severity": "HIGH",
-        "score": 8.8,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-86583",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-81537",
-        "published": "2026-09-23T22:16:57.690",
-        "description": "IBM DataStage on Cloud Pak for Data 5.4.0.0 could allow a remote authenticated attacker to execute arbitrary code due to OS command injection.",
-        "severity": "HIGH",
-        "score": 8.8,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-81537",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-81536",
-        "published": "2026-09-23T22:16:57.553",
-        "description": "IBM DataStage on Cloud Pak for Data 5.4.0.0 could allow a remote authenticated attacker to obtain sensitive information due to an XML external entity (XXE) injection.",
-        "severity": "HIGH",
-        "score": 7.7,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-81536",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-81208",
-        "published": "2026-09-23T22:16:57.410",
-        "description": "IBM DataStage on Cloud Pak for Data 5.4.0.0 could allow an authenticated user to access sensitive information due to improper handling of encrypted credentials. An attacker could exploit this vulnerability to obtain credentials intended for other users or environments.",
-        "severity": "HIGH",
-        "score": 7.7,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-81208",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-80423",
-        "published": "2026-09-23T22:16:57.270",
-        "description": "IBM DataStage on Cloud Pak for Data 5.4.0.0 could allow a remote authenticated attacker to obtain sensitive information due to the exposure of namespace-wide secrets via accessible file mounts.",
-        "severity": "HIGH",
-        "score": 8.8,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-80423",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-75887",
-        "published": "2026-09-23T22:16:57.117",
-        "description": "A flaw was found in the OpenShift console. An unauthenticated attacker can exploit a path traversal vulnerability by manipulating the `lng` and `ns` query parameters in the `/locales/resource.json` endpoint. This allows the attacker to read sensitive `*.json` files from the pod filesystem, including",
-        "severity": "HIGH",
-        "score": 7.5,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-75887",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-57854",
-        "published": "2026-09-23T22:16:56.893",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57854",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-19125",
-        "published": "2026-09-23T22:16:56.683",
-        "description": "The EthPress – Web3 Login plugin for WordPress is vulnerable to Authentication Bypass in all versions up to, and including, 2.3.5. This is due to the verify_login() function in app/Login.php containing a missing return statement in the signature verification failure branch — when Signature::verify2(",
-        "severity": "HIGH",
-        "score": 8.1,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-19125",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96556",
-        "published": "2026-09-23T21:17:03.827",
-        "description": "A flaw has been found in Neethuharii CafeManagement. Affected by this vulnerability is the function addcashier of the file AddCashierCode.php. Executing a manipulation of the argument uname/pass/role/status can lead to improper authorization. The attack may be performed from remote. The exploit has ",
-        "severity": "HIGH",
-        "score": 7.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96556",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-82369",
-        "published": "2026-09-23T21:17:03.317",
-        "description": "Insufficient input sanitization of shell metacharacters in the Brocade SANnav CLI scripting component permits authenticated users to break out of restricted execution contexts on managed switches. An attacker with command execution permissions can leverage this flaw to run unauthorized shell command",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82369",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-80425",
-        "published": "2026-09-23T21:17:03.190",
-        "description": "IBM DataStage on Cloud Pak for Data 5.4.0.0 could allow a remote authenticated attacker to execute arbitrary commands due to improper neutralization of special elements used in an OS command.",
-        "severity": "HIGH",
-        "score": 8.8,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-80425",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-80412",
-        "published": "2026-09-23T21:17:03.067",
-        "description": "IBM DataStage on Cloud Pak for Data 5.4.0.0 could allow a remote authenticated attacker to execute arbitrary code due to improper escaping of connector property values during OSH script generation.",
-        "severity": "HIGH",
-        "score": 8.8,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-80412",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-80379",
-        "published": "2026-09-23T21:17:02.940",
-        "description": "IBM DataStage on Cloud Pak for Data 5.4.0.0 could allow a remote authenticated attacker to execute arbitrary commands due to improper neutralization of special elements used in an OS command.",
-        "severity": "HIGH",
-        "score": 8.8,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-80379",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-75886",
-        "published": "2026-09-23T21:17:02.683",
-        "description": "A flaw was found in openshift/console. An unauthenticated remote attacker can exploit a misconfiguration in the CatalogdHandler, which lacks proper authentication, and the forwarding of the `openshift-session-token` cookie. This allows the attacker to send requests to the in-cluster catalogd service",
-        "severity": "HIGH",
-        "score": 7.2,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-75886",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-6935",
-        "published": "2026-09-23T21:17:02.553",
-        "description": "IBM Concert 1.0.0 through 3.0.0 invokes operating system commands without fully qualifying executable paths or adequately restricting search path resolution. As a result, an attacker with local system access can manipulate the search path environment to execute untrusted or malicious code.",
-        "severity": "HIGH",
-        "score": 7.8,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-6935",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-6928",
-        "published": "2026-09-23T21:17:02.430",
-        "description": "IBM Concert 1.0.0 through 3.0.0 references or accesses memory after it has been freed. This allows an attacker who can influence program execution or input may exploit this condition to corrupt memory, cause application crashes, or execute arbitrary code.",
-        "severity": "CRITICAL",
-        "score": 9.8,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-6928",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-6925",
-        "published": "2026-09-23T21:17:02.303",
-        "description": "IBM Concert 1.0.0 through 3.0.0 could allow a remote attacker to traverse directories on the system. An attacker could send a specially crafted URL request containing \"dot dot \" sequences ( /.. /) to view arbitrary files on the system.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-6925",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-6794",
-        "published": "2026-09-23T21:17:02.177",
-        "description": "IBM Concert 1.0.0 through 3.0.0 has a double free vulnerability that exists due to incorrect memory management. A local attacker can exploit this flaw to corrupt heap memory and execute arbitrary code in the context of the affected process.",
-        "severity": "HIGH",
-        "score": 7.8,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-6794",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-6730",
-        "published": "2026-09-23T21:17:02.053",
-        "description": "IBM Concert 1.0.0 through 3.0.0 is vulnerable to a buffer overflow, caused by improper bounds checking. A local user could overflow the buffer and execute arbitrary code on the system.",
-        "severity": "CRITICAL",
-        "score": 9.8,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-6730",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-6721",
-        "published": "2026-09-23T21:17:01.927",
-        "description": "IBM Concert 1.0.0 through 3.0.0 allows an unauthenticated remote attacker can supply specially crafted input that is incorporated into OS commands, resulting in arbitrary command execution on the underlying system. Successful exploitation allows remote code execution with the privileges of the affec",
-        "severity": "CRITICAL",
-        "score": 9.8,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-6721",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-6718",
-        "published": "2026-09-23T21:17:01.803",
-        "description": "IBM Concert 1.0.0 through 3.0.0 is vulnerable to improper access control which allows unauthorized modification of application files.",
-        "severity": "MEDIUM",
-        "score": 6.2,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-6718",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-67405",
-        "published": "2026-09-23T21:17:01.663",
-        "description": "RabbitMQ is a messaging and streaming broker. Prior to versions 3.13.15, 4.0.20, 4.1.11, 4.2.6, and 4.3.0, Neither the Web-MQTT handler (deps/rabbitmq_web_mqtt/src/rabbit_web_mqtt_handler.erl:104) nor the Web-STOMP handler (deps/rabbitmq_web_stomp/src/rabbit_web_stomp_handler.erl:102) validates the ",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67405",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-67404",
-        "published": "2026-09-23T21:17:01.517",
-        "description": "RabbitMQ is a messaging and streaming broker. Prior to versions 3.13.15, 4.0.20, 4.1.11, 4.2.6, and 4.3.0, When no CA bundle is available, ssl_options/1 falls back to [{verify, verify_none}] with no warning. An attacker in a man-in-the-middle position can forge the JWKS response, which leads the bro",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67404",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-67240",
-        "published": "2026-09-23T21:17:01.370",
-        "description": "RabbitMQ is a messaging and streaming broker. Prior to versions 4.2.7 and 4.3.1, pattern_to_regex maps % -> .*? and _ -> ., then compiles ^...$ with only [unicode]; re:run is called with only [{capture, none}] - no explicit match_limit. A pattern like %_%_..._%X becomes ^.*?..*?.....*?.X$ with overl",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67240",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-67235",
-        "published": "2026-09-23T21:17:01.227",
-        "description": "RabbitMQ is a messaging and streaming broker. Prior to versions 4.3.0, 4.2.6, 4.1.11, 4.0.20, and 3.13.15, The content-header BodySize (a uint64) was stored without validation against max_message_size. The size check ran only when assembly completed. By declaring body_size = 2^63-1 and then streamin",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67235",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-67232",
-        "published": "2026-09-23T21:17:01.083",
-        "description": "RabbitMQ is a messaging and streaming broker. Prior to versions 3.13.15, 4.0.20, 4.1.11, 4.2.6, and 4.3.0, The cowboy WebSocket options at line 117 set compress => true, enabling RFC 7692 permessage-deflate negotiation. The handler does not set max_frame_size, so cowboy's default of infinity applies",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67232",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-67231",
-        "published": "2026-09-23T21:17:00.940",
-        "description": "RabbitMQ is a messaging and streaming broker. Prior to versions 3.13.15, 4.0.20, 4.1.11, 4.2.6, and 4.3.0, The trust-store plugin installs a verify_fun that overrides {bad_cert, unknown_ca} / {bad_cert, selfsigned_peer} when the presented cert \"matches\" a whitelisted one. The match key is extract_is",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67231",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-67229",
-        "published": "2026-09-23T21:17:00.800",
-        "description": "RabbitMQ is a messaging and streaming broker. Prior to versions 3.13.15, 4.0.20, 4.1.11, 4.2.6, and 4.3.0, add_vhost/2 calls rabbit_data_coercion:atomize_keys/1 (the unsafe variant using binary_to_atom) on the vhost metadata map. The 20 MB management body limit fits ~1M+ short keys. Admin-only. An a",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67229",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-67228",
-        "published": "2026-09-23T21:17:00.657",
-        "description": "RabbitMQ is a messaging and streaming broker. Prior to versions 4.2.7 and 4.3.1, The runtime-parameters lookup path coerces the URL :component segment to an atom with rabbit_data_coercion:to_atom/1 in lookup_component/1 (deps/rabbit/src/rabbit_runtime_parameters.erl), creating a new atom for any pre",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67228",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-67224",
-        "published": "2026-09-23T21:17:00.510",
-        "description": "RabbitMQ is a messaging and streaming broker. Prior to versions 3.13.15, 4.0.20, 4.1.11, 4.2.6, and 4.3.1, The trace consumer constructs the output path as filename:join(TraceDir, Name ++ \".log\") where Name comes from PUT /api/traces/:vhost/:name. No safe_relative_path / traversal check is applied o",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67224",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-67221",
-        "published": "2026-09-23T21:17:00.363",
-        "description": "RabbitMQ is a messaging and streaming broker. Prior to versions 3.13.15, 4.0.20, 4.1.11, 4.2.6, and 4.3.0, The AMQP 0-9-1 shovel calls amqp_uri:remove_credentials before storing its connection URI, but the AMQP 1.0 shovel stores the raw URI including the password. The stored URI is visible via GET /",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67221",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-67220",
-        "published": "2026-09-23T21:17:00.220",
-        "description": "RabbitMQ is a messaging and streaming broker. Prior to versions 3.13.15, 4.0.20, 4.1.11, 4.2.6, 4.3.0, When a binding is created on an x-jms-topic exchange, add_binding/3 reads the rjms_erlang_selector argument and passes it through erl_scan:string/1 then erl_parse:parse_term/1. erl_scan:string/1 in",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67220",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-67219",
-        "published": "2026-09-23T21:17:00.073",
-        "description": "RabbitMQ is a messaging and streaming broker. Prior to versions 3.13.15, 4.0.20, 4.1.11, 4.2.6, and 4.3.0, add_binding/3 parses the routing key as an integer weight N and computes ring positions with lists:seq(NextN0, NextN0 + N - 1). validate_binding/2 only checks N >= 1 , no upper bound. The resul",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67219",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-67218",
-        "published": "2026-09-23T21:16:59.930",
-        "description": "RabbitMQ is a messaging and streaming broker. Prior to versions 4.0.22, 4.1.11, 4.2.6, and 4.3.0, accept_content/2 at line 56 calls rabbit_stream_manager:create_super_stream/... directly after is_authorized (which only checks the management tag + vhost access via is_authorized_vhost). The stream-pro",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67218",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-66080",
-        "published": "2026-09-23T21:16:59.787",
-        "description": "RabbitMQ is a messaging and streaming broker. Prior to versions 4.1.11, 4.2.6, and 4.3.0, validate_partitions only checks that the requested partition count is at least 1, with no upper bound. A large count such as lists:seq(0, 500000000) allocates roughly 8GB. Preconditions include The rabbitmq_str",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-66080",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-66077",
-        "published": "2026-09-23T21:16:59.647",
-        "description": "RabbitMQ is a messaging and streaming broker. Prior to versions 3.13.15, 4.0.20, 4.1.11, and 4.2.6, The management UI uses EJS 1.0 in which <%= ... %> does NOT HTML-escape. connection.ejs:135 renders <%= connection.ssl_details.peer_cert_subject %> (and peer_cert_issuer) directly into the page. The s",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-66077",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-66075",
-        "published": "2026-09-23T21:16:59.500",
-        "description": "RabbitMQ is a messaging and streaming broker. Prior to versions 3.13.15, 4.0.20, 4.1.11, 4.2.6, and 4.3.1, is_authorized/2 for the /federation-links/.../restart route uses is_authorized_monitor (accepts the monitoring tag), while allowed_methods permits DELETE and delete_resource/2 triggers rabbit_f",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-66075",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-66074",
-        "published": "2026-09-23T21:16:59.357",
-        "description": "RabbitMQ is a messaging and streaming broker. Prior to versions 3.13.15, 4.0.20, 4.1.11, 4.2.6, and 4.3.0, match_value/3 passes the user-supplied ?name= regular expression to re:run with no match_limit option, and executes it once per resource in the result set. OTP's default 10M match_limit caps ea",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-66074",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-66072",
-        "published": "2026-09-23T21:16:59.213",
-        "description": "RabbitMQ is a messaging and streaming broker. Prior to versions 3.13.15, 4.0.20, 4.1.11, 4.2.6, and 4.3.1, get_chunk_selector/1 calls binary_to_atom on the raw client-supplied <<\"chunk_selector\">> property from post-auth subscribe and resolve_offset_spec frames, with no whitelist and no existing gua",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-66072",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-66069",
-        "published": "2026-09-23T21:16:59.073",
-        "description": "RabbitMQ is a messaging and streaming broker. Prior to versions 4.1.13, 4.2.7, and 4.3.0, is_authorized/2 uses is_authorized_monitor for all methods. DELETE resets rabbit_core_metrics:reset_auth_attempt_metrics(). Impact is cosmetic (counters only, no log erasure), but inconsistent with rabbit_mgmt_",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-66069",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-66068",
-        "published": "2026-09-23T21:16:58.930",
-        "description": "RabbitMQ is a messaging and streaming broker. Prior to versions 3.13.15, 4.0.20, 4.1.11, 4.2.6, and 4.3.0, ?LOG_DEBUG(\"shutting down Shovel '~ts', ... Shovel state: ~tp\", [Name, State]) formats the entire state map. The 'uris' field holds plaintext URIs after credentials_obfuscation:decrypt (called ",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-66068",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-66067",
-        "published": "2026-09-23T21:16:58.783",
-        "description": "RabbitMQ is a messaging and streaming broker. Prior to versions 4.2.7 and 4.3.1, The stream open handler calls only check_vhost_access; it omits the node/vhost/user connection-limit checks that rabbit_reader performs for AMQP. A developer %% FIXME comment at the cited line explicitly acknowledges th",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-66067",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-53979",
-        "published": "2026-09-23T21:16:58.713",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-53979",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-53978",
-        "published": "2026-09-23T21:16:58.660",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-53978",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-53969",
-        "published": "2026-09-23T21:16:58.600",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-53969",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-53968",
-        "published": "2026-09-23T21:16:58.520",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-53968",
         "kev": false
       }
     ]
