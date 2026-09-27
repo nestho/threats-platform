@@ -4,168 +4,127 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Programs — Threats</title>
+<meta name="description" content="Public bug bounty program scope and in-scope domains.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/app.css">
 <style>
-  :root {
-    --bg: #09090b; --surface: #111113; --border: #27272a; --border-hover: #3f3f46;
-    --text: #fafafa; --text-secondary: #a1a1aa; --text-muted: #71717a;
-    --accent: #f97316; --link: #38bdf8;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--bg); color: var(--text);
-    font-family: Inter, system-ui, sans-serif; font-size: 14px; line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-  }
-  a { color: inherit; text-decoration: none; }
-  .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px 80px; }
-
-  header.site {
-    display: flex; align-items: center; justify-content: space-between;
-    height: 64px; border-bottom: 1px solid var(--border); margin-bottom: 36px;
-  }
-  .logo { display: flex; align-items: center; gap: 10px; }
-  .logo-mark {
-    width: 28px; height: 28px; border-radius: 7px;
-    background: linear-gradient(135deg, #f97316, #ea580c);
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 700; font-size: 13px; color: #0a0a0a;
-  }
-  .logo-name { font-weight: 600; font-size: 15px; letter-spacing: -0.02em; }
-  .logo-name span { color: var(--text-muted); font-weight: 400; }
-  .back { font-size: 13px; color: var(--text-muted); }
-  .back:hover { color: var(--text-secondary); }
-
-  h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 24px; }
-
-  .controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
-  input, select {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
-    color: var(--text); font-family: inherit; font-size: 13px; padding: 9px 12px; outline: none;
-  }
-  input { flex: 1; min-width: 180px; }
-  input:focus, select:focus { border-color: var(--border-hover); }
-
-  .tabs { display: flex; gap: 6px; margin-bottom: 16px; }
-  .tab {
-    background: transparent; border: 1px solid var(--border); border-radius: 8px;
-    color: var(--text-muted); font-family: inherit; font-size: 13px;
-    padding: 7px 12px; cursor: pointer;
-  }
-  .tab:hover { border-color: var(--border-hover); color: var(--text-secondary); }
-  .tab.active {
-    background: var(--surface); border-color: var(--border-hover);
-    color: var(--text); font-weight: 500;
-  }
-
-  .meta-bar {
-    display: flex; justify-content: space-between; align-items: center;
-    gap: 12px; flex-wrap: wrap; font-size: 12px; color: var(--text-muted); margin-bottom: 12px;
-  }
-  .meta-bar button {
-    background: transparent; border: 1px solid var(--border); border-radius: 6px;
-    color: var(--text-muted); font-family: inherit; font-size: 12px;
-    padding: 4px 10px; cursor: pointer;
-  }
-  .meta-bar button:hover { border-color: var(--border-hover); color: var(--text-secondary); }
-
-  .group-title {
-    font-size: 13px; font-weight: 600; color: var(--text);
-    margin: 24px 0 8px; padding-bottom: 6px; border-bottom: 1px solid var(--border);
-  }
-  .group-title .n {
-    color: var(--text-muted); font-weight: 400; font-size: 12px;
-    font-family: 'JetBrains Mono', monospace; margin-left: 8px;
-  }
-
   .card {
-    border: 1px solid var(--border); border-radius: 10px;
-    padding: 14px 16px; margin-bottom: 6px; background: var(--surface);
-    cursor: pointer; transition: border-color 0.12s;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    margin-bottom: 6px;
+    background: var(--surface);
+    transition: border-color 0.12s;
   }
   .card:hover { border-color: var(--border-hover); }
+
+  /* The card is now a real <button>, so it inherits button typography. Reset the
+     parts that would otherwise make it look like a native control. */
+  button.card {
+    display: block;
+    width: 100%;
+    text-align: left;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+  }
+  button.card:hover { border-color: var(--border-hover); }
+
   .card-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
   .card-name { font-weight: 500; font-size: 14px; }
   .card-badges { display: flex; gap: 6px; align-items: center; flex-shrink: 0; }
-  .badge {
-    font-size: 11px; color: var(--text-muted); border: 1px solid var(--border);
-    border-radius: 4px; padding: 2px 7px;
-  }
   .badge.count { color: var(--accent); border-color: rgba(249,115,22,0.35); }
   .badge.manual { color: var(--link); border-color: rgba(56,189,248,0.35); }
-  .caret { color: var(--text-muted); font-size: 11px; transition: transform 0.12s; }
-  .card.open .caret { transform: rotate(90deg); }
+  .badge.none { color: var(--text-muted); }
+  .caret { color: var(--text-muted); font-size: 11px; transition: transform 0.12s; display: inline-block; }
+  button.card[aria-expanded="true"] .caret { transform: rotate(90deg); }
+
   .card-body {
-    display: none; margin-top: 12px; padding-top: 12px;
-    border-top: 1px solid var(--border); font-size: 12.5px;
-    line-height: 1.8; color: var(--text-secondary);
+    display: none;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    line-height: 1.8;
+    color: var(--text-secondary);
   }
-  .card.open .card-body { display: block; }
+  button.card[aria-expanded="true"] + .card-body { display: block; }
+
   .domain-tag {
-    display: inline-block; color: var(--text);
-    font-family: 'JetBrains Mono', monospace; font-size: 12px; margin-right: 4px;
+    display: inline-block;
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    margin-right: 4px;
   }
   .copy-btn {
-    background: transparent; border: 1px solid var(--border); border-radius: 4px;
-    color: var(--text-muted); font-family: inherit; font-size: 11px;
-    padding: 3px 8px; cursor: pointer; margin-top: 10px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text-muted);
+    font-family: inherit;
+    font-size: 11px;
+    padding: 3px 8px;
+    cursor: pointer;
+    margin-top: 10px;
   }
   .copy-btn:hover { color: var(--text-secondary); border-color: var(--border-hover); }
 
   table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  th, td {
-    text-align: left; padding: 10px 12px 10px 0;
-    border-bottom: 1px solid var(--border); vertical-align: top;
-  }
-  th {
-    color: var(--text-muted); font-weight: 500; font-size: 11px;
-    letter-spacing: 0.04em; text-transform: uppercase;
-  }
-  td.domains {
-    color: var(--text-secondary); max-width: 380px;
-    font-family: 'JetBrains Mono', monospace; font-size: 12px;
-  }
-  td.name { font-weight: 500; white-space: nowrap; }
-  td.platform { color: var(--text-muted); white-space: nowrap; }
+  th, td { text-align: left; padding: 10px 12px 10px 0; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { color: var(--text-muted); font-weight: 500; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+  td.domains { color: var(--text-secondary); max-width: 380px; font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+  td.name { font-weight: 500; }
+  td.platform { color: var(--text-muted); }
 
-  .pager {
-    display: flex; justify-content: center; align-items: center;
-    gap: 8px; margin-top: 24px;
+  .group-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    margin: 24px 0 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
   }
+  .group-title .n { color: var(--text-muted); font-weight: 400; font-size: 12px; font-family: 'JetBrains Mono', monospace; margin-left: 8px; }
+
+  .pager { display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 24px; }
   .pager button {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
-    color: var(--text-muted); font-family: inherit; font-size: 13px;
-    padding: 7px 12px; cursor: pointer;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-muted);
+    font-family: inherit;
+    font-size: 13px;
+    padding: 7px 12px;
+    cursor: pointer;
   }
   .pager button:hover:not(:disabled) { border-color: var(--border-hover); color: var(--text-secondary); }
   .pager button:disabled { opacity: 0.35; cursor: default; }
   .pager span { color: var(--text-muted); font-size: 12px; }
-
-  .empty { color: var(--text-muted); padding: 48px 0; text-align: center; }
-  .toast {
-    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
-    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
-    color: var(--text-secondary); font-size: 13px; padding: 10px 16px;
-    opacity: 0; transition: opacity 0.2s; pointer-events: none;
-  }
-  .toast.show { opacity: 1; }
 </style>
 </head>
 <body>
 <div class="wrap">
+
   <header class="site">
     <a class="logo" href="/">
       <span class="logo-mark">T</span>
-      <span class="logo-name">Threats <span>/ Programs</span></span>
+      <span class="logo-name">Threats <span class="sub">/ Programs</span></span>
     </a>
-    <a class="back" href="/">← Home</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/programs.html" aria-current="page">Programs</a>
+      <a href="/cves.html">Vulnerabilities</a>
+      <a href="/threats.html">Cloud threats</a>
+    </nav>
   </header>
 
   <h1>Bug bounty programs</h1>
+  <p class="sub">Public program scope and in-scope domains. Search by name or domain.</p>
 
   <div class="controls">
-    <input id="search" placeholder="Search program or domain…">
+    <input id="search" type="search" placeholder="Search program or domain…" autocomplete="off" aria-label="Search programs or domains">
+    <label for="sort" class="section-label" style="margin:0;">Sort</label>
     <select id="sort">
       <option value="domains-desc">Most domains</option>
       <option value="domains-asc">Fewest domains</option>
@@ -174,62 +133,36 @@
     </select>
   </div>
 
-  <div class="tabs">
-    <button class="tab active" data-view="cards">Cards</button>
-    <button class="tab" data-view="table">Table</button>
-    <button class="tab" data-view="grouped">By platform</button>
+  <div class="tabs" role="tablist" aria-label="View">
+    <button class="tab" role="tab" id="tab-cards" aria-controls="list" aria-selected="true" data-view="cards">Cards</button>
+    <button class="tab" role="tab" id="tab-table" aria-controls="list" aria-selected="false" data-view="table" tabindex="-1">Table</button>
+    <button class="tab" role="tab" id="tab-grouped" aria-controls="list" aria-selected="false" data-view="grouped" tabindex="-1">By platform</button>
   </div>
 
   <div class="meta-bar">
-    <span id="count-label"></span>
+    <span id="count-label" role="status" aria-live="polite"></span>
     <span>
       <span id="updated-label"></span>
       &nbsp;·&nbsp;
-      <button id="copy-md">Copy markdown</button>
+      <button id="copy-md" type="button">Copy markdown</button>
     </span>
   </div>
 
-  <div id="list"></div>
+  <div id="list" role="tabpanel" aria-labelledby="tab-cards"></div>
   <div class="pager" id="pager"></div>
 </div>
 
-<div class="toast" id="toast">Copied</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script>
-function esc(s) {
-  const d = document.createElement('div');
-  d.textContent = s ?? '';
-  return d.innerHTML;
-}
+<script type="module">
+import { esc, copyText, fetchJson, initTabs, setResultCount } from '/assets/app.js';
 
 const PAGE_SIZE = 30;
-let all = [], filtered = [], page = 0, view = 'cards';
-
-fetch('/data/domains.json')
-  .then(r => r.json())
-  .then(data => {
-    all = data.programs || [];
-    filtered = all;
-    document.getElementById('updated-label').textContent =
-      'Updated ' + (data.updated_at || '').slice(0, 16).replace('T', ' ') + ' UTC';
-    const q = new URLSearchParams(location.search).get('q');
-    if (q) {
-      document.getElementById('search').value = q;
-      const ql = q.toLowerCase();
-      filtered = all.filter(p =>
-        p.name.toLowerCase().includes(ql) ||
-        (p.domains || []).some(d => d.toLowerCase().includes(ql))
-      );
-    }
-    render();
-  })
-  .catch(() => {
-    document.getElementById('list').innerHTML = '<div class="empty">Data unavailable.</div>';
-  });
+let all = [], filtered = [], page = 0;
 
 function sortList(list) {
   const mode = document.getElementById('sort').value;
-  const copy = [...list];
+  const copy = list.slice();
   if (mode === 'domains-desc') copy.sort((a, b) => (b.domains?.length || 0) - (a.domains?.length || 0));
   if (mode === 'domains-asc') copy.sort((a, b) => (a.domains?.length || 0) - (b.domains?.length || 0));
   if (mode === 'name-asc') copy.sort((a, b) => a.name.localeCompare(b.name));
@@ -237,81 +170,81 @@ function sortList(list) {
   return copy;
 }
 
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 1400);
-}
-
-function copyText(text) {
-  navigator.clipboard.writeText(text).then(() => showToast('Copied')).catch(() => showToast('Copy failed'));
-}
-
-document.getElementById('copy-md').addEventListener('click', () => {
-  const list = sortList(filtered);
-  const rows = list.map(p =>
-    `| ${p.name} | ${p.platform || ''} | ${p.domains.length} | ${p.domains.join(', ')} |`
-  );
-  copyText('| Program | Platform | Domains | List |\n|---|---|---|---|\n' + rows.join('\n'));
-});
-
-document.querySelectorAll('.tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-    view = tab.dataset.view;
-    page = 0;
-    render();
-  });
-});
-
+/*
+ * The card is a <button>, not a <div onclick>.
+ *
+ * It was a div with a click handler and cursor:pointer, which meant the primary
+ * content of this page could not be reached or expanded by keyboard at all. As a
+ * button it is focusable, activates on Enter and Space for free, and can carry
+ * aria-expanded so the state is announced rather than only drawn with a rotated
+ * caret.
+ */
 function cardHtml(p) {
   const domains = p.domains || [];
-  const tags = domains.map(d => `<span class="domain-tag">${esc(d)}</span>`).join(' · ');
+  const tags = domains.map((d) => `<span class="domain-tag">${esc(d)}</span>`).join(' · ');
+  const countBadge = domains.length
+    ? `<span class="badge count">${domains.length}</span>`
+    : '<span class="badge none">no published scope</span>';
   const manual = p.manual ? '<span class="badge manual">manual</span>' : '';
-  const attr = domains.join('\n').replace(/"/g, '&quot;');
-  return `<div class="card">
-    <div class="card-head">
+  // Domains go in the DOM as text, not as a data-attribute. The previous version
+  // packed them into data-domains, which meant a hand-edited manual.json entry
+  // was one escaping mistake away from an attribute injection.
+  return `<button class="card" type="button" aria-expanded="false" data-key="${esc(p.name)}">
+    <span class="card-head">
       <span class="card-name">${esc(p.name)}</span>
       <span class="card-badges">
-        <span class="badge">${esc(p.platform)}</span>
+        <span class="badge">${esc(p.platform || 'Other')}</span>
         ${manual}
-        <span class="badge count">${domains.length}</span>
-        <span class="caret">▸</span>
+        ${countBadge}
+        <span class="caret" aria-hidden="true">▸</span>
       </span>
-    </div>
-    <div class="card-body">
-      ${tags}
-      <div><button class="copy-btn" data-domains="${attr}">Copy domains</button></div>
-    </div>
+    </span>
+  </button>
+  <div class="card-body">
+    ${tags || '<span style="color:var(--text-muted);">This program has not published in-scope domains.</span>'}
+    ${domains.length ? '<div><button class="copy-btn" type="button">Copy domains</button></div>' : ''}
   </div>`;
 }
 
-function bindCards() {
-  document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', e => {
-      if (e.target.closest('.copy-btn')) return;
-      card.classList.toggle('open');
+/**
+ * Bind the rendered cards.
+ *
+ * `rendered` must be the exact array that was turned into markup. An earlier
+ * version looked the program up by DOM index into the global `filtered`, which
+ * is only correct in the two paged views -- in "By platform" the DOM is grouped,
+ * so the indexes no longer line up and Copy copied a different program's
+ * domains. Keying off the program name is order-independent.
+ */
+function bindCards(rendered) {
+  const byName = new Map(rendered.map((p) => [p.name, p]));
+
+  for (const card of document.querySelectorAll('button.card')) {
+    card.addEventListener('click', () => {
+      const open = card.getAttribute('aria-expanded') === 'true';
+      card.setAttribute('aria-expanded', String(!open));
     });
-  });
-  document.querySelectorAll('.copy-btn').forEach(btn => {
-    btn.addEventListener('click', e => {
-      e.stopPropagation();
-      copyText(btn.dataset.domains);
+  }
+  for (const btn of document.querySelectorAll('.copy-btn')) {
+    btn.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const card = btn.closest('.card-body')?.previousElementSibling;
+      const program = byName.get(card?.dataset.key);
+      const domains = program?.domains || [];
+      copyText(domains.join('\n'), `Copied ${domains.length} domains`);
     });
-  });
+  }
 }
 
 function render() {
   const sorted = sortList(filtered);
-  document.getElementById('count-label').textContent =
-    filtered.length + ' program' + (filtered.length === 1 ? '' : 's');
   const list = document.getElementById('list');
   const pager = document.getElementById('pager');
+  const view = document.querySelector('.tab[aria-selected="true"]')?.dataset.view || 'cards';
+
+  setResultCount(document.getElementById('count-label'), filtered.length, 'program');
 
   if (!sorted.length) {
-    list.innerHTML = '<div class="empty">No matches.</div>';
+    list.innerHTML = '<p class="empty">No matches.</p>';
     pager.innerHTML = '';
     return;
   }
@@ -319,15 +252,16 @@ function render() {
   if (view === 'grouped') {
     pager.innerHTML = '';
     const groups = {};
-    sorted.forEach(p => {
-      const k = p.platform || 'Other';
-      (groups[k] = groups[k] || []).push(p);
-    });
-    list.innerHTML = Object.keys(groups).sort().map(k =>
-      `<div class="group-title">${esc(k)}<span class="n">${groups[k].length}</span></div>` +
-      groups[k].map(cardHtml).join('')
+    for (const p of sorted) {
+      const key = p.platform || 'Other';
+      (groups[key] = groups[key] || []).push(p);
+    }
+    const grouped = Object.keys(groups).sort().flatMap((key) => groups[key]);
+    list.innerHTML = Object.keys(groups).sort().map((key) =>
+      `<h2 class="group-title">${esc(key)}<span class="n">${groups[key].length}</span></h2>` +
+      groups[key].map(cardHtml).join('')
     ).join('');
-    bindCards();
+    bindCards(grouped);
     return;
   }
 
@@ -337,38 +271,73 @@ function render() {
 
   if (view === 'table') {
     list.innerHTML = `<table>
-      <thead><tr><th>Program</th><th>Platform</th><th>#</th><th>Domains</th></tr></thead>
-      <tbody>${pageItems.map(p => `
+      <caption class="visually-hidden">Bug bounty programs and their in-scope domains</caption>
+      <thead><tr><th scope="col">Program</th><th scope="col">Platform</th><th scope="col">#</th><th scope="col">Domains</th></tr></thead>
+      <tbody>${pageItems.map((p) => `
         <tr>
           <td class="name">${esc(p.name)}</td>
-          <td class="platform">${esc(p.platform)}</td>
-          <td>${p.domains.length}</td>
-          <td class="domains">${p.domains.map(esc).join(', ')}</td>
+          <td class="platform">${esc(p.platform || '')}</td>
+          <td>${(p.domains || []).length}</td>
+          <td class="domains">${(p.domains || []).map(esc).join(', ')}</td>
         </tr>`).join('')}</tbody>
     </table>`;
   } else {
     list.innerHTML = pageItems.map(cardHtml).join('');
-    bindCards();
+    bindCards(pageItems);
   }
 
   pager.innerHTML = `
-    <button id="prev" ${page === 0 ? 'disabled' : ''}>← Prev</button>
+    <button id="prev" type="button" ${page === 0 ? 'disabled' : ''}>← Prev</button>
     <span>${page + 1} / ${totalPages}</span>
-    <button id="next" ${page >= totalPages - 1 ? 'disabled' : ''}>Next →</button>`;
-  document.getElementById('prev').onclick = () => { page--; render(); scrollTo(0, 0); };
-  document.getElementById('next').onclick = () => { page++; render(); scrollTo(0, 0); };
+    <button id="next" type="button" ${page >= totalPages - 1 ? 'disabled' : ''}>Next →</button>`;
+  document.getElementById('prev').onclick = () => { page -= 1; render(); scrollTo(0, 0); };
+  document.getElementById('next').onclick = () => { page += 1; render(); scrollTo(0, 0); };
 }
 
-document.getElementById('search').addEventListener('input', e => {
-  const q = e.target.value.toLowerCase();
-  filtered = all.filter(p =>
-    p.name.toLowerCase().includes(q) ||
-    (p.domains || []).some(d => d.toLowerCase().includes(q))
-  );
+function applyFilter(query) {
+  const q = query.trim().toLowerCase();
+  filtered = q
+    ? all.filter((p) =>
+        p.name.toLowerCase().includes(q) ||
+        (p.domains || []).some((d) => d.toLowerCase().includes(q)))
+    : all;
+  page = 0;
+  render();
+}
+
+initTabs('.tabs', (view) => {
+  document.getElementById('list').setAttribute('aria-labelledby', `tab-${view}`);
   page = 0;
   render();
 });
+
+document.getElementById('search').addEventListener('input', (e) => applyFilter(e.target.value));
 document.getElementById('sort').addEventListener('change', () => { page = 0; render(); });
+document.getElementById('copy-md').addEventListener('click', () => {
+  // Escape pipes: this output is a markdown table, and a program name containing
+  // "|" would silently shift every column to its right. Not an injection risk --
+  // it goes to the clipboard as text, not to innerHTML -- just wrong output.
+  const cell = (value) => String(value ?? '').replace(/\|/g, '\\|').replace(/\n/g, ' ');
+  const rows = sortList(filtered).map((p) =>
+    `| ${cell(p.name)} | ${cell(p.platform)} | ${(p.domains || []).length} | ${cell((p.domains || []).join(', '))} |`);
+  copyText('| Program | Platform | Domains | List |\n|---|---|---|---|\n' + rows.join('\n'), 'Copied markdown');
+});
+
+(async function init() {
+  const data = await fetchJson('/data/domains.json');
+  if (!data) {
+    document.getElementById('list').innerHTML = '<p class="empty">Data unavailable.</p>';
+    return;
+  }
+  all = data.programs || [];
+  if (data.updated_at) {
+    document.getElementById('updated-label').textContent =
+      'Updated ' + data.updated_at.slice(0, 10) + ' UTC';
+  }
+  const q = new URLSearchParams(location.search).get('q');
+  if (q) document.getElementById('search').value = q;
+  applyFilter(q || '');
+})();
 </script>
 </body>
 </html>
