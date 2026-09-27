@@ -5,6 +5,11 @@ on:
   # based on the current hour (cleaner than many overlapping crons).
   schedule:
     - cron: '0 * * * *'
+    # Wiz is an analysis feed, not an alert feed: measured over its 509-item
+    # feed it publishes 0 items per week and ~3 per month. Running it on the
+    # hourly CVE cadence would imply a freshness it does not have, so it gets
+    # its own weekly schedule and is labelled as analysis in the UI.
+    - cron: '17 6 * * 1'
 
   workflow_dispatch:
     inputs:
@@ -19,6 +24,7 @@ on:
           - collector
           - exploitdb
           - cert_eu
+          - wiz
           - all
         default: all
 
@@ -38,13 +44,13 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           fetch-depth: 0
           ref: main
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
         with:
           python-version: '3.12'
           cache: pip
@@ -72,6 +78,8 @@ jobs:
             #   every 3h    -> ghsa  (hours % 3 == 0)
             #   every 4h    -> exploitdb + cert_eu
             #   every 6h    -> collector
+            #
+            # wiz is intentionally absent: it has its own weekly cron above.
             HOUR=$(date -u +%H)
             HOUR=$((10#$HOUR))   # force decimal
 
@@ -153,6 +161,10 @@ jobs:
                 echo "Updating CERT-EU..."
                 retry python scripts/cert_eu_feed.py
                 ;;
+              wiz)
+                echo "Updating Wiz Cloud Threat Landscape..."
+                retry python scripts/wiz_feed.py
+                ;;
               *)
                 echo "::error::Unsupported feed: $1"
                 return 1
@@ -161,7 +173,7 @@ jobs:
           }
 
           if [[ "${FEED}" == "all" ]]; then
-            for f in collector cve ghsa urlhaus exploitdb cert_eu; do
+            for f in collector cve ghsa urlhaus exploitdb cert_eu wiz; do
               run_one "$f"
             done
           else
@@ -170,6 +182,30 @@ jobs:
             for f in "${FEEDS[@]}"; do
               run_one "$(echo "$f" | xargs)"
             done
+          fi
+
+      - name: Validate feed data
+        env:
+          FEED: ${{ steps.feed.outputs.feed }}
+        run: |
+          set -euo pipefail
+
+          # The gate. Collectors exit non-zero on a hard failure, but a source can
+          # also return something well-formed and simply wrong (an HTML challenge
+          # page parsed to zero advisories, a partial NVD window). This step is
+          # what makes the "exit 0 means the file is good" contract true.
+          #
+          # Runs against HEAD, which at this point is still the previously
+          # committed data -- so the regression check compares this run's output
+          # to what was live before it. Bad data fails here and is never
+          # committed.
+          if ! python3 scripts/validate_feeds.py --against HEAD; then
+            echo "::error::Feed validation failed for: ${FEED} -- refusing to commit"
+            echo "--- diagnostics ---"
+            for f in data/*.json; do
+              echo "  $f: $(python3 -c "import json,sys; d=json.load(open(sys.argv[1])); print('items=' + str(sum(len(v) for v in d.values() if isinstance(v,list)) or 'n/a'))" "$f" 2>/dev/null || echo 'UNREADABLE')"
+            done
+            exit 1
           fi
 
       - name: Commit and push
