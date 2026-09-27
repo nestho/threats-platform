@@ -61,6 +61,10 @@ flowchart TB
         D9[cves_headline.json<br/>bounded slice of cves.json]
     end
 
+    subgraph CI2["GitHub Actions (pull_request)"]
+        VAL[validate.yml<br/>2 jobs: feed gate + unit tests<br/>contents:read only]
+    end
+
     subgraph Pages["GitHub Pages (threats.top)"]
         P1[index.html]
         P2[programs.html]
@@ -97,6 +101,10 @@ flowchart TB
     GATE -->|"pass"| Repo
     GATE -.->|"fail: nothing committed"| WF
 
+    PR[Pull request] --> VAL
+    VAL -->|"fail: cannot merge"| PR
+    VAL -->|"pass"| Repo
+
     D1 & D2 & D3 & D4 & D5 & D6 & D8 & D9 --> Pages
 
     P4 -- password + payload --> Worker
@@ -111,9 +119,12 @@ flowchart TB
 
 ```
 threats-platform/
-├── .github/workflows/
-│   └── update-data.yml       # hourly cron (staggered feeds) + weekly cron (wiz).
-│                             # validate -> commit, in that order
+├── .github/
+│   ├── workflows/
+│   │   ├── update-data.yml   # hourly cron (staggered feeds) + weekly cron (wiz).
+│   │   │                     # validate -> commit, in that order
+│   │   └── validate.yml      # pull_request gate: feed validity + unit tests
+│   └── dependabot.yml        # keeps the SHA-pinned actions current
 ├── admin/
 │   └── index.html            # manual data-entry UI (same-origin /admin-api)
 ├── assets/
@@ -151,7 +162,9 @@ threats-platform/
 ├── docs/
 │   ├── DEEP-ANALYSIS.md       # audit: what is wrong and why
 │   └── CONTRACT.md            # generated API contract (from validate_feeds.py)
+├── scripts/setup-ruleset.sh   # one-shot branch protection for main (needs gh auth)
 ├── CNAME                      # threats.top
+├── .gitattributes             # text=auto, and -diff for the large data/ files
 ├── requirements.txt           # empty on purpose — stdlib only, no dependencies
 ├── CONSTRAINTS.md             # the quality bar
 └── README.md                  # placeholder, not yet written
@@ -209,6 +222,34 @@ alongside hourly feeds would imply a freshness it does not have.
 
 `workflow_dispatch` allows manually triggering a single feed or `all`.
 
+### The pull-request gate
+
+`update-data.yml` validates between fetch and commit, so a bad feed from a
+scheduled run cannot reach `main`. That left one path open: `data/*.json` edited
+by hand and merged through a pull request — which is exactly how the original
+empty CERT-EU feed could have been introduced. `validate.yml` closes it.
+
+| | |
+|---|---|
+| Trigger | `pull_request` against `main` |
+| Permissions | `contents: read` — never `write` |
+| Jobs | `validate-data`, `test` (separate, so one failure doesn't mask the other) |
+| Comparison | against `github.event.pull_request.base.sha`, fetched with `--depth=1` |
+
+`pull_request` rather than `pull_request_target` is deliberate: the latter runs
+with a read/write token even for forks, so editing the workflow in a PR could
+exfiltrate secrets.
+
+Comparing against the base branch makes the check answer *"did this pull request
+empty or halve a feed"*, not *"is a feed empty"*. It also means a PR that changes
+a collector's output shape without regenerating its data fails — forcing the
+contract change and the data that satisfies it to land together.
+
+**These gates are advisory until `main` is protected.** Both workflows can be
+bypassed with `git push --no-verify` on a direct push. Run
+`scripts/setup-ruleset.sh` (requires `gh auth login`) to make `main` reject
+force-pushes and deletions.
+
 The commit step has retry logic on both the feed script itself (up to 4
 attempts with exponential backoff) and on `git push` (rebases on conflict
 and retries), since multiple scheduled runs could in theory race — though
@@ -230,6 +271,35 @@ unbumped `schema_version`, non-ISO timestamps, a non-canonical `platform`, and
 defanging regressions. See `docs/DEEP-ANALYSIS.md` §2.1.
 
 ---
+
+## 5b. Branching
+
+```
+main                    production; GitHub Pages serves from here
+└── develop             integration branch
+    ├── fix/*           bug fixes
+    └── feat/*          features
+```
+
+Fixes and features are **branches, not repositories.** They were originally
+proposed as separate repos, which would not work here: `cve_feed.py` is touched
+by both the pagination fix and by feature work, `assets/app.js` likewise, so
+separate repos mean the same file in two places, guaranteed to drift. GitHub
+Pages also serves one repository, so a feature repo's `index.html` never
+deploys. Branches give the same isolation without the duplication.
+
+The 2026-09-27 rework followed this: `fix/data-integrity` (5 commits, self-contained
+— the gate passes on its own tree) merged into `develop`, then
+`feat/cloud-threats-and-frontend` (4 commits, depends on the fix for
+`cves_headline.json`) merged into `develop`, then `develop` into `main`.
+
+A `hotfix/*` branch cut from `main` and merged back into both `main` and
+`develop` is the intended path for anything urgent.
+
+Worth knowing: the hourly cron commits to `main` directly, so a `main` merge can
+be rejected mid-push by a scheduled run landing at the same moment. That happened
+during the 2026-09-27 merge and is handled by `git merge origin/main` plus a
+regeneration — see the `chore(data): regenerate all feeds` commit.
 
 ## 6. Manual data entry (admin panel)
 
@@ -271,8 +341,8 @@ Security properties already in place:
 
 ## 7. Known issues / tech debt
 
-**Closed on `p0-data-integrity` (2026-09-27, unmerged).** Full detail and
-reproductions in [`docs/DEEP-ANALYSIS.md`](docs/DEEP-ANALYSIS.md).
+**Closed and shipped to `main` on 2026-09-27.** Full detail and reproductions in
+[`docs/DEEP-ANALYSIS.md`](docs/DEEP-ANALYSIS.md).
 
 1. ~~NVD CVE feed silently truncated~~ — **fixed.** Now paginates on
    `totalResults`. Measured 200 → 1533 CVEs; `items_available`/`items_parsed` are
@@ -295,24 +365,28 @@ reproductions in [`docs/DEEP-ANALYSIS.md`](docs/DEEP-ANALYSIS.md).
    silently. The empty-feed gate converts that from *silent* to *loud*, which is
    mitigation, not a fix.
 
-**Still open:**
-
-10. **`README.md` is still the placeholder.** Now more costly than it was: the
-    project advertises a public API and ships
-    [`docs/CONTRACT.md`](docs/CONTRACT.md) instead. The README should at least
-    point at it.
-11. **No JSON Schema files.** `validate_feeds.py` enforces the contract in code
+9b. **No pull-request gate.** — **fixed** in `184d286`; see §5.
+10. **No branch protection on `main`.** Both workflows are advisory until this
+    exists. `scripts/setup-ruleset.sh` is committed and ready; it needs
+    `gh auth login` and 30 seconds. This is the highest-priority remaining item,
+    because a direct push bypasses every gate described in this document.
+11. **GitHub Actions are three majors behind.** `checkout` v4.2.2,
+    `setup-python` v5.4.0, `setup-node` v4.4.0, against v7 available. Kept on the
+    versions proven working in production rather than bumped blind, since a major
+    bump cannot be verified without running it. `.github/dependabot.yml` tracks
+    them.
+12. **No JSON Schema files.** `validate_feeds.py` enforces the contract in code
     and generates the docs from the same table, so they cannot drift — but a
     consumer cannot machine-validate against it without running Python.
-12. **Frontend has no end-to-end or accessibility test.** `assets/app.test.mjs`
+13. **Frontend has no end-to-end or accessibility test.** `assets/app.test.mjs`
     covers `esc()` and the time helpers as units. Nothing verifies that a rendered
     page is actually navigable, and nothing catches a future renderer passing
     unescaped data to `innerHTML`. This is the highest-value remaining gap,
     because `esc()` is the only XSS control the site has.
-13. **The Worker's in-memory rate limiter is best-effort.** It resets when a
+14. **The Worker's in-memory rate limiter is best-effort.** It resets when a
     Worker isolate is recycled. Cloudflare Rate Limiting Rules or a Durable
     Object would be a real control.
-14. **HoneyDB is not integrated.** The API works and would add live attacker
+15. **HoneyDB is not integrated.** The API works and would add live attacker
     infrastructure, which nothing else here covers — but its terms require a
     paid licence for "distributing as a value-added service", and this platform
     publishes to a public API. Needs a licensing decision first.

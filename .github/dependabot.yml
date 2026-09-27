@@ -1,0 +1,32 @@
+# Keeps the SHA-pinned GitHub Actions current.
+#
+# Every action in this repo is pinned to a commit SHA rather than a version tag,
+# because a tag is mutable: anyone who can publish v4.2.3 can change what
+# `checkout@v4.2.2` resolves to. Pinning is the supply-chain control.
+#
+# The cost of pinning is that upgrades stop being automatic, and this file is the
+# half of that trade that keeps them from being forgotten. Dependabot opens a PR
+# with the new SHA; the PR runs validate.yml, so a bad bump is caught before it
+# reaches main.
+#
+# As of 2026-09-27 all three actions are three majors behind what is available
+# (checkout v4.2.2, setup-python v5.4.0, setup-node v4.4.0, versus v7). They were
+# left on the versions proven working in production rather than bumped blind,
+# because a major bump cannot be verified without running it. This file is how
+# that gets revisited on purpose instead of by accident.
+
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 3
+    labels: [dependencies]
+    commit-message:
+      prefix: "ci"
+    groups:
+      # One PR for all three rather than three PRs, since they move together and
+      # a partial bump is the case most likely to break a workflow.
+      github-actions:
+        patterns: ["*"]

@@ -4,9 +4,14 @@ _Last reviewed: 2026-09-27. Companion to [`ARCHITECTURE.md`](ARCHITECTURE.md) (w
 system is) and [`docs/DEEP-ANALYSIS.md`](docs/DEEP-ANALYSIS.md) (what's wrong with it). This
 file is the quality bar: what "good enough to ship" means, with numbers._
 
-**Status: Floor active and enforced. The feed-validation dimensions are implemented
-and running in CI. Types/lint/secrets/supply-chain are still PROPOSED** — see
-§Open Decisions.
+**Status: Floor active. Feed validation and both test suites run in CI on every
+pull request** via `.github/workflows/validate.yml`, and the feed gate also runs
+inside the scheduled `update-data.yml` before it commits.
+
+**These gates are advisory until `main` is protected.** A direct push with
+`--no-verify` bypasses both workflows. Run `scripts/setup-ruleset.sh` (needs
+`gh auth login`) — that is the difference between a gate and a gate that is
+merely present. Types/lint/secrets remain PROPOSED; see §Open Decisions.
 
 Everything in the "Enforced" table below runs with **zero dependencies**, because the
 project's defining constraint is `requirements.txt` being empty. The feed gate is
@@ -33,17 +38,24 @@ project's defining constraint is `requirements.txt` being empty. The feed gate i
 
 | Dimension | Rule | Checked by | Runs at |
 |---|---|---|---|
-| **Feed completeness** | A feed must not drop from N>0 items to 0 | `python3 scripts/validate_feeds.py` | CI (pre-commit) |
-| **Feed schema** | Every record matches the contract in the validator | `python3 scripts/validate_feeds.py` | CI (pre-commit) |
-| **NVD completeness** | `items_parsed` == `items_available` | `python3 scripts/validate_feeds.py` | CI |
-| **Timestamps** | Every date field is ISO-8601 UTC (`Z`) or date-only | `python3 scripts/validate_feeds.py` | CI |
-| **Enums** | `platform` ∈ canonical set; Wiz `type` ∈ canonical set | `python3 scripts/validate_feeds.py` | CI |
-| **Schema version** | `schema_version` == the expected version for that file | `python3 scripts/validate_feeds.py` | CI |
-| **Defanging** | Every `urlhaus` URL starts `hxxp`/`hxxps` | `python3 scripts/validate_feeds.py` | CI |
-| **Sentinels** | No `"Unknown"` standing in for a null | `python3 scripts/validate_feeds.py` | CI |
-| **XSS: escaping** | `esc()` emits no raw `< > " '` and is injective | `node --test assets/app.test.mjs` | pre-commit, CI |
-| **Auth boundary** | Worker rejects bad origin/password/payload, fails closed | `node --test worker/admin.test.mjs` | pre-commit, CI |
-| **Timestamp rules** | Normalisation handles every upstream format, refuses unknowns | `python3 scripts/normalize.py` | pre-commit |
+| **Feed completeness** | A feed must not drop from N>0 items to 0 | `python3 scripts/validate_feeds.py` | cron (pre-commit) **+ PR** |
+| **Feed schema** | Every record matches the contract in the validator | `python3 scripts/validate_feeds.py` | cron **+ PR** |
+| **NVD completeness** | `items_parsed` == `items_available` | `python3 scripts/validate_feeds.py` | cron **+ PR** |
+| **Timestamps** | Every date field is ISO-8601 UTC (`Z`) or date-only | `python3 scripts/validate_feeds.py` | cron **+ PR** |
+| **Enums** | `platform` ∈ canonical set; Wiz `type` ∈ canonical set | `python3 scripts/validate_feeds.py` | cron **+ PR** |
+| **Schema version** | `schema_version` == the expected version for that file | `python3 scripts/validate_feeds.py` | cron **+ PR** |
+| **Defanging** | Every `urlhaus` URL starts `hxxp`/`hxxps` | `python3 scripts/validate_feeds.py` | cron **+ PR** |
+| **Sentinels** | No `"Unknown"` standing in for a null | `python3 scripts/validate_feeds.py` | cron **+ PR** |
+| **XSS: escaping** | `esc()` emits no raw `< > " '` and is injective | `node --test assets` | **PR**, local |
+| **Source hygiene** | No literal control byte in any source file | `node --test assets` | **PR**, local |
+| **Auth boundary** | Worker rejects bad origin/password/payload, fails closed | `node --test worker` | **PR**, local |
+| **Timestamp rules** | Normalisation handles every upstream format, refuses unknowns | `python3 scripts/normalize.py` | cron **+ PR** |
+
+The "Source hygiene" row exists because `worker/admin.js` shipped with a regex
+character class containing real `0x00`/`0x1f`/`0x7f` bytes. It behaved correctly,
+but it made git classify the file as binary — so diffs and code review were
+silently useless for it — and the companion test payload had a literal NUL that
+made the test pass for a reason its name did not describe.
 | Types (Python) | Zero type errors | `mypy scripts/` | pre-commit |
 | Lint | Zero errors | `ruff check scripts/` | pre-commit |
 | Secrets | No secrets in source | `gitleaks detect --redact --no-banner` | pre-commit, CI |
@@ -74,6 +86,9 @@ ARCHITECTURE.md §7.12.
 | Homepage first-paint payload | **282 KB raw / 45 KB gz** | was 1188 / 213 before the pagination fix |
 | Runtime dependencies | **0** | must stay 0 |
 | `worker/` source in version control | **yes** | was no |
+| Source files git treats as binary | **0** | must stay 0 — see the Source hygiene row |
+| GitHub Actions pinned to a SHA | **3 of 3** | must stay 3 of 3 |
+| Paths to `main` that bypass a gate | **1** (direct push) | target 0 — needs the ruleset |
 
 ---
 
@@ -117,6 +132,10 @@ The feed-validation and escaping rows are implemented and blocking. These remain
 4. **Python test runner?** The collectors have no unit tests. `pytest` is one dev
    dependency and would let `normalize.py` and the merge logic in `collector.py` be
    tested against fixtures instead of against live upstreams in CI.
+5. **Branch protection.** Not a constraint question so much as an unfinished
+   control. The script is committed and validated; it needs `gh auth login` and a
+   decision about whether `main` should require review or just forbid
+   force-push.
 
 ---
 

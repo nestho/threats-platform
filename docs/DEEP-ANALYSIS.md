@@ -1,9 +1,18 @@
 # Deep Analysis — threats-platform
 
 _Independent audit, 2026-09-27. Companion to [`ARCHITECTURE.md`](../ARCHITECTURE.md) —
-that document describes **what the system is**; this one records **what's wrong with it**,
-with reproductions. Findings are cross-referenced against ARCHITECTURE.md §7 so nothing
-is tracked twice._
+that document describes **what the system is**; this one records **what was wrong with
+it**, with reproductions. Findings are cross-referenced against ARCHITECTURE.md §7 so
+nothing is tracked twice._
+
+**This is a point-in-time record, kept for the reasoning rather than the state.**
+Every finding below was fixed and shipped to `main` on 2026-09-27; see
+ARCHITECTURE.md §7 for what is closed and what is still open. Two figures in this
+document were wrong when first written and are corrected in place — the CVSS
+recovery count is 158, not the 12 an earlier 200-item sample suggested, and two
+of the validator rules proposed here were withdrawn because they fired on
+legitimate data. Those corrections are left visible rather than edited away,
+because the reasoning behind them is the point of keeping this file.
 
 **Method.** Every defect below was reproduced — against live upstreams (NVD, the feeds) or
 by executing the code with instrumented inputs. Nothing here is inferred from reading alone.
