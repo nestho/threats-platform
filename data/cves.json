@@ -1,9 +1,324 @@
 {
-  "updated_at": "2026-09-27T02:33:17.207273+00:00",
+  "updated_at": "2026-09-27T08:43:02.325731+00:00",
   "recent": {
     "lookback_days": 3,
     "total": 200,
     "items": [
+      {
+        "id": "CVE-2026-97225",
+        "published": "2026-09-24T16:17:28.880",
+        "description": "A flaw has been found in DbGate up to 7.2.5-beta.5. This affects an unknown function of the file packages/api/src/controllers/runners.js of the component JSON Runner. Executing a manipulation of the argument comment.text/script.schedule can lead to code injection. The attack may be performed from re",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97225",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-96873",
+        "published": "2026-09-24T16:17:28.040",
+        "description": "Improper neutralization of input during web page generation ('cross-site scripting') vulnerability in Mediawiki - CirrusSearch extension allows Reflected XSS.\n\nThis issue affects Mediawiki - CirrusSearch extension through 1.46.0.",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96873",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-96750",
+        "published": "2026-09-24T16:17:27.610",
+        "description": "MongoDB Compass can interpolate a database name without escaping into the initial input of its embedded MongoDB shell when a user opens the shell from that database's view. A user with privileges to create databases on a server that a Compass user connects to may, under specific conditions, have con",
+        "severity": "HIGH",
+        "score": 7.1,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96750",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-96746",
+        "published": "2026-09-24T16:17:27.460",
+        "description": "An out-of-bounds write in the connection-monitoring logic of the MongoDB C Driver may allow an unauthenticated party who controls name resolution and the responses of the hosts named in a client's connection string to write beyond the end of a heap buffer. This may cause the application using the dr",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96746",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-96745",
+        "published": "2026-09-24T16:17:27.293",
+        "description": "Deserialization of untrusted data in the command monitoring support of the MongoDB PHP Driver can cause class names embedded in document content to be honored when the driver builds monitoring event objects. When an application registers a command monitoring subscriber and includes untrusted data in",
+        "severity": "MEDIUM",
+        "score": 5.6,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96745",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-96744",
+        "published": "2026-09-24T16:17:27.120",
+        "description": "Improper neutralization of special elements in data query logic in the cache lock implementation of the MongoDB integration for Laravel can cause a caller-supplied lock owner value to be evaluated as an aggregation expression rather than as a literal value. An authenticated user who can influence th",
+        "severity": "HIGH",
+        "score": 7.1,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96744",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93541",
+        "published": "2026-09-24T16:17:26.163",
+        "description": "An out-of-bounds read in libXi's XQueryDeviceState() in libXi before 1.8.4 could be used by a",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93541",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93425",
+        "published": "2026-09-24T16:17:25.990",
+        "description": "Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.13, the patch.readRepoDirectories tRPC procedure passes the user-controlled repoPath value from apps/dokploy/server/api/routers/patch.ts into a shell command in packages/server/src/services/patch-repo.ts without safe argume",
+        "severity": "CRITICAL",
+        "score": 9.9,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93425",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93283",
+        "published": "2026-09-24T16:17:25.690",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ni3c: master: Fix device_register() error path\n\nWhen device_register() fails in i3c_master_register_new_i3c_devs(),\nput_device() is called to drop the reference taken by\ndevice_register().  That drops the last reference, so the devi",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93283",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93282",
+        "published": "2026-09-24T16:17:25.570",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nksmbd: fix maximum allowed access checks\n\nThe DACL permission check looks for an ACE matching the current user and\nfalls back to the Everyone ACE. It does not consider an Authenticated\nUsers ACE, even though an authenticated sessio",
+        "severity": "HIGH",
+        "score": 8.1,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93282",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93281",
+        "published": "2026-09-24T16:17:25.440",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nwifi: rtw89: fix HE extended capability length check\n\nrtw89_mac_check_he_obss_narrow_bw_ru_iter() reads extended capability\nbyte 10, but rejects only datalen values below 10.  Byte 10 requires at\nleast 11 bytes.\n\nRequire datalen >=",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93281",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93280",
+        "published": "2026-09-24T16:17:25.290",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ngreybus: audio: bound the topology section sizes against the fetched size\n\ngb_audio_gb_get_topology() fetches a topology blob of a module-supplied\nsize, and gbaudio_tplg_parse_data() then walks it by adding the\nmodule-supplied size",
+        "severity": "HIGH",
+        "score": 8.8,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93280",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93279",
+        "published": "2026-09-24T16:17:25.147",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nstaging: octeon: add missing tasklet_kill in cvm_oct_tx_shutdown\n\nThe TX cleanup tasklet can be scheduled by the watchdog IRQ handler\nto execute cvm_oct_tx_do_cleanup. There can be a pending tasklet in\nthe queue which might run aft",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93279",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93278",
+        "published": "2026-09-24T16:17:25.017",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nstaging: octeon: add missing napi_disable in cvm_oct_rx_shutdown\n\ncvm_oct_rx_shutdown calls free_irq and netif_napi_del without\ndisabling the napi instance first. As the free_irq only waits\nfor completion of hard interrupt handlers",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93278",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93277",
+        "published": "2026-09-24T16:17:24.907",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nRDMA/bnxt_re: Validate udata before executing commands\n\nThe destroy callbacks currently zero the udata output after tearing down\ndriver resources. If the userspace access fails, uverbs preserves the\nuobject and allows the destroy c",
+        "severity": "HIGH",
+        "score": 7.8,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93277",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93276",
+        "published": "2026-09-24T16:17:24.797",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nphy: renesas: phy-rcar-gen3-usb2: Fix devm action registration for disabled VBUS regulator\n\ndevm_regulator_get_exclusive() initialises the regulator with\nenable_count = 1, requiring the consumer to disable it before release.\n\nThe d",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93276",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93275",
+        "published": "2026-09-24T16:17:24.667",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nperf/x86/intel/pt: Fix stop/start with no update\n\nIf pt_event_stop() is called without PERF_EF_UPDATE flag, then\nperf_aux_output_end() is not called.  A subsequent call to pt_event_start()\nwill call perf_aux_output_begin() again wh",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93275",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93274",
+        "published": "2026-09-24T16:17:24.527",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\npinctrl: bcm2835: Don't remove an unregistered GPIO chip\n\nIf the devm_pinctrl_register() function fails,\nbcm2835_pinctrl_probe() calls gpiochip_remove()\nbefore gpiochip_add_data() has registered the GPIO chip.\n\nThis means that upon",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93274",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93273",
+        "published": "2026-09-24T16:17:24.400",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nregulator: tps6594: Fix device node reference leaks in multiphase loop\n\nIn tps6594_regulator_probe(), the multi-phase configuration loop calls\nof_find_node_by_name() to find buck nodes by name, and of_get_parent()\ntwice to navigate",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93273",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93272",
+        "published": "2026-09-24T16:17:24.280",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nremoteproc: qcom_wcnss: Fix handling the lack of PD regulators in v3\n\nThe changes introduced to handle single power domain platforms have\nswapped the info pointer increment from num_pd_vregs to num_pds, which\nwould shift the info p",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93272",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93271",
+        "published": "2026-09-24T16:17:24.133",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nwifi: ath11k: cap out-of-range rx MCS instead of leaving bogus rate\n\nath11k can receive HT/VHT/HE frames whose reported MCS is above the\nmaximum that can be expressed in the corresponding mac80211 rate space\n(e.g. an HE frame repor",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93271",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93270",
+        "published": "2026-09-24T16:17:24.020",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nbpf: Disallow interpreter fallback for BPF_ADDR_PERCPU insn\n\nThe BPF_MOV64_PERCPU_REG insn requires JIT to emit native code to for\n'dst_reg = src_reg + <percpu_base_off>'.\n\nHowever, the interpreter ignores the 'off' at its ALU64_MO",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93270",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93269",
+        "published": "2026-09-24T16:17:23.873",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\next4: fix circular lock dependency in ext4_ext_migrate\n\nMove iput(tmp_inode) after ext4_writepages_up_write() to avoid a\ncircular lock dependency between s_writepages_rwsem and sb_internal\n(freeze protection).\n\nThe deadlock scenari",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93269",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93268",
+        "published": "2026-09-24T16:17:23.730",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\next4: skip extra isize expansion during mount to prevent deadlock\n\next4_try_to_expand_extra_isize() is called from __ext4_mark_inode_dirty()\nwhile holding an active jbd2 handle.  During mount (!SB_ACTIVE), the\nexpand path may move ",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93268",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93267",
+        "published": "2026-09-24T16:17:23.570",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nRDMA/core: Fix potential use after free in uverbs_free_dmah()\n\nWhen accessing a dmah via the netlink path the only synchronization\nmechanism for the said dmah is rdma_restrack_get().\nCurrently, rdma_restrack_del() is invoked at the",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93267",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93266",
+        "published": "2026-09-24T16:17:23.453",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\narm64: RSI: fix field-spanning write warning in attestation token init\n\nThe challenge is passed in registers a1 through a8. However, copying to\n&regs.a1 makes FORTIFY treat the destination as the single a1 field,\nresulting in a fie",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93266",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93265",
+        "published": "2026-09-24T16:17:23.340",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nPCI/pwrctrl: tc9563: Fix parsing the integrated Ethernet MAC Endpoint node\n\nDSP3 has an integrated Ethernet MAC Endpoint which has its own set of\nconfig registers for configuring settings such as ASPM. The Endpoint device\nhas two p",
+        "severity": "HIGH",
+        "score": 7.7,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93265",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93264",
+        "published": "2026-09-24T16:17:23.193",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nRDMA/efa: Fix PBL chunk length computation\n\nOn register MR, when creating the PBL, if it's an indirect PBL we create\na chunk list to hold the PBL pages pointers. Each chunk is 4KB in size\nand can hold 510 addresses (EFA_PTRS_PER_CH",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93264",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93263",
+        "published": "2026-09-24T16:17:23.067",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nclk: eswin: Zero-initialize stack-allocated clk_init_data\n\neswin_clk_register_pll() and eswin_register_clkdiv() declare a struct\nclk_init_data on the stack and only initialize some of its fields\n(parent_data respectively parent_hws",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93263",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93262",
+        "published": "2026-09-24T16:17:22.927",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmd/raid5-ppl: fix use-after-free in ppl_do_flush()\n\nThe loop in ppl_do_flush() continues iterating after calling\nppl_io_unit_finished(), touching io->pending_flushes and leading to a\nuse-after-free.\n\nAdd a break statement to stop t",
+        "severity": "HIGH",
+        "score": 7.8,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93262",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93261",
+        "published": "2026-09-24T16:17:22.780",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nlocking/lockdep: Fix NULL pointer dereference in __lock_set_class()\n\nregister_lock_class() can return NULL when the lock class pool is\nexhausted, graph_lock() fails, or key validation fails. However,\n__lock_set_class() uses the ret",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93261",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93260",
+        "published": "2026-09-24T16:17:22.670",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\npowerpc/xive: propagate IPI init errors to prevent use-after-free\n\nWhen xive_init_ipis() fails (e.g. irq_domain_alloc_irqs() fails),\nthe error path frees the global xive_ipis array.  However,\nxive_smp_probe() previously ignored thi",
+        "severity": "HIGH",
+        "score": 7.4,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93260",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93259",
+        "published": "2026-09-24T16:17:22.530",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\npowerpc/irq: Fix missing r2 clobber in PCREL inline assembly\n\nIn CONFIG_PPC_KERNEL_PCREL mode, r2 is no longer reserved for the TOC\npointer and is available as a caller-saved register [0].\n\nBoth call_do_irq() and call_do_softirq() ",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93259",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93258",
+        "published": "2026-09-24T16:17:22.420",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nocfs2: do not use make_bad_inode() in ocfs2_read_inode_block_full()\n\nThis reverts commit 58b6fcd2ab34 (\"ocfs2: mark inode bad upon validation\nfailure during read\").\n\nSince 'make_bad_inode()' resets inode type to S_IFREG, doing this",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93258",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93257",
+        "published": "2026-09-24T16:17:22.310",
+        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nblock: handle nogenerate/noverify properly in fs-integrity\n\nCheck the BIP_CHECK flags before generating or verifying PI information,\notherwise this can be incorrectly called for non-PI metadata and\ncause generation of incorrect met",
+        "severity": null,
+        "score": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93257",
+        "kev": false
+      },
       {
         "id": "CVE-2026-93256",
         "published": "2026-09-24T16:17:22.157",
@@ -1487,321 +1802,6 @@
         "severity": "HIGH",
         "score": 7.5,
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-77193",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97181",
-        "published": "2026-09-24T08:17:03.280",
-        "description": "GPM LIGHT developed by ezGlobal has a Sensitive Data Exposure vulnerability. Unauthenticated remote attackers can directly access system logs.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97181",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87739",
-        "published": "2026-09-24T07:16:34.780",
-        "description": "An improper authentication vulnerability in PaperCut MF/NG allows an unauthenticated, remote attacker to trigger report generation. By submitting report generation requests without valid credentials, an attacker can generate reports and gain unauthorized access to sensitive information.",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87739",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-82077",
-        "published": "2026-09-24T07:16:33.457",
-        "description": "An improper limitation of a pathname to a restricted directory (path traversal) vulnerability in the Scan-to-Fax component of PaperCut NG and PaperCut MF allows an authenticated administrator to execute arbitrary commands on the underlying host via crafted fax provider settings.",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82077",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-81645",
-        "published": "2026-09-24T07:16:33.307",
-        "description": "Out-of-bounds read vulnerability in the graphics module. Successful exploitation of this vulnerability may affect availability.",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-81645",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-11744",
-        "published": "2026-09-24T07:16:32.100",
-        "description": "An input validation vulnerability exists in the PaperCut Hive embedded application for Ricoh devices. The application fails to properly sanitize input received during the NFC card reading process before passing it to the application's web view interface. A local attacker with physical access to the ",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-11744",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97177",
-        "published": "2026-09-24T06:17:04.380",
-        "description": "A flaw was found in the user update mechanism of the Keycloak Admin REST API. When Fine-Grained Admin Permissions are enabled, the system fails to check for specific password reset authorizations during a general user profile update. This allows a delegated administrator, who should be restricted fr",
-        "severity": "MEDIUM",
-        "score": 6.6,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97177",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97176",
-        "published": "2026-09-24T06:17:04.227",
-        "description": "A flaw was found in the Level of Authentication enforcement mechanism of Keycloak, an identity and access management solution. The issue occurs when a client specifically requires a higher security level for a user who already has an active session at a lower level. Due to a logic error in how sessi",
-        "severity": "MEDIUM",
-        "score": 4.2,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97176",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97168",
-        "published": "2026-09-24T06:17:04.150",
-        "description": "Rejected reason: it is a suggestion",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97168",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-93662",
-        "published": "2026-09-24T06:17:04.050",
-        "description": "The Events Manager  WordPress plugin before 7.4.5 does not force the scope of its logged-in event and location search when a caller supplies their own owner value, letting a low-privileged user read other accounts' unpublished, pending or trashed event and venue content, including full street addres",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93662",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-93661",
-        "published": "2026-09-24T06:17:03.943",
-        "description": "The Events Manager  WordPress plugin before 7.4.5 does not stop a ticket-update request from replacing the identifiers of the ticket it was authorized against, letting a user who can manage one event's tickets overwrite and reassign any ticket on the site to their own event.",
-        "severity": "LOW",
-        "score": 2.7,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93661",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-89005",
-        "published": "2026-09-24T06:17:03.843",
-        "description": "The WPeMatico RSS Feed Fetcher WordPress plugin before 2.8.26 does not sanitise and escape one of its campaign configuration fields when a certain feature is enabled, which allows users with the Contributor role and above to perform Stored Cross-Site Scripting attacks that execute in the session of ",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-89005",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-89004",
-        "published": "2026-09-24T06:17:03.740",
-        "description": "The WPeMatico RSS Feed Fetcher WordPress plugin before 2.8.26 does not verify ownership or authorization before returning a campaign's stored configuration and run log, allowing users with contributor-level access and above to read the configuration and execution logs of campaigns created by other u",
-        "severity": "LOW",
-        "score": 2.7,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-89004",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-89002",
-        "published": "2026-09-24T06:17:03.633",
-        "description": "The WPeMatico RSS Feed Fetcher WordPress plugin before 2.8.26 does not sanitize and escape content it retrieves from a user-supplied source before rendering it, which could allow users such as contributors to perform Stored Cross-Site Scripting attacks against higher-privileged users who review the ",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-89002",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-88847",
-        "published": "2026-09-24T06:17:03.533",
-        "description": "The MasterStudy LMS WordPress Plugin  WordPress plugin before 3.7.50 does not verify that a user is enrolled in a course before recording lesson completions against it, allowing any authenticated user, such as a subscriber, to create course progress records for courses they have no access to.",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88847",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-88846",
-        "published": "2026-09-24T06:17:03.437",
-        "description": "The MasterStudy LMS WordPress Plugin  WordPress plugin before 3.7.50 does not check whether user registration is enabled on the site before creating an account through one of its front-end registration flows, allowing unauthenticated users to create accounts, and be logged into them, on sites where ",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88846",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-88845",
-        "published": "2026-09-24T06:17:03.313",
-        "description": "The MasterStudy LMS WordPress Plugin  WordPress plugin before 3.7.50 does not perform any capability or nonce checks on an administrative maintenance action, allowing any authenticated user, such as a subscriber, to trigger it and create published content on the site attributed to their own account.",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88845",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-88843",
-        "published": "2026-09-24T06:17:03.207",
-        "description": "The MasterStudy LMS WordPress Plugin  WordPress plugin before 3.7.50 does not validate one of its display-style settings before using it to build a template path, allowing users with the Contributor role and above to include and execute arbitrary local PHP files on the server. An equivalent path was",
-        "severity": "HIGH",
-        "score": 7.2,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88843",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-84151",
-        "published": "2026-09-24T06:17:01.873",
-        "description": "The Post Grid  WordPress plugin before 7.9.5 does not limit an expansion of the WordPress allowed-HTML list to its own markup and applies it site-wide, allowing users with the Contributor role and above to store iframe, style and input elements that are normally stripped from their content, leading ",
-        "severity": "LOW",
-        "score": 3.5,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-84151",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-82850",
-        "published": "2026-09-24T06:17:01.770",
-        "description": "The Masteriyo LMS  WordPress plugin before 3.4.2 does not restrict access to quiz answer keys, allowing any authenticated user, such as a student, to retrieve the correct answers for any quiz on the site, including quizzes in courses they are not enrolled in. The redaction that hides them is applied",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82850",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-82849",
-        "published": "2026-09-24T06:17:01.650",
-        "description": "The Masteriyo LMS  WordPress plugin before 3.4.2 does not verify that the user making the request owns the course-progress records being returned, allowing any authenticated user, such as a self-registered subscriber, to read another user's learning activity. The ownership check it applies is skippe",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82849",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-82195",
-        "published": "2026-09-24T06:17:01.540",
-        "description": "The 10Web Booster  WordPress plugin before 2.34.0 does not restrict access to the routine which issues the shared secret that authenticates its cloud connection, disclosing that secret to unauthenticated visitors and letting them delete it repeatedly, preventing an administrator from completing a le",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82195",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-80513",
-        "published": "2026-09-24T06:17:01.430",
-        "description": "The wpForo Forum WordPress plugin before 3.1.6 does not restrict which classes may be instantiated when it deserializes a user-supplied profile field value, allowing authenticated users with Subscriber-level access and above to inject a PHP Object.\nNo POP chain is present in the wpForo Forum WordPre",
-        "severity": "HIGH",
-        "score": 7.5,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-80513",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-80338",
-        "published": "2026-09-24T06:17:01.317",
-        "description": "The CMB2 WordPress plugin before 2.13.0 does not perform any capability check on one of its AJAX actions, allowing users with a role as low as Subscriber to create arbitrary WordPress options and corrupt existing ones, which can break core site settings and take the site offline.\nExploitation requir",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-80338",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-74991",
-        "published": "2026-09-24T06:17:00.943",
-        "description": "The WPForms  WordPress plugin before 2.0.2 does not verify that a Stripe payment object supplied during a public form submission belongs to it before acting on it, allowing unauthenticated users to trigger a full refund and an immediate subscription cancellation against payments created by other app",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-74991",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-14780",
-        "published": "2026-09-24T06:17:00.567",
-        "description": "A vulnerability exists in the PaperCut NG/MF platform's device-scripting functionality due to insufficient sanitization and access restrictions within the embedded execution engine. An authenticated user with administrative access to the management interface can supply a malicious script that escape",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-14780",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97155",
-        "published": "2026-09-24T04:18:06.397",
-        "description": "Fabasoft Folio Client before 2026, a locally installed component that communicates with the Fabasoft browser extension via web messaging, does not restrict which web origins may invoke its functions by default. The registry value VALIDDOMAINS, which limits permitted origins, was optional and empty b",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97155",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97152",
-        "published": "2026-09-24T04:18:06.213",
-        "description": "Nanomsg versions 0.5-beta through 1.x before 1.2.3 has a remotely exploitable buffer overflow in the WebSocket transport, due to an unchecked copy of the Sec-WebSocket-Version header, through snprintf.",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97152",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97151",
-        "published": "2026-09-24T04:18:06.027",
-        "description": "mammoth (aka mammoth.js) before 1.12.2 is vulnerable to prototype pollution when reading the styles defined in a document. Converting a crafted .docx file allows an attacker to add arbitrary properties to Object.prototype. In 1.11.0 through 1.12.1, applications that convert further documents in the ",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97151",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96898",
-        "published": "2026-09-24T04:18:05.833",
-        "description": "A vulnerability was detected in yhx070424 ShopXO up to 2.2.7. Affected by this vulnerability is an unknown functionality of the file config/ueditor.php of the component Ueditor Upload Interface. The manipulation of the argument path_type results in path traversal. It is possible to launch the attack",
-        "severity": "HIGH",
-        "score": 7.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96898",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96892",
-        "published": "2026-09-24T04:18:04.790",
-        "description": "A flaw has been found in Edimax BR-6428nC 1.16. The impacted element is the function websRedirect of the component goform Handler. Executing a manipulation of the argument submit-url can lead to open redirect. The attack may be launched remotely. The exploit has been published and may be used. Multi",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96892",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97149",
-        "published": "2026-09-24T03:16:59.133",
-        "description": "In OpenStack Swift before 2.38.2, the tempurl middleware does not reject the X-Copy-From header on PUT requests. A TempURL signature only covers the method, expiry, and path, and thus the list of disallowed headers is the only defense against a signed PUT request changing what the request does. An a",
-        "severity": null,
-        "score": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97149",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96891",
-        "published": "2026-09-24T03:16:58.950",
-        "description": "A vulnerability was identified in D-Link DIR-825 3.00b32. Affected is the function tunnel_set_params of the file tunnel.c of the component rp-l2tp. The manipulation of the argument peer_hostname  leads to out-of-bounds write. The attack may be initiated remotely.",
-        "severity": "CRITICAL",
-        "score": 9.8,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96891",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96884",
-        "published": "2026-09-24T03:16:58.760",
-        "description": "A security flaw has been discovered in MantisZip up to 0.4.5. Affected by this issue is the function Path.Combine of the file MainWindow.UI.cs of the component Preview. The manipulation results in path traversal. It is possible to launch the attack remotely. The exploit has been released to the publ",
-        "severity": "MEDIUM",
-        "score": 6.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96884",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96882",
-        "published": "2026-09-24T03:16:58.577",
-        "description": "A vulnerability was identified in TaleLin lin-cms-spring-boot up to 0.2.1. Affected by this vulnerability is the function searchBook of the file src/main/java/io/github/talelin/latticy/controller/v1/BookController.java of the component book Endpoint. The manipulation leads to improper authorization.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96882",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96881",
-        "published": "2026-09-24T03:16:58.333",
-        "description": "A vulnerability was determined in TaleLin lin-cms-spring-boot up to 0.2.1. Affected is the function getBooks of the file src/main/java/io/github/talelin/latticy/controller/v1/BookController.java of the component book Endpoint. Executing a manipulation can lead to improper authorization. The attack m",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96881",
         "kev": false
       }
     ]
