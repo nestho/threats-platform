@@ -1,13 +1,323 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-09-27T18:46:21Z",
+  "updated_at": "2026-09-28T00:08:21Z",
   "recent": {
     "lookback_days": 3,
-    "total": 1157,
-    "items_available": 1157,
+    "total": 1107,
+    "items_available": 1107,
     "normalisation_failures": [],
-    "items_parsed": 1157,
+    "items_parsed": 1107,
     "items": [
+      {
+        "id": "CVE-2026-96284",
+        "published": "2026-09-27T23:17:01Z",
+        "description": "A malicious user can get read-access to files in the flatpak-system-helper context if a system OCI repository is configured, because the OCI code paths in the system helper follow symlinks when importing OCI images that are under the user's control.",
+        "severity": "LOW",
+        "score": 2.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96284",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100886",
+        "published": "2026-09-27T23:16:59Z",
+        "description": "A vulnerability was identified in Seetong T8108, T8108P, T8116 and T8232 4.6.1.4-build202604241011. The affected element is an unknown function of the component Debug Service. Such manipulation leads to improper authentication. The attack may be launched remotely. The exploit is publicly available a",
+        "severity": "CRITICAL",
+        "score": 9.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100886",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100883",
+        "published": "2026-09-27T23:16:58Z",
+        "description": "A flaw has been found in Krayin laravel-crm up to 2.2.5. The affected element is an unknown function of the file packages/Webkul/Admin/src/Config/acl.php. Executing a manipulation can lead to improper access controls. The attack can be launched remotely. The exploit has been published and may be use",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100883",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100884",
+        "published": "2026-09-27T23:16:58Z",
+        "description": "A vulnerability has been found in Krayin laravel-crm up to 2.2.5. The impacted element is the function Storage::download of the file packages/Webkul/Admin/src/Config/acl.php of the component attachment-download Endpoint. The manipulation of the argument ID leads to improper control of resource ident",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100884",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100885",
+        "published": "2026-09-27T23:16:58Z",
+        "description": "A vulnerability was found in Krayin laravel-crm up to 2.2.4. This affects an unknown function of the file packages/Webkul/Installer/src/Http/Middleware/CanInstall.php of the component admin-config-setup API Endpoint. The manipulation results in authorization bypass. The attack may be launched remote",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100885",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100882",
+        "published": "2026-09-27T22:17:06Z",
+        "description": "A vulnerability was detected in Krayin laravel-crm up to 2.2.5. Impacted is an unknown function of the file packages/Webkul/Admin/src/Resources/views/components/layouts/index.blade.php of the component Admin Settings Endpoint. Performing a manipulation of the argument general.settings.footer.label r",
+        "severity": "LOW",
+        "score": 1.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100882",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-96282",
+        "published": "2026-09-27T22:17:06Z",
+        "description": "A malicious Flatpak extension can probe the host filesystem to determine what files and directories exist at arbitrary paths, and host directory listings can be disclosed to sandboxed applications using the extension. Additionally, unvalidated extension metadata can cause extension content to be mou",
+        "severity": "LOW",
+        "score": 3.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96282",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-96283",
+        "published": "2026-09-27T22:17:06Z",
+        "description": "By calling org.freedesktop.Flatpak.SystemHelper.CancelPull on another user's pull, the pull is not actually cancelled but removed from internal tracking, making it impossible for the owning user to stop it. Ongoing pulls cannot be stopped.",
+        "severity": "LOW",
+        "score": 3.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96283",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100881",
+        "published": "2026-09-27T22:17:05Z",
+        "description": "A security vulnerability has been detected in zhistaredu StarTraining up to 3.8.1. This issue affects some unknown processing of the file application.yml. Such manipulation of the argument xss.enabled leads to cross site scripting. It is possible to launch the attack remotely. Attacks of this nature",
+        "severity": "LOW",
+        "score": 1.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100881",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-96280",
+        "published": "2026-09-27T21:17:04Z",
+        "description": "The OCI delta stream parser read sizes as guint64 but passed them to GLib I/O and allocation functions expecting gsize (32 bits on 32-bit systems), causing undersized allocations while subsequent operations use the original 64-bit size, leading to heap buffer overflows. An attacker controlling an OC",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96280",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-96281",
+        "published": "2026-09-27T21:17:04Z",
+        "description": "On a multi-user system, a user with an active local login session could downgrade a system-wide Flatpak app to an older version by removing the app's remote ref via the unprivileged system-helper RemoveLocalRef method, causing the anti-downgrade check to fail to find a reference date. A malicious lo",
+        "severity": "MEDIUM",
+        "score": 6.2,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96281",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101090",
+        "published": "2026-09-27T21:17:03Z",
+        "description": "Nezha 2.2.3 contains a Host header injection regression in the OAuth2 redirect endpoint. When the new optional dashboard_host setting is empty, /api/v1/oauth2/{provider} (cmd/dashboard/controller/oauth2.go) reflects the attacker-supplied HTTP Host header into the redirect_uri sent to the identity pr",
+        "severity": "CRITICAL",
+        "score": 9.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101090",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101065",
+        "published": "2026-09-27T21:17:02Z",
+        "description": "Obot is an open-source AI agent/MCP platform. In all versions up to and including commit d7e6970, the Docker quickstart command documented in the README starts the container listening on 0.0.0.0:8080 with authentication disabled by default. When authentication is disabled, every request is mapped to",
+        "severity": "CRITICAL",
+        "score": 9.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101065",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101084",
+        "published": "2026-09-27T21:17:02Z",
+        "description": "obot versions before v0.21.1 fail to enforce Access Control Rules on the /mcp-connect endpoint, allowing any authenticated user to connect to restricted MCP servers if they possess the server ID. Attackers can bypass authorization checks to access and manipulate sensitive backend systems through MCP",
+        "severity": "CRITICAL",
+        "score": 9.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101084",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101085",
+        "published": "2026-09-27T21:17:02Z",
+        "description": "Nezha before 2.3.8 fails to validate alert rule type and duration bounds, allowing authenticated non-administrator users to create malformed rules that trigger unrecovered panics in the alert evaluator goroutine. Attackers can submit a crafted alert rule via the POST /api/v1/alert-rule endpoint to c",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101085",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101086",
+        "published": "2026-09-27T21:17:02Z",
+        "description": "Nezha Dashboard versions before 2.3.5 fail to restrict service monitor task types to supported probe types, allowing authenticated users with nezha:service:write scope to submit privileged task types through the service API. Attackers can deliver command execution or Agent configuration tasks to Age",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101086",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101087",
+        "published": "2026-09-27T21:17:02Z",
+        "description": "Nezha versions 2.0.10 through 2.3.2 use a restricted HTTP client to validate user-configurable notification and DDNS webhook URLs, but the denylist did not cover IPv6 transition ranges — specifically the 6to4 prefix 2002::/16 and the local-use IPv4/IPv6 translation prefix 64:ff9b:1::/48. Because suc",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101087",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101088",
+        "published": "2026-09-27T21:17:02Z",
+        "description": "Nezha is a server and website monitoring tool. In versions >= 2.2.11 and < 2.3.1, the service sentinel worker (service/singleton/servicesentinel.go) contains an incomplete fix for a previously reported nil dereference denial of service (GHSA-qjpp-gffx-2wm9). The 2026-07-21 fix re-validated the servi",
+        "severity": "MEDIUM",
+        "score": 6.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101088",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101089",
+        "published": "2026-09-27T21:17:02Z",
+        "description": "Nezha before 2.2.7 contains an information disclosure vulnerability in the GET /api/v1/profile endpoint that returns the bcrypt-hashed password field of authenticated users. Attackers can extract password hashes and perform offline cracking attacks without rate limiting or audit trail constraints.",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101089",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100878",
+        "published": "2026-09-27T21:17:01Z",
+        "description": "A vulnerability was identified in zhistaredu StarTraining up to 3.8.1. Affected by this issue is the function SysUser.isAdmin of the file edu-common/src/main/java/com/edu/common/core/domain/entity/SysUser.java of the component authRole Endpoint. The manipulation of the argument userId/roleIds leads ",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100878",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100879",
+        "published": "2026-09-27T21:17:01Z",
+        "description": "A security flaw has been discovered in zhistaredu StarTraining up to 3.8.1. This affects the function checkRoleAllowed of the file SysRoleServiceImpl.java of the component dataScope Endpoint. The manipulation results in missing authorization. The attack may be performed from remote. The exploit has ",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100879",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100880",
+        "published": "2026-09-27T21:17:01Z",
+        "description": "A weakness has been identified in zhistaredu StarTraining up to 3.8.1. This vulnerability affects unknown code of the file du-common/src/main/java/com/edu/common/utils/file/MimeTypeUtils.java of the component Upload Endpoint. This manipulation of the argument File causes cross site scripting. It is ",
+        "severity": "LOW",
+        "score": 2.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100880",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101062",
+        "published": "2026-09-27T21:17:01Z",
+        "description": "Obot before v0.23.0 (affected versions <= v0.22.1) running with OBOT_SERVER_ENABLE_AUTHENTICATION=true exposes OAuth dynamic client registration without authentication and without any restriction on the redirect URIs a client may register. Because the authorization flow auto-completes for an already",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101062",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101063",
+        "published": "2026-09-27T21:17:01Z",
+        "description": "Obot versions before v0.23.0 fail to enforce authentication on MCP Registry endpoints under /v0.1/* when registry authentication is enabled. Unauthenticated attackers can read registry metadata including server names, descriptions, repository URLs, and connect URLs by sending GET requests to /v0.1/s",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101063",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101064",
+        "published": "2026-09-27T21:17:01Z",
+        "description": "Obot before v0.23.0 contains a server-side request forgery vulnerability in remote MCP server registration that allows privileged users to specify arbitrary URLs without destination validation. Attackers with Power User or higher roles can coerce Obot to make requests to internal services and cloud ",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101064",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100877",
+        "published": "2026-09-27T21:17:00Z",
+        "description": "A vulnerability was determined in mathurvishal CloudClassroom-PHP-Project up to 5dadec098bfbbf3300d60c3494db3fb95b66e7be. Affected by this vulnerability is an unknown functionality of the file registrationform.php. Executing a manipulation of the argument FName/LName/Addrs can lead to cross site scr",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100877",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-96279",
+        "published": "2026-09-27T20:16:53Z",
+        "description": "A malicious OCI registry can hardlink arbitrary host files into the extraction directory when a user installs or updates a Flatpak application from an OCI remote, allowing disclosure of arbitrary host file contents. For system-wide installs running as root, this includes sensitive files such as /etc",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96279",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100876",
+        "published": "2026-09-27T20:16:48Z",
+        "description": "A vulnerability was found in mathurvishal CloudClassroom-PHP-Project up to 5dadec098bfbbf3300d60c3494db3fb95b66e7be. Affected is an unknown function of the file loginlinkstudent.php. Performing a manipulation of the argument umail results in missing authentication. Remote exploitation of the attack ",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100876",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100875",
+        "published": "2026-09-27T19:16:54Z",
+        "description": "A vulnerability has been found in mathurvishal CloudClassroom-PHP-Project up to 5dadec098bfbbf3300d60c3494db3fb95b66e7be. This impacts an unknown function of the file updatedetailsfromfaculty.php. Such manipulation of the argument myfid leads to sql injection. The attack may be launched remotely. Th",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100875",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100873",
+        "published": "2026-09-27T19:16:53Z",
+        "description": "A vulnerability was detected in mathurvishal CloudClassroom-PHP-Project up to 5dadec098bfbbf3300d60c3494db3fb95b66e7be. The impacted element is an unknown function. The manipulation results in cross-site request forgery. The attack can be launched remotely. The exploit is now public and may be used.",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100873",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100874",
+        "published": "2026-09-27T19:16:53Z",
+        "description": "A flaw has been found in mathurvishal CloudClassroom-PHP-Project up to 5dadec098bfbbf3300d60c3494db3fb95b66e7be. This affects an unknown function of the file addnewstudent.php. This manipulation causes sql injection. The attack may be initiated remotely. The exploit has been published and may be use",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100874",
+        "kev": false
+      },
       {
         "id": "CVE-2026-101059",
         "published": "2026-09-27T18:16:32Z",
@@ -166,7 +476,7 @@
         "score": 9.5,
         "cvss_version": "40",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88771",
-        "kev": false
+        "kev": true
       },
       {
         "id": "CVE-2026-88772",
@@ -176,7 +486,7 @@
         "score": 9.5,
         "cvss_version": "40",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88772",
-        "kev": false
+        "kev": true
       },
       {
         "id": "CVE-2026-88773",
@@ -10767,823 +11077,33 @@
         "cvss_version": "40",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-85082",
         "kev": false
-      },
-      {
-        "id": "CVE-2026-97387",
-        "published": "2026-09-24T23:19:23Z",
-        "description": "Rejected reason: This CVE is a duplicate of another CVE.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97387",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97230",
-        "published": "2026-09-24T23:19:22Z",
-        "description": "IO::Socket::SSL::SelfCertificate versions 1.00 for Perl contains malware which executes Python code from an obfuscated URL.\n\nThe generate_certificate runs a Python script saved as a certificate file.  The pyhton script attempts to retrieve code from a hardcoded http URL that is obfuscated with base6",
-        "severity": "CRITICAL",
-        "score": 9.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97230",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-85491",
-        "published": "2026-09-24T22:17:02Z",
-        "description": "Catalyst::Seal versions before 0.03 for Perl allow one request to disable a path or route a later one past an authorization check via a dispatch memo keyed on the request path alone.\n\nCatalyst::Seal replaces the dispatcher's prepare_action with a version that memoises how a path resolved: which disp",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-85491",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87720",
-        "published": "2026-09-24T22:17:02Z",
-        "description": "Incorrect Authorization (CWE-863) in project name normalization (ProjectUtil.stripGitSuffix) and ProjectCache eviction logic (ProjectCacheImpl) in Gerrit Code Review versions 2.16.0 through 3.12.9, 3.13.0 through 3.13.8, and 3.14.0 through 3.14.2 allows an authenticated user (or an unauthenticated u",
-        "severity": "HIGH",
-        "score": 7.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87720",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87721",
-        "published": "2026-09-24T22:17:02Z",
-        "description": "Uncontrolled Resource Consumption (CWE-400 / CWE-407) in the ANTLR 3 search query parser (QueryParser / Query.g) in Gerrit Code Review versions 2.0.19 through 3.12.9, 3.13.0 through 3.13.8, and 3.14.0 through 3.14.2 allows an unauthenticated remote attacker (or an authenticated user if anonymous rea",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87721",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87722",
-        "published": "2026-09-24T22:17:02Z",
-        "description": "Uncontrolled Resource Consumption (CWE-400 / CWE-1333) in regex search query predicates (such as RegexProjectPredicate, RegexRefPredicate, RegexPathPredicate, and sibling predicates) and REST regex filter endpoints (RegexListSearcher /projects/?r= and RefFilter /projects/{project}/branches/?r=) in G",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87722",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97636",
-        "published": "2026-09-24T22:17:02Z",
-        "description": "Apache Airflow HashiCorp provider: the HashiCorp Vault secrets backend's team-scope guard can be bypassed with a user-controlled key. In a multi-team deployment, a Dag author scoped to one team can supply a Variable key containing a path separator that causes the backend to resolve a secret belongin",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97636",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-93353",
-        "published": "2026-09-24T21:18:58Z",
-        "description": "copyparty contains a volume restriction bypass vulnerability in its SFTP front end that allows authenticated SFTP users to create, remove, and truncate arbitrary paths outside permitted volume boundaries by exploiting three handlers that bypass the xvol volflag enforcement. The _mkdir, _rmdir, and _",
-        "severity": "MEDIUM",
-        "score": 6.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93353",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-95699",
-        "published": "2026-09-24T21:18:58Z",
-        "description": "Prior to 9/18/2026, the iSteamX mobile application's AWS policy could grant authenticated users access to wildcard MQTT topics, which can expose other users' device data and allow the attacker to start and stop other connected users' devices. This risked exposing user profile information and potenti",
-        "severity": "HIGH",
-        "score": 8.4,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-95699",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97366",
-        "published": "2026-09-24T21:18:58Z",
-        "description": "A security flaw has been discovered in jhen0409 react-native-debugger up to 0.14.0. The impacted element is the function openDevTools of the file electron/window.js of the component Open in Editor Handler. The manipulation of the argument host results in os command injection. It is possible to launc",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97366",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97368",
-        "published": "2026-09-24T21:18:58Z",
-        "description": "A weakness has been identified in chillzhuang SpringBlade up to 5.0.2. This affects the function UserServiceImpl.userInfo of the file blade-service/blade-system/src/main/java/org/springblade/system/service/impl/UserServiceImpl.java of the component user-auth-info Endpoint. This manipulation of the a",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97368",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-88386",
-        "published": "2026-09-24T21:18:57Z",
-        "description": "libsndfile 1.2.2 contains a misaligned memory access issue in psf_binheader_readf() while parsing WAV fmt chunks. A specially crafted WAV file can cause the function to cast an unaligned destination address to unsigned int * and perform a 4-byte store. This results in undefined behavior leading to d",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88386",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-88387",
-        "published": "2026-09-24T21:18:57Z",
-        "description": "LibRaw 0.22.0 contains an incorrect numeric conversion vulnerability in LibRaw::parse_tiff_ifd() when processing TIFF tag 0x00fe (NewSubfileType). A specially crafted RAW, TIFF, or DNG file can supply an attacker-controlled NewSubfileType value outside the range of a signed int. The parser converts ",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88387",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-88388",
-        "published": "2026-09-24T21:18:57Z",
-        "description": "Espruino 2v29 (commit bffc6d0) contains a stack-based buffer overflow vulnerability in the JavaScript error stack-trace handling path on 64-bit builds. A remote attacker can supply JavaScript input that triggers an exception and reaches jslPrintTokenLineMarker(), which passes the address of a 4-byte",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88388",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87118",
-        "published": "2026-09-24T21:18:56Z",
-        "description": "The Botslab G980H dash camera firmware contains an out of bounds write vulnerability in its command processing functionality. An authenticated attacker with adjacent network access could submit crafted command data that corrupts memory, potentially disrupting authentication state or causing the affe",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87118",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-84403",
-        "published": "2026-09-24T21:18:55Z",
-        "description": "The Botslab G980H dash camera firmware does not require authenticated pairing or client binding before permitting access to Bluetooth Low Energy communications and GATT characteristics. An unauthenticated attacker within Bluetooth range could intercept or directly retrieve sensitive device informati",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-84403",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-82585",
-        "published": "2026-09-24T21:18:50Z",
-        "description": "The Botslab G980H dash camera firmware transmits sensitive information over unencrypted HTTP and RTSP connections. An attacker capable of intercepting communications on the device's WiFi network could obtain stored recordings, live video, location information, images, diagnostic logs, or other sensi",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82585",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-82708",
-        "published": "2026-09-24T21:18:50Z",
-        "description": "The Botslab G980H dash camera firmware contains a path traversal vulnerability in its HTTP server. An attacker with access to the device's WiFi network could submit a crafted request to access files within the device's removable storage that were not intended to be directly accessible through the we",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82708",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-82716",
-        "published": "2026-09-24T21:18:50Z",
-        "description": "The Botslab G980H dash camera firmware includes sensitive configuration information, including WiFi credentials, in diagnostic logs generated during the support process. These logs remain accessible on removable storage after the support operation has completed. An unauthenticated attacker with phys",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82716",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-81630",
-        "published": "2026-09-24T21:18:48Z",
-        "description": "The Botslab G980H dash camera firmware does not adequately verify the authenticity of firmware updates. The update process retrieves firmware through an unprotected connection and relies on an integrity value supplied with the firmware instead of a trusted cryptographic signature. A suitably positio",
-        "severity": "CRITICAL",
-        "score": 9.2,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-81630",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-79959",
-        "published": "2026-09-24T21:18:44Z",
-        "description": "The Botslab G980H dash camera firmware contains a hard-coded root account password that cannot be changed by the user. An attacker who obtains the firmware or has physical access to the device could recover the credential and use it to obtain root access through the UART interface.",
-        "severity": "HIGH",
-        "score": 7.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-79959",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-75558",
-        "published": "2026-09-24T21:18:36Z",
-        "description": "The Botslab G980H dash camera firmware uses a hard-coded cryptographic key and initialization vector to protect WiFi credentials communicated by the device. An attacker who obtains the protected credential and extracts the cryptographic material from the firmware could recover the WiFi password and ",
-        "severity": "MEDIUM",
-        "score": 6.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-75558",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-14443",
-        "published": "2026-09-24T21:17:12Z",
-        "description": "Incomplete log sanitization during bulk IPsec policy collection in Brocade SANnav versions before 3.0.1a permit extension switch pre-shared keys to be written to system logs. Individuals with read access to container logs or support archives can obtain these keys, leading to the potential compromise",
-        "severity": "HIGH",
-        "score": 8.4,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-14443",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-14442",
-        "published": "2026-09-24T21:17:11Z",
-        "description": "An information exposure vulnerability in the job scheduling component of SANnav allows sensitive credentials to be written to application logs in plain text. When scheduled support save jobs or related operational tasks are executed, sensitive parameters including external server passwords and archi",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-14442",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-14441",
-        "published": "2026-09-24T21:17:10Z",
-        "description": "A logic flaw in Java cache key handling object comparison handling could lead to improper identifier resolution when processing specific user account structures. The issue has been remediated by updating the internal comparison routines to ensure accurate object evaluation and prevent potential iden",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-14441",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97365",
-        "published": "2026-09-24T20:17:36Z",
-        "description": "A vulnerability was determined in chonkie-inc littrs 0.6.1/0.6.2. Impacted is the function Sandbox::mount of the file crates/littrs/src/lib.rs. Executing a manipulation of the argument relative can lead to path traversal. The attack may be performed from remote. The exploit has been publicly disclos",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97365",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96883",
-        "published": "2026-09-24T20:17:35Z",
-        "description": "pgcollection is an open source extension to PostgreSQL. A type confusion issue in AWS pgcollection 2.0.0 through 2.1.1 might allow an authenticated remote user to execute arbitrary code as the postgres operating system user via crafted SQL statements that rely on mismatched type metadata in collecti",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96883",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97324",
-        "published": "2026-09-24T20:17:35Z",
-        "description": "A vulnerability was identified in YunaiV/zhijiantianya ruoyi-vue-pro up to 2026.08. Affected is the function updateDemoOrderPaid of the file yudao-module-pay/src/main/java/cn/iocoder/yudao/module/pay/controller/admin/demo/PayDemoOrderController.java of the component Demo-order Payment Callback Handl",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97324",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97325",
-        "published": "2026-09-24T20:17:35Z",
-        "description": "A security flaw has been discovered in YunaiV/zhijiantianya ruoyi-vue-pro up to 2026.08. Affected by this vulnerability is the function validOAuthClientFromCache of the file yudao-module-system/src/main/java/cn/iocoder/yudao/module/system/service/oauth2/OAuth2ClientServiceImpl.java of the component ",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97325",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97326",
-        "published": "2026-09-24T20:17:35Z",
-        "description": "A weakness has been identified in songxinjianqwe Chat up to ac63d25297079eed5e4ba7e88d3b7a032637150d. Affected by this issue is some unknown functionality of the file chat-server/src/main/java/cn/sinjinsong/chat/server/ChatServer.java of the component chat-server. This manipulation causes server-sid",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97326",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-93289",
-        "published": "2026-09-24T20:17:34Z",
-        "description": "The affected products are vulnerable to command injection attack that could allow an unauthenticated attacker to execute system commands during the pairing process.",
-        "severity": "CRITICAL",
-        "score": 9.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93289",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-93290",
-        "published": "2026-09-24T20:17:34Z",
-        "description": "Omni C20 uses hard-coded credentials that could allow an attacker to monitor log files to obtain credentials to access information like mapping data.",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93290",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-93291",
-        "published": "2026-09-24T20:17:34Z",
-        "description": "Omni C20 lacks proper certificate validation which could allow an attacker to perform a man-in-the-middle attack which could allow them to execute arbitrary code.",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93291",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-93354",
-        "published": "2026-09-24T20:17:34Z",
-        "description": "Taskview Community before 1.56.0 contains a missing authentication vulnerability that allows unauthenticated attackers to register arbitrary OAuth clients and take over user accounts by exploiting the OAuth 2.0 Dynamic Client Registration endpoint, which is enabled by default and requires no authent",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93354",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-88761",
-        "published": "2026-09-24T20:17:33Z",
-        "description": "The Botslab G980H dash camera firmware generates the default WiFi password using predictable device information, portions of which are advertised by the product. An unauthenticated attacker within WiFi range could potentially determine the remaining password characters through limited guessing and g",
-        "severity": "MEDIUM",
-        "score": 6.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88761",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-88956",
-        "published": "2026-09-24T20:17:33Z",
-        "description": "The Botslab G980H dash camera firmware contains an authentication vulnerability in the root account exposed through the device's UART interface. The affected account does not require a password before granting access to a privileged system interface, and the interface also displays the device's WiFi",
-        "severity": "HIGH",
-        "score": 7.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88956",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-82164",
-        "published": "2026-09-24T20:17:32Z",
-        "description": "Dell Trusted Device Client, versions prior to 8.1.359.0, contain an Incorrect Permission Assignment for Critical Resource vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Information tampering.",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82164",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-82372",
-        "published": "2026-09-24T20:17:32Z",
-        "description": "Improper handling of sensitive data during IPsec policy creation and modification in Brocade SANnav versions before 3.0.1a results in pre-shared keys being recorded in application logs. Individuals with read access to system log files or support bundles can view these credentials, leading to the pot",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82372",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-82566",
-        "published": "2026-09-24T20:17:32Z",
-        "description": "The Botslab G980H dash camera firmware contains a session management vulnerability in which authentication state can remain valid after the associated client connection has been terminated or replaced. Under certain connection conditions, a newly established connection can displace an existing clien",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82566",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-84399",
-        "published": "2026-09-24T20:17:32Z",
-        "description": "The Botslab G980H dash camera firmware contains an authorization vulnerability in its session based command functionality. The product does not sufficiently associate an authenticated session with the client connection that established it, and subsequent privileged operations rely on possession of a",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-84399",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-85496",
-        "published": "2026-09-24T20:17:32Z",
-        "description": "The Botslab G980H dash camera firmware generates session identifiers using a small sequential value space rather than a suitably unpredictable source. An unauthenticated attacker with adjacent network access and knowledge that an active session exists could potentially determine a valid session iden",
-        "severity": "HIGH",
-        "score": 7.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-85496",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-77967",
-        "published": "2026-09-24T20:17:30Z",
-        "description": "The Botslab G980H dash camera firmware accepts a reusable authentication value without adequately verifying its freshness or association with the requesting client. An unauthenticated attacker with adjacent network access who captures a valid authentication value could replay it from another client ",
-        "severity": "HIGH",
-        "score": 8.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-77967",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-48540",
-        "published": "2026-09-24T20:17:29Z",
-        "description": "Krayin CRM through 2.2.6 contains a stored client-side template injection vulnerability that allows authenticated attackers to execute arbitrary JavaScript in other users' browsers by injecting Vue.js template expressions into the lead title field. Attackers can craft a lead title containing double-",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-48540",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-48541",
-        "published": "2026-09-24T20:17:29Z",
-        "description": "Krayin CRM through 2.2.6 contains a stored client-side template injection vulnerability that allows authenticated attackers to execute arbitrary JavaScript in other users' browsers by injecting Vue.js template expressions into the person name field. Attackers can craft a person name containing doubl",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-48541",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-48542",
-        "published": "2026-09-24T20:17:29Z",
-        "description": "Krayin CRM through 2.2.6 contains a stored client-side template injection vulnerability that allows authenticated attackers to execute arbitrary JavaScript in other users' browsers by injecting Vue.js template expressions into the product name field. Attackers can craft a product name containing dou",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-48542",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-48543",
-        "published": "2026-09-24T20:17:29Z",
-        "description": "Krayin CRM through 2.2.6 contains a stored client-side template injection vulnerability that allows authenticated attackers to execute arbitrary JavaScript in other users' browsers by injecting Vue.js template expressions into the web form description field. Attackers can craft a web form descriptio",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-48543",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97320",
-        "published": "2026-09-24T19:17:21Z",
-        "description": "A flaw has been found in YunaiV/zhijiantianya ruoyi-vue-pro up to 2026.08. The affected element is the function AiKnowledgeDocumentServiceImpl.readUrl of the file AiKnowledgeDocumentServiceImpl.java of the component AI Knowledge Module. This manipulation of the argument url causes server-side reques",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97320",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97321",
-        "published": "2026-09-24T19:17:21Z",
-        "description": "A vulnerability has been found in YunaiV/zhijiantianya ruoyi-vue-pro up to 2026.08. The impacted element is the function GoViewDataServiceImpl.getDataBySQL of the file yudao-module-report/src/main/java/cn/iocoder/yudao/module/report/service/goview/GoViewDataServiceImpl.java of the component GoView D",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97321",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97322",
-        "published": "2026-09-24T19:17:21Z",
-        "description": "A vulnerability was found in YunaiV/zhijiantianya ruoyi-vue-pro up to 2026.08. This affects an unknown function of the file yudao-module-infra/src/main/java/cn/iocoder/yudao/module/infra/controller/admin/file/FileController.java of the component File Upload. Performing a manipulation results in cros",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97322",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97323",
-        "published": "2026-09-24T19:17:21Z",
-        "description": "A vulnerability was determined in YunaiV/zhijiantianya ruoyi-vue-pro up to 2026.08. This impacts the function getOriginalFilename of the file yudao-module-mp/src/main/java/cn/iocoder/yudao/module/mp/service/material/MpMaterialServiceImpl.java of the component File Upload. Executing a manipulation ca",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97323",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96747",
-        "published": "2026-09-24T19:17:20Z",
-        "description": "The client-side field level encryption support in the MongoDB Python Driver can treat a key management endpoint value ending in \".sock\" as a local Unix domain socket path rather than a remote host. A user with write access to the encryption key metadata stored in the database can cause an applicatio",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96747",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96748",
-        "published": "2026-09-24T19:17:20Z",
-        "description": "PyMongo's connection string parsing decodes percent-encoded characters in the host portion before the host list is separated on its delimiters. When an application places a hostname value supplied by an unauthenticated party into a connection string, that party may cause additional servers of their ",
-        "severity": "HIGH",
-        "score": 8.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96748",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96749",
-        "published": "2026-09-24T19:17:20Z",
-        "description": "An integer overflow in the BSON document encoding component of the MongoDB Python Driver's bundled native extension may occur when a single document is built from an unusually large amount of caller-supplied data. Size arithmetic is performed in a signed 32-bit type, and the guard meant to catch the",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96749",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-89325",
-        "published": "2026-09-24T19:17:19Z",
-        "description": "An uncontrolled search path element in InsightVM assessment content in Rapid7 Insight Agent on Windows allows a local, low-privileged user to execute arbitrary code as SYSTEM via a planted executable resolved from the machine PATH.\n\nAssessment content at or below version 0.0.261.0 included a check t",
-        "severity": "HIGH",
-        "score": 7.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-89325",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-82371",
-        "published": "2026-09-24T19:17:18Z",
-        "description": "Plaintext exposure of sensitive authentication data in Brocade SANnav discovery service log files enables individuals with file read access to retrieve administrative switch credentials and active session tokens. An attacker with access to system logs or support bundles can leverage exposed authenti",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82371",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-85738",
-        "published": "2026-09-24T19:17:18Z",
-        "description": "TREK is a collaborative travel planner. Prior to 3.4.0, the checkSsrf logic in server/src/utils/ssrfGuard.ts does not recognize NAT64, 6to4, or Teredo IPv6 transition addresses that encode an IPv4 destination. An authenticated user who controls a DNS record can supply a URL whose AAAA result is a tr",
-        "severity": "MEDIUM",
-        "score": 6.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-85738",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-86857",
-        "published": "2026-09-24T19:17:18Z",
-        "description": "ServiceNow has remediated an authorization bypass security issue that was identified in the ServiceNow AI Platform. This security issue, if exploited, could enable an authenticated user to access data within the ServiceNow AI Platform that the user otherwise would not be entitled to access, potentia",
-        "severity": "HIGH",
-        "score": 8.4,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-86857",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-86858",
-        "published": "2026-09-24T19:17:18Z",
-        "description": "ServiceNow has remediated an improper access control security issue that was identified in the ServiceNow AI Platform. This security issue could enable an unauthenticated user, in certain circumstances, to create, modify, or delete instance data beyond what was intended.\n\n\n\n\n\nIn August 2026, Service",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-86858",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-86859",
-        "published": "2026-09-24T19:17:18Z",
-        "description": "ServiceNow has remediated an authorization bypass security issue that was identified in the ServiceNow AI Platform. This security issue, if exploited, could enable an unauthenticated user to access data within the ServiceNow AI Platform that the user otherwise would not be entitled to access, potent",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-86859",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-86860",
-        "published": "2026-09-24T19:17:18Z",
-        "description": "ServiceNow has remediated a missing authorization vulnerability that was identified in the ServiceNow AI Platform. This vulnerability could enable an unauthenticated user, in certain circumstances, to extract instance data beyond what was intended, resulting in privilege escalation.\n\n\n\n\n\nServiceNow ",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-86860",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-81455",
-        "published": "2026-09-24T19:17:17Z",
-        "description": "Dell ThinOS 10, versions prior to SecurityAddon_2605.10.2766_T10, contain a Missing Authentication for Critical Function vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to Unauthorized access.",
-        "severity": "HIGH",
-        "score": 8.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-81455",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-81473",
-        "published": "2026-09-24T19:17:17Z",
-        "description": "Dell Rugged Control Center (RCC), versions prior to 5.2.206, contain an Improper Authorization vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Elevation of Privileges.",
-        "severity": "HIGH",
-        "score": 8.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-81473",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-82157",
-        "published": "2026-09-24T19:17:17Z",
-        "description": "Dell ThinOS 10, versions prior to SecurityAddon_2605.10.2766_T10, contains an Improper Certificate Validation vulnerability. An unauthenticated attacker with adjacent network access could potentially exploit this vulnerability, leading to Protection mechanism bypass and Unauthorized access.",
-        "severity": "HIGH",
-        "score": 8.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82157",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-77293",
-        "published": "2026-09-24T19:17:16Z",
-        "description": "TREK is a collaborative travel planner. Prior to 3.3.0, the DELETE /api/trips/:tripId/collab/notes/:noteId/files/:fileId endpoint authorizes an authenticated user against the attacker-controlled tripId but deleteNoteFile in server/src/services/collabService.ts resolves the target only by note and fi",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-77293",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-77294",
-        "published": "2026-09-24T19:17:16Z",
-        "description": "TREK is a collaborative travel planner. Prior to 3.3.0, TREK allows an authenticated user to store an attacker-controlled llm_base_url through the settings API when the LLM_PARSING feature is enabled. Write permission to the target trip instance is required to trigger the vulnerable AI-assisted impo",
-        "severity": "HIGH",
-        "score": 8.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-77294",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-77320",
-        "published": "2026-09-24T19:17:16Z",
-        "description": "TREK is a collaborative travel planner. Prior to 3.3.0, getSharedTripData in server/src/services/shareService.ts returns days, assignments, dayNotes, and places through GET /api/shared/:token even when the trip owner disables share_map. The client hides the map, but the public JSON response still in",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-77320",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-77321",
-        "published": "2026-09-24T19:17:16Z",
-        "description": "TREK is a collaborative travel planner. Prior to 3.3.0, the get_trip_summary tool in server/src/mcp/tools/trips.ts is registered for scoped OAuth MCP tokens without requiring trips:read and returns core trip summary data regardless of the delegated scopes. A token granted only an unrelated capabilit",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-77321",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-61823",
-        "published": "2026-09-24T19:17:15Z",
-        "description": "code16 Sharp is a Laravel-based framework for building content-management and administrative interfaces. Versions before 9.22.5 contain a stored cross-site scripting vulnerability in the rich-text editor because the HTML sanitizer permits the `srcdoc` attribute on iframe elements. Although markup in",
-        "severity": "HIGH",
-        "score": 7.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-61823",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-61825",
-        "published": "2026-09-24T19:17:15Z",
-        "description": "code16 Sharp is a Laravel-based framework for building content-management and administrative interfaces. Versions before 9.22.5 contain a stored cross-site scripting vulnerability in `SharpEditorFormField`: attacker-controlled content bearing the `data-html-content` attribute can bypass HTML sanitiz",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-61825",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-62286",
-        "published": "2026-09-24T19:17:15Z",
-        "description": "Dozzle is a realtime log viewer for docker containers. Prior to 10.6.7, streamEvents in internal/web/events.go applies a restricted user's label filter to container lists but not to the container-stat and container-event channels returned by GET /api/events/stream. In a simple-auth deployment using ",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62286",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-65827",
-        "published": "2026-09-24T19:17:15Z",
-        "description": "Docmost is open-source collaborative wiki and documentation software. From 0.21.0 until 0.95.0, any authenticated workspace member with edit rights to a space can upload an archive to the page-import feature whose ZIP extraction routine does not limit total uncompressed size, per-entry size, or entr",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-65827",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-52853",
-        "published": "2026-09-24T19:17:14Z",
-        "description": "Docmost is open-source collaborative wiki and documentation software. Prior to 0.90.1, an authenticated workspace ADMIN can use the workspace invitation flow to invite an external email address with the OWNER role because the role ceiling does not prevent ADMIN users from granting privileges above t",
-        "severity": "MEDIUM",
-        "score": 5.2,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-52853",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-56792",
-        "published": "2026-09-24T19:17:14Z",
-        "description": "Dell Rugged Control Center (RCC), versions prior to 5.2.206, contain an Improper Authorization vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Elevation of Privileges.",
-        "severity": "MEDIUM",
-        "score": 4.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-56792",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-57440",
-        "published": "2026-09-24T19:17:14Z",
-        "description": "The EmbedVideo Extension is a MediaWiki extension which adds a parser function called #ev and various parser tags for embedding video clips from various video sharing services. Prior to 4.1.0, with $wgEmbedVideoRequireConsent disabled (not the default), the urls for videos are passed into an iframe ",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57440",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-13249",
-        "published": "2026-09-24T19:17:13Z",
-        "description": "An unauthenticated Remote Code Execution via Arbitrary File Upload vulnerability in the web management interface in Honeywell PD45 Industrial Printer version F10.19.010040, allows upload of attacker controlled files without requiring authentication.\n\n\nAn attacker could potentially exploit this vulne",
-        "severity": "CRITICAL",
-        "score": 9.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-13249",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-48070",
-        "published": "2026-09-24T19:17:13Z",
-        "description": "Docmost is open-source collaborative wiki and documentation software. Prior to 0.80.1, authenticated users can store attacker-controlled avatarUrl values that are later reused by avatar cleanup without confinement to the intended directory on local-storage deployments. A low-privileged user can caus",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-48070",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-48072",
-        "published": "2026-09-24T19:17:13Z",
-        "description": "Docmost is open-source collaborative wiki and documentation software. Prior to 0.80.1, the public avatar and logo image endpoint accepts attacker-controlled fileName path segments and resolves them against local storage without confinement to the intended image directory. An unauthenticated attacker",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-48072",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-48073",
-        "published": "2026-09-24T19:17:13Z",
-        "description": "Docmost is open-source collaborative wiki and documentation software. From 0.70.0 until 0.80.1, a low-privileged authenticated user who can edit an exportable page can embed a forged attachmentId that belongs to a restricted page in the same space. Exporting the attacker-controlled page with include",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-48073",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-52850",
-        "published": "2026-09-24T19:17:13Z",
-        "description": "Docmost is open-source collaborative wiki and documentation software. Prior to 0.90.1, an authenticated workspace member who does not belong to a private space can call the transclusion / sync-block lookup API with a known sourcePageId and transclusionId pair because the lookup does not enforce priv",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-52850",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-13248",
-        "published": "2026-09-24T19:17:12Z",
-        "description": "An Authenticated Remote Code Execution via Arbitrary File Write in the Intermec Fingerprint Command Interface vulnerability in the web management interface in Honeywell PD45 Industrial Printer version F10.19.010040, allows an authenticated user with access to the admin or itadmin account to submit c",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-13248",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-13016",
-        "published": "2026-09-24T19:17:11Z",
-        "description": "ServiceNow has remediated a SQL injection vulnerability that was identified in the ServiceNow AI Platform. This vulnerability could enable an unauthenticated user, in certain circumstances, to execute arbitrary SQL statements against the instance's underlying database and gain access to, or modify, ",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-13016",
-        "kev": false
       }
     ]
   },
   "actively_exploited": {
     "lookback_days": 90,
-    "total": 97,
+    "total": 98,
     "items": [
+      {
+        "id": "CVE-2026-88772",
+        "vendor": "Citrix",
+        "product": "NetScaler",
+        "name": "Citrix NetScaler Improper Restriction of Operations within the Bounds of a Memory Buffer Vulnerability",
+        "date_added": "2026-09-27",
+        "ransomware_use": null,
+        "description": "Citrix NetScaler ADC and NetScaler Gateway contain an improper restriction of operations within the bounds of a memory buffer vulnerability that could allow for remote code execution or denial of service",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88772"
+      },
+      {
+        "id": "CVE-2026-88771",
+        "vendor": "Citrix",
+        "product": "NetScaler",
+        "name": "Citrix NetScaler Improper Input Validation Vulnerability",
+        "date_added": "2026-09-27",
+        "ransomware_use": null,
+        "description": "Citrix NetScaler ADC and NetScaler Gateway contain an improper input validation vulnerability that could allow an unauthenticated attacker to execute arbitrary commands.",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88771"
+      },
       {
         "id": "CVE-2026-67279",
         "vendor": "MikroTik",
@@ -12543,16 +12063,6 @@
         "ransomware_use": "Known",
         "description": "Microsoft SharePoint Server contains a deserialization of untrusted data vulnerability which allows an authorized attacker to execute code over a network.",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-45659"
-      },
-      {
-        "id": "CVE-2026-48558",
-        "vendor": "SimpleHelp ",
-        "product": "SimpleHelp",
-        "name": "SimpleHelp Authentication Bypass Vulnerability",
-        "date_added": "2026-06-29",
-        "ransomware_use": null,
-        "description": "SimpleHelp contains an authentication bypass vulnerability in the OIDC authentication flow. When OIDC authentication is configured, identity tokens submitted during login are accepted without verifying their cryptographic signature. In a vulnerable configuration, a remote, unauthenticated attacker c",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-48558"
       }
     ]
   }
