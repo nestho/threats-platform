@@ -1,258 +1,258 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-09-29T00:45:36Z",
+  "updated_at": "2026-09-29T06:24:38Z",
   "note": "Bounded slice of cves.json for the homepage. Use /data/cves.json for the full window.",
   "normalisation_failures": [],
   "total": 25,
   "items": [
     {
-      "id": "CVE-2026-102367",
-      "published": "2026-09-29T00:17:04Z",
-      "description": "mall4j through 4.0 contains an insufficient session expiration vulnerability in the token refresh endpoint that fails to validate the enabled flag when issuing new sessions. Disabled user accounts can indefinitely renew their sessions through the POST /token/refresh endpoint, retaining access that a",
-      "severity": "MEDIUM",
-      "score": 5.3,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102367",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-18417",
-      "published": "2026-09-29T00:17:04Z",
-      "description": "The native BSD-socket layer recorded a pending asynchronous socket error by type-punning it into struct net_context's void user_data field (ctx->user_data = INT_TO_POINTER(-status) in zsock_accepted_cb(), zsock_received_cb(), zsock_connected_cb() and zsock_close_ctx() in subsys/net/lib/sockets/socke",
-      "severity": "MEDIUM",
-      "score": 6.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18417",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-18746",
-      "published": "2026-09-29T00:17:04Z",
-      "description": "parse_write_op() in subsys/net/lib/lwm2m/lwm2m_message_handling.c handles inbound CoAP WRITE/CREATE requests that carry a Block1 option. For the first block of a transfer it called init_block_ctx() and then immediately stored the peer-selected block size with block_ctx->ctx.block_size = block_size b",
-      "severity": "MEDIUM",
-      "score": 5.9,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18746",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-18747",
-      "published": "2026-09-29T00:17:04Z",
-      "description": "The MCUmgr SMP-over-console transport decodes a base64 frame, reads a 16-bit packet length from it, verifies a CRC and then unconditionally strips the trailing CRC with rx_ctxt->nb->len -= 2U; in mcumgr_serial_process_frag() (subsys/mgmt/mcumgr/transport/src/serial_util.c). mcumgr_serial_extract_len",
-      "severity": "MEDIUM",
-      "score": 6.8,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18747",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-101277",
-      "published": "2026-09-29T00:17:03Z",
-      "description": "A security flaw has been discovered in Trusted Domain Project OpenDKIM up to 2.11.0. The impacted element is the function dkim_process_set of the file dkim.c of the component Tag Tokenizer. Performing a manipulation results in use of less trusted source. The attack may be initiated remotely. The exp",
-      "severity": "MEDIUM",
-      "score": 5.5,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101277",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-102361",
-      "published": "2026-09-29T00:17:03Z",
-      "description": "mall4j through 4.0 contains a missing authentication vulnerability in the PUT /user/updatePwd endpoint that allows unauthenticated attackers to reset any storefront account password. Attackers can supply a target username in the request body to overwrite passwords without verification, enabling acco",
-      "severity": "CRITICAL",
-      "score": 9.3,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102361",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-102362",
-      "published": "2026-09-29T00:17:03Z",
-      "description": "mall4j through 4.0 fails to implement authentication controls on the DELETE /prodComm endpoint in ProdCommController. Unauthenticated attackers can delete arbitrary product reviews by supplying the prodCommId parameter without authorization checks.",
-      "severity": "MEDIUM",
-      "score": 6.9,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102362",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-102363",
-      "published": "2026-09-29T00:17:03Z",
-      "description": "mall4j through 4.0 contains a missing authentication vulnerability in the DeliveryController checkDelivery endpoint that allows unauthenticated attackers to read shipment tracking information by supplying an order number parameter. Attackers can access carrier names, waybill numbers, and complete lo",
-      "severity": "MEDIUM",
-      "score": 6.3,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102363",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-102364",
-      "published": "2026-09-29T00:17:03Z",
-      "description": "mall4j through 4.0 fails to validate the sysType field in sa-token sessions, allowing storefront customers to authenticate as back-office users by reusing their session tokens. Attackers can register on the public storefront and use their customer session token to access admin endpoints lacking @Pre",
-      "severity": "MEDIUM",
-      "score": 5.3,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102364",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-102365",
-      "published": "2026-09-29T00:17:03Z",
-      "description": "mall4j through 4.0 fails to enforce authorization checks on GET endpoints in UserAddrController that retrieve customer address data. Authenticated attackers can call /user/addr/page and /user/addr/info endpoints to harvest all customer addresses including names, phone numbers, and postal information",
-      "severity": "HIGH",
-      "score": 7.1,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102365",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-102366",
-      "published": "2026-09-29T00:17:03Z",
-      "description": "mall4j through 4.0 contains an unrestricted file upload vulnerability in FileController endpoints that lack authorization checks and accept arbitrary file types without validation. Attackers with any authenticated token can upload HTML or SVG files that execute scripts in administrator browsers when",
+      "id": "CVE-2026-102292",
+      "published": "2026-09-29T06:16:58Z",
+      "description": "A flaw has been found in coolbeans1212 MateisHomePage-Website up to ea2a4226deeca27ab1fb9df0552ec76444547811. Affected by this issue is some unknown functionality of the file users.php. This manipulation of the argument Search causes cross site scripting. The attack can be initiated remotely. The ex",
       "severity": "LOW",
       "score": 2.1,
       "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102366",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102292",
       "kev": false
     },
     {
-      "id": "CVE-2026-101264",
-      "published": "2026-09-29T00:17:02Z",
-      "description": "A vulnerability was determined in Ziroom ZHOME A0101 1.0.1.0. Impacted is an unknown function of the file /api/ZRnetwork/set_passwd. This manipulation of the argument password1 causes command injection. The attack can be initiated remotely. The exploit has been publicly disclosed and may be utilized",
-      "severity": "HIGH",
-      "score": 8.5,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101264",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-101265",
-      "published": "2026-09-29T00:17:02Z",
-      "description": "A vulnerability was identified in Intelbras TIP 125i 4.3.35/4.3.41. The affected element is an unknown function of the component Básico Page. Such manipulation leads to inclusion of sensitive information in source code. The attack can be launched remotely. A high complexity level is associated with ",
-      "severity": "LOW",
-      "score": 1.3,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101265",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-101263",
-      "published": "2026-09-29T00:17:01Z",
-      "description": "A vulnerability was found in Ziroom ZHOME A0101 1.0.1.0. This issue affects some unknown processing of the file /api/ZRQos/set_online_client. The manipulation of the argument mac results in command injection. It is possible to launch the attack remotely. The exploit has been made public and could be",
-      "severity": "HIGH",
-      "score": 8.5,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101263",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-102335",
-      "published": "2026-09-28T23:17:02Z",
-      "description": "Nginx Proxy Manager through 2.16.0 fails to restrict the advanced_config field to administrators, allowing non-admin users with manage permissions to inject arbitrary nginx directives. Attackers can inject malicious nginx configuration such as alias directives to serve arbitrary files or control rou",
-      "severity": "HIGH",
-      "score": 7.1,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102335",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-101261",
-      "published": "2026-09-28T23:17:01Z",
-      "description": "A flaw has been found in Ziroom ZHOME A0101 1.0.1.0. This affects an unknown part of the file /api/ZRnetwork/firstSetup_wifi. Executing a manipulation of the argument login_pwd can lead to command injection. The attack may be performed from remote. The exploit has been published and may be used. The",
-      "severity": "HIGH",
-      "score": 8.5,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101261",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-101262",
-      "published": "2026-09-28T23:17:01Z",
-      "description": "A vulnerability has been found in Ziroom ZHOME A0101 1.0.1.0. This vulnerability affects unknown code of the file /api/ZRQos/set_online_client. The manipulation of the argument ip leads to command injection. It is possible to initiate the attack remotely. The exploit has been disclosed to the public",
-      "severity": "HIGH",
-      "score": 8.5,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101262",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-102332",
-      "published": "2026-09-28T23:17:01Z",
-      "description": "Dozzle versions before 11.1.2 fail to sanitize container display names when building ZIP archive entry names in the log download endpoint. Attackers who can label containers can use path traversal sequences to write files outside the extraction directory when users download and extract logs.",
-      "severity": "MEDIUM",
-      "score": 4.6,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102332",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-102333",
-      "published": "2026-09-28T23:17:01Z",
-      "description": "httpdbg before 2.2.1 fails to validate URL schemes in recorded HTTP request URLs rendered as clickable links in the web interface. Attackers controlling traffic recorded by httpdbg can supply javascript: scheme URLs that execute malicious scripts in the application origin when clicked, allowing acce",
-      "severity": "MEDIUM",
-      "score": 5.3,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102333",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-102334",
-      "published": "2026-09-28T23:17:01Z",
-      "description": "Nginx Proxy Manager through 2.16.0 lacks rate-limiting on authentication endpoints, allowing unauthenticated attackers to make unlimited password guesses against any account. Attackers can brute-force login credentials via POST /api/tokens and subsequently guess TOTP codes via POST /api/tokens/2fa t",
-      "severity": "CRITICAL",
-      "score": 9.1,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102334",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-101260",
-      "published": "2026-09-28T23:17:00Z",
-      "description": "A vulnerability was detected in Ziroom ZHOME A0101 1.0.1.0. Affected by this issue is some unknown functionality of the file /api/ZRnetwork/firstLogin. Performing a manipulation of the argument firstLogin results in command injection. The attack is possible to be carried out remotely. The exploit is",
-      "severity": "HIGH",
-      "score": 8.5,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101260",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-102281",
-      "published": "2026-09-28T22:17:32Z",
-      "description": "Nest is a framework for building scalable Node.js server-side applications. Prior to 11.2.4 and 12.0.2, a single message with a deeply nested object in its pattern can terminate a NestJS microservice using the TCP or RabbitMQ transport. ServerTCP#handleMessage and ServerRMQ#handleMessage pass a clie",
-      "severity": "HIGH",
-      "score": 7.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102281",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-102296",
-      "published": "2026-09-28T22:17:32Z",
-      "description": "ZoneMinder before 1.38.4 contains static buffer overflow vulnerabilities in RemoteCameraHttp::GetResponse() that allow malicious HTTP cameras or intercepting attackers to overflow fixed-size buffers by sending oversized response headers. Attackers can send crafted HTTP responses with oversized statu",
-      "severity": "HIGH",
-      "score": 8.3,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102296",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-102297",
-      "published": "2026-09-28T22:17:32Z",
-      "description": "ZoneMinder before 1.38.4 fails to apply per-monitor access restrictions in the FramesController index endpoint. Authenticated users with Events view permission can call the frames API to list frame records from monitors they are denied access to, disclosing event and frame metadata across monitor bo",
-      "severity": "MEDIUM",
-      "score": 5.3,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102297",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-101188",
-      "published": "2026-09-28T22:17:31Z",
-      "description": "A security vulnerability has been detected in Netcore POWER13 2.0.240730.162638. This issue affects the function routerd.passwd_set of the file /ubus. Such manipulation leads to weak password recovery. The attack may be performed from remote. The exploit has been disclosed publicly and may be used. ",
+      "id": "CVE-2026-102293",
+      "published": "2026-09-29T06:16:58Z",
+      "description": "A vulnerability was identified in realjerrytang tacomall 1.0.0. Impacted is the function OrgStaffServiceImpl.add of the file ApiMaApplication.java of the component api-admin Backend. The manipulation of the argument isAdmin/jobId leads to improper authorization. Remote exploitation of the attack is ",
       "severity": "MEDIUM",
       "score": 5.5,
       "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101188",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102293",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-102264",
+      "published": "2026-09-29T05:16:59Z",
+      "description": "A vulnerability was found in mwasikz robo-cafe-rms up to 228c44a02823f04e85db32b7137809a2856148fc. The impacted element is an unknown function of the file frontend/update-account.php of the component Edit Profile Feature. Performing a manipulation of the argument Name/Address/City results in cross s",
+      "severity": "LOW",
+      "score": 2.0,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102264",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-102290",
+      "published": "2026-09-29T05:16:59Z",
+      "description": "A vulnerability was determined in CodeCanyon Rocket LMS up to 2.2. This affects an unknown function of the component Student Profile Image Upload. Executing a manipulation can lead to cross site scripting. The attack can be executed remotely. The exploit has been publicly disclosed and may be utiliz",
+      "severity": "LOW",
+      "score": 2.0,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102290",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-102263",
+      "published": "2026-09-29T05:16:58Z",
+      "description": "A vulnerability has been found in mwasikz robo-cafe-rms up to 228c44a02823f04e85db32b7137809a2856148fc. The affected element is an unknown function of the file manage-food.php. Such manipulation leads to unrestricted upload. The attack may be launched remotely. The exploit has been disclosed to the ",
+      "severity": "LOW",
+      "score": 2.0,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102263",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-102261",
+      "published": "2026-09-29T05:16:57Z",
+      "description": "A flaw has been found in owen2345 Camaleon CMS up to 2.9.2. Impacted is the function crop of the file app/controllers/camaleon_cms/admin/media_controller.rb of the component Media Crop Handler. This manipulation of the argument saved_avatar causes authorization bypass. The attack may be initiated re",
+      "severity": "LOW",
+      "score": 2.1,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102261",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-97024",
+      "published": "2026-09-29T04:18:02Z",
+      "description": "A path traversal vulnerability in Flatpak's handling of the files/etc directory during app deployment allows a malicious Flatpak app to cause certain host system files (such as passwd, group, machine-id, or resolv.conf) to be emptied or replaced with a symlink when the app is installed or upgraded. ",
+      "severity": "HIGH",
+      "score": 7.1,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97024",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-97029",
+      "published": "2026-09-29T04:18:02Z",
+      "description": "Flatpak's process ID namespace separation does not prevent a sandboxed app's kill(0, signal) or killpg(0, signal) calls from reaching processes outside the sandbox that share the same process group. A malicious or compromised Flatpak app can use this to cause denial of service by terminating process",
+      "severity": "MEDIUM",
+      "score": 5.7,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97029",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-102414",
+      "published": "2026-09-29T04:17:55Z",
+      "description": "pbkdf2 through 3.1.6 re-hashes passwords longer than the digest's block size on every iteration in its JavaScript fallback (lib/sync.js). A password longer than the block size (64 bytes, or 128 bytes for sha384 and sha512) is passed to HMAC as the key on every iteration, and HMAC hashes such keys in",
+      "severity": "MEDIUM",
+      "score": 6.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102414",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-102422",
+      "published": "2026-09-29T04:17:55Z",
+      "description": "shell-quote's `quote()` function emits a `{ comment }` token as `#` followed by its text, which comments out the rest of the shell line, including the opening quote of any later string token. A line terminator (\\n, \\r, U+2028, U+2029) in that later string therefore ends the comment, and the rest of ",
+      "severity": "CRITICAL",
+      "score": 9.2,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102422",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-102247",
+      "published": "2026-09-29T04:17:54Z",
+      "description": "A vulnerability was detected in FastAdmin 1.6.1.20250430/1.6.5.20260602. This affects an unknown function of the file application/database.php of the component Database Management. The manipulation results in execution with unnecessary privileges. The attack may be launched remotely. The exploit is ",
+      "severity": "HIGH",
+      "score": 7.1,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102247",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-102248",
+      "published": "2026-09-29T04:17:54Z",
+      "description": "A vulnerability was identified in Rebuild up to 4.4.7/4.5.0-beta5. This affects an unknown part of the file /user/login of the component Login Endpoint. The manipulation leads to improper authentication. It is possible to initiate the attack remotely. The exploit is publicly available and might be u",
+      "severity": "MEDIUM",
+      "score": 5.5,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102248",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-102249",
+      "published": "2026-09-29T04:17:54Z",
+      "description": "A security flaw has been discovered in REBUILD up to 4.4.11. This vulnerability affects unknown code of the file /commons/file-editor-save. The manipulation of the argument url/fileKey results in missing authorization. It is possible to launch the attack remotely. The exploit has been released to th",
+      "severity": "MEDIUM",
+      "score": 5.5,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102249",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-102245",
+      "published": "2026-09-29T04:17:52Z",
+      "description": "A weakness has been identified in MODSetter SurfSense up to 2.0.3. The affected element is an unknown function of the file surfsense_backend/app/routes/circleback_webhook_route.py of the component circleback Endpoint. Executing a manipulation can lead to missing authentication. The attack can be lau",
+      "severity": "MEDIUM",
+      "score": 5.5,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102245",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-97685",
+      "published": "2026-09-29T03:17:23Z",
+      "description": "An authenticated LimeSurvey Community Edition 7.3.0 user allowed to create surveys can use their own survey as an authorized context while supplying question or answer identifiers belonging to another user's survey. The REST survey-patching endpoint checks the attacker's permission against the surve",
+      "severity": "HIGH",
+      "score": 7.1,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97685",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-102243",
+      "published": "2026-09-29T03:17:15Z",
+      "description": "A vulnerability was identified in MODSetter SurfSense up to 2.0.3. This issue affects some unknown processing of the file /api/search-source/connectors/mcp/test of the component MCP Connector Integration. Such manipulation leads to command injection. It is possible to launch the attack remotely. The",
+      "severity": "LOW",
+      "score": 2.1,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102243",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-102244",
+      "published": "2026-09-29T03:17:15Z",
+      "description": "A security flaw has been discovered in MODSetter SurfSense up to 0.0.36. Impacted is an unknown function of the file surfsense_backend/app/routes/editor_routes.py of the component Document Export Feature. Performing a manipulation results in server-side request forgery. The attack can be initiated r",
+      "severity": "LOW",
+      "score": 2.1,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102244",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-102241",
+      "published": "2026-09-29T03:17:14Z",
+      "description": "A vulnerability was determined in Netcore NAP930 0.1.241010.141410. This vulnerability affects unknown code of the file /lib/functions/backup_common.sh of the component Backup/Restore. This manipulation of the argument aes_pass causes use of hard-coded cryptographic key\r . It is possible to initiate",
+      "severity": "LOW",
+      "score": 2.0,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102241",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-102240",
+      "published": "2026-09-29T02:16:55Z",
+      "description": "A vulnerability was found in Netcore NAP930 0.1.241010.141410. This affects the function eval of the file /www/cgi-bin/network_tools of the component Network Tools CGI. The manipulation of the argument sid results in os command injection. The attack may be performed from remote. The exploit has been",
+      "severity": "CRITICAL",
+      "score": 9.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102240",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-96326",
+      "published": "2026-09-29T02:16:55Z",
+      "description": "The HT Contact Form – Drag & Drop Form Builder for WordPress plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the Rich Text Editor Field in all versions up to, and including, 2.10.2 due to insufficient input sanitization and output escaping. This makes it possible for unauthenti",
+      "severity": "HIGH",
+      "score": 7.2,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96326",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-101858",
+      "published": "2026-09-29T02:16:54Z",
+      "description": "A flaw has been found in RaspAP raspap-webgui up to 3.5.5. Affected is the function WiFiManager::writeWpaSupplicant of the file src/RaspAP/Networking/Hotspot/WiFiManager.php of the component SSID Processing. This manipulation of the argument ssid causes os command injection. The attack can be initia",
+      "severity": "LOW",
+      "score": 2.0,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101858",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-101859",
+      "published": "2026-09-29T02:16:54Z",
+      "description": "A vulnerability has been found in RaspAP raspap-webgui up to 3.5.5. Affected by this vulnerability is the function escapeshellcmd of the file ajax/openvpn/del_ovpncfg.php of the component OpenVPN Configuration Handler. Such manipulation of the argument cfg_id leads to os command injection. The attac",
+      "severity": "LOW",
+      "score": 2.1,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101859",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-101860",
+      "published": "2026-09-29T02:16:54Z",
+      "description": "A vulnerability was found in RaspAP raspap-webgui up to 3.5.5. Affected by this issue is the function PluginInstaller::addSudoers of the file src/RaspAP/Plugins/PluginInstaller.php of the component sudo Configuration. Performing a manipulation results in improper privilege management. The attack may",
+      "severity": "HIGH",
+      "score": 7.4,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101860",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-101878",
+      "published": "2026-09-29T02:16:54Z",
+      "description": "Bitwarden Server 2025.6.0 before 2026.5.0 declares the @ExternalId parameter of the User_ReadBySsoUserOrganizationIdExternalId stored procedure as NVARCHAR(50) while the column it queries stores NVARCHAR(300), silently truncating the SSO login identifier on SQL Server deployments and allowing a user",
+      "severity": "HIGH",
+      "score": 7.7,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101878",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-101354",
+      "published": "2026-09-29T02:16:53Z",
+      "description": "A security flaw has been discovered in FAST FAC1203R 20200116_2.0.4. The affected element is the function _tWlanTask of the component MmtAtePrase Parser. Performing a manipulation results in stack-based buffer overflow. The attacker must have access to the local network to execute the attack. The ex",
+      "severity": "HIGH",
+      "score": 8.6,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101354",
       "kev": false
     }
   ]
