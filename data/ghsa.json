@@ -1,9 +1,497 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-09-28T06:07:11Z",
+  "updated_at": "2026-09-29T00:45:36Z",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-hhf7-grh4-575w",
+      "title": "[GHSA-hhf7-grh4-575w] Malicious code in rai6jaisahthaghee5ou-loader-package (npm)",
+      "published": "2026-09-29T00:31:24Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (6de53fbd264f685e033789fe5929c63f322366219d80707ec419a48a85e253c9) \n The package's main module is an IIFE that injects a &lt;script&gt; element pointing at the hardcoded URL  https://nee1ahnaw7.xsses.link  and appends it to the document, causing whatever JavaScript that host",
+      "link": ""
+    },
+    {
+      "id": "GHSA-9p6x-527c-vh8p",
+      "title": "[GHSA-9p6x-527c-vh8p] Malicious code in native-env (npm)",
+      "published": "2026-09-29T00:31:24Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (8e9c612513357181c7e4d504f94a2a8c03de64724e2593217216de8fef4e7166) \n native-env@1.0.1 presents itself as a zero-dependency dotenv toolkit but executes attacker-chosen code on Windows the moment the module is required or the bin is run. Both dist/index.cjs and dist/cli.cjs in",
+      "link": ""
+    },
+    {
+      "id": "GHSA-crqg-xv46-qmmw",
+      "title": "[GHSA-crqg-xv46-qmmw] Malicious code in hardhat-lock (npm)",
+      "published": "2026-09-29T00:31:24Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (035a099bd6a60e41f1e1cbc1b70f27fecb9bef3f12d54e016d6991b581fc880f) \n The npm package hardhat-lock@2.21.0 publishes itself as a logger/middleware but its identity and contents are inconsistent with that purpose: README badges, LICENSE, index.d.ts and docs/* are copied from th",
+      "link": ""
+    },
+    {
+      "id": "GHSA-jv9w-2v63-767g",
+      "title": "[GHSA-jv9w-2v63-767g] Malicious code in aseitylab (PyPI)",
+      "published": "2026-09-29T00:31:24Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (24b99c2059065cbe44f7dac2f1d2878b237c58150c0890baa1856852e76fcb24) \n During installation, obfuscated code is used to fetch code hidden in an image containing a Python application with a native extension module. This module holds an obfuscated infostealer which collects sensitive data ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-wxx2-jv4c-38wh",
+      "title": "[GHSA-wxx2-jv4c-38wh] Malicious code in mini-hardhat (npm)",
+      "published": "2026-09-29T00:31:24Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (fbdfc97da008f90f11ae03963e75237c8bb746cf93f9cdc5da43ba5807ed6c1e) \n mini-hardhat@1.1.4 presents itself as a pino-like JSON logger, but its main entry exports a middleware factory that, on instantiation, spawns lib/caller.js as a detached, stdio-ignored, unref'd child proces",
+      "link": ""
+    },
+    {
+      "id": "GHSA-7x83-rfhr-656r",
+      "title": "[GHSA-7x83-rfhr-656r] Malicious code in test-agency-assignment (npm)",
+      "published": "2026-09-29T00:31:24Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (dcdf62e1c1eb44ca7a29ed37c12bdb71883025a46c5066e58c9228f0dfe782c2) \n package.json declares a postinstall lifecycle script  wscript.exe 4444.vbs , causing the VBS file shipped in the tarball to run automatically on  npm install  on Windows hosts. 4444.vbs contains a hand-roll",
+      "link": ""
+    },
+    {
+      "id": "GHSA-hvv9-35pw-8qvf",
+      "title": "[GHSA-hvv9-35pw-8qvf] Malicious code in items-validator (npm)",
+      "published": "2026-09-29T00:31:24Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (a8e49b1abd7c566b17104c5a2823251df2ca253a0fa509d7c19db1c1942ad13d) \n On require, index.js invokes initializeDaemon() at top level, which uses spawn('node', [lib/check-items.js], { detached: true, stdio: 'ignore' }) followed by child.unref() to launch a persistent background ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-qqvr-prmw-6pq2",
+      "title": "[GHSA-qqvr-prmw-6pq2] Malicious code in hardhat-zet (npm)",
+      "published": "2026-09-29T00:31:24Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (37cd33c0908189c0085fba153be1c42776411968aa5ad652dd7ffdef88b318bc) \n hardhat-zet@2.0.1 is published under a name that impersonates the Hardhat Ethereum tooling ecosystem, but its README, type definitions and docs/ tree are copied verbatim from the unrelated  pino  logger pro",
+      "link": ""
+    },
+    {
+      "id": "GHSA-h76r-hhqx-cjq3",
+      "title": "[GHSA-h76r-hhqx-cjq3] Malicious code in fabric-native-loader (npm)",
+      "published": "2026-09-29T00:31:23Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (d289ae71736f05158f45d6636730641e82b5a774bf99bf1b587155d31c73daaa) \n package.json declares a postinstall hook that runs index.js on npm install. index.js reads Minecraft launcher credential stores (launcher_accounts.json, launcher_profiles.json, and equivalent files for Pris",
+      "link": ""
+    },
+    {
+      "id": "GHSA-438j-7xq6-grfr",
+      "title": "[GHSA-438j-7xq6-grfr] Malicious code in dotenv-native (npm)",
+      "published": "2026-09-29T00:31:23Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (4369c7fa886fc7d315922759932056664863d71157bcdece943fa53339586f03) \n Package  dotenv-native  typosquats the popular  dotenv  family (bundled internal manifest name  node-env-buffer ) and executes an attacker-controlled payload on module load. On require,  dist/index.cjs  and",
+      "link": ""
+    },
+    {
+      "id": "GHSA-6vj9-mwq6-2f5v",
+      "title": "[GHSA-6vj9-mwq6-2f5v] Nodemailer: Process-global DNS cache reuses TLS `servername` across transports, enabling cross-tenant SMTP credential disclosure",
+      "published": "2026-09-28T21:56:05Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n Nodemailer's process-global DNS cache is keyed only by  host , but each cache entry also stores the caller-specific TLS  servername . When two direct SMTPS transports use the same DNS host with different  tls.servername  values, the first transport's server name is returned to the second t",
+      "link": ""
+    },
+    {
+      "id": "GHSA-3wwx-pv8p-q78v",
+      "title": "[GHSA-3wwx-pv8p-q78v] undici vulnerable to Denial of Service via unhandled error in WebSocket permessage-deflate decompression",
+      "published": "2026-09-28T21:42:37Z",
+      "ecosystem": "NPM",
+      "summary": "Impact \n undici's WebSocket client (including Node.js's bundled  globalThis.WebSocket ) crashes the entire Node.js process when a remote WebSocket peer sends a permessage-deflate compressed message that crosses the decompressed-payload size limit and then contains a malformed DEFLATE block. In  lib/",
+      "link": ""
+    },
+    {
+      "id": "GHSA-3pph-fpjx-jg34",
+      "title": "[GHSA-3pph-fpjx-jg34] multer vulnerable to Denial of Service via orphaned disk writes on aborted uploads",
+      "published": "2026-09-28T21:34:58Z",
+      "ecosystem": "NPM",
+      "summary": "Impact \n Multer's  diskStorage  can leave complete, orphaned files on disk when a multipart upload is aborted in the brief window before the storage engine assigns the file path. This is an incomplete fix of  CVE-2026-5038 : the earlier cleanup removes only in-flight uploads that already have a path",
+      "link": ""
+    },
+    {
+      "id": "GHSA-9f6g-j8ch-79g4",
+      "title": "[GHSA-9f6g-j8ch-79g4] morgan vulnerable to Log Injection via unescaped double quote in quoted log fields",
+      "published": "2026-09-28T21:33:08Z",
+      "ecosystem": "NPM",
+      "summary": "Impact \n Morgan writes attacker-controlled request data to the access log. Its escaping (added in 1.11.0 and 1.12.0) neutralizes control characters, the Unicode line separators, and backslash, but not the double quote ( 0x22 ), which is the field delimiter of the Apache combined log format morgan em",
+      "link": ""
+    },
+    {
+      "id": "GHSA-f67j-2jqw-jpq7",
+      "title": "[GHSA-f67j-2jqw-jpq7] Angular SSR: Denial of Service (DoS) via Infinite Loop on Malformed DOCTYPE",
+      "published": "2026-09-28T21:31:21Z",
+      "ecosystem": "NPM",
+      "summary": "A Denial of Service (DoS) vulnerability exists in  @angular/platform-server 's DOM emulation parser ( domino ). When processing untrusted user input containing an incomplete DOCTYPE declaration ending with whitespace before EOF (such as  &lt;!DOCTYPE html  ), the HTML parser enters an infinite synch",
+      "link": ""
+    },
+    {
+      "id": "GHSA-8g48-f52v-xggv",
+      "title": "[GHSA-8g48-f52v-xggv] Malicious code in llm-nebula (npm)",
+      "published": "2026-09-28T21:30:58Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (0eee293a9973027154eea71635c14e8a4cb2ad8a1e4f80a65399ad874afcb669) \n Package presents itself as an LLM SDK (nebula.js exposes a small client stub) but declares  preinstall: node preinstall.cjs  in package.json, and preinstall.cjs is a ~232KB single-line obfuscated blob that ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-qw65-cvwx-89v3",
+      "title": "[GHSA-qw65-cvwx-89v3] fast-uri vulnerable to authority injection via an unvalidated port in serialize",
+      "published": "2026-09-28T21:24:39Z",
+      "ecosystem": "NPM",
+      "summary": "Impact \n  fast-uri  serializes the  port  component of a URI without validating it. When recomposing the authority,  fast-uri  escapes the userinfo and host components but concatenates the port verbatim, so a  port  value that is not a sequence of digits can inject authority delimiters. For example,",
+      "link": ""
+    },
+    {
+      "id": "GHSA-58mr-gqgx-xq4g",
+      "title": "[GHSA-58mr-gqgx-xq4g] fast-uri vulnerable to host confusion via an unclosed bracket in the URI authority",
+      "published": "2026-09-28T21:23:35Z",
+      "ecosystem": "NPM",
+      "summary": "Impact \n  fast-uri  accepts a host that contains an unbalanced or misplaced authority bracket ( [  or  ] ) without reporting an error. A host that starts with  [  but does not end with  ] , such as  [@127.0.0.1 , is neither validated as an IP literal nor canonicalized as a domain name, so  parse()  ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-gx83-3vf8-gh7j",
+      "title": "[GHSA-gx83-3vf8-gh7j] jackson-databind: Comparable missing from DefaultBaseTypeLimitingValidator's unsafe base types (incomplete PolymorphicTypeValidator denylist)",
+      "published": "2026-09-28T20:44:25Z",
+      "ecosystem": "MAVEN",
+      "summary": "Summary \n  DefaultBaseTypeLimitingValidator  — the  PolymorphicTypeValidator  used automatically whenever  @JsonTypeInfo  is applied without an explicitly configured custom validator — denies polymorphic resolution only for nine specific \"unsafe base types\" ( Object ,  Serializable ,  Closeable ,  A",
+      "link": ""
+    },
+    {
+      "id": "GHSA-rpw4-54j3-4h4q",
+      "title": "[GHSA-rpw4-54j3-4h4q] ip-address: Address6.isLinkLocal() recognizes fe80::/64 rather than fe80::/10, allowing SSRF and trust-boundary bypass to on-link hosts",
+      "published": "2026-09-28T20:43:55Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n  Address6.isLinkLocal()  recognizes  fe80::/64  rather than  fe80::/10 . Link-local unicast is the whole  /10  under RFC 4291 §2.4 and the IANA IPv6 Special-Purpose Address Registry, so the method returns  false  for every link-local address outside the one  /64  that stateless address aut",
+      "link": ""
+    },
+    {
+      "id": "GHSA-2vr4-cq9g-pvrc",
+      "title": "[GHSA-2vr4-cq9g-pvrc] ip-address: no classifier recognizes the NAT64 local-use range 64:ff9b:1::/48, allowing SSRF and trust-boundary bypass",
+      "published": "2026-09-28T20:43:03Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n No classifier on  Address6  recognizes the NAT64 local-use range  64:ff9b:1::/48  (RFC 8215).  isPrivate() ,  isLoopback() ,  isLinkLocal()  and their siblings all return  false  for every address in it, so an internal IPv4 destination written through a local-use NAT64 prefix ( 64:ff9b:1:7",
+      "link": ""
+    },
+    {
+      "id": "GHSA-j3r3-mxqp-r2p4",
+      "title": "[GHSA-j3r3-mxqp-r2p4] Angular SSR: XSS via Unescaped Processing Instruction (<?...?>) Nodes in Fallback Raw-Content Elements",
+      "published": "2026-09-28T20:39:26Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n An XSS vulnerability exists in  @angular/platform-server  during server-side rendering (SSR) HTML serialization of  ProcessingInstruction  DOM nodes ( &lt;?target data?&gt; ,  nodeType === 7 ) when nested inside fallback raw-content elements ( &lt;noscript&gt; ,  &lt;iframe&gt; ,  &lt;noem",
+      "link": ""
+    },
+    {
+      "id": "GHSA-q4xh-88c3-wmh7",
+      "title": "[GHSA-q4xh-88c3-wmh7] jackson-databind: Duration XMLGregorianCalendar Unbounded Number Parse DoS",
+      "published": "2026-09-28T20:19:46Z",
+      "ecosystem": "MAVEN",
+      "summary": "Summary \n  jackson-databind  3.2.1 deserializes a JSON  string  bound to a  javax.xml.datatype.Duration  or  javax.xml.datatype.XMLGregorianCalendar  field by passing the raw string verbatim to  DatatypeFactory.newDuration(value)  /  newXMLGregorianCalendar(value) . Per the XML-Schema lexical gramma",
+      "link": ""
+    },
+    {
+      "id": "GHSA-wjgm-6hv5-3cvf",
+      "title": "[GHSA-wjgm-6hv5-3cvf] jackson-databind: Path Deserialization Missing Scheme Allowlist for FileSystemProvider Resolution",
+      "published": "2026-09-28T20:19:19Z",
+      "ecosystem": "MAVEN",
+      "summary": "Summary \n A  java.nio.file.Path  field bound from untrusted JSON reaches  JDKFromStringDeserializer.NioPathHelper.deserialize . The attacker string flows through  new URI(value)  →  Path.of(uri) , then on  FileSystemNotFoundException  into a  ServiceLoader&lt;FileSystemProvider&gt;  enumeration that",
+      "link": ""
+    },
+    {
+      "id": "GHSA-vvgp-rfg2-7rr6",
+      "title": "[GHSA-vvgp-rfg2-7rr6] jackson-databind: Incomplete fix for CVE-2026-54514: eager DNS resolution (SSRF) still present in InetAddress deserialization",
+      "published": "2026-09-28T20:17:41Z",
+      "ecosystem": "MAVEN",
+      "summary": "Summary \n  CVE-2026-54514  ( GHSA-hgj6-7826-r7m5 ) fixed an eager-DNS-resolution / SSRF issue in jackson-databind's deserialization of  java.net.InetSocketAddress  by switching to  InetSocketAddress.createUnresolved(...)  (PR #5951, commit 1f5a1037, released in 2.18.8 / 2.21.4 / 3.1.4). That fix did",
+      "link": ""
+    },
+    {
+      "id": "GHSA-88h9-xgvx-hvf2",
+      "title": "[GHSA-88h9-xgvx-hvf2] @grpc/grpc-js: The exact path match matcher incorrectly only applies a prefix match for case-insensitive matches",
+      "published": "2026-09-28T19:43:51Z",
+      "ecosystem": "NPM",
+      "summary": "Impact \n When using RBAC to apply authentication rules, the exact path (method name) matcher applies a prefix match instead of an exact match for case-insensitive matches. As a result, if a service has a method with a name that is a prefix of the name of a different method, and they have different a",
+      "link": ""
+    },
+    {
+      "id": "GHSA-57f4-h93r-jvh6",
+      "title": "[GHSA-57f4-h93r-jvh6] Malicious code in nebulaai-sdk (npm)",
+      "published": "2026-09-28T18:31:13Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (dc906b81107141fbd85dcabf89fd2f5112c4e4a134045c90d6a35abb4b67d16e) \n The package's  preinstall.js  contains a base64+zlib-encoded 257 KB Windows PE executable. On  npm install  on Windows, the script decodes the blob and writes it to  %LOCALAPPDATA%\\Microsoft\\Conhost\\conhost",
+      "link": ""
+    },
+    {
+      "id": "GHSA-v6p6-9wrj-f56p",
+      "title": "[GHSA-v6p6-9wrj-f56p] Malicious code in simple-date-formatter-new-12 (npm)",
+      "published": "2026-09-28T18:31:13Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (bd79db99adb8878673dd85db5a29661432808fa8fcc5e3d750b907418df8ae5f) \n npm package simple-date-formatter-new-12@1.0.0 declares a postinstall lifecycle script in package.json that runs automatically on  npm install . The script uses curl to fetch an internal Baidu host ( http:/",
+      "link": ""
+    },
+    {
+      "id": "GHSA-5ph8-m4r7-g739",
+      "title": "[GHSA-5ph8-m4r7-g739] Malicious code in nebula-llm (npm)",
+      "published": "2026-09-28T18:31:13Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (b33da6aef41209f654f8f76cc56074a7b827599f42f941e3917326da1f4d2566) \n The npm package nebula-llm@1.0.0 ships a preinstall lifecycle script (preinstall.cjs) that embeds a ~257KB Windows PE binary as a base64+zlib-compressed string literal. On  npm install  on Windows, the scri",
+      "link": ""
+    },
+    {
+      "id": "GHSA-frpq-rj8q-hpr4",
+      "title": "[GHSA-frpq-rj8q-hpr4] Malicious code in figlet-chalk-render (npm)",
+      "published": "2026-09-28T18:31:12Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (992cf49b88be09149971d4ac18fe2a4b61d242186f553cb3283a26970b886d7f) \n The package is advertised as a chalk+figlet wrapper but index.js contains a top-level IIFE that runs on require. On Windows hosts, it reconstructs the module names 'https', 'os', 'fs', 'path', and 'child_pr",
+      "link": ""
+    },
+    {
+      "id": "GHSA-r54m-4q33-rjvr",
+      "title": "[GHSA-r54m-4q33-rjvr] Malicious code in fabric-render-bridge (npm)",
+      "published": "2026-09-28T18:31:12Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (c2715ef0b07fbf0ca24fb8dadec44f2fcfdc273421a49ad2201bf8e40d3e2c01) \n package.json declares postinstall=\"node index.js\", so  npm install fabric-render-bridge  automatically executes index.js. index.js reads Minecraft launcher credential stores across multiple launchers (launc",
+      "link": ""
+    },
+    {
+      "id": "GHSA-2h5p-2j55-g9r4",
+      "title": "[GHSA-2h5p-2j55-g9r4] Malicious code in fabric-asset-pipeline (npm)",
+      "published": "2026-09-28T18:31:11Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (bb92787d766d5bfa0c384cc04909689215fa0d3e869630422caa8bedd303038a) \n fabric-asset-pipeline@1.0.0 declares a postinstall hook that runs index.js on npm install. index.js is heavily obfuscated (obfuscator.io-style rotated string array plus base64+RC4 decoding of identifiers an",
+      "link": ""
+    },
+    {
+      "id": "GHSA-85m5-qg46-qg28",
+      "title": "[GHSA-85m5-qg46-qg28] Malicious code in chalk-figlet (npm)",
+      "published": "2026-09-28T18:31:11Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (66dfb43d5f4ae643e32497447293c12170a21f258a7e7d3d07e8f90f2119e13b) \n package.json declares a postinstall script ( node example.js ) that requires index.js at install time. index.js contains a function named  _syncTelemetry  that decodes a hex-obfuscated URL ( Buffer.from('68",
+      "link": ""
+    },
+    {
+      "id": "GHSA-xp76-38xh-m8wc",
+      "title": "[GHSA-xp76-38xh-m8wc] Malware in @digift/cli",
+      "published": "2026-09-28T16:08:18Z",
+      "ecosystem": "NPM",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "link": ""
+    },
+    {
+      "id": "GHSA-pv7p-ghgv-268x",
+      "title": "[GHSA-pv7p-ghgv-268x] Malware in img-to-native",
+      "published": "2026-09-28T16:07:38Z",
+      "ecosystem": "NPM",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "link": ""
+    },
+    {
+      "id": "GHSA-jxw5-69p3-hpm4",
+      "title": "[GHSA-jxw5-69p3-hpm4] Malware in native-runner",
+      "published": "2026-09-28T16:07:19Z",
+      "ecosystem": "NPM",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "link": ""
+    },
+    {
+      "id": "GHSA-2gr6-gxvx-3594",
+      "title": "[GHSA-2gr6-gxvx-3594] Malware in nebulajs-api",
+      "published": "2026-09-28T16:05:39Z",
+      "ecosystem": "NPM",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "link": ""
+    },
+    {
+      "id": "GHSA-fm5g-6rr8-p9vq",
+      "title": "[GHSA-fm5g-6rr8-p9vq] Malware in nebula-sdk",
+      "published": "2026-09-28T16:05:39Z",
+      "ecosystem": "NPM",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "link": ""
+    },
+    {
+      "id": "GHSA-mh9w-qr45-6wrq",
+      "title": "[GHSA-mh9w-qr45-6wrq] Malware in vite-plugin-crypto",
+      "published": "2026-09-28T16:03:22Z",
+      "ecosystem": "NPM",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "link": ""
+    },
+    {
+      "id": "GHSA-3jrx-49jf-x2rp",
+      "title": "[GHSA-3jrx-49jf-x2rp] Malware in hardhat-cap",
+      "published": "2026-09-28T16:01:06Z",
+      "ecosystem": "NPM",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "link": ""
+    },
+    {
+      "id": "GHSA-cxrh-669r-w2g9",
+      "title": "[GHSA-cxrh-669r-w2g9] Malware in tailwindcss-form-kit",
+      "published": "2026-09-28T15:59:27Z",
+      "ecosystem": "NPM",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "link": ""
+    },
+    {
+      "id": "GHSA-w4g6-rgx4-2wjf",
+      "title": "[GHSA-w4g6-rgx4-2wjf] Malware in my-skibidi",
+      "published": "2026-09-28T15:54:30Z",
+      "ecosystem": "NPM",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "link": ""
+    },
+    {
+      "id": "GHSA-6c2m-985r-wrwm",
+      "title": "[GHSA-6c2m-985r-wrwm] Malware in chaikit",
+      "published": "2026-09-28T15:54:11Z",
+      "ecosystem": "NPM",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "link": ""
+    },
+    {
+      "id": "GHSA-33v8-h584-r8xc",
+      "title": "[GHSA-33v8-h584-r8xc] Malicious code in git-en-boite-logging (npm)",
+      "published": "2026-09-28T15:31:18Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (f6ebee9f4428d7f14f6f941438064715c8bece34c5fe6bfedf32bbd8cba226c0) \n package.json declares a preinstall lifecycle hook that runs  wget  to a hardcoded webhook.site collector URL ( https://webhook.site/3fcfa5af-1b4e-4556-9d48-26190d02795f/ ), passing  $(whoami) ,  $(hostname)",
+      "link": ""
+    },
+    {
+      "id": "GHSA-pfgw-q545-ch2m",
+      "title": "[GHSA-pfgw-q545-ch2m] Malicious code in eslint-plugin-skywagon-web (npm)",
+      "published": "2026-09-28T15:31:17Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (3c5d134d2e79b24ed65d2998520db05b5cc86b251ae579a6d8cec6d8fe02340f) \n eslint-plugin-skywagon-web@100.0.0 ships an index.js that is executed via a preinstall lifecycle script on  npm install . The script collects installer-side identifiers — os.hostname(), os.userInfo().userna",
+      "link": ""
+    },
+    {
+      "id": "GHSA-2mhw-wcx5-v3xj",
+      "title": "[GHSA-2mhw-wcx5-v3xj] scim-patch: Mutation of Inherited Built-in Method Objects",
+      "published": "2026-09-28T14:01:15Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n Incomplete Prototype Pollution Fix Allows Mutation of Inherited Built-in Method Objects \n  scim-patch  blocks direct dangerous path segments such as  __proto__ ,  constructor , and  prototype , but still traverses inherited properties when applying SCIM patch paths. \n An attacker who contr",
+      "link": ""
+    },
+    {
+      "id": "GHSA-456v-xq2p-r4cj",
+      "title": "[GHSA-456v-xq2p-r4cj] code-ollama: `grep_search` Command Injection via Unescaped `$()` Shell Substitution (CWE-78)",
+      "published": "2026-09-28T13:59:43Z",
+      "ecosystem": "NPM",
+      "summary": "grep_search  Command Injection via Unescaped  $()  Shell Substitution (CWE-78) \n Summary \n The  grep_search  tool in  code-ollama  constructs a shell command string by interpolating attacker-controlled  pattern  and  path  arguments, then executes it via  child_process.exec() . The sanitization only",
+      "link": ""
+    },
+    {
+      "id": "GHSA-h82v-pqpv-jr3r",
+      "title": "[GHSA-h82v-pqpv-jr3r] Malicious code in azure-langchain-example (PyPI)",
+      "published": "2026-09-28T09:30:32Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (59c10650dde5db077b435212025a4cb48ab69daf76022cb932dfec98beea4479) \n Installing the package or importing the module exfiltrates basic information about the host, and the package has no other purpose. \n \n Category: PROBABLY_PENTEST - Packages looking like typical pentest packages, but ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-865f-pwj5-p2c5",
+      "title": "[GHSA-865f-pwj5-p2c5] Malware in @wbnr/design-kit",
+      "published": "2026-09-28T06:46:04Z",
+      "ecosystem": "NPM",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "link": ""
+    },
+    {
+      "id": "GHSA-94r6-cxjq-fq4r",
+      "title": "[GHSA-94r6-cxjq-fq4r] Malware in @wbnr/lottiefiles-loader",
+      "published": "2026-09-28T06:46:04Z",
+      "ecosystem": "NPM",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "link": ""
+    },
+    {
+      "id": "GHSA-65gf-jmp3-4wrc",
+      "title": "[GHSA-65gf-jmp3-4wrc] Malware in wbnr-probe-visible-check",
+      "published": "2026-09-28T06:46:04Z",
+      "ecosystem": "NPM",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "link": ""
+    },
+    {
+      "id": "GHSA-pm4h-xrhq-vh62",
+      "title": "[GHSA-pm4h-xrhq-vh62] Malware in kalasnik-npm-simple-test",
+      "published": "2026-09-28T06:44:46Z",
+      "ecosystem": "NPM",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "link": ""
+    },
+    {
+      "id": "GHSA-9f7c-6fp7-9g6x",
+      "title": "[GHSA-9f7c-6fp7-9g6x] Malware in kjj81",
+      "published": "2026-09-28T06:37:49Z",
+      "ecosystem": "NPM",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "link": ""
+    },
+    {
+      "id": "GHSA-5f5h-pg84-39h4",
+      "title": "[GHSA-5f5h-pg84-39h4] Malware in o0o9",
+      "published": "2026-09-28T06:37:49Z",
+      "ecosystem": "NPM",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "link": ""
+    },
+    {
+      "id": "GHSA-pqvc-prrc-mv45",
+      "title": "[GHSA-pqvc-prrc-mv45] Malware in uuid-date",
+      "published": "2026-09-28T06:37:13Z",
+      "ecosystem": "NPM",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "link": ""
+    },
+    {
+      "id": "GHSA-mh6f-77j8-pfrp",
+      "title": "[GHSA-mh6f-77j8-pfrp] Malicious code in @bb1ptest23/test-paket (npm)",
+      "published": "2026-09-28T06:31:16Z",
+      "ecosystem": "NPM",
+      "summary": "Source: ossf-package-analysis (b6b02b5a41ef4b1d07f98023a6daa2629818ee31fd68a82af64c9f52f78bec6c) \n The OpenSSF Package Analysis project identified '@bb1ptest23/test-paket' @ 1.0.3 (npm) as malicious. \n It is considered malicious because: \n \n The package communicates with a domain associated with mal",
+      "link": ""
+    },
+    {
+      "id": "GHSA-qg5c-9jmq-fpmf",
+      "title": "[GHSA-qg5c-9jmq-fpmf] Malware in capacitor-plugin-service-worker",
+      "published": "2026-09-28T06:15:36Z",
+      "ecosystem": "NPM",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "link": ""
+    },
+    {
+      "id": "GHSA-r6m9-x8fm-wq5c",
+      "title": "[GHSA-r6m9-x8fm-wq5c] Malware in swiper_angular",
+      "published": "2026-09-28T06:15:36Z",
+      "ecosystem": "NPM",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "link": ""
+    },
+    {
+      "id": "GHSA-qgpm-ggcf-4fqm",
+      "title": "[GHSA-qgpm-ggcf-4fqm] Malware in riot-private",
+      "published": "2026-09-28T06:15:36Z",
+      "ecosystem": "NPM",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "link": ""
+    },
+    {
+      "id": "GHSA-q39g-5xh5-89h3",
+      "title": "[GHSA-q39g-5xh5-89h3] Malware in seek-pass",
+      "published": "2026-09-28T06:15:36Z",
+      "ecosystem": "NPM",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "link": ""
+    },
+    {
+      "id": "GHSA-gjx9-hrcc-f6qj",
+      "title": "[GHSA-gjx9-hrcc-f6qj] Malware in api-typings",
+      "published": "2026-09-28T06:15:36Z",
+      "ecosystem": "NPM",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "link": ""
+    },
     {
       "id": "GHSA-rwhp-v7w5-c6cc",
       "title": "[GHSA-rwhp-v7w5-c6cc] Malware in ultra-ws",
@@ -125,11 +613,11 @@
       "link": ""
     },
     {
-      "id": "GHSA-vcmr-hgqh-xrh3",
-      "title": "[GHSA-vcmr-hgqh-xrh3] Malicious code in metrics-sdk (PyPI)",
+      "id": "GHSA-c2rx-rjgw-p83h",
+      "title": "[GHSA-c2rx-rjgw-p83h] Malicious code in donutpromotion (PyPI)",
       "published": "2026-09-27T09:31:15Z",
       "ecosystem": "PIP",
-      "summary": "Source: kam193 (1378dcfc94bda0e9beb3e3d66c0588967a164741686ab473826fbab077e7afb9) \n Installing the package or importing the module exfiltrates basic information about the host, and the package has no other purpose. \n \n Category: PROBABLY_PENTEST - Packages looking like typical pentest packages, but ",
+      "summary": "Source: kam193 (26201e7959d7a736440fa6fb22ba7b9911c269b08460374d0a2db307ba6b0273) \n During installation, obfuscated code is used to fetch code hidden in an image containing a Python application with a native extension module. This module holds an obfuscated infostealer which collects sensitive data ",
       "link": ""
     },
     {
@@ -141,11 +629,11 @@
       "link": ""
     },
     {
-      "id": "GHSA-c2rx-rjgw-p83h",
-      "title": "[GHSA-c2rx-rjgw-p83h] Malicious code in donutpromotion (PyPI)",
+      "id": "GHSA-vcmr-hgqh-xrh3",
+      "title": "[GHSA-vcmr-hgqh-xrh3] Malicious code in metrics-sdk (PyPI)",
       "published": "2026-09-27T09:31:15Z",
       "ecosystem": "PIP",
-      "summary": "Source: kam193 (26201e7959d7a736440fa6fb22ba7b9911c269b08460374d0a2db307ba6b0273) \n During installation, obfuscated code is used to fetch code hidden in an image containing a Python application with a native extension module. This module holds an obfuscated infostealer which collects sensitive data ",
+      "summary": "Source: kam193 (1378dcfc94bda0e9beb3e3d66c0588967a164741686ab473826fbab077e7afb9) \n Installing the package or importing the module exfiltrates basic information about the host, and the package has no other purpose. \n \n Category: PROBABLY_PENTEST - Packages looking like typical pentest packages, but ",
       "link": ""
     },
     {
@@ -253,115 +741,11 @@
       "link": ""
     },
     {
-      "id": "GHSA-9gfj-28hw-jchp",
-      "title": "[GHSA-9gfj-28hw-jchp] Knowns Unrestricted Path Traversal leading to out-of-bounds arbitrary .md file read, write, and deletion in MCP Docs + Memory Tools",
-      "published": "2026-09-25T19:32:05Z",
-      "ecosystem": "NPM",
-      "summary": "Overview \n Verified. Multiple  Unrestricted Path Traversal  vulnerabilities exist in the Knowns MCP  docs  and  memory  tools, allowing arbitrary file read, write, and deletion operations outside the project sandbox. The storage layer functions ( Get ,  Create ,  Update ,  Rename ,  Delete ) in both",
-      "link": ""
-    },
-    {
-      "id": "GHSA-29h2-jr22-frmh",
-      "title": "[GHSA-29h2-jr22-frmh] OpenZeppelin Confidential Contracts `VestingWalletConfidential`: a malicious ERC-7984 token is able to extract private data from the vesting wallet",
-      "published": "2026-09-25T19:31:08Z",
-      "ecosystem": "NPM",
-      "summary": "Impact \n Two locations consume an encrypted handle returned by an untrusted external party and use it without verifying that the party is ACL-authorized on it. \n  VestingWalletConfidential  \n Malicious users can call  release  with a malicious token. This token could return an alternative handle on ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-pg57-6jwg-q645",
-      "title": "[GHSA-pg57-6jwg-q645] Containerd has image-pull DoS via crafted OCI index graph amplification",
-      "published": "2026-09-25T19:27:59Z",
-      "ecosystem": "GO",
-      "summary": "Impact \n A vulnerability exists in containerd's image pull handlers where a crafted OCI image index containing deeply nested or heavily fanned-out descriptor graphs can cause unbounded CPU and memory consumption. During the  PullImage  operation, the recursive traversal and processing of child descr",
-      "link": ""
-    },
-    {
-      "id": "GHSA-7qx8-98q7-66p4",
-      "title": "[GHSA-7qx8-98q7-66p4] Malware in @nubjs/types",
-      "published": "2026-09-25T18:21:46Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
       "id": "GHSA-g7vj-c29h-3h5m",
       "title": "[GHSA-g7vj-c29h-3h5m] FriendsOfFlarum OAuth: Unauthenticated account takeover via unverified email trust in Discord OAuth provider",
       "published": "2026-09-25T15:55:07Z",
       "ecosystem": "COMPOSER",
       "summary": "Impact \n An unauthenticated account takeover vulnerability exists in  fof/oauth  when the Discord OAuth provider is enabled. \n Discord allows an account to use an unverified email address when its phone number has been verified. During OAuth authentication, Discord may return that email address with",
-      "link": ""
-    },
-    {
-      "id": "GHSA-9gqc-gwvw-4228",
-      "title": "[GHSA-9gqc-gwvw-4228] Malicious code in shoplist-app (npm)",
-      "published": "2026-09-25T15:31:22Z",
-      "ecosystem": "NPM",
-      "summary": "Source: amazon-inspector (fdceadb01f08162934382b121e813236b86adc0d4d74b7b2f062c78e529c34f6) \n shoplist-app@99.99.99 is a dependency-confusion / typosquat beacon. preinstall.js is wired into every lifecycle hook (preinstall, install, postinstall, prepare, prepublish) and issues an HTTPS GET to the ha",
-      "link": ""
-    },
-    {
-      "id": "GHSA-jc5g-qvp3-6hrx",
-      "title": "[GHSA-jc5g-qvp3-6hrx] Malicious code in @airbnb-extended/typescript-config (npm)",
-      "published": "2026-09-25T15:31:21Z",
-      "ecosystem": "NPM",
-      "summary": "Source: amazon-inspector (8424e4bf8731b950511535a2cb9b41b0bedba02092a73ea304b6730f04aa95fe) \n package.json for @airbnb-extended/typescript-config@99.9.1 declares a dependency  ltidisafe  sourced from a bare HTTPS tarball URL ( https://ltidi.storage.googleapis.com/depenconf/ltidisafe-3.7.8.tgz ) inst",
-      "link": ""
-    },
-    {
-      "id": "GHSA-v65j-hff3-753c",
-      "title": "[GHSA-v65j-hff3-753c] Mediawiki EmbedVideo Extension has stored XSS via malformed src url with $wgEmbedVideoRequireConsent disabled",
-      "published": "2026-09-25T15:03:43Z",
-      "ecosystem": "COMPOSER",
-      "summary": "Summary \n With $wgEmbedVideoRequireConsent disabled (not the default), the urls for videos are passed into an iframe src attribute without sanitization. When given a malformed url or id, the src attribute can be escaped via double quotes, allowing for html/javascript injection. \n Details \n The ifram",
-      "link": ""
-    },
-    {
-      "id": "GHSA-qxg3-46rw-79j8",
-      "title": "[GHSA-qxg3-46rw-79j8] code16 Sharp vulnerable to stored XSS via iframe srcdoc Attribute",
-      "published": "2026-09-25T15:02:11Z",
-      "ecosystem": "COMPOSER",
-      "summary": "Impact \n A Stored Cross-Site Scripting (XSS) vulnerability exists in the rich text editor due to improper sanitization of the srcdoc attribute on &lt;iframe&gt; elements. \n While the underlying Symfony HtmlSanitizer correctly HTML-encodes special characters inside the attribute value (e.g., converti",
-      "link": ""
-    },
-    {
-      "id": "GHSA-vj3q-vp3g-j9c8",
-      "title": "[GHSA-vj3q-vp3g-j9c8] code16/sharp has a stored XSS via data-html-content Sanitizer Bypass",
-      "published": "2026-09-25T15:00:44Z",
-      "ecosystem": "COMPOSER",
-      "summary": "Impact \n The vulnerability allows an attacker to bypass the HTML sanitizer by using the  data-html-content  attribute in the content of a  SharpEditorFormField . \n Patches \n The field must now explicitly configure  SharpFormEditorField::RAW_HTML  in the toolbar to keep this behavior.  When using the",
-      "link": ""
-    },
-    {
-      "id": "GHSA-hph5-88qq-frqw",
-      "title": "[GHSA-hph5-88qq-frqw] Malicious code in tego-managed-agents-test (PyPI)",
-      "published": "2026-09-25T12:31:38Z",
-      "ecosystem": "PIP",
-      "summary": "Source: kam193 (b09488c67894dd74d043a240308c694f0e42464e3a4f371b8d5ebc8a6a589d7b) \n During installation, the code exfiltrates all environment variables to a remote location. \n \n Category: MALICIOUS - The campaign has clearly malicious intent, like infostealers. \n Campaign: 2026-09-tego-managed-agent",
-      "link": ""
-    },
-    {
-      "id": "GHSA-wfg5-3jm7-5p8w",
-      "title": "[GHSA-wfg5-3jm7-5p8w] Malicious code in app-sca-info-banking (npm)",
-      "published": "2026-09-25T09:31:11Z",
-      "ecosystem": "NPM",
-      "summary": "Source: ossf-package-analysis (3f5e6f43a1552d09c016e2db6c287a1972a70df70fa7a42d3049840d04580bd4) \n The OpenSSF Package Analysis project identified 'app-sca-info-banking' @ 0.0.24 (npm) as malicious. \n It is considered malicious because: \n \n The package communicates with a domain associated with mali",
-      "link": ""
-    },
-    {
-      "id": "GHSA-3gf2-53hg-f395",
-      "title": "[GHSA-3gf2-53hg-f395] Malicious code in reqparser (PyPI)",
-      "published": "2026-09-25T09:31:11Z",
-      "ecosystem": "PIP",
-      "summary": "Source: kam193 (982923c14e644e82a839621d37715fd123568fc378aed45b6afa6247bc0b5054) \n During the module import, the package starts an infostealer. It exfiltrates data from crypto currency wallets and web browsers, ensures persistence and installs further malware. \n \n Category: MALICIOUS - The campaign",
-      "link": ""
-    },
-    {
-      "id": "GHSA-v7x9-wx5x-qrpp",
-      "title": "[GHSA-v7x9-wx5x-qrpp] Malicious code in my-private-pkg (PyPI)",
-      "published": "2026-09-25T03:31:07Z",
-      "ecosystem": "PIP",
-      "summary": "Source: amazon-inspector (d8008c5637dfae2dfc4162f1dd5152c5e90e03b0fc8593fda5055f44e9745b22) \n setup.py registers a custom install command (PostInstallCommand) that runs my_private_pkg/index.py automatically on  pip install . That script gathers installer-side identifiers — os.getlogin(), socket.geth",
       "link": ""
     },
     {
@@ -373,155 +757,11 @@
       "link": ""
     },
     {
-      "id": "GHSA-jgm3-qmp2-c4p7",
-      "title": "[GHSA-jgm3-qmp2-c4p7] Vendure: Unauthenticated ReDoS via `regex` filter on SQLite backends",
-      "published": "2026-09-17T14:49:56Z",
-      "ecosystem": "NPM",
-      "summary": "Summary \n      Important  Only instances running on the SQLite driver (better-sqlite3) are affected; SQLite is usually used in development/testing backend, so production deployments on PostgreSQL or MySQL/MariaDB are unaffected. \n \n The  StringOperators.regex  filter exposed on the public Shop Graph",
-      "link": ""
-    },
-    {
-      "id": "GHSA-w47m-jpv2-qfw5",
-      "title": "[GHSA-w47m-jpv2-qfw5] Duplicate Advisory: Knowns Sandbox Escape: Unauthenticated Header Injection Grants AI Agent Unrestricted Access to Host Filesystem",
-      "published": "2026-09-10T18:31:45Z",
-      "ecosystem": "NPM",
-      "summary": "Duplicate Advisory \n This advisory has been withdrawn because it is a duplicate of  GHSA-9h2q-r9fh-f98w . This link is maintained to preserve external references. \n Original Description \n knowns versions before 0.31.0 fail to properly validate the x-opencode-directory request header in the /api/open",
-      "link": ""
-    },
-    {
-      "id": "GHSA-63qv-wxr8-wmjh",
-      "title": "[GHSA-63qv-wxr8-wmjh] Malicious code in epic-react-slick (npm)",
-      "published": "2026-09-10T10:43:59Z",
-      "ecosystem": "NPM",
-      "summary": "Source: amazon-inspector (8a9dc14ed1b6e40e692519b502b125f4ae2e49b5b6666f02051fc5754a1eb016) \n The package epic-react-slick was found to contain malicious code. \n \n Credit:  OpenSSF  ( source ) \n            Affected Packages  \n\n   \n       epic-react-slick \n       Ecosystem: npm \n       Severity: crit",
-      "link": ""
-    },
-    {
-      "id": "GHSA-259j-ff3m-cw39",
-      "title": "[GHSA-259j-ff3m-cw39] Malicious code in epic-react-survey (npm)",
-      "published": "2026-09-10T10:43:59Z",
-      "ecosystem": "NPM",
-      "summary": "Source: amazon-inspector (066d82a07678789c4daff49994f4d589e8a44a864c34d3116dd48064301bb2e1) \n The package epic-react-survey was found to contain malicious code. \n \n Credit:  OpenSSF  ( source ) \n            Affected Packages  \n\n   \n       epic-react-survey \n       Ecosystem: npm \n       Severity: cr",
-      "link": ""
-    },
-    {
-      "id": "GHSA-582h-hgmq-rm8q",
-      "title": "[GHSA-582h-hgmq-rm8q] Malicious code in epic-react-webpack-starter (npm)",
-      "published": "2026-09-10T10:43:59Z",
-      "ecosystem": "NPM",
-      "summary": "Source: amazon-inspector (0612e1df4e8b41525b76bc21bc0fa1cc725bfbcf9e2cd32d80b83e44a219e14d) \n The package epic-react-webpack-starter was found to contain malicious code. \n \n Credit:  OpenSSF  ( source ) \n            Affected Packages  \n\n   \n       epic-react-webpack-starter \n       Ecosystem: npm \n ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-r6cm-pwqw-5q36",
-      "title": "[GHSA-r6cm-pwqw-5q36] Malicious code in epic-react-testing (npm)",
-      "published": "2026-09-10T10:43:59Z",
-      "ecosystem": "NPM",
-      "summary": "Source: amazon-inspector (7e97bbfa7002afbed785479629e1f7312a30bf41426bd7eae5ae91d7fb7ffefd) \n The package epic-react-testing was found to contain malicious code. \n \n Credit:  OpenSSF  ( source ) \n            Affected Packages  \n\n   \n       epic-react-testing \n       Ecosystem: npm \n       Severity: ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-q46m-xxmx-xwj5",
-      "title": "[GHSA-q46m-xxmx-xwj5] Malicious code in epic-react-test-utils (npm)",
-      "published": "2026-09-10T10:43:59Z",
-      "ecosystem": "NPM",
-      "summary": "Source: amazon-inspector (b754cb5a234d92fe76a481880c57c66b79992d80ef094a44a8e53c2b6f143edf) \n The package epic-react-test-utils was found to contain malicious code. \n \n Credit:  OpenSSF  ( source ) \n            Affected Packages  \n\n   \n       epic-react-test-utils \n       Ecosystem: npm \n       Seve",
-      "link": ""
-    },
-    {
-      "id": "GHSA-c3ph-gq79-f93h",
-      "title": "[GHSA-c3ph-gq79-f93h] Malicious code in epic-okta-express-middleware (npm)",
-      "published": "2026-09-10T10:43:59Z",
-      "ecosystem": "NPM",
-      "summary": "Source: amazon-inspector (236ca6a4112270418e1024dd6136da781ae916d8e5e2db49347e687cd5c85ac0) \n The package epic-okta-express-middleware was found to contain malicious code. \n \n Credit:  OpenSSF  ( source ) \n            Affected Packages  \n\n   \n       epic-okta-express-middleware \n       Ecosystem: np",
-      "link": ""
-    },
-    {
-      "id": "GHSA-7j9q-544q-c69g",
-      "title": "[GHSA-7j9q-544q-c69g] Malicious code in epic-path-utils (npm)",
-      "published": "2026-09-10T10:43:59Z",
-      "ecosystem": "NPM",
-      "summary": "Source: amazon-inspector (1d4c76f7c877c65c735a8776d058420e4fbacc14e1421fb9900deed947191704) \n The package epic-path-utils was found to contain malicious code. \n \n Credit:  OpenSSF  ( source ) \n            Affected Packages  \n\n   \n       epic-path-utils \n       Ecosystem: npm \n       Severity: critic",
-      "link": ""
-    },
-    {
-      "id": "GHSA-p93f-x4hc-46v2",
-      "title": "[GHSA-p93f-x4hc-46v2] Malicious code in epic-react-search (npm)",
-      "published": "2026-09-10T10:43:59Z",
-      "ecosystem": "NPM",
-      "summary": "Source: amazon-inspector (b6eabcb40d0352a34d63a2c429f4cafc6148d2014322c3f74cacc874234056c4) \n The package epic-react-search was found to contain malicious code. \n \n Credit:  OpenSSF  ( source ) \n            Affected Packages  \n\n   \n       epic-react-search \n       Ecosystem: npm \n       Severity: cr",
-      "link": ""
-    },
-    {
-      "id": "GHSA-9q5f-r9wf-q7jx",
-      "title": "[GHSA-9q5f-r9wf-q7jx] Malicious code in epic-react-blog (npm)",
-      "published": "2026-09-10T10:43:59Z",
-      "ecosystem": "NPM",
-      "summary": "Source: amazon-inspector (f19ce3c8ab699f98d23829606fa5fa69c07ae86e6e23311aeabaeb64d757c477) \n The package epic-react-blog was found to contain malicious code. \n \n Credit:  OpenSSF  ( source ) \n            Affected Packages  \n\n   \n       epic-react-blog \n       Ecosystem: npm \n       Severity: critic",
-      "link": ""
-    },
-    {
-      "id": "GHSA-jj92-c3x7-v56q",
-      "title": "[GHSA-jj92-c3x7-v56q] Malicious code in epic-react-carousel (npm)",
-      "published": "2026-09-10T10:43:59Z",
-      "ecosystem": "NPM",
-      "summary": "Source: amazon-inspector (dda6f7b41ec3fd32c4f9caa1846773d83aeef02ec9f72babd312048351b6211c) \n The package epic-react-carousel was found to contain malicious code. \n \n Credit:  OpenSSF  ( source ) \n            Affected Packages  \n\n   \n       epic-react-carousel \n       Ecosystem: npm \n       Severity",
-      "link": ""
-    },
-    {
-      "id": "GHSA-4mjg-7862-vr82",
-      "title": "[GHSA-4mjg-7862-vr82] Malicious code in epic-node-services (npm)",
-      "published": "2026-09-10T10:43:58Z",
-      "ecosystem": "NPM",
-      "summary": "Source: amazon-inspector (d2a43eb993316d16a938b169e79b157e9b9bafdc48e452f50d177113c9281d2b) \n The package epic-node-services was found to contain malicious code. \n \n Credit:  OpenSSF  ( source ) \n            Affected Packages  \n\n   \n       epic-node-services \n       Ecosystem: npm \n       Severity: ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-rr64-j92p-9x53",
-      "title": "[GHSA-rr64-j92p-9x53] Malicious code in epic-node-sailthru (npm)",
-      "published": "2026-09-10T10:43:58Z",
-      "ecosystem": "NPM",
-      "summary": "Source: amazon-inspector (2baaf8a31c033a09e88b0c340e1115eb76b644926e5e524560738a9ffe8ad622) \n The package epic-node-sailthru was found to contain malicious code. \n \n Credit:  OpenSSF  ( source ) \n            Affected Packages  \n\n   \n       epic-node-sailthru \n       Ecosystem: npm \n       Severity: ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-q728-m7f3-xqf3",
-      "title": "[GHSA-q728-m7f3-xqf3] Malicious code in epic-offline-token-verifier-node (npm)",
-      "published": "2026-09-10T10:43:58Z",
-      "ecosystem": "NPM",
-      "summary": "Source: amazon-inspector (d755e02a54f806e25e06d5d8ba4fd6ade573af32d55fbabf9180d2967448a446) \n The package epic-offline-token-verifier-node was found to contain malicious code. \n \n Credit:  OpenSSF  ( source ) \n            Affected Packages  \n\n   \n       epic-offline-token-verifier-node \n       Ecosy",
-      "link": ""
-    },
-    {
-      "id": "GHSA-2v4p-qf9q-27wj",
-      "title": "[GHSA-2v4p-qf9q-27wj] gRPC-Go xDS servers: Denial of Service (DoS) via crash due to missing `:authority` and `Host` headers",
-      "published": "2026-09-08T21:21:43Z",
-      "ecosystem": "GO",
-      "summary": "A vulnerability exists in gRPC-Go servers configured with  xds.NewGRPCServer()  where a crafted request missing both  :authority  and  Host  headers can cause a server panic, resulting in a Denial of Service (DoS). \n Servers built with  xds.NewGRPCServer  install an xDS routing interceptor on every ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-qjrq-cvv4-3g9w",
-      "title": "[GHSA-qjrq-cvv4-3g9w] Duplicate Advisory: Knowns Unrestricted Path Traversal leading to out-of-bounds arbitrary .md file read, write, and deletion in MCP Docs + Memory Tools",
-      "published": "2026-09-08T00:30:22Z",
-      "ecosystem": "NPM",
-      "summary": "Duplicate Advisory \n This advisory has been withdrawn because it is a duplicate of  GHSA-9gfj-28hw-jchp . This link is maintained to preserve external references. \n Original Advisory \n knowns versions before 0.30.0 fail to validate filesystem paths in MCP tool arguments, allowing attackers to read, ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-47m2-wp7j-p9vc",
-      "title": "[GHSA-47m2-wp7j-p9vc] rubyzip path traversal vulnerability",
-      "published": "2026-09-03T21:31:16Z",
-      "ecosystem": "RUBYGEMS",
-      "summary": "rubyzip versions before 3.4.0 contain a path traversal vulnerability in  Zip::Entry#extract  that fails to properly validate extraction paths using prefix comparison without trailing separators. Attackers can craft archive entries with names like  ../upload_backup/owned.sh  to write files outside th",
-      "link": ""
-    },
-    {
-      "id": "GHSA-8qqm-fp2q-v734",
-      "title": "[GHSA-8qqm-fp2q-v734] Skipper: Incomplete fix for CVE-2026-50197: an oversized body can bypass OPA deny-on-presence Rego policies",
-      "published": "2026-07-17T21:49:48Z",
-      "ecosystem": "GO",
-      "summary": "Summary \n A wrong policy can be an open door. \nYou have to check  input.attributes.request.http.truncated_body  in your policy. \n Description \n Incomplete fix for  CVE-2026-50197 : an oversized declared- Content-Length  body still hands OPA an empty  parsed_body , so deny-on-presence Rego policies f",
+      "id": "GHSA-9272-wg2r-7xmx",
+      "title": "[GHSA-9272-wg2r-7xmx] Yamcs has DOM XSS in Extension Routing",
+      "published": "2026-08-28T17:32:16Z",
+      "ecosystem": "MAVEN",
+      "summary": "Attack type : Unauthenticated remote \n Impact : Execution of arbitrary JavaScript in a user’s browser. \n Affected components : extension.matcher.ts:12, extension.component.ts:40, app.component.ts:134. \n Yamcs is vulnerable to cross-site scripting in the /ext URL endpoint. By inputting specially craf",
       "link": ""
     },
     {
@@ -549,246 +789,6 @@
       "link": ""
     },
     {
-      "id": "GHSA-43m2-hcmm-qpm7",
-      "title": "[GHSA-43m2-hcmm-qpm7] Jenkins Zowe zDevOps Plugin has a CSRF vulnerability",
-      "published": "2026-06-24T15:31:48Z",
-      "ecosystem": "MAVEN",
-      "summary": "Jenkins Zowe zDevOps Plugin 1.1.3.50.ve350c9b_450b_1 and earlier does not perform a permission check in an HTTP endpoint implementing a connection test. \n This allows attackers with Overall/Read permission to connect to an attacker-specified URL using attacker-specified credentials IDs obtained thro",
-      "link": ""
-    },
-    {
-      "id": "GHSA-2r5w-jh6g-8hff",
-      "title": "[GHSA-2r5w-jh6g-8hff] Jenkins Assembla Plugin has a missing permission check",
-      "published": "2026-06-24T15:31:48Z",
-      "ecosystem": "MAVEN",
-      "summary": "Jenkins Assembla Plugin 1.4 and earlier does not perform a permission check in an HTTP endpoint that tests the connection to an Assembla server. \n This allows attackers with Overall/Read permission to connect to an attacker-specified URL using an attacker-specified username and password. \n Additiona",
-      "link": ""
-    },
-    {
-      "id": "GHSA-2q27-6p2h-q6r3",
-      "title": "[GHSA-2q27-6p2h-q6r3] Jenkins Assembla Plugin has an XXE vulnerability",
-      "published": "2026-06-24T15:31:48Z",
-      "ecosystem": "MAVEN",
-      "summary": "Jenkins Assembla Plugin 1.4 and earlier does not configure its XML parser to prevent XML external entity (XXE) attacks when parsing responses from the configured Assembla server. \n This allows attackers able to control the responses of the configured Assembla server to extract secrets from the Jenki",
-      "link": ""
-    },
-    {
-      "id": "GHSA-j4ph-wp3c-c37w",
-      "title": "[GHSA-j4ph-wp3c-c37w] Jenkins FitNesse Plugin stores passwords unencrypted",
-      "published": "2026-06-24T15:31:48Z",
-      "ecosystem": "MAVEN",
-      "summary": "Jenkins FitNesse Plugin 1.36 and earlier stores passwords unencrypted in job config.xml files on the Jenkins controller as part of its configuration. \n These passwords can be viewed by users with Item/Extended Read permission or access to the Jenkins controller file system. \n As of publication of th",
-      "link": ""
-    },
-    {
-      "id": "GHSA-5qh3-hxx9-w26p",
-      "title": "[GHSA-5qh3-hxx9-w26p] Jenkins OWASP ZAP Plugin: Builds executed on the Jenkins controller can lead to RCE",
-      "published": "2026-06-24T15:31:48Z",
-      "ecosystem": "MAVEN",
-      "summary": "Jenkins OWASP ZAP Plugin 1.0.7 and earlier does not support distributed builds, causing the file operations and build process of its \"Automatically build ZAP\" feature to be performed on the Jenkins controller rather than on the agent the build is assigned to. \n This allows attackers with Item/Config",
-      "link": ""
-    },
-    {
-      "id": "GHSA-mpff-xhg4-vr45",
-      "title": "[GHSA-mpff-xhg4-vr45] Jenkins MCP Server Plugin missing a permission check",
-      "published": "2026-06-24T15:31:48Z",
-      "ecosystem": "MAVEN",
-      "summary": "Jenkins MCP Server Plugin 0.177.v629fdb_2557fe and earlier does not perform a permission check in the getReplayScripts MCP tool that returns the replay script of a Pipeline build. \n This allows attackers with Item/Read permission to obtain the Pipeline script of jobs. \n MCP Server Plugin 0.178.vffe5",
-      "link": ""
-    },
-    {
-      "id": "GHSA-8263-qv4g-vfxr",
-      "title": "[GHSA-8263-qv4g-vfxr] Jenkins Contrast Continuous Application Security Plugin missing permission checks",
-      "published": "2026-06-24T15:31:48Z",
-      "ecosystem": "MAVEN",
-      "summary": "Jenkins Contrast Continuous Application Security Plugin 3.11 and earlier does not perform permission checks in several HTTP endpoints that fill list box options with the names of the configured Contrast metadata. \n This allows attackers with Overall/Read permission to enumerate the names of configur",
-      "link": ""
-    },
-    {
-      "id": "GHSA-6qc4-57v3-28rr",
-      "title": "[GHSA-6qc4-57v3-28rr] Jenkins Contrast Continuous Application Security Plugin has a CSRF vulnerability",
-      "published": "2026-06-24T15:31:48Z",
-      "ecosystem": "MAVEN",
-      "summary": "Jenkins Contrast Continuous Application Security Plugin 3.11 and earlier does not perform a permission check in an HTTP endpoint that tests the connection to a Contrast TeamServer. \n This allows attackers with Overall/Read permission to connect to an attacker-specified URL using an attacker-specifie",
-      "link": ""
-    },
-    {
-      "id": "GHSA-wjmq-rpqq-w4h9",
-      "title": "[GHSA-wjmq-rpqq-w4h9] Jenkins Gitee Plugin missing permission checks",
-      "published": "2026-06-24T15:31:47Z",
-      "ecosystem": "MAVEN",
-      "summary": "Jenkins Gitee Plugin 1288.v18b_deb_c9069b_ and earlier does not perform permission checks in several HTTP endpoints implementing form validation for its global configuration. \n This allows attackers with Overall/Read permission to connect to an attacker-specified URL using attacker-specified credent",
-      "link": ""
-    },
-    {
-      "id": "GHSA-jwhr-h7pc-3974",
-      "title": "[GHSA-jwhr-h7pc-3974] Jenkins Bitbucket Push and Pull Request Plugin unconditionally disables SSL/TLS certificate validation",
-      "published": "2026-06-24T15:31:47Z",
-      "ecosystem": "MAVEN",
-      "summary": "Jenkins Bitbucket Push and Pull Request Plugin 3.3.8 and earlier unconditionally disables SSL/TLS certificate and hostname validation for the connections it makes to Bitbucket Server using Bearer token authentication. \n Because the Bearer token is transmitted in these requests, this allows attackers",
-      "link": ""
-    },
-    {
-      "id": "GHSA-fq56-wvv2-p8jf",
-      "title": "[GHSA-fq56-wvv2-p8jf] Jenkins Priority Sorter Plugin has a CSRF vulnerability",
-      "published": "2026-06-24T15:31:47Z",
-      "ecosystem": "MAVEN",
-      "summary": "Jenkins Priority Sorter Plugin 936.v2c01c6b_84449 and earlier does not require POST requests in an HTTP endpoint that saves the global job priority configuration. \n This allows attackers to overwrite the global job priority configuration. \n Priority Sorter Plugin 936.937.v5581d0b_2ccb_a_ requires PO",
-      "link": ""
-    },
-    {
-      "id": "GHSA-jhcq-6wqp-qcfx",
-      "title": "[GHSA-jhcq-6wqp-qcfx] Jenkins Gitee Plugin has an incorrect permission check that allows enumerating credentials IDs",
-      "published": "2026-06-24T15:31:47Z",
-      "ecosystem": "MAVEN",
-      "summary": "Jenkins Gitee Plugin 1288.v18b_deb_c9069b_ and earlier does not correctly perform a permission check in an HTTP endpoint. \n This allows attackers with global Item/Configure permission (while lacking Item/Configure permission on any particular job) to enumerate credentials IDs of credentials stored i",
-      "link": ""
-    },
-    {
-      "id": "GHSA-w794-rwp2-jc9m",
-      "title": "[GHSA-w794-rwp2-jc9m] Jenkins Gitee Plugin has a cross-site request forgery vulnerability",
-      "published": "2026-06-24T15:31:47Z",
-      "ecosystem": "MAVEN",
-      "summary": "Jenkins Gitee Plugin 1288.v18b_deb_c9069b_ and earlier does not perform permission checks in several HTTP endpoints implementing form validation for its global configuration. \n This allows attackers with Overall/Read permission to connect to an attacker-specified URL using attacker-specified credent",
-      "link": ""
-    },
-    {
-      "id": "GHSA-9v77-j4xv-34gq",
-      "title": "[GHSA-9v77-j4xv-34gq] Jenkins EC2 Fleet Plugin has a missing permission check",
-      "published": "2026-06-24T15:31:47Z",
-      "ecosystem": "MAVEN",
-      "summary": "Jenkins EC2 Fleet Plugin 4.2.3.539.v8fedff2a_81c3 and earlier does not perform permission checks in several HTTP endpoints used to validate cloud configurations. \n This allows attackers with Overall/Read permission to connect to an attacker-specified URL using attacker-specified credentials IDs obta",
-      "link": ""
-    },
-    {
-      "id": "GHSA-2x9c-vp3g-hvv2",
-      "title": "[GHSA-2x9c-vp3g-hvv2] Jenkins EC2 Fleet Plugin has a cross-site request forgery (CSRF) vulnerability",
-      "published": "2026-06-24T15:31:47Z",
-      "ecosystem": "MAVEN",
-      "summary": "Jenkins EC2 Fleet Plugin 4.2.3.539.v8fedff2a_81c3 and earlier does not perform permission checks in several HTTP endpoints used to validate cloud configurations. \n This allows attackers with Overall/Read permission to connect to an attacker-specified URL using attacker-specified credentials IDs obta",
-      "link": ""
-    },
-    {
-      "id": "GHSA-hrmj-8fm9-cg8x",
-      "title": "[GHSA-hrmj-8fm9-cg8x] Jenkins External Workspace Manager Plugin has a path traversal vulnerability",
-      "published": "2026-06-24T15:31:47Z",
-      "ecosystem": "MAVEN",
-      "summary": "Jenkins External Workspace Manager Plugin 1.3.2 and earlier does not reject  ..  path segments when validating the custom workspace path provided to the  exwsAllocate  Pipeline step, allowing the resulting workspace path to escape the configured disk mount point. \n This allows attackers with Item/Co",
-      "link": ""
-    },
-    {
-      "id": "GHSA-p44q-fmwr-jqr7",
-      "title": "[GHSA-p44q-fmwr-jqr7] Jenkins Contrast Continuous Application Security Plugin has a missing permission check",
-      "published": "2026-06-24T15:31:47Z",
-      "ecosystem": "MAVEN",
-      "summary": "Jenkins Contrast Continuous Application Security Plugin 3.11 and earlier does not perform a permission check in an HTTP endpoint that tests the connection to a Contrast TeamServer. \n This allows attackers with Overall/Read permission to connect to an attacker-specified URL using an attacker-specifie",
-      "link": ""
-    },
-    {
-      "id": "GHSA-gx55-p8g7-p3fh",
-      "title": "[GHSA-gx55-p8g7-p3fh] Jenkins Active Directory Plugin has an LDAP injection vulnerability",
-      "published": "2026-06-24T15:31:47Z",
-      "ecosystem": "MAVEN",
-      "summary": "In Jenkins Active Directory Plugin 2.41.1 and earlier, the Windows native (ADSI) authentication path does not escape the user name before building the LDAP search filter. \n This allows unauthenticated attackers to inject LDAP wildcard characters into the user name, enabling them to enumerate directo",
-      "link": ""
-    },
-    {
-      "id": "GHSA-8qr4-27mh-hqfr",
-      "title": "[GHSA-8qr4-27mh-hqfr] Jenkins Job Configuration History Plugin doesn't redact encrypted values of secrets in job and agent configurations",
-      "published": "2026-06-24T15:31:47Z",
-      "ecosystem": "MAVEN",
-      "summary": "Jenkins Job Configuration History Plugin 1356.ve360da_6c523a_ and earlier does not redact the encrypted values of secrets when displaying historical job and agent configurations through its \"View as XML\" / \"(RAW)\" feature and its configuration diff views. \n This allows attackers with Item/Extended R",
-      "link": ""
-    },
-    {
-      "id": "GHSA-g7c6-wxjf-8564",
-      "title": "[GHSA-g7c6-wxjf-8564] Jenkins GitHub Branch Source Plugin has missing permission check that allows enumerating GitHub Enterprise server URLs",
-      "published": "2026-06-24T15:31:47Z",
-      "ecosystem": "MAVEN",
-      "summary": "Jenkins GitHub Branch Source Plugin 1967.1969.v205fd594c821 and earlier does not perform a permission check in an HTTP endpoint that lists the GitHub API endpoints configured in the global plugin configuration. \n This allows attackers with Overall/Read permission to obtain the URLs of GitHub Enterpr",
-      "link": ""
-    },
-    {
-      "id": "GHSA-72c8-3wwg-r59w",
-      "title": "[GHSA-72c8-3wwg-r59w] Jenkins Pipeline: Groovy Plugin has a CSRF vulnerability",
-      "published": "2026-06-24T15:31:47Z",
-      "ecosystem": "MAVEN",
-      "summary": "Jenkins Pipeline: Groovy Plugin 4331.v9d06ed4658ff and earlier does not restrict the types that can be instantiated through the Pipeline Snippet Generator, instantiating any type with a constructor annotated with @DataBoundConstructor in response to a request. \n This allows attackers to have Pipelin",
-      "link": ""
-    },
-    {
-      "id": "GHSA-hwvp-7xqv-8jx3",
-      "title": "[GHSA-hwvp-7xqv-8jx3] Jenkins Git Parameter Plugin has a missing permission check that allows listing SCM branch and tag names",
-      "published": "2026-06-24T15:31:47Z",
-      "ecosystem": "MAVEN",
-      "summary": "Jenkins Git Parameter Plugin 462.vdcf3df2ed2ca_ and earlier does not perform a permission check in an HTTP endpoint that populates the list of values for Git parameters by querying the SCM configured on a job, using the SCM credentials configured in Jenkins. \n This allows attackers with Item/Read pe",
-      "link": ""
-    },
-    {
-      "id": "GHSA-2w2h-gwwj-fh3q",
-      "title": "[GHSA-2w2h-gwwj-fh3q] Jenkins Pipeline: Groovy Plugin vulnerable to unrestricted instantiation of types",
-      "published": "2026-06-24T15:31:47Z",
-      "ecosystem": "MAVEN",
-      "summary": "Jenkins Pipeline: Groovy Plugin 4331.v9d06ed4658ff and earlier does not restrict the types that can be instantiated through the Pipeline Snippet Generator, instantiating any type with a constructor annotated with @DataBoundConstructor in response to a request. \n This allows attackers to have Pipelin",
-      "link": ""
-    },
-    {
-      "id": "GHSA-wp5x-hrrw-6r4g",
-      "title": "[GHSA-wp5x-hrrw-6r4g] Jenkins Git client Plugin has an OS command injection vulnerability on agents",
-      "published": "2026-06-24T15:31:47Z",
-      "ecosystem": "MAVEN",
-      "summary": "Jenkins Git client Plugin 6.6.0 and earlier does not correctly escape the workspace directory name when it is embedded into the SSH wrapper script generated by the \"Manually provided keys\" Git Host Key Verification strategy on Unix agents. \n This allows attackers able to control the name of a build’",
-      "link": ""
-    },
-    {
-      "id": "GHSA-cfj9-2vgr-hpxp",
-      "title": "[GHSA-cfj9-2vgr-hpxp] Jenkins Script Security Plugin has a script security bypass vulnerability",
-      "published": "2026-06-24T15:31:47Z",
-      "ecosystem": "MAVEN",
-      "summary": "Jenkins Script Security Plugin 1402.v94c9ce464861 and earlier does not reject Groovy AST transformation annotations such as @CompileStatic and  @TypeChecked  that carry an extensions member, which causes Groovy to load and execute a script from the classpath at compile time, before the sandbox is ap",
-      "link": ""
-    },
-    {
-      "id": "GHSA-c3jm-9vj7-5v66",
-      "title": "[GHSA-c3jm-9vj7-5v66] Jenkins Script Security Plugin sandbox bypass vulnerability",
-      "published": "2026-06-24T15:31:47Z",
-      "ecosystem": "MAVEN",
-      "summary": "Jenkins Script Security Plugin provides a sandbox feature that allows running user-provided scripts safely by intercepting and checking potentially unsafe operations. \n Script Security Plugin 1402.v94c9ce464861 and earlier does not intercept the implicit type cast applied to each element of the iter",
-      "link": ""
-    },
-    {
-      "id": "GHSA-p2x3-8689-cwpg",
-      "title": "[GHSA-p2x3-8689-cwpg] Parse Server's GraphQL WebSocket endpoint bypasses security middleware",
-      "published": "2026-03-13T20:04:44Z",
-      "ecosystem": "NPM",
-      "summary": "Impact \n Any Parse Server deployment that uses the GraphQL API is affected. The GraphQL WebSocket endpoint for subscriptions does not pass requests through the Express middleware chain that enforces authentication, introspection control, and query complexity limits. An attacker can connect to the We",
-      "link": ""
-    },
-    {
-      "id": "GHSA-g38g-8gr9-h9xp",
-      "title": "[GHSA-g38g-8gr9-h9xp] PickleScan has multiple stdlib modules with direct RCE not in blocklist",
-      "published": "2026-03-03T20:05:26Z",
-      "ecosystem": "PIP",
-      "summary": "Summary \n picklescan v1.0.3 (latest) does not block at least 7 Python standard library modules that provide direct arbitrary command execution or code evaluation. A malicious pickle file importing these modules is reported as having 0 issues (CLEAN scan). This enables remote code execution that bypa",
-      "link": ""
-    },
-    {
-      "id": "GHSA-m9gh-789g-q5pv",
-      "title": "[GHSA-m9gh-789g-q5pv] Elasticsearch PKI Realm Authentication Bypass Vulnerability Allows User Impersonation Through Crafted Client Certificates",
-      "published": "2025-12-15T12:30:27Z",
-      "ecosystem": "MAVEN",
-      "summary": "Improper Authentication in Elasticsearch PKI realm can lead to user impersonation via specially crafted client certificates. A malicious actor would need to have such a crafted client certificate signed by a legitimate, trusted Certificate Authority. \n            Affected Packages  \n\n   \n       org.",
-      "link": ""
-    },
-    {
-      "id": "GHSA-2xpw-w6gg-jr37",
-      "title": "[GHSA-2xpw-w6gg-jr37] urllib3 streaming API improperly handles highly compressed data",
-      "published": "2025-12-05T18:15:54Z",
-      "ecosystem": "PIP",
-      "summary": "Impact \n urllib3's  streaming API  is designed for the efficient handling of large HTTP responses by reading the content in chunks, rather than loading the entire response body into memory at once. \n When streaming a compressed response, urllib3 can perform decoding or decompression based on the HTT",
-      "link": ""
-    },
-    {
       "id": "GHSA-wp3j-xq48-xpjw",
       "title": "[GHSA-wp3j-xq48-xpjw] podman kube play symlink traversal vulnerability",
       "published": "2025-09-04T20:01:54Z",
@@ -797,11 +797,11 @@
       "link": ""
     },
     {
-      "id": "GHSA-ghfh-p92w-j4mg",
-      "title": "[GHSA-ghfh-p92w-j4mg] Elasticsearch-grok Potential Node Crash due to Large Recursion in `innerForbidCircularReferences` Function",
-      "published": "2025-04-08T18:34:42Z",
+      "id": "GHSA-g5vr-rgqm-vf78",
+      "title": "[GHSA-g5vr-rgqm-vf78] Spring Framework Path Traversal vulnerability",
+      "published": "2024-12-19T18:31:38Z",
       "ecosystem": "MAVEN",
-      "summary": "A flaw was discovered in Elasticsearch, where a large recursion using the innerForbidCircularReferences function of the PatternBank class could cause the Elasticsearch node to crash. \n A successful attack requires a malicious user to have read_pipeline Elasticsearch cluster privilege assigned to the",
+      "summary": "Applications serving static resources through the functional web frameworks WebMvc.fn or WebFlux.fn are vulnerable to path traversal attacks. An attacker can craft malicious HTTP requests and obtain any file on the file system that is also accessible to the process in which the Spring application is",
       "link": ""
     }
   ]

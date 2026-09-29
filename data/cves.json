@@ -1,13 +1,733 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-09-28T20:55:54Z",
+  "updated_at": "2026-09-29T00:45:36Z",
   "recent": {
     "lookback_days": 3,
-    "total": 701,
-    "items_available": 701,
+    "total": 715,
+    "items_available": 715,
     "normalisation_failures": [],
-    "items_parsed": 701,
+    "items_parsed": 715,
     "items": [
+      {
+        "id": "CVE-2026-102367",
+        "published": "2026-09-29T00:17:04Z",
+        "description": "mall4j through 4.0 contains an insufficient session expiration vulnerability in the token refresh endpoint that fails to validate the enabled flag when issuing new sessions. Disabled user accounts can indefinitely renew their sessions through the POST /token/refresh endpoint, retaining access that a",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102367",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-18417",
+        "published": "2026-09-29T00:17:04Z",
+        "description": "The native BSD-socket layer recorded a pending asynchronous socket error by type-punning it into struct net_context's void user_data field (ctx->user_data = INT_TO_POINTER(-status) in zsock_accepted_cb(), zsock_received_cb(), zsock_connected_cb() and zsock_close_ctx() in subsys/net/lib/sockets/socke",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18417",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-18746",
+        "published": "2026-09-29T00:17:04Z",
+        "description": "parse_write_op() in subsys/net/lib/lwm2m/lwm2m_message_handling.c handles inbound CoAP WRITE/CREATE requests that carry a Block1 option. For the first block of a transfer it called init_block_ctx() and then immediately stored the peer-selected block size with block_ctx->ctx.block_size = block_size b",
+        "severity": "MEDIUM",
+        "score": 5.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18746",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-18747",
+        "published": "2026-09-29T00:17:04Z",
+        "description": "The MCUmgr SMP-over-console transport decodes a base64 frame, reads a 16-bit packet length from it, verifies a CRC and then unconditionally strips the trailing CRC with rx_ctxt->nb->len -= 2U; in mcumgr_serial_process_frag() (subsys/mgmt/mcumgr/transport/src/serial_util.c). mcumgr_serial_extract_len",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18747",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101277",
+        "published": "2026-09-29T00:17:03Z",
+        "description": "A security flaw has been discovered in Trusted Domain Project OpenDKIM up to 2.11.0. The impacted element is the function dkim_process_set of the file dkim.c of the component Tag Tokenizer. Performing a manipulation results in use of less trusted source. The attack may be initiated remotely. The exp",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101277",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102361",
+        "published": "2026-09-29T00:17:03Z",
+        "description": "mall4j through 4.0 contains a missing authentication vulnerability in the PUT /user/updatePwd endpoint that allows unauthenticated attackers to reset any storefront account password. Attackers can supply a target username in the request body to overwrite passwords without verification, enabling acco",
+        "severity": "CRITICAL",
+        "score": 9.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102361",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102362",
+        "published": "2026-09-29T00:17:03Z",
+        "description": "mall4j through 4.0 fails to implement authentication controls on the DELETE /prodComm endpoint in ProdCommController. Unauthenticated attackers can delete arbitrary product reviews by supplying the prodCommId parameter without authorization checks.",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102362",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102363",
+        "published": "2026-09-29T00:17:03Z",
+        "description": "mall4j through 4.0 contains a missing authentication vulnerability in the DeliveryController checkDelivery endpoint that allows unauthenticated attackers to read shipment tracking information by supplying an order number parameter. Attackers can access carrier names, waybill numbers, and complete lo",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102363",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102364",
+        "published": "2026-09-29T00:17:03Z",
+        "description": "mall4j through 4.0 fails to validate the sysType field in sa-token sessions, allowing storefront customers to authenticate as back-office users by reusing their session tokens. Attackers can register on the public storefront and use their customer session token to access admin endpoints lacking @Pre",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102364",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102365",
+        "published": "2026-09-29T00:17:03Z",
+        "description": "mall4j through 4.0 fails to enforce authorization checks on GET endpoints in UserAddrController that retrieve customer address data. Authenticated attackers can call /user/addr/page and /user/addr/info endpoints to harvest all customer addresses including names, phone numbers, and postal information",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102365",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102366",
+        "published": "2026-09-29T00:17:03Z",
+        "description": "mall4j through 4.0 contains an unrestricted file upload vulnerability in FileController endpoints that lack authorization checks and accept arbitrary file types without validation. Attackers with any authenticated token can upload HTML or SVG files that execute scripts in administrator browsers when",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102366",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101264",
+        "published": "2026-09-29T00:17:02Z",
+        "description": "A vulnerability was determined in Ziroom ZHOME A0101 1.0.1.0. Impacted is an unknown function of the file /api/ZRnetwork/set_passwd. This manipulation of the argument password1 causes command injection. The attack can be initiated remotely. The exploit has been publicly disclosed and may be utilized",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101264",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101265",
+        "published": "2026-09-29T00:17:02Z",
+        "description": "A vulnerability was identified in Intelbras TIP 125i 4.3.35/4.3.41. The affected element is an unknown function of the component Básico Page. Such manipulation leads to inclusion of sensitive information in source code. The attack can be launched remotely. A high complexity level is associated with ",
+        "severity": "LOW",
+        "score": 1.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101265",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101263",
+        "published": "2026-09-29T00:17:01Z",
+        "description": "A vulnerability was found in Ziroom ZHOME A0101 1.0.1.0. This issue affects some unknown processing of the file /api/ZRQos/set_online_client. The manipulation of the argument mac results in command injection. It is possible to launch the attack remotely. The exploit has been made public and could be",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101263",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102335",
+        "published": "2026-09-28T23:17:02Z",
+        "description": "Nginx Proxy Manager through 2.16.0 fails to restrict the advanced_config field to administrators, allowing non-admin users with manage permissions to inject arbitrary nginx directives. Attackers can inject malicious nginx configuration such as alias directives to serve arbitrary files or control rou",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102335",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101261",
+        "published": "2026-09-28T23:17:01Z",
+        "description": "A flaw has been found in Ziroom ZHOME A0101 1.0.1.0. This affects an unknown part of the file /api/ZRnetwork/firstSetup_wifi. Executing a manipulation of the argument login_pwd can lead to command injection. The attack may be performed from remote. The exploit has been published and may be used. The",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101261",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101262",
+        "published": "2026-09-28T23:17:01Z",
+        "description": "A vulnerability has been found in Ziroom ZHOME A0101 1.0.1.0. This vulnerability affects unknown code of the file /api/ZRQos/set_online_client. The manipulation of the argument ip leads to command injection. It is possible to initiate the attack remotely. The exploit has been disclosed to the public",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101262",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102332",
+        "published": "2026-09-28T23:17:01Z",
+        "description": "Dozzle versions before 11.1.2 fail to sanitize container display names when building ZIP archive entry names in the log download endpoint. Attackers who can label containers can use path traversal sequences to write files outside the extraction directory when users download and extract logs.",
+        "severity": "MEDIUM",
+        "score": 4.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102332",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102333",
+        "published": "2026-09-28T23:17:01Z",
+        "description": "httpdbg before 2.2.1 fails to validate URL schemes in recorded HTTP request URLs rendered as clickable links in the web interface. Attackers controlling traffic recorded by httpdbg can supply javascript: scheme URLs that execute malicious scripts in the application origin when clicked, allowing acce",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102333",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102334",
+        "published": "2026-09-28T23:17:01Z",
+        "description": "Nginx Proxy Manager through 2.16.0 lacks rate-limiting on authentication endpoints, allowing unauthenticated attackers to make unlimited password guesses against any account. Attackers can brute-force login credentials via POST /api/tokens and subsequently guess TOTP codes via POST /api/tokens/2fa t",
+        "severity": "CRITICAL",
+        "score": 9.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102334",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101260",
+        "published": "2026-09-28T23:17:00Z",
+        "description": "A vulnerability was detected in Ziroom ZHOME A0101 1.0.1.0. Affected by this issue is some unknown functionality of the file /api/ZRnetwork/firstLogin. Performing a manipulation of the argument firstLogin results in command injection. The attack is possible to be carried out remotely. The exploit is",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101260",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102281",
+        "published": "2026-09-28T22:17:32Z",
+        "description": "Nest is a framework for building scalable Node.js server-side applications. Prior to 11.2.4 and 12.0.2, a single message with a deeply nested object in its pattern can terminate a NestJS microservice using the TCP or RabbitMQ transport. ServerTCP#handleMessage and ServerRMQ#handleMessage pass a clie",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102281",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102296",
+        "published": "2026-09-28T22:17:32Z",
+        "description": "ZoneMinder before 1.38.4 contains static buffer overflow vulnerabilities in RemoteCameraHttp::GetResponse() that allow malicious HTTP cameras or intercepting attackers to overflow fixed-size buffers by sending oversized response headers. Attackers can send crafted HTTP responses with oversized statu",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102296",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102297",
+        "published": "2026-09-28T22:17:32Z",
+        "description": "ZoneMinder before 1.38.4 fails to apply per-monitor access restrictions in the FramesController index endpoint. Authenticated users with Events view permission can call the frames API to list frame records from monitors they are denied access to, disclosing event and frame metadata across monitor bo",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102297",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101188",
+        "published": "2026-09-28T22:17:31Z",
+        "description": "A security vulnerability has been detected in Netcore POWER13 2.0.240730.162638. This issue affects the function routerd.passwd_set of the file /ubus. Such manipulation leads to weak password recovery. The attack may be performed from remote. The exploit has been disclosed publicly and may be used. ",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101188",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101202",
+        "published": "2026-09-28T22:17:31Z",
+        "description": "A flaw has been found in FastStone Image Viewer up to 8.3. The affected element is an unknown function of the component TGA Image Handler. Executing a manipulation can lead to out-of-bounds write. It is possible to launch the attack remotely. The vendor was contacted early about this disclosure but ",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101202",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101203",
+        "published": "2026-09-28T22:17:31Z",
+        "description": "A vulnerability has been found in FastStone Image Viewer up to 8.3. The impacted element is an unknown function of the component 1bpp RLE Decoder. The manipulation leads to out-of-bounds write. The attack can be initiated remotely. The vendor was contacted early about this disclosure but did not res",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101203",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101204",
+        "published": "2026-09-28T22:17:31Z",
+        "description": "A vulnerability was found in FastStone Image Viewer up to 8.3. This affects an unknown function of the file FSViewer.exe of the component TGA Image Handler. The manipulation results in out-of-bounds read. The attack can be launched remotely. The vendor was contacted early about this disclosure but d",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101204",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101205",
+        "published": "2026-09-28T22:17:31Z",
+        "description": "A vulnerability was determined in FastStone Image Viewer up to 8.3. This impacts an unknown function of the component PCX Decoder. This manipulation causes out-of-bounds read. The attack may be initiated remotely. The vendor was contacted early about this disclosure but did not respond in any way.",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101205",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101091",
+        "published": "2026-09-28T22:17:30Z",
+        "description": "SiYuan versions before v3.8.4 fail to properly validate SQL statements in block query embed blocks executed against siyuan.db. Attackers can craft malicious .sy documents with non-read-only SQL statements that execute automatically during background indexing, rendering, or export operations without ",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101091",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101092",
+        "published": "2026-09-28T22:17:30Z",
+        "description": "SiYuan before v3.8.4 fails to enforce publish-access checks in the getCurrentAttrViewImages endpoint, allowing publish readers to retrieve image asset paths from unauthorized databases. Attackers can call the endpoint with an unrendered database identifier obtained through related endpoints to leak ",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101092",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101093",
+        "published": "2026-09-28T22:17:30Z",
+        "description": "Cotonti through 1.0.0 contains a cross-site request forgery vulnerability in admin.users.php that allows attackers to delete user groups without token verification. Attackers can craft malicious links or pages that trick authenticated administrators into deleting custom groups and their associated p",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101093",
+        "kev": false
+      },
+      {
+        "id": "CVE-2024-58386",
+        "published": "2026-09-28T22:17:29Z",
+        "description": "ZoneMinder versions 1.37.0 before 1.38.0 contain a path traversal vulnerability in the files view that allows authenticated users to read arbitrary files. The path parameter is not properly validated before being passed to output_file, enabling attackers with Events view permission to access sensiti",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2024-58386",
+        "kev": false
+      },
+      {
+        "id": "CVE-2024-42002",
+        "published": "2026-09-28T22:17:28Z",
+        "description": "A code injection vulnerability has been discovered in the Robot Operating System 2 (ROS 2) 'ros2topic' command-line tool, affecting all ROS 2 distributions from Crystal Clemmys up to and including Lyrical Luth and Rolling Ridley. The vulnerability lies in the 'hz' verb, which reports the publishing ",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2024-42002",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-97027",
+        "published": "2026-09-28T21:17:20Z",
+        "description": "Flatpak passes through arbitrary vendor-extension keys unmodified when exporting an application's Desktop Entry (.desktop) and D-Bus Service (.service) files, instead of validating against an allowlist. A malicious Flatpak app can use this to cause denial of service (e.g. forced application restart ",
+        "severity": "LOW",
+        "score": 3.6,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97027",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-84895",
+        "published": "2026-09-28T21:17:19Z",
+        "description": "In proxygen from v2026.04.06.00 until v2026.09.28.00, QuicWtSession::closeSession accesses its member fields after calling the base QuicWtSessionBase::closeSession method. The base method notifies the session handler, which may release the last reference to the session and destroy it.",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-84895",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-91095",
+        "published": "2026-09-28T21:17:19Z",
+        "description": "In proxygen from v2024.10.28.00 until v2026.09.28.00, the HTTPTransaction::onWebTransportUniStream and HTTPTransaction::onWebTransportBidiStream APIs could return stream handles that the stream handler had already freed. HQSession then installed those handles as transport read callbacks, which could",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-91095",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-91096",
+        "published": "2026-09-28T21:17:19Z",
+        "description": "In proxygen from v2024.10.28.00 until v2026.09.28.00, WebTransportImpl::terminateSessionStreams (WebTransportImpl::destroy in releases before v2025.08.18.00) failed to unregister read callbacks for streams that were no longer open before destroying them. The transport could then invoke a read callba",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-91096",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-97025",
+        "published": "2026-09-28T21:17:19Z",
+        "description": "Flatpak writes the OCI repository authentication token with world-readable permissions (0644) in the system-helper's cache directory, allowing other local users on a multi-user system to read the token and impersonate the authenticated user against the OCI repository. Only OCI-based sources (e.g. as",
+        "severity": "LOW",
+        "score": 3.2,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97025",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-97026",
+        "published": "2026-09-28T21:17:19Z",
+        "description": "Flatpak creates temporary child repository directories under the user cache with world-writable permissions (0777). On multi-user systems with a permissive umask, other local users could read or modify the temporary directory used while installing apps or runtimes, potentially causing installation f",
+        "severity": "LOW",
+        "score": 3.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97026",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-18413",
+        "published": "2026-09-28T21:17:17Z",
+        "description": "The ADC API requires each driver to reject a sampling sequence whose destination buffer is too small: the buffer_size field of struct adc_sequence in include/zephyr/drivers/adc.h documents that \"the driver must ensure that samples are not written beyond the limit and it must return an error if the b",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18413",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-18414",
+        "published": "2026-09-28T21:17:17Z",
+        "description": "The ADC API requires each driver to reject a sampling sequence whose destination buffer is too small: the buffer_size field of struct adc_sequence in include/zephyr/drivers/adc.h documents that \"the driver must ensure that samples are not written beyond the limit and it must return an error if the b",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18414",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-18415",
+        "published": "2026-09-28T21:17:17Z",
+        "description": "ieee802154_send() in subsys/net/l2/ieee802154/ieee802154.c copies the outgoing packet into a single fixed 125-byte transmit buffer (tx_frame_buf_pool, sized IEEE802154_MTU). In builds with CONFIG_NET_L2_IEEE802154_FRAGMENT enabled (the default whenever CONFIG_NET_6LO is set), the branch taken when 6",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18415",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-18416",
+        "published": "2026-09-28T21:17:17Z",
+        "description": "The CoAP link-format helper match_path_uri() in subsys/net/lib/coap/coap_link_format.c compares a registered resource path against the URI carried in a Uri-Query href= option. That URI is not NUL terminated, but the inner character loop advanced its index k once per path character without ever testi",
+        "severity": "LOW",
+        "score": 3.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18416",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102276",
+        "published": "2026-09-28T21:17:16Z",
+        "description": "The brace-expansion library generates arbitrary strings containing a common prefix and suffix. Prior to 1.1.19, 2.1.5, 3.0.7, and 5.0.10, crafted brace patterns can exhaust the native stack in parseCommaParts because parseCommaParts recursively processes the remainder once per brace group and uses p",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102276",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102277",
+        "published": "2026-09-28T21:17:16Z",
+        "description": "The brace-expansion library generates arbitrary strings containing a common prefix and suffix. Prior to 1.1.21, 2.1.7, 3.0.9, and 5.0.12, the expand function handles untrusted {a},b}-shaped patterns with many trailing closing braces by restarting its scan once for each trailing closing brace. The su",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102277",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102278",
+        "published": "2026-09-28T21:17:16Z",
+        "description": "The brace-expansion library generates arbitrary strings containing a common prefix and suffix. Prior to 1.1.20, 2.1.6, 3.0.8, and 5.0.11, deeply nested brace groups cause expand_() to recurse once per nesting level at comma-member and single-set expansion sites, exhausting the native stack before ou",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102278",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102279",
+        "published": "2026-09-28T21:17:16Z",
+        "description": "Laravel is a web application framework. Prior to 12.69.0 and 13.30.0, Laravel exception debug pages with APP_DEBUG=true pass attacker-controlled input to a Tippy.js tooltip configured with allowHTML true, enabling DOM-based cross-site scripting when a user hovers over the tooltip. This issue is fixe",
+        "severity": "LOW",
+        "score": 3.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102279",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-16513",
+        "published": "2026-09-28T21:17:16Z",
+        "description": "The userspace verifier z_vrfy_rtio_sqe_copy_in_get_handles() in subsys/rtio/rtio_syscalls.c (subsys/rtio/rtio_handlers.c before v4.3.0) validated the RTIO object handle and the sqes input array, but not the handle out-parameter. On the first loop iteration it executed *handle = sqe, storing the kern",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-16513",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102271",
+        "published": "2026-09-28T21:17:15Z",
+        "description": "PyJWT is a Python implementation of JSON Web Token standards. From 2.4.0 until 2.14.0, PyJWT HMACAlgorithm.prepare_key is affected because asymmetric-key guard relies on textual markers that are absent from DER encoding. This occurs when an application mixes HMAC and asymmetric algorithms and suppli",
+        "severity": "HIGH",
+        "score": 7.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102271",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102272",
+        "published": "2026-09-28T21:17:15Z",
+        "description": "PyJWT is a Python implementation of JSON Web Token standards. From 2.13.0 until 2.14.0, HMACAlgorithm.prepare_key in jwt/algorithms.py is affected because raw-JWK detector does not normalize accepted Unicode byte-order marks before checking for JSON. This occurs when a public JWK is prefixed with a ",
+        "severity": "HIGH",
+        "score": 7.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102272",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102273",
+        "published": "2026-09-28T21:17:15Z",
+        "description": "PyJWT is a Python implementation of JSON Web Token standards. From 2.13.0 until 2.14.0, PyJWT HMACAlgorithm.prepare_key is affected because HMAC key guard only recognizes top-level public JWK forms and misses container representations. This occurs when an application allows HMAC and asymmetric algor",
+        "severity": "HIGH",
+        "score": 7.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102273",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102274",
+        "published": "2026-09-28T21:17:15Z",
+        "description": "PyJWT is a Python implementation of JSON Web Token standards. From 2.9.0 until 2.14.0, PyJWKSet does not catch the plain ValueError raised for malformed RSA JWK components by RSAAlgorithm.from_jwk in  jwt/api_jwk.py. This occurs when a JWK Set contains a malformed RSA key alongside otherwise usable ",
+        "severity": "MEDIUM",
+        "score": 5.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102274",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102275",
+        "published": "2026-09-28T21:17:15Z",
+        "description": "PyJWT is a Python implementation of JSON Web Token standards. From 2.1.0 until 2.15.0, PyJWT OKPAlgorithm.from_jwk in  jwt/algorithms.py is affected because private-JWK import path does not compare the public key derived from d with x. This occurs when an OKP private JWK supplies non-corresponding x",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102275",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102265",
+        "published": "2026-09-28T21:17:14Z",
+        "description": "PyJWT is a Python implementation of JSON Web Token standards. From 2.13.0 until 2.14.0, PyJWS._load in jwt/api_jws.py is affected because parser catches ValueError but not RecursionError. This occurs when a deeply nested token header reaches json.loads. As a result, RecursionError escapes the docume",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102265",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102266",
+        "published": "2026-09-28T21:17:14Z",
+        "description": "PyJWT is a Python implementation of JSON Web Token standards. From 2.13.0 until 2.14.0, HMACAlgorithm.from_jwk is affected because PyJWK verification path used the decoded key without applying prepare_key validation. This occurs when a trusted JWK Set contains an oct entry with an empty k value. As ",
+        "severity": "HIGH",
+        "score": 7.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102266",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102267",
+        "published": "2026-09-28T21:17:14Z",
+        "description": "PyJWT is a Python implementation of JSON Web Token standards. Prior to 2.14.0, PyJWT PyJWKClient is affected because redirect destinations are not revalidated against the JWKS trust boundary. This occurs when a configured trusted JWKS endpoint returns an attacker-influenced redirect. As a result, Py",
+        "severity": "HIGH",
+        "score": 7.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102267",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102268",
+        "published": "2026-09-28T21:17:14Z",
+        "description": "PyJWT is a Python implementation of JSON Web Token standards. Prior to 2.14.0, is_pem_format in jwt/utils.py is affected because is_pem_format does not recognize every PEM representation accepted by the cryptography loader. This occurs when an application mixes HMAC and asymmetric algorithms and sup",
+        "severity": "CRITICAL",
+        "score": 9.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102268",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102269",
+        "published": "2026-09-28T21:17:14Z",
+        "description": "PyJWT is a Python implementation of JSON Web Token standards. Prior to 2.14.0, PyJWT signature segment is affected because signature segment decoding accepts characters outside the canonical Base64URL representation. This occurs when non-Base64URL characters are appended to a valid compact JWS signa",
+        "severity": "MEDIUM",
+        "score": 4.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102269",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102270",
+        "published": "2026-09-28T21:17:14Z",
+        "description": "PyJWT is a Python implementation of JSON Web Token standards. Prior to 2.14.0, PyJWT is_pem_format is affected because lazy PEM regular expression backtracks extensively. This occurs when a certificate-like input contains repeated BEGIN markers without a matching END marker. As a result, is_pem_form",
+        "severity": "MEDIUM",
+        "score": 4.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102270",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101916",
+        "published": "2026-09-28T21:17:13Z",
+        "description": "@grpc/grpc-js implements the core functionality of gRPC purely in JavaScript, without a C++ addon. Prior to 1.13.6 and 1.14.5, getAuthContext does not distinguish authorized from unauthorized peer certificates when server credentials set requireClientCertificate to false. When applications use the r",
+        "severity": "HIGH",
+        "score": 7.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101916",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101917",
+        "published": "2026-09-28T21:17:13Z",
+        "description": "PyJWT is a Python implementation of JSON Web Token standards. Prior to 2.14.0, PyJWT get_signing_key_from_jwt is affected because unknown kid misses force refreshes without a negative cache or minimum refresh interval. This occurs when unauthenticated tokens repeatedly use the same unknown kid or va",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101917",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101918",
+        "published": "2026-09-28T21:17:13Z",
+        "description": "PyJWT is a Python implementation of JSON Web Token standards. From 2.0.0a1 until 2.15.0, PyJWT PyJWKClient.get_signing_key_from_jwt is affected because payload parser catches ValueError but not RecursionError. This occurs when an attacker-controlled recursively nested payload reaches json.loads. As ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101918",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102005",
+        "published": "2026-09-28T21:17:13Z",
+        "description": "Wind River VxWorks 7 24.03 through 26.03, a memory leak occurs under specific, non-default configuration states when processing specific service routines, causing the system to terminate operations before releasing allocated memory pools. Fixed in VxWorks 7 26.09",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102005",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102006",
+        "published": "2026-09-28T21:17:13Z",
+        "description": "In Wind River VxWorks 7 prior to 26.09, specific system call arguments can result in the process management subsystem failing to properly release allocated kernel memory before terminating the calling application. Fixed in Version 26.09",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102006",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101144",
+        "published": "2026-09-28T21:17:12Z",
+        "description": "A vulnerability was determined in Eleveo Call Recording Software 9.7.0. This affects an unknown part of the file /callrec/searchAction.do of the component Query Builder. This manipulation causes improper access controls. Remote exploitation of the attack is possible. The exploit has been publicly di",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101144",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101145",
+        "published": "2026-09-28T21:17:12Z",
+        "description": "A vulnerability was identified in Eleveo Call Recording Software 9.7.0. This vulnerability affects unknown code of the file /callrec/userAddAction.do of the component User Management. Such manipulation of the argument Username leads to ldap injection. The attack can be executed remotely. The exploit",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101145",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101146",
+        "published": "2026-09-28T21:17:12Z",
+        "description": "A security flaw has been discovered in Eleveo Quality Management 9.7.0. This issue affects the function UtilsService.createAndSaveAudit of the file /qm/cz.zoom.scorecard.webui.Scorecard/QMUtilsService of the component GWT RPC Handler. Performing a manipulation results in information disclosure. The ",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101146",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101187",
+        "published": "2026-09-28T21:17:12Z",
+        "description": "A weakness has been identified in Ziroom ZHOME A0101 1.0.1.0. This vulnerability affects the function pop_usb_device of the file usr/lib/lua/luci/controller/api/zrUsb.lua of the component USB Device Management API. This manipulation of the argument path causes command injection. The attack is possib",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101187",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100371",
+        "published": "2026-09-28T21:17:11Z",
+        "description": "InvoicePlane is a self-hosted open source application for managing invoices, clients, and payments. In version 1.7.2, an authorization guard to Users::change_password(), was added to address a previous authorization flaw that allowed a secondary administrator (user_type=1, user_id != 1) to directly ",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100371",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100392",
+        "published": "2026-09-28T21:17:11Z",
+        "description": "InvoicePlane is a self-hosted open source application for managing invoices, clients, and payments. In version 1.7.2, Users::form() performs no object-level authorization check on user_id = 1. A Secondary Administrator (user_type = 1, user_id != 1) can rewrite the Primary Administrator's user_type t",
+        "severity": "HIGH",
+        "score": 7.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100392",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100370",
+        "published": "2026-09-28T21:17:10Z",
+        "description": "DOMSanitizer is a DOM/SVG/MathML Sanitizer for PHP 7.3+. Prior to version 1.0.15, the isDangerousUrl() method is responsible for rejecting dangerous URL values in the href and xlink:href attributes. The weakness is that \"javascript:\" is rejected as a scheme, while \"data:\" is rejected only when the l",
+        "severity": "MEDIUM",
+        "score": 4.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100370",
+        "kev": false
+      },
       {
         "id": "CVE-2026-86950",
         "published": "2026-09-28T20:17:11Z",
@@ -131,7 +851,7 @@
       {
         "id": "CVE-2026-97686",
         "published": "2026-09-28T19:16:50Z",
-        "description": "Wind River VxWorks 7 prior to 26.09, specific system call arguments can result in the IPNET subsystem failing to properly release allocated kernel memory and system file descriptors before terminating the calling application. Fixed in Version 26.09. \n\n\nSecurity Researcher: Zhi Yang Bingren Wu Findin",
+        "description": "Wind River VxWorks 7 prior to 26.09, specific system call arguments can result in the IPNET subsystem failing to properly release allocated kernel memory and system file descriptors before terminating the calling application. Fixed in Version 26.09.",
         "severity": "MEDIUM",
         "score": 5.5,
         "cvss_version": "31",
@@ -4791,40 +5511,40 @@
       {
         "id": "CVE-2026-100655",
         "published": "2026-09-26T14:16:48Z",
-        "description": "Netty (io.netty:netty-codec-http) versions up to and including 4.1.137.Final and from 4.2.0.Final through 4.2.17.Final accept an unlimited number of concurrent remote-initiated SPDY streams: SpdySessionHandler defaults localConcurrentStreams to Integer.MAX_VALUE and exposes no API to change it. A re",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
+        "description": "Rejected reason: This CVE ID has been rejected as a duplicate.",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100655",
         "kev": false
       },
       {
         "id": "CVE-2026-100656",
         "published": "2026-09-26T14:16:48Z",
-        "description": "Netty (io.netty:netty-codec-http) contains an unbounded per-connection queue growth flaw in HttpServerCodec. The codec tracks the HTTP method of each still-unanswered pipelined request; the first 32 entries are bit-packed into a single long, but every additional entry is appended to methodOverflowQu",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
+        "description": "Rejected reason: This CVE ID has been rejected as a duplicate.",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100656",
         "kev": false
       },
       {
         "id": "CVE-2026-100657",
         "published": "2026-09-26T14:16:48Z",
-        "description": "Netty's STOMP codec (io.netty:netty-codec-stomp) contains a ByteBuf leak in StompSubframeDecoder. Once a frame's declared content-length has been fully read, the decoder allocates a chunk buffer from the channel allocator and parks it in an instance field while waiting for the single NUL byte that t",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
+        "description": "Rejected reason: This CVE ID has been rejected as a duplicate.",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100657",
         "kev": false
       },
       {
         "id": "CVE-2026-100658",
         "published": "2026-09-26T14:16:48Z",
-        "description": "Netty (io.netty:netty-codec-http) contains an unbounded per-connection queue in WebSocketServerExtensionHandler. The handler offers an entry to its per-channel validExtensions queue for every inbound HttpRequest, but polls an entry only when the application writes an HttpResponse, and the queue size",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
+        "description": "Rejected reason: This CVE ID has been rejected as a duplicate.",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100658",
         "kev": false
       },
@@ -6381,7 +7101,7 @@
       {
         "id": "CVE-2026-100505",
         "published": "2026-09-26T01:17:00Z",
-        "description": "Ghidra versions 11.2 through 12.1.4 contain a heap out-of-bounds read vulnerability in StringManager::getCodepoint when decoding multi-byte UTF-8, UTF-16, or UTF-32 characters without validating remaining buffer length. Attackers can craft malicious binaries with constant byte stores ending in multi",
+        "description": "Ghidra versions 9.2 through 12.1.4 contain a heap out-of-bounds read vulnerability in StringManager::getCodepoint when decoding multi-byte UTF-8, UTF-16, or UTF-32 characters without validating remaining buffer length. Attackers can craft malicious binaries containing strings or constant byte stores",
         "severity": "MEDIUM",
         "score": 4.8,
         "cvss_version": "40",
@@ -6436,586 +7156,6 @@
         "score": 4.8,
         "cvss_version": "40",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100503",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96795",
-        "published": "2026-09-25T23:16:55Z",
-        "description": "Horilla is an HR and CRM software. Prior to 2.0.0, HorillaListView.export_data in horilla_views/generic/cbv/views.py accepts an authenticated user's columns POST parameter, takes field_tuple[1], interpolates it into dynamic_fn_str as Python source, and passes the generated function definition to exe",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96795",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-86066",
-        "published": "2026-09-25T23:16:54Z",
-        "description": "Horilla is an HR and CRM software. Prior to 2.0.0, approve_validate_attendance_request at /attendance/approve-validate-attendance-request/ changes attendance_validated, is_validate_request_approved, approved_by, and related pending-request state through an HTTP GET before calling attendance.save(), ",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-86066",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-57449",
-        "published": "2026-09-25T23:16:53Z",
-        "description": "Actual is a local-first personal finance tool. Prior to 26.7.0, Actual Sync Server's CORS proxy is intended to let authenticated users fetch resources only from repositories listed in the official plugin allowlist. When `ACTUAL_GITHUB_TOKEN` is configured, the proxy automatically attaches the server",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57449",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-9652",
-        "published": "2026-09-25T22:18:50Z",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-9652",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-9655",
-        "published": "2026-09-25T22:18:50Z",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-9655",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-88003",
-        "published": "2026-09-25T22:18:49Z",
-        "description": "InvoicePlane is a self-hosted open source application for managing invoices, clients, and payments. Prior to 1.7.2, InvoicePlane fails to revoke administrative privileges after a role downgrade because Admin_Controller trusts the user_type snapshot stored in an existing session instead of revalidati",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88003",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-91768",
-        "published": "2026-09-25T22:18:49Z",
-        "description": "The IPv6 branch of the FastCGI client access check compares only the first 12 bytes of a 16-byte IPv6 address, so listen.allowed_clients matches on a /96 prefix instead of the exact address. An attacker who can source an address sharing the first 96 bits with an allowed one passes the check and reac",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-91768",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-92842",
-        "published": "2026-09-25T22:18:49Z",
-        "description": "The convert.base64-encode, convert.quoted-printable-encode and convert.quoted-printable-decode stream filters accept a line-break-chars option whose length is tracked separately from the string itself. The filter constructors duplicate the value with pestrdup(), which stops at the first NUL byte, wh",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92842",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-7799",
-        "published": "2026-09-25T22:18:38Z",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-7799",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-7800",
-        "published": "2026-09-25T22:18:38Z",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-7800",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-71483",
-        "published": "2026-09-25T22:18:20Z",
-        "description": "Horilla is an HR and CRM software. Prior to 1.6.0, the search parameter at /employee/employee-filter-view is reflected by jQuery .html() in employee/templates/employee_nav.html without HTML neutralization. An external attacker can craft and deliver a link that causes JavaScript to execute when an au",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-71483",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-63431",
-        "published": "2026-09-25T22:17:14Z",
-        "description": "Horilla is an HR and CRM software. In 1.5.0-85 and earlier, payroll/views/component_views.py does not consistently authorize access in allowances_deductions_tab, view_single_allowance, and view_single_deduction before loading records selected by emp_id, allowance_id, or deduction_id. An authenticate",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63431",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-63432",
-        "published": "2026-09-25T22:17:14Z",
-        "description": "Horilla is an HR and CRM software. From 1.0.0 until 1.6.0 and 2.0.0, the get_mail_preview handlers in recruitment/views/actions.py and employee/not_in_out_dashboard.py render a user-controlled body at /recruitment/get-mail-preview/ and /employee/get-employee-mail-preview with the full request object",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63432",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-53973",
-        "published": "2026-09-25T22:17:12Z",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-53973",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-45234",
-        "published": "2026-09-25T22:17:11Z",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-45234",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-45235",
-        "published": "2026-09-25T22:17:11Z",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-45235",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-45236",
-        "published": "2026-09-25T22:17:11Z",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-45236",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-45237",
-        "published": "2026-09-25T22:17:11Z",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-45237",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-45238",
-        "published": "2026-09-25T22:17:11Z",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-45238",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-45239",
-        "published": "2026-09-25T22:17:11Z",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-45239",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-45240",
-        "published": "2026-09-25T22:17:11Z",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-45240",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-45241",
-        "published": "2026-09-25T22:17:11Z",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-45241",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-49117",
-        "published": "2026-09-25T22:17:11Z",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-49117",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-49118",
-        "published": "2026-09-25T22:17:11Z",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-49118",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-53971",
-        "published": "2026-09-25T22:17:11Z",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-53971",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-53972",
-        "published": "2026-09-25T22:17:11Z",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-53972",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-100382",
-        "published": "2026-09-25T22:17:10Z",
-        "description": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability in Wikimedia Foundation Mediawiki - ExternalData Extension allows OS Command Injection.\n\nThis issue affects Mediawiki - ExternalData Extension: from * before 3.7.",
-        "severity": "CRITICAL",
-        "score": 10.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100382",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-100383",
-        "published": "2026-09-25T22:17:10Z",
-        "description": "Improper Neutralization of Input During Web Page Generation (XSS or 'Cross-site Scripting') vulnerability in Wikimedia Foundation Mediawiki - WikiLambda Extension allows Cross-Site Scripting (XSS).\n\nThis issue affects Mediawiki - WikiLambda Extension: 1.47.0-alpha. The issue has been remediated on t",
-        "severity": "MEDIUM",
-        "score": 4.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100383",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-100418",
-        "published": "2026-09-25T22:17:10Z",
-        "description": "Flame through 2.4.0 contains an information exposure vulnerability in the unauthenticated GET /api/config endpoint that returns the entire configuration object without field redaction. Attackers can retrieve the stored weather API key and internal operational settings by sending a single unauthentic",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100418",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-100419",
-        "published": "2026-09-25T22:17:10Z",
-        "description": "gitoxide gix-fs before 0.23.0 contains a path validation bypass vulnerability in the worktree checkout mechanism that allows attackers to escape the worktree directory via symlink manipulation. During forced checkout with overwrite_existing enabled, attackers can craft malicious repository trees whe",
-        "severity": "HIGH",
-        "score": 7.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100419",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-100501",
-        "published": "2026-09-25T22:17:10Z",
-        "description": "Flame through 2.4.0 contains an improper restriction of excessive authentication attempts vulnerability in the POST /api/auth login endpoint that allows unauthenticated attackers to brute-force the admin password. Attackers can submit unlimited password guesses without rate limiting, attempt counter",
-        "severity": "HIGH",
-        "score": 8.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100501",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-100502",
-        "published": "2026-09-25T22:17:10Z",
-        "description": "Flame through 2.4.0 contains an insufficient session expiration vulnerability in the login endpoint that allows attackers with former admin access to obtain tokens with arbitrary lifespans by supplying unvalidated duration parameters. Attackers can mint near-permanent administrator tokens that survi",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100502",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-100381",
-        "published": "2026-09-25T22:17:09Z",
-        "description": "Improper Neutralization of Input During Web Page Generation (XSS or 'Cross-site Scripting') vulnerability in Wikimedia Foundation Mediawiki - UploadWizard Extension allows Cross-Site Scripting (XSS).\n\nThis issue affects Mediawiki - UploadWizard Extension: from * before 1.46.1, 1.45.5, 1.43.10.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100381",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96879",
-        "published": "2026-09-25T21:17:25Z",
-        "description": "Improper removal of sensitive information before storage or transfer vulnerability in Wikimedia Foundation's Mediawiki - FlaggedRevs extension through 1.46.0.",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96879",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-9313",
-        "published": "2026-09-25T21:17:25Z",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-9313",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-91765",
-        "published": "2026-09-25T21:17:24Z",
-        "description": "cleanup_xml_node() in the SOAP XML parser recurses once per XML nesting level with no depth limit. An unauthenticated attacker can post a SOAP request containing tens of thousands of nested elements to any SoapServer endpoint, exhaust the stack and crash the process. The same unbounded recursion exi",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-91765",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-91766",
-        "published": "2026-09-25T21:17:24Z",
-        "description": "When the http:// stream wrapper follows a redirect it forwards the user-supplied Authorization, Cookie and Proxy-Authorization headers unchanged, even when the redirect target is a different host, a different port, or a downgrade from HTTPS to HTTP. A server that can steer a redirect therefore recei",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-91766",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-91767",
-        "published": "2026-09-25T21:17:24Z",
-        "description": "php_openssl_matches_wildcard_name() in ext/openssl/xp_ssl.c underflows the length argument passed to memchr() when a TLS server certificate presents a wildcard name whose literal characters are together longer than the hostname being verified. A malicious server presenting such a certificate makes t",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-91767",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-91769",
-        "published": "2026-09-25T21:17:24Z",
-        "description": "PHP's OpenSSL stream peer verification checks the certificate's subjectAltName entries first and, whenever no entry matches, falls back to the Common Name. RFC 6125 requires the CN to be ignored once the certificate presents any service identity, so a certificate carrying a non-matching DNS SAN was ",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-91769",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-10758",
-        "published": "2026-09-25T21:17:23Z",
-        "description": "Esri LERC is an open-source image or raster format which supports rapid encoding and decoding for any pixel type. A Heap based Out-of-Bounds Write via Integer Overflow in LERC versions 4.1.0 and earlier may allow a remote, unauthenticated attacker who can pass specifically crafted attacker controlle",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-10758",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-17545",
-        "published": "2026-09-25T21:17:23Z",
-        "description": "On Windows, PHP's filesystem and stream APIs do not reject reserved device names such as CON, PRN, AUX, NUL, COM1 to COM9, LPT1 to LPT9, CONIN$ and CONOUT$ when they appear as a component of a path. An attacker-controlled filename therefore reaches CreateFileW() and opens a device instead of the reg",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-17545",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-57443",
-        "published": "2026-09-25T21:17:23Z",
-        "description": "SCBE-AETHERMOORE is a geometric AI governance and evaluation framework. Starting in version 4.0.2 and prior to version 4.2.1, the AetherBrowser API server (`scripts/aetherbrowser/api_server.py`) exposes the `POST /api/ops/check-email` endpoint without any authentication. Any remote attacker can call",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57443",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-57864",
-        "published": "2026-09-25T21:17:23Z",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57864",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-6103",
-        "published": "2026-09-25T21:17:23Z",
-        "description": "phar_tar_number() parses the octal size field of a TAR header into a uint32_t with no overflow check. The field is 11 octal digits wide and holds values up to 0x1FFFFFFFF, so a size above 0xFFFFFFFF silently wraps. The parser then skips the wrong number of data blocks and interprets attacker-control",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-6103",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-100380",
-        "published": "2026-09-25T21:17:22Z",
-        "description": "Improper Neutralization of Input During Web Page Generation (XSS or 'Cross-site Scripting') vulnerability in Wikimedia Foundation Mediawiki - Wikibase Extension allows Cross-Site Scripting (XSS).\n\nThis issue affects Mediawiki - Wikibase Extension: from * before 1.46.1, 1.45.5, 1.43.10.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100380",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-100387",
-        "published": "2026-09-25T21:17:22Z",
-        "description": "pgPointcloud through 1.2.5 contains a heap out-of-bounds read vulnerability in dimensional patch WKB deserialization that allows authenticated database users to read adjacent heap memory. Attackers can supply crafted pcpatch values with attacker-controlled size fields to copy heap memory into stored",
-        "severity": "HIGH",
-        "score": 7.2,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100387",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-100388",
-        "published": "2026-09-25T21:17:22Z",
-        "description": "RustDesk versions before 1.5.0 fail to properly validate file transfer permissions on incoming file clipboard messages in the Cliprdr message handler on Linux and macOS. Authenticated remote peers with disabled file transfer permissions can place files onto the host clipboard and retrieve copied fil",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100388",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-100389",
-        "published": "2026-09-25T21:17:22Z",
-        "description": "GestSup versions before 3.2.61 contain a remote code execution vulnerability in the basic IMAP connector's attachment handling that fails to skip blocked file extensions. Unauthenticated attackers can send emails with PHP attachments to monitored mailboxes, which are written to the web-accessible up",
-        "severity": "CRITICAL",
-        "score": 9.2,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100389",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-100390",
-        "published": "2026-09-25T21:17:22Z",
-        "description": "Zoraxy versions 3.2.3 through 3.3.4 fail to properly parse IPv6 addresses in the RemoteAddr field when setting forwarded headers. Unauthenticated attackers connecting over IPv6 can supply arbitrary X-Forwarded-For values to spoof their source IP and bypass authorization provider IP-based access cont",
-        "severity": "CRITICAL",
-        "score": 9.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100390",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-100391",
-        "published": "2026-09-25T21:17:22Z",
-        "description": "MediaFlow Proxy through 2.4.9 contains a server-side request forgery vulnerability in the /proxy routes due to missing and incomplete destination validation in the d query parameter. Remote attackers can supply arbitrary internal URLs including loopback and cloud metadata endpoints to read full resp",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100391",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-100417",
-        "published": "2026-09-25T21:17:22Z",
-        "description": "RustDesk before 1.5.0 on Windows fails to enforce the one-way file transfer option against peer clipboard file requests, allowing authenticated peers to read files from the host clipboard. Attackers can send FormatDataRequest and FileContentsRequest messages to retrieve copied files by guessing the ",
-        "severity": "LOW",
-        "score": 2.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100417",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-100369",
-        "published": "2026-09-25T21:17:21Z",
-        "description": "CliInvoke and its formerly named `AlastairLundy.CliInvoke` package are .NET libraries for invoking command-line programs and wrapping executable processes. `CliInvoke` versions 2.0.0 through 2.8.4, 2.9.0 through 2.9.3, 2.10.0 through 2.10.4, and 3.0.0-alpha.1 through 3.0.0-beta.1, as well as `Alasta",
-        "severity": "HIGH",
-        "score": 8.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100369",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-100376",
-        "published": "2026-09-25T21:17:21Z",
-        "description": "Improper Neutralization of Input During Web Page Generation (XSS or 'Cross-site Scripting') vulnerability in Wikimedia Foundation Mediawiki - TemplateSandbox Extension allows Cross-Site Scripting (XSS).\n\nThis issue affects Mediawiki - TemplateSandbox Extension: from * before 1.46.1, 1.45.5, 1.43.10.",
-        "severity": "MEDIUM",
-        "score": 4.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100376",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-100377",
-        "published": "2026-09-25T21:17:21Z",
-        "description": "Exposure of Sensitive Information to an Unauthorized Actor vulnerability in Wikimedia Foundation Mediawiki - WikiLambda Extension allows Excavation.\n\nThis issue affects Mediawiki - WikiLambda Extension: 1.47.0-alpha. The issue has been remediated on the `master` branch.",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100377",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-100378",
-        "published": "2026-09-25T21:17:21Z",
-        "description": "Missing Authorization vulnerability in Wikimedia Foundation Mediawiki - Translate Extension allows Accessing Functionality Not Properly Constrained by ACLs.\n\nThis issue affects Mediawiki - Translate Extension: from * before 1.46.1, 1.45.5, 1.43.10.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100378",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-100379",
-        "published": "2026-09-25T21:17:21Z",
-        "description": "Exposure of Sensitive Information to an Unauthorized Actor vulnerability in Wikimedia Foundation Wikipedia Android App allows Accessing/Intercepting/Modifying HTTP Cookies.\n\nThis issue affects Wikipedia Android App: main.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100379",
-        "kev": false
-      },
-      {
-        "id": "CVE-2025-1218",
-        "published": "2026-09-25T21:17:20Z",
-        "description": "The mysqlnd wire protocol parser reads fields out of server packets before checking that the packet still holds enough bytes for them. A malicious or compromised MySQL server can send a truncated packet and make the client read past the end of the packet buffer, which is undefined behaviour and can ",
-        "severity": "LOW",
-        "score": 3.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-1218",
-        "kev": false
-      },
-      {
-        "id": "CVE-2025-14181",
-        "published": "2026-09-25T21:17:19Z",
-        "description": "The SOAP HTTP client guards its response buffer growth with a check that relies on signed integer overflow, which is undefined behaviour and is not guaranteed to trigger. When the check is optimised away, a malicious SOAP server can make the client allocate a buffer far smaller than the data it then",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-14181",
         "kev": false
       }
     ]
