@@ -1,10 +1,150 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-03T08:47:28Z",
+  "updated_at": "2026-10-03T14:04:21Z",
   "note": "Bounded slice of cves.json for the homepage. Use /data/cves.json for the full window.",
   "normalisation_failures": [],
   "total": 25,
   "items": [
+    {
+      "id": "CVE-2026-105105",
+      "published": "2026-10-03T12:16:57Z",
+      "description": "CWE-306: Missing Authentication for Critical Function in the ait.core.server telemetry and command broker (ait-server) in NASA-AMMOS AIT-Core through 3.1.1 allows an unauthenticated remote attacker with network access to the ZeroMQ message bus to inject spacecraft command data, exfiltrate command an",
+      "severity": "CRITICAL",
+      "score": 9.8,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105105",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-104983",
+      "published": "2026-10-03T11:17:33Z",
+      "description": "A vulnerability has been found in Linux Mint Xreader up to 4.6.9. Impacted is the function g_file_get_child of the file shell/ev-window.c of the component PDF Attachment Saving Handler. Such manipulation of the argument attachment leads to path traversal. The attack may be performed from remote. The",
+      "severity": "LOW",
+      "score": 2.1,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-104983",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-85515",
+      "published": "2026-10-03T09:17:06Z",
+      "description": "In Bouncy Castle for Java before 1.86, a truncated OpenPGP encrypted message was accepted with no error reported, and on the SEIPD version 1 path with no integrity check performed at all. RFC 9580 sec. 13.7 permits an implementation to release the cleartext of the fully authenticated chunks when str",
+      "severity": "HIGH",
+      "score": 8.2,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-85515",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-97873",
+      "published": "2026-10-03T09:17:06Z",
+      "description": "In Bouncy Castle for Java before 1.86, the raw JCA provider's legacy PBES1 (PKCS#5 scheme 1) and PKCS#12 PBE families ran their password-based key derivation with an iteration count taken from untrusted input without bounding it, so a small input could dictate an arbitrary amount of work before anyt",
+      "severity": "MEDIUM",
+      "score": 5.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97873",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-71887",
+      "published": "2026-10-03T09:17:05Z",
+      "description": "In Bouncy Castle for Java before 1.86, the high-level OpenPGP API accepted a data signature made by a signing subkey whose Subkey Binding signature carried no embedded Primary Key Binding (cross-certification) signature, in the case where that binding omits a Key Flags subpacket. RFC 9580 sec. 5.2.1",
+      "severity": "HIGH",
+      "score": 8.2,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-71887",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-71888",
+      "published": "2026-10-03T09:17:05Z",
+      "description": "In Bouncy Castle for Java before 1.86, the streaming CMS AuthenticatedData parser accepted a message whose digestAlgorithm and authAttrs fields disagreed about whether authenticated attributes were present. RFC 5652 sec. 9.1 pairs the two, requiring that authAttrs be present whenever digestAlgorithm",
+      "severity": "HIGH",
+      "score": 8.7,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-71888",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-71889",
+      "published": "2026-10-03T09:17:05Z",
+      "description": "In Bouncy Castle for Java before 1.86, neither copy of PKIXCertPathReviewer - org.bouncycastle.pkix.jcajce.PKIXCertPathReviewer nor the legacy org.bouncycastle.x509.PKIXCertPathReviewer - applied X.509 name constraints to the end-entity certificate. checkNameConstraints walked the path with a loop b",
+      "severity": "HIGH",
+      "score": 8.7,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-71889",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-71890",
+      "published": "2026-10-03T09:17:05Z",
+      "description": "In Bouncy Castle for Java before 1.86, validation of an MLS (RFC 9420) external commit's proposal list, org.bouncycastle.mls.protocol.Group.validateExternalCachedProposals, counted the proposals by type and bounded the removed leaf index but never established that the removed leaf had anything to do",
+      "severity": "HIGH",
+      "score": 8.7,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-71890",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-71891",
+      "published": "2026-10-03T09:17:05Z",
+      "description": "In Bouncy Castle for Java before 1.86, BLS12_381BasicScheme.keyValidate, and so BLSPublicKeyParameters and every BasicScheme, MessageAugmentation and ProofOfPossession verify and aggregateVerify that gate on it, accepted a public key built on a foreign ECCurve that merely shares BLS12-381's field ch",
+      "severity": "HIGH",
+      "score": 7.1,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-71891",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-71892",
+      "published": "2026-10-03T09:17:05Z",
+      "description": "In Bouncy Castle for Java before 1.86, the opt-in key-size validation on CMS key-transport recipients, org.bouncycastle.cms.jcajce.JceKeyTransRecipient.setKeySizeValidation(true), never ran for a message using RFC 9709 content-encryption key derivation (id-alg-cek-hkdf-sha256). The branch that shoul",
+      "severity": "MEDIUM",
+      "score": 6.9,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-71892",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-18040",
+      "published": "2026-10-03T09:17:04Z",
+      "description": "In Bouncy Castle for Java before 1.86, HQC leaked secret-derived data through two side channels: its GF(2^8) arithmetic used lookup tables indexed by field elements, making the cache line touched a function of the operand, and its fixed-weight support sampler left its duplicate scan as soon as a col",
+      "severity": "MEDIUM",
+      "score": 5.9,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18040",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-71883",
+      "published": "2026-10-03T09:17:04Z",
+      "description": "In Bouncy Castle for Java LTS before 2.73.13, the one-shot native packet ciphers for AES-CBC, CCM, CFB, CTR, GCM and GCM-SIV released the caller's key, IV and additional authenticated data arrays with JNI's ReleaseByteArrayElements in mode 0, which commits the native copy back into the Java array. T",
+      "severity": "HIGH",
+      "score": 8.2,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-71883",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-71885",
+      "published": "2026-10-03T09:17:04Z",
+      "description": "In Bouncy Castle for Java before 1.86, the Messaging Layer Security (MLS, RFC 9420) implementation did not bind an X.509 credential to a LeafNode's signature_key. LeafNode.verify() checked a leaf's signature against the signature_key carried in the leaf itself, while the credential's X.509 certifica",
+      "severity": "CRITICAL",
+      "score": 9.2,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-71885",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-71886",
+      "published": "2026-10-03T09:17:04Z",
+      "description": "In Bouncy Castle for Java before 1.86, the high-level OpenPGP certificate API accepted a third-party certification or trust delegation from any component key of the issuing certificate, without requiring that component to have been granted the authority to certify. OpenPGPCertificate.getCertificatio",
+      "severity": "HIGH",
+      "score": 8.2,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-71886",
+      "kev": false
+    },
     {
       "id": "CVE-2026-92767",
       "published": "2026-10-03T08:16:27Z",
@@ -113,146 +253,6 @@
       "score": 7.2,
       "cvss_version": "31",
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93889",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-93896",
-      "published": "2026-10-03T07:16:48Z",
-      "description": "The WPFront Notification Bar plugin for WordPress is vulnerable to Reflected Cross-Site Scripting in versions up to, and including, 3.5.1. This is due to the debug-log output path (write_debug_logs) reflecting the raw value of $_SERVER['REQUEST_URI'] through vprintf() directly inside a <script> bloc",
-      "severity": "MEDIUM",
-      "score": 6.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93896",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-103519",
-      "published": "2026-10-03T07:16:47Z",
-      "description": "The The WP Ultimate Review plugin for WordPress is vulnerable to arbitrary shortcode execution in all versions up to, and including, 2.4.3. This is due to the software allowing users to execute an action that does not properly validate a value before running do_shortcode. This makes it possible for ",
-      "severity": "MEDIUM",
-      "score": 5.4,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103519",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-104313",
-      "published": "2026-10-03T07:16:47Z",
-      "description": "The WPC Estimated Delivery Date for WooCommerce plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the 'rule_data' parameter in all versions up to, and including, 4.0.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attack",
-      "severity": "MEDIUM",
-      "score": 6.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-104313",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-11601",
-      "published": "2026-10-03T07:16:47Z",
-      "description": "The WPCafe – Restaurant Menu, Online Food Ordering & Table Booking System plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 3.0.19. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible f",
-      "severity": "MEDIUM",
-      "score": 5.3,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-11601",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-15795",
-      "published": "2026-10-03T07:16:47Z",
-      "description": "The Responsive Plus – Elementor Templates & Starter Sites plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Shortcode Attributes in all versions up to, and including, 3.5.3 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attack",
-      "severity": "MEDIUM",
-      "score": 6.4,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-15795",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-18443",
-      "published": "2026-10-03T07:16:47Z",
-      "description": "The Smart Manager – Advanced WooCommerce Bulk Edit & Inventory Management plugin for WordPress is vulnerable to generic SQL Injection via the 'access_privileges' parameter in all versions up to, and including, 8.97.0 due to insufficient escaping on the user supplied parameter and lack of sufficient ",
-      "severity": "HIGH",
-      "score": 8.8,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18443",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-100157",
-      "published": "2026-10-03T07:16:46Z",
-      "description": "The The WP Ultimate Review plugin for WordPress is vulnerable to arbitrary shortcode execution in all versions up to, and including, 2.4.3. This is due to the software allowing users to execute an action that does not properly validate a value before running do_shortcode. This makes it possible for ",
-      "severity": "MEDIUM",
-      "score": 6.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100157",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-103421",
-      "published": "2026-10-03T07:16:46Z",
-      "description": "The WPMobile.App – Android and iOS App Builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'REQUEST_URI (path segment after /android_json/search/)' parameter in all versions up to, and including, 11.84 due to insufficient input sanitization and output escaping. This mak",
-      "severity": "MEDIUM",
-      "score": 5.4,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103421",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-97341",
-      "published": "2026-10-03T06:16:49Z",
-      "description": "The Visitor Traffic Real Time Statistics plugin for WordPress is vulnerable to Stored DOM-Based Cross-Site Scripting via 'X-Real-IP' HTTP Header in all versions up to, and including, 8.16 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers",
-      "severity": "HIGH",
-      "score": 7.2,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97341",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-97344",
-      "published": "2026-10-03T06:16:49Z",
-      "description": "The Wp Social Login and Register Social Counter plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Avatar Alt Attribute via Arbitrary User Meta Write in all versions up to, and including, 3.2.1 due to insufficient input sanitization and output escaping. This makes it possible for ",
-      "severity": "MEDIUM",
-      "score": 6.4,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97344",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-96650",
-      "published": "2026-10-03T06:16:48Z",
-      "description": "The Strong Testimonials plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'platform_user_photo' Custom Field in all versions up to, and including, 3.3.11 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arb",
-      "severity": "HIGH",
-      "score": 7.2,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96650",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-96962",
-      "published": "2026-10-03T06:16:48Z",
-      "description": "The Pie Register  WordPress plugin before 3.8.4.14 does not restrict access to an invitation-code report, allowing unauthenticated visitors who know a valid invitation code to obtain the username and email address of every user who registered with that code.",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96962",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-97337",
-      "published": "2026-10-03T06:16:48Z",
-      "description": "The Simple Membership plugin for WordPress is vulnerable to unauthorized modification of data and sensitive information disclosure in versions up to, and including, 4.8.3 via the resend-activation and email-activation endpoints. The endpoints are dispatched from SwpmInitTimeTasks::check_and_do_email",
-      "severity": "HIGH",
-      "score": 7.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97337",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-94238",
-      "published": "2026-10-03T06:16:47Z",
-      "description": "The Loco Translate WordPress plugin before 2.8.9 does not restrict which file paths its translation file routes will read, allowing users granted the Loco Translate WordPress plugin before 2.8.9's translator capability to retrieve the contents of files of certain types from anywhere on the server, i",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-94238",
       "kev": false
     }
   ]
