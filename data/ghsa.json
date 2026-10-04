@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-04T06:31:27Z",
+  "updated_at": "2026-10-04T12:56:56Z",
   "total": 100,
   "normalisation_failures": [],
   "items": [
@@ -685,6 +685,14 @@
       "link": ""
     },
     {
+      "id": "GHSA-x77v-q46j-393g",
+      "title": "[GHSA-x77v-q46j-393g] Gitea: Blind SSRF in OAuth2 avatar synchronization via unvalidated OIDC picture claim",
+      "published": "2026-07-21T20:22:23Z",
+      "ecosystem": "GO",
+      "summary": "Summary \n When  [oauth2_client] UPDATE_AVATAR = true  is enabled, Gitea fetches the avatar URL received from an OAuth2/OIDC provider using Go's default HTTP client. The URL comes from the user's OAuth/OIDC avatar value, commonly the OIDC  picture  claim. \n The affected code path calls  http.Get(url)",
+      "link": ""
+    },
+    {
       "id": "GHSA-c2j3-45gr-mqc4",
       "title": "[GHSA-c2j3-45gr-mqc4] DOMPurify: `CUSTOM_ELEMENT_HANDLING` bypasses `afterSanitizeElements` for allowed custom elements.",
       "published": "2026-07-21T19:41:07Z",
@@ -714,14 +722,6 @@
       "published": "2026-07-07T21:31:36Z",
       "ecosystem": "GO",
       "summary": "LocalAI contains an unauthenticated server-side request forgery vulnerability in the POST /models/apply endpoint that allows attackers to fetch arbitrary internal URLs. The endpoint passes unsanitized gallery URL fields directly to gallery.GetGalleryConfigFromURLWithContext without proper validation",
-      "link": ""
-    },
-    {
-      "id": "GHSA-9r6g-266r-89x4",
-      "title": "[GHSA-9r6g-266r-89x4] NLTK Stanford wrapper classes execute untrusted JAR files without verification",
-      "published": "2026-07-04T03:31:03Z",
-      "ecosystem": "PIP",
-      "summary": "In nltk/nltk versions 3.9.3 and earlier, five Stanford interface classes (StanfordPOSTagger, StanfordNERTagger, StanfordParser, StanfordDependencyParser, and StanfordNeuralDependencyParser) are vulnerable to untrusted JAR code execution. These classes accept user-controllable JAR paths and execute t",
       "link": ""
     },
     {
