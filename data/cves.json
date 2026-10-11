@@ -1,13 +1,983 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-10T20:22:29Z",
+  "updated_at": "2026-10-11T04:27:44Z",
   "recent": {
     "lookback_days": 3,
-    "total": 1218,
-    "items_available": 1218,
+    "total": 1225,
+    "items_available": 1225,
     "normalisation_failures": [],
-    "items_parsed": 1218,
+    "items_parsed": 1225,
     "items": [
+      {
+        "id": "CVE-2026-108522",
+        "published": "2026-10-11T04:17:31Z",
+        "description": "A vulnerability was found in Studio-Saelix Sencho up to 0.94.1. This affects an unknown part of the file /api/auth/login of the component Login Endpoint. Performing a manipulation of the argument X-Forwarded-For results in improper authentication. The attack is possible to be carried out remotely. T",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108522",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108521",
+        "published": "2026-10-11T03:16:39Z",
+        "description": "A vulnerability has been found in Studio-Saelix Sencho up to 0.97.1. Affected by this issue is the function isValidRemoteUrl of the file backend/src/utils/validation.ts of the component Add Remote Node API Endpoint. Such manipulation leads to server-side request forgery. The attack can be executed r",
+        "severity": "LOW",
+        "score": 2.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108521",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108705",
+        "published": "2026-10-11T02:16:39Z",
+        "description": "CordysCRM through 1.9.3 contains a missing authorization vulnerability in the POST /custom-form/data/import endpoint that allows authenticated users to import data into any custom form by customFormId. Low-privileged attackers can upload Excel files with importType ADD or UPDATE to create records in",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108705",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108706",
+        "published": "2026-10-11T02:16:39Z",
+        "description": "eladmin through commit 55fbf70 contains a missing authorization vulnerability in the downloadS3Storage handler that allows any authenticated user to retrieve stored object URLs without storage permissions. Attackers can enumerate sequential ids against GET /api/s3Storage/download/{id} to collect URL",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108706",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108707",
+        "published": "2026-10-11T02:16:39Z",
+        "description": "Wukong_HRM through commit 186115e contains an authentication bypass vulnerability in ParamAspect that allows unauthenticated attackers to call every HRM API endpoint by omitting the AUTH-TOKEN header. Attackers gain HR administrator access to read payslips, salary history and employee personal data,",
+        "severity": "CRITICAL",
+        "score": 9.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108707",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108708",
+        "published": "2026-10-11T02:16:39Z",
+        "description": "Wukong_HRM through commit 186115e contains a missing authorization vulnerability because EmployeeAspect assigns every caller the HR administrator role and EmployeeUtil data-scope checks return all employees. Any authenticated low-privileged employee can read payslips, salary records, bank cards and ",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108708",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108696",
+        "published": "2026-10-11T02:16:38Z",
+        "description": "CoreShop through 1.5.5 contains an authorization bypass vulnerability in the OrderController that allows authenticated customers to act on other customers' orders by supplying user-controlled ids. Attackers can omit the data field in OrderConfirm or supply another reshipId to SendReship to confirm r",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108696",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108700",
+        "published": "2026-10-11T02:16:38Z",
+        "description": "1Panel-dev CordysCRM before 1.9.2 contains a missing authorization vulnerability that allows authenticated users to list business titles by calling POST /field/source/business-title without permission checks. Users lacking CONTRACT_BUSINESS_TITLE_READ can retrieve organization invoicing entities, ex",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108700",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108701",
+        "published": "2026-10-11T02:16:38Z",
+        "description": "1Panel-dev CordysCRM before 1.9.2 contains a missing authorization vulnerability in the ContractController sortModule handler for POST /contract/sort, which lacks any permission annotation. Authenticated users without contract update permission can supply a dragNodeId, stage and field values to modi",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108701",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108702",
+        "published": "2026-10-11T02:16:38Z",
+        "description": "1Panel-dev CordysCRM through 1.9.3 lacks a PROCESS_SETTING permission check on POST /approval-flow/webhook/test, allowing any authenticated user to trigger server-side requests to attacker-supplied URLs. Attackers can redirect GET requests from a controlled host to bypass SSRFValidator and probe int",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108702",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108703",
+        "published": "2026-10-11T02:16:38Z",
+        "description": "CordysCRM through 1.9.3 contains a missing authorization vulnerability in POST /approval-resource/push that allows authenticated users to submit any resource for approval without ownership checks. Low-privileged attackers can supply arbitrary resourceId values for contracts, invoices, quotations or ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108703",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108704",
+        "published": "2026-10-11T02:16:38Z",
+        "description": "CordysCRM through 1.9.3 contains an authorization bypass vulnerability that allows low-privileged authenticated users to skip permission checks by setting the owner field to their own user id. Attackers can send requests to the follow/record/add endpoints to add follow-up records and overwrite follo",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108704",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108690",
+        "published": "2026-10-11T02:16:37Z",
+        "description": "mall4j through 4.0 contains an information disclosure vulnerability that allows authenticated customers to read other shoppers' cart items due to an operator precedence error in the getShopCartExpiryItems SQL filter. Attackers with any storefront account can request GET /p/shopCart/expiryProdList to",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108690",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108691",
+        "published": "2026-10-11T02:16:37Z",
+        "description": "mall4j through 4.0 contains an improper authorization vulnerability that allows authenticated storefront customers to delete other shoppers' cart items through an operator precedence error in the cleanExpiryProdList SQL statement. Attackers can send one DELETE request to /p/shopCart/cleanExpiryProdL",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108691",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108692",
+        "published": "2026-10-11T02:16:37Z",
+        "description": "1Panel-dev CordysCRM from 1.9.0 before 1.9.2 contains a missing authorization vulnerability in eight ModuleFieldController /field/source data-source endpoints lacking permission checks. Authenticated users denied module permission can page through organization-wide leads, contacts, quotations, contr",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108692",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108693",
+        "published": "2026-10-11T02:16:37Z",
+        "description": "ImageMagick on Windows through 7.1.2-33 and 6.9.13-58 contains an uncontrolled search path vulnerability in NTGhostscriptEXE() that launches gswin64c.exe by bare name when Ghostscript is unregistered. Attackers can plant a malicious gswin64c.exe in the working directory to execute code with ImageMag",
+        "severity": "HIGH",
+        "score": 7.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108693",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108694",
+        "published": "2026-10-11T02:16:37Z",
+        "description": "ConvertX through 0.19.0 contains an arbitrary file read vulnerability that allows authenticated users to read server files because src/converters/pandoc.ts invokes Pandoc without the --sandbox flag. Attackers can upload a reStructuredText document with an include directive naming an absolute path, c",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108694",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108695",
+        "published": "2026-10-11T02:16:37Z",
+        "description": "MultiVendorX WordPress plugin through 5.0.19 contains an incorrect authorization vulnerability that allows vendor accounts to modify marketplace-wide settings via the settings REST endpoint. Attackers with the store_owner role can send POST requests to /wp-json/multivendorx/v1/settings, gated only b",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108695",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108689",
+        "published": "2026-10-11T02:16:36Z",
+        "description": "Wukong AICRM through 20260610 contains a missing authorization vulnerability that allows authenticated users to write into other users' AI chat sessions by supplying an arbitrary sessionId to POST /chat/send. Attackers can append messages to a victim's conversation and receive streamed assistant rep",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108689",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108688",
+        "published": "2026-10-11T02:16:35Z",
+        "description": "Eladmin through 2.7 contains a missing authorization vulnerability in the LocalStorageController uploadPicture handler that allows low-privileged authenticated users to bypass the storage:add permission. Attackers can send POST requests with image-named files to /api/localStorage/pictures to write f",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108688",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-104841",
+        "published": "2026-10-10T23:16:26Z",
+        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-104841",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108679",
+        "published": "2026-10-10T22:16:45Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the sendBusAnnouncement handler of SystemApiController that allows any authenticated user to send announcements without the required permissions. Low-privileged attackers can POST crafted bodies to /sys/api/sendBusAnnouncement",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108679",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108680",
+        "published": "2026-10-10T22:16:45Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability that allows any authenticated user to send template notifications by calling POST /sys/api/sendTemplateAnnouncement. Low-privileged attackers can supply forged sender, recipients, title, and template parameters to deliver message",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108680",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108672",
+        "published": "2026-10-10T22:16:44Z",
+        "description": "JeecgBoot through 3.9.5 contains an authorization bypass vulnerability in the getVideoRecords handler of VideoGenerationController that allows authenticated users to read other users' records via the userId parameter. Low-privileged attackers can supply another user id to retrieve their AI video gen",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108672",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108673",
+        "published": "2026-10-10T22:16:44Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the AiragPromptsController exportXls handler that allows any authenticated user to export all AI prompts. Low-privileged attackers can request /airag/prompts/exportXls to download every user's prompts, including prompt content",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108673",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108674",
+        "published": "2026-10-10T22:16:44Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the OpenApiController queryById handler that allows low-privileged authenticated users to read OpenAPI definitions without openapi permissions. Attackers can request GET /openapi/queryById with an entry id to obtain internal o",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108674",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108675",
+        "published": "2026-10-10T22:16:44Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the SysAnnouncementController editIzTop handler that allows low-privileged authenticated users to change announcement pin status. Attackers can send POST or PUT requests with any announcement id to pin or unpin system notices ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108675",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108676",
+        "published": "2026-10-10T22:16:44Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the SysAnnouncementController downLoadFiles handler that allows low-privileged authenticated users to download announcement attachments. Attackers can supply a known announcement id to retrieve a ZIP of attachments from unrele",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108676",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108677",
+        "published": "2026-10-10T22:16:44Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in GET /sys/api/getUserByName that allows low-privileged authenticated users to retrieve any user's stored password value. Attackers can decrypt the AES-CBC protected response using the hard-coded key exposed by /sys/getEncrypted",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108677",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108678",
+        "published": "2026-10-10T22:16:44Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the queryUserRoles handler of SystemApiController that lets authenticated users read any user's role codes. Low-privileged attackers can send GET requests to /sys/api/queryUserRoles with an arbitrary username to enumerate role",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108678",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108665",
+        "published": "2026-10-10T22:16:43Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the AiragPromptsController edit handler that allows any authenticated user to modify AI prompt templates. Low-privileged attackers can send PUT or POST requests to /airag/prompts/edit with a template id to overwrite prompt tex",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108665",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108666",
+        "published": "2026-10-10T22:16:43Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the deleteBatch handler of AiragPromptsController that allows any authenticated user to delete AI prompt templates. Low-privileged attackers can obtain prompt ids from the unguarded list endpoint and pass them to deleteBatch t",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108666",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108667",
+        "published": "2026-10-10T22:16:43Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability that allows low-privileged authenticated users to restore deleted AI prompt templates by calling the revertRecycleBin endpoint. Attackers can send PUT requests to /airag/prompts/revertRecycleBin with chosen template ids to clear ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108667",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108668",
+        "published": "2026-10-10T22:16:43Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the AiragPromptsController deleteRecycleBin handler that allows any authenticated user to purge AI prompt templates. Low-privileged attackers can send DELETE requests with prompt template ids to permanently remove recycle-bin ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108668",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108669",
+        "published": "2026-10-10T22:16:43Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the embeddingSearch handler of AiragKnowledgeController that lacks Shiro permission annotations. Low-privileged authenticated attackers can supply knowledge base ids to the GET /airag/knowledge/embedding/search endpoint to rea",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108669",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108670",
+        "published": "2026-10-10T22:16:43Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the promptExperiment handler of AiragPromptsController that allows any authenticated user to run AI prompt experiments. Low-privileged attackers can supply other users' prompt template and dataset ids to trigger large language",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108670",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108671",
+        "published": "2026-10-10T22:16:43Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability that allows any authenticated user to read MCP server configurations because the queryById permission check is commented out. Attackers can obtain record ids from the unguarded /airag/app/queryById endpoint and retrieve MCP endpo",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108671",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108658",
+        "published": "2026-10-10T22:16:42Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the SysTenantController queryTenantAuthInfo handler that allows any authenticated user to read other tenants' records. Low-privileged attackers can iterate small integer tenant ids to retrieve full sys_tenant records, includin",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108658",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108659",
+        "published": "2026-10-10T22:16:42Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the SysTenantController listPackByTenantUserId handler that allows any authenticated user to query tenant product packs. Low-privileged attackers can supply arbitrary tenantId and userId parameters to enumerate any tenant's pr",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108659",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108660",
+        "published": "2026-10-10T22:16:42Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability that allows any authenticated user to modify tenant settings by calling PUT /sys/tenant/updateApplyStatus. Low-privileged attackers can supply any tenant id to overwrite its applyStatus field, enabling or disabling tenant adminis",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108660",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108661",
+        "published": "2026-10-10T22:16:42Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability that allows any authenticated user to transfer tenant ownership via POST /sys/tenant/changeOwenUserTenant. Low-privileged attackers can supply userId and tenantId parameters to reassign any tenant's owner to a member, including t",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108661",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108662",
+        "published": "2026-10-10T22:16:42Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability that allows low-privileged authenticated users to remove users from tenant product packs via PUT /sys/tenant/deleteTenantPackUser. Attackers can supply arbitrary userId and packId values in the request body to remove any user fro",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108662",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108663",
+        "published": "2026-10-10T22:16:42Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the SysTenantController deleteApply handler that allows any authenticated user to reject tenant administrator applications. Low-privileged attackers can send PUT requests with chosen tenantId, packId and userId values to delet",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108663",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108664",
+        "published": "2026-10-10T22:16:42Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the AiragPromptsController queryById handler that allows low-privileged authenticated users to read any AI prompt template. Attackers can enumerate ids via the unguarded /airag/prompts/list endpoint and query each one to obtai",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108664",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108651",
+        "published": "2026-10-10T22:16:41Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the getRolesByUserId handler of SystemApiController that allows authenticated users to retrieve any user's role codes. Low-privileged attackers can supply arbitrary userId values to GET /sys/api/getRolesByUserId to enumerate r",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108651",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108652",
+        "published": "2026-10-10T22:16:41Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the SystemApiController updateAvatar handler that allows any authenticated user to change other users' avatars. Low-privileged attackers can send PUT requests with a target user id and an arbitrary value, such as an attacker-c",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108652",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108653",
+        "published": "2026-10-10T22:16:41Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the queryPageList handler of OpenApiController that allows any authenticated user to list OpenAPI registry definitions. Low-privileged attackers can query GET /openapi/list to read virtual paths, internal origin URLs, IP white",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108653",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108654",
+        "published": "2026-10-10T22:16:41Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the OssFileController queryById handler that allows low-privileged authenticated users to read object storage file records. Attackers who know a record id can request GET /sys/oss/file/queryById to obtain original file names a",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108654",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108655",
+        "published": "2026-10-10T22:16:41Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the QuartzJobController queryById handler that allows low-privileged authenticated users to read scheduled job records. Attackers can request GET /sys/quartzJob/queryById with a job id to retrieve job class names, cron express",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108655",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108656",
+        "published": "2026-10-10T22:16:41Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the SysTenantController GET /sys/tenant/getTenantPackApplyUsers endpoint that allows any authenticated user to read tenant administrator applications. Low-privileged attackers can iterate the tenantId parameter to retrieve pen",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108656",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108657",
+        "published": "2026-10-10T22:16:41Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the SysTenantController passApply handler that allows any authenticated user to approve tenant administrator applications. Attackers can file a pending application via doApplyTenantPackUser and approve it through PUT /sys/tena",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108657",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108644",
+        "published": "2026-10-10T22:16:40Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the SysCategoryController delete handler that allows any authenticated user to delete category dictionary nodes. Low-privileged attackers can obtain node ids from the unguarded rootList and childList endpoints and delete entir",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108644",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108645",
+        "published": "2026-10-10T22:16:40Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in SysCategoryController that allows any authenticated user to edit category dictionary nodes via /sys/category/edit. Low-privileged attackers can send POST or PUT requests supplying a node id to rename, recode, or move system-wi",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108645",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108646",
+        "published": "2026-10-10T22:16:40Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the SysCategoryController importExcel handler that allows any authenticated user to import category dictionary entries. Low-privileged attackers can upload crafted Excel workbooks to bulk insert arbitrary nodes into the system",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108646",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108647",
+        "published": "2026-10-10T22:16:40Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability that allows low-privileged authenticated users to create validation rules through the SysCheckRuleController importExcel handler. Attackers can upload a crafted Excel workbook to bypass the system:checkRule:add permission and bul",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108647",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108648",
+        "published": "2026-10-10T22:16:40Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the GET /sys/api/getDynamicDbSourceByCode endpoint of SystemApiController, which lacks Shiro permission or role annotations. Any authenticated low-privileged user can supply datasource codes in the dbSourceCode parameter to re",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108648",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108649",
+        "published": "2026-10-10T22:16:40Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the queryUserRolesById handler of SystemApiController that lets authenticated users read any user's role codes. Low-privileged attackers can send a userId to GET /sys/api/queryUserRolesById to enumerate role assignments and id",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108649",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108650",
+        "published": "2026-10-10T22:16:40Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the getUserPermissionSet handler of SystemApiController that allows any authenticated user to read other users' permission codes. Low-privileged attackers can supply an arbitrary userId to GET /sys/api/getUserPermissionSet to ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108650",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108638",
+        "published": "2026-10-10T22:16:39Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability that allows low-privileged authenticated users to remove group memberships via the deleteGroupUser handler in SysUserController. Attackers can send DELETE requests with arbitrary groupId and userId values to remove any user from ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108638",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108639",
+        "published": "2026-10-10T22:16:39Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability that allows any authenticated user to permanently delete data dictionaries via the deletePhysic handler of SysDictController. Low-privileged attackers can send DELETE requests to /sys/dict/deletePhysic/{id} to irreversibly remove",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108639",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108640",
+        "published": "2026-10-10T22:16:39Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the SysDepartRoleController queryById handler that lacks Shiro permission annotations. Low-privileged authenticated attackers can request GET /sys/sysDepartRole/queryById with any id to read department role names, codes, descr",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108640",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108641",
+        "published": "2026-10-10T22:16:39Z",
+        "description": "JeecgBoot through 3.9.5 contains an insecure direct object reference vulnerability that allows authenticated users to read other users' in-application messages via the getOne handler of SysAnnouncementSendController. Attackers can obtain delivery record ids from the unguarded /sys/sysAnnouncementSen",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108641",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108642",
+        "published": "2026-10-10T22:16:39Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in SysAnnouncementSendController that allows authenticated users to modify other users' message delivery records. Attackers can obtain delivery ids from GET /sys/sysAnnouncementSend/list and submit edit requests that overwrite re",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108642",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108643",
+        "published": "2026-10-10T22:16:39Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability that allows low-privileged authenticated users to delete category dictionary entries via DELETE /sys/category/deleteBatch. Attackers can obtain node ids from the unguarded rootList and childList endpoints and submit them to recur",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108643",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108631",
+        "published": "2026-10-10T22:16:38Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the SysDepartPermissionController delete handler that allows low-privileged authenticated users to delete department permission bindings. Attackers can obtain row ids from the unguarded list endpoint and send DELETE requests w",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108631",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108632",
+        "published": "2026-10-10T22:16:38Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the SysDepartPermissionController queryById handler that allows any authenticated user to read department permission records. Low-privileged attackers can request GET /sys/sysDepartPermission/queryById with arbitrary ids to re",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108632",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108633",
+        "published": "2026-10-10T22:16:38Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability that allows low-privileged authenticated users to create department permission bindings via POST /sys/sysDepartPermission/add. Attackers can submit arbitrary departId, permissionId and dataRuleIds fields to attach menu, button an",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108633",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108634",
+        "published": "2026-10-10T22:16:38Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability that allows low-privileged authenticated users to delete department permission bindings via the DELETE /sys/sysDepartPermission/deleteBatch endpoint. Attackers can obtain row ids from the unguarded list endpoint and submit them i",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108634",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108635",
+        "published": "2026-10-10T22:16:38Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the GET /sys/sysDepart/getDepartmentHead endpoint of SysDepartController that allows any authenticated user to list department staff. Low-privileged attackers can enumerate departId values to retrieve staff names, avatars, pos",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108635",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108636",
+        "published": "2026-10-10T22:16:38Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the SysDepartController appImportExcel handler that allows any authenticated user to import departments. Low-privileged attackers can upload a crafted Excel workbook to POST /sys/sysDepart/appImportExcel to create arbitrary sy",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108636",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108637",
+        "published": "2026-10-10T22:16:38Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability that allows low-privileged authenticated users to remove user group members by calling DELETE /sys/user/deleteUserGroupBatch. Attackers can supply any groupId and comma-separated userIds to delete sys_ugroup_user rows without per",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108637",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108624",
+        "published": "2026-10-10T22:16:37Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the SysMessageController deleteBatch handler that allows low-privileged authenticated users to delete message records. Attackers can obtain record ids from the unguarded list endpoint and submit them to deleteBatch to remove a",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108624",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108625",
+        "published": "2026-10-10T22:16:37Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability that allows low-privileged authenticated users to modify message push records by calling PUT /sys/message/sysMessage/edit. Attackers can submit a request body naming any sys_sms record id to overwrite its title, content, receiver",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108625",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108626",
+        "published": "2026-10-10T22:16:37Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the SysMessageController queryById handler that allows low-privileged authenticated users to read any message push record. Attackers can supply arbitrary record ids to GET /sys/message/sysMessage/queryById to disclose message ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108626",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108627",
+        "published": "2026-10-10T22:16:37Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the loadDatarule handler of SysRoleController that lets any authenticated user query role data rules. Low-privileged attackers can request GET /sys/role/datarule/{permissionId}/{roleId} to read rule names, columns, conditions,",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108627",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108628",
+        "published": "2026-10-10T22:16:37Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the saveDeptRolePermission endpoint of SysDepartPermissionController that allows any authenticated user to modify department role permissions. Low-privileged attackers can submit roleId and permissionIds values to grant arbitr",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108628",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108629",
+        "published": "2026-10-10T22:16:37Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the saveDatarule handler of SysDepartPermissionController that allows any authenticated user to modify department data rules. Low-privileged attackers can send departId, permissionId and dataRuleIds to POST /sys/sysDepartPermi",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108629",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108630",
+        "published": "2026-10-10T22:16:37Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in SysDepartPermissionController that allows any authenticated user to modify department permission records by calling the edit endpoint. Low-privileged attackers can obtain row ids from the unguarded list endpoint and overwrite ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108630",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108617",
+        "published": "2026-10-10T22:16:36Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability that allows low-privileged authenticated users to create message templates by calling POST /sys/message/sysMessageTemplate/add. Attackers holding only minimal roles can insert arbitrary notification templates with chosen codes an",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108617",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108618",
+        "published": "2026-10-10T22:16:36Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability that allows low-privileged authenticated users to modify message templates via PUT /sys/message/sysMessageTemplate/edit. Attackers can obtain template ids from the unguarded list endpoint and overwrite system notification titles ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108618",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108619",
+        "published": "2026-10-10T22:16:36Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability that allows low-privileged authenticated users to delete message templates via the DELETE /sys/message/sysMessageTemplate/deleteBatch endpoint. Attackers can supply comma-separated template ids from the unguarded list endpoint to",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108619",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108620",
+        "published": "2026-10-10T22:16:36Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the SysPositionController deleteBatch handler that allows any authenticated user to delete organizational positions. Low-privileged attackers can send comma-separated position ids, obtained from the unguarded list endpoint, to",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108620",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108621",
+        "published": "2026-10-10T22:16:36Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the SysPositionController edit handler that allows any authenticated user to modify organizational positions. Low-privileged attackers can obtain position ids from the unguarded list endpoint and send PUT or POST requests to /",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108621",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108622",
+        "published": "2026-10-10T22:16:36Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the SysLogController delete handler that allows any authenticated user to delete audit log entries. Low-privileged attackers can obtain log ids from the unguarded /sys/log/list endpoint and delete chosen sys_log records to era",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108622",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108623",
+        "published": "2026-10-10T22:16:36Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the SysLogController deleteBatch handler that allows any authenticated user to delete system audit log entries. Low-privileged attackers can send a DELETE request with ids set to allclear to wipe the entire sys_log table, eras",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108623",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108611",
+        "published": "2026-10-10T22:16:35Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the AigcWordTemplateController delete handler that allows any authenticated user to delete word templates. Low-privileged attackers can send DELETE requests to /airag/word/delete with an id parameter to permanently remove any ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108611",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108612",
+        "published": "2026-10-10T22:16:35Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the AigcWordTemplateController deleteBatch handler that allows low-privileged authenticated users to delete word templates. Attackers can send a DELETE request to /airag/word/deleteBatch with comma-separated ids to permanently",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108612",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108613",
+        "published": "2026-10-10T22:16:35Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the AiragAppController release handler that allows any authenticated user to publish or unpublish other users' AI applications. Low-privileged attackers can send POST requests to /airag/app/release to obtain share tokens expos",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108613",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108614",
+        "published": "2026-10-10T22:16:35Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the AiragExtDataController exportXls handler that allows any authenticated user to export AI evaluator data. Low-privileged attackers can request /airag/extData/exportXls to download every user's airag_ext_data evaluator defin",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108614",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108615",
+        "published": "2026-10-10T22:16:35Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the AiragExtDataController delete handler that allows low-privileged authenticated users to delete AI evaluator records. Attackers can send DELETE requests to /airag/extData/delete with any id parameter to remove other users' ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108615",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108616",
+        "published": "2026-10-10T22:16:35Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the AiragExtDataController deleteBatch handler that allows any authenticated user to delete AI evaluator records. Low-privileged attackers can send comma-separated ids to DELETE /airag/extData/deleteBatch, which lacks owner or",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108616",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108605",
+        "published": "2026-10-10T22:16:34Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the AiOcrController updateById handler that allows any authenticated user to modify global OCR templates. Low-privileged attackers can send PUT requests to /airag/ocr/edit to overwrite LLM prompts in the shared airag:ocr Redis",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108605",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108606",
+        "published": "2026-10-10T22:16:34Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the AiOcrController deleteById handler that allows any authenticated user to delete OCR records. Low-privileged attackers can obtain record ids from the unguarded GET /airag/ocr/list endpoint and repeatedly delete every shared",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108606",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108607",
+        "published": "2026-10-10T22:16:34Z",
+        "description": "JeecgBoot through 3.9.5 contains an insecure direct object reference vulnerability that allows authenticated users to delete other users' AI video generation records by supplying arbitrary userId values to DELETE /airag/video/deleteVideoRecord. Attackers can obtain record ids from the unchecked GET ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108607",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108608",
+        "published": "2026-10-10T22:16:34Z",
+        "description": "JeecgBoot through 3.9.5 contains an insecure direct object reference vulnerability that allows authenticated users to delete other users' AI voice records by supplying an arbitrary userId to DELETE /airag/voice/deleteVoiceRecord. Attackers can obtain record ids from the unchecked GET /airag/voice/li",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108608",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108609",
+        "published": "2026-10-10T22:16:34Z",
+        "description": "JeecgBoot through 3.9.5 contains an insecure direct object reference vulnerability that allows authenticated users to read other users' AI voice generation history via the userId parameter of GET /airag/voice/listByUser. Attackers who know another user's id can retrieve submitted text-to-speech inpu",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108609",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108610",
+        "published": "2026-10-10T22:16:34Z",
+        "description": "JeecgBoot through 3.9.5 contains a missing authorization vulnerability in the AigcWordTemplateController edit handler that allows any authenticated user to modify word templates. Low-privileged attackers can send PUT or POST requests to /airag/word/edit to overwrite shared templates that other users",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108610",
+        "kev": false
+      },
       {
         "id": "CVE-2026-78533",
         "published": "2026-10-10T20:16:47Z",
@@ -11286,906 +12256,6 @@
         "score": 6.8,
         "cvss_version": "40",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2023-5649",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-94575",
-        "published": "2026-10-08T04:18:00Z",
-        "description": "A logic vulnerability in Brocade Fabric OS versions before 10.0.1 web management framework allows an authenticated, low-privileged user to bypass inner Role-Based Access Control (RBAC) checks under specific environmental conditions. Successful exploitation lowers the system authorization mode for th",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-94575",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-94580",
-        "published": "2026-10-08T04:18:00Z",
-        "description": "An arbitrary file and directory deletion vulnerability exists in the REST API management interface handling USB storage operations on Brocade Fabric OS versions before 10.0.1. An authenticated user possessing USB management privileges can manipulate requested target paths to delete arbitrary files o",
-        "severity": "MEDIUM",
-        "score": 5.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-94580",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-94584",
-        "published": "2026-10-08T04:18:00Z",
-        "description": "A race condition and thread-safety vulnerability exists in the web management daemon of Brocade Fabric OS versions before 10.0.1. When handling user authentication requests across a multi-threaded execution pool, this race condition causes PAM modules to process stale or incorrect client IP addresse",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-94584",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87685",
-        "published": "2026-10-08T04:17:56Z",
-        "description": "An arbitrary file manipulation vulnerability exists in the WebTools management interface of Brocade Fabric OS versions before 9.2.2d and 10.0.0 through 10.0.0a1. When processing configuration transfer requests, the application fails to properly validate and sanitize a user-supplied status file path ",
-        "severity": "HIGH",
-        "score": 8.4,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87685",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87687",
-        "published": "2026-10-08T04:17:56Z",
-        "description": "An authorization and input validation vulnerability exists in Brocade Fabric OS versions before 9.2.2d and 10.0.0 through 10.0.0a1. An authenticated user with restricted privileges in one Virtual Fabric can exploit this issue by submitting a specially crafted request containing an arbitrary fabric i",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87687",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87688",
-        "published": "2026-10-08T04:17:56Z",
-        "description": "An input validation vulnerability exists in the security certificate management component of the Brocade Fabric OS administrative management API. When processing certificate management operations, user-supplied certificate identifiers are handled without adequate sanitization prior to execution in e",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87688",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87675",
-        "published": "2026-10-08T04:17:55Z",
-        "description": "An OS command injection vulnerability exists in the configuration management subsystem of Brocade Fabric OS versions before 9.2.2d and 10.0.0 through 10.0.0a1. When performing a configuration download operation, the management daemon will relay configuration parameters, user-supplied relay host stri",
-        "severity": "HIGH",
-        "score": 7.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87675",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87673",
-        "published": "2026-10-08T04:17:53Z",
-        "description": "An OS command injection vulnerability exists in maintenance command-line diagnostic utilities on Brocade Fabric OS versions before 9.2.2d and 10.0.0 through 10.0.0a1. The binary fails to sanitize user-supplied input options when invoking underlying system commands through a shell interpreter. A priv",
-        "severity": "HIGH",
-        "score": 7.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87673",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87674",
-        "published": "2026-10-08T04:17:53Z",
-        "description": "A local privilege escalation vulnerability exists in the system logging daemon of Brocade Fabric OS versions before 9.2.2d and 10.0.0 through 10.0.0a1. Insufficient access controls on internal inter-process communication (IPC) channels allow an unprivileged local user to submit malformed logging con",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87674",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87660",
-        "published": "2026-10-08T04:17:52Z",
-        "description": "An improper file permission and missing authorization vulnerability exists in the diagnostic kernel module subsystem of Brocade Fabric OS versions before 9.2.2d and 10.0.0 through 10.0.0a1. An unprivileged local user can invoke privileged hardware tests, force system error conditions, reset hardware",
-        "severity": "HIGH",
-        "score": 7.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87660",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87666",
-        "published": "2026-10-08T04:17:52Z",
-        "description": "An OS command injection vulnerability exists in the time and zone management subsystem of Brocade Fabric OS versions before 9.2.2d and 10.0.0 through 10.0.0a1. When updating system timezone settings via the REST API or configuration download routines, the system fails to sanitize input values before",
-        "severity": "HIGH",
-        "score": 8.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87666",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87667",
-        "published": "2026-10-08T04:17:52Z",
-        "description": "An argument injection vulnerability exists in the configuration management command-line utility of Brocade Fabric OS versions before 9.2.2d and 10.0.0 through 10.0.0a1. When executing configuration viewing commands with search pattern filters, the utility fails to sanitize user-supplied search strin",
-        "severity": "HIGH",
-        "score": 8.4,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87667",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107445",
-        "published": "2026-10-08T04:17:19Z",
-        "description": "A flaw was found in Katello where the Flatpak Remote Repositories API does not properly enforce authorization when accessing a flatpak remote repository by identifier. An authenticated user with permission to view flatpak remotes in one organization may be able to access flatpak remote repository in",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107445",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107446",
-        "published": "2026-10-08T04:17:19Z",
-        "description": "containerd overlaybd through 1.0.18 has a do_load_index (LSMT index loading) integer overflow (and resultant out-of-bounds heap access) for index_bytes, if an untrusted overlaybd blob from a registry is used in a scenario with multiple overlaybd-backed containers.",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107446",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107448",
-        "published": "2026-10-08T04:17:19Z",
-        "description": "Magic: The Gathering Arena (Windows/Steam client; 2026.59.30.12801.127931.6 and certain later 2026.60.x builds) passes a server-supplied URL from a home-screen carousel GoToExternalUrl action directly to the Windows shell via Application.OpenURL/ShellExecuteW without validating the URI scheme or dom",
-        "severity": "LOW",
-        "score": 3.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107448",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107444",
-        "published": "2026-10-08T04:17:14Z",
-        "description": "A flaw was found in Katello where the Docker Tags repositories API does not properly enforce organization scoping when listing repositories for a Docker meta tag. An authenticated user with permission to view products in one organization may be able to retrieve repository metadata associated with Do",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107444",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-94583",
-        "published": "2026-10-08T03:16:38Z",
-        "description": "A race condition vulnerability exists in the request processing logic of the REST management interface on Brocade Fabric OS versions before 10.0.1. When handling concurrent incoming network management FCIP requests, a timing window exists between when a request populates the address variable and whe",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-94583",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87678",
-        "published": "2026-10-08T03:16:37Z",
-        "description": "An input validation and output encoding vulnerability exists in the web management interface of Brocade Fabric OS versions before 10.0.1. When configuring Federated Authentication (FA), the system fails to sanitize the Identity Provider (IdP) issuer parameter. An authenticated administrator—or an at",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87678",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87684",
-        "published": "2026-10-08T03:16:37Z",
-        "description": "A stack-based buffer overflow vulnerability exists in the SNMP daemon request handling of Brocade Fabric versions before 10.0.1. When processing an incoming SNMPv3 packet, an internal statistics gathering handler copies user-supplied context name data into a fixed-size buffer without properly valida",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87684",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87686",
-        "published": "2026-10-08T03:16:37Z",
-        "description": "An authentication and access control bypass vulnerability exists in the web server management interface of Brocade Fabric OS versions before 10.0.1. The web dispatcher routine evaluates internal management VLAN trust decisions using the client-supplied HTTP host header instead of the actual socket t",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87686",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-92861",
-        "published": "2026-10-08T03:16:37Z",
-        "description": "The Android application \"Ticket Ryutsu Center\" contains hard-coded credentials, which may allow an attacker to obtain an API key used by the application.",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92861",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-92862",
-        "published": "2026-10-08T03:16:37Z",
-        "description": "The Android application \"Ticket Ryutsu Center\" improperly handles custom URL schemes, allowing a malicious application to cause access to an arbitrary website via a crafted Intent.",
-        "severity": "MEDIUM",
-        "score": 4.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92862",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-94578",
-        "published": "2026-10-08T03:16:37Z",
-        "description": "Brocade Fabric OS versions before 10.0.1 contain an authorization logic vulnerability in the AAA (Authentication, Authorization, and Accounting) integration framework allows remote authenticated users to gain root-equivalent chassis access controls. By returning specific, crafted Vendor-Specific Att",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-94578",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-94582",
-        "published": "2026-10-08T03:16:37Z",
-        "description": "A memory buffer overflow vulnerability exists in the internal diagnostic and route validation routines used by the Fabric Shortest Path First (FSPF) protocol component of Brocade Fabric OS versions before 10.0.1. While this code path is part of internal diagnostic functionality and is not directly a",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-94582",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87668",
-        "published": "2026-10-08T03:16:36Z",
-        "description": "A stack-based buffer overflow vulnerability exists in the diagnostic execution utility of Brocade Fabric OS versions before 10.0.1. When processing command arguments for diagnostic operations, the utility tokenizes user-supplied input into an internal argument array without enforcing boundary checks",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87668",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87669",
-        "published": "2026-10-08T03:16:36Z",
-        "description": "A missing authorization check in Brocade Fabric OS versions before 10.0.1 REST API interface of affected platform releases allows an authenticated user, regardless of their assigned role or administrative scope, to retrieve complete Monitoring and Alerting Policy Suite (MAPS) violation data across a",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87669",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87670",
-        "published": "2026-10-08T03:16:36Z",
-        "description": "An authorization logic vulnerability exists in the Brocade Fabric OS versions before 10.0.1 REST API gateway. The internal gate guarding restricted management endpoints relies exclusively on client-controlled HTTP headers. An authenticated user with any valid REST session can spoof these headers to ",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87670",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87671",
-        "published": "2026-10-08T03:16:36Z",
-        "description": "An out-of-bounds memory read vulnerability exists in the web management daemon of Brocade Fabric OS versions before 10.0.1. Unauthenticated HTTP endpoints process specific URL query parameters without validating array index boundaries or performing numerical range checks. An unauthenticated remote a",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87671",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87672",
-        "published": "2026-10-08T03:16:36Z",
-        "description": "An information disclosure vulnerability exists in the SupportLink diagnostic collection utilities of Brocade Fabric OS versions before 10.0.1. When SupportLink is configured to use an authenticated HTTP proxy, the system stores the full proxy URL. Anyone with access to the diagnostic support bundle,",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87672",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87676",
-        "published": "2026-10-08T03:16:36Z",
-        "description": "A stack-based buffer overflow vulnerability exists in the security library component of Brocade Fabric OS versions before 10.0.1. When parsing uploaded X.509 PEM certificates for management display, the system improperly validates the length of the Authority Key Identifier (AKI) extension before cop",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87676",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87659",
-        "published": "2026-10-08T03:16:35Z",
-        "description": "A critical authorization bypass vulnerability exists in the Management Server handling of Brocade Fabric OS versions before 10.0.1. A compromised switch connected to the fabric can transmit crafted inband Fibre Channel vendor-unique CT (Common Transport) management requests to bypass administrative ",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87659",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87665",
-        "published": "2026-10-08T03:16:35Z",
-        "description": "A stack-based buffer overflow vulnerability exists in the Internet Key Exchange (IKEv2) protocol handler on Brocade Fabric OS versions before 10.0.1. The vulnerability occurs when processing initial IKE key exchange requests on extension switches or blades running IPsec-enabled Fibre Channel over IP",
-        "severity": "MEDIUM",
-        "score": 6.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87665",
-        "kev": false
-      },
-      {
-        "id": "CVE-2017-20283",
-        "published": "2026-10-08T03:16:32Z",
-        "description": "NXP MQX Classic before 5.0 contains an out-of-bounds write vulnerability in the RTCS UDP recvfrom() implementation. Improper enforcement of the application-supplied receive buffer length may allow a crafted UDP packet to overflow the destination buffer, resulting in memory corruption, or denial of s",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2017-20283",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-82627",
-        "published": "2026-10-08T02:16:54Z",
-        "description": "The Uncanny Automator – AI + Automation for WordPress | AI Agent, AI Page Builder, Free AI Usage Included plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 7.6.1.1 via deserialization of untrusted input. This makes it possible for authenticated attacker",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82627",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87682",
-        "published": "2026-10-08T02:16:54Z",
-        "description": "Multiple OS Command Injection vulnerabilities exist in the management interface and session processing routines of Brocade Fabric OS versions before 10.0.1. Input processing flaws during remote management connection validation and session verification for directory-based user accounts allow untruste",
-        "severity": "HIGH",
-        "score": 8.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87682",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87683",
-        "published": "2026-10-08T02:16:54Z",
-        "description": "Multiple stack-based buffer overflow vulnerabilities exist in the REST API management component of Brocade Fabric OS versions prior to 10.0.1. When processing API request payloads (such as device configuration attributes or port mapping requests) the REST API service fails to properly validate incom",
-        "severity": "HIGH",
-        "score": 8.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87683",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87726",
-        "published": "2026-10-08T02:16:54Z",
-        "description": "Insufficient API bounds checking in phalFelica in NXP NXPNfcRdLib RC663 through 07.14.00_Pub may allow an attacker with privileges or an untrusted third party to access unintended memory regions, potentially leading to limited loss of confidentiality, integrity, and availability. All software versio",
-        "severity": "LOW",
-        "score": 3.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87726",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-102488",
-        "published": "2026-10-08T02:16:53Z",
-        "description": "In affected versions, Octopus Server incorrectly evaluates multiple scoped permission assignments, allowing a highly privileged user to obtain deployment permissions beyond those actually granted to them.",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102488",
-        "kev": false
-      },
-      {
-        "id": "CVE-2024-8122",
-        "published": "2026-10-08T01:16:32Z",
-        "description": "The WSO2 Identity Server fails to enforce a default expiry time for SMS One-Time Passwords (OTPs) used in multi-factor authentication (MFA). This allows unused OTPs to remain valid indefinitely, presenting an opportunity for malicious actors to conduct brute force attacks by repeatedly guessing the ",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2024-8122",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87679",
-        "published": "2026-10-08T01:16:32Z",
-        "description": "When Brocade Fabric OS versions before 10.0.1 processes trunk configuration operations, the application parses user-supplied list strings into dynamically allocated heap arrays without enforcing boundary checks on the maximum allowable number of elements. An authenticated administrator can exploit t",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87679",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87680",
-        "published": "2026-10-08T01:16:32Z",
-        "description": "A command injection vulnerability in the REST API management interface of Brocade Fabric OS versions before 10.0.1 allows an authenticated user to execute arbitrary system commands via crafted input parameters.",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87680",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87681",
-        "published": "2026-10-08T01:16:32Z",
-        "description": "An Access Control Bypass vulnerability exists in the Role-Based Access Control (RBAC) validation engine of Brocade Fabric OS versions before 10.0.1. When processing certain management protocol operations, the RBAC engine incorrectly categorizes non-standard action opcodes during permission checks. T",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87681",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-17538",
-        "published": "2026-10-08T00:16:35Z",
-        "description": "The LatePoint - Appointment Booking & Reservation plugin for WordPress is vulnerable to Insecure Direct Object Reference in versions up to, and including, 5.6.9. This is due to the process_step_customer() function using is_user_logged_in() as the sole gate before merging POSTed customer data into an",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-17538",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-94154",
-        "published": "2026-10-08T00:16:35Z",
-        "description": "The Aurora Heatmap plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘url’ parameter in all versions up to, and including, 1.7.2 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in",
-        "severity": "MEDIUM",
-        "score": 6.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-94154",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107315",
-        "published": "2026-10-08T00:16:33Z",
-        "description": "pgjdbc, the PostgreSQL JDBC Driver, versions 42.7.4 through 42.7.13 pads a value that is shorter than its declared length with bytes left in its send buffer instead of zeros, and the server stores those bytes as part of the value. The bytes are messages the driver sent earlier on the same connection",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107315",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-89322",
-        "published": "2026-10-07T23:17:01Z",
-        "description": "Vault and Vault Enterprise did not consistently evaluate ACL policies against the canonical form of resource and policy names. This may allow an authenticated user with delegated permissions to bypass an explicit deny restriction and access a protected resource or assign a denied policy, potentially",
-        "severity": "HIGH",
-        "score": 7.2,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-89322",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97664",
-        "published": "2026-10-07T23:17:01Z",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97664",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107314",
-        "published": "2026-10-07T23:17:00Z",
-        "description": "pgjdbc, the PostgreSQL JDBC Driver, versions 42.7.11 through 42.7.13 enforce no restriction when the requireAuth connection property excludes all six authentication methods the driver knows, for example requireAuth=!password,!md5,!gss,!sspi,!scram-sha-256,!none. The driver then accepts any method th",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107314",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107282",
-        "published": "2026-10-07T22:17:04Z",
-        "description": "The AsyncHttpClient (AHC) library allows Java applications to easily execute HTTP requests and asynchronously process HTTP responses. Prior to 3.0.13  and 2.16.1, cross-host request replay updates the current request but leaves the target request and related proxy context pointing at the original or",
-        "severity": "CRITICAL",
-        "score": 9.4,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107282",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107283",
-        "published": "2026-10-07T22:17:04Z",
-        "description": "The AsyncHttpClient (AHC) library allows Java applications to easily execute HTTP requests and asynchronously process HTTP responses. Prior to 3.0.12  and 2.16.1, Realm.Builder generates the HTTP Digest client nonce with ThreadLocalRandom rather than a cryptographically secure random source. Digest ",
-        "severity": "LOW",
-        "score": 3.7,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107283",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107284",
-        "published": "2026-10-07T22:17:04Z",
-        "description": "The AsyncHttpClient (AHC) library allows Java applications to easily execute HTTP requests and asynchronously process HTTP responses. Prior to 3.0.12 and 2.16.1, WebSocketHandler.upgrade aborts a handshake whose Sec-WebSocket-Accept value is missing or invalid but continues into pipeline installatio",
-        "severity": "LOW",
-        "score": 3.7,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107284",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107285",
-        "published": "2026-10-07T22:17:04Z",
-        "description": "The AsyncHttpClient (AHC) library allows Java applications to easily execute HTTP requests and asynchronously process HTTP responses. Prior to 3.0.12 and 2.16.1, a proxied ws request is carried through CONNECT, but NettyRequestFactory.newNettyRequest and requestUri decide whether to attach proxy aut",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107285",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107230",
-        "published": "2026-10-07T22:17:03Z",
-        "description": "The AsyncHttpClient (AHC) library allows Java applications to easily execute HTTP requests and asynchronously process HTTP responses. From 2.0.0 until 3.0.14, connection-pool partitioning still omits identity-defining fields for Kerberos, SPNEGO, NTLM, and authenticated proxy connections. Logins wit",
-        "severity": "HIGH",
-        "score": 7.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107230",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107231",
-        "published": "2026-10-07T22:17:03Z",
-        "description": "The AsyncHttpClient (AHC) library allows Java applications to easily execute HTTP requests and asynchronously process HTTP responses. Prior to 3.0.13 and 2.16.1, Realm.Builder treats a Digest challenge that yields no usable nonce as a Basic challenge. A malicious origin or proxy can label a challeng",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107231",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107232",
-        "published": "2026-10-07T22:17:03Z",
-        "description": "The AsyncHttpClient (AHC) library allows Java applications to easily execute HTTP requests and asynchronously process HTTP responses. Prior to 3.0.12 on 3.x and 2.16.1 on 2.x, the client infers that an HTTP proxy tunnel exists from the last request method rather than the CONNECT result. After a prox",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107232",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107279",
-        "published": "2026-10-07T22:17:03Z",
-        "description": "The AsyncHttpClient (AHC) library allows Java applications to easily execute HTTP requests and asynchronously process HTTP responses. In 3.0.12, a peer offering only Digest qop=auth-int causes mutual-authentication verification to be skipped. AuthenticatorUtils.computeExpectedRspAuth returns no expe",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107279",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107280",
-        "published": "2026-10-07T22:17:03Z",
-        "description": "The AsyncHttpClient (AHC) library allows Java applications to easily execute HTTP requests and asynchronously process HTTP responses. Prior to 3.0.13  and 2.16.1, ThreadSafeCookieStore validates Domain attributes with domain matching but does not reject public suffixes. A host beneath a suffix such ",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107280",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107281",
-        "published": "2026-10-07T22:17:03Z",
-        "description": "The AsyncHttpClient (AHC) library allows Java applications to easily execute HTTP requests and asynchronously process HTTP responses. Prior to 3.0.13 and 2.16.1, the HTTP/1.1 connection-pool key excludes the authenticated principal for connection-oriented NTLM and Negotiate authentication. A pooled ",
-        "severity": "HIGH",
-        "score": 7.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107281",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-105816",
-        "published": "2026-10-07T22:17:02Z",
-        "description": "Vault and Vault Enterprise did not consistently verify that stored plugin catalog entries reference binaries within the configured plugin directory. When Vault uses Shamir seals and has an external plugin directory configured, a privileged operator able to restore an Integrated Storage (Raft) snapsh",
-        "severity": "HIGH",
-        "score": 8.0,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105816",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-105818",
-        "published": "2026-10-07T22:17:02Z",
-        "description": "Vault's PKI secrets engine ACME server did not restrict certificate identities that ACME challenges do not validate when issuing certificates under the default directory policy. This may allow an ACME client to obtain a certificate containing unverified identity claims, potentially enabling imperson",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105818",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-105820",
-        "published": "2026-10-07T22:17:02Z",
-        "description": "Vault's ACL policy cache allowed namespace traversal when policy names contained path traversal constructs. This may allow a token assigned specially crafted policy names to use the capabilities of policies defined in other namespaces, including the root namespace. This vulnerability (CVE-2026-10582",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105820",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76284",
-        "published": "2026-10-07T21:17:20Z",
-        "description": "Improper Neutralization. Splunk addressed multiple internally identified vulnerabilities in Splunk Enterprise versions 10.4.3, 10.2.7, 10.0.10, and 9.4.15. The vulnerabilities are grouped by Common Weakness Enumeration (CWE), with one Common Vulnerabilities and Exposures (CVE) identifier assigned to",
-        "severity": "CRITICAL",
-        "score": 9.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76284",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76285",
-        "published": "2026-10-07T21:17:20Z",
-        "description": "Improper Adherence to Coding Standards. Splunk addressed multiple internally identified vulnerabilities in Splunk Enterprise versions 10.4.3, 10.2.7, 10.0.10, and 9.4.15. The vulnerabilities are grouped by Common Weakness Enumeration (CWE), with one Common Vulnerabilities and Exposures (CVE) identif",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76285",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76286",
-        "published": "2026-10-07T21:17:20Z",
-        "description": "In Splunk MCP Server versions below 1.2.1, Splunk MCP Server could send the Splunk platform authentication token of a user who runs a custom Application Programming Interface (API) tool to the URL configured for that tool. If another user controls that URL, they could capture the token and use it to",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76286",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76278",
-        "published": "2026-10-07T21:17:19Z",
-        "description": "In Splunk Enterprise versions below 10.4.3, 10.2.7, and 10.0.10, a user that holds a role with the edit_spl2_module_permissions capability could use the affected Representational State Transfer (REST) API to access permission grants for SPL2 modules that the user does not have permission to view. Th",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76278",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76279",
-        "published": "2026-10-07T21:17:19Z",
-        "description": "In Splunk Enterprise versions below 10.4.3, 10.2.7, 10.0.10, and 9.4.15, a user that holds a role with the run_collect capability could use the collect Search Processing Language (SPL) command to write events to internal indexes outside the index access configured for the role. The vulnerability is ",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76279",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76280",
-        "published": "2026-10-07T21:17:19Z",
-        "description": "In Splunk Enterprise versions below 10.4.3, 10.2.7, 10.0.10, and 9.4.15, and Splunk Secure Gateway versions below 3.10.11, 3.9.25, and 3.8.72, an authenticated user who does not hold the \"admin\" or \"sc_admin\" Splunk roles could modify Splunk Secure Gateway alert and mobile-device recipient data in A",
-        "severity": "MEDIUM",
-        "score": 6.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76280",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76281",
-        "published": "2026-10-07T21:17:19Z",
-        "description": "Improper Access Control. Splunk addressed multiple internally identified vulnerabilities in Splunk Enterprise versions 10.4.3, 10.2.7, 10.0.10, and 9.4.15. The vulnerabilities are grouped by Common Weakness Enumeration (CWE), with one Common Vulnerabilities and Exposures (CVE) identifier assigned to",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76281",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76282",
-        "published": "2026-10-07T21:17:19Z",
-        "description": "Improper Control of a Resource Through its Lifetime. Splunk addressed multiple internally identified vulnerabilities in Splunk Enterprise versions 10.4.3, 10.2.7, 10.0.10, and 9.4.15. The vulnerabilities are grouped by Common Weakness Enumeration (CWE), with one Common Vulnerabilities and Exposures ",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76282",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76283",
-        "published": "2026-10-07T21:17:19Z",
-        "description": "Protection Mechanism Failure. Splunk addressed multiple internally identified vulnerabilities in Splunk Enterprise versions 10.4.3, 10.2.7, 10.0.10, and 9.4.15. The vulnerabilities are grouped by Common Weakness Enumeration (CWE), with one Common Vulnerabilities and Exposures (CVE) identifier assign",
-        "severity": "HIGH",
-        "score": 7.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76283",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76271",
-        "published": "2026-10-07T21:17:18Z",
-        "description": "In Splunk Enterprise versions below 10.4.3, 10.2.7, and 10.0.10, a low-privileged user that does not hold the \"admin\" or \"power\" Splunk roles could cause a denial of service against a Representational State Transfer (REST) API endpoint in the Discover Splunk Observability Cloud app. The vulnerabilit",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76271",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76272",
-        "published": "2026-10-07T21:17:18Z",
-        "description": "In Splunk Enterprise versions below 10.4.3, 10.2.7, 10.0.10, and 9.4.15, a user who does not hold the \"admin\" or \"power\" Splunk roles could cause Splunk Secure Gateway to sign attacker-controlled payloads. The vulnerability is possible because Splunk Secure Gateway does not verify that the user is a",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76272",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76273",
-        "published": "2026-10-07T21:17:18Z",
-        "description": "In Splunk Enterprise versions below 10.4.3, 10.2.7, 10.0.10, and 9.4.15, a user that holds a role with the run_collect capability could use the collect Search Processing Language (SPL) command to add attacker-controlled content to system-level messages on the Splunk platform instance. The vulnerabil",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76273",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76274",
-        "published": "2026-10-07T21:17:18Z",
-        "description": "In Splunk Enterprise versions below 10.4.3, 10.2.7, and 10.0.10, a user that holds a role with the read_o11y_content capability could redirect an outbound request from Splunk App for Splunk Observability Cloud through the Representational State Transfer (REST) API to an attacker-controlled host and ",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76274",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76275",
-        "published": "2026-10-07T21:17:18Z",
-        "description": "In Splunk Enterprise versions below 10.4.3, 10.2.7, 10.0.10, and 9.4.15, a user who does not hold the \"admin\" or \"power\" Splunk roles could access search query text and job metadata for jobs that belong to other users, including job identifiers, dispatch parameters, result counts, and execution meta",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76275",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76276",
-        "published": "2026-10-07T21:17:18Z",
-        "description": "In Splunk Enterprise versions below 10.4.3, 10.2.7, and 10.0.10, a low-privileged user that does not hold the \"admin\" or \"power\" Splunk roles could retrieve original source code for the Discover Splunk Observability Cloud app through Splunk Web. The vulnerability is possible because production JavaS",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76276",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76277",
-        "published": "2026-10-07T21:17:18Z",
-        "description": "In Splunk Enterprise versions below 10.4.3, 10.2.7, 10.0.10, and 9.4.15, a user that holds a role with the edit_user capability could create a native Splunk username that ends with a period. The vulnerability is possible because username validation does not reject a trailing period before the userna",
-        "severity": "MEDIUM",
-        "score": 4.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76277",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76264",
-        "published": "2026-10-07T21:17:17Z",
-        "description": "In Splunk Enterprise versions below 10.4.2, 10.2.6, 10.0.10, and 9.4.15, a user who does not hold the \"admin\" or \"power\" Splunk roles could create or edit scripted lookup definitions through raw configuration endpoints. The vulnerability is possible because raw transforms configuration write paths d",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76264",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76265",
-        "published": "2026-10-07T21:17:17Z",
-        "description": "In Splunk Enterprise versions below 10.4.3, 10.2.7, 10.0.10, and 9.4.15, and Splunk Secure Gateway versions below 3.10.11, 3.9.25, and 3.8.72, a user who does not hold the \"admin\" or \"power\" Splunk roles could access privileged Splunk Secure Gateway functionality. With this access, the user could ca",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76265",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76266",
-        "published": "2026-10-07T21:17:17Z",
-        "description": "In Splunk Enterprise versions below 10.4.3, 10.2.7, 10.0.10, and 9.4.15 on Linux, a local user who can run commands as the user account running Splunk Enterprise could cause an affected Linux package upgrade to run attacker-controlled operating-system commands with root privileges. The vulnerability",
-        "severity": "HIGH",
-        "score": 7.7,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76266",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76267",
-        "published": "2026-10-07T21:17:17Z",
-        "description": "In Splunk Enterprise versions below 10.4.3, 10.2.7, and 10.0.10, a user that holds a role with the read_o11y_content capability could inject forged entries into the app log through the Representational State Transfer (REST) API. The vulnerability is possible because Splunk App for Splunk O11y Cloud ",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76267",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76268",
-        "published": "2026-10-07T21:17:17Z",
-        "description": "In Splunk Enterprise versions below 10.4.3 and 10.2.7, an unauthenticated user with network access to the Patroni Representational State Transfer (REST) Application Programming Interface (API) on a search head cluster member could execute attacker-controlled operating-system commands. The vulnerabil",
-        "severity": "CRITICAL",
-        "score": 9.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76268",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76269",
-        "published": "2026-10-07T21:17:17Z",
-        "description": "In Splunk Enterprise versions below 10.4.3, 10.2.7, 10.0.10, and 9.4.15, a user who does not hold the \"admin\" or \"power\" Splunk roles could use a user-controlled job identifier to access substantially all search job information from jobs that belong to other users, including search query text, job m",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76269",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76270",
-        "published": "2026-10-07T21:17:17Z",
-        "description": "In Splunk Enterprise versions below 10.4.3, a user that holds a role with the list_spl2_modules capability could use SQL injection in SPL2 module filtering to access all relevant data available through the affected Representational State Transfer (REST) API, including private SPL2 module definitions",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76270",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107352",
-        "published": "2026-10-07T21:17:15Z",
-        "description": "Missing authorization checks in Amazon Athena engine version 3 request handling could have allowed an authenticated user to read limited query metadata (AWS account identifiers and SQL statement text) from other AWS accounts. Query results, credentials, and Amazon S3 data were not affected. AWS reme",
-        "severity": "MEDIUM",
-        "score": 6.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107352",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107363",
-        "published": "2026-10-07T21:17:15Z",
-        "description": "In OpenStack Zaqar before 23.0.1, the WebSocket transport fails to bind the project identifier in subsequent requests to the project authenticated by the Keystone token. An authenticated user with a valid token for one project may substitute another project's UUID to enumerate, inspect, create, or d",
-        "severity": "MEDIUM",
-        "score": 6.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107363",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-1403",
-        "published": "2026-10-07T21:17:15Z",
-        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 11.7 before 18.8.9, 18.9 before 18.9.5, and 18.10 before 18.10.3 that when importing CSV files could have allowed an authenticated user to cause denial of service to Sidekiq workers due to improper validation of CSV file stru",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-1403",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107227",
-        "published": "2026-10-07T21:17:14Z",
-        "description": "The AsyncHttpClient (AHC) library allows Java applications to easily execute HTTP requests and asynchronously process HTTP responses. From 2.2.0 until 3.0.14, WebSocket permessage-deflate decompression is unbounded when compression is enabled. The inbound pipeline aggregates compressed frames before",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107227",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107228",
-        "published": "2026-10-07T21:17:14Z",
-        "description": "The AsyncHttpClient (AHC) library allows Java applications to easily execute HTTP requests and asynchronously process HTTP responses. From 2.1.0 until 3.0.14, the enabled-by-default cookie store replaces a Cookie header explicitly supplied through setHeader or addHeader whenever the store contribute",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107228",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107229",
-        "published": "2026-10-07T21:17:14Z",
-        "description": "The AsyncHttpClient (AHC) library allows Java applications to easily execute HTTP requests and asynchronously process HTTP responses. From 2.16.0 until 3.0.14, ThreadSafeCookieStore incompletely validates cookie Domain attributes. Missing private-section and default public-suffix rules, absent A-lab",
-        "severity": "MEDIUM",
-        "score": 4.0,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107229",
         "kev": false
       }
     ]
