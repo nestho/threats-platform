@@ -1,258 +1,258 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-12T16:19:13Z",
+  "updated_at": "2026-10-13T04:35:49Z",
   "note": "Bounded slice of cves.json for the homepage. Use /data/cves.json for the full window.",
   "normalisation_failures": [],
   "total": 25,
   "items": [
     {
-      "id": "CVE-2026-9191",
-      "published": "2026-10-12T16:17:08Z",
-      "description": "Progress MarkLogic Server 12.x releases before 12.1.0 and 11.x releases before 11.3.7 do not sufficiently isolate user-supplied code executed through certain REST and XDBC evaluation paths from HTTP request, response, and session state. An attacker able to execute code through an affected path could",
-      "severity": "CRITICAL",
-      "score": 9.6,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-9191",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-85955",
-      "published": "2026-10-12T16:17:07Z",
-      "description": "Progress MarkLogic Server 12.x releases before 12.1.0 and 11.x releases before 11.3.7 allow a remote attacker with query-execution access to invoke an XQuery evaluation function without the additional required evaluation privilege, which could result in server-side code execution with elevated permi",
-      "severity": "CRITICAL",
-      "score": 9.9,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-85955",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-85956",
-      "published": "2026-10-12T16:17:07Z",
-      "description": "Progress MarkLogic Server 12.x releases before 12.1.0 and 11.x releases before 11.3.7 allow a remote attacker with delegated database-administrator privileges to perform backup or restore operations on forests outside the authorized database scope, which could result in unauthorized access to or mod",
-      "severity": "CRITICAL",
-      "score": 9.6,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-85956",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-92681",
-      "published": "2026-10-12T16:17:07Z",
-      "description": "In @neo4j/graphql versions up to and including 7.6.3, @authentication directives applied at the schema level or on the Query or Mutation types are silently ignored for top-level fields annotated with @cypher. Only @authentication directives placed directly on the individual fields are enforced. An a",
+      "id": "CVE-2026-109758",
+      "published": "2026-10-13T04:17:14Z",
+      "description": "Perforce Helix Authentication Service (HAS) deployments that retain the shipped default SCIM bearer token are vulnerable to unauthorized access when the SCIM endpoint is reachable by an attacker. In version 25.2, the installation templates contain a default credential which the installer copies into",
       "severity": "CRITICAL",
       "score": 9.3,
       "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92681",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-109758",
       "kev": false
     },
     {
-      "id": "CVE-2026-92682",
-      "published": "2026-10-12T16:17:07Z",
-      "description": "In @neo4j/graphql versions from 7.0.0 up to but not including 7.6.4, the none quantifier in @authorization filters on relationships and connections is not negated when translated to Cypher, so it behaves like some. A rule such as \"none of the related denied users matches the JWT subject\" therefore r",
-      "severity": "HIGH",
-      "score": 8.6,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92682",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-96612",
-      "published": "2026-10-12T16:17:07Z",
-      "description": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in hexpm hex allows a malicious package publisher to delete a directory outside the project's deps directory and extract package files into it when a developer fetches dependencies.\n\nA package release's requ",
-      "severity": "HIGH",
-      "score": 7.5,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96612",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-96618",
-      "published": "2026-10-12T16:17:07Z",
-      "description": "Improper Handling of Highly Compressed Data (Data Amplification) vulnerability in hexpm hex allows an untrusted package mirror to exhaust the memory or disk space of the machine running mix deps.get, mix deps.update, mix hex.package fetch or mix hex.docs fetch.\n\nHex treats a mirror configured with H",
-      "severity": "LOW",
-      "score": 2.1,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96618",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-85947",
-      "published": "2026-10-12T16:17:06Z",
-      "description": "Progress MarkLogic Server 12.x releases before 12.1.0 and 11.x releases before 11.3.7 contain an authorization flaw in certain forest-management operations. A remote attacker with forest-management privileges could exploit this flaw to create a persistent unauthorized administrator account, potentia",
-      "severity": "CRITICAL",
-      "score": 9.9,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-85947",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-85948",
-      "published": "2026-10-12T16:17:06Z",
-      "description": "Progress MarkLogic Server 12.x releases before 12.1.0 and 11.x releases before 11.3.7 contain an XQuery injection flaw in a deprecated Management API package path. A remote attacker with manage-user-level privileges could exploit this flaw to obtain persistent unauthorized administrative control.",
-      "severity": "CRITICAL",
-      "score": 9.9,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-85948",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-85949",
-      "published": "2026-10-12T16:17:06Z",
-      "description": "Progress MarkLogic Server 12.x releases before 12.1.0 and 11.x releases before 11.3.7 may record security-sensitive information in diagnostic logs under certain configurations. An attacker with access to the affected logs could use this information to obtain unauthorized access to protected resource",
-      "severity": "HIGH",
-      "score": 8.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-85949",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-85950",
-      "published": "2026-10-12T16:17:06Z",
-      "description": "Progress MarkLogic Server 12.x releases before 12.1.0 and 11.x releases before 11.3.7 contain an authorization flaw that could allow a remote attacker with administrative privileges to access authentication material associated with higher-privileged users, potentially resulting in unauthorized admin",
-      "severity": "HIGH",
-      "score": 8.4,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-85950",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-85951",
-      "published": "2026-10-12T16:17:06Z",
-      "description": "Progress MarkLogic Server 12.x releases before 12.1.0 and 11.x releases before 11.3.7 on Azure contain a server-side request forgery vulnerability that could allow an authenticated attacker to access internal cloud services, potentially resulting in unauthorized access to cloud credentials or tokens",
-      "severity": "HIGH",
-      "score": 8.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-85951",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-85952",
-      "published": "2026-10-12T16:17:06Z",
-      "description": "Affected Linux-based Progress MarkLogic Server 12.x releases before 12.1.0 and 11.x releases before 11.3.7 contain a server-side request forgery vulnerability that could allow an authenticated attacker to access internal cloud services, potentially resulting in unauthorized access to cloud credentia",
-      "severity": "HIGH",
-      "score": 8.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-85952",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-85953",
-      "published": "2026-10-12T16:17:06Z",
-      "description": "Progress MarkLogic Server 12.x releases before 12.1.0 and 11.x releases before 11.3.7 contain privileged legacy InfoStudio modules that do not sufficiently validate user-controlled file paths and user-context values. Exploitation could result in unauthorized access to server files or execution under",
-      "severity": "HIGH",
-      "score": 8.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-85953",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-85954",
-      "published": "2026-10-12T16:17:06Z",
-      "description": "Progress MarkLogic Server 12.x releases before 12.1.0 and 11.x releases before 11.3.7 can evaluate user-controlled values supplied to certain higher-order XQuery functions in an elevated security context, which could result in privilege escalation beyond the attacker's granted permissions.",
-      "severity": "HIGH",
-      "score": 8.6,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-85954",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-109396",
-      "published": "2026-10-12T16:17:05Z",
-      "description": "Thelia before 3.1.2 and 3.2.x before 3.2.1 contains a CSV formula injection vulnerability that allows unauthenticated visitors to inject spreadsheet formulas by supplying crafted registration, checkout or newsletter fields. Attackers can submit names, addresses or phone values starting with =, +, - ",
-      "severity": "LOW",
-      "score": 2.3,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-109396",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-109397",
-      "published": "2026-10-12T16:17:05Z",
-      "description": "Thelia before 3.1.2 and 3.2.x before 3.2.1 contains an unrestricted file upload vulnerability that allows authenticated back-office users to upload PHP files by appending a trailing space to filenames. FileProcessorService validates the raw filename but FileManager::sanitizeFileName() strips the spa",
-      "severity": "HIGH",
-      "score": 8.6,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-109397",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-109398",
-      "published": "2026-10-12T16:17:05Z",
-      "description": "Gumlet php-image-resize before 3.0.1 contains a denial of service vulnerability because the ImageResize constructor in lib/ImageResize.php passes images to GD imagecreatefrom* functions without pixel limits. Remote attackers can upload small, highly compressed images that decode to large bitmaps, ex",
-      "severity": "HIGH",
-      "score": 8.7,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-109398",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-109399",
-      "published": "2026-10-12T16:17:05Z",
-      "description": "SWUpdate through 2026.05.1 contains an improper certificate validation vulnerability in crypto/swupdate_cms_verify_openssl.c that trusts untrusted X.509 certificates embedded in CMS SignedData for chain building. Attackers holding a signing key from a sibling intermediate under the same root can emb",
-      "severity": "CRITICAL",
-      "score": 9.2,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-109399",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-81856",
-      "published": "2026-10-12T16:17:05Z",
-      "description": "Improper Neutralization of Escape, Meta, or Control Sequences vulnerability in hexpm hex allows a malicious package publisher or a hostile repository server to inject terminal control sequences into the output of Mix tasks.\n\nHex prints strings supplied by the package repository and the documentation",
-      "severity": "LOW",
-      "score": 2.3,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-81856",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-109194",
-      "published": "2026-10-12T16:17:04Z",
-      "description": "A flaw was found in Red Hat Quay. The build trigger management application programming interface (API) fails to verify whether a requested trigger belongs to the specified repository. An authenticated user with administrative access to any repository can view, modify, or permanently delete build tri",
+      "id": "CVE-2026-108965",
+      "published": "2026-10-13T04:17:13Z",
+      "description": "A vulnerability was determined in SourceCodester Performance Indicator System 1.0. This vulnerability affects unknown code of the file /opils/staff/edit_quantity.php. Executing a manipulation of the argument pqty can lead to sql injection. The attack can be launched remotely. The exploit has been pu",
       "severity": "MEDIUM",
-      "score": 6.4,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-109194",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-109195",
-      "published": "2026-10-12T16:17:04Z",
-      "description": "A flaw was found in Quay. An authenticated attacker can access repository auto-prune configurations from other namespaces, leading to unauthorized information disclosure. This issue occurs because the application does not properly enforce namespace scoping when retrieving policy details by repositor",
-      "severity": "LOW",
-      "score": 3.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-109195",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-109391",
-      "published": "2026-10-12T16:17:04Z",
-      "description": "Square Squash through commit e73f280 contains an insecure deserialization vulnerability that allows unauthenticated attackers to store crafted YAML via the POST /api/1.0/symbolication endpoint. When occurrences referencing the attacker-controlled symbolication UUID are symbolicated, the stored value",
-      "severity": "CRITICAL",
-      "score": 9.2,
+      "score": 5.5,
       "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-109391",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108965",
       "kev": false
     },
     {
-      "id": "CVE-2026-109392",
-      "published": "2026-10-12T16:17:04Z",
-      "description": "Pimcore through 2026.3.1 contains a stored cross-site scripting vulnerability that allows authenticated backend users to inject scripts by storing unescaped URLs in ExternalImage fields. Attackers with data object edit permission can store attribute-breaking payloads that execute JavaScript in the a",
-      "severity": "MEDIUM",
-      "score": 5.1,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-109392",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-109393",
-      "published": "2026-10-12T16:17:04Z",
-      "description": "QloApps through 1.7.0 contains an insecure direct object reference vulnerability in back-office AJAX handlers of AdminOrdersController, AdminBookingDocumentController, AdminProductsController and AdminAddHotelController that skip htl_access hotel checks. Hotel-restricted employees can supply other h",
+      "id": "CVE-2026-108962",
+      "published": "2026-10-13T04:17:11Z",
+      "description": "A vulnerability has been found in storyicon comfyui_segment_anything up to ab6395596399d5048639cdab7e44ec9fae857a93. Affected by this issue is the function SLConfig._file2dict of the file local_groundingdino/util/slconfig.py of the component GroundingDINO Model Loading. Such manipulation of the argu",
       "severity": "MEDIUM",
       "score": 5.3,
       "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-109393",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108962",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-108964",
+      "published": "2026-10-13T04:17:11Z",
+      "description": "A vulnerability was found in SourceCodester Performance Indicator System 1.0. This affects an unknown part of the file /opils/admin/addproduct.php. Performing a manipulation of the argument prodcategory results in sql injection. The attack can be initiated remotely. The exploit has been made public ",
+      "severity": "MEDIUM",
+      "score": 5.5,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108964",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-108961",
+      "published": "2026-10-13T04:17:10Z",
+      "description": "A flaw has been found in PaddlePaddle PaddleX up to 3.7.2. Affected by this vulnerability is the function NormalizeImage.__init__ of the file paddlex/inference/models/text_detection/processors.py of the component Preprocessor. This manipulation of the argument scale causes code injection. It is poss",
+      "severity": "MEDIUM",
+      "score": 5.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108961",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-108957",
+      "published": "2026-10-13T03:16:40Z",
+      "description": "A security flaw has been discovered in TinyLLaVA TinyLLaVA_Factory up to 1abc6ac5e76a68d0fd087a071b56da968e69ca9b. The impacted element is the function _load_text_config of the file tinyllava/model/configuration_tinyllava.py of the component TinyLlavaConfig. Performing a manipulation of the argument",
+      "severity": "LOW",
+      "score": 2.1,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108957",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-108958",
+      "published": "2026-10-13T03:16:40Z",
+      "description": "A weakness has been identified in TensorLayer up to 2.2.4. This affects the function load_hdf5_graph of the file tensorlayer/files/utils.py of the component HDF5 Loading. Executing a manipulation of the argument model_config can lead to deserialization. The attack can be executed remotely. The explo",
+      "severity": "LOW",
+      "score": 2.1,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108958",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-108959",
+      "published": "2026-10-13T03:16:40Z",
+      "description": "A security vulnerability has been detected in itsourcecode Online Cake Ordering System 1.0. This impacts an unknown function of the file /addtransacdetail.php. The manipulation of the argument ID leads to sql injection. The attack is possible to be carried out remotely. The exploit has been disclose",
+      "severity": "LOW",
+      "score": 2.1,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108959",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-108960",
+      "published": "2026-10-13T03:16:40Z",
+      "description": "A vulnerability was detected in Tiiny-AI PowerInfer up to 8bd56d69906c9d2dba4d3bf6899763401e01a9a4. Affected is the function create_striped_mat_to_gpu of the file smallthinker/ggml/src/ggml-cuda/ggml-cuda.cu of the component FFN GPU-split Loader. The manipulation results in out-of-bounds read. The a",
+      "severity": "LOW",
+      "score": 1.9,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108960",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-109786",
+      "published": "2026-10-13T03:16:40Z",
+      "description": "In fail2ban 0.10.5 through 1.1.1 before ddd879d, the sshd filter (config/filter.d/sshd.conf) accepts an \"on <token>\" suffix after the host address. Because OpenSSH logs the offered username verbatim, a remote unauthenticated attacker can use a username such as \"x VICTIM-SOURCE-IP-ADDRESS on\" to make",
+      "severity": "MEDIUM",
+      "score": 5.3,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-109786",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-82632",
+      "published": "2026-10-13T02:17:00Z",
+      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.9 before 19.2.8, 19.3 before 19.3.5, and 19.4 before 19.4.2 that, under certain conditions, could have allowed an authenticated user with a fine-grained Personal Access Token scoped only to user-boundary import permissions",
+      "severity": "LOW",
+      "score": 3.1,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82632",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-84284",
+      "published": "2026-10-13T02:17:00Z",
+      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 17.11 before 19.2.8, all 19.3 versions, and 19.4 before 19.4.2 that, under certain conditions, could have allowed an unauthenticated user to read work item contents from private groups and projects due to incorrect authorizat",
+      "severity": "MEDIUM",
+      "score": 5.3,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-84284",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-85529",
+      "published": "2026-10-13T02:17:00Z",
+      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 19.2 before 19.2.8, 19.3 before 19.3.5, and 19.4 before 19.4.2 that, under certain conditions, could have allowed an unauthenticated user to read internal notes and confidential system notes on public projects due to improper",
+      "severity": "MEDIUM",
+      "score": 5.3,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-85529",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-92528",
+      "published": "2026-10-13T02:17:00Z",
+      "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 16.11 before 19.2.8, 19.3 before 19.3.5, and 19.4 before 19.4.2 that, under certain conditions, could have allowed an authenticated user to approve a merge request despite having contributed commits to it, due to improper identi",
+      "severity": "MEDIUM",
+      "score": 4.2,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92528",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-92883",
+      "published": "2026-10-13T02:17:00Z",
+      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 19.1 before 19.2.8, 19.3 before 19.3.5, and 19.4 before 19.4.2  that, under certain conditions, could have allowed an authenticated user to execute arbitrary JavaScript in the context of other users' browser sessions via a sp",
+      "severity": "HIGH",
+      "score": 8.7,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92883",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-96893",
+      "published": "2026-10-13T02:17:00Z",
+      "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 19.1 before 19.2.8, 19.3 before 19.3.5, and 19.4 before 19.4.2 that, under certain conditions, could have allowed an authenticated user to inject specially crafted content into AI agent instructions, potentially causing unintend",
+      "severity": "HIGH",
+      "score": 7.3,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96893",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-97229",
+      "published": "2026-10-13T02:17:00Z",
+      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 19.2 before 19.2.8, 19.3 before 19.3.5, and 19.4 before 19.4.2 that, under certain conditions, could have allowed an unauthenticated user to execute arbitrary code on the GitLab server via a specially crafted regular expressi",
+      "severity": "CRITICAL",
+      "score": 10.0,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97229",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-9268",
+      "published": "2026-10-13T02:17:00Z",
+      "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 13.6 before 19.2.8, 19.3 before 19.3.5, and 19.4 before 19.4.2 that, under certain conditions, could have allowed an authenticated user with limited permissions to modify project CI/CD deployment rollback settings without proper",
+      "severity": "LOW",
+      "score": 2.7,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-9268",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-35001",
+      "published": "2026-10-13T02:16:59Z",
+      "description": "OpenS100 through commit daa35b contains an integer overflow vulnerability in the S-102 Bathymetric Surface parser that allows remote attackers to cause a heap-based buffer overflow by opening a crafted S-102 HDF5 file with malicious grid dimension metadata. Attackers can exploit the unvalidated mult",
+      "severity": "HIGH",
+      "score": 8.4,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-35001",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-5954",
+      "published": "2026-10-13T02:16:59Z",
+      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 15.1 before 19.2.8, 19.3 before 19.3.5, and 19.4 before 19.4.2 that, under certain conditions, could have allowed a user to download package files from a public project due to improper authorization checks.",
+      "severity": "MEDIUM",
+      "score": 4.2,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-5954",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-6567",
+      "published": "2026-10-13T02:16:59Z",
+      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 13.8 before 19.2.8, 19.3 before 19.3.5, and 19.4 before 19.4.2 that, under certain conditions, could have allowed an authenticated user with reporter role to access restricted CI artifact report content they were not authoriz",
+      "severity": "MEDIUM",
+      "score": 4.3,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-6567",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-78335",
+      "published": "2026-10-13T02:16:59Z",
+      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 19.1 before 19.2.8, 19.3 before 19.3.5, and 19.4 before 19.4.2 that, under certain conditions, could have allowed an authenticated user holding a project-scoped fine-grained Personal Access Token to modify integrations belong",
+      "severity": "MEDIUM",
+      "score": 4.2,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-78335",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-7767",
+      "published": "2026-10-13T02:16:59Z",
+      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 13.11 before 19.2.8, 19.3 before 19.3.5, and 19.4 before 19.4.2 that, under certain conditions, could have allowed an authenticated user controlling a Kubernetes agent to cause sensitive authentication tokens to be sent to an",
+      "severity": "MEDIUM",
+      "score": 5.8,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-7767",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-81839",
+      "published": "2026-10-13T02:16:59Z",
+      "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 18.1 before 19.2.8, 19.3 before 19.3.5, and 19.4 before 19.4.2 that, under certain conditions, could have allowed an authenticated user to execute arbitrary CI/CD pipelines in a transferred project with the new group's privilege",
+      "severity": "HIGH",
+      "score": 7.7,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-81839",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-14210",
+      "published": "2026-10-13T02:16:58Z",
+      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.11 before 19.2.8, 19.3 before 19.3.5, and 19.4 before 19.4.2 that, under certain conditions, could have allowed an authenticated user with a project-scoped fine-grained Personal Access Token to permanently delete or modify",
+      "severity": "MEDIUM",
+      "score": 4.3,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-14210",
       "kev": false
     }
   ]
