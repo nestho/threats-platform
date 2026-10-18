@@ -1,15 +1,15 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-17T21:52:22Z",
+  "updated_at": "2026-10-18T12:17:12Z",
   "total": 100,
   "normalisation_failures": [],
   "items": [
     {
-      "id": "GHSA-r8cm-478x-h626",
-      "title": "[GHSA-r8cm-478x-h626] Malicious code in voltswannts (PyPI)",
-      "published": "2026-10-17T18:31:13Z",
+      "id": "GHSA-4pw5-gqh4-v2pj",
+      "title": "[GHSA-4pw5-gqh4-v2pj] Malicious code in leakdeep (PyPI)",
+      "published": "2026-10-18T03:31:13Z",
       "ecosystem": "PIP",
-      "summary": "Source: kam193 (5fa306d5f7de491546822f6b026c35cc395d7d379258b7a8382b50468ce708b2) \n The package belongs to a series of packages falsely advertising 'audio-analysis profiles' loader. In fact, the only purpose is to execute remote code, but the URL is not embedded in the package. It is likely a contin",
+      "summary": "Source: amazon-inspector (c0818f9da5e7dc1413ff1b2a24d3cb53d0b49d06bd802502296d6d8e8e536fee) \n The package presents itself as an OSINT / credential-leak intelligence framework with a search CLI, but the advertised SearchEngine.search is a stub returning an empty list. Every invocation of the CLI (cli",
       "link": ""
     },
     {
@@ -18,6 +18,14 @@
       "published": "2026-10-17T18:31:13Z",
       "ecosystem": "PIP",
       "summary": "Source: kam193 (751255a551e996471674b44aea1cac8c92313caeaf22bb1584c96e4be5036b5a) \n During import, package performs actions intended to escape sandbox, find Telegram-bot session files and initiate malicious account deletion. \n \n Category: MALICIOUS - The campaign has clearly malicious intent, like i",
+      "link": ""
+    },
+    {
+      "id": "GHSA-r8cm-478x-h626",
+      "title": "[GHSA-r8cm-478x-h626] Malicious code in voltswannts (PyPI)",
+      "published": "2026-10-17T18:31:13Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (5fa306d5f7de491546822f6b026c35cc395d7d379258b7a8382b50468ce708b2) \n The package belongs to a series of packages falsely advertising 'audio-analysis profiles' loader. In fact, the only purpose is to execute remote code, but the URL is not embedded in the package. It is likely a contin",
       "link": ""
     },
     {
@@ -674,14 +682,6 @@
       "published": "2026-10-15T20:14:54Z",
       "ecosystem": "GO",
       "summary": "Summary \n A nil-pointer dereference in  openapi3filter  lets any unauthenticated client crash a request handler with a single HTTP request against an OpenAPI  3.1  operation that declares  type: array   without   items . OpenAPI 3.1 (JSON Schema 2020-12) permits omitting  items , and  doc.Validate()",
-      "link": ""
-    },
-    {
-      "id": "GHSA-54mm-6729-r5wp",
-      "title": "[GHSA-54mm-6729-r5wp] Leantime: Any Authenticated User Can Self-Escalate to Admin via Unauthorized JSON-RPC Methods",
-      "published": "2026-10-15T20:14:43Z",
-      "ecosystem": "COMPOSER",
-      "summary": "Summary \n Any authenticated Leantime user - including the lowest-privilege  readonly  role - can escalate to full administrative access by calling the JSON-RPC method  leantime.rpc.api.api.createApiKeyWithProjects  with an attacker-chosen  role  value. The server creates a new account at that role w",
       "link": ""
     },
     {
