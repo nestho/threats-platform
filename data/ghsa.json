@@ -1,9 +1,33 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-18T12:17:12Z",
+  "updated_at": "2026-10-19T00:36:38Z",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-98x4-5hvc-62qx",
+      "title": "[GHSA-98x4-5hvc-62qx] Malware in @fluxionii/baileys",
+      "published": "2026-10-19T00:21:53Z",
+      "ecosystem": "NPM",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "link": ""
+    },
+    {
+      "id": "GHSA-v73c-2rgc-m2jx",
+      "title": "[GHSA-v73c-2rgc-m2jx] Malware in @ostyado/baileys",
+      "published": "2026-10-19T00:21:53Z",
+      "ecosystem": "NPM",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "link": ""
+    },
+    {
+      "id": "GHSA-753f-gx8g-q88w",
+      "title": "[GHSA-753f-gx8g-q88w] Malware in @pkgship/frpc-linux-arm64",
+      "published": "2026-10-18T21:10:43Z",
+      "ecosystem": "NPM",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "link": ""
+    },
     {
       "id": "GHSA-4pw5-gqh4-v2pj",
       "title": "[GHSA-4pw5-gqh4-v2pj] Malicious code in leakdeep (PyPI)",
@@ -621,70 +645,6 @@
       "link": ""
     },
     {
-      "id": "GHSA-g74g-rg72-j2p3",
-      "title": "[GHSA-g74g-rg72-j2p3] mise permits untrusted local configuration to override default shell arguments",
-      "published": "2026-10-15T20:16:09Z",
-      "ecosystem": "RUST",
-      "summary": "Summary \n Untrusted local .mise.toml [settings] can set the shell interpreter args (unix/windows default_inline / default_file shell_args), yielding arbitrary command execution, because those command-interpreter settings were not added to the global_only denylist the  CVE-2026-55448  fix relies on. ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-mh7x-f8wq-4jhx",
-      "title": "[GHSA-mh7x-f8wq-4jhx] kin-openapi spec loader panics on a self-referential additionalProperties $ref (nil-pointer DoS)",
-      "published": "2026-10-15T20:15:58Z",
-      "ecosystem": "GO",
-      "summary": "The defect \n Confirmed at HEAD (f0407d5, v0.144.0). openapi3/loader.go, inside resolveComponent's drill closure (around line 455), the case *SchemaRef branch for pathPart == \"additionalProperties\" dereferences c.Value.AdditionalProperties with no nil-check on c.Value: \n  case *SchemaRef:\n    if path",
-      "link": ""
-    },
-    {
-      "id": "GHSA-fh4f-47mf-f2gj",
-      "title": "[GHSA-fh4f-47mf-f2gj] kin-openapi: Unauthenticated panic (DoS) in openapi3filter legacy router via non-canonical/unsupported HTTP method on a static path",
-      "published": "2026-10-15T20:15:48Z",
-      "ecosystem": "GO",
-      "summary": "Summary \n The  openapi3filter.ValidationHandler  (the exported, documented request-validation middleware) hard-wires the legacy router ( routers/legacy ). That router matches the incoming request method verbatim against a trie built exclusively from upper-cased canonical HTTP methods. A request carr",
-      "link": ""
-    },
-    {
-      "id": "GHSA-3hcj-9m7p-wwm9",
-      "title": "[GHSA-3hcj-9m7p-wwm9] Gotify: Insufficiently Protected Password Change endpoint",
-      "published": "2026-10-15T20:15:38Z",
-      "ecosystem": "GO",
-      "summary": "The password change endpoint ( POST /current/user/password ) in Gotify versions &lt;= 2.9.1 does not require knowledge of the current password. An attacker in possession of a valid client token can set a new password for the affected user. Recovering the account requires administrator intervention o",
-      "link": ""
-    },
-    {
-      "id": "GHSA-2x6f-rp82-ppmj",
-      "title": "[GHSA-2x6f-rp82-ppmj] Nuxt OG Image cache poisoning through derivable cache keys on unsigned dynamic image routes",
-      "published": "2026-10-15T20:15:27Z",
-      "ecosystem": "NPM",
-      "summary": "Vendor:  Nuxt \n Product:  Nuxt OG Image \n Version:  6.2.5 \n Description:  Due to the specifics of caching and key generation in the Open Graph image cache created by the module, an unauthenticated attacker can modify the content of the image (for example, the  title  parameter) that is delivered to ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-2vc4-c4r6-p6v6",
-      "title": "[GHSA-2vc4-c4r6-p6v6] OpenNext Cloudflare: Cache interception can bypass middleware protection for encoded paths",
-      "published": "2026-10-15T20:15:17Z",
-      "ecosystem": "NPM",
-      "summary": "Summary \n When cache interception is enabled,  @opennextjs/cloudflare  can interpret percent-encoded paths differently during middleware matching and cache lookup. \n An encoded request may fail to match authorization middleware, then be decoded into the cache key of a protected route. The cached res",
-      "link": ""
-    },
-    {
-      "id": "GHSA-qjpp-gffx-2wm9",
-      "title": "[GHSA-qjpp-gffx-2wm9] Nezha Monitoring: Whole-instance DoS in Nezha dashboard: a member can crash the process for every tenant",
-      "published": "2026-10-15T20:15:06Z",
-      "ecosystem": "GO",
-      "summary": "Summary \n A single low-privilege  RoleMember  can take the entire Nezha dashboard offline, and with it every tenant's web UI, REST API, and agent connections, by racing two ordinary operations on their own service. The crash is a nil pointer dereference in the service-monitor worker at  service/sing",
-      "link": ""
-    },
-    {
-      "id": "GHSA-p6wj-qrr4-pgh5",
-      "title": "[GHSA-p6wj-qrr4-pgh5] kin-openapi: Nil-pointer dereference panic in openapi3filter for OpenAPI 3.1 array schemas missing items",
-      "published": "2026-10-15T20:14:54Z",
-      "ecosystem": "GO",
-      "summary": "Summary \n A nil-pointer dereference in  openapi3filter  lets any unauthenticated client crash a request handler with a single HTTP request against an OpenAPI  3.1  operation that declares  type: array   without   items . OpenAPI 3.1 (JSON Schema 2020-12) permits omitting  items , and  doc.Validate()",
-      "link": ""
-    },
-    {
       "id": "GHSA-483q-j87r-c97c",
       "title": "[GHSA-483q-j87r-c97c] Malicious code in py-worm (PyPI)",
       "published": "2026-10-15T09:30:34Z",
@@ -797,11 +757,51 @@
       "link": ""
     },
     {
+      "id": "GHSA-6q87-84jw-cjhp",
+      "title": "[GHSA-6q87-84jw-cjhp] @sveltejs/kit vulnerable to Cross-site Scripting via tracked search_params",
+      "published": "2025-04-14T19:10:42Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n Unsanitized search param names cause XSS vulnerability. You are affected if you iterate over all entries of  event.url.searchParams  inside a server  load  function. Attackers can exploit it by crafting a malicious URL and getting a user to click a link with said URL. \n Details \n SvelteKit",
+      "link": ""
+    },
+    {
       "id": "GHSA-76p7-773f-r4q5",
       "title": "[GHSA-76p7-773f-r4q5] Cross-site Scripting (XSS) in serialize-javascript",
       "published": "2025-02-10T18:30:47Z",
       "ecosystem": "NPM",
       "summary": "A flaw was found in npm-serialize-javascript. The vulnerability occurs because the serialize-javascript module does not properly sanitize certain inputs, such as regex or other JavaScript object types, allowing an attacker to inject malicious code. This code could be executed when deserialized by a ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-mh2x-fcqh-fmqv",
+      "title": "[GHSA-mh2x-fcqh-fmqv] @sveltejs/kit has unescaped error message included on error page",
+      "published": "2024-11-25T15:32:45Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n The static error.html template for errors contains placeholders that are replaced without escaping the content first. \n Details \n From  https://kit.svelte.dev/docs/errors : \n \n error.html is the page that is rendered when everything else fails. It can contain the following placeholders: \n%",
+      "link": ""
+    },
+    {
+      "id": "GHSA-g5m6-hxpp-fc49",
+      "title": "[GHSA-g5m6-hxpp-fc49] Sending a GET or HEAD request with a body crashes SvelteKit",
+      "published": "2024-01-24T14:22:22Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n In SvelteKit 2 sending a GET request with a body eg  {}  to a SvelteKit app in preview or with  adapter-node  throws  Request with GET/HEAD method cannot have body.  and crashes the app. \n  node:internal/deps/undici/undici:6066\n          throw new TypeError(\"Request with GET/HEAD method ca",
+      "link": ""
+    },
+    {
+      "id": "GHSA-gv7g-x59x-wf8f",
+      "title": "[GHSA-gv7g-x59x-wf8f] SvelteKit framework has Insufficient CSRF protection for CORS requests",
+      "published": "2023-04-07T19:23:31Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n The SvelteKit framework offers developers an option to create simple REST APIs. This is done by defining a  +server.js  file, containing endpoint handlers for different HTTP methods. \n SvelteKit provides out-of-the-box cross-site request forgery (CSRF) protection to its users. The protecti",
+      "link": ""
+    },
+    {
+      "id": "GHSA-5p75-vc5g-8rv2",
+      "title": "[GHSA-5p75-vc5g-8rv2] SvelteKit vulnerable to Cross-Site Request Forgery",
+      "published": "2023-04-04T21:20:47Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n The SvelteKit framework offers developers an option to create simple REST APIs. This is done by defining a  +server.js  file, containing endpoint handlers for different HTTP methods. \n SvelteKit provides out-of-the-box cross-site request forgery (CSRF) protection to it’s users. The protect",
       "link": ""
     }
   ]
