@@ -1,9 +1,305 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-20T00:56:35Z",
+  "updated_at": "2026-10-20T15:28:48Z",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-62vg-58rm-qff7",
+      "title": "[GHSA-62vg-58rm-qff7] @angular/router: Denial of Service via Unmatched Empty-Path Outlet Route Matching in Server-Side Rendering (SSR)",
+      "published": "2026-10-20T14:36:39Z",
+      "ecosystem": "NPM",
+      "summary": "A denial of service (DoS) vulnerability was identified in  @angular/router  when Server-Side Rendering (SSR) is enabled on Node.js (V8). \n During route recognition,  @angular/router  fails to validate whether an auxiliary outlet segment in the URL matches a route configured for that specific outlet ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-5r4p-p66f-jhc7",
+      "title": "[GHSA-5r4p-p66f-jhc7] Hono: `serveStatic` decodes the request path a second time, leading to bypass of middleware on static paths",
+      "published": "2026-10-20T14:36:11Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n  serveStatic  decodes the request path a second time after Hono has already decoded it for routing. A crafted request can be routed as one path and served as another, so middleware mounted on a static prefix does not run for a file under that prefix. \n Details \n Hono decodes the request pa",
+      "link": ""
+    },
+    {
+      "id": "GHSA-w739-gvwx-grc3",
+      "title": "[GHSA-w739-gvwx-grc3] @angular/platform-server: Open Redirect via Protocol-Relative URLs in Server-Side Rendering (SSR)",
+      "published": "2026-10-20T14:35:49Z",
+      "ecosystem": "NPM",
+      "summary": "An open redirect vulnerability was identified in  @angular/platform-server  when Server-Side Rendering (SSR) is enabled. \n When Angular SSR renders an incoming request, URL resolution and platform navigation are managed by  ServerPlatformLocation  using  resolveUrl  (or  parseUrl  in v20). While  re",
+      "link": ""
+    },
+    {
+      "id": "GHSA-r7fv-28h4-cvq7",
+      "title": "[GHSA-r7fv-28h4-cvq7] markdown-it: Quadratic complexity in smartquotes with unmatched closing quotes",
+      "published": "2026-10-20T14:34:50Z",
+      "ecosystem": "NPM",
+      "summary": "Impact \n When  typographer: true  is enabled, specially crafted Markdown can cause quadratic processing time in the smartquotes rule, potentially leading to denial of service in applications processing untrusted input. \n Many opening double quotes followed by unmatched closing single quotes cause re",
+      "link": ""
+    },
+    {
+      "id": "GHSA-259r-337f-4rfw",
+      "title": "[GHSA-259r-337f-4rfw] Compress/s2: Integer Overflow or Wraparound and Out-of-bounds Write in compress",
+      "published": "2026-10-20T14:33:33Z",
+      "ecosystem": "GO",
+      "summary": "Signed Integer Overflow in s2.NewDict \n Summary \n A signed integer overflow vulnerability in  s2.NewDict()  allows an attacker to bypass repeat index validation by supplying a dictionary with a uvarint-encoded repeat value exceeding  MaxInt64 . When  Dict.Encode()  is subsequently called, the overfl",
+      "link": ""
+    },
+    {
+      "id": "GHSA-6wmf-3r64-vcwv",
+      "title": "[GHSA-6wmf-3r64-vcwv] Crass : Large numeric exponents cause CPU and memory denial of service",
+      "published": "2026-10-20T14:32:39Z",
+      "ecosystem": "RUBYGEMS",
+      "summary": "Impact \n Crass converts CSS scientific notation number values with unbounded exponentiation before it clamps the result to  Float::MAX . Applications that use Crass to parse attacker-controlled CSS strings can be forced to spend disproportionate CPU and memory parsing a tiny input, possibly resultin",
+      "link": ""
+    },
+    {
+      "id": "GHSA-7c67-r266-7883",
+      "title": "[GHSA-7c67-r266-7883] Malicious code in @platform-services/hrm-mfe-core (npm)",
+      "published": "2026-10-20T09:31:12Z",
+      "ecosystem": "NPM",
+      "summary": "Source: ossf-package-analysis (c7552efe145088950a0df7a5c63da92a309a040fba2062a4d32bb59cadc9ec47) \n The OpenSSF Package Analysis project identified '@platform-services/hrm-mfe-core' @ 99.9.1 (npm) as malicious. \n It is considered malicious because: \n \n The package communicates with a domain associate",
+      "link": ""
+    },
+    {
+      "id": "GHSA-2xv5-9mfv-2368",
+      "title": "[GHSA-2xv5-9mfv-2368] Malicious code in ccl-global-shopping (npm)",
+      "published": "2026-10-20T06:31:17Z",
+      "ecosystem": "NPM",
+      "summary": "Source: ossf-package-analysis (31f39d40e2c7700b1c070cbd26ea533789dc444daaf58e77d191f7eb10036fc9) \n The OpenSSF Package Analysis project identified 'ccl-global-shopping' @ 99.9.1 (npm) as malicious. \n It is considered malicious because: \n \n The package communicates with a domain associated with malic",
+      "link": ""
+    },
+    {
+      "id": "GHSA-j5gf-73fv-7357",
+      "title": "[GHSA-j5gf-73fv-7357] Malicious code in sc-wizard (npm)",
+      "published": "2026-10-20T06:31:17Z",
+      "ecosystem": "NPM",
+      "summary": "Source: ossf-package-analysis (54691cc130e614ee031186f7e646c3e6076efad6105a6e9cad68f62aa736516b) \n The OpenSSF Package Analysis project identified 'sc-wizard' @ 99.9.1 (npm) as malicious. \n It is considered malicious because: \n \n The package communicates with a domain associated with malicious activ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-r7h6-xjpc-v4w4",
+      "title": "[GHSA-r7h6-xjpc-v4w4] Malicious code in sc-announcer (npm)",
+      "published": "2026-10-20T06:31:17Z",
+      "ecosystem": "NPM",
+      "summary": "Source: ossf-package-analysis (38abcbba47f18b6d76a06a770258c620fc322472d0db0d38b67f04805b916d43) \n The OpenSSF Package Analysis project identified 'sc-announcer' @ 99.9.1 (npm) as malicious. \n It is considered malicious because: \n \n The package communicates with a domain associated with malicious ac",
+      "link": ""
+    },
+    {
+      "id": "GHSA-jqm8-4v5f-g79x",
+      "title": "[GHSA-jqm8-4v5f-g79x] Malicious code in tailwindcss-motionanimate (npm)",
+      "published": "2026-10-20T06:31:17Z",
+      "ecosystem": "NPM",
+      "summary": "tailwindcss-motionanimate (1.0.1) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by doublekk61 on 2026-09-28. src/motion.js:5 requires the private scoped package @jas",
+      "link": ""
+    },
+    {
+      "id": "GHSA-8vv2-m423-rcx4",
+      "title": "[GHSA-8vv2-m423-rcx4] Malicious code in tailwindcss-keyframe-kit (npm)",
+      "published": "2026-10-20T06:31:17Z",
+      "ecosystem": "NPM",
+      "summary": "tailwindcss-keyframe-kit (3.0.0, 3.0.1, 3.0.2) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by hackson306623 on 2026-09-28. src/generators/motion-base.js:5 requires",
+      "link": ""
+    },
+    {
+      "id": "GHSA-pq7r-cr8h-g6c8",
+      "title": "[GHSA-pq7r-cr8h-g6c8] Malicious code in fanarena-common (npm)",
+      "published": "2026-10-20T06:31:17Z",
+      "ecosystem": "NPM",
+      "summary": "Source: ossf-package-analysis (d81686cb5b877d15810946a299ba819a875a3304e45d65a3fdb83c5473ac664b) \n The OpenSSF Package Analysis project identified 'fanarena-common' @ 99.9.1 (npm) as malicious. \n It is considered malicious because: \n \n The package communicates with a domain associated with malicious",
+      "link": ""
+    },
+    {
+      "id": "GHSA-m8c8-f5hx-664g",
+      "title": "[GHSA-m8c8-f5hx-664g] Malicious code in tailwindcss-visual-kit (npm)",
+      "published": "2026-10-20T06:31:17Z",
+      "ecosystem": "NPM",
+      "summary": "tailwindcss-visual-kit (0.0.0-stage, 1.3.6) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by johnsmith0821 on 2026-10-09. src/motion.js:5 requires the private scoped",
+      "link": ""
+    },
+    {
+      "id": "GHSA-jfww-6c2q-w9rr",
+      "title": "[GHSA-jfww-6c2q-w9rr] Malicious code in tailwindcss-animatemotion (npm)",
+      "published": "2026-10-20T06:31:17Z",
+      "ecosystem": "NPM",
+      "summary": "tailwindcss-animatemotion (1.0.7) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by doublekk61 on 2026-09-28. src/motion.js:5 requires the private scoped package @aar",
+      "link": ""
+    },
+    {
+      "id": "GHSA-259h-r4vh-ph5j",
+      "title": "[GHSA-259h-r4vh-ph5j] Malicious code in tailwindcss-effect-lab (npm)",
+      "published": "2026-10-20T06:31:17Z",
+      "ecosystem": "NPM",
+      "summary": "tailwindcss-effect-lab (0.0.0-stage, 1.6.7) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by johnsmith0821 on 2026-10-09. src/motion.js:5 requires the private scoped",
+      "link": ""
+    },
+    {
+      "id": "GHSA-6hg9-v89p-9w82",
+      "title": "[GHSA-6hg9-v89p-9w82] Malicious code in tailwindcss-animate-catalog (npm)",
+      "published": "2026-10-20T06:31:17Z",
+      "ecosystem": "NPM",
+      "summary": "tailwindcss-animate-catalog (2.0.6, 2.0.7) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by hackson306623 on 2026-09-28. lib/styles/variables.js:5 requires the priva",
+      "link": ""
+    },
+    {
+      "id": "GHSA-jm3w-rxjc-9rp6",
+      "title": "[GHSA-jm3w-rxjc-9rp6] Malicious code in tailwind-fabric (npm)",
+      "published": "2026-10-20T06:31:17Z",
+      "ecosystem": "NPM",
+      "summary": "tailwind-fabric (3.0.1, 3.0.4) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by johnxia1997 on 2026-09-28. src/motion.js:5 requires the private scoped package @aaron",
+      "link": ""
+    },
+    {
+      "id": "GHSA-94m4-x888-pgf4",
+      "title": "[GHSA-94m4-x888-pgf4] Malicious code in tailwind-keyframes (npm)",
+      "published": "2026-10-20T06:31:17Z",
+      "ecosystem": "NPM",
+      "summary": "tailwind-keyframes (2.0.6) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by adriannamrr on 2026-09-28. src/motion.js:5 requires the private scoped package @aaron205w",
+      "link": ""
+    },
+    {
+      "id": "GHSA-qpfh-v8qh-gq5m",
+      "title": "[GHSA-qpfh-v8qh-gq5m] Malicious code in tailwind-css-keyframes (npm)",
+      "published": "2026-10-20T06:31:16Z",
+      "ecosystem": "NPM",
+      "summary": "tailwind-css-keyframes (1.0.7) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by kinsley_badu on 2026-09-28. src/motion.js:5 requires the private scoped package @jasp",
+      "link": ""
+    },
+    {
+      "id": "GHSA-5fhm-3gq2-6gj8",
+      "title": "[GHSA-5fhm-3gq2-6gj8] Malicious code in animatecss-tailwind-binary (npm)",
+      "published": "2026-10-20T06:31:16Z",
+      "ecosystem": "NPM",
+      "summary": "animatecss-tailwind-binary (2.0.6) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by jamesvectorpack on 2026-09-28. src/motion.js:5 requires the private scoped packag",
+      "link": ""
+    },
+    {
+      "id": "GHSA-h6pg-m44p-2x74",
+      "title": "[GHSA-h6pg-m44p-2x74] Malicious code in tailwind-kinetic (npm)",
+      "published": "2026-10-20T06:31:16Z",
+      "ecosystem": "NPM",
+      "summary": "tailwind-kinetic (2.0.6, 2.0.8) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by keinsell-jh on 2026-09-28. src/motion.js:5 requires the private scoped package @aaro",
+      "link": ""
+    },
+    {
+      "id": "GHSA-gqf2-w3vm-g87w",
+      "title": "[GHSA-gqf2-w3vm-g87w] Malicious code in animatecss-tailwind-plugin (npm)",
+      "published": "2026-10-20T06:31:16Z",
+      "ecosystem": "NPM",
+      "summary": "animatecss-tailwind-plugin (2.0.6) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by hannahgibbs on 2026-09-28. src/motion.js:5 requires the private scoped package @a",
+      "link": ""
+    },
+    {
+      "id": "GHSA-wrp2-f9jg-g5qx",
+      "title": "[GHSA-wrp2-f9jg-g5qx] Malicious code in tailwind-animationlab (npm)",
+      "published": "2026-10-20T06:31:16Z",
+      "ecosystem": "NPM",
+      "summary": "tailwind-animationlab (2.0.6) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by adriannamrr on 2026-09-28. src/motion.js:5 requires the private scoped package @jasper",
+      "link": ""
+    },
+    {
+      "id": "GHSA-pvxf-hc22-hp2x",
+      "title": "[GHSA-pvxf-hc22-hp2x] Malicious code in tailwind-animate-kit (npm)",
+      "published": "2026-10-20T06:31:16Z",
+      "ecosystem": "NPM",
+      "summary": "tailwind-animate-kit (2.0.6, 2.0.7, 2.0.8) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by keinsell-jh on 2026-09-28. src/motion.js:5 requires the private scoped pa",
+      "link": ""
+    },
+    {
+      "id": "GHSA-2hh6-9wwc-7j9w",
+      "title": "[GHSA-2hh6-9wwc-7j9w] Malicious code in tailwind-animaflow-kit (npm)",
+      "published": "2026-10-20T06:31:16Z",
+      "ecosystem": "NPM",
+      "summary": "tailwind-animaflow-kit (2.0.6) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by killerdev1127 on 2026-09-28. src/motion.js:5 requires the private scoped package @aar",
+      "link": ""
+    },
+    {
+      "id": "GHSA-q56v-wqww-c9pm",
+      "title": "[GHSA-q56v-wqww-c9pm] Malicious code in tailwind-animatecss-kit (npm)",
+      "published": "2026-10-20T06:31:16Z",
+      "ecosystem": "NPM",
+      "summary": "tailwind-animatecss-kit (2.0.6) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by killerdev1127 on 2026-09-28. src/motion.js:5 requires the private scoped package @ja",
+      "link": ""
+    },
+    {
+      "id": "GHSA-q9pp-3583-37vv",
+      "title": "[GHSA-q9pp-3583-37vv] Malicious code in signalledger-diagnostics (npm)",
+      "published": "2026-10-20T06:31:16Z",
+      "ecosystem": "NPM",
+      "summary": "signalledger-diagnostics (2.0.6) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by scott-rogers on 2026-09-28. src/motion.js:5 requires the private scoped package @aa",
+      "link": ""
+    },
+    {
+      "id": "GHSA-vj87-h2x3-2985",
+      "title": "[GHSA-vj87-h2x3-2985] Malicious code in animatecss-tailwind-luminary (npm)",
+      "published": "2026-10-20T06:31:16Z",
+      "ecosystem": "NPM",
+      "summary": "animatecss-tailwind-luminary (2.0.6, 2.0.7) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by cypherbyte on 2026-09-28. src/motion.js:5 requires the private scoped pa",
+      "link": ""
+    },
+    {
+      "id": "GHSA-hcfv-m7w3-vcch",
+      "title": "[GHSA-hcfv-m7w3-vcch] Malicious code in animatecss-tailwind-vectrix (npm)",
+      "published": "2026-10-20T06:31:16Z",
+      "ecosystem": "NPM",
+      "summary": "animatecss-tailwind-vectrix (2.0.6, 2.0.7) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by cypherbyte on 2026-09-28. src/motion.js:5 requires the private scoped pac",
+      "link": ""
+    },
+    {
+      "id": "GHSA-8rrv-xcpx-rv3r",
+      "title": "[GHSA-8rrv-xcpx-rv3r] Malicious code in animatecss-tailwind-helper (npm)",
+      "published": "2026-10-20T06:31:16Z",
+      "ecosystem": "NPM",
+      "summary": "animatecss-tailwind-helper (2.0.6) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by hannahgibbs on 2026-09-28. src/motion.js:5 requires the private scoped package @j",
+      "link": ""
+    },
+    {
+      "id": "GHSA-gh2v-353h-8jhq",
+      "title": "[GHSA-gh2v-353h-8jhq] Malicious code in animatecss-tailwind-presets (npm)",
+      "published": "2026-10-20T06:31:16Z",
+      "ecosystem": "NPM",
+      "summary": "animatecss-tailwind-presets (1.0.0, 2.0.3) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by elony16 on 2026-09-29. src/motion.js:5 requires the private scoped packag",
+      "link": ""
+    },
+    {
+      "id": "GHSA-h368-qgvj-jhgw",
+      "title": "[GHSA-h368-qgvj-jhgw] Malicious code in signalledger-bridge (npm)",
+      "published": "2026-10-20T06:31:16Z",
+      "ecosystem": "NPM",
+      "summary": "signalledger-bridge (2.0.6) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by scott-rogers on 2026-09-28. src/motion.js:5 requires the private scoped package @jasperq",
+      "link": ""
+    },
+    {
+      "id": "GHSA-mp8w-g7p9-w5v3",
+      "title": "[GHSA-mp8w-g7p9-w5v3] Malicious code in animatecss-tailwind-graphic (npm)",
+      "published": "2026-10-20T06:31:16Z",
+      "ecosystem": "NPM",
+      "summary": "animatecss-tailwind-graphic (2.0.6) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by jamesvectorpack on 2026-09-28. src/motion.js:5 requires the private scoped packa",
+      "link": ""
+    },
+    {
+      "id": "GHSA-q29m-3m5r-fmjj",
+      "title": "[GHSA-q29m-3m5r-fmjj] Malicious code in animate-tailwind-kit (npm)",
+      "published": "2026-10-20T06:31:16Z",
+      "ecosystem": "NPM",
+      "summary": "animate-tailwind-kit (3.0.1, 3.0.4) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by johnxia1997 on 2026-09-28. src/motion.js:5 requires the private scoped package @",
+      "link": ""
+    },
+    {
+      "id": "GHSA-jr8w-9rvh-vv8p",
+      "title": "[GHSA-jr8w-9rvh-vv8p] Malicious code in animate-twcss-pack (npm)",
+      "published": "2026-10-20T06:31:16Z",
+      "ecosystem": "NPM",
+      "summary": "animate-twcss-pack (2.0.6) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by enterprise0908 on 2026-09-28. src/motion.js:5 requires the private scoped package @jasper",
+      "link": ""
+    },
+    {
+      "id": "GHSA-v2vq-rvhc-qqr9",
+      "title": "[GHSA-v2vq-rvhc-qqr9] Malicious code in animate-twcss-bridge (npm)",
+      "published": "2026-10-20T06:31:16Z",
+      "ecosystem": "NPM",
+      "summary": "animate-twcss-bridge (2.0.6) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by enterprise0908 on 2026-09-28. src/motion.js:5 requires the private scoped package @aaro",
+      "link": ""
+    },
     {
       "id": "GHSA-59m7-pf46-28fr",
       "title": "[GHSA-59m7-pf46-28fr] Malicious code in asurion (PyPI)",
@@ -189,254 +485,6 @@
       "link": ""
     },
     {
-      "id": "GHSA-f8c7-rwf9-fmgm",
-      "title": "[GHSA-f8c7-rwf9-fmgm] Mercury: Unauthenticated Remote Code Execution in /api/terminals - access control bypass",
-      "published": "2026-10-19T17:00:54Z",
-      "ecosystem": "PIP",
-      "summary": "Summary \n A missing comma in  mercury_app/block_handler.py 's  BLOCKED_PATTERNS  list causes the blocklist to fail to cover the  /api/terminals  endpoint. As a result, any unauthenticated attacker can spawn a full, interactive OS-level shell on the host running Mercury. \n Details \n The blocklist in ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-953h-535j-jg2v",
-      "title": "[GHSA-953h-535j-jg2v] agent-router: MCP session resume does not verify the embedded anti-hijacking subject; default Helm seed makes session IDs forgeable",
-      "published": "2026-10-19T16:53:26Z",
-      "ecosystem": "GO",
-      "summary": "Summary \n The MCP proxy's client-facing session ID embeds the authenticated caller's \nsubject (JWT  sub  claim) specifically as an anti-hijacking discriminator — \nmatching the Model Context Protocol specification's documented session-hijacking \nguidance ( https://modelcontextprotocol.io/specificatio",
-      "link": ""
-    },
-    {
-      "id": "GHSA-pcc4-rvhr-2pr8",
-      "title": "[GHSA-pcc4-rvhr-2pr8] Graphify Fortran extractor: incomplete cpp #include hardening allows arbitrary host-file read/exfiltration when indexing an untrusted repo",
-      "published": "2026-10-19T16:51:36Z",
-      "ecosystem": "PIP",
-      "summary": "Summary \n The Fortran extractor's C-preprocessor step ( graphify/extractors/fortran.py ,  _cpp_preprocess ) applies an incomplete  #include  hardening. The  -nostdinc -I /dev/null  flags it relies on (comment \"Security (F-007)\") do  not  stop a capital- F  Fortran source file from including  absolut",
-      "link": ""
-    },
-    {
-      "id": "GHSA-rv4m-xm3f-3ccq",
-      "title": "[GHSA-rv4m-xm3f-3ccq] Mercury: Unauthenticated Remote Code Execution via /api/kernels",
-      "published": "2026-10-19T16:49:08Z",
-      "ecosystem": "PIP",
-      "summary": "Mercury runs a JupyterLab server with  anonymous access by default  ( mercury_app/__main__.py  sets  --IdentityProvider.token=''  when no  --token / MERCURY_TOKEN  is given; when tokenless it also sets  --ServerApp.disable_check_xsrf=True ). It relies on a  blocklist  ( mercury_app/block_handler.py ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-vx2m-gpq4-8j5q",
-      "title": "[GHSA-vx2m-gpq4-8j5q] LoopX serve-status permissive CORS policy exposes control-plane state and private Markdown files",
-      "published": "2026-10-19T16:11:57Z",
-      "ecosystem": "PIP",
-      "summary": "Summary \n  loopx serve-status  sends  Access-Control-Allow-Origin: *  on  every  response, \nincluding its unauthenticated  GET  routes. Because the endpoint is unauthenticated and \nbound to a fixed, well-known loopback port,  any website the operator visits can read \nLoopX control-plane state and th",
-      "link": ""
-    },
-    {
-      "id": "GHSA-3c65-77q8-3cv8",
-      "title": "[GHSA-3c65-77q8-3cv8] Malware in j019qc",
-      "published": "2026-10-19T15:36:06Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-56wf-ffww-7w6r",
-      "title": "[GHSA-56wf-ffww-7w6r] Malware in zubn7b",
-      "published": "2026-10-19T15:36:06Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-6jj8-jfq4-rh25",
-      "title": "[GHSA-6jj8-jfq4-rh25] Malware in g23p4g",
-      "published": "2026-10-19T15:36:06Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-8h9g-w7hc-m2vg",
-      "title": "[GHSA-8h9g-w7hc-m2vg] Malware in rhlozh",
-      "published": "2026-10-19T15:36:06Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-crpr-3p42-5v4g",
-      "title": "[GHSA-crpr-3p42-5v4g] Malware in giu094",
-      "published": "2026-10-19T15:36:06Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-vm25-j4pf-w498",
-      "title": "[GHSA-vm25-j4pf-w498] Malware in 3qamjp",
-      "published": "2026-10-19T15:36:06Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-jrcj-7fj7-rcj5",
-      "title": "[GHSA-jrcj-7fj7-rcj5] Malware in j5opb7",
-      "published": "2026-10-19T15:36:06Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-27jv-jmw5-c2v5",
-      "title": "[GHSA-27jv-jmw5-c2v5] Malware in tkacg3",
-      "published": "2026-10-19T15:36:06Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-6mmf-g5rj-3qxv",
-      "title": "[GHSA-6mmf-g5rj-3qxv] Malware in ysqp68",
-      "published": "2026-10-19T15:36:06Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-97qj-xxch-gv59",
-      "title": "[GHSA-97qj-xxch-gv59] Malware in 8i7pp4",
-      "published": "2026-10-19T15:36:06Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-6rc2-wmvg-58vj",
-      "title": "[GHSA-6rc2-wmvg-58vj] Malware in g8ez1y",
-      "published": "2026-10-19T15:36:06Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-946x-h6wx-r4jh",
-      "title": "[GHSA-946x-h6wx-r4jh] Malware in x294tn",
-      "published": "2026-10-19T15:36:06Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-4vwp-4cgf-q7hm",
-      "title": "[GHSA-4vwp-4cgf-q7hm] Malware in ju0oud",
-      "published": "2026-10-19T15:36:06Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-mp58-pj24-x4mp",
-      "title": "[GHSA-mp58-pj24-x4mp] Malware in gtjgd4",
-      "published": "2026-10-19T15:36:06Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-rq88-5p3h-79r5",
-      "title": "[GHSA-rq88-5p3h-79r5] Malware in f0klcr",
-      "published": "2026-10-19T15:36:06Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-jm54-39g7-2x5f",
-      "title": "[GHSA-jm54-39g7-2x5f] Malware in oo9fja",
-      "published": "2026-10-19T15:36:06Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-jjpm-7wrx-wm3x",
-      "title": "[GHSA-jjpm-7wrx-wm3x] Malware in waojpf",
-      "published": "2026-10-19T15:36:06Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-mjcg-fv8p-3m86",
-      "title": "[GHSA-mjcg-fv8p-3m86] Malware in ivzlid",
-      "published": "2026-10-19T15:36:06Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-299j-xhj5-p4mq",
-      "title": "[GHSA-299j-xhj5-p4mq] Malware in v49yzy",
-      "published": "2026-10-19T15:36:06Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-7w9w-mcrx-mq63",
-      "title": "[GHSA-7w9w-mcrx-mq63] Malware in 3gr2dj",
-      "published": "2026-10-19T15:36:06Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-pppj-4j56-8jg6",
-      "title": "[GHSA-pppj-4j56-8jg6] Malware in 1n9lip",
-      "published": "2026-10-19T15:36:06Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-37g4-578m-87mr",
-      "title": "[GHSA-37g4-578m-87mr] Malware in 4p9kgm",
-      "published": "2026-10-19T15:36:06Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-h7xv-6h6g-vf82",
-      "title": "[GHSA-h7xv-6h6g-vf82] Malware in a-lbum-do-wnload-avai-lable-file-playing-the-angel-l9tng-nkbcwn",
-      "published": "2026-10-19T15:36:05Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-rvh7-vx3v-774p",
-      "title": "[GHSA-rvh7-vx3v-774p] Malware in do-wnload-available-f2oap-wvzhe9",
-      "published": "2026-10-19T15:36:04Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-92jm-7q3v-h86x",
-      "title": "[GHSA-92jm-7q3v-h86x] Malware in down-lo-ad-now-zip-mp3-116827-chaos-is-me-rj9kf-abdorv",
-      "published": "2026-10-19T15:36:04Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-g3pf-jcwm-phxv",
-      "title": "[GHSA-g3pf-jcwm-phxv] Malware in down-lo-ad-now-zip-mp3-6140-the-ideal-crash-jysrl-jcdvdw",
-      "published": "2026-10-19T15:36:04Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
       "id": "GHSA-4j9v-h7pp-725h",
       "title": "[GHSA-4j9v-h7pp-725h] Microsoft Security Advisory CVE-2026-70035 - .NET and Visual Studio Remote Code Execution Vulnerability",
       "published": "2026-10-13T20:53:46Z",
@@ -549,14 +597,6 @@
       "link": ""
     },
     {
-      "id": "GHSA-2mxg-prvg-9jfg",
-      "title": "[GHSA-2mxg-prvg-9jfg] Microsoft Security Advisory CVE-2026-85790 - .NET Information Disclosure Vulnerability",
-      "published": "2026-10-13T20:42:44Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in Microsoft.Native.Quic.MsQuic.Schannel. This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n Various vulnerabilities",
-      "link": ""
-    },
-    {
       "id": "GHSA-wxxw-5cvc-53j7",
       "title": "[GHSA-wxxw-5cvc-53j7] Microsoft Security Advisory CVE-2026-66822 - .NET and Visual Studio Information Disclosure Vulnerability",
       "published": "2026-10-13T20:41:40Z",
@@ -613,14 +653,6 @@
       "link": ""
     },
     {
-      "id": "GHSA-7hqp-7c5m-4vq6",
-      "title": "[GHSA-7hqp-7c5m-4vq6] Microsoft Security Advisory CVE-2026-96960 - .NET and Visual Studio Denial of Service Vulnerability",
-      "published": "2026-10-13T20:26:27Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in System.Security.Cryptography.Xml; System.Private.Xml. This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n Signed X",
-      "link": ""
-    },
-    {
       "id": "GHSA-87vj-4hqv-22p9",
       "title": "[GHSA-87vj-4hqv-22p9] Microsoft Security Advisory CVE-2026-96233 - .NET and Visual Studio Denial of Service Vulnerability",
       "published": "2026-10-13T20:25:37Z",
@@ -661,59 +693,19 @@
       "link": ""
     },
     {
-      "id": "GHSA-fqpq-cx42-9jmm",
-      "title": "[GHSA-fqpq-cx42-9jmm] Microsoft Security Advisory CVE-2026-70194 - .NET and Visual Studio Security Feature Bypass Vulnerability",
-      "published": "2026-10-13T20:00:42Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in System.Net.Security. This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n .NET 11 post-handshake TLS client authent",
-      "link": ""
-    },
-    {
-      "id": "GHSA-494h-xx7x-5frh",
-      "title": "[GHSA-494h-xx7x-5frh] Microsoft Security Advisory CVE-2026-70183 - ASP.NET Core Security Feature Bypass Vulnerability",
-      "published": "2026-10-13T19:59:23Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in Microsoft.AspNetCore.Components.Authorization. This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n A stale asynchr",
-      "link": ""
-    },
-    {
-      "id": "GHSA-57xr-hfxx-jw5x",
-      "title": "[GHSA-57xr-hfxx-jw5x] Microsoft Security Advisory CVE-2026-70196 - ASP.NET Core Denial of Service Vulnerability",
-      "published": "2026-10-13T19:58:12Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in Microsoft.AspNetCore.WebUtilities. This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n Incrementally arriving form",
-      "link": ""
-    },
-    {
-      "id": "GHSA-w5qq-qrpp-rf4c",
-      "title": "[GHSA-w5qq-qrpp-rf4c] Microsoft Security Advisory CVE-2026-70181 - ASP.NET Core Denial of Service Vulnerability",
-      "published": "2026-10-13T19:47:44Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in Microsoft.AspNetCore.WebUtilities. This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n FileBufferingReadStream eag",
-      "link": ""
-    },
-    {
-      "id": "GHSA-x3vp-85cm-q97r",
-      "title": "[GHSA-x3vp-85cm-q97r] Microsoft Security Advisory CVE-2026-70175 - ASP.NET Core Elevation of Privilege Vulnerability",
-      "published": "2026-10-13T19:44:54Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in Microsoft.AspNetCore.Identity and Microsoft.AspNetCore.Identity.UI. This advisory also provides guidance on what developers can do to update their applications to remove this vulnerabili",
-      "link": ""
-    },
-    {
-      "id": "GHSA-334f-vvp4-7g6p",
-      "title": "[GHSA-334f-vvp4-7g6p] Microsoft Security Advisory CVE-2026-70159 - ASP.NET Core Denial of Service Vulnerability",
-      "published": "2026-10-13T19:41:19Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in Microsoft.AspNetCore.SignalR.Common and Microsoft.AspNetCore.SignalR.Core. This advisory also provides guidance on what developers can do to update their applications to remove this vuln",
-      "link": ""
-    },
-    {
       "id": "GHSA-8f34-f56x-9xph",
       "title": "[GHSA-8f34-f56x-9xph] msgpack5: Truncated map32 headers throw an unexpected error",
       "published": "2026-10-08T17:40:10Z",
       "ecosystem": "NPM",
       "summary": "Impact \n A truncated  map32  header causes an out-of-bounds buffer read and throws  RangeError  instead of  IncompleteBufferError . Applications that rely on  IncompleteBufferError  to wait for additional bytes may terminate a request, stream, or worker unexpectedly. No adjacent memory is disclosed ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-pj5h-5q6c-3pfx",
+      "title": "[GHSA-pj5h-5q6c-3pfx] Payload external upload trust validation issue",
+      "published": "2026-10-07T20:29:41Z",
+      "ecosystem": "NPM",
+      "summary": "Impact \n Under certain external upload configurations, Payload could send authentication data to a destination that was not verified as trusted. If the affected request contained a valid session, this could expose that session to an unintended recipient. \n  You are affected if:  \n \n You have enabled",
       "link": ""
     },
     {
@@ -738,6 +730,14 @@
       "published": "2026-09-23T16:11:18Z",
       "ecosystem": "MAVEN",
       "summary": "moquette is reachable by untrusted MQTT clients (anonymous by default), so every byte from any client, including pre-authentication, is untrusted. This is a memory-safe JVM: the ceiling is authorization/ACL bypass + denial of service + cross-session integrity,  not RCE  (I did not find one and do no",
+      "link": ""
+    },
+    {
+      "id": "GHSA-cq7h-9rpc-7xx5",
+      "title": "[GHSA-cq7h-9rpc-7xx5] Malicious code in ing-feat-itsme-oidc-authentication (npm)",
+      "published": "2026-07-27T23:00:09Z",
+      "ecosystem": "NPM",
+      "summary": "Source: amazon-inspector (175d0dba1f70bc84bcd4e29b57e0f7831248582614cd146af7d1ea6d1d057cd5) \n On npm install, package.json's preinstall hook executes poc.js, which collects os.hostname(), os.userInfo().username, process.cwd(), and process.platform, base64-encodes the values, and issues an HTTPS GET ",
       "link": ""
     },
     {
