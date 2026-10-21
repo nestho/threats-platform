@@ -1,303 +1,783 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-20T15:28:48Z",
+  "updated_at": "2026-10-21T06:52:06Z",
   "total": 100,
   "normalisation_failures": [],
   "items": [
     {
-      "id": "GHSA-62vg-58rm-qff7",
-      "title": "[GHSA-62vg-58rm-qff7] @angular/router: Denial of Service via Unmatched Empty-Path Outlet Route Matching in Server-Side Rendering (SSR)",
-      "published": "2026-10-20T14:36:39Z",
+      "id": "GHSA-wx9h-pmqq-rcgg",
+      "title": "[GHSA-wx9h-pmqq-rcgg] Malware in fnd-stores",
+      "published": "2026-10-21T04:34:33Z",
       "ecosystem": "NPM",
-      "summary": "A denial of service (DoS) vulnerability was identified in  @angular/router  when Server-Side Rendering (SSR) is enabled on Node.js (V8). \n During route recognition,  @angular/router  fails to validate whether an auxiliary outlet segment in the URL matches a route configured for that specific outlet ",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
       "link": ""
     },
     {
-      "id": "GHSA-5r4p-p66f-jhc7",
-      "title": "[GHSA-5r4p-p66f-jhc7] Hono: `serveStatic` decodes the request path a second time, leading to bypass of middleware on static paths",
-      "published": "2026-10-20T14:36:11Z",
+      "id": "GHSA-94fw-5xp7-q2xq",
+      "title": "[GHSA-94fw-5xp7-q2xq] Malware in @dreamguyxeon/baileyx",
+      "published": "2026-10-21T04:23:18Z",
       "ecosystem": "NPM",
-      "summary": "Summary \n  serveStatic  decodes the request path a second time after Hono has already decoded it for routing. A crafted request can be routed as one path and served as another, so middleware mounted on a static prefix does not run for a file under that prefix. \n Details \n Hono decodes the request pa",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
       "link": ""
     },
     {
-      "id": "GHSA-w739-gvwx-grc3",
-      "title": "[GHSA-w739-gvwx-grc3] @angular/platform-server: Open Redirect via Protocol-Relative URLs in Server-Side Rendering (SSR)",
-      "published": "2026-10-20T14:35:49Z",
+      "id": "GHSA-3vq8-fp27-44xm",
+      "title": "[GHSA-3vq8-fp27-44xm] Malware in my-auto-follow",
+      "published": "2026-10-21T04:23:18Z",
       "ecosystem": "NPM",
-      "summary": "An open redirect vulnerability was identified in  @angular/platform-server  when Server-Side Rendering (SSR) is enabled. \n When Angular SSR renders an incoming request, URL resolution and platform navigation are managed by  ServerPlatformLocation  using  resolveUrl  (or  parseUrl  in v20). While  re",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
       "link": ""
     },
     {
-      "id": "GHSA-r7fv-28h4-cvq7",
-      "title": "[GHSA-r7fv-28h4-cvq7] markdown-it: Quadratic complexity in smartquotes with unmatched closing quotes",
-      "published": "2026-10-20T14:34:50Z",
+      "id": "GHSA-x3rc-jwjw-pwv6",
+      "title": "[GHSA-x3rc-jwjw-pwv6] Malware in @dreamguyxeon/libsignal-node",
+      "published": "2026-10-21T04:23:18Z",
       "ecosystem": "NPM",
-      "summary": "Impact \n When  typographer: true  is enabled, specially crafted Markdown can cause quadratic processing time in the smartquotes rule, potentially leading to denial of service in applications processing untrusted input. \n Many opening double quotes followed by unmatched closing single quotes cause re",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
       "link": ""
     },
     {
-      "id": "GHSA-259r-337f-4rfw",
-      "title": "[GHSA-259r-337f-4rfw] Compress/s2: Integer Overflow or Wraparound and Out-of-bounds Write in compress",
-      "published": "2026-10-20T14:33:33Z",
-      "ecosystem": "GO",
-      "summary": "Signed Integer Overflow in s2.NewDict \n Summary \n A signed integer overflow vulnerability in  s2.NewDict()  allows an attacker to bypass repeat index validation by supplying a dictionary with a uvarint-encoded repeat value exceeding  MaxInt64 . When  Dict.Encode()  is subsequently called, the overfl",
-      "link": ""
-    },
-    {
-      "id": "GHSA-6wmf-3r64-vcwv",
-      "title": "[GHSA-6wmf-3r64-vcwv] Crass : Large numeric exponents cause CPU and memory denial of service",
-      "published": "2026-10-20T14:32:39Z",
-      "ecosystem": "RUBYGEMS",
-      "summary": "Impact \n Crass converts CSS scientific notation number values with unbounded exponentiation before it clamps the result to  Float::MAX . Applications that use Crass to parse attacker-controlled CSS strings can be forced to spend disproportionate CPU and memory parsing a tiny input, possibly resultin",
-      "link": ""
-    },
-    {
-      "id": "GHSA-7c67-r266-7883",
-      "title": "[GHSA-7c67-r266-7883] Malicious code in @platform-services/hrm-mfe-core (npm)",
-      "published": "2026-10-20T09:31:12Z",
+      "id": "GHSA-xw7m-xxch-j3hp",
+      "title": "[GHSA-xw7m-xxch-j3hp] Malware in my-auto-follow-eltio",
+      "published": "2026-10-21T04:23:18Z",
       "ecosystem": "NPM",
-      "summary": "Source: ossf-package-analysis (c7552efe145088950a0df7a5c63da92a309a040fba2062a4d32bb59cadc9ec47) \n The OpenSSF Package Analysis project identified '@platform-services/hrm-mfe-core' @ 99.9.1 (npm) as malicious. \n It is considered malicious because: \n \n The package communicates with a domain associate",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
       "link": ""
     },
     {
-      "id": "GHSA-2xv5-9mfv-2368",
-      "title": "[GHSA-2xv5-9mfv-2368] Malicious code in ccl-global-shopping (npm)",
-      "published": "2026-10-20T06:31:17Z",
+      "id": "GHSA-7345-fjw8-x55w",
+      "title": "[GHSA-7345-fjw8-x55w] Malware in @alannxd/baileys",
+      "published": "2026-10-21T03:24:45Z",
       "ecosystem": "NPM",
-      "summary": "Source: ossf-package-analysis (31f39d40e2c7700b1c070cbd26ea533789dc444daaf58e77d191f7eb10036fc9) \n The OpenSSF Package Analysis project identified 'ccl-global-shopping' @ 99.9.1 (npm) as malicious. \n It is considered malicious because: \n \n The package communicates with a domain associated with malic",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
       "link": ""
     },
     {
-      "id": "GHSA-j5gf-73fv-7357",
-      "title": "[GHSA-j5gf-73fv-7357] Malicious code in sc-wizard (npm)",
-      "published": "2026-10-20T06:31:17Z",
-      "ecosystem": "NPM",
-      "summary": "Source: ossf-package-analysis (54691cc130e614ee031186f7e646c3e6076efad6105a6e9cad68f62aa736516b) \n The OpenSSF Package Analysis project identified 'sc-wizard' @ 99.9.1 (npm) as malicious. \n It is considered malicious because: \n \n The package communicates with a domain associated with malicious activ",
+      "id": "GHSA-7hjg-qchp-46pj",
+      "title": "[GHSA-7hjg-qchp-46pj] Malicious code in trijigo-kalip (PyPI)",
+      "published": "2026-10-21T00:31:34Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (37ff57e1b55bd5e84d85338fd9b0b43ae1faf44cc8a7e0e3e11387663461d52d) \n Installing the package or importing the module exfiltrates basic information about the host, and the package has no other purpose. \n \n Category: PROBABLY_PENTEST - Packages looking like typical pentest packages, but ",
       "link": ""
     },
     {
-      "id": "GHSA-r7h6-xjpc-v4w4",
-      "title": "[GHSA-r7h6-xjpc-v4w4] Malicious code in sc-announcer (npm)",
-      "published": "2026-10-20T06:31:17Z",
-      "ecosystem": "NPM",
-      "summary": "Source: ossf-package-analysis (38abcbba47f18b6d76a06a770258c620fc322472d0db0d38b67f04805b916d43) \n The OpenSSF Package Analysis project identified 'sc-announcer' @ 99.9.1 (npm) as malicious. \n It is considered malicious because: \n \n The package communicates with a domain associated with malicious ac",
+      "id": "GHSA-v2ww-gvf4-g796",
+      "title": "[GHSA-v2ww-gvf4-g796] Malicious code in jiklpo-tsunari-kay (PyPI)",
+      "published": "2026-10-21T00:31:34Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (82ef4d01da7de20aa2e477bb07e1daa97855cdf33d186579da5cf148e3d4be0e) \n The package uses fake http-downloaded dependencies to track downloads, and has no other purpose. \n \n Category: PROBABLY_PENTEST - Packages looking like typical pentest packages, but also anything that looks like test",
       "link": ""
     },
     {
-      "id": "GHSA-jqm8-4v5f-g79x",
-      "title": "[GHSA-jqm8-4v5f-g79x] Malicious code in tailwindcss-motionanimate (npm)",
-      "published": "2026-10-20T06:31:17Z",
-      "ecosystem": "NPM",
-      "summary": "tailwindcss-motionanimate (1.0.1) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by doublekk61 on 2026-09-28. src/motion.js:5 requires the private scoped package @jas",
+      "id": "GHSA-2x8w-jgwq-x69p",
+      "title": "[GHSA-2x8w-jgwq-x69p] Malicious code in hijok-lampam (PyPI)",
+      "published": "2026-10-21T00:31:34Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (8944d571e7af6e23f5c6c984859f38e1336fcfeee595dfabca635477cfe38045) \n The package uses fake http-downloaded dependencies to track downloads, and has no other purpose. \n \n Category: PROBABLY_PENTEST - Packages looking like typical pentest packages, but also anything that looks like test",
       "link": ""
     },
     {
-      "id": "GHSA-8vv2-m423-rcx4",
-      "title": "[GHSA-8vv2-m423-rcx4] Malicious code in tailwindcss-keyframe-kit (npm)",
-      "published": "2026-10-20T06:31:17Z",
-      "ecosystem": "NPM",
-      "summary": "tailwindcss-keyframe-kit (3.0.0, 3.0.1, 3.0.2) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by hackson306623 on 2026-09-28. src/generators/motion-base.js:5 requires",
+      "id": "GHSA-hf2v-wrj5-w7gc",
+      "title": "[GHSA-hf2v-wrj5-w7gc] Malicious code in ssemver (PyPI)",
+      "published": "2026-10-21T00:31:34Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (6aacc4af4fb66d334fa0153d79a707cf0c3decfe3d3b7ed41c67697f21d8b16b) \n During installation, package downloads and executes malware. \n \n Category: MALICIOUS - The campaign has clearly malicious intent, like infostealers. \n Campaign: 2026-10-semvver \n Reasons (based on the campaign): \n \n ",
       "link": ""
     },
     {
-      "id": "GHSA-pq7r-cr8h-g6c8",
-      "title": "[GHSA-pq7r-cr8h-g6c8] Malicious code in fanarena-common (npm)",
-      "published": "2026-10-20T06:31:17Z",
-      "ecosystem": "NPM",
-      "summary": "Source: ossf-package-analysis (d81686cb5b877d15810946a299ba819a875a3304e45d65a3fdb83c5473ac664b) \n The OpenSSF Package Analysis project identified 'fanarena-common' @ 99.9.1 (npm) as malicious. \n It is considered malicious because: \n \n The package communicates with a domain associated with malicious",
+      "id": "GHSA-fcjc-2jwg-j4pj",
+      "title": "[GHSA-fcjc-2jwg-j4pj] Malicious code in hijiko-pilaka (PyPI)",
+      "published": "2026-10-21T00:31:34Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (1ca95d97923a23c0fd145b6cc4def7910fa36f1b4c4e5e3cf40e5bab8c9e250d) \n The package uses fake http-downloaded dependencies to track downloads, and has no other purpose. \n \n Category: PROBABLY_PENTEST - Packages looking like typical pentest packages, but also anything that looks like test",
       "link": ""
     },
     {
-      "id": "GHSA-m8c8-f5hx-664g",
-      "title": "[GHSA-m8c8-f5hx-664g] Malicious code in tailwindcss-visual-kit (npm)",
-      "published": "2026-10-20T06:31:17Z",
-      "ecosystem": "NPM",
-      "summary": "tailwindcss-visual-kit (0.0.0-stage, 1.3.6) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by johnsmith0821 on 2026-10-09. src/motion.js:5 requires the private scoped",
+      "id": "GHSA-2jc4-7fx8-385m",
+      "title": "[GHSA-2jc4-7fx8-385m] Malicious code in semer (PyPI)",
+      "published": "2026-10-21T00:31:34Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (7479f42de6f963e39b7aa1409b586e605dca69978763ab35236d20c9126aa4f1) \n During installation, package downloads and executes malware. \n \n Category: MALICIOUS - The campaign has clearly malicious intent, like infostealers. \n Campaign: 2026-10-semvver \n Reasons (based on the campaign): \n \n ",
       "link": ""
     },
     {
-      "id": "GHSA-jfww-6c2q-w9rr",
-      "title": "[GHSA-jfww-6c2q-w9rr] Malicious code in tailwindcss-animatemotion (npm)",
-      "published": "2026-10-20T06:31:17Z",
-      "ecosystem": "NPM",
-      "summary": "tailwindcss-animatemotion (1.0.7) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by doublekk61 on 2026-09-28. src/motion.js:5 requires the private scoped package @aar",
+      "id": "GHSA-xr5f-j3c6-m785",
+      "title": "[GHSA-xr5f-j3c6-m785] Malicious code in debbug (PyPI)",
+      "published": "2026-10-21T00:31:34Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (082b90f5908b0452f00e213182ddaec147cb8f9c49b25fcb4ec4e1533eafd9ab) \n During installation, package downloads and executes malware. \n \n Category: MALICIOUS - The campaign has clearly malicious intent, like infostealers. \n Campaign: 2026-10-semvver \n Reasons (based on the campaign): \n \n ",
       "link": ""
     },
     {
-      "id": "GHSA-259h-r4vh-ph5j",
-      "title": "[GHSA-259h-r4vh-ph5j] Malicious code in tailwindcss-effect-lab (npm)",
-      "published": "2026-10-20T06:31:17Z",
-      "ecosystem": "NPM",
-      "summary": "tailwindcss-effect-lab (0.0.0-stage, 1.6.7) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by johnsmith0821 on 2026-10-09. src/motion.js:5 requires the private scoped",
+      "id": "GHSA-729h-8p7j-mwj4",
+      "title": "[GHSA-729h-8p7j-mwj4] Malicious code in facewareretargeter (PyPI)",
+      "published": "2026-10-21T00:31:34Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (3d3c954fb5fd6d1ddfc1d5e22129468136fb43fe78c6d69f0df134925b6a8b08) \n The package uses fake http-downloaded dependencies to track downloads, and has no other purpose. \n \n Category: PROBABLY_PENTEST - Packages looking like typical pentest packages, but also anything that looks like test",
       "link": ""
     },
     {
-      "id": "GHSA-6hg9-v89p-9w82",
-      "title": "[GHSA-6hg9-v89p-9w82] Malicious code in tailwindcss-animate-catalog (npm)",
-      "published": "2026-10-20T06:31:17Z",
-      "ecosystem": "NPM",
-      "summary": "tailwindcss-animate-catalog (2.0.6, 2.0.7) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by hackson306623 on 2026-09-28. lib/styles/variables.js:5 requires the priva",
+      "id": "GHSA-7xwg-mx2r-4mpp",
+      "title": "[GHSA-7xwg-mx2r-4mpp] Malicious code in deebug (PyPI)",
+      "published": "2026-10-21T00:31:34Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (db7aff856cffe15877311c77e380d51572713e5eaf35aab77ae51453025a352d) \n During installation, package downloads and executes malware. \n \n Category: MALICIOUS - The campaign has clearly malicious intent, like infostealers. \n Campaign: 2026-10-semvver \n Reasons (based on the campaign): \n \n ",
       "link": ""
     },
     {
-      "id": "GHSA-jm3w-rxjc-9rp6",
-      "title": "[GHSA-jm3w-rxjc-9rp6] Malicious code in tailwind-fabric (npm)",
-      "published": "2026-10-20T06:31:17Z",
+      "id": "GHSA-3h7p-p7hr-fqf7",
+      "title": "[GHSA-3h7p-p7hr-fqf7] Malware in animatecss-tailwind-bridge",
+      "published": "2026-10-20T21:48:55Z",
       "ecosystem": "NPM",
-      "summary": "tailwind-fabric (3.0.1, 3.0.4) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by johnxia1997 on 2026-09-28. src/motion.js:5 requires the private scoped package @aaron",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
       "link": ""
     },
     {
-      "id": "GHSA-94m4-x888-pgf4",
-      "title": "[GHSA-94m4-x888-pgf4] Malicious code in tailwind-keyframes (npm)",
-      "published": "2026-10-20T06:31:17Z",
+      "id": "GHSA-x5qq-j2hm-34m3",
+      "title": "[GHSA-x5qq-j2hm-34m3] Malware in tostpro",
+      "published": "2026-10-20T21:44:24Z",
       "ecosystem": "NPM",
-      "summary": "tailwind-keyframes (2.0.6) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by adriannamrr on 2026-09-28. src/motion.js:5 requires the private scoped package @aaron205w",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
       "link": ""
     },
     {
-      "id": "GHSA-qpfh-v8qh-gq5m",
-      "title": "[GHSA-qpfh-v8qh-gq5m] Malicious code in tailwind-css-keyframes (npm)",
-      "published": "2026-10-20T06:31:16Z",
+      "id": "GHSA-4q6x-w65x-677r",
+      "title": "[GHSA-4q6x-w65x-677r] Malware in tellyo-colours",
+      "published": "2026-10-20T21:44:24Z",
       "ecosystem": "NPM",
-      "summary": "tailwind-css-keyframes (1.0.7) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by kinsley_badu on 2026-09-28. src/motion.js:5 requires the private scoped package @jasp",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
       "link": ""
     },
     {
-      "id": "GHSA-5fhm-3gq2-6gj8",
-      "title": "[GHSA-5fhm-3gq2-6gj8] Malicious code in animatecss-tailwind-binary (npm)",
-      "published": "2026-10-20T06:31:16Z",
+      "id": "GHSA-pj66-3vwh-cgm2",
+      "title": "[GHSA-pj66-3vwh-cgm2] Malware in abbishal-poc-as-dependency",
+      "published": "2026-10-20T21:44:23Z",
       "ecosystem": "NPM",
-      "summary": "animatecss-tailwind-binary (2.0.6) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by jamesvectorpack on 2026-09-28. src/motion.js:5 requires the private scoped packag",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
       "link": ""
     },
     {
-      "id": "GHSA-h6pg-m44p-2x74",
-      "title": "[GHSA-h6pg-m44p-2x74] Malicious code in tailwind-kinetic (npm)",
-      "published": "2026-10-20T06:31:16Z",
+      "id": "GHSA-p7gq-mvm4-4cw4",
+      "title": "[GHSA-p7gq-mvm4-4cw4] Malware in @ziedzzz/demo-canary",
+      "published": "2026-10-20T21:42:24Z",
       "ecosystem": "NPM",
-      "summary": "tailwind-kinetic (2.0.6, 2.0.8) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by keinsell-jh on 2026-09-28. src/motion.js:5 requires the private scoped package @aaro",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
       "link": ""
     },
     {
-      "id": "GHSA-gqf2-w3vm-g87w",
-      "title": "[GHSA-gqf2-w3vm-g87w] Malicious code in animatecss-tailwind-plugin (npm)",
-      "published": "2026-10-20T06:31:16Z",
+      "id": "GHSA-phw8-h49c-9v2q",
+      "title": "[GHSA-phw8-h49c-9v2q] Malware in tinkoff-cache-path",
+      "published": "2026-10-20T21:37:27Z",
       "ecosystem": "NPM",
-      "summary": "animatecss-tailwind-plugin (2.0.6) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by hannahgibbs on 2026-09-28. src/motion.js:5 requires the private scoped package @a",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
       "link": ""
     },
     {
-      "id": "GHSA-wrp2-f9jg-g5qx",
-      "title": "[GHSA-wrp2-f9jg-g5qx] Malicious code in tailwind-animationlab (npm)",
-      "published": "2026-10-20T06:31:16Z",
+      "id": "GHSA-gpp6-qxfg-2m7x",
+      "title": "[GHSA-gpp6-qxfg-2m7x] Malware in eacq-payform-core",
+      "published": "2026-10-20T21:36:33Z",
       "ecosystem": "NPM",
-      "summary": "tailwind-animationlab (2.0.6) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by adriannamrr on 2026-09-28. src/motion.js:5 requires the private scoped package @jasper",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
       "link": ""
     },
     {
-      "id": "GHSA-pvxf-hc22-hp2x",
-      "title": "[GHSA-pvxf-hc22-hp2x] Malicious code in tailwind-animate-kit (npm)",
-      "published": "2026-10-20T06:31:16Z",
+      "id": "GHSA-8f2f-h2mc-9gh2",
+      "title": "[GHSA-8f2f-h2mc-9gh2] Malicious code in rs-lookout-sandbox-poc (npm)",
+      "published": "2026-10-20T21:30:35Z",
       "ecosystem": "NPM",
-      "summary": "tailwind-animate-kit (2.0.6, 2.0.7, 2.0.8) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by keinsell-jh on 2026-09-28. src/motion.js:5 requires the private scoped pa",
+      "summary": "Source: amazon-inspector (4f28ed1c404dad5afc7b70b345eeef6f81e04dcee77be3a7553956c7a43f8e7c) \n On module load, index.js reads os.userInfo().username and issues an HTTPS GET to a hardcoded third-party collector at  https://webhook.site/553dad0e-c841-46a8-b07d-213b52a24686/ , transmitting the installer",
       "link": ""
     },
     {
-      "id": "GHSA-2hh6-9wwc-7j9w",
-      "title": "[GHSA-2hh6-9wwc-7j9w] Malicious code in tailwind-animaflow-kit (npm)",
-      "published": "2026-10-20T06:31:16Z",
+      "id": "GHSA-qhhh-x4xj-h3j3",
+      "title": "[GHSA-qhhh-x4xj-h3j3] Malicious code in rootaccessxvv-bbmarker (npm)",
+      "published": "2026-10-20T21:30:34Z",
       "ecosystem": "NPM",
-      "summary": "tailwind-animaflow-kit (2.0.6) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by killerdev1127 on 2026-09-28. src/motion.js:5 requires the private scoped package @aar",
+      "summary": "Source: amazon-inspector (126c6e67bc80ed62f5e620ef9a8ce11ca39653348a59bc8d7a1d0cef76f72a02) \n package.json declares a postinstall lifecycle script that runs on  npm install  and POSTs installer host identifiers to a hardcoded webhook.site collector at  https://webhook.site/8f9e5268-4fcf-47a1-97a8-68",
       "link": ""
     },
     {
-      "id": "GHSA-q56v-wqww-c9pm",
-      "title": "[GHSA-q56v-wqww-c9pm] Malicious code in tailwind-animatecss-kit (npm)",
-      "published": "2026-10-20T06:31:16Z",
+      "id": "GHSA-wj9j-hp45-x3gp",
+      "title": "[GHSA-wj9j-hp45-x3gp] Malicious code in memories-core-web (npm)",
+      "published": "2026-10-20T21:30:34Z",
       "ecosystem": "NPM",
-      "summary": "tailwind-animatecss-kit (2.0.6) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by killerdev1127 on 2026-09-28. src/motion.js:5 requires the private scoped package @ja",
+      "summary": "Source: amazon-inspector (5aa2bc32ff519468287f8a87deeff1349332b710735b9f78ee34ffd46c9511cb) \n package.json declares a  preinstall  lifecycle script that runs  curl  to a hardcoded webhook.site collector URL ( https://webhook.site/b2967b0a-1b24-4670-8ae1-e09e3cf272c4/ ) with the installer's hostname ",
       "link": ""
     },
     {
-      "id": "GHSA-q9pp-3583-37vv",
-      "title": "[GHSA-q9pp-3583-37vv] Malicious code in signalledger-diagnostics (npm)",
-      "published": "2026-10-20T06:31:16Z",
+      "id": "GHSA-3phv-wc7c-mr2f",
+      "title": "[GHSA-3phv-wc7c-mr2f] Malicious code in @securihackbot/depconf-stage-1792484738 (npm)",
+      "published": "2026-10-20T21:30:34Z",
       "ecosystem": "NPM",
-      "summary": "signalledger-diagnostics (2.0.6) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by scott-rogers on 2026-09-28. src/motion.js:5 requires the private scoped package @aa",
+      "summary": "Source: amazon-inspector (d8d8706d2a75c053047537a4f57f754a572a1ca4cec4cde80d00e453878013e1) \n The package's npm postinstall hook automatically executes on install and transmits installer-identifying data to a hardcoded remote endpoint. It collects os.hostname(), the local username, platform/arch, No",
       "link": ""
     },
     {
-      "id": "GHSA-vj87-h2x3-2985",
-      "title": "[GHSA-vj87-h2x3-2985] Malicious code in animatecss-tailwind-luminary (npm)",
-      "published": "2026-10-20T06:31:16Z",
-      "ecosystem": "NPM",
-      "summary": "animatecss-tailwind-luminary (2.0.6, 2.0.7) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by cypherbyte on 2026-09-28. src/motion.js:5 requires the private scoped pa",
+      "id": "GHSA-x397-5hrv-j9m9",
+      "title": "[GHSA-x397-5hrv-j9m9] Cachet has Stored XSS in Incident Component",
+      "published": "2026-10-20T21:09:40Z",
+      "ecosystem": "COMPOSER",
+      "summary": "Summary \n A stored Cross-Site Scripting (XSS) vulnerability exists in the incident creation form, allowing an authenticated attacker to inject malicious HTML/JavaScript that executes in the browser of any user who views the status page, potentially leading to session token theft and account takeover",
       "link": ""
     },
     {
-      "id": "GHSA-hcfv-m7w3-vcch",
-      "title": "[GHSA-hcfv-m7w3-vcch] Malicious code in animatecss-tailwind-vectrix (npm)",
-      "published": "2026-10-20T06:31:16Z",
-      "ecosystem": "NPM",
-      "summary": "animatecss-tailwind-vectrix (2.0.6, 2.0.7) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by cypherbyte on 2026-09-28. src/motion.js:5 requires the private scoped pac",
+      "id": "GHSA-x32g-jvvm-4725",
+      "title": "[GHSA-x32g-jvvm-4725] A2A Java SDK: Push notification credentials logged in cleartext on protobuf parse failure",
+      "published": "2026-10-20T21:08:33Z",
+      "ecosystem": "MAVEN",
+      "summary": "Impact. * Push notification bearer tokens and authentication credentials submitted by clients are written to server log files in cleartext. Any operator, log aggregation system, or attacker with log access can read these secrets and use them to authenticate to the client's push notification endpoint",
       "link": ""
     },
     {
-      "id": "GHSA-8rrv-xcpx-rv3r",
-      "title": "[GHSA-8rrv-xcpx-rv3r] Malicious code in animatecss-tailwind-helper (npm)",
-      "published": "2026-10-20T06:31:16Z",
-      "ecosystem": "NPM",
-      "summary": "animatecss-tailwind-helper (2.0.6) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by hannahgibbs on 2026-09-28. src/motion.js:5 requires the private scoped package @j",
+      "id": "GHSA-4fpj-g9jf-9rgg",
+      "title": "[GHSA-4fpj-g9jf-9rgg] A2A Java SDK: Android synchronous POST forwards credentials across authorities after incomplete redirect fix",
+      "published": "2026-10-20T21:08:06Z",
+      "ecosystem": "MAVEN",
+      "summary": "The GHSA-9rhm fix added this safe setting in \nAndroidA2AHttpClient.createConnection(): \n  connection.setInstanceFollowRedirects(false);\n  \n The synchronous POST builder later overwrites it: \n  private boolean followRedirects = true;\n\npublic A2AHttpResponse post() throws IOException {\n    HttpURLConn",
       "link": ""
     },
     {
-      "id": "GHSA-gh2v-353h-8jhq",
-      "title": "[GHSA-gh2v-353h-8jhq] Malicious code in animatecss-tailwind-presets (npm)",
-      "published": "2026-10-20T06:31:16Z",
-      "ecosystem": "NPM",
-      "summary": "animatecss-tailwind-presets (1.0.0, 2.0.3) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by elony16 on 2026-09-29. src/motion.js:5 requires the private scoped packag",
+      "id": "GHSA-q78c-5jjq-57g8",
+      "title": "[GHSA-q78c-5jjq-57g8] A2A Java SDK has Server-Side Request Forgery (SSRF) in push-notification delivery",
+      "published": "2026-10-20T21:06:22Z",
+      "ecosystem": "MAVEN",
+      "summary": "Ecosystem:  Maven \n  Affected package:   org.a2aproject.sdk:a2a-java-sdk-server-common  (push-notification delivery) \n  Affected versions:   &lt;= 1.2.0.Final  (and  1.2.1.Final-SNAPSHOT  on  main  prior to the fix) \n  Patched version:   (the release that carries the fix)  \n  CWE:  CWE-918 (Server-S",
       "link": ""
     },
     {
-      "id": "GHSA-h368-qgvj-jhgw",
-      "title": "[GHSA-h368-qgvj-jhgw] Malicious code in signalledger-bridge (npm)",
-      "published": "2026-10-20T06:31:16Z",
-      "ecosystem": "NPM",
-      "summary": "signalledger-bridge (2.0.6) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by scott-rogers on 2026-09-28. src/motion.js:5 requires the private scoped package @jasperq",
+      "id": "GHSA-qw47-mcm5-934w",
+      "title": "[GHSA-qw47-mcm5-934w] A2A Java SDK has a fail-open default task authorization",
+      "published": "2026-10-20T21:05:09Z",
+      "ecosystem": "MAVEN",
+      "summary": "Draft text for  GHSA-qw47-mcm5-934w . The body below drops into the GitHub advisory description \nfield; the metadata block maps to the form fields. Set the patched version at release; publish \nwhen the fix ships._ \n \n \n  Ecosystem:  Maven \n  Affected package:   org.a2aproject.sdk:a2a-java-sdk-server",
       "link": ""
     },
     {
-      "id": "GHSA-mp8w-g7p9-w5v3",
-      "title": "[GHSA-mp8w-g7p9-w5v3] Malicious code in animatecss-tailwind-graphic (npm)",
-      "published": "2026-10-20T06:31:16Z",
-      "ecosystem": "NPM",
-      "summary": "animatecss-tailwind-graphic (2.0.6) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by jamesvectorpack on 2026-09-28. src/motion.js:5 requires the private scoped packa",
+      "id": "GHSA-9rhm-2h4x-jwmx",
+      "title": "[GHSA-9rhm-2h4x-jwmx] A2A Java SDK send client credentials under server-controlled HTTP header name, enabling leakage via redirect",
+      "published": "2026-10-20T21:04:16Z",
+      "ecosystem": "MAVEN",
+      "summary": "Impact. * A malicious or compromised A2A agent can cause the client's API key credential to be forwarded to an arbitrary third-party server. The agent serves an AgentCard with an  APIKeySecurityScheme  specifying a custom header name, then responds with an HTTP redirect. The JDK HttpClient follows t",
       "link": ""
     },
     {
-      "id": "GHSA-q29m-3m5r-fmjj",
-      "title": "[GHSA-q29m-3m5r-fmjj] Malicious code in animate-tailwind-kit (npm)",
-      "published": "2026-10-20T06:31:16Z",
-      "ecosystem": "NPM",
-      "summary": "animate-tailwind-kit (3.0.1, 3.0.4) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by johnxia1997 on 2026-09-28. src/motion.js:5 requires the private scoped package @",
+      "id": "GHSA-58r4-6rv3-gfh8",
+      "title": "[GHSA-58r4-6rv3-gfh8] Pillow: Out-of-bounds access in _imagingmorph on a zero-width image",
+      "published": "2026-10-20T20:56:22Z",
+      "ecosystem": "PIP",
+      "summary": "Summary \n A PPM or PGM file can declare a width of 0, which Pillow accepts, producing an image of size  (0, N) . Passing that image to  ImageMorph.MorphOp.apply()  makes the native morphology code index a row buffer at  outrow[width - 1] , which is  outrow[-1]  when the width is 0. The process crash",
       "link": ""
     },
     {
-      "id": "GHSA-jr8w-9rvh-vv8p",
-      "title": "[GHSA-jr8w-9rvh-vv8p] Malicious code in animate-twcss-pack (npm)",
-      "published": "2026-10-20T06:31:16Z",
-      "ecosystem": "NPM",
-      "summary": "animate-twcss-pack (2.0.6) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by enterprise0908 on 2026-09-28. src/motion.js:5 requires the private scoped package @jasper",
+      "id": "GHSA-65qm-jvmh-6pqg",
+      "title": "[GHSA-65qm-jvmh-6pqg] Pillow: GIF seek keeps rejected size after DecompressionBombError, allowing DoS",
+      "published": "2026-10-20T20:53:36Z",
+      "ecosystem": "PIP",
+      "summary": "============================================================================\nGIF seek keeps rejected size after DecompressionBombError, allowing DoS\nLocation: src/PIL/GifImagePlugin.py:293  in GifImageFile._seek()\nCommit:   a707c6b21c313880d0771e54965d142dd42358b6\n===================================",
       "link": ""
     },
     {
-      "id": "GHSA-v2vq-rvhc-qqr9",
-      "title": "[GHSA-v2vq-rvhc-qqr9] Malicious code in animate-twcss-bridge (npm)",
-      "published": "2026-10-20T06:31:16Z",
+      "id": "GHSA-vx6w-vv9f-6gvg",
+      "title": "[GHSA-vx6w-vv9f-6gvg] Pillow: EPS load(scale) lets Ghostscript render past the decompression bomb limit",
+      "published": "2026-10-20T20:53:21Z",
+      "ecosystem": "PIP",
+      "summary": "============================================================================\nEPS load(scale) lets Ghostscript render past the decompression bomb limit\nLocation: src/PIL/EpsImagePlugin.py:92  in Ghostscript()\nCommit:   a707c6b21c313880d0771e54965d142dd42358b6\n=========================================",
+      "link": ""
+    },
+    {
+      "id": "GHSA-q45j-58j2-45rg",
+      "title": "[GHSA-q45j-58j2-45rg] Pillow: TiffDecode returns uninitialized memory as pixels for short JPEG strips",
+      "published": "2026-10-20T20:52:43Z",
+      "ecosystem": "PIP",
+      "summary": "============================================================================\nTiffDecode returns uninitialized memory as pixels for short JPEG strips\nLocation: src/libImaging/TiffDecode.c:554  in _decodeStrip()\nCommit:   a707c6b21c313880d0771e54965d142dd42358b6\n=======================================",
+      "link": ""
+    },
+    {
+      "id": "GHSA-pchr-8j38-3x4p",
+      "title": "[GHSA-pchr-8j38-3x4p] Pillow: TIFF encoder ColorMap plane-size mismatch causes a heap out-of-bounds read",
+      "published": "2026-10-20T20:51:40Z",
+      "ecosystem": "PIP",
+      "summary": "Summary \n A small attacker-supplied TIFF can be opened and loaded normally, then reach an out-of-bounds read when an application saves it back to TIFF with retained metadata. The fixed reproducer is a 1×1, 16-bit grayscale, PackBits-compressed TIFF containing tag 320 (ColorMap) with  768 SHORT value",
+      "link": ""
+    },
+    {
+      "id": "GHSA-p4wg-p73j-c528",
+      "title": "[GHSA-p4wg-p73j-c528] Pillow: Unbounded recursion parsing a PDF page tree or trailer chain (incomplete fix for CVE-2026-42310)",
+      "published": "2026-10-20T20:50:49Z",
+      "ecosystem": "PIP",
+      "summary": "Summary \n When an application appends to an existing PDF with  Image.save(..., format=\"PDF\", append=True) , Pillow parses that file with  PdfParser . Two recursive parsers have no effective bound.  linearize_page_tree  follows  /Kids  with no visited set or depth limit, so a cyclic or duplicated pag",
+      "link": ""
+    },
+    {
+      "id": "GHSA-462x-pgg6-55fp",
+      "title": "[GHSA-462x-pgg6-55fp] Pillow tiled-TIFF decoder reads past tile buffer in copy4 (Unpack.c:1290)",
+      "published": "2026-10-20T20:49:26Z",
+      "ecosystem": "PIP",
+      "summary": "Summary \n Pillow's libImaging  _decodeTile  decoder, used to decode tiled TIFF images, allocates a per-tile buffer using  realloc(state-&gt;buffer, TIFFTileSize(tiff)) . After each  TIFFReadTile  it then iterates  tile_y  from 0 up to  current_tile_length  and calls the configured row unpacker (here",
+      "link": ""
+    },
+    {
+      "id": "GHSA-c6hw-5grf-ff96",
+      "title": "[GHSA-c6hw-5grf-ff96] Pillow: OOB read in TiffDecode.c tile and RGBA paths leaks heap memory into pixels",
+      "published": "2026-10-20T20:42:00Z",
+      "ecosystem": "PIP",
+      "summary": "============================================================================\nOOB read in TiffDecode.c tile and RGBA paths leaks heap memory into pixels\nLocation: src/libImaging/TiffDecode.c:483  in _decodeTile()\nCommit:   a707c6b21c313880d0771e54965d142dd42358b6\n=====================================",
+      "link": ""
+    },
+    {
+      "id": "GHSA-8g5g-8vmr-9782",
+      "title": "[GHSA-8g5g-8vmr-9782] Pillow: Heap buffer overflow in ImagingJpegDecode",
+      "published": "2026-10-20T20:40:07Z",
+      "ecosystem": "PIP",
+      "summary": "Summary \n  JpegImageFile.draft()  — which  Image.thumbnail()  calls automatically — requests 1/2, 1/4 or 1/8 scaled JPEG output and shrinks  self._size  and the tile extents to match, so  _setimage()  allocates a single-row decode buffer of  ceil(W/s)  samples.  ImagingJpegDecode()  sets  cinfo.scal",
+      "link": ""
+    },
+    {
+      "id": "GHSA-jfgx-762w-99vr",
+      "title": "[GHSA-jfgx-762w-99vr] @angular/common: XSRF Token Leakage via URL Parsing Discrepancy in Angular HTTP Client (Incomplete fix for CVE-2025-66035)",
+      "published": "2026-10-20T20:37:57Z",
       "ecosystem": "NPM",
-      "summary": "animate-twcss-bridge (2.0.6) is a Tailwind CSS plugin from the fake job interview campaign behind MAL-2026-17665 and MAL-2026-17666: the same Animate.css integration template, README and description, published by enterprise0908 on 2026-09-28. src/motion.js:5 requires the private scoped package @aaro",
+      "summary": "An incomplete fix for  GHSA-58c5-g7wp-6w37  ( CVE-2025-66035 ) in  @angular/common 's HTTP Client ( HttpClient ) allows Cross-Site Request Forgery (XSRF) tokens to be leaked to attacker-controlled cross-origin domains when requests use URLs that exploit parsing discrepancies between regular expressi",
+      "link": ""
+    },
+    {
+      "id": "GHSA-gfr2-rv44-r23c",
+      "title": "[GHSA-gfr2-rv44-r23c] markdown-it: Quadratic-time rendering of a single multi-line link reference definition with default options (regression since 14.0)",
+      "published": "2026-10-20T20:28:44Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n A link reference definition whose label or title is never closed is O(n²) in markdown-it 15.0.2 with default options. Continuation lines are pulled lazily with str += lineContent in src/rules_block/reference.ts, and the subsequent charCodeAt and slice calls flatten the V8 cons-string, copy",
+      "link": ""
+    },
+    {
+      "id": "GHSA-vfgh-jcmw-g37q",
+      "title": "[GHSA-vfgh-jcmw-g37q] markdown-it: Quadratic-time denial of service in inline HTML parsing with html enabled",
+      "published": "2026-10-20T20:08:19Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n With  html: true , markdown-it takes quadratic time to parse repeated unterminated HTML constructs inside a paragraph. This affects HTML comments ( &lt;!-- ), processing instructions ( &lt;? ), declarations ( &lt;!A ), and CDATA sections ( &lt;![CDATA[ ). \n An attacker-controlled input of ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-jm63-cq47-j5jp",
+      "title": "[GHSA-jm63-cq47-j5jp] MCP  TypeScript server SDK: Shared transport or server instances delivered one HTTP client's messages to another",
+      "published": "2026-10-20T20:07:29Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n In affected versions, an MCP server reached over HTTP could deliver one client's responses and notifications to another client. This happened when clients shared one stateless transport, or one  McpServer  or  Server  instance. \n Messages were matched to a connection by JSON-RPC  id  alone",
+      "link": ""
+    },
+    {
+      "id": "GHSA-46jr-4wx8-v453",
+      "title": "[GHSA-46jr-4wx8-v453] MCP TypeScript SDK: One HTTP request within the default size limit could exhaust server memory during validation",
+      "published": "2026-10-20T20:06:35Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n In affected versions, servers put no limit on how many array elements and object keys they validated in one request. One HTTP request within the default 4 MiB size limit could exhaust the server's memory, and the process aborted with  JavaScript heap out of memory . \n No credentials are ne",
+      "link": ""
+    },
+    {
+      "id": "GHSA-f9xw-jh8m-3mwq",
+      "title": "[GHSA-f9xw-jh8m-3mwq] AIOHTTP: Absolute-form request targets can spoof Request.scheme",
+      "published": "2026-10-20T20:01:40Z",
+      "ecosystem": "PIP",
+      "summary": "Summary \n An attacker sending an absolute-form request can spoof the scheme used. \n Impact \n If user code depends on the  Request.scheme  attribute for anything security related, an attacker may be able to circumvent this logic, tricking the application into thinking a connection is encrypted when i",
+      "link": ""
+    },
+    {
+      "id": "GHSA-gx76-c99x-2c96",
+      "title": "[GHSA-gx76-c99x-2c96] AIOHTTP: Cookie from subdomain can remove Host-Only Scope from existing cookies",
+      "published": "2026-10-20T19:58:14Z",
+      "ecosystem": "PIP",
+      "summary": "Summary \n A subdomain can remove the Host-Only flag from an existing cookie to a parent domain. \n Impact \n A user accessing untrusted subdomains could see their Host-Only protections stripped from cookies. Given most usecases won't reflect these cookies to a browser, the impact is limited. \n        ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-6cjc-53gc-5rqm",
+      "title": "[GHSA-6cjc-53gc-5rqm] AIOHTTP: Connector pool exhaustion via Max-Age overflow",
+      "published": "2026-10-20T19:57:24Z",
+      "ecosystem": "PIP",
+      "summary": "Summary \n An overflow in Max-Age processing can skip closing a connection. \n Impact \n An attacker may be able to exhaust the connection pool temporarily, until garbage collection resolves the connections. \n            Affected Packages  \n\n   \n       aiohttp \n       Ecosystem: pip \n       Severity: m",
+      "link": ""
+    },
+    {
+      "id": "GHSA-pqxq-w44r-73xw",
+      "title": "[GHSA-pqxq-w44r-73xw] AIOHTTP: Pure-Python parser request smuggling",
+      "published": "2026-10-20T19:52:21Z",
+      "ecosystem": "PIP",
+      "summary": "Summary \n The pure Python parser is vulnerable to an HTTP request smuggling attack. \n Impact \n If users are using the Python parser ( AIOHTTP_NO_EXTENSIONS , or not a standard wheel installed), then an application may be vulnerable to a request smuggling attack. \n Workaround \n Switch to the default ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-9xw5-w5jj-pvcg",
+      "title": "[GHSA-9xw5-w5jj-pvcg] AIOHTTP: File descriptor exhaustion in multipart requests",
+      "published": "2026-10-20T19:52:09Z",
+      "ecosystem": "PIP",
+      "summary": "Summary \n An attacker can exhaust file descriptors with specially crafted multipart requests. \n Impact \n If a handler uses  Request.post() , it may be possible for an attacker to use an unlimited number of file descriptors, potentially resulting in resource exhaustion. \n            Affected Packages",
+      "link": ""
+    },
+    {
+      "id": "GHSA-r825-w8mm-5pxw",
+      "title": "[GHSA-r825-w8mm-5pxw] launch-editor: Editor CLI flag misinterpretation causing arbitrary command execution for some editors",
+      "published": "2026-10-20T19:51:52Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n  launch-editor  forwarded file paths directly to editors without sanitization. If a path resembles a CLI flag, editors like Vim may interpret it as a command, potentially causing unintended file overwrites or command execution. \n Impact \n Direct  launch-editor  users \n Only apps that match",
+      "link": ""
+    },
+    {
+      "id": "GHSA-587h-7wmj-h5pm",
+      "title": "[GHSA-587h-7wmj-h5pm] launch-editor: `fs.existsSync()` existence check can be bypassed on Windows",
+      "published": "2026-10-20T19:48:25Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n  launch-editor  checked  fs.existsSync(fileName)  before passing a supplied path to an editor command. On Windows, an attacker can bypass this check with a crafted path ending in  \\\\..:line:column . This removes the requirement that the attacker be able to place a file with a malicious fil",
+      "link": ""
+    },
+    {
+      "id": "GHSA-rvq5-wwqv-78pq",
+      "title": "[GHSA-rvq5-wwqv-78pq] MCP TypeScript SDK: Server bearer authentication accepted tokens issued for another service",
+      "published": "2026-10-20T19:43:36Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n In affected versions, the SDK's server-side bearer authentication had no way to check that a token was issued for your server (its audience). Where one authorization server issues tokens for several services, a valid token for another service was also accepted by your MCP server. \n Am I af",
+      "link": ""
+    },
+    {
+      "id": "GHSA-hq85-5cpj-mr62",
+      "title": "[GHSA-hq85-5cpj-mr62] uv's bundled CA store trusts an emSign root whose intermediate CA keys are compromised",
+      "published": "2026-10-20T19:37:52Z",
+      "ecosystem": "PIP",
+      "summary": "By default, uv verifies TLS connections against a vendored copy of the  webpki-root-certs  bundle. Versions before 0.13.4 include the  emSign ECC Root CA - G3  root. Eight eMudhra intermediate CA certificates that chain to that root have compromised private keys, and the CA has revoked them. \n An at",
+      "link": ""
+    },
+    {
+      "id": "GHSA-6q48-6c7w-9gw2",
+      "title": "[GHSA-6q48-6c7w-9gw2] certifi bundles emSign root CAs with compromised intermediate CA keys",
+      "published": "2026-10-20T19:35:05Z",
+      "ecosystem": "PIP",
+      "summary": "Certifi versions before 2026.10.18 include the  emSign ECC Root CA - G3  root certificate in their bundled CA store. Eight eMudhra intermediate CA certificates that chain to this root have compromised private keys and the CA has revoked them. \n An attacker with one of the compromised keys can issue ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-j4xr-hh3p-8vmm",
+      "title": "[GHSA-j4xr-hh3p-8vmm] Malicious code in semverr (PyPI)",
+      "published": "2026-10-20T18:31:30Z",
+      "ecosystem": "PIP",
+      "summary": "Source: amazon-inspector (110e0a64dd80654ca98caa5e291499d158a39eb66c1d35efe896a42095c85118) \n semverr is a near-empty package (a one-line  version ) whose name resembles the popular semver library. Its setup.py runs at install time (invoked by pip during  pip install ) and calls urllib.request.urlre",
+      "link": ""
+    },
+    {
+      "id": "GHSA-9mgr-73fh-p55h",
+      "title": "[GHSA-9mgr-73fh-p55h] Malicious code in semvver (PyPI)",
+      "published": "2026-10-20T18:31:30Z",
+      "ecosystem": "PIP",
+      "summary": "Source: amazon-inspector (bbc16b0ced0bad1a33b912dfdb29cbaef211f30974d942991257d4e6b60a8ece) \n setup.py performs an install-time fetch-and-execute: it calls urllib.request.urlretrieve against  https://c2-worker.crawlnet-claim.workers.dev/dl/pyupd , writes the response to a temporary path, and spawns ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-qv44-3q38-xvr3",
+      "title": "[GHSA-qv44-3q38-xvr3] Malicious code in semmver (PyPI)",
+      "published": "2026-10-20T18:31:30Z",
+      "ecosystem": "PIP",
+      "summary": "Source: amazon-inspector (8de323d5976a26f2d9540680d1706a53bcb3ca743409821e83f7a2f1b60e8594) \n The package is a typosquat-style empty stub (semmver/ init .py contains only  version  = '1.0.0') whose only functional code is in setup.py. At pip install time, setup.py calls urllib.request.urlretrieve to",
+      "link": ""
+    },
+    {
+      "id": "GHSA-xh78-qp67-j6mg",
+      "title": "[GHSA-xh78-qp67-j6mg] Malicious code in semveer (PyPI)",
+      "published": "2026-10-20T18:31:30Z",
+      "ecosystem": "PIP",
+      "summary": "Source: amazon-inspector (d86237b957fd063a0e1fcf250a510b2fb9566ab48652e56fe787d2e1a02e351a) \n The sdist for 'semveer' ships an inert module (semveer/ init .py contains only a  version  stub) and places all runtime behavior inside setup.py's install hook. On pip install, setup.py calls urllib.request",
+      "link": ""
+    },
+    {
+      "id": "GHSA-9qvj-cj8j-4c9v",
+      "title": "[GHSA-9qvj-cj8j-4c9v] Malicious code in security-research-startup-snapshot-810764b303 (PyPI)",
+      "published": "2026-10-20T18:31:30Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (c7f807a5943ac03cda3bdddc675ad3192d210e1f0ba1300959feff5d1d29c915) \n The package is most likely a reconnaissance of a shared infrastructure, collecting potentially sensitive data from cloud endpoints, activated via a PTH file on every Python loading. Collected data are stored in a loc",
+      "link": ""
+    },
+    {
+      "id": "GHSA-8pfm-r4v5-2f2g",
+      "title": "[GHSA-8pfm-r4v5-2f2g] Malicious code in research-probe-6150c1c915 (PyPI)",
+      "published": "2026-10-20T18:31:30Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (a646eaf4fe72ba013abc53d52c0bf017a9c4f3bfc54a8c358f9f246d3ac41945) \n The package is most likely a reconnaissance of a shared infrastructure, collecting potentially sensitive data from cloud endpoints, activated via a PTH file on every Python loading. Collected data are stored in a loc",
+      "link": ""
+    },
+    {
+      "id": "GHSA-698v-4r3x-3vcv",
+      "title": "[GHSA-698v-4r3x-3vcv] launch-editor: escapeCmdArgs() omits % escaping on Windows",
+      "published": "2026-10-20T18:30:24Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n  launch-editor  did not escape  %  on Windows when passing an argument to  cmd . When an environment variable contained a malicious value, it was possible that that content to be executed. \n Impact \n Only apps that match all of the following conditions are affected: \n \n The user uses Windo",
+      "link": ""
+    },
+    {
+      "id": "GHSA-22jm-h49p-29qw",
+      "title": "[GHSA-22jm-h49p-29qw] MCP TypeScript SDK: Experimental tasks were not tied to the session that created them",
+      "published": "2026-10-20T18:26:54Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n In affected versions, the experimental tasks feature ( taskStore ) did not check which session created a task. Clients sharing one  InMemoryTaskStore  could list, read and cancel each other's tasks. \n Experimental tasks are deprecated. The 2026-07-28 specification replaced them with a rede",
+      "link": ""
+    },
+    {
+      "id": "GHSA-6prh-2h8m-c8cw",
+      "title": "[GHSA-6prh-2h8m-c8cw] MCP TypeScript client SDK: HTTP client transports and OAuth requests followed cross-origin redirects and re-sent custom headers and request bodies",
+      "published": "2026-10-20T18:26:30Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n In affected versions, the SDK's HTTP client transports and OAuth requests followed redirects to any origin. \n If an MCP server or authorization server redirected a request to another origin, that origin received custom request headers (such as an  X-API-Key  set in  requestInit.headers ) a",
+      "link": ""
+    },
+    {
+      "id": "GHSA-xf6w-q65w-4f2w",
+      "title": "[GHSA-xf6w-q65w-4f2w] ApostropheCMS: The general public can access @apostrophecms/user objects via a relationship (viewRole is not applied to the general public)",
+      "published": "2026-10-20T18:26:02Z",
+      "ecosystem": "NPM",
+      "summary": "Impact \n Even though it is correctly applied to guests, contributors, etc.,  viewRole  is not applied to the general public. This means that a secured content type like  @apostrophecms/user  can in theory be accessed. \n This is greatly mitigated by the fact that there is no automatic public REST API",
+      "link": ""
+    },
+    {
+      "id": "GHSA-vwwx-px9w-crrc",
+      "title": "[GHSA-vwwx-px9w-crrc] ApostropheCMS: Missing Authorization on Notification PATCH/DELETE Endpoints",
+      "published": "2026-10-20T18:25:38Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n The notification module exposes  PATCH  and  DELETE  REST endpoints that perform operations directly on the underlying MongoDB collection without verifying that the requester is authenticated or owns the target notification. \n As a result, an unauthenticated attacker who obtains a valid no",
+      "link": ""
+    },
+    {
+      "id": "GHSA-97wv-p4xx-c7mg",
+      "title": "[GHSA-97wv-p4xx-c7mg] ApostropheCMS import-export tar guard misses './..' because it is a literal '../' substring test",
+      "published": "2026-10-20T18:23:42Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n The tar-extraction guard added to  @apostrophecms/import-export  for  GHSA-mwxc-m426-3f78  is a literal substring test for  ../ , and  ./..  does not contain that substring. An entry named  ./..  therefore passes the guard,  path.join  normalizes it to the parent of the export directory, a",
+      "link": ""
+    },
+    {
+      "id": "GHSA-gmfx-5g6x-rr72",
+      "title": "[GHSA-gmfx-5g6x-rr72] ApostropheCMS: Path traversal in uploadfs",
+      "published": "2026-10-20T18:21:59Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n The  uploadfs  library's local storage backend does not validate or sanitize user-supplied paths. The  prefixPath()  helper only strips double slashes ( // ) and the backend performs direct string concatenation ( uploadsPath + path ). An attacker can inject  ../  sequences to escape the in",
+      "link": ""
+    },
+    {
+      "id": "GHSA-374f-7chj-9948",
+      "title": "[GHSA-374f-7chj-9948] ApostropheCMS sanitize-html: SMIL animation namespace-prefix bypass allows javascript: URI injection (XSS)",
+      "published": "2026-10-20T18:21:19Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n sanitize-html 2.17.7 introduced  animatesUrlAttribute()  to block SVG animation elements ( animate ,  animateColor ,  animateMotion ,  animateTransform ,  set ) when their  attributeName  targets a URL sink like  href . However, this check is bypassed when the animation element uses a name",
+      "link": ""
+    },
+    {
+      "id": "GHSA-hhph-8536-gfq5",
+      "title": "[GHSA-hhph-8536-gfq5] ApostropheCMS uploadfs Azure backend leaks account-level SAS token into every public attachment URL (sas: true)",
+      "published": "2026-10-20T18:20:35Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n When uploadfs is configured with the Azure backend and  sas: true  (a supported configuration introduced in uploadfs 1.25.0),  createContainer()  builds the  BlobServiceClient  from a URL that embeds the full SAS query string, and Azure SDK v12 derived clients inherit that query string. As",
+      "link": ""
+    },
+    {
+      "id": "GHSA-vmxh-77cw-65j7",
+      "title": "[GHSA-vmxh-77cw-65j7] ApostropheCMS: Authenticated Object-Level Authorization Bypass in exist-in-locale Reveals Restricted Localized Draft Identifiers",
+      "published": "2026-10-20T18:19:34Z",
+      "ecosystem": "NPM",
+      "summary": "Summary  \nApostropheCMS’s exist-in-locale API allows an authenticated low-privilege user to determine whether restricted documents exist in a specified locale and mode, including draft mode. The endpoint returns localized document identifiers without applying document-level view or edit authorizatio",
+      "link": ""
+    },
+    {
+      "id": "GHSA-jqw5-w6h3-44g6",
+      "title": "[GHSA-jqw5-w6h3-44g6] ApostropheCMS import-export: NoSQL injection via update-key value lets a crafted import match and overwrite an unidentified document",
+      "published": "2026-10-20T18:19:19Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n  @apostrophecms/import-export 's update-by-key feature lets an imported \ndocument carry a  &lt;field&gt;:key  property (for example  slug:key ) whose \nvalue is used to find an existing document to update instead of inserting \na new one.  getUpdateKey() / insertOrUpdateDocWithKey()  \n( lib/",
+      "link": ""
+    },
+    {
+      "id": "GHSA-m2m5-rw3w-cwmj",
+      "title": "[GHSA-m2m5-rw3w-cwmj] ApostropheCMS: Client-side Prototype Pollution in apos.http.parseQuery leading to DOM-based XSS against authenticated users",
+      "published": "2026-10-20T18:18:49Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n The client-side helper  apos.http.parseQuery()  in ApostropheCMS builds a nested object \nfrom a URL query string without sanitizing the keys  __proto__ ,  constructor , or \n prototype . Parsing an attacker-controlled query string therefore writes arbitrary \nproperties onto  Object.prototyp",
+      "link": ""
+    },
+    {
+      "id": "GHSA-653j-g8j7-gh54",
+      "title": "[GHSA-653j-g8j7-gh54] ApostropheCMS: No Attempt Throttling on Authenticated Password-Change Endpoint Enables Unlimited Current-Password Guessing",
+      "published": "2026-10-20T18:17:50Z",
+      "ecosystem": "NPM",
+      "summary": "Summary  \nThe self-service password-change endpoint verifies the current password but does not use the login module’s failed-attempt counter, throttle, delay, or lockout mechanism. An attacker with a valid authenticated session can submit repeated guesses for the current password without receiving a",
+      "link": ""
+    },
+    {
+      "id": "GHSA-cv27-6wvh-8x7j",
+      "title": "[GHSA-cv27-6wvh-8x7j] ApostropheCMS: Incomplete CVE-2026-53606: `meta http-equiv=refresh` `content` still ships `javascript:` / `data:` URLs",
+      "published": "2026-10-20T18:15:33Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n  CVE-2026-53606  expanded  allowedSchemesAppliedToAttributes  so named URL attributes ( action ,  formaction ,  data ,  poster ,  background , later  ping ,  xlink:href , …) go through  naughtyHref() . A  URL nested inside  meta   content   ( http-equiv=refresh ) is not an attribute name o",
+      "link": ""
+    },
+    {
+      "id": "GHSA-fj85-27r8-hgfg",
+      "title": "[GHSA-fj85-27r8-hgfg] Malware in nwfp-build-config",
+      "published": "2026-10-20T18:14:53Z",
+      "ecosystem": "NPM",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "link": ""
+    },
+    {
+      "id": "GHSA-gqh3-7856-rjjg",
+      "title": "[GHSA-gqh3-7856-rjjg] ApostropheCMS: :_id/locales REST route omits the public-API authorization gate its sibling read routes enforce (unauthenticated doc-existence + locale metadata disclosure)",
+      "published": "2026-10-20T18:14:32Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n The REST route  GET /api/v1/&lt;piece-type&gt;/:_id/locales  (and the equivalent page route) does not apply the  publicApiCheckAsync  gate that ApostropheCMS's other read routes enforce. An unauthenticated caller can therefore query this route for any document  _id  and learn whether the d",
+      "link": ""
+    },
+    {
+      "id": "GHSA-2j32-q6rx-h844",
+      "title": "[GHSA-2j32-q6rx-h844] ApostropheCMS: Page REST API authorization bypass",
+      "published": "2026-10-20T18:13:08Z",
+      "ecosystem": "NPM",
+      "summary": "Summary  \nThe core page REST API reads full page documents with  .permission(false)  in  getOne  and in the  all=1  tree dump, bypassing page-type  viewRole ,  visibility: private , and  visibility: loginRequired  checks. Unauthenticated visitors and low-privilege contributors can read admin-only an",
+      "link": ""
+    },
+    {
+      "id": "GHSA-527g-ff96-x6wj",
+      "title": "[GHSA-527g-ff96-x6wj] ApostropheCMS: Host header controls server-side image fetch origin in @apostrophecms/ai-helper, enabling authenticated SSRF",
+      "published": "2026-10-20T18:11:01Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n The  @apostrophecms/ai-helper  package builds the URL for a server-side image fetch by resolving a storage-relative path against  req.baseUrl . When the site does not set a global base URL (the default),  req.baseUrl  is derived from the incoming HTTP  Host  header. An authenticated editor",
+      "link": ""
+    },
+    {
+      "id": "GHSA-qhcq-9pm2-c9w9",
+      "title": "[GHSA-qhcq-9pm2-c9w9] ApostropheCMS: Unauthenticated CSV import requests leave rejected uploads in the system temporary directory",
+      "published": "2026-10-20T18:10:32Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n A rejected upload can remain in the operating system temporary directory. \n Multer writes the file before its extension is checked, and the rejection path does not remove that temporary file. An unauthenticated requester can repeat this with large files and steadily consume temporary disk ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-hhvr-8m24-qqr3",
+      "title": "[GHSA-hhvr-8m24-qqr3] ApostropheCMS: Cross-domain session token in URL confers session takeover",
+      "published": "2026-10-20T18:09:01Z",
+      "ecosystem": "NPM",
+      "summary": "Summary  \nApostrophe's cross-domain session migration emits a single-use session token as a URL query parameter and stores it in the Mongo cache. Any client that presents the token silently adopts the target user's full session (including  passport.user ) with no credentials. \n  Details  \n packages/",
+      "link": ""
+    },
+    {
+      "id": "GHSA-89mh-mm8c-mv7f",
+      "title": "[GHSA-89mh-mm8c-mv7f] ApostropheCMS: Unauthenticated unbounded multipart upload → disk-exhaustion DoS",
+      "published": "2026-10-20T18:08:31Z",
+      "ecosystem": "NPM",
+      "summary": "Summary  \nThe form submission endpoint runs  multer({ dest: os.tmpdir() }).any()  before authentication, API-key, CSRF-equivalent, or form-existence logic, with no size/count/rate limits. Unauthenticated users can stream unbounded bodies to disk per request; cleanup occurs only after the full body i",
+      "link": ""
+    },
+    {
+      "id": "GHSA-44qr-rrjg-2cqq",
+      "title": "[GHSA-44qr-rrjg-2cqq] ApostropheCMS: CAPTCHA response token not URL-encoded",
+      "published": "2026-10-20T18:05:35Z",
+      "ecosystem": "NPM",
+      "summary": "Summary  \nForm and login CAPTCHA verification interpolate the user-supplied widget token unencoded into the server-side verification URL/body, allowing a crafted token to inject query parameters into the reCAPTCHA/hCaptcha verify request. \n  Details  \n \n  packages/form/lib/recaptcha.js:39  —  recapt",
+      "link": ""
+    },
+    {
+      "id": "GHSA-2jrp-qc93-h2j8",
+      "title": "[GHSA-2jrp-qc93-h2j8] ApostropheCMS: Same-parent page reorder in @apostrophecms/page move() re-ranks a restricted parent's children without create authorization",
+      "published": "2026-10-20T18:04:11Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n ApostropheCMS enforces per-type authorization on pages: a page type may declare  editRole  /  publishRole  (the core  @apostrophecms/archive-page  does), so a project can define restricted subtrees that only higher-privileged roles may create or edit within. The  move()  operation in the  ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-j5rq-xfvr-p969",
+      "title": "[GHSA-j5rq-xfvr-p969] ApostropheCMS: Authenticated projection-exclusion prototype-member deletion in @apostrophecms/db-connect causes process-wide denial of service",
+      "published": "2026-10-20T18:03:50Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n  @apostrophecms/db-connect  ships an in-memory MongoDB emulation used by its SQLite, PostgreSQL, and multipostgres adapters. Its  unsetNestedField  helper walks an attacker-controlled dotted field path with no segment validation and calls  delete  on the resolved property. A low-privileged",
+      "link": ""
+    },
+    {
+      "id": "GHSA-x3q4-9hxx-gx8m",
+      "title": "[GHSA-x3q4-9hxx-gx8m] ApostropheCMS sanitize-html: nonTextTags discard region ends early on an implied close, letting <noscript> content render",
+      "published": "2026-10-20T18:03:22Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n  sanitize-html  discards the  content  of every element in  nonTextTags . It delimits that region \nusing htmlparser2's close events, and ignores the  isImplied  flag htmlparser2 passes it. Closing a \nstill-open  ancestor  from inside a  &lt;noscript&gt;  makes htmlparser2 unwind its stack ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-q3jh-wrc6-jgq8",
+      "title": "[GHSA-q3jh-wrc6-jgq8] follow-redirects array-form headers bypass cross-origin credential stripping",
+      "published": "2026-10-20T17:58:04Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n follow-redirects removes sensitive credential headers (Authorization, Proxy-Authorization, Cookie, and any caller-declared  sensitiveHeaders ) before following a redirect that crosses to a different host or downgrades to a less secure protocol. The removal routine iterates the caller's hea",
+      "link": ""
+    },
+    {
+      "id": "GHSA-8r9p-f939-6h3c",
+      "title": "[GHSA-8r9p-f939-6h3c] follow-redirects sensitiveHeaders regex escaping can expose credential headers",
+      "published": "2026-10-20T17:53:05Z",
+      "ecosystem": "NPM",
+      "summary": "Summary \n follow-redirects 1.16.0 introduced the  sensitiveHeaders  option (the fix for CVE-2026-40895 /  GHSA-r4q5-vmmm-2653 ), which lets an application declare extra header names that must be removed when a redirect crosses to a different host or downgrades protocol. The filter is a single case-i",
+      "link": ""
+    },
+    {
+      "id": "GHSA-57xq-rjx2-v5xh",
+      "title": "[GHSA-57xq-rjx2-v5xh] @angular/router: Denial of Service via RouterLink Query Parameter Retention in Server-Side Rendering (SSR)",
+      "published": "2026-10-20T17:52:32Z",
+      "ecosystem": "NPM",
+      "summary": "A denial of service (DoS) vulnerability was identified in  @angular/router  when Server-Side Rendering (SSR) is enabled on Node.js (V8) and  RouterLink  directives are rendered with  queryParamsHandling: 'merge'  or  'preserve' , configured either per link or globally via  defaultQueryParamsHandling",
+      "link": ""
+    },
+    {
+      "id": "GHSA-xxr7-33gg-pcg6",
+      "title": "[GHSA-xxr7-33gg-pcg6] Malware in formatting-subtitles-for-claude",
+      "published": "2026-10-20T15:59:30Z",
+      "ecosystem": "NPM",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "link": ""
+    },
+    {
+      "id": "GHSA-66rv-6q99-h89g",
+      "title": "[GHSA-66rv-6q99-h89g] Malware in unicode-title-normalizer",
+      "published": "2026-10-20T15:59:30Z",
+      "ecosystem": "NPM",
+      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
+      "link": ""
+    },
+    {
+      "id": "GHSA-hv2c-g7m7-m956",
+      "title": "[GHSA-hv2c-g7m7-m956] Malicious code in test-workalendar-internal (PyPI)",
+      "published": "2026-10-20T15:31:09Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (9f36e976d0fcf254def6da62e0090bfb2dbdf76176ed316655574408c25cb9a0) \n During build, the package creates a web-sharable terminal session and exposes it via a Cloudflare tunnel to the attacker. \n \n Category: MALICIOUS - The campaign has clearly malicious intent, like infostealers. \n Camp",
+      "link": ""
+    },
+    {
+      "id": "GHSA-rwx2-hxr7-qgg5",
+      "title": "[GHSA-rwx2-hxr7-qgg5] Malicious code in workcalender (PyPI)",
+      "published": "2026-10-20T15:31:09Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (9a336c0fa7a5b3ee5f036d678c8c0f0d549135a08d05549ee92cb11b1a7f78fa) \n This package contains a stub build-time helper, which in another package of the same uploader was already turned into a backdoor installation. While this package does not yet contain malicious code, it is clear it wa",
+      "link": ""
+    },
+    {
+      "id": "GHSA-w7r8-xc7m-3j8g",
+      "title": "[GHSA-w7r8-xc7m-3j8g] Malicious code in workalender (PyPI)",
+      "published": "2026-10-20T15:31:09Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (bb4f2824499fd64a22d9dfdb23c454bbb8797422f5281fdd5f454ea64095853a) \n Installing the package or importing the module exfiltrates basic information about the host, and the package has no other purpose. \n \n Category: PROBABLY_PENTEST - Packages looking like typical pentest packages, but ",
+      "link": ""
+    },
+    {
+      "id": "GHSA-m3vr-hc83-fvc8",
+      "title": "[GHSA-m3vr-hc83-fvc8] Malicious code in resion (PyPI)",
+      "published": "2026-10-20T15:31:08Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (2e9e3ce373adb26e45616eec47d727e557f5a696737cb2fbcaa66fb7dc7b7c3e) \n Description: In this campaign, the main package (resion) has an embeded pickle disguised as a config. A related dependency (pafex) contains code to load the pickle. During unpickling, malicious code embeded in the pi",
+      "link": ""
+    },
+    {
+      "id": "GHSA-pqqp-5w2f-783q",
+      "title": "[GHSA-pqqp-5w2f-783q] Malicious code in pafex (PyPI)",
+      "published": "2026-10-20T15:31:08Z",
+      "ecosystem": "PIP",
+      "summary": "Source: kam193 (8ad1f51a6f081ac9e46b3d3ffa2d0b9b150b1600caf826d940f4e3d1992cda16) \n In this campaign, the main package (resion) has an embeded pickle disguised as a config. A related dependency (pafex) contains code to load the pickle. During unpickling, malicious code embeded in the pickle file is ",
       "link": ""
     },
     {
@@ -309,499 +789,19 @@
       "link": ""
     },
     {
-      "id": "GHSA-87gv-mmww-whrr",
-      "title": "[GHSA-87gv-mmww-whrr] Malware in @an1mshnpmb9c84920/gat-scope-target-125ec19a",
-      "published": "2026-10-19T22:19:38Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-42h4-pvwr-r87v",
-      "title": "[GHSA-42h4-pvwr-r87v] Malware in @an1mshnpmb9c84920/stage-repo-m19g7",
-      "published": "2026-10-19T22:19:38Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-6grm-8w52-497r",
-      "title": "[GHSA-6grm-8w52-497r] Malware in @an1mshnpmb9c84920/stage-outer-m19s5",
-      "published": "2026-10-19T22:19:38Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-3xpj-mfqg-v52m",
-      "title": "[GHSA-3xpj-mfqg-v52m] Malware in @an1mshnpmb9c84920/pipe-dns-m19t2",
-      "published": "2026-10-19T22:19:38Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-h79g-mv9q-7p44",
-      "title": "[GHSA-h79g-mv9q-7p44] Malware in @an1mshnpmb9c84920/stage-fn-m19p2",
-      "published": "2026-10-19T22:19:38Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-hxmq-p768-mjhf",
-      "title": "[GHSA-hxmq-p768-mjhf] Malware in @an1mshnpmb9c84920/pipe-compat-m19r8",
-      "published": "2026-10-19T22:19:37Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-mmr7-9m67-9qh5",
-      "title": "[GHSA-mmr7-9m67-9qh5] Malware in @an1mshnpmb9c84920/oidc-cross-cafb9d929e",
-      "published": "2026-10-19T22:19:37Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-xwx3-5h3q-2v8r",
-      "title": "[GHSA-xwx3-5h3q-2v8r] Malware in chatgpt-pro-setup-tool",
-      "published": "2026-10-19T21:47:42Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-h8cg-xwfv-9x77",
-      "title": "[GHSA-h8cg-xwfv-9x77] Malware in codex-setup",
-      "published": "2026-10-19T21:47:42Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-4632-2g34-4r9w",
-      "title": "[GHSA-4632-2g34-4r9w] Malware in @decoopus/chatgpt-setup",
-      "published": "2026-10-19T21:47:42Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-pgq5-xq28-533m",
-      "title": "[GHSA-pgq5-xq28-533m] Malware in chatgpt-desktop-setup",
-      "published": "2026-10-19T21:47:42Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-p7p5-jrq5-q47x",
-      "title": "[GHSA-p7p5-jrq5-q47x] Malware in @decoopus/claude-setup",
-      "published": "2026-10-19T21:47:42Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-f4mf-vhm8-xxqc",
-      "title": "[GHSA-f4mf-vhm8-xxqc] Malware in claude-desktop-setup",
-      "published": "2026-10-19T21:47:42Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-qp43-mgx6-56x2",
-      "title": "[GHSA-qp43-mgx6-56x2] Malware in chatgpt-pro-activator",
-      "published": "2026-10-19T21:47:42Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-cj9w-7h22-q93g",
-      "title": "[GHSA-cj9w-7h22-q93g] Malware in api-anthropic",
-      "published": "2026-10-19T21:47:42Z",
-      "ecosystem": "NPM",
-      "summary": "Any computer that has this package installed or running should be considered fully compromised. All secrets and keys stored on that computer should be rotated immediately from a different computer. The package should be removed, but as full control of the computer may have been given to an outside e",
-      "link": ""
-    },
-    {
-      "id": "GHSA-jgrw-w3x3-w5cp",
-      "title": "[GHSA-jgrw-w3x3-w5cp] Malicious code in vinted-mocked-apis (PyPI)",
-      "published": "2026-10-19T18:31:16Z",
+      "id": "GHSA-2j5q-cfcm-6vgm",
+      "title": "[GHSA-2j5q-cfcm-6vgm] Malicious code in fabtoolkit (PyPI)",
+      "published": "2026-10-19T03:31:11Z",
       "ecosystem": "PIP",
-      "summary": "Source: kam193 (c71ab868e2ac254cfa135aa73c1ed19a3ddb1c82793efa3ff8466c3c5aa44b02) \n Installing the package or importing the module exfiltrates basic information about the host, and the package has no other purpose. \n \n Category: PROBABLY_PENTEST - Packages looking like typical pentest packages, but ",
+      "summary": "Source: amazon-inspector (e55333b9d934a04c029943e0e6fbf34fff7c1344e0d1964b6860bc02d322855d) \n fabtoolkit executes a payload (embedded as a CHILD string run via  subprocess.run([sys.executable,'-I','-c',CHILD],...) ) that fetches a JSON config from  https://transfer.archivete.am/H2Uxm/fabdeploycheck-",
       "link": ""
     },
     {
-      "id": "GHSA-5wr8-gcqf-gqf3",
-      "title": "[GHSA-5wr8-gcqf-gqf3] aiohttp server lacks an initial request/header timeout",
-      "published": "2026-10-19T17:08:04Z",
+      "id": "GHSA-4vr9-vg98-9xpf",
+      "title": "[GHSA-4vr9-vg98-9xpf] Malicious code in pyyi (PyPI)",
+      "published": "2026-10-14T00:31:16Z",
       "ecosystem": "PIP",
-      "summary": "Summary \n The keepalive timeout was not used during the initial portion of a request. \n Impact \n An attacker could keep an idle connection open indefinitely before sending any data. \n Workaround \n Use a reverse proxy (as recommended for all production deployments) with sensible keepalive limits. \n  ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-494j-54xm-rwp3",
-      "title": "[GHSA-494j-54xm-rwp3] AIOHTTP: Secure attribute not enforced for shared cookie",
-      "published": "2026-10-19T17:07:47Z",
-      "ecosystem": "PIP",
-      "summary": "Summary \n The Secure attribute was not being enforced for the shared cookie. \n Impact \n It may be possible to send a shared cookie marked Secure through an unencrypted request. \n            Affected Packages  \n\n   \n       aiohttp \n       Ecosystem: pip \n       Severity: low \n       Versions: &lt;= 3",
-      "link": ""
-    },
-    {
-      "id": "GHSA-2g87-pp6c-29x5",
-      "title": "[GHSA-2g87-pp6c-29x5] aiohttp: Multiple instances of excessive or unbounded memory/CPU use",
-      "published": "2026-10-19T17:07:23Z",
-      "ecosystem": "PIP",
-      "summary": "Summary \n Multiple cases were found where aiohttp could use excessive or unbounded memory, or excessive CPU consumption on attacker controlled requests. \n Impact \n An attacker could cause resource exhaustion through specially crafted requests. \n            Affected Packages  \n\n   \n       aiohttp \n  ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-4wc5-f2rc-q74m",
-      "title": "[GHSA-4wc5-f2rc-q74m] russh: Unbounded memory allocation in agent protocol server via crafted constraint records",
-      "published": "2026-10-19T17:06:46Z",
-      "ecosystem": "RUST",
-      "summary": "Summary \n  russh_keys::agent::server::add_key  ( russh/src/keys/agent/server.rs:271-319 ) spawns a dedicated tokio task for every 5-byte  SSH_AGENT_CONSTRAIN_LIFETIME  record attached to an added key, each cloning the key blob and sleeping for the declared lifetime (up to ~136 years). The loop has n",
-      "link": ""
-    },
-    {
-      "id": "GHSA-j7h2-66j4-ghjf",
-      "title": "[GHSA-j7h2-66j4-ghjf] A russh SSH server accepts a publickey authentication whose signature uses a different algorithm than the one named in the request",
-      "published": "2026-10-19T17:06:29Z",
-      "ecosystem": "RUST",
-      "summary": "Details \n In  russh/src/server/encrypted.rs ,  server_read_auth_request_pk  (0.63.3, around lines 880-990): \n \n The requested algorithm name ( pubkey_algo ) is read and only used to decode the key:  PublicKeyOrCertificate::decode(&amp;pubkey_algo, &amp;pubkey_key) . The derived  hash_alg  is then dr",
-      "link": ""
-    },
-    {
-      "id": "GHSA-2658-85cv-9wwq",
-      "title": "[GHSA-2658-85cv-9wwq] Mercury: Stored / DOM Cross-Site Scripting (XSS): mr.Markdown renders untrusted content as raw, unsanitized HTML",
-      "published": "2026-10-19T17:01:20Z",
-      "ecosystem": "PIP",
-      "summary": "Summary \n Mercury turns Jupyter notebooks into shared web apps/dashboards. The  mr.Markdown  \nwidget converts its input to HTML with  python-markdown and no sanitization \nstep .  MarkdownWidget  is an  ipywidgets.HTML  widget, whose value is written to \nthe page as  raw HTML (via  innerHTML ) with n",
-      "link": ""
-    },
-    {
-      "id": "GHSA-4j9v-h7pp-725h",
-      "title": "[GHSA-4j9v-h7pp-725h] Microsoft Security Advisory CVE-2026-70035 - .NET and Visual Studio Remote Code Execution Vulnerability",
-      "published": "2026-10-13T20:53:46Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in Microsoft.WindowsDesktop.App.Runtime (WPF). This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n Restrictive XAML a",
-      "link": ""
-    },
-    {
-      "id": "GHSA-mf4x-w4gh-4656",
-      "title": "[GHSA-mf4x-w4gh-4656] Microsoft Security Advisory CVE-2026-70186 - ASP.NET Core Denial of Service Vulnerability",
-      "published": "2026-10-13T20:53:19Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in Microsoft.AspNetCore.Server.Kestrel.Core. This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n An unauthenticated r",
-      "link": ""
-    },
-    {
-      "id": "GHSA-pfwj-2f93-rf42",
-      "title": "[GHSA-pfwj-2f93-rf42] Microsoft Security Advisory CVE-2026-70007 - .NET and Visual Studio Remote Code Execution Vulnerability",
-      "published": "2026-10-13T20:52:52Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in Microsoft.WindowsDesktop.App.Runtime (WPF). This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n Crafted WPF pixel-",
-      "link": ""
-    },
-    {
-      "id": "GHSA-c27m-942f-rcfh",
-      "title": "[GHSA-c27m-942f-rcfh] Microsoft Security Advisory CVE-2026-87697 - .NET and Visual Studio Remote Code Execution Vulnerability",
-      "published": "2026-10-13T20:52:24Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in Microsoft.WindowsDesktop.App.Runtime (WPF). This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n WPF XPS synthetic ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-qjpx-jqm5-h2c4",
-      "title": "[GHSA-qjpx-jqm5-h2c4] Microsoft Security Advisory CVE-2026-96230 - ASP.NET Core Remote Code Execution Vulnerability",
-      "published": "2026-10-13T20:51:12Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in Microsoft.AspNetCore.Components.WebAssembly.Server. This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n The Blazor",
-      "link": ""
-    },
-    {
-      "id": "GHSA-vrrp-6v32-2p8g",
-      "title": "[GHSA-vrrp-6v32-2p8g] Microsoft Security Advisory CVE-2026-70179 - ASP.NET Core Elevation of Privilege Vulnerability",
-      "published": "2026-10-13T20:50:45Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in Microsoft.AspNetCore.Authentication.Negotiate. This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n ASP.NET Core Ne",
-      "link": ""
-    },
-    {
-      "id": "GHSA-xq57-crx4-g373",
-      "title": "[GHSA-xq57-crx4-g373] Microsoft Security Advisory CVE-2026-96224 - .NET and Visual Studio Remote Code Execution Vulnerability",
-      "published": "2026-10-13T20:50:11Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in Microsoft.WindowsDesktop.App.Runtime (WPF). This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n Crafted WPF pixel-",
-      "link": ""
-    },
-    {
-      "id": "GHSA-c399-9853-6jmj",
-      "title": "[GHSA-c399-9853-6jmj] Microsoft Security Advisory CVE-2026-96959 - .NET and Visual Studio Denial of Service Vulnerability",
-      "published": "2026-10-13T20:49:06Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in System.Security.Cryptography.Xml; System.Private.Xml. This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n Signed X",
-      "link": ""
-    },
-    {
-      "id": "GHSA-4w5f-7jp2-w48g",
-      "title": "[GHSA-4w5f-7jp2-w48g] Microsoft Security Advisory CVE-2026-83520 - .NET and Visual Studio Remote Code Execution Vulnerability",
-      "published": "2026-10-13T20:48:38Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in Microsoft.WindowsDesktop.App.Runtime (WPF). This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n Restrictive XAML a",
-      "link": ""
-    },
-    {
-      "id": "GHSA-f749-vhgx-39h6",
-      "title": "[GHSA-f749-vhgx-39h6] Microsoft Security Advisory CVE-2026-70174 - .NET and Visual Studio Remote Code Execution Vulnerability",
-      "published": "2026-10-13T20:48:07Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in Microsoft.WindowsDesktop.App.Runtime (WPF). This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n WPF XPS hyperlink ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-fq6x-pvr9-888r",
-      "title": "[GHSA-fq6x-pvr9-888r] Microsoft Security Advisory CVE-2026-96234 - .NET and Visual Studio Information Disclosure Vulnerability",
-      "published": "2026-10-13T20:46:53Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in Microsoft.WindowsDesktop.App.Runtime (WPF). This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n Restrictive XAML a",
-      "link": ""
-    },
-    {
-      "id": "GHSA-5qr9-xxm9-6cmq",
-      "title": "[GHSA-5qr9-xxm9-6cmq] Microsoft Security Advisory CVE-2026-96229 - .NET and Visual Studio Information Disclosure Vulnerability",
-      "published": "2026-10-13T20:46:25Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in Microsoft.WindowsDesktop.App.Runtime (WPF). This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n Restrictive XAML a",
-      "link": ""
-    },
-    {
-      "id": "GHSA-g44w-h65v-4cw9",
-      "title": "[GHSA-g44w-h65v-4cw9] Microsoft Security Advisory CVE-2026-96235 - .NET and Visual Studio Remote Code Execution Vulnerability",
-      "published": "2026-10-13T20:45:50Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in Microsoft.WindowsDesktop.App.Runtime (WPF). This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n Crafted WPF pixel-",
-      "link": ""
-    },
-    {
-      "id": "GHSA-vrv5-2jg9-4mmr",
-      "title": "[GHSA-vrv5-2jg9-4mmr] Microsoft Security Advisory CVE-2026-96222 - .NET Spoofing Vulnerability",
-      "published": "2026-10-13T20:45:13Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in System.Security.Cryptography.Xml. This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n  KeyInfoX509Data  can accept",
-      "link": ""
-    },
-    {
-      "id": "GHSA-wxxw-5cvc-53j7",
-      "title": "[GHSA-wxxw-5cvc-53j7] Microsoft Security Advisory CVE-2026-66822 - .NET and Visual Studio Information Disclosure Vulnerability",
-      "published": "2026-10-13T20:41:40Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in System.Net.Http. This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n SocketsHttpHandler can retain a  Proxy-Author",
-      "link": ""
-    },
-    {
-      "id": "GHSA-rv87-ccxw-8ggf",
-      "title": "[GHSA-rv87-ccxw-8ggf] Microsoft Security Advisory CVE-2026-88092 - ASP.NET Core Security Feature Bypass Vulnerability",
-      "published": "2026-10-13T20:40:50Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in Microsoft.AspNetCore.Server.Kestrel.Core. This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n An aborted Kestrel H",
-      "link": ""
-    },
-    {
-      "id": "GHSA-fpq8-4vhr-rcxx",
-      "title": "[GHSA-fpq8-4vhr-rcxx] Microsoft Security Advisory CVE-2026-70188 - ASP.NET Core Security Feature Bypass Vulnerability",
-      "published": "2026-10-13T20:37:27Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in Microsoft.AspNetCore.Server.Kestrel.Core. This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n Kestrel accepts newl",
-      "link": ""
-    },
-    {
-      "id": "GHSA-f4g7-52wc-p8x7",
-      "title": "[GHSA-f4g7-52wc-p8x7] Microsoft Security Advisory CVE-2026-96236 - ASP.NET Core Denial of Service Vulnerability",
-      "published": "2026-10-13T20:36:22Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in Microsoft.AspNetCore.Localization. This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n ASP.NET Core request-locali",
-      "link": ""
-    },
-    {
-      "id": "GHSA-4mpw-cpwj-hxxj",
-      "title": "[GHSA-4mpw-cpwj-hxxj] Microsoft Security Advisory CVE-2026-70197 - .NET and Visual Studio Remote Code Execution Vulnerability",
-      "published": "2026-10-13T20:34:32Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in System.Net.Sockets. This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n On Windows, reusing a  SocketAsyncEventArg",
-      "link": ""
-    },
-    {
-      "id": "GHSA-3rxq-g8rj-r2cf",
-      "title": "[GHSA-3rxq-g8rj-r2cf] Microsoft Security Advisory CVE-2026-69651 - .NET and Visual Studio Denial of Service Vulnerability",
-      "published": "2026-10-13T20:32:47Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in System.Security.Cryptography.Xml; System.Private.Xml. This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n Signed X",
-      "link": ""
-    },
-    {
-      "id": "GHSA-g27p-qf6j-c96c",
-      "title": "[GHSA-g27p-qf6j-c96c] Microsoft Security Advisory CVE-2026-102870 - ASP.NET Core Remote Code Execution Vulnerability",
-      "published": "2026-10-13T20:27:36Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in the Blazor WebAssembly debugger included in  Microsoft.AspNetCore.Components.WebAssembly.Server . This advisory also provides guidance on what developers can do to update their applicati",
-      "link": ""
-    },
-    {
-      "id": "GHSA-87vj-4hqv-22p9",
-      "title": "[GHSA-87vj-4hqv-22p9] Microsoft Security Advisory CVE-2026-96233 - .NET and Visual Studio Denial of Service Vulnerability",
-      "published": "2026-10-13T20:25:37Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in System.Runtime. This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n DateTime Hebrew-number parsing can read outsid",
-      "link": ""
-    },
-    {
-      "id": "GHSA-2fmv-rv2c-59x7",
-      "title": "[GHSA-2fmv-rv2c-59x7] Microsoft Security Advisory CVE-2026-70162 - .NET Denial of Service Vulnerability",
-      "published": "2026-10-13T20:07:20Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in System.Security.Cryptography.Pkcs. This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n On Windows,  EnvelopedCms.D",
-      "link": ""
-    },
-    {
-      "id": "GHSA-r955-8q5j-3h83",
-      "title": "[GHSA-r955-8q5j-3h83] Microsoft Security Advisory CVE-2026-96958 - .NET and Visual Studio Denial of Service Vulnerability",
-      "published": "2026-10-13T20:05:52Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in System.Security.Cryptography.Xml; System.Private.Xml. This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n Signed X",
-      "link": ""
-    },
-    {
-      "id": "GHSA-846f-f764-76mx",
-      "title": "[GHSA-846f-f764-76mx] Microsoft Security Advisory CVE-2026-84008 - .NET Denial of Service Vulnerability",
-      "published": "2026-10-13T20:03:30Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in System.Security.Cryptography.Pkcs. This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n  SignedCms.CheckSignature  ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-mc4q-93x5-f6hj",
-      "title": "[GHSA-mc4q-93x5-f6hj] Microsoft Security Advisory CVE-2026-58280 - .NET and Visual Studio Denial of Service Vulnerability",
-      "published": "2026-10-13T20:01:59Z",
-      "ecosystem": "NUGET",
-      "summary": "Executive summary \n Microsoft is releasing this security advisory to provide information about a vulnerability in System.Security.Cryptography.Xml and System.Private.Xml. This advisory also provides guidance on what developers can do to update their applications to remove this vulnerability. \n Signe",
-      "link": ""
-    },
-    {
-      "id": "GHSA-8f34-f56x-9xph",
-      "title": "[GHSA-8f34-f56x-9xph] msgpack5: Truncated map32 headers throw an unexpected error",
-      "published": "2026-10-08T17:40:10Z",
-      "ecosystem": "NPM",
-      "summary": "Impact \n A truncated  map32  header causes an out-of-bounds buffer read and throws  RangeError  instead of  IncompleteBufferError . Applications that rely on  IncompleteBufferError  to wait for additional bytes may terminate a request, stream, or worker unexpectedly. No adjacent memory is disclosed ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-pj5h-5q6c-3pfx",
-      "title": "[GHSA-pj5h-5q6c-3pfx] Payload external upload trust validation issue",
-      "published": "2026-10-07T20:29:41Z",
-      "ecosystem": "NPM",
-      "summary": "Impact \n Under certain external upload configurations, Payload could send authentication data to a destination that was not verified as trusted. If the affected request contained a valid session, this could expose that session to an unintended recipient. \n  You are affected if:  \n \n You have enabled",
-      "link": ""
-    },
-    {
-      "id": "GHSA-h6w7-qmcm-q6xr",
-      "title": "[GHSA-h6w7-qmcm-q6xr] RabbitMQ Java client: plaintext broker credentials leaked in exception message from ConnectionFactoryConfigurator.load()",
-      "published": "2026-10-07T16:19:22Z",
-      "ecosystem": "MAVEN",
-      "summary": "Summary \n When property-file/Map-based  ConnectionFactory  setup fails while parsing the  uri  key, the library wraps the underlying exception with the raw connection string — including the plaintext username and password — baked verbatim into the new exception's message. \n Details \n  ConnectionFact",
-      "link": ""
-    },
-    {
-      "id": "GHSA-7m6h-rg42-m449",
-      "title": "[GHSA-7m6h-rg42-m449] Filament: Multi-factor authentication (app) management actions do not require password reauthentication",
-      "published": "2026-10-05T23:44:12Z",
-      "ecosystem": "COMPOSER",
-      "summary": "App-based multi-factor authentication management actions did not consistently require the user to confirm their current password. In particular, an authenticated session could set up app-based MFA and obtain recovery codes without password reauthentication. Disabling app-based MFA and regenerating r",
-      "link": ""
-    },
-    {
-      "id": "GHSA-5f42-97gr-vfhq",
-      "title": "[GHSA-5f42-97gr-vfhq] Moquette: Pattern-ACL wildcard injection (cross-tenant authorization bypass) plus a remote-unauthenticated DoS cluster, a Will-message authorization bypass, and a cross-session durable-corruption bug",
-      "published": "2026-09-23T16:11:18Z",
-      "ecosystem": "MAVEN",
-      "summary": "moquette is reachable by untrusted MQTT clients (anonymous by default), so every byte from any client, including pre-authentication, is untrusted. This is a memory-safe JVM: the ceiling is authorization/ACL bypass + denial of service + cross-session integrity,  not RCE  (I did not find one and do no",
-      "link": ""
-    },
-    {
-      "id": "GHSA-cq7h-9rpc-7xx5",
-      "title": "[GHSA-cq7h-9rpc-7xx5] Malicious code in ing-feat-itsme-oidc-authentication (npm)",
-      "published": "2026-07-27T23:00:09Z",
-      "ecosystem": "NPM",
-      "summary": "Source: amazon-inspector (175d0dba1f70bc84bcd4e29b57e0f7831248582614cd146af7d1ea6d1d057cd5) \n On npm install, package.json's preinstall hook executes poc.js, which collects os.hostname(), os.userInfo().username, process.cwd(), and process.platform, base64-encodes the values, and issues an HTTPS GET ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-3rp5-jjmw-4wv2",
-      "title": "[GHSA-3rp5-jjmw-4wv2] GitPython: git-config section-name injection enables arbitrary config directives (core.sshCommand RCE)",
-      "published": "2026-07-24T16:22:02Z",
-      "ecosystem": "PIP",
-      "summary": "Summary \n In GitPython  &lt;= 3.1.52 , the config writer neutralizes only CR, LF, and NUL in configuration  names , but writes section names into the  [...]  header with no other escaping. A section/subsection name that contains  ] [ \"  closes the intended header and opens a second same-line section",
-      "link": ""
-    },
-    {
-      "id": "GHSA-5gvw-p9qm-jgwh",
-      "title": "[GHSA-5gvw-p9qm-jgwh] jackson-databind: @JsonView bypassed for @JsonUnwrapped container properties on deserialization",
-      "published": "2026-07-21T22:00:43Z",
-      "ecosystem": "MAVEN",
-      "summary": "Summary \n  UnwrappedPropertyHandler.processUnwrapped()  replays the buffered JSON for a  @JsonUnwrapped  property by iterating its properties and calling  prop.deserializeAndSet()  with  no  prop.visibleInView(ctxt.getActiveView())  guard  — the exact guard  processUnwrappedCreatorProperties()  rece",
-      "link": ""
-    },
-    {
-      "id": "GHSA-q29v-xc37-wh5m",
-      "title": "[GHSA-q29v-xc37-wh5m] Docling: Unsafe URI and Path Handling in HTML Backend",
-      "published": "2026-06-03T21:15:02Z",
-      "ecosystem": "PIP",
-      "summary": "Impact \n The HTML backend did not perform sufficient validation during resource handling: \n \n Accepted  file://  URIs enabling local file system access when  enable_local_fetch=True  \n Path resolution allowed traversal outside intended directories via  ../  sequences and absolute paths \n Did not blo",
-      "link": ""
-    },
-    {
-      "id": "GHSA-q7rr-3cgh-j5r3",
-      "title": "[GHSA-q7rr-3cgh-j5r3] Prometheus exporter process crash via malformed HTTP request",
-      "published": "2026-05-11T14:42:10Z",
-      "ecosystem": "NPM",
-      "summary": "Summary \n A single malformed HTTP request crashes any Node.js process running the OpenTelemetry JS Prometheus exporter. The metrics endpoint (default  0.0.0.0:9464 ) has no error handling around URL parsing, so a request with an invalid URI causes an uncaught  TypeError  that terminates the process.",
-      "link": ""
-    },
-    {
-      "id": "GHSA-5xmw-vc9v-4wf2",
-      "title": "[GHSA-5xmw-vc9v-4wf2] Pillow has a heap buffer overflow with nested list coordinates",
-      "published": "2026-05-04T20:18:27Z",
-      "ecosystem": "PIP",
-      "summary": "Passing nested lists as coordinates to APIs that accept coordinates such as  ImagePath.Path ,  ImageDraw.ImageDraw.polygon  and  ImageDraw.ImageDraw.line  could cause a heap buffer overflow, as nested lists were recursively unpacked beyond the allocated buffer. Coordinate lists are now validated to ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-px2c-r924-mwcc",
-      "title": "[GHSA-px2c-r924-mwcc] Couchbase .NET SDK (client library) does not properly enable hostname verification for TLS certificates",
-      "published": "2025-06-18T15:31:15Z",
-      "ecosystem": "NUGET",
-      "summary": "The Couchbase .NET SDK (client library) before 3.7.1 does not properly enable hostname verification for TLS certificates. In fact, the SDK was also using IP addresses instead of hostnames due to a configuration option that was incorrectly enabled by default. \n            Affected Packages  \n\n   \n   ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-9hjg-9r4m-mvj7",
-      "title": "[GHSA-9hjg-9r4m-mvj7] Requests vulnerable to .netrc credentials leak via malicious URLs",
-      "published": "2025-06-09T19:06:08Z",
-      "ecosystem": "PIP",
-      "summary": "Impact \n Due to a URL parsing issue, Requests releases prior to 2.32.4 may leak .netrc credentials to third parties for specific maliciously-crafted URLs. \n Workarounds \n For older versions of Requests, use of the .netrc file can be disabled with  trust_env=False  on your Requests Session ( docs ). ",
-      "link": ""
-    },
-    {
-      "id": "GHSA-4xw9-cx39-r355",
-      "title": "[GHSA-4xw9-cx39-r355] json-web-token library is vulnerable to a JWT algorithm confusion attack",
-      "published": "2023-11-17T22:48:15Z",
-      "ecosystem": "NPM",
-      "summary": "Summary \n The json-web-token library is vulnerable to a JWT algorithm confusion attack. \n Details \n On line 86 of the 'index.js' file, the algorithm to use for verifying the signature of the JWT token is taken from the JWT token, which at that point is still unverified and thus shouldn't be trusted.",
+      "summary": "The verified PyPI wheel declares a console command named python2 (pyyi.cli:main). For commands other than the local REPL, help, version, unlock, or uninstall paths, it obtains configuration and calls run_payload(). Registration sends the hostname and OS to a configured space-z.ai server and stores t",
       "link": ""
     }
   ]
