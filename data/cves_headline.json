@@ -1,258 +1,258 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-21T06:52:05Z",
+  "updated_at": "2026-10-21T12:44:02Z",
   "note": "Bounded slice of cves.json for the homepage. Use /data/cves.json for the full window.",
   "normalisation_failures": [],
   "total": 25,
   "items": [
     {
-      "id": "CVE-2026-93856",
-      "published": "2026-10-21T06:16:51Z",
-      "description": "In OpenStack Cinder through 29.0.0, cross-project information disclosure can occur in the Messages API. A non-admin user with the project-scoped 'member' or 'reader' role making the Block Storage API v3.3 \"List messages\" call finds the non-expired user messages for other projects included in the res",
+      "id": "CVE-2026-80463",
+      "published": "2026-10-21T12:17:24Z",
+      "description": "Unbounded memory accumulation in the stream message reassembly path of Apache bRPC (version < 1.18.0) on all platforms allows remote attackers to exhaust the memory of a server (denial of service) by sending an endless sequence of continuation data frames.\n\nRoot Cause:\nThe streaming RPC protocol bou",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-80463",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-81755",
+      "published": "2026-10-21T12:17:24Z",
+      "description": "Uncontrolled resource consumption in the streaming RPC component of Apache bRPC (version < 1.18.0) allows a remote attacker to exhaust server memory and cause denial of service by sending a single RPC request that declares an excessive number of streams.\n\nRoot Cause:\nIn the streaming RPC feature, a ",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-81755",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-78048",
+      "published": "2026-10-21T12:17:23Z",
+      "description": "A reachable-assertion flaw in the HPACK header-compression decoder of the HTTP/2 (h2/gRPC) stack in Apache bRPC (version < 1.18.0) on all platforms allows a remote attacker to crash the server process by sending a crafted sequence of HPACK headers, resulting in a denial of service.\n\nRoot Cause:\nIn s",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-78048",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-78058",
+      "published": "2026-10-21T12:17:23Z",
+      "description": "Uncontrolled resource consumption in the HTTP/2 (h2) receive path of Apache bRPC (version < 1.18.0) on all platforms allows a remote unauthenticated attacker to crash the server or grow its memory without bound by sending crafted HTTP/2 frames.\n\nRoot Cause:\nThe h2 parser, enabled by default on every",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-78058",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-78066",
+      "published": "2026-10-21T12:17:23Z",
+      "description": "Resource exhaustion in Apache bRPC (version < 1.18.0) on all platforms: multiple parsers that accept wire-controlled input bound no limit on the sizes declared by the client or on decompressed output, which attackers can use to drive disproportionate memory use and crash the process.\n\nRoot Cause:\n1)",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-78066",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-78334",
+      "published": "2026-10-21T12:17:23Z",
+      "description": "Missing authentication in the streaming RPC path of Apache bRPC (version < 1.18.0) on all platforms allows a remote attacker to bypass server authentication and inject or deliver streaming frames, when a server is configured with an Authenticator.\n\nRoot Cause:\nWhen authentication is configured, stre",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-78334",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-79704",
+      "published": "2026-10-21T12:17:23Z",
+      "description": "An out-of-bounds read vulnerability exists in the streaming RPC client of Apache bRPC (versions 1.11.0 through  1.17.0) on all platforms. A client that creates multiple streams in a single RPC expects the server response to carry exactly one extra_stream_id for every additional stream. The response ",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-79704",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-59562",
+      "published": "2026-10-21T12:17:22Z",
+      "description": "Missing authentication for critical function vulnerability in Apache IoTDB.\n\n\n\nThis issue affects Apache IoTDB: from 2.0.0 before 2.0.11.\n\n\n\nUsers are recommended to upgrade to version 2.0.11, which fixes the issue.",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59562",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-61902",
+      "published": "2026-10-21T12:17:22Z",
+      "description": "Apache bRPC versions before 1.18.0 do not consistently enforce the configured max_body_size limit in non-progressive HTTP/1 and HTTP/2 parsing and in memcache and couchbase response parsing.\n\nA remote unauthenticated peer can cause an affected process to buffer message data beyond the configured lim",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-61902",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-61916",
+      "published": "2026-10-21T12:17:22Z",
+      "description": "Out-of-bounds reads in URL parsing and case-insensitive header lookup in Apache bRPC before version 1.18.0 on platforms where plain char is unsigned, such as ARM64, allow remote attackers to cause a process crash and denial of service by sending crafted input containing bytes with the high bit set.\n",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-61916",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-66392",
+      "published": "2026-10-21T12:17:22Z",
+      "description": "Apache bRPC versions before 1.18.0 validate the server certificate chain when client TLS peer verification is enabled, but do not bind the certificate to an expected DNS name or IP address. A network attacker who can redirect or intercept a connection and who possesses a certificate issued by a CA t",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-66392",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-74755",
+      "published": "2026-10-21T12:17:22Z",
+      "description": "An integer underflow in the mcpack2pb component of Apache bRPC (version < 1.18.0) on all platforms allows remote attackers to crash a bRPC server by sending a request containing a string field with a zero value_size. The UnparsedValue::as_string() function computes `_size - 1` without validating `_s",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-74755",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-74757",
+      "published": "2026-10-21T12:17:22Z",
+      "description": "Uncontrolled resource allocation in the mcpack2pb component in Apache bRPC (version < 1.18.0) on all platforms allows remote attackers to make the server allocate a large amount of memory via sending a crafted mcpack request with a huge array item count.\n\nRoot Cause:\nThe bRPC mcpack2pb parser trusts",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-74757",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-74758",
+      "published": "2026-10-21T12:17:22Z",
+      "description": "A heap use-after-free in the RTMP protocol component of Apache bRPC (versions < 1.18.0) allows a remote attacker to crash a bRPC RTMP server by sending a crafted Abort control message. No authentication or application-level request is required.\n\nRoot Cause:\nWhen an RTMP Abort control message names t",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-74758",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-54425",
+      "published": "2026-10-21T12:17:21Z",
+      "description": "Uncontrolled recursion in the HTTP/2 HPACK decoder in Apache bRPC before 1.18.0 allows remote attackers to cause denial of service by sending a crafted HTTP/2 header block containing many consecutive Dynamic Table Size Update entries. Each update was decoded by recursively invoking the HPACK decoder",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-54425",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-54426",
+      "published": "2026-10-21T12:17:21Z",
+      "description": "Uncontrolled recursion in the Redis reply parser in Apache bRPC < 1.18.0 allows a remote Redis server peer to crash a bRPC Redis client process by returning a deeply nested RESP array reply. The parser recursed once for each nested array level without enforcing a depth limit. The fix adds a configur",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-54426",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-54427",
+      "published": "2026-10-21T12:17:21Z",
+      "description": "Uncontrolled recursion in the AMF parser in Apache bRPC < 1.18.0 allows a remote RTMP peer to crash a bRPC process by sending deeply nested AMF objects or arrays. The parser recursively processed nested AMF containers without enforcing a depth limit, which could exhaust the native stack.\n\nAffected S",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-54427",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-56386",
+      "published": "2026-10-21T12:17:21Z",
+      "description": "Integer underflow and out-of-bounds read in the HTTP/2 server DATA frame parser in Apache bRPC allows an unauthenticated remote attacker to cause denial of service by sending a malformed DATA frame with the PADDED flag set and a zero-length payload.\n\nRoot Cause:\nThe HTTP/2 DATA frame handler compute",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-56386",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-56387",
+      "published": "2026-10-21T12:17:21Z",
+      "description": "The RTMP AMF parser in Apache bRPC accepts AMF string lengths and array counts directly from untrusted input. A remote unauthenticated attacker who can reach a bRPC server with RTMP enabled can send a small AMF payload with an excessive declared long string length or array count, causing excessive m",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-56387",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-56388",
+      "published": "2026-10-21T12:17:21Z",
+      "description": "The Redis server command parser in Apache bRPC accepts an empty RESP array as a command header. A remote unauthenticated attacker who can reach a bRPC server with Redis service enabled can send an empty array header followed by a bulk string, causing an out-of-bounds write in the parser and crashing",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-56388",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-58064",
+      "published": "2026-10-21T12:17:21Z",
+      "description": "The Redis protocol implementation in Apache bRPC allowed inline command parsing to allocate and copy the full connection buffer before a complete CRLF-terminated command was available. A remote attacker with access to a Redis-protocol bRPC service could send long inline inputs without a terminating ",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-58064",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-59229",
+      "published": "2026-10-21T12:17:21Z",
+      "description": "The Legacy Pipe receiver protocol (handshake / sendPipeData) uses a\nhardcoded SUPER_USER (root) identity when executing data loading and\ndeletion operations. A user with only SYSTEM-level privileges (such as\nUSE_PIPE or MAINTAIN) who does NOT have WRITE_DATA or DELETE_DATA\npermissions on target data",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59229",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-48830",
+      "published": "2026-10-21T12:17:20Z",
+      "description": "Improper authentication in Apache bRPC through 1.17.0 allows a remote unauthenticated attacker to bypass authentication for protected non-builtin HTTP endpoints by first sending a builtin HTTP request on the same HTTP/1.1 keep-alive connection.\n\nWhen ServerOptions.auth is enabled and builtin HTTP se",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-48830",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-114242",
+      "published": "2026-10-21T12:17:19Z",
+      "description": "A vulnerability was identified in dhikshitha29 Insurance-Management-System 91de5edda5baa109ad8e9baf03ce6a3ceda84183/125362cc21dca20d74091a4913a5096bb58dd837. Affected is the function mysqli_query of the file /Admin/View/editPlan.php. Such manipulation of the argument Plan_no/Name leads to sql inject",
       "severity": "MEDIUM",
-      "score": 4.3,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93856",
+      "score": 5.5,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-114242",
       "kev": false
     },
     {
-      "id": "CVE-2026-96901",
-      "published": "2026-10-21T06:16:51Z",
-      "description": "The Cart Abandonment Recovery for WooCommerce  WordPress plugin before 2.2.0 does not verify the integrity of its cart-recovery token before acting on it and still accepts an unsigned legacy token format, allowing unauthenticated attackers who know a victim's cart session identifier to modify that v",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96901",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-85642",
-      "published": "2026-10-21T06:16:50Z",
-      "description": "The Formidable Forms  WordPress plugin before 7.0 does not verify the identity of the caller before recording the timestamp it uses to rate limit payment gateway verification requests, allowing unauthenticated attackers to consume the daily allowance and cause legitimate verification attempts to be ",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-85642",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-86611",
-      "published": "2026-10-21T06:16:50Z",
-      "description": "The Download Manager WordPress plugin before 3.3.71, Download Manager WordPress plugin before 7.5.9 does not have CSRF checks in some places, allowing attackers to make a logged in admin update its privacy and storage settings via a crafted link, including the credential that gates its unauthenticat",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-86611",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-87837",
-      "published": "2026-10-21T06:16:50Z",
-      "description": "The Wava Payment Plugin WordPress plugin before 0.3.10 does not verify the authenticity of incoming payment-provider notifications, nor restrict who may send them, allowing unauthenticated attackers to change the status of any WooCommerce order in the store, including marking an unpaid order as paid",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87837",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-87838",
-      "published": "2026-10-21T06:16:50Z",
-      "description": "The Wava Payment Plugin WordPress plugin before 0.3.10 does not perform any authorisation, nonce or origin verification on one of its public REST endpoints, allowing unauthenticated attackers to overwrite the stored credential that identifies the merchant account the store's payments are created aga",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87838",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-88784",
-      "published": "2026-10-21T06:16:50Z",
-      "description": "The Translate WordPress with Weglot 2.0  WordPress plugin before 6.4.3 does not escape the URLs it re-inserts into a page when rewriting links for a translated language, and reverses the encoding that was applied to them beforehand, allowing unauthenticated users to store a payload which executes in",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88784",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-92997",
-      "published": "2026-10-21T06:16:50Z",
-      "description": "The Click n Chat (Chat Widget Integration) WordPress plugin before 1.1.3 does not properly validate a parameter before using it as a column identifier in a SQL query, allowing unauthenticated attackers to perform SQL injection attacks.",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92997",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-92998",
-      "published": "2026-10-21T06:16:50Z",
-      "description": "The Click n Chat (Chat Widget Integration) WordPress plugin before 1.1.3 does not sanitise sort parameters before using them in a SQL ORDER BY clause, allowing unauthenticated attackers to perform SQL injection attacks.",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92998",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-92999",
-      "published": "2026-10-21T06:16:50Z",
-      "description": "The Click n Chat (Chat Widget Integration) WordPress plugin before 1.1.3 does not perform any authorization check on a lead-export handler, allowing unauthenticated users to download every captured contact record (names, email addresses and phone numbers).",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92999",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-71195",
-      "published": "2026-10-21T06:16:49Z",
-      "description": "In OpenStack Manila before 23.0.1, multiple Manila API operations on public shares do not verify that the caller owns the share. The API controllers authorize operations against the caller's own project context, then load a foreign public share without re-authorizing against the share's actual owner",
+      "id": "CVE-2026-87095",
+      "published": "2026-10-21T11:17:09Z",
+      "description": "Sensitive information disclosure and manipulation due to improper authorization checks. The following products are affected: Acronis Cyber Infrastructure (ACI) before build 6.0.1-112, Acronis Cyber Infrastructure (ACI) before build 6.1.1-64, Acronis Cyber Infrastructure (ACI) before build 6.2.1-71.",
       "severity": "CRITICAL",
-      "score": 9.9,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-71195",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-79627",
-      "published": "2026-10-21T06:16:49Z",
-      "description": "The Advanced File Manager  WordPress plugin before 6.0.0 does not correctly determine whether a stored file is an SVG before sanitising it, allowing users granted file-manager access by an administrator to store a file containing script that is not stripped and that runs in the browser of anyone who",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-79627",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-81812",
-      "published": "2026-10-21T06:16:49Z",
-      "description": "The Elementor Website Builder  WordPress plugin before 4.3.5 does not sanitize uploaded SVG files on every upload route, allowing users with the Author role and above to upload a file containing JavaScript, which will run in the browser of any user who opens it. Exploitation requires unfiltered file",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-81812",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-81813",
-      "published": "2026-10-21T06:16:49Z",
-      "description": "The Elementor Website Builder  WordPress plugin before 4.3.5 does not sanitize the text content of SVG files, checking only their elements and attributes, allowing users with the Contributor role and above to store a payload which breaks out when the SVG is rendered inline in a page and executes in ",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-81813",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-110982",
-      "published": "2026-10-21T06:16:48Z",
-      "description": "The AI Engine  WordPress plugin before 3.8.6 does not check that the caller is allowed to edit the targeted object before updating its title and excerpt, allowing users with the Editor role and above to modify arbitrary posts of any type, including content they cannot otherwise edit such as navigati",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110982",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-111574",
-      "published": "2026-10-21T06:16:48Z",
-      "description": "The Redirection for Contact Form 7 WordPress plugin before 3.2.12 does not sanitise or escape submitted form data stored as lead entries before outputting it in the lead debug metabox, allowing unauthenticated attackers to store a malicious script that executes when a logged-in user views the entry ",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111574",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-111596",
-      "published": "2026-10-21T06:16:48Z",
-      "description": "The Kliken: Ads + Pixel for Meta WordPress plugin before 1.2.3 does not verify that a visitor holds an order's key before outputting that order's details on the order confirmation page, allowing unauthenticated users to retrieve the billing location, purchased products and totals of other customers'",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111596",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-111947",
-      "published": "2026-10-21T06:16:48Z",
-      "description": "The Pricing Table WordPress Plugin  WordPress plugin before 4.1.3 does not perform authorisation checks when duplicating a legacy pricing table, allowing users with the contributor role and above to clone and publish any post or page on the site, including private and draft content belonging to othe",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111947",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-111948",
-      "published": "2026-10-21T06:16:48Z",
-      "description": "The User Profile Builder  WordPress plugin before 4.0.1 does not escape the current page URL before outputting it in a JavaScript context on one of its admin pages, leading to Reflected Cross-Site Scripting against high-privilege users.",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111948",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-111949",
-      "published": "2026-10-21T06:16:48Z",
-      "description": "The miniOrange 2FA  WordPress plugin before 6.3.1 does not prevent a pending passkey login from registering an additional passkey on an account that already has one configured, allowing an attacker who knows a user's password to add their own authenticator and bypass the second factor.",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111949",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-111955",
-      "published": "2026-10-21T06:16:48Z",
-      "description": "The WholesaleX  WordPress plugin before 3.0.9 does not check that a stored account confirmation code is set before comparing it with the one supplied in a request, allowing unauthenticated users to activate pending accounts and bypass the administrator approval required before login.",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111955",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-111956",
-      "published": "2026-10-21T06:16:48Z",
-      "description": "The WholesaleX  WordPress plugin before 3.0.9 does not protect or remove the user-import file it keeps in a publicly accessible location under a predictable name, allowing unauthenticated users to download the most recently imported user data, including any account passwords and customer contact and",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111956",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-111957",
-      "published": "2026-10-21T06:16:48Z",
-      "description": "The SUMIT Payment Gateway for WooCommerce WordPress plugin before 4.0.0 does not bind the payment it confirms with the provider to the order being completed, nor check the payment amount against the order total, allowing unauthenticated users to mark a pending order as paid by replaying a payment id",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111957",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-15261",
-      "published": "2026-10-21T06:16:48Z",
-      "description": "The TI WooCommerce Wishlist WordPress plugin before 2.13.0 does not enforce the same owner-only access control on its REST API that it applies on the front-end, allowing unauthenticated users to read the metadata and item contents of private wishlists.",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-15261",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-107788",
-      "published": "2026-10-21T06:16:47Z",
-      "description": "The SmartyParcel  WordPress plugin before 1.23.4 does not perform authorisation checks when deleting shipping label records, allowing any authenticated user such as a subscriber to delete the shipping label and tracking records of arbitrary orders store-wide.",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107788",
+      "score": 9.1,
+      "cvss_version": "30",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87095",
       "kev": false
     }
   ]
