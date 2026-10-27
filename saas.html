@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pricing — Threats</title>
+<meta name="description" content="All public threat feeds are free. Pro adds private watchlists, correlated alerts, signed webhooks, and STIX 2.1 export, onboarded by manual invoice.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/app.css">
+<style>
+  .tier-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 40px; }
+  .tier-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+  .tier-card.pro {
+    border-color: var(--accent);
+    background: linear-gradient(180deg, rgba(249,115,22,0.06) 0%, var(--surface) 100%);
+  }
+  .tier-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 6px; }
+  .tier-title { font-size: 16px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+  .tier-price { font-size: 26px; font-weight: 700; color: var(--accent); font-family: 'JetBrains Mono', monospace; white-space: nowrap; }
+  .tier-price small { font-size: 12px; color: var(--text-muted); font-family: Inter, sans-serif; font-weight: 400; }
+  .tier-sub { font-size: 12.5px; color: var(--text-muted); line-height: 1.55; min-height: 38px; }
+  .tier-list { list-style: none; margin: 16px 0 22px; font-size: 13px; color: var(--text-secondary); line-height: 1.75; flex: 1; }
+  .tier-list li::before { content: "✓ "; color: #4ade80; font-weight: 700; }
+  .tier-list li.soon::before { content: "→ "; color: var(--text-muted); }
+  .tier-list .soon { color: var(--text-muted); }
+
+  .btn {
+    display: inline-block;
+    text-align: center;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid var(--border-hover);
+    background: var(--surface-2);
+    color: var(--text);
+  }
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-primary { background: var(--accent); border-color: var(--accent); color: #0a0a0a; font-weight: 600; }
+  .btn-primary:hover { color: #0a0a0a; filter: brightness(1.08); }
+
+  .badge.status { color: #4ade80; border-color: rgba(74,222,128,0.35); }
+  .badge.soon { color: var(--med); border-color: rgba(234,179,8,0.35); }
+
+  section { margin-bottom: 44px; }
+  .section-title { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 6px; }
+  .section-intro { font-size: 13px; color: var(--text-secondary); line-height: 1.55; margin-bottom: 16px; max-width: 68ch; }
+
+  .compare { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .compare th, .compare td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--border); }
+  .compare th { color: var(--text-muted); font-weight: 500; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .compare th:not(:first-child), .compare td:not(:first-child) { text-align: center; width: 120px; }
+  .compare tbody tr:last-child td { border-bottom: none; }
+  .compare td.yes { color: #4ade80; }
+  .compare td.no { color: var(--text-muted); }
+  .compare td.soon { color: var(--med); font-size: 12px; }
+  .compare-wrap { border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); overflow-x: auto; }
+
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .step { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; }
+  .step .n { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); font-weight: 600; }
+  .step h3 { font-size: 13.5px; font-weight: 600; margin: 8px 0 6px; }
+  .step p { font-size: 12.5px; color: var(--text-secondary); line-height: 1.55; }
+
+  .faq { border-top: 1px solid var(--border); }
+  .faq details { border-bottom: 1px solid var(--border); padding: 14px 0; }
+  .faq summary { cursor: pointer; font-size: 13.5px; font-weight: 500; }
+  .faq summary::marker { color: var(--text-muted); }
+  .faq p { font-size: 12.5px; color: var(--text-secondary); line-height: 1.6; margin-top: 8px; max-width: 76ch; }
+  .faq a { color: var(--link); }
+  .faq a:hover { text-decoration: underline; }
+
+  footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; font-size: 12px; color: var(--text-muted); }
+  .footer-links { display: flex; gap: 14px; flex-wrap: wrap; }
+  .footer-links a:hover { color: var(--text-secondary); }
+
+  @media (max-width: 820px) {
+    .tier-grid, .steps { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="site">
+    <a class="logo" href="/">
+      <span class="logo-mark">T</span>
+      <span class="logo-name">Threats <span class="sub">/ Pricing</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/programs.html">Programs</a>
+      <a href="/cves.html">Vulnerabilities</a>
+      <a href="/iocs.html">IOCs</a>
+      <a href="/ransomware.html">Ransomware</a>
+      <a href="/phishing.html">Phishing</a>
+      <a href="/threats.html">Cloud threats</a>
+      <a href="/status.html">Status</a>
+      <a href="/saas.html" aria-current="page">Pricing</a>
+    </nav>
+  </header>
+
+  <h1>Plans that match how you use the data</h1>
+  <p class="sub">Read everything for free. Pay only when you need private watchlists and alerting.</p>
+
+  <div class="tier-grid">
+    <div class="tier-card">
+      <div class="tier-head">
+        <span class="tier-title">Free <span class="badge status">Available now</span></span>
+        <span class="tier-price">$0</span>
+      </div>
+      <p class="tier-sub">For researchers, students, and anyone who needs current public threat data without a key.</p>
+      <ul class="tier-list">
+        <li>All public pages and JSON feeds</li>
+        <li>Global CVE, indicator, and program search</li>
+        <li>Per-source freshness and status page</li>
+        <li>No account, no API key</li>
+        <li class="soon">GitHub sign-in and a 3-asset private watchlist <span class="badge soon">next release</span></li>
+      </ul>
+      <a class="btn" href="/cves.html">Browse the feeds →</a>
+    </div>
+
+    <div class="tier-card pro">
+      <div class="tier-head">
+        <span class="tier-title">Pro <span class="badge soon">Waitlist</span></span>
+        <span class="tier-price">$39<small>/mo</small></span>
+      </div>
+      <p class="tier-sub">For SOC teams that need their own attack surface watched continuously, not just a public feed.</p>
+      <ul class="tier-list">
+        <li>Everything in Free</li>
+        <li>500 private watchlist assets (domains, vendors, packages, IPs)</li>
+        <li>Correlated alerts with 90-day retention</li>
+        <li>Signed webhooks for Splunk, Sentinel, and CrowdStrike</li>
+        <li>Tenant-scoped STIX 2.1 export</li>
+        <li>600 API requests/min and priority support</li>
+      </ul>
+      <a class="btn btn-primary" href="https://github.com/nestho/threats-platform/issues/new?title=Pro%20access%20request&amp;body=%23%23%20Organization%0A%0A%23%23%20Use%20case%0A%0A%23%23%20Approximate%20assets%0A%0A%23%23%20Contact" target="_blank" rel="noopener">Request Pro access →</a>
+    </div>
+  </div>
+
+  <p class="note">
+    Public data is live today. Accounts, watchlists, and Pro alerting are being rolled out; Pro access is
+    handled manually during the private beta. Nothing on this page is a checkout or a staged console.
+  </p>
+
+  <section>
+    <h2 class="section-title">Compare plans</h2>
+    <p class="section-intro">Entitlements are enforced server-side when the hosted console opens. Public files stay unkeyed and free.</p>
+    <div class="compare-wrap">
+      <table class="compare">
+        <caption class="visually-hidden">Free and Pro capability comparison</caption>
+        <thead>
+          <tr><th scope="col">Capability</th><th scope="col">Free</th><th scope="col">Pro</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Public feeds and pages</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><td>GitHub account and private watchlist</td><td class="soon">Next release</td><td class="soon">Waitlist</td></tr>
+          <tr><td>Watchlist assets</td><td>3</td><td>500</td></tr>
+          <tr><td>API rate limit</td><td>Static files, no key</td><td>600/min</td></tr>
+          <tr><td>Correlated alerts</td><td class="no">—</td><td>90-day retention</td></tr>
+          <tr><td>Signed webhooks</td><td class="no">—</td><td class="yes">Yes</td></tr>
+          <tr><td>STIX 2.1 export</td><td class="no">—</td><td class="yes">Yes</td></tr>
+          <tr><td>Support</td><td>Community</td><td>Priority</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">How Pro onboarding works</h2>
+    <p class="section-intro">No checkout, no card form, no surprise renewal. Three steps, handled by a person.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="n">01</div>
+        <h3>Request access</h3>
+        <p>Open the access request with your organization, use case, and approximate asset count.</p>
+      </div>
+      <div class="step">
+        <div class="n">02</div>
+        <h3>Confirm and invoice</h3>
+        <p>We confirm scope and send a monthly invoice. Pro is $39/month during the beta.</p>
+      </div>
+      <div class="step">
+        <div class="n">03</div>
+        <h3>Enable the tenant</h3>
+        <p>After payment we enable your tenant, watchlist quota, and webhook setup.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Questions</h2>
+    <div class="faq">
+      <details>
+        <summary>Do I need an account to read the data?</summary>
+        <p>No. Every feed under <code>/data/</code> is a public JSON file with no key and no login. You can fetch it from a script, a notebook, or a SIEM.</p>
+      </details>
+      <details>
+        <summary>Is the data really free, and where does it come from?</summary>
+        <p>Yes. We collect from official or public sources such as NVD, CISA KEV, GitHub Advisories, Exploit-DB, CERT-EU, Wiz Research, ransomware.live, OpenPhish, Microsoft, Ubuntu, and FIRST EPSS. The <a href="/status.html">status page</a> lists every source, its cadence, and its upstream URL. Upstream terms still apply to your use of the data.</p>
+      </details>
+      <details>
+        <summary>Why manual invoices instead of card checkout?</summary>
+        <p>Billing is deliberately simple during the beta. It keeps payment data out of the platform while the hosted console is being finished. Card checkout is planned after that.</p>
+      </details>
+      <details>
+        <summary>Where would my watchlist and alerts live?</summary>
+        <p>In a private Cloudflare D1 database, never in this Git repository. Public files will continue to contain only public threat data. Today there is no account system, so there is nothing private to store yet.</p>
+      </details>
+      <details>
+        <summary>Can I run the collectors myself?</summary>
+        <p>Yes. The repository is public and the collectors use only the Python standard library. See the <a href="https://github.com/nestho/threats-platform" target="_blank" rel="noopener">GitHub repository</a> for the scripts and the field contract.</p>
+      </details>
+    </div>
+  </section>
+
+  <footer>
+    <span>Threats — open threat intelligence</span>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="/status.html">Source status</a>
+      <a href="/data/status.json">status.json</a>
+      <a href="https://github.com/nestho/threats-platform" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </footer>
+
+</div>
+</body>
+</html>

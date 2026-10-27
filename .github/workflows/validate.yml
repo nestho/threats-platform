@@ -1,28 +1,28 @@
 name: Validate
 
-# The gate on pull requests.
+# The required gate on every pull request into main.
 #
-# update-data.yml already validates between fetch and commit, so a bad feed from
-# a scheduled run cannot reach main. That left one path open: data/*.json edited
-# by hand and merged through a pull request, which is exactly how the original
-# empty CERT-EU feed could have been introduced. This closes it.
+# update-data.yml runs the same feed validator between collection and commit, so
+# a bad automated snapshot never reaches a pull request either. This workflow
+# also catches hand edits to data/*.json, which is how an empty feed could other-
+# wise arrive unnoticed.
 #
-# Two jobs rather than one, so a test failure does not hide a data failure.
+# Three independent jobs, so a test failure cannot hide a feed failure (or the
+# reverse) and all three can be required by name in the ruleset.
 
 on:
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
-# Deliberately read-only. The scheduled workflow needs contents:write because it
-# commits; this one must never have it, or a pull request could push to main.
-# `pull_request` (not `pull_request_target`) is the safe variant -- it runs with a
-# read-only token even for forks, so a malicious PR cannot exfiltrate secrets by
-# editing the workflow.
+# Deliberately read-only. The data workflow needs write access, but a pull
+# request must never be able to push to main. `pull_request` (not
+# `pull_request_target`) runs fork PRs with a read-only token and no secrets.
 permissions:
   contents: read
 
 concurrency:
-  group: validate-${{ github.event.pull_request.number }}
+  group: validate-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 # Job-level so BOTH the fetch and the validate step see it.
@@ -31,8 +31,7 @@ concurrency:
 # "$BASE_SHA". That expands to an empty string there, and `git show :data/<feed>`
 # with an empty ref reads the INDEX rather than the base commit -- so the
 # regression check would have silently compared the working tree against itself
-# and passed. A gate that cannot fail is worse than no gate, which is the same
-# lesson as the exit-0 contract this whole branch exists to fix.
+# and passed. A gate that cannot fail is worse than no gate.
 env:
   BASE_SHA: ${{ github.event.pull_request.base.sha }}
 
@@ -53,10 +52,14 @@ jobs:
         # grows by megabytes per run.
         #
         # "$BASE_SHA" is quoted and unexpanded, never interpolated as
-        # ${{ }} inside the script body: GitHub's own guidance is that expression
-        # substitution in run: is a script-injection vector.
+        # ${{ }} inside the script body: expression substitution in run: is a
+        # script-injection vector.
         run: |
           set -euo pipefail
+          if [[ -z "${BASE_SHA:-}" ]]; then
+            echo "BASE_SHA is empty; nothing to compare against (manual dispatch)."
+            exit 0
+          fi
           git fetch --depth=1 origin "$BASE_SHA"
           git cat-file -e "$BASE_SHA^{commit}"
           echo "base commit fetched: $BASE_SHA"
@@ -72,20 +75,21 @@ jobs:
         run: python3 scripts/normalize.py
 
       - name: Validate feed data
-        # Compares against the base branch, so this answers "did THIS pull request
-        # empty or halve a feed" rather than "is the feed empty".
+        # Compares against the base branch, so this answers "did THIS pull
+        # request empty or halve a feed" rather than "is the feed empty".
         #
         # A pull request that changes a collector's output shape without
         # regenerating its data will fail here. That coupling is deliberate: it
-        # forces a contract change and the data that satisfies it to land together,
-        # instead of leaving main in a state where its own gate fails.
+        # forces a contract change and the data that satisfies it to land
+        # together, instead of leaving main in a state where its own gate fails.
         run: |
           set -euo pipefail
           if [[ -z "${BASE_SHA:-}" ]]; then
-            echo "::error::BASE_SHA is empty -- the regression check would silently compare the working tree against itself and pass"
-            exit 1
+            echo "Manual run: validating against HEAD."
+            python3 scripts/validate_feeds.py --against HEAD
+          else
+            python3 scripts/validate_feeds.py --against "$BASE_SHA"
           fi
-          python3 scripts/validate_feeds.py --against "$BASE_SHA"
 
   test:
     name: Unit tests
@@ -100,8 +104,26 @@ jobs:
         with:
           node-version: '20'
 
-      # No dependencies. These are the two places where a silent failure is
-      # worst: esc() is the site's only XSS control, and the admin Worker is the
-      # only write path into published data.
+      # No dependencies. These cover the two places where a silent failure is
+      # worst: esc() is the site's only XSS control, and the edge Worker is the
+      # only network-facing surface that used to write to main.
       - name: Test
         run: node --test assets worker
+
+  test-python:
+    name: Python tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Setup Python
+        uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        with:
+          python-version: '3.12'
+
+      # scripts/ is the top-level directory so the modules import each other the
+      # same way they do when a collector runs from the repository root.
+      - name: Test
+        run: python3 -m unittest discover -s scripts/tests -t scripts -v

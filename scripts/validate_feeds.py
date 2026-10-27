@@ -38,9 +38,12 @@ import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlparse
 
 DATA_DIR = Path("data")
 MANUAL_PATH = DATA_DIR / "manual.json"
+STATUS_PATH = DATA_DIR / "status.json"
+ROOT = Path(__file__).resolve().parent.parent
 
 # Expected schema_version per feed file.
 #
@@ -58,9 +61,13 @@ EXPECTED_SCHEMA_VERSION = {
     "ghsa.json": 2,
     "exploitdb.json": 2,
     "cert_eu.json": 2,
-    "urlhaus.json": 2,
     "domains.json": 2,
     "wiz.json": 1,
+    "ransomware.json": 1,
+    "phishing.json": 1,
+    "advisories.json": 1,
+    "epss.json": 1,
+    "iocs.json": 1,
 }
 
 # Feeds that are allowed to be empty. Deliberately empty: a source that can
@@ -69,6 +76,10 @@ EXPECTED_SCHEMA_VERSION = {
 ALLOW_EMPTY = {
     # (none currently -- every source we poll has continuous content)
 }
+
+# Markers that must never appear in published data or public UI. They identify
+# the seeded console/tenant demo that used to ship as if it were real.
+DEMO_MARKERS = ("default-pro", "community-free", "demo-tenant", "example-tenant")
 
 # The canonical platform enum, mirroring collector.py. Duplicated on purpose:
 # the validator must be able to fail when collector.py's enum drifts, so it
@@ -80,12 +91,18 @@ CANONICAL_PLATFORMS = {
 }
 
 THREAT_EVENT_TYPES = {"incident", "campaign", "research", "vulnerability", "malware", "threat actor"}
+IOC_TYPES = {"url", "domain"}
+SEVERITIES = {"CRITICAL", "HIGH", "MEDIUM", "LOW"}
+STATUS_OVERALL = {"ok", "degraded", "outage"}
 
 ISO_DATETIME = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$")
 ISO_DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 # Used only for the "field is entirely markup" shape check -- see check_record.
 TAG_ONLY = re.compile(r"<[^>]*>")
 DEFANGED = re.compile(r"^hxxps?://")
+HOSTNAME = re.compile(r"^(?=.{1,253}$)(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,63}$")
+
+PRIVATE_FIELDS = {"tenant_id", "plan", "email", "api_key", "assets", "watchlist", "secret"}
 
 # The published contract, as data. `--print-contract` renders this so the docs
 # cannot drift from what is actually enforced.
@@ -95,12 +112,16 @@ CONTRACT = {
     "envelope": {
         "schema_version": "int -- bumped on any breaking change to this file",
         "updated_at": "iso_datetime -- when this snapshot was generated, always UTC",
+        "source": "str -- human-readable upstream name",
+        "source_url": "str | list[str] -- the exact upstream URL(s)",
     },
     # Optional envelope fields: documented, and type-checked when present, but not
     # required. A feed that normalises per-record timestamps carries this; one
     # that has no per-record timestamps (domains.json) legitimately does not.
     "envelope_optional": {
         "normalisation_failures": "list[dict] -- records whose timestamp was unparseable",
+        "note": "str -- provenance or interpretation caveat",
+        "partial": "list[str] | null -- upstreams that failed while others succeeded",
     },
     "program": {
         "name": "str",
@@ -137,6 +158,14 @@ CONTRACT = {
         "summary": "str",
         "link": "url",
     },
+    "vendor_advisory": {
+        "id": "str",
+        "vendor": "str -- Microsoft | Ubuntu",
+        "title": "str",
+        "published": "nullable_iso_datetime",
+        "summary": "str",
+        "link": "url",
+    },
     "exploit": {
         "id": "str -- EDB numeric id, else the bare guid",
         "title": "str",
@@ -154,13 +183,54 @@ CONTRACT = {
         "author": "nullable_str",
         "link": "url",
     },
-    "malware_url": {
-        "id": "str",
-        "date_added": "nullable_iso_datetime",
+    "ransomware_claim": {
+        "id": "str -- deterministic claim ID",
+        "victim": "str",
+        "domain": "nullable_str -- victim domain, when the leak site names one",
+        "group": "nullable_str",
+        "activity": "nullable_str -- claimed sector",
+        "country": "nullable_str",
+        "published": "nullable_iso_datetime",
+        "discovered": "nullable_iso_datetime",
+        "description": "str -- attacker-supplied, truncated",
+        "claim_url": "nullable_url -- .onion claim page",
+        "link": "nullable_url -- ransomware.live record",
+        "screenshot": "nullable_url",
+    },
+    "phishing_url": {
+        "id": "str -- derived from the live URL",
         "url_defanged": "str -- defanged; never a live hxxp/hxxps URL",
-        "status": "str",
-        "threat": "str",
-        "tags": "str",
+        "host": "str -- hostname extracted from the live URL",
+        "collected_at": "iso_datetime -- the snapshot time, not a first-seen claim",
+    },
+    "epss_score": {
+        "cve": "str",
+        "epss": "float -- 0..1",
+        "percentile": "float -- 0..1",
+        "date": "iso_date",
+    },
+    "ioc": {
+        "id": "str",
+        "type": f"enum -- one of {sorted(IOC_TYPES)}",
+        "value": "str -- defanged URL for type=url, hostname for type=domain",
+        "source": "str",
+        "context": "str -- what the indicator means",
+        "severity": f"enum -- one of {sorted(SEVERITIES)}",
+        "first_seen": "nullable_iso_datetime",
+        "last_seen": "nullable_iso_datetime",
+        "link": "url",
+    },
+    "status_source": {
+        "id": "str",
+        "label": "str",
+        "url": "str | list[str]",
+        "cadence_minutes": "int",
+        "last_attempt": "nullable_iso_datetime",
+        "last_success": "nullable_iso_datetime",
+        "http_status": "nullable_int",
+        "items": "int",
+        "error": "nullable_str",
+        "stale": "bool",
     },
 }
 
@@ -175,9 +245,28 @@ FEED_SPECS = {
     "ghsa.json": ("flat", [(("items",), "advisory", None)]),
     "exploitdb.json": ("flat", [(("items",), "exploit", None)]),
     "cert_eu.json": ("flat", [(("items",), "advisory", None)]),
-    "urlhaus.json": ("flat", [(("items",), "malware_url", None)]),
     "wiz.json": ("flat", [(("items",), "threat_event", None)]),
+    "ransomware.json": ("flat", [(("items",), "ransomware_claim", None)]),
+    "phishing.json": ("flat", [(("items",), "phishing_url", None)]),
+    "advisories.json": ("flat", [(("items",), "vendor_advisory", None)]),
+    "epss.json": ("flat", [(("items",), "epss_score", None)]),
+    "iocs.json": ("flat", [(("items",), "ioc", None)]),
     "domains.json": ("programs", [(("programs",), "program", None)]),
+}
+
+# sort key -> direction, for feeds whose order the UI relies on.
+SORTED_FEEDS = {
+    "cves.json:recent": ("published", True),
+    "cves.json:actively_exploited": ("date_added", True),
+    "cves_headline.json": ("published", True),
+    "ghsa.json": ("published", True),
+    "exploitdb.json": ("published", True),
+    "cert_eu.json": ("published", True),
+    "wiz.json": ("published", True),
+    "ransomware.json": ("published", True),
+    "advisories.json": ("published", True),
+    "epss.json": ("epss", True),
+    "iocs.json": ("last_seen", True),
 }
 
 
@@ -224,22 +313,41 @@ def check_timestamp(value, *, allow_null, where, report, date_only=False):
         report.fail(where, f"{value!r} is not a real date")
 
 
+def check_url(value, *, allow_null, where, report, defanged=False):
+    if value is None:
+        if allow_null:
+            return
+        report.fail(where, "URL is null")
+        return
+    if not isinstance(value, str) or not value.strip():
+        report.fail(where, "URL is empty")
+        return
+    if defanged:
+        if not DEFANGED.match(value):
+            report.fail(where, f"{value!r} is not defanged -- a live URL must never reach the public API")
+        return
+    try:
+        parsed = urlparse(value)
+    except ValueError:
+        report.fail(where, f"{value!r} is not a URL")
+        return
+    if parsed.scheme not in ("http", "https") or not parsed.netloc:
+        report.fail(where, f"{value!r} must be an absolute http(s) URL")
+
+
 def check_record(item, record_type, where, report):
-    """Type, timestamp, and text-hygiene checks for one record."""
+    """Type, timestamp, URL-scheme, and text-hygiene checks for one record."""
     for field in CONTRACT[record_type]:
         if field not in item:
             report.fail(where, f"missing required field {field!r}")
             return
 
-    if record_type in ("cve", "advisory", "exploit", "malware_url"):
-        # published is nullable on every advisory-shaped record: a single
-        # unparseable upstream date is tolerated by the collector (see
-        # normalize.NormalisationTally) rather than costing us the whole feed, so
-        # the validator must accept the shape the collector actually emits. The
-        # signal that it happened is the normalisation_failures warning below,
-        # not a per-record hard error.
-        check_timestamp(item.get("published") or item.get("date_added"),
-                        allow_null=True,
+    for field in PRIVATE_FIELDS:
+        if field in item:
+            report.fail(where, f"contains private field {field!r}; tenant data must never be published")
+
+    if record_type in ("cve", "advisory", "exploit", "vendor_advisory"):
+        check_timestamp(item.get("published"), allow_null=True,
                         where=f"{where}.published", report=report)
 
     if record_type == "kev":
@@ -273,40 +381,65 @@ def check_record(item, record_type, where, report):
                         f"is {item.get('domain_count')} but domains has {len(domains)} entries")
 
     if record_type == "threat_event":
-        # Wiz encodes classification in the title suffix and ships no <category>
-        # elements, so this is the only classification the feed carries.
         if item.get("type") is not None and item["type"] not in THREAT_EVENT_TYPES:
             report.fail(f"{where}.type",
                         f"{item['type']!r} is not one of {sorted(THREAT_EVENT_TYPES)}")
 
-    if record_type == "malware_url":
-        if not DEFANGED.match(item.get("url_defanged", "")):
-            report.fail(f"{where}.url_defanged",
-                        f"{item.get('url_defanged')!r} is not defanged -- a live URL "
-                        f"must never reach the public API")
+    if record_type in ("advisory", "vendor_advisory", "exploit", "threat_event", "cve", "kev"):
+        check_url(item.get("link"), allow_null=False, where=f"{where}.link", report=report)
+
+    if record_type == "vendor_advisory" and not isinstance(item.get("vendor"), str):
+        report.fail(f"{where}.vendor", "must be a string")
+
+    if record_type == "ransomware_claim":
+        if not isinstance(item.get("victim"), str) or not item["victim"].strip():
+            report.fail(f"{where}.victim", "must be a non-empty string")
+        check_timestamp(item.get("published"), allow_null=True,
+                        where=f"{where}.published", report=report)
+        check_timestamp(item.get("discovered"), allow_null=True,
+                        where=f"{where}.discovered", report=report)
+        for field in ("claim_url", "link", "screenshot"):
+            check_url(item.get(field), allow_null=True, where=f"{where}.{field}", report=report)
+
+    if record_type == "phishing_url":
+        check_url(item.get("url_defanged"), allow_null=False,
+                  where=f"{where}.url_defanged", report=report, defanged=True)
+        host = item.get("host")
+        if not isinstance(host, str) or not HOSTNAME.match(host.lower()):
+            report.fail(f"{where}.host", f"{host!r} is not a hostname")
+        check_timestamp(item.get("collected_at"), allow_null=False,
+                        where=f"{where}.collected_at", report=report)
+
+    if record_type == "epss_score":
+        for field in ("epss", "percentile"):
+            value = item.get(field)
+            if not isinstance(value, (int, float)) or not 0 <= value <= 1:
+                report.fail(f"{where}.{field}", f"{value!r} is not a number in 0..1")
+        check_timestamp(item.get("date"), allow_null=False, date_only=True,
+                        where=f"{where}.date", report=report)
+
+    if record_type == "ioc":
+        if item.get("type") not in IOC_TYPES:
+            report.fail(f"{where}.type", f"{item.get('type')!r} is not one of {sorted(IOC_TYPES)}")
+        if item.get("severity") not in SEVERITIES:
+            report.fail(f"{where}.severity", f"{item.get('severity')!r} is not one of {sorted(SEVERITIES)}")
+        value = item.get("value")
+        if item.get("type") == "url":
+            check_url(value, allow_null=False, where=f"{where}.value", report=report, defanged=True)
+        elif item.get("type") == "domain":
+            if not isinstance(value, str) or not HOSTNAME.match(value.lower()):
+                report.fail(f"{where}.value", f"{value!r} is not a hostname")
+        check_timestamp(item.get("first_seen"), allow_null=True,
+                        where=f"{where}.first_seen", report=report)
+        check_timestamp(item.get("last_seen"), allow_null=True,
+                        where=f"{where}.last_seen", report=report)
+        check_url(item.get("link"), allow_null=False, where=f"{where}.link", report=report)
 
     # Shape check, not a security check: a text field must not consist *entirely*
     # of markup. This catches the real malformed case -- an upstream whose
     # "description" is really a fragment of an HTML page, e.g. a 503 challenge
     # body -- and has no false positives on prose that merely mentions a tag.
-    #
-    # Two broader rules were tried here and both were wrong, which is worth
-    # recording so nobody re-adds them:
-    #
-    #   1. "reject any <tag>" fired on eight legitimate CVE descriptions,
-    #      because CVE text routinely discusses markup.
-    #   2. "reject active content (script/iframe/svg/javascript:)" still fired on
-    #      CVE-2026-100174, which is an XSS vulnerability whose description quotes
-    #      "<svg onload=...>" as the payload it fixes. A large share of this corpus
-    #      is *about* injection, so no active-content regex can be clean here.
-    #
-    # Both were attempts to enforce the real security property -- "the renderer
-    # escapes untrusted text" -- by inspecting data, which is the wrong layer. That
-    # property belongs to the renderer and is verified by a frontend escaping test,
-    # not by looking at a JSON file. The collector's only real obligation here is
-    # to strip markup that the upstream's own formatting introduced (cert_eu does
-    # this via strip_html); whether the *result* is escaped is the renderer's job.
-    for field in ("description", "summary", "title", "name", "url_defanged"):
+    for field in ("description", "summary", "title", "name", "url_defanged", "indicator"):
         value = item.get(field)
         if isinstance(value, str) and value.strip() and not TAG_ONLY.sub("", value).strip():
             report.fail(f"{where}.{field}",
@@ -320,16 +453,28 @@ def check_envelope(doc, feed, report):
         if field not in doc:
             report.fail(where, f"missing {field!r}")
             return
+    source_url = doc["source_url"]
+    if isinstance(source_url, str):
+        check_url(source_url, allow_null=False, where=f"{where}.source_url", report=report)
+    elif isinstance(source_url, list):
+        if not source_url:
+            report.fail(f"{where}.source_url", "is an empty list")
+        for index, value in enumerate(source_url):
+            check_url(value, allow_null=False, where=f"{where}.source_url[{index}]", report=report)
+    else:
+        report.fail(f"{where}.source_url",
+                    f"expected a string or list, got {type(source_url).__name__}")
+
     for field, _spec in CONTRACT["envelope_optional"].items():
-        if field in doc and not isinstance(doc[field], list):
-            report.fail(f"{where}.{field}",
-                        f"expected a list, got {type(doc[field]).__name__}")
+        if field in doc and field != "normalisation_failures" and field != "partial":
+            if not isinstance(doc[field], str):
+                report.fail(f"{where}.{field}", f"expected a string, got {type(doc[field]).__name__}")
+        if field == "partial" and doc.get(field) is not None and not isinstance(doc[field], list):
+            report.fail(f"{where}.partial", "expected a list or null")
+
     version = doc["schema_version"]
     expected = EXPECTED_SCHEMA_VERSION.get(feed)
     if expected is None:
-        # A data/*.json file with no registered spec. Not necessarily wrong -- a
-        # hand-maintained file might be legitimate -- but it is unenforced, so say
-        # so rather than implying it was checked.
         report.warn(f"{where}.schema_version",
                     "no EXPECTED_SCHEMA_VERSION entry; this file is not version-checked")
     elif version != expected:
@@ -363,6 +508,54 @@ def item_count(doc, feed):
     return total
 
 
+def collect_strings(value, path="", found=None):
+    found = found if found is not None else []
+    if isinstance(value, str):
+        found.append((path, value))
+    elif isinstance(value, dict):
+        for key, child in value.items():
+            collect_strings(child, f"{path}.{key}" if path else key, found)
+    elif isinstance(value, list):
+        for index, child in enumerate(value):
+            collect_strings(child, f"{path}[{index}]", found)
+    return found
+
+
+def check_demo_markers(value, where, report):
+    for path, text in collect_strings(value):
+        lowered = text.lower()
+        for marker in DEMO_MARKERS:
+            if marker in lowered:
+                report.fail(f"{where}:{path}", f"contains demo marker {marker!r}")
+
+
+def check_duplicates(items, key, where, report):
+    seen = set()
+    for index, item in enumerate(items):
+        if not isinstance(item, dict):
+            continue
+        value = item.get(key)
+        if not isinstance(value, str):
+            continue
+        identity = value.lower() if key == "name" else value
+        if identity in seen:
+            report.fail(f"{where}[{index}]", f"duplicate {key} {value!r}")
+        seen.add(identity)
+
+
+def check_sorted(items, key, descending, where, report):
+    values = []
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        value = item.get(key)
+        values.append(value)
+    clean = [value for value in values if isinstance(value, (str, int, float))]
+    ordered = sorted(clean, reverse=descending)
+    if clean != ordered:
+        report.fail(where, f"items are not sorted by {key!r} ({'descending' if descending else 'ascending'})")
+
+
 def validate_feed(path, report, *, check_regression, ref):
     feed = path.name
     try:
@@ -375,6 +568,7 @@ def validate_feed(path, report, *, check_regression, ref):
         return
 
     check_envelope(doc, feed, report)
+    check_demo_markers(doc, f"data/{feed}", report)
     if feed not in FEED_SPECS:
         return
     envelope_kind, lists = FEED_SPECS[feed]
@@ -395,6 +589,12 @@ def validate_feed(path, report, *, check_regression, ref):
                 report.fail(f"{where_list}[{index}]", "item is not an object")
                 continue
             check_record(item, record_type, f"{where_list}[{index}]", report)
+
+        check_duplicates(items, "name" if record_type == "program" else "id", where_list, report)
+        sort_key = f"{feed}:{'.'.join(list_path)}" if envelope_kind == "nested" else feed
+        if sort_key in SORTED_FEEDS and record_type not in ("program",):
+            key, descending = SORTED_FEEDS[sort_key]
+            check_sorted(items, key, descending, where_list, report)
 
     # Per-item normalisation failures are tolerated by the collectors (one odd
     # advisory should not cost us the other 99), but never silently: if any were
@@ -469,7 +669,184 @@ def validate_manual(report):
             report.fail(f"{where}.domains", f"expected a list, got {type(domains).__name__}")
 
 
+def load_status(report):
+    if not STATUS_PATH.exists():
+        report.fail("data/status.json", "missing -- a run without freshness evidence is not publishable")
+        return {}
+    try:
+        document = json.loads(STATUS_PATH.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        report.fail("data/status.json", f"unreadable or invalid JSON: {exc}")
+        return {}
+    if not isinstance(document, dict):
+        report.fail("data/status.json", "top level must be an object")
+        return {}
+    if document.get("schema_version") != 1:
+        report.fail("data/status.json:schema_version", f"expected 1, got {document.get('schema_version')!r}")
+    check_timestamp(document.get("generated_at"), allow_null=False,
+                    where="data/status.json:generated_at", report=report)
+    if document.get("overall") not in STATUS_OVERALL:
+        report.fail("data/status.json:overall", f"{document.get('overall')!r} is not one of {sorted(STATUS_OVERALL)}")
+    sources = document.get("sources")
+    if not isinstance(sources, list) or not sources:
+        report.fail("data/status.json:sources", "expected a non-empty list")
+        return {}
+    entries = {}
+    for index, entry in enumerate(sources):
+        where = f"data/status.json:sources[{index}]"
+        if not isinstance(entry, dict):
+            report.fail(where, "entry is not an object")
+            continue
+        for field in CONTRACT["status_source"]:
+            if field not in entry:
+                report.fail(where, f"missing required field {field!r}")
+        source_id = entry.get("id")
+        if not isinstance(source_id, str):
+            report.fail(where, "missing string id")
+            continue
+        if source_id in entries:
+            report.fail(where, f"duplicate source id {source_id!r}")
+        entries[source_id] = entry
+        check_timestamp(entry.get("last_attempt"), allow_null=True,
+                        where=f"{where}.last_attempt", report=report)
+        check_timestamp(entry.get("last_success"), allow_null=True,
+                        where=f"{where}.last_success", report=report)
+        if not isinstance(entry.get("items"), int):
+            report.fail(f"{where}.items", "must be an int")
+        if not isinstance(entry.get("stale"), bool):
+            report.fail(f"{where}.stale", "must be a bool")
+        if not isinstance(entry.get("cadence_minutes"), int) or entry["cadence_minutes"] <= 0:
+            report.fail(f"{where}.cadence_minutes", "must be a positive int")
+        check_demo_markers(entry, where, report)
+    return entries
+
+
+def validate_status_and_freshness(report, status_entries):
+    """Cross-file: status.json must agree with the feeds it describes."""
+    covered = {}
+    for source_id, entry in status_entries.items():
+        for feed in entry.get("feeds") or []:
+            if feed in covered:
+                report.fail(f"data/status.json:{source_id}",
+                            f"feed {feed!r} is also claimed by {covered[feed]!r}")
+            covered[feed] = source_id
+
+    for feed in FEED_SPECS:
+        path = DATA_DIR / feed
+        if not path.exists():
+            report.fail(f"data/{feed}", "missing -- every contracted feed must be published")
+            continue
+        if feed not in covered:
+            report.fail(f"data/{feed}", "is not covered by data/status.json")
+            continue
+        source_id = covered[feed]
+        entry = status_entries[source_id]
+        cadence = entry.get("cadence_minutes") or 1440
+        last_success = entry.get("last_success")
+        try:
+            doc = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        updated_at = doc.get("updated_at")
+        if last_success and updated_at != last_success:
+            report.fail(f"data/{feed}:updated_at",
+                        f"{updated_at!r} does not match status last_success {last_success!r}; "
+                        f"a feed must not claim a freshness its source did not record")
+        if updated_at:
+            check_timestamp(updated_at, allow_null=False, where=f"data/{feed}:updated_at", report=report)
+            try:
+                mtime = datetime.strptime(updated_at, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+            except ValueError:
+                mtime = None
+            if mtime:
+                age_minutes = (datetime.now(timezone.utc) - mtime).total_seconds() / 60
+                if age_minutes < -5:
+                    report.fail(f"data/{feed}:updated_at",
+                                f"is {int(-age_minutes)} minutes in the future")
+                elif age_minutes > cadence * 2:
+                    report.warn(f"data/{feed}",
+                                f"is {int(age_minutes)} minutes old (2x cadence is {cadence * 2})")
+
+        primary_feed = (entry.get("feeds") or [None])[0]
+        if feed == primary_feed:
+            count = item_count(doc, feed)
+            if count is not None and entry.get("items") != count:
+                report.fail(f"data/status.json:{source_id}.items",
+                            f"is {entry.get('items')} but data/{feed} holds {count} items")
+
+    # stale must be recomputed, not trusted: a fabricated false would hide an outage.
+    for source_id, entry in status_entries.items():
+        last_success = entry.get("last_success")
+        cadence = entry.get("cadence_minutes") or 1440
+        if not last_success:
+            expected = True
+        else:
+            try:
+                last = datetime.strptime(last_success, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+            except ValueError:
+                expected = True
+            else:
+                expected = (datetime.now(timezone.utc) - last).total_seconds() / 60 > cadence * 2
+        if entry.get("stale") is not expected:
+            report.fail(f"data/status.json:{source_id}.stale",
+                        f"is {entry.get('stale')} but the timestamp says {expected}")
+
+    expected_overall = "ok"
+    if any(entry.get("stale") or entry.get("error") for entry in status_entries.values()):
+        expected_overall = "degraded"
+        if any(entry.get("stale") and entry.get("critical") for entry in status_entries.values()):
+            expected_overall = "outage"
+    try:
+        document = json.loads(STATUS_PATH.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return
+    if document.get("overall") != expected_overall:
+        report.fail("data/status.json:overall",
+                    f"is {document.get('overall')!r} but the sources say {expected_overall!r}")
+
+    # cves_headline.json is a slice of cves.json from the same run.
+    headline = DATA_DIR / "cves_headline.json"
+    cves = DATA_DIR / "cves.json"
+    if headline.exists() and cves.exists():
+        try:
+            head = json.loads(headline.read_text(encoding="utf-8"))
+            full = json.loads(cves.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            return
+        if head.get("updated_at") != full.get("updated_at"):
+            report.fail("data/cves_headline.json:updated_at",
+                        "must match data/cves.json -- the slice and the full window come from one run")
+        recent_total = (full.get("recent") or {}).get("total")
+        if head.get("recent_total") != recent_total:
+            report.fail("data/cves_headline.json:recent_total",
+                        f"is {head.get('recent_total')!r} but cves.json recent.total is {recent_total!r}")
+        if not isinstance(head.get("kev_total"), int):
+            report.fail("data/cves_headline.json:kev_total", "must be an int")
+
+
+def validate_public_ui(report):
+    """Fail if the retired demo markers survive in the public site."""
+    for path in sorted(ROOT.glob("*.html")):
+        try:
+            text = path.read_text(encoding="utf-8").lower()
+        except OSError:
+            continue
+        for marker in DEMO_MARKERS:
+            if marker in text:
+                report.fail(f"{path.name}", f"contains demo marker {marker!r}")
+
+
 def print_contract():
+    print("# Data API contract")
+    print()
+    print("_Generated from `scripts/validate_feeds.py`. Do not edit by hand — the same")
+    print("table that documents the contract is the one that enforces it._")
+    print("Regenerate with:")
+    print()
+    print("    python3 scripts/validate_feeds.py --print-contract")
+    print()
+    print("Every file under `data/` is a public, no-auth read endpoint. Schema changes")
+    print("increment `schema_version`. The validation rules are listed in CONSTRAINTS.md.")
     for scope, fields in CONTRACT.items():
         suffix = " (optional)" if scope.endswith("_optional") else ""
         print(f"\n## {scope}{suffix}\n")
@@ -479,8 +856,7 @@ def print_contract():
     print(f"\n## feeds\n")
     for feed, (kind, lists) in FEED_SPECS.items():
         sections = ", ".join(".".join(p) for p, _r, _c in lists)
-        print(f"  {feed.ljust(16)}  envelope={kind:<9} sections={sections}")
-    print()
+        print(f"  {feed.ljust(20)}  envelope={kind:<9} sections={sections}")
 
 
 def main() -> int:
@@ -502,12 +878,19 @@ def main() -> int:
         return 2
 
     report = Report()
-    feeds = sorted(p for p in DATA_DIR.glob("*.json") if p.name != "manual.json")
+    feeds = sorted(
+        p for p in DATA_DIR.glob("*.json")
+        if p.name not in ("manual.json", "status.json")
+    )
     for path in feeds:
         validate_feed(path, report,
                       check_regression=not args.no_regression,
                       ref=args.against)
     validate_manual(report)
+    status_entries = load_status(report)
+    if status_entries:
+        validate_status_and_freshness(report, status_entries)
+    validate_public_ui(report)
 
     for warning in report.warnings:
         print(f"::warning::{warning}", file=sys.stderr)
@@ -521,7 +904,7 @@ def main() -> int:
 
     print(f"All {len(feeds)} feed files valid"
           + (f" ({len(report.warnings)} warning(s))" if report.warnings else "") + ".")
-    print(f"Contract: python3 scripts/validate_feeds.py --print-contract")
+    print("Contract: python3 scripts/validate_feeds.py --print-contract")
     return 0
 
 

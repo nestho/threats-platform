@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cloud threats — Threats</title>
-<meta name="description" content="Cloud security incidents, campaigns and supply-chain compromises from Wiz Research.">
+<title>Cloud threats &amp; advisories — Threats</title>
+<meta name="description" content="Cloud security incidents and campaigns from Wiz Research, plus Microsoft and Ubuntu security advisories.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/app.css">
@@ -17,23 +17,12 @@
     border-left: 2px solid var(--border);
     padding-left: 10px;
     margin-bottom: 20px;
+    line-height: 1.55;
   }
-  .card {
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 16px 18px;
-    margin-bottom: 8px;
-    background: var(--surface);
-  }
-  .card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
-  .card-title { font-weight: 500; font-size: 14px; line-height: 1.4; }
-  .card-title a:hover { color: var(--link); }
-  .badges { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; flex-shrink: 0; }
   .badge.incident { color: var(--crit); border-color: rgba(239,68,68,0.4); }
   .badge.campaign { color: var(--accent); border-color: rgba(249,115,22,0.4); }
   .badge.research { color: var(--link); border-color: rgba(56,189,248,0.35); }
-  .desc { color: var(--text-secondary); font-size: 13px; line-height: 1.55; margin-top: 8px; max-width: 720px; }
-  .meta-row { color: var(--text-muted); font-size: 11px; font-family: 'JetBrains Mono', monospace; margin-top: 8px; }
+  .badge.vendor { color: var(--link); border-color: rgba(56,189,248,0.35); }
 </style>
 </head>
 <body>
@@ -42,22 +31,33 @@
   <header class="site">
     <a class="logo" href="/">
       <span class="logo-mark">T</span>
-      <span class="logo-name">Threats <span class="sub">/ Cloud threats</span></span>
+      <span class="logo-name">Threats <span class="sub">/ Cloud &amp; advisories</span></span>
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="/programs.html">Programs</a>
       <a href="/cves.html">Vulnerabilities</a>
+      <a href="/iocs.html">IOCs</a>
+      <a href="/ransomware.html">Ransomware</a>
+      <a href="/phishing.html">Phishing</a>
       <a href="/threats.html" aria-current="page">Cloud threats</a>
+      <a href="/status.html">Status</a>
+      <a href="/saas.html">Pricing</a>
     </nav>
   </header>
 
-  <h1>Cloud threat landscape</h1>
-  <p class="sub">Incidents, campaigns and supply-chain compromises from Wiz Research.</p>
+  <h1>Cloud threats &amp; advisories</h1>
+  <p class="sub">Wiz Research incidents and campaigns · Microsoft and Ubuntu security advisories</p>
   <p class="feed-note">
-    This is an <strong>analysis</strong> feed, not an alert feed — Wiz publishes roughly monthly,
-    so items here are often weeks old. For hour-by-hour vulnerability data see
-    <a href="/cves.html" style="color:var(--link);">Vulnerabilities</a>.
+    Wiz Research is an <strong>analysis</strong> feed that publishes roughly monthly, so those items are
+    often weeks old. Vendor advisories are release notices, not exploitation evidence. For hour-by-hour
+    vulnerability data see <a href="/cves.html" style="color:var(--link);">Vulnerabilities</a>.
   </p>
+  <div class="note" id="freshness-note" hidden></div>
+
+  <div class="tabs" role="tablist" aria-label="Feed">
+    <button class="tab" role="tab" id="tab-cloud" aria-controls="list" aria-selected="true" data-view="cloud">Cloud threats</button>
+    <button class="tab" role="tab" id="tab-advisories" aria-controls="list" aria-selected="false" data-view="advisories" tabindex="-1">Vendor advisories</button>
+  </div>
 
   <div class="controls">
     <label for="search" class="section-label" style="margin:0;">Search</label>
@@ -68,6 +68,10 @@
       <option value="incident">Incidents</option>
       <option value="campaign">Campaigns</option>
       <option value="research">Research</option>
+    </select>
+    <label for="vendor-filter" class="section-label" style="margin:0;" hidden>Vendor</label>
+    <select id="vendor-filter" hidden>
+      <option value="">All vendors</option>
     </select>
   </div>
 
@@ -80,77 +84,154 @@
     </span>
   </div>
 
-  <div id="list"></div>
+  <div id="list" role="tabpanel" aria-labelledby="tab-cloud"></div>
 </div>
 
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
 <script type="module">
-import { esc, timeAgo, timeKey, copyEndpointUrl, fetchJson, setResultCount } from '/assets/app.js';
+import { esc, timeAgo, timeKey, copyEndpointUrl, fetchAll, initTabs, setResultCount, showStaleNote } from '/assets/app.js';
 
-let items = [];
+const store = { cloud: null, advisories: null };
 
-function card(item) {
+function cloudCard(item) {
   const type = item.type || 'other';
-  const badge = item.type
-    ? `<span class="badge ${esc(type)}">${esc(item.type)}</span>`
-    : '';
+  const badge = item.type ? `<span class="badge ${esc(type)}">${esc(item.type)}</span>` : '';
   const when = item.published ? timeAgo(item.published) : 'undated';
-  return `<article class="card">
-    <div class="card-head">
-      <h2 class="card-title"><a href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">${esc(item.title)}</a></h2>
-      <div class="badges">${badge}</div>
+  return `<article class="feed-item">
+    <div class="feed-head">
+      <h2 class="feed-title"><a href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">${esc(item.title)}</a></h2>
+      <div class="feed-badges">${badge}</div>
     </div>
-    ${item.summary ? `<p class="desc">${esc(item.summary)}</p>` : ''}
-    <p class="meta-row">${esc(when)}${item.author ? ' · ' + esc(item.author) : ''}</p>
+    ${item.summary ? `<p class="feed-desc">${esc(item.summary)}</p>` : ''}
+    <p class="feed-meta"><span>${esc(when)}${item.author ? ' · ' + esc(item.author) : ''}</span></p>
   </article>`;
 }
 
-function render() {
-  const query = document.getElementById('search').value.trim().toLowerCase();
-  const type = document.getElementById('type-filter').value;
-
-  const filtered = items.filter((item) => {
-    if (type && item.type !== type) return false;
-    if (!query) return true;
-    return (
-      (item.title || '').toLowerCase().includes(query) ||
-      (item.summary || '').toLowerCase().includes(query) ||
-      (item.author || '').toLowerCase().includes(query)
-    );
-  });
-
-  setResultCount(document.getElementById('count-label'), filtered.length, 'item');
-
-  const list = document.getElementById('list');
-  list.innerHTML = filtered.length
-    ? filtered.map(card).join('')
-    : '<p class="empty">No matches.</p>';
+function advisoryCard(item) {
+  return `<article class="feed-item">
+    <div class="feed-head">
+      <h2 class="feed-title"><a href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">${esc(item.title)}</a></h2>
+      <div class="feed-badges"><span class="badge vendor">${esc(item.vendor)}</span></div>
+    </div>
+    ${item.summary ? `<p class="feed-desc">${esc(item.summary)}</p>` : ''}
+    <p class="feed-meta"><span>${esc(item.id)} · ${esc(timeAgo(item.published))}</span></p>
+  </article>`;
 }
 
-(async function init() {
-  const data = await fetchJson('/data/wiz.json');
-  const list = document.getElementById('list');
+const VIEWS = {
+  cloud: {
+    doc: () => store.cloud,
+    items: () => store.cloud?.items || [],
+    card: cloudCard,
+    path: '/data/wiz.json',
+    empty: 'Cloud threat data unavailable.',
+    placeholder: 'Search title, summary, or author…',
+    match: (item, query) =>
+      (item.title || '').toLowerCase().includes(query) ||
+      (item.summary || '').toLowerCase().includes(query) ||
+      (item.author || '').toLowerCase().includes(query),
+  },
+  advisories: {
+    doc: () => store.advisories,
+    items: () => store.advisories?.items || [],
+    card: advisoryCard,
+    path: '/data/advisories.json',
+    empty: 'Vendor advisory data unavailable.',
+    placeholder: 'Search advisory ID, title, or summary…',
+    match: (item, query) =>
+      (item.id || '').toLowerCase().includes(query) ||
+      (item.title || '').toLowerCase().includes(query) ||
+      (item.summary || '').toLowerCase().includes(query) ||
+      (item.vendor || '').toLowerCase().includes(query),
+  },
+};
 
-  if (!data) {
-    list.innerHTML = '<p class="empty">Cloud threat data unavailable.</p>';
-    document.getElementById('count-label').textContent = '';
+function currentView() {
+  return document.querySelector('.tab[aria-selected="true"]')?.dataset.view || 'cloud';
+}
+
+function render() {
+  const view = currentView();
+  const spec = VIEWS[view];
+  const source = spec.doc();
+  const list = document.getElementById('list');
+  const search = document.getElementById('search');
+  const typeFilter = document.getElementById('type-filter');
+  const vendorFilter = document.getElementById('vendor-filter');
+
+  search.placeholder = spec.placeholder;
+  typeFilter.hidden = view !== 'cloud';
+  typeFilter.previousElementSibling.hidden = view !== 'cloud';
+  vendorFilter.hidden = view !== 'advisories';
+  vendorFilter.previousElementSibling.hidden = view !== 'advisories';
+
+  if (!source) {
+    setResultCount(document.getElementById('count-label'), 0, 'item');
+    document.getElementById('updated-label').textContent = '';
+    list.innerHTML = `<p class="empty">${esc(spec.empty)}</p>`;
     return;
   }
 
-  items = (data.items || []).slice().sort((a, b) => timeKey(b.published) - timeKey(a.published));
+  const query = search.value.trim().toLowerCase();
+  const type = view === 'cloud' ? typeFilter.value : '';
+  const vendor = view === 'advisories' ? vendorFilter.value : '';
 
-  if (data.updated_at) {
-    document.getElementById('updated-label').textContent =
-      'Updated ' + data.updated_at.slice(0, 10) + ' UTC';
-  }
+  const filtered = spec.items().filter((item) => {
+    if (type && item.type !== type) return false;
+    if (vendor && item.vendor !== vendor) return false;
+    return !query || spec.match(item, query);
+  });
 
+  setResultCount(document.getElementById('count-label'), filtered.length, 'item');
+  document.getElementById('updated-label').textContent = source.updated_at
+    ? 'Updated ' + source.updated_at.slice(0, 10) + ' UTC'
+    : '';
+  list.innerHTML = filtered.length
+    ? filtered.map(spec.card).join('')
+    : '<p class="empty">No matches.</p>';
+}
+
+initTabs('.tabs', (view) => {
+  document.getElementById('list').setAttribute('aria-labelledby', `tab-${view}`);
   render();
-})();
+});
 
 document.getElementById('search').addEventListener('input', render);
 document.getElementById('type-filter').addEventListener('change', render);
+document.getElementById('vendor-filter').addEventListener('change', render);
 document.getElementById('copy-json').addEventListener('click', () => {
-  copyEndpointUrl('/data/wiz.json', 'Copied /data/wiz.json');
+  const path = VIEWS[currentView()].path;
+  copyEndpointUrl(path, `Copied ${path}`);
 });
+
+const loaded = await fetchAll({
+  cloud: '/data/wiz.json',
+  advisories: '/data/advisories.json',
+});
+Object.assign(store, loaded);
+
+// Advisories arrive from two upstreams; when one fails the collector still
+// publishes the other and records the failure in `partial`. Surface that rather
+// than letting a half-filled page look complete.
+if (store.advisories?.partial?.length) {
+  const note = document.getElementById('freshness-note');
+  note.hidden = false;
+  note.className = 'note warn';
+  note.textContent = 'Partial advisory data: '
+    + store.advisories.partial.join(', ')
+    + ' did not respond during the last run.';
+}
+
+if (store.advisories) {
+  const vendors = [...new Set((store.advisories.items || []).map((item) => item.vendor).filter(Boolean))].sort();
+  const select = document.getElementById('vendor-filter');
+  select.insertAdjacentHTML('beforeend',
+    vendors.map((vendor) => `<option value="${esc(vendor)}">${esc(vendor)}</option>`).join(''));
+}
+
+showStaleNote('freshness-note', ['wiz', 'advisories']);
+render();
 </script>
 </body>
 </html>

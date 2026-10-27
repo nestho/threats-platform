@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ransomware claims — Threats</title>
+<meta name="description" content="Recent ransomware leak-site claims with group, claimed sector, country, and claim metadata.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/app.css">
+<style>
+  .badge.group { color: var(--crit); border-color: rgba(239,68,68,0.4); }
+  .badge.country { color: var(--text-secondary); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="site">
+    <a class="logo" href="/">
+      <span class="logo-mark">T</span>
+      <span class="logo-name">Threats <span class="sub">/ Ransomware</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/programs.html">Programs</a>
+      <a href="/cves.html">Vulnerabilities</a>
+      <a href="/iocs.html">IOCs</a>
+      <a href="/ransomware.html" aria-current="page">Ransomware</a>
+      <a href="/phishing.html">Phishing</a>
+      <a href="/threats.html">Cloud threats</a>
+      <a href="/status.html">Status</a>
+      <a href="/saas.html">Pricing</a>
+    </nav>
+  </header>
+
+  <h1>Ransomware claims</h1>
+  <p class="sub">Recent leak-site claims collected by ransomware.live. A claim is an allegation, not a confirmed breach.</p>
+  <p class="note warn">
+    Victim names, sectors, and descriptions are published by the ransomware operators and are
+    <strong>unverified</strong>. Descriptions may be disturbing. Claim pages are on Tor; this page
+    shows them defanged as text and never links to them.
+  </p>
+  <div class="note" id="freshness-note" hidden></div>
+
+  <div class="stat-grid">
+    <div class="stat-card"><div class="num" id="stat-claims">—</div><div class="lbl">claims in feed</div></div>
+    <div class="stat-card"><div class="num" id="stat-groups">—</div><div class="lbl">distinct groups</div></div>
+    <div class="stat-card"><div class="num" id="stat-countries">—</div><div class="lbl">countries seen</div></div>
+    <div class="stat-card"><div class="num" id="stat-latest">—</div><div class="lbl">newest claim</div></div>
+  </div>
+
+  <div class="controls">
+    <label for="search" class="visually-hidden">Search claims</label>
+    <input id="search" type="search" placeholder="Search victim, group, sector, or country…" autocomplete="off">
+    <label for="group-filter" class="section-label" style="margin:0;">Group</label>
+    <select id="group-filter"><option value="">All groups</option></select>
+  </div>
+
+  <div class="meta-bar">
+    <span id="count-label" role="status" aria-live="polite"></span>
+    <span>
+      <span id="updated-label"></span>
+      &nbsp;·&nbsp;
+      <button id="copy-json" type="button">Copy JSON endpoint</button>
+    </span>
+  </div>
+
+  <div id="list"></div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script type="module">
+import { esc, timeAgo, timeKey, copyText, copyEndpointUrl, fetchJson, setResultCount, showStaleNote } from '/assets/app.js';
+
+let items = [];
+
+// A Tor claim page is rendered as inert text. Turning a live http(s) URL into
+// an anchor here would hand a reader a one-click path into a criminal leak site.
+function defangClaim(url) {
+  if (!url) return '';
+  const scheme = /^https:\/\//i.test(url) ? 'hxxps://' : 'hxxp://';
+  return scheme + url.replace(/^https?:\/\//i, '').replace(/\.onion(?=[/:]|$)/i, '[.]onion');
+}
+
+function card(claim) {
+  const victim = claim.link
+    ? `<a href="${esc(claim.link)}" target="_blank" rel="noopener noreferrer">${esc(claim.victim)}</a>`
+    : esc(claim.victim);
+  const badges = [
+    claim.group ? `<span class="badge group">${esc(claim.group)}</span>` : '',
+    claim.country ? `<span class="badge country">${esc(claim.country)}</span>` : '',
+    claim.activity ? `<span class="badge">${esc(claim.activity)}</span>` : '',
+  ].filter(Boolean).join('');
+  const claimUrl = defangClaim(claim.claim_url);
+
+  return `<article class="feed-item">
+    <div class="feed-head">
+      <h2 class="feed-title">${victim}</h2>
+      <div class="feed-badges">${badges}</div>
+    </div>
+    ${claim.description ? `<p class="feed-desc">${esc(claim.description)}</p>` : ''}
+    <div class="feed-meta">
+      <span>published ${esc(timeAgo(claim.published))}${claim.domain ? ' · ' + esc(claim.domain) : ''}</span>
+      ${claimUrl
+        ? `<span><span class="mono">${esc(claimUrl)}</span> <button type="button" class="copy-inline" data-value="${esc(claimUrl)}">Copy claim URL</button></span>`
+        : '<span>no claim URL published</span>'}
+    </div>
+  </article>`;
+}
+
+function render() {
+  const query = document.getElementById('search').value.trim().toLowerCase();
+  const group = document.getElementById('group-filter').value;
+
+  const filtered = items.filter((claim) => {
+    if (group && claim.group !== group) return false;
+    if (!query) return true;
+    return (
+      (claim.victim || '').toLowerCase().includes(query) ||
+      (claim.domain || '').toLowerCase().includes(query) ||
+      (claim.group || '').toLowerCase().includes(query) ||
+      (claim.activity || '').toLowerCase().includes(query) ||
+      (claim.country || '').toLowerCase().includes(query)
+    );
+  });
+
+  setResultCount(document.getElementById('count-label'), filtered.length, 'claim');
+  const list = document.getElementById('list');
+  list.innerHTML = filtered.length
+    ? filtered.map(card).join('')
+    : '<p class="empty">No matching claims.</p>';
+
+  for (const button of list.querySelectorAll('.copy-inline')) {
+    button.addEventListener('click', () => copyText(button.dataset.value, 'Copied defanged claim URL'));
+  }
+}
+
+document.getElementById('search').addEventListener('input', render);
+document.getElementById('group-filter').addEventListener('change', render);
+document.getElementById('copy-json').addEventListener('click', () => {
+  copyEndpointUrl('/data/ransomware.json', 'Copied /data/ransomware.json');
+});
+
+const data = await fetchJson('/data/ransomware.json');
+if (data) {
+  items = (data.items || []).slice().sort((a, b) => timeKey(b.published) - timeKey(a.published));
+  const groups = [...new Set(items.map((claim) => claim.group).filter(Boolean))].sort();
+  const countries = new Set(items.map((claim) => claim.country).filter(Boolean));
+
+  document.getElementById('stat-claims').textContent = items.length.toLocaleString('en-US');
+  document.getElementById('stat-groups').textContent = groups.length;
+  document.getElementById('stat-countries').textContent = countries.size;
+  document.getElementById('stat-latest').textContent = items[0] ? timeAgo(items[0].published) : '—';
+  if (data.updated_at) {
+    document.getElementById('updated-label').textContent = 'Updated ' + data.updated_at.slice(0, 10) + ' UTC';
+  }
+
+  const select = document.getElementById('group-filter');
+  select.insertAdjacentHTML('beforeend',
+    groups.map((group) => `<option value="${esc(group)}">${esc(group)}</option>`).join(''));
+}
+
+showStaleNote('freshness-note', ['ransomware']);
+render();
+</script>
+</body>
+</html>

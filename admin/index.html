@@ -3,40 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Admin — Threats</title>
+<title>Program updates — Threats</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/app.css">
 <style>
-  .wrap { max-width: 640px; }
+  .wrap { max-width: 680px; }
   .panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 24px; margin-bottom: 16px; }
-  .field { margin-bottom: 16px; }
-  .field label { display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
-  .field input, .field select, .field textarea { width: 100%; }
-  .field textarea { min-height: 100px; resize: vertical; font-family: 'JetBrains Mono', monospace; font-size: 12px; }
-  .field .hint { font-size: 11px; color: var(--text-muted); margin-top: 5px; }
-  .actions { display: flex; gap: 10px; align-items: center; margin-top: 20px; }
+  .panel h2 { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+  .panel p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+  .panel ul { margin: 12px 0 0; padding-left: 20px; font-size: 13px; color: var(--text-secondary); line-height: 1.8; }
+  .panel a { color: var(--link); }
+  .panel a:hover { text-decoration: underline; }
   .btn {
-    font-family: inherit;
+    display: inline-block;
+    margin-top: 16px;
     font-size: 13px;
-    padding: 9px 18px;
+    font-weight: 600;
+    color: #0a0a0a;
+    background: var(--accent);
     border-radius: 8px;
-    cursor: pointer;
-    border: 1px solid var(--border-hover);
-    background: var(--surface-2);
-    color: var(--text);
+    padding: 9px 16px;
   }
-  .btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
-  .btn:disabled { opacity: 0.4; cursor: default; }
-  .btn-primary { background: var(--accent); border-color: var(--accent); color: #0a0a0a; font-weight: 500; }
-  .btn-primary:hover:not(:disabled) { color: #0a0a0a; filter: brightness(1.08); }
-  .status { font-size: 13px; margin-top: 14px; }
-  .status.ok { color: #4ade80; }
-  .status.err { color: var(--crit); }
-  .status ul { margin: 8px 0 0; padding-left: 20px; color: var(--text-secondary); font-size: 12px; }
-  .warn { color: var(--med); font-size: 12px; margin-top: 10px; }
-  .lock { max-width: 340px; }
+  .btn:hover { filter: brightness(1.08); }
 </style>
 </head>
 <body>
@@ -45,219 +35,42 @@
   <header class="site">
     <a class="logo" href="/">
       <span class="logo-mark">T</span>
-      <span class="logo-name">Threats <span class="sub">/ Admin</span></span>
+      <span class="logo-name">Threats <span class="sub">/ Program updates</span></span>
     </a>
     <a class="back" href="/">← Home</a>
   </header>
 
-  <h1>Add or update a program</h1>
-  <p class="sub">
-    Writes to <code>data/manual.json</code> in version control, which
-    <code>collector.py</code> merges into the published program list on its next
-    run. The write is validated server-side; the fields below mirror what the
-    Worker will accept.
-  </p>
+  <h1>Program updates go through a pull request</h1>
+  <p class="sub">The old write-in-a-form admin path has been retired.</p>
 
-  <div class="panel lock" id="gate">
-    <div class="field">
-      <label for="password">Admin password</label>
-      <input id="password" type="password" autocomplete="current-password">
-    </div>
-    <div class="actions">
-      <button class="btn" id="unlock" type="button">Unlock</button>
-    </div>
-    <p class="status" id="gate-status" role="status" aria-live="polite"></p>
+  <div class="panel">
+    <h2>Why</h2>
+    <p>
+      The retired admin API committed straight to <code>main</code> with a long-lived token, which
+      bypassed review and the feed checks. <code>main</code> is now protected: every change arrives
+      as a pull request that must pass the data, Python, and unit checks before it can merge.
+    </p>
   </div>
 
-  <div class="panel" id="form" hidden>
-    <form id="program-form">
-      <div class="field">
-        <label for="name">Program name</label>
-        <input id="name" required placeholder="e.g. Acme Corp" autocomplete="off">
-      </div>
-      <div class="field">
-        <label for="progurl">Program URL <span style="color:var(--text-muted);">(optional)</span></label>
-        <input id="progurl" type="url" placeholder="https://acme.com/security" autocomplete="off">
-        <p class="hint">Must be https. Leave blank if the program has no public page.</p>
-      </div>
-      <div class="field">
-        <label for="platform">Platform</label>
-        <!-- A select, not a free-text input. The enum split into "Bugcrowd" and
-             "BugCrowd" because this field accepted any string; a dropdown makes
-             the invalid state unrepresentable rather than merely discouraged. -->
-        <select id="platform">
-          <option value="Self-hosted / Other">Self-hosted / Other</option>
-          <option value="HackerOne">HackerOne</option>
-          <option value="Bugcrowd">Bugcrowd</option>
-          <option value="Intigriti">Intigriti</option>
-          <option value="YesWeHack">YesWeHack</option>
-          <option value="HackenProof">HackenProof</option>
-          <option value="Immunefi">Immunefi</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="domains">In-scope domains <span style="color:var(--text-muted);">(one per line)</span></label>
-        <textarea id="domains" placeholder="acme.com&#10;sub.acme.com" spellcheck="false"></textarea>
-        <p class="hint">Hostnames only. URLs are accepted and reduced to their hostname; wildcards are stripped.</p>
-      </div>
-      <div class="actions">
-        <button class="btn btn-primary" id="submit" type="submit">Save</button>
-      </div>
-      <p class="status" id="status" role="status" aria-live="polite"></p>
-    </form>
+  <div class="panel">
+    <h2>How to add or correct a program</h2>
+    <ul>
+      <li>
+        Open an issue with the program name, platform, and in-scope domains:
+        <a href="https://github.com/nestho/threats-platform/issues/new?title=Program%20scope%20update&amp;body=%23%23%20Program%0A%0A%23%23%20Platform%0A%0A%23%23%20Domains%0A%0A%23%23%20Source%20URL" target="_blank" rel="noopener">new scope issue</a>.
+      </li>
+      <li>
+        Or edit <a href="https://github.com/nestho/threats-platform/blob/main/data/manual.json" target="_blank" rel="noopener"><code>data/manual.json</code></a>
+        in a branch and open a pull request.
+      </li>
+      <li>
+        <code>collector.py</code> merges the entry into the public program list on the next scheduled run,
+        after the validator accepts it.
+      </li>
+    </ul>
+    <a class="btn" href="https://github.com/nestho/threats-platform/issues/new?title=Program%20scope%20update&amp;body=%23%23%20Program%0A%0A%23%23%20Platform%0A%0A%23%23%20Domains%0A%0A%23%23%20Source%20URL" target="_blank" rel="noopener">Open a scope issue →</a>
   </div>
 
-  <p class="warn" id="env-warning" hidden></p>
 </div>
-
-<script type="module">
-/*
- * Same-origin path to the Worker.
- *
- * This used to be a hardcoded https://threats-admin.<subdomain>.workers.dev URL,
- * which meant the admin page shipped on the public origin while the API it called
- * lived on a third-party one — a published, cross-origin write path to published
- * data, discoverable in view-source. worker/wrangler.toml now serves the Worker
- * from this zone at /admin-api/*, so the call is same-origin and the URL reveals
- * nothing.
- *
- * The Worker also enforces a strict Origin allowlist, which is what makes
- * same-origin safe: without it, any page could POST to /admin-api/add.
- */
-const WORKER_BASE = '/admin-api';
-
-let password = '';
-
-function setStatus(element, message, kind, details) {
-  element.className = 'status' + (kind ? ' ' + kind : '');
-  // textContent, never innerHTML: validation messages quote the operator's own
-  // input back, and a program name is not trusted text.
-  element.textContent = message;
-  if (details && details.length) {
-    const list = document.createElement('ul');
-    for (const detail of details) {
-      const item = document.createElement('li');
-      item.textContent = detail;
-      list.appendChild(item);
-    }
-    element.appendChild(list);
-  }
-}
-
-function authHeaders() {
-  return { 'Content-Type': 'application/json', 'X-Admin-Password': password };
-}
-
-document.getElementById('unlock').addEventListener('click', async () => {
-  const status = document.getElementById('gate-status');
-  const button = document.getElementById('unlock');
-  const candidate = document.getElementById('password').value;
-
-  if (!candidate) {
-    setStatus(status, 'Enter a password first.', 'err');
-    return;
-  }
-
-  button.disabled = true;
-  setStatus(status, 'Checking…', '');
-
-  try {
-    const response = await fetch(`${WORKER_BASE}/list`, {
-      method: 'GET',
-      headers: { 'X-Admin-Password': candidate },
-    });
-    if (response.status === 401) {
-      setStatus(status, 'Wrong password.', 'err');
-      return;
-    }
-    if (response.status === 429) {
-      setStatus(status, 'Too many attempts. Wait a minute and try again.', 'err');
-      return;
-    }
-    if (!response.ok) {
-      setStatus(status, `Could not reach the admin API (HTTP ${response.status}).`, 'err');
-      return;
-    }
-    password = candidate;
-    document.getElementById('password').value = '';
-    document.getElementById('gate').hidden = true;
-    document.getElementById('form').hidden = false;
-    document.getElementById('name').focus();
-  } catch {
-    setStatus(status, 'Could not reach the admin API. Is the Worker deployed?', 'err');
-  } finally {
-    button.disabled = false;
-  }
-});
-
-document.getElementById('program-form').addEventListener('submit', async (event) => {
-  event.preventDefault();
-  const status = document.getElementById('status');
-  const button = document.getElementById('submit');
-
-  const payload = {
-    name: document.getElementById('name').value.trim(),
-    url: document.getElementById('progurl').value.trim(),
-    platform: document.getElementById('platform').value,
-    domains: document.getElementById('domains').value
-      .split('\n').map((d) => d.trim()).filter(Boolean),
-  };
-
-  button.disabled = true;
-  setStatus(status, 'Saving…', '');
-
-  try {
-    const response = await fetch(`${WORKER_BASE}/add`, {
-      method: 'POST',
-      headers: authHeaders(),
-      body: JSON.stringify(payload),
-    });
-    const body = await response.json().catch(() => ({}));
-
-    if (response.status === 422) {
-      // The Worker returns per-field reasons. Showing "validation failed" alone
-      // meant the operator had to guess which field was wrong.
-      setStatus(status, 'Not saved — the Worker rejected this:', 'err', body.details);
-      return;
-    }
-    if (response.status === 401) {
-      setStatus(status, 'Session rejected. Unlock again.', 'err');
-      return;
-    }
-    if (response.status === 429) {
-      setStatus(status, 'Rate limited. Wait a moment and try again.', 'err');
-      return;
-    }
-    if (!response.ok) {
-      setStatus(status, `Save failed (HTTP ${response.status}).`, 'err');
-      return;
-    }
-
-    setStatus(
-      status,
-      body.action === 'updated'
-        ? 'Updated. It appears on the site after the next data sync.'
-        : 'Saved. It appears on the site after the next data sync.',
-      'ok',
-    );
-    document.getElementById('name').value = '';
-    document.getElementById('progurl').value = '';
-    document.getElementById('domains').value = '';
-  } catch {
-    setStatus(status, 'Could not reach the admin API.', 'err');
-  } finally {
-    button.disabled = false;
-  }
-});
-
-// If the page is opened from a file:// or a non-matching host, say so up front
-// rather than letting the unlock button fail with an opaque network error.
-if (location.protocol === 'file:') {
-  const warning = document.getElementById('env-warning');
-  warning.hidden = false;
-  warning.textContent =
-    'This page is open from the filesystem, so the same-origin admin API will not resolve. Serve the site over HTTP.';
-}
-</script>
 </body>
 </html>
