@@ -92,11 +92,10 @@ Format for new rows: `| ID | Rule | Path | Reason | Owner | Expires |` — 90-da
 ## Open decisions
 
 1. **Second maintainer / human approval.** Set `required_approving_review_count` to 1 when someone else can review. The script documents the change.
-2. **Bot credentials are not configured yet.** Without `DATA_BOT_APP_ID` + `DATA_BOT_PRIVATE_KEY` (or `DATA_BOT_TOKEN`), scheduled collection validates but cannot publish. This is the one operational blocker for unattended production updates.
-3. **JSON Schema files.** The contract is enforced in Python and generated into `docs/CONTRACT.md`. A `data/*.schema.json` set would let consumers validate without Python.
-4. **Browser end-to-end and accessibility tests.** `node --test` covers `esc()` and the Worker, not a rendered page. A headless smoke test over every page would close the highest-value remaining gap.
-5. **Python type checking and linting.** `mypy` and `ruff` are dev dependencies. The project has held runtime dependencies at zero; a separate `requirements-dev.txt` keeps that property.
-6. **Worker removal.** Delete `worker/` once the Phase 2 D1 API exists and the retirement page is no longer needed.
+2. **JSON Schema files.** The contract is enforced in Python and generated into `docs/CONTRACT.md`. A `data/*.schema.json` set would let consumers validate without Python.
+3. **Browser end-to-end and accessibility tests.** `node --test` covers `esc()` and the Worker, not a rendered page. A headless smoke test over every page would close the highest-value remaining gap.
+4. **Python type checking and linting.** `mypy` and `ruff` are dev dependencies. The project has held runtime dependencies at zero; a separate `requirements-dev.txt` keeps that property.
+5. **Worker removal.** Delete `worker/` once the Phase 2 D1 API exists and the retirement page is no longer needed.
 
 ---
 

@@ -269,7 +269,7 @@ Phase 2 (accounts, private watchlists, correlated alerts, signed webhooks, STIX 
 2. **Wiz is low-volume by nature.** Thirty-day cadence and an analysis label are honest, not a bug.
 3. **NVD is rate-limited.** Unauthenticated access allows five requests per 30 seconds; `NVD_REQUEST_INTERVAL = 7` stays under it. A long outage widens the window up to 120 days.
 4. **EPSS is a rolling snapshot.** `epss.json` scores the current CVE window, not the full historical catalogue.
-5. **The automation depends on a bot credential.** Without it, collection and validation still run, but nothing publishes.
+5. **The automation depends on a bot credential.** It is configured as the GitHub App `threats-data-bot`; if the App is uninstalled or its key revoked, collection and validation still run but nothing publishes.
 6. **No end-to-end browser test.** `node --test` covers the escaping helper and the retired Worker; it does not prove a rendered page is navigable.
 7. **No machine-readable JSON Schema.** The contract is enforced in Python and generated into `docs/CONTRACT.md`; a consumer cannot validate without running it.
 8. **One maintainer, zero required approvals.** The checks are the gate; there is no second human review.
