@@ -1,11 +1,123 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-27T20:03:46Z",
+  "updated_at": "2026-10-27T22:31:16Z",
   "source": "GitHub Security Advisories",
   "source_url": "https://api.github.com/advisories",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-m65p-9j7q-6w33",
+      "title": "MLflow vulnerable to arbitrary file read on unauthenticated servers via prompt model version source",
+      "published": "2026-10-27T21:26:56Z",
+      "ecosystem": "pip",
+      "summary": "### Summary\nOn MLflow tracking servers running without authentication, which is the default for mlflow server, a remote attacker can read arbitrary files from the server’s filesystem by creating a model version tagged as a prompt whose source is a schemeless local path.\n\nThe fix for CVE-2026-2614 in",
+      "link": "https://github.com/advisories/GHSA-m65p-9j7q-6w33"
+    },
+    {
+      "id": "GHSA-j7qq-vr8c-xvw3",
+      "title": "MLflow CrewAI autologging records LLM provider API keys in logged trace spans",
+      "published": "2026-10-27T21:26:39Z",
+      "ecosystem": "pip",
+      "summary": "### Summary\n\n`mlflow.crewai.autolog()` leaks CrewAI LLM provider API keys into MLflow trace telemetry.\n\nWhen a CrewAI `Agent` is instrumented with MLflow autologging, MLflow serializes the agent's `__dict__` and converts its fields to strings. The `llm` field contains the CrewAI LLM object, whose st",
+      "link": "https://github.com/advisories/GHSA-j7qq-vr8c-xvw3"
+    },
+    {
+      "id": "GHSA-26p8-2jq9-3vq9",
+      "title": "MLflow vulnerable to remote code execution on unauthenticated servers via third-party scorer deserialization importing caller-placed artifact modules",
+      "published": "2026-10-27T21:26:32Z",
+      "ecosystem": "pip",
+      "summary": "## Summary\n\nMLflow 3.12.0 introduced registration and deserialization support for third-party scorers in OSS MLflow. During scorer deserialization, the server accepts a request-controlled Python module path beneath one of four allowed package prefixes, imports that module, obtains a request-controll",
+      "link": "https://github.com/advisories/GHSA-26p8-2jq9-3vq9"
+    },
+    {
+      "id": "GHSA-x94g-w73q-hpcw",
+      "title": "dd-trace: ReDOS in URL query string obfuscation",
+      "published": "2026-10-27T21:07:25Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nA regular expression used to obfuscate URL query strings can consume excessive CPU when processing certain attacker-controlled input. This can stall request processing and cause denial of service in applications using affected HTTP tracing integrations.\n\n### Details\n\nThe default query-s",
+      "link": "https://github.com/advisories/GHSA-x94g-w73q-hpcw"
+    },
+    {
+      "id": "GHSA-mf2p-h6hf-fcwm",
+      "title": "TinyMCE Cross-Site Scripting (XSS) vulnerability using media plugin `data-mce-object` serialization",
+      "published": "2026-10-27T21:07:12Z",
+      "ecosystem": "npm",
+      "summary": "### Impact\nStored XSS vulnerability in the media plugin. Attackers can inject malicious scripts via elements crafted through the data-mce-object attribute, which are created and executed before sanitization. Impacts users of TinyMCE with the media plugin enabled.\n\n### Patches\nThis vulnerability has ",
+      "link": "https://github.com/advisories/GHSA-mf2p-h6hf-fcwm"
+    },
+    {
+      "id": "GHSA-w4fh-qvv9-3v23",
+      "title": "Model Context Protocol Python SDK: Server bearer-token authentication accepts tokens issued for a different resource server",
+      "published": "2026-10-27T21:06:59Z",
+      "ecosystem": "pip",
+      "summary": "### Summary\nIn affected versions, the SDK's server-side bearer authentication had no way to check that a token was issued for your server (its audience). Where one authorization server issues tokens for several services, a valid token for another service was also accepted by your MCP server.\n\n### Am",
+      "link": "https://github.com/advisories/GHSA-w4fh-qvv9-3v23"
+    },
+    {
+      "id": "GHSA-f5m9-jfrj-jjj7",
+      "title": "OpenTelemetry Python: Unbounded memory allocation in Jaeger baggage propagation",
+      "published": "2026-10-27T21:06:54Z",
+      "ecosystem": "pip",
+      "summary": "## Summary\n\n`JaegerPropagator.extract()` in `opentelemetry-propagator-jaeger` did not enforce limits when extracting inbound `uberctx-*` baggage headers. Attacker-controlled baggage could cause unnecessary CPU work and short-lived heap allocations while processing more data than the propagator shoul",
+      "link": "https://github.com/advisories/GHSA-f5m9-jfrj-jjj7"
+    },
+    {
+      "id": "GHSA-5h93-6whr-6q8j",
+      "title": "Model Context Protocol Python SDK: HTTP client transports followed cross-origin redirects carrying custom headers and bodies",
+      "published": "2026-10-27T21:05:34Z",
+      "ecosystem": "pip",
+      "summary": "### Summary\nIn affected versions, the SDK's Streamable HTTP and SSE client transports followed HTTP redirects to any host. If the configured MCP endpoint answered with a redirect to a different origin:\n\n- custom headers set on the client (for example an `X-API-Key` credential) were sent to that orig",
+      "link": "https://github.com/advisories/GHSA-5h93-6whr-6q8j"
+    },
+    {
+      "id": "GHSA-rwrf-2pqf-9j8j",
+      "title": "Model Context Protocol Python SDK: Client fetched server-chosen $ref URLs while validating tool results against output schemas",
+      "published": "2026-10-27T21:05:29Z",
+      "ecosystem": "pip",
+      "summary": "### Summary\nIn affected versions, when a connected MCP server declared an `outputSchema` for a tool, the SDK's client validated each `call_tool` result with `jsonschema`'s default resolver, which fetches any `$ref` it cannot resolve locally by opening the URL. A server could therefore put an `http:/",
+      "link": "https://github.com/advisories/GHSA-rwrf-2pqf-9j8j"
+    },
+    {
+      "id": "GHSA-v6mg-96c6-gmpq",
+      "title": "CKEditor: Cross-site scripting (XSS) in the engine package",
+      "published": "2026-10-27T21:05:13Z",
+      "ecosystem": "npm",
+      "summary": "### Impact\nA Cross-Site Scripting (XSS) vulnerability has been discovered in the CKEditor 5 engine. This vulnerability could be triggered by inserting specially crafted markup under a specific General HTML Support configuration that allows inserting objects, leading to unauthorized JavaScript code e",
+      "link": "https://github.com/advisories/GHSA-v6mg-96c6-gmpq"
+    },
+    {
+      "id": "GHSA-rh54-vffm-5fvp",
+      "title": "CKEditor: Cross-site scripting (XSS) in the engine package",
+      "published": "2026-10-27T21:05:06Z",
+      "ecosystem": "npm",
+      "summary": "### Impact\nA Cross-Site Scripting (XSS) vulnerability has been discovered in the CKEditor 5 engine. This vulnerability is caused by a prototype pollution issue in the `es-toolkit` library used in the CKEditor 5 codebase. This vulnerability could lead to unauthorized JavaScript code execution when th",
+      "link": "https://github.com/advisories/GHSA-rh54-vffm-5fvp"
+    },
+    {
+      "id": "GHSA-5cp7-fp4j-wwcv",
+      "title": "Neko: Authorization bypass in legacy WebRTC input handling",
+      "published": "2026-10-27T21:04:57Z",
+      "ecosystem": "go",
+      "summary": "### Impact\n\nWhen legacy mode is enabled and `session.implicit_hosting` is enabled, the legacy WebRTC data channel incorrectly authorizes input events due to a logic error in `LegacyIsHost()`.\n\nAs a result, an authenticated room member may be able to send mouse and keyboard input through the legacy W",
+      "link": "https://github.com/advisories/GHSA-5cp7-fp4j-wwcv"
+    },
+    {
+      "id": "GHSA-rjh2-4xgw-p2hj",
+      "title": "Atlantis: OS command injection through PR-controlled Terraform workspace enables RCE during plan",
+      "published": "2026-10-27T21:04:50Z",
+      "ecosystem": "go",
+      "summary": "### Summary\n\nAtlantis passes the Terraform `workspace` value from a pull request's `atlantis.yaml` into a shell command without quoting or escaping it.\n\nA contributor whose pull request is eligible for an Atlantis plan can include shell metacharacters in the workspace name and execute arbitrary comm",
+      "link": "https://github.com/advisories/GHSA-rjh2-4xgw-p2hj"
+    },
+    {
+      "id": "GHSA-mgqf-5mf5-prfj",
+      "title": "FileBrowser: Symlink following escapes user scope allowing arbitrary file read outside the served directory",
+      "published": "2026-10-27T21:04:40Z",
+      "ecosystem": "go",
+      "summary": "## Summary\n\nFile read paths resolve symbolic links with `filepath.EvalSymlinks` and then operate on the resolved target without re-checking that the target still lies inside the user's source/scope. \n\nA symlink located inside a user's accessible directory that points outside the scope (for example t",
+      "link": "https://github.com/advisories/GHSA-mgqf-5mf5-prfj"
+    },
     {
       "id": "GHSA-4w7w-5xrc-9h26",
       "title": "undici vulnerable to cache poisoning and cross-user disclosure via cross-origin redirects",
@@ -693,118 +805,6 @@
       "ecosystem": "pip",
       "summary": "## Summary\n\nThe venv creator reads the standard library's generated pyvenv.cfg with splitlines() and merges all resulting keys over\nvirtualenv's configuration. Line-boundary characters from destination data can therefore become configuration structure\nbefore output sanitization.\n\nAnthropic's OSS Sca",
       "link": "https://github.com/advisories/GHSA-qmx5-4p3x-wvqf"
-    },
-    {
-      "id": "GHSA-hhxq-47xx-j5xx",
-      "title": "virtualenv: Seed replacement does not contain metadata deletion paths",
-      "published": "2026-10-23T22:19:15Z",
-      "ecosystem": "pip",
-      "summary": "## Summary\n\nThe app-data seeder joins paths from existing distribution metadata to site-packages and deletes the resulting paths\nwithout checking containment within the environment.\n\nAnthropic's OSS Scanner reported this as `ANT-2026-SXOEHWP7` in `virtualenv-20261015-005`, received on 15 October 202",
-      "link": "https://github.com/advisories/GHSA-hhxq-47xx-j5xx"
-    },
-    {
-      "id": "GHSA-xcx6-jx8p-x3h5",
-      "title": "MSAL Node authorization code flow may disclose parameters to an attacker-controlled endpoint",
-      "published": "2026-10-23T22:16:44Z",
-      "ecosystem": "npm",
-      "summary": "### Impact\n\nOrigin validation error in Microsoft Authentication Library (MSAL) for Node.js allows an unauthorized attacker to disclose information over a network. This affects the auth_code flow.\n\n### Patches\n\nVersion 7.1.0 and higher are patched.\n\n### Workarounds\n\nEnsure you pass in only the auth_c",
-      "link": "https://github.com/advisories/GHSA-xcx6-jx8p-x3h5"
-    },
-    {
-      "id": "GHSA-xjj6-f33q-929c",
-      "title": "undici vulnerable to Denial of Service via unhandled error on excessive content-encodings",
-      "published": "2026-10-23T22:14:31Z",
-      "ecosystem": "npm",
-      "summary": "### Impact\n\nundici's `fetch()` crashes the Node.js process when a malicious server returns a response with more than five content codings and closes the connection before sending the body. undici rejects such responses (a content-encoding limit), but it created the internal response stream before th",
-      "link": "https://github.com/advisories/GHSA-xjj6-f33q-929c"
-    },
-    {
-      "id": "GHSA-4qv8-2p9j-2685",
-      "title": "undici vulnerable to Denial of Service via unbounded memory in the EventSource parser",
-      "published": "2026-10-23T22:13:29Z",
-      "ecosystem": "npm",
-      "summary": "### Impact\n\nundici's `EventSource` client can be driven to exhaust process memory by a malicious or compromised Server-Sent Events peer. By sending millions of tiny completed `data:` fields with no blank event separator, or a single unfinished line split across many chunks, the parser retains a grow",
-      "link": "https://github.com/advisories/GHSA-4qv8-2p9j-2685"
-    },
-    {
-      "id": "GHSA-f72v-6w45-q472",
-      "title": "undici vulnerable to Subresource Integrity bypass via non-lowercase algorithm tokens",
-      "published": "2026-10-23T22:12:57Z",
-      "ecosystem": "npm",
-      "summary": "### Impact\n\nundici's `fetch()` verifies Subresource Integrity (SRI) metadata by looking up the algorithm token in a lowercase-only set, but the SRI specification defines a valid token by its ASCII-lowercase form. A correct but non-lowercase token such as `SHA256-...` or `Sha256-...` is therefore tre",
-      "link": "https://github.com/advisories/GHSA-f72v-6w45-q472"
-    },
-    {
-      "id": "GHSA-m5mm-p8h7-m29v",
-      "title": "Serialize JavaScript: Cross-site scripting (XSS) via unescaped </script at the end of a serialized function body",
-      "published": "2026-10-23T22:09:52Z",
-      "ecosystem": "npm",
-      "summary": "### Impact\n\n`serialize-javascript` escapes its output so it is safe to embed inside a\n`<script>` element. Before 7.1.3 that guarantee did not hold for a **function\nvalue whose source ends in a bare `</script`**.\n\nEach function body is escaped on its own, and a bare `</script` was only\nneutralized wh",
-      "link": "https://github.com/advisories/GHSA-m5mm-p8h7-m29v"
-    },
-    {
-      "id": "GHSA-q7qp-rjg7-q26m",
-      "title": "multer vulnerable to Denial of Service via a pending asynchronous fileFilter after request teardown",
-      "published": "2026-10-23T22:08:22Z",
-      "ecosystem": "npm",
-      "summary": "### Impact\n\nWhen `multer` is configured with an asynchronous `fileFilter`, a single request can crash the Node.js process. If a request is aborted (for example when one file is rejected) while another file's async `fileFilter` is still pending, the pending callback later resumes a parsing stream tha",
-      "link": "https://github.com/advisories/GHSA-q7qp-rjg7-q26m"
-    },
-    {
-      "id": "GHSA-2wqp-q3c6-ccj5",
-      "title": "MLflow: SSRF on unauthenticated MLflow servers via third-party scorer kwargs in the scorer invoke, register, and GenAI evaluate endpoints",
-      "published": "2026-10-23T22:07:26Z",
-      "ecosystem": "pip",
-      "summary": "### Summary\nMLflow's tracking server exposes `POST /ajax-api/3.0/mlflow/scorer/invoke` with **no authentication**, and the handler reflectively instantiates an attacker-named class from attacker-supplied JSON with unconstrained constructor kwargs. With the optional `trulens` + `trulens-providers-lit",
-      "link": "https://github.com/advisories/GHSA-2wqp-q3c6-ccj5"
-    },
-    {
-      "id": "GHSA-6hmw-9432-67qq",
-      "title": "LangGraph: Namespace labels containing `.` reach other namespaces in Postgres and SQLite stores",
-      "published": "2026-10-23T22:06:44Z",
-      "ecosystem": "pip",
-      "summary": "### Summary\n\nThe Postgres and SQLite stores save a namespace as its labels joined with `.`, so `(\"tenant\", \"bob\")` and `(\"tenant.bob\",)` map to the same stored namespace. `put` rejected labels containing `.`, but `get`, `search`, `delete`, `list_namespaces`, their async versions, and ops passed dire",
-      "link": "https://github.com/advisories/GHSA-6hmw-9432-67qq"
-    },
-    {
-      "id": "GHSA-834v-8h66-3h79",
-      "title": "Happy DOM: Incomplete fix for CVE-2026-33943: unsanitized import alias leads to host code execution",
-      "published": "2026-10-23T22:06:13Z",
-      "ecosystem": "npm",
-      "summary": "## Summary\n\nThe ESM compiler in `happy-dom@20.14.5` does not validate imported local binding aliases before interpolating them into generated JavaScript.\n\nAs a result, an invalid ESM import alias can be transformed into a valid JavaScript destructuring default initializer and executed.\n\nThis appears",
-      "link": "https://github.com/advisories/GHSA-834v-8h66-3h79"
-    },
-    {
-      "id": "GHSA-9pvw-hwfg-92h5",
-      "title": "Wasmtime: Panic lowering a host-created component model stream into a guest that expects a different payload type",
-      "published": "2026-10-23T22:04:45Z",
-      "ecosystem": "rust",
-      "summary": "### Summary\n\nWasmtime may panic when the host lowers a component model `stream` or `future` into a guest, if the host created that stream or future with one payload type and the guest expects a different one. This can happen when an embedder creates a stream or future, passes it through a guest, rec",
-      "link": "https://github.com/advisories/GHSA-9pvw-hwfg-92h5"
-    },
-    {
-      "id": "GHSA-897f-g5gm-fmxm",
-      "title": "Wasmtime: Bit-packing in Cranelift compiler causes silent overflow and miscompilation",
-      "published": "2026-10-23T22:02:20Z",
-      "ecosystem": "rust",
-      "summary": "## Summary\n\nIn Wasmtime prior to v43, the Cranelift compiler backend bit-packs its SSA value indices in a way that can result in silent overflow in release builds, and result in incorrect value references in the IR resulting in arbitrary miscompilation. A very large Wasm function body, or one that i",
-      "link": "https://github.com/advisories/GHSA-897f-g5gm-fmxm"
-    },
-    {
-      "id": "GHSA-2g95-wg33-c5x2",
-      "title": "filelock: SoftFileLock evicts a fresh lock file whose watched age another local user's pre-dated file passed on through inode reuse",
-      "published": "2026-10-23T22:00:33Z",
-      "ecosystem": "pip",
-      "summary": "`SoftFileLock` and `MarkerSoftFileLock` evict an unparsable marker (the lock file at `<path>`, whose presence says a process holds the lock) once a waiting contender has watched it unchanged for two seconds. `SoftFileLease` expires a lease the same way. The watch tells two looks apart by the marker'",
-      "link": "https://github.com/advisories/GHSA-2g95-wg33-c5x2"
-    },
-    {
-      "id": "GHSA-crv4-6mhj-j5jh",
-      "title": "filelock: SoftFileLock stale-break restore follows a swapped-in symbolic link and hard-links a file of the user running the lock into the lock directory",
-      "published": "2026-10-23T22:00:11Z",
-      "ecosystem": "pip",
-      "summary": "When a soft-lock stale break finds that the marker (the lock file at `<path>`) it renamed aside was a live one recreated by a successor, the restore branch of `break_lock_file()` checks the break name with `lstat` (a check that reads a name without following a symbolic link) and then calls `os.link(",
-      "link": "https://github.com/advisories/GHSA-crv4-6mhj-j5jh"
     }
   ]
 }
