@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-27T21:46:43Z",
+  "updated_at": "2026-10-27T22:31:15Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,101 @@
   ],
   "note": "Bounded slice of cves.json for the homepage. Use /data/cves.json for the full window.",
   "normalisation_failures": [],
-  "recent_total": 1479,
+  "recent_total": 1486,
   "kev_total": 105,
   "kev_catalog_total": 1760,
   "total": 25,
   "items": [
+    {
+      "id": "CVE-2026-97045",
+      "published": "2026-10-27T22:19:22Z",
+      "description": "In childTextNodesAreLiteral, walking up the tree previously stopped at the nearest foreign ancestor once an HTML integration point was found. However, that integration point may itself be a descendant of an element that was foster-parented into a foreign namespace (such as <mglyph> or <malignmark> f",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97045",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-78661",
+      "published": "2026-10-27T22:18:05Z",
+      "description": "When coalescing adjacent text nodes in addText and fosterParent, appending to an existing TextNode's Data via string concatenation (n.Data += text) reallocated and copied the accumulated string on every token. Inputs containing many short text runs separated by ignored end tags (such as \"a</x>\") cau",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-78661",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-62765",
+      "published": "2026-10-27T22:17:29Z",
+      "description": "Access of resource using incompatible type ('type confusion') in Microsoft Edge (Chromium-based) allows an unauthorized attacker to execute code over a network.",
+      "severity": "HIGH",
+      "score": 7.5,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62765",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-57190",
+      "published": "2026-10-27T22:17:27Z",
+      "description": "Asterisk is an open source private branch exchange and telephony toolkit. Prior to Asterisk 20.20.1, 21.12.3, 22.10.1, 23.4.1 and Certified Asterisk 20.7-cert11, 22.8-cert3, the `PostgreSQL` and `TDS/MSSQL` Channel Event Log backends `cel_pgsql` and `cel_tds` may permit arbitrary SQL execution when ",
+      "severity": "HIGH",
+      "score": 7.0,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57190",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-57191",
+      "published": "2026-10-27T22:17:27Z",
+      "description": "Asterisk is an open source private branch exchange and telephony toolkit. Prior to Asterisk 20.20.1, 21.12.3, 22.10.1, 23.4.1 and Certified Asterisk 20.7-cert11, 22.8-cert3, an unbounded `sscanf` in `res_pjsip_pubsub` when parsing the `MWI NOTIFY` `Message-Account` field may allow an unauthenticated",
+      "severity": "HIGH",
+      "score": 8.2,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57191",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-57192",
+      "published": "2026-10-27T22:17:27Z",
+      "description": "Asterisk is an open source private branch exchange and telephony toolkit. Prior to Asterisk 20.20.1, 21.12.3, 22.10.1, 23.4.1 and Certified Asterisk 20.7-cert11, 22.8-cert3, an authenticated attacker may cause a heap buffer overflow through an out-of-bounds write in the `Codec2` decoder caused by a ",
+      "severity": "MEDIUM",
+      "score": 6.0,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57192",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-57199",
+      "published": "2026-10-27T22:17:27Z",
+      "description": "Asterisk is an open source private branch exchange and telephony toolkit. Prior to Asterisk 20.20.1, 21.12.3, 22.10.1, 23.4.1 and Certified Asterisk 20.7-cert11, 22.8-cert3, `app_sms.c` copies externally controlled `SMS` lengths into `fixed in-struct buffers` without sufficient bounds checks, allowi",
+      "severity": "LOW",
+      "score": 2.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57199",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-57203",
+      "published": "2026-10-27T22:17:27Z",
+      "description": "Asterisk is an open source private branch exchange and telephony toolkit. Prior to Asterisk 20.20.1, 21.12.3, 22.10.1, 23.4.1 and Certified Asterisk 20.7-cert11, 22.8-cert3, `ast_loggrabber` executes a `Python script` from the world-writable `/tmp` directory. An attacker already authorized to open a",
+      "severity": "MEDIUM",
+      "score": 6.9,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57203",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-57186",
+      "published": "2026-10-27T22:17:26Z",
+      "description": "Asterisk is an open source private branch exchange and telephony toolkit. From 21.0.0-pre1 until Asterisk 21.12.3, 22.10.1, 23.4.1 and Certified Asterisk 22.8-cert3, the `chan_ooh323` `Q.931 party-number parser` lacks the `CVE-2022-37325` fix because that fix was never forward-ported from Asterisk 2",
+      "severity": "HIGH",
+      "score": 7.5,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57186",
+      "kev": false
+    },
     {
       "id": "CVE-2026-85898",
       "published": "2026-10-27T21:19:34Z",
@@ -171,96 +261,6 @@
       "score": 7.5,
       "cvss_version": "31",
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116690",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-116691",
-      "published": "2026-10-27T20:17:14Z",
-      "description": "MLflow is an open source AI engineering platform for agents, large language models, and machine learning models. From 2.19.0 until 3.17.0, mlflow.crewai.autolog() records CrewAI Agent objects without consistently sanitizing nested credential-bearing values. mlflow/crewai/autolog.py::_get_agent_attri",
-      "severity": "MEDIUM",
-      "score": 6.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116691",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-112355",
-      "published": "2026-10-27T20:17:13Z",
-      "description": "The MembershipWorks plugin for WordPress before 6.17 contains an information disclosure vulnerability that allows unauthenticated attackers to access member-only content through the WordPress REST API. Because the filter that strips protected content for non-members is only attached during normal fr",
-      "severity": "HIGH",
-      "score": 8.7,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-112355",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-116684",
-      "published": "2026-10-27T20:17:13Z",
-      "description": "The Model Context Protocol Python SDK is the official Python SDK for Model Context Protocol servers and clients. From 1.10.0 until 1.30.0 and 2.2.0, server-side bearer authentication configured through AuthSettings with token_verifier accepts a valid token issued for another service when the authori",
-      "severity": "MEDIUM",
-      "score": 6.8,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116684",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-116685",
-      "published": "2026-10-27T20:17:13Z",
-      "description": "The Model Context Protocol Python SDK is the official Python SDK for Model Context Protocol servers and clients. From 1.8.0 until 1.30.0 and 2.2.0, streamable_http_client, streamablehttp_client, sse_client, ClientSessionGroup, OAuth, and create_mcp_http_client client paths enable follow_redirects an",
-      "severity": "MEDIUM",
-      "score": 5.9,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116685",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-116686",
-      "published": "2026-10-27T20:17:13Z",
-      "description": "The Model Context Protocol Python SDK is the official Python SDK for Model Context Protocol servers and clients. From 1.10.0 until 1.30.0 and 2.2.0, ClientSession, ClientSessionGroup, and Client tool calls validate server-declared outputSchema documents with jsonschema's default resolver, causing an",
-      "severity": "MEDIUM",
-      "score": 6.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116686",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-116687",
-      "published": "2026-10-27T20:17:13Z",
-      "description": "CKEditor 5 is a modern JavaScript rich-text editor with an MVC architecture. From 29.0.0 until 47.7.4 and 48.5.1, specially crafted markup can trigger cross-site scripting when General HTML Support is enabled and specifically configured to allow object content. Processing that content can execute at",
-      "severity": "LOW",
-      "score": 3.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116687",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-112350",
-      "published": "2026-10-27T20:17:12Z",
-      "description": "Sunhillo SureLine before 9.1.5 contains a path traversal vulnerability in the radarUpdater.cgi endpoint that allows unauthenticated remote attackers to read arbitrary files with root privileges due to missing authentication checks and insufficient sanitization of the filename parameter. Attackers ca",
-      "severity": "HIGH",
-      "score": 8.7,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-112350",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-112351",
-      "published": "2026-10-27T20:17:12Z",
-      "description": "Sunhillo SureLine before 9.1.5 contains an OS command injection vulnerability in the networkDiag.cgi endpoint that allows an authenticated remote attacker with any web account to execute arbitrary commands as root by injecting shell metacharacters into the ipAddr or dnsAddr parameters. Attackers can",
-      "severity": "HIGH",
-      "score": 8.7,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-112351",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-112352",
-      "published": "2026-10-27T20:17:12Z",
-      "description": "Sunhillo SureLine before 9.1.5 contains an authentication bypass vulnerability that allows an unauthenticated remote attacker to impersonate any user with an active web session by forging a session cookie containing only a cleartext username with no random identifier or integrity protection. Attacke",
-      "severity": "CRITICAL",
-      "score": 9.1,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-112352",
       "kev": false
     }
   ]

@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-27T21:46:43Z",
+  "updated_at": "2026-10-27T22:31:15Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,101 @@
   ],
   "recent": {
     "lookback_days": 3,
-    "total": 1479,
-    "items_available": 1479,
+    "total": 1486,
+    "items_available": 1486,
     "normalisation_failures": [],
-    "items_parsed": 1479,
+    "items_parsed": 1486,
     "items": [
+      {
+        "id": "CVE-2026-97045",
+        "published": "2026-10-27T22:19:22Z",
+        "description": "In childTextNodesAreLiteral, walking up the tree previously stopped at the nearest foreign ancestor once an HTML integration point was found. However, that integration point may itself be a descendant of an element that was foster-parented into a foreign namespace (such as <mglyph> or <malignmark> f",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97045",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-78661",
+        "published": "2026-10-27T22:18:05Z",
+        "description": "When coalescing adjacent text nodes in addText and fosterParent, appending to an existing TextNode's Data via string concatenation (n.Data += text) reallocated and copied the accumulated string on every token. Inputs containing many short text runs separated by ignored end tags (such as \"a</x>\") cau",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-78661",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-62765",
+        "published": "2026-10-27T22:17:29Z",
+        "description": "Access of resource using incompatible type ('type confusion') in Microsoft Edge (Chromium-based) allows an unauthorized attacker to execute code over a network.",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62765",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-57190",
+        "published": "2026-10-27T22:17:27Z",
+        "description": "Asterisk is an open source private branch exchange and telephony toolkit. Prior to Asterisk 20.20.1, 21.12.3, 22.10.1, 23.4.1 and Certified Asterisk 20.7-cert11, 22.8-cert3, the `PostgreSQL` and `TDS/MSSQL` Channel Event Log backends `cel_pgsql` and `cel_tds` may permit arbitrary SQL execution when ",
+        "severity": "HIGH",
+        "score": 7.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57190",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-57191",
+        "published": "2026-10-27T22:17:27Z",
+        "description": "Asterisk is an open source private branch exchange and telephony toolkit. Prior to Asterisk 20.20.1, 21.12.3, 22.10.1, 23.4.1 and Certified Asterisk 20.7-cert11, 22.8-cert3, an unbounded `sscanf` in `res_pjsip_pubsub` when parsing the `MWI NOTIFY` `Message-Account` field may allow an unauthenticated",
+        "severity": "HIGH",
+        "score": 8.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57191",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-57192",
+        "published": "2026-10-27T22:17:27Z",
+        "description": "Asterisk is an open source private branch exchange and telephony toolkit. Prior to Asterisk 20.20.1, 21.12.3, 22.10.1, 23.4.1 and Certified Asterisk 20.7-cert11, 22.8-cert3, an authenticated attacker may cause a heap buffer overflow through an out-of-bounds write in the `Codec2` decoder caused by a ",
+        "severity": "MEDIUM",
+        "score": 6.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57192",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-57199",
+        "published": "2026-10-27T22:17:27Z",
+        "description": "Asterisk is an open source private branch exchange and telephony toolkit. Prior to Asterisk 20.20.1, 21.12.3, 22.10.1, 23.4.1 and Certified Asterisk 20.7-cert11, 22.8-cert3, `app_sms.c` copies externally controlled `SMS` lengths into `fixed in-struct buffers` without sufficient bounds checks, allowi",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57199",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-57203",
+        "published": "2026-10-27T22:17:27Z",
+        "description": "Asterisk is an open source private branch exchange and telephony toolkit. Prior to Asterisk 20.20.1, 21.12.3, 22.10.1, 23.4.1 and Certified Asterisk 20.7-cert11, 22.8-cert3, `ast_loggrabber` executes a `Python script` from the world-writable `/tmp` directory. An attacker already authorized to open a",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57203",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-57186",
+        "published": "2026-10-27T22:17:26Z",
+        "description": "Asterisk is an open source private branch exchange and telephony toolkit. From 21.0.0-pre1 until Asterisk 21.12.3, 22.10.1, 23.4.1 and Certified Asterisk 22.8-cert3, the `chan_ooh323` `Q.931 party-number parser` lacks the `CVE-2022-37325` fix because that fix was never forward-ported from Asterisk 2",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57186",
+        "kev": false
+      },
       {
         "id": "CVE-2026-85898",
         "published": "2026-10-27T21:19:34Z",
@@ -14781,26 +14871,6 @@
         "score": null,
         "cvss_version": null,
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-109111",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115981",
-        "published": "2026-10-24T22:16:27Z",
-        "description": "A security vulnerability has been detected in phpIPAM up to 1.8.3. Affected by this vulnerability is an unknown functionality of the file upgrade/index.php. Such manipulation of the argument REQUEST_URI leads to cross site scripting. The attack may be launched remotely. The exploit has been disclose",
-        "severity": "LOW",
-        "score": 1.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115981",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115982",
-        "published": "2026-10-24T22:16:27Z",
-        "description": "A vulnerability was detected in phpIPAM up to 1.8.3. Affected by this issue is the function create_rack_link of the file app/tools/racks/show-rack-popup.php of the component Rack Link Creation. Performing a manipulation of the argument deviceid results in cross site scripting. Remote exploitation of",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115982",
         "kev": false
       }
     ]
