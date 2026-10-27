@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Threats — Open threat intelligence</title>
-<meta name="description" content="Open threat intelligence for researchers: bug bounty scope, CVEs, cloud incidents, exploits, and malware URLs as structured data feeds.">
+<meta name="description" content="Open, structured threat intelligence: recent CVEs, actively exploited vulnerabilities, malware and phishing indicators, ransomware claims, cloud incidents, vendor advisories, and bug bounty scope.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/app.css">
@@ -16,7 +16,7 @@
     align-items: end;
     padding-bottom: 44px;
     border-bottom: 1px solid var(--border);
-    margin-bottom: 44px;
+    margin-bottom: 24px;
   }
   .hero h1 {
     font-size: clamp(34px, 5vw, 46px);
@@ -25,9 +25,9 @@
     line-height: 1.08;
     margin-bottom: 14px;
   }
-  .tagline { color: var(--text-secondary); font-size: 15px; max-width: 44ch; line-height: 1.55; }
-  .stats { display: flex; flex-direction: column; gap: 22px; padding-left: 28px; border-left: 1px solid var(--border); }
-  .stat-value { font-size: 34px; font-weight: 700; letter-spacing: -0.03em; color: var(--accent); line-height: 1; }
+  .tagline { color: var(--text-secondary); font-size: 15px; max-width: 46ch; line-height: 1.55; }
+  .stats { display: flex; flex-direction: column; gap: 20px; padding-left: 28px; border-left: 1px solid var(--border); }
+  .stat-value { font-size: 32px; font-weight: 700; letter-spacing: -0.03em; color: var(--accent); line-height: 1; font-variant-numeric: tabular-nums; }
   .stat-label { font-size: 12px; color: var(--text-muted); margin-top: 5px; }
 
   section { margin-bottom: 52px; }
@@ -46,6 +46,30 @@
   .browse-card h2 { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 8px; }
   .browse-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
   .browse-card .meta { margin-top: 16px; font-size: 12px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+
+  .pricing-strip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: linear-gradient(180deg, rgba(249, 115, 22, 0.06) 0%, var(--surface) 70%);
+    padding: 20px 24px;
+  }
+  .pricing-strip h2 { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; }
+  .pricing-strip p { font-size: 13px; color: var(--text-secondary); margin-top: 6px; max-width: 62ch; line-height: 1.5; }
+  .pricing-strip .cta {
+    flex-shrink: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #0a0a0a;
+    background: var(--accent);
+    border-radius: 8px;
+    padding: 9px 16px;
+  }
+  .pricing-strip .cta:hover { filter: brightness(1.08); }
 
   .api-list { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
   .api-row { display: grid; grid-template-columns: 72px 1fr auto auto; gap: 16px; align-items: center; padding: 14px 18px; border-bottom: 1px solid var(--border); }
@@ -108,13 +132,15 @@
   }
   .footer-left { display: flex; flex-direction: column; gap: 6px; }
   .footer-brand { font-weight: 600; color: var(--text-secondary); font-size: 13px; }
+  .footer-links { display: flex; gap: 14px; }
+  .footer-links a:hover { color: var(--text-secondary); }
   .support { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
   .support code { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary); background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 2px 7px; }
 
   @media (max-width: 900px) { .browse-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 720px) {
     .hero { grid-template-columns: 1fr; gap: 28px; }
-    .stats { flex-direction: row; gap: 36px; padding-left: 0; border-left: none; border-top: 1px solid var(--border); padding-top: 20px; }
+    .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 28px; padding-left: 0; border-left: none; border-top: 1px solid var(--border); padding-top: 20px; }
     .browse-grid { grid-template-columns: 1fr; }
     .api-row { grid-template-columns: 56px 1fr; gap: 8px 12px; }
     .api-updated, .api-actions { grid-column: 2; }
@@ -134,21 +160,26 @@
         <span class="logo-tag">threat intelligence</span>
       </span>
     </a>
-    <form class="controls" id="search-form" style="margin:0; max-width:340px; flex:1;" role="search">
-      <label for="global-search" class="visually-hidden">Search CVEs, programs, or cloud threats</label>
-      <input id="global-search" type="search" placeholder="Search CVE, domain, or program…" autocomplete="off">
+    <form class="controls" id="search-form" style="margin:0; max-width:320px; flex:1;" role="search">
+      <label for="global-search" class="visually-hidden">Search CVEs, programs, or URLs</label>
+      <input id="global-search" type="search" placeholder="Search CVE, program, or URL…" autocomplete="off">
     </form>
     <nav class="site-nav" aria-label="Primary">
       <a href="/programs.html">Programs</a>
       <a href="/cves.html">Vulnerabilities</a>
+      <a href="/iocs.html">IOCs</a>
+      <a href="/ransomware.html">Ransomware</a>
+      <a href="/phishing.html">Phishing</a>
       <a href="/threats.html">Cloud threats</a>
+      <a href="/status.html">Status</a>
+      <a href="/saas.html">Pricing</a>
     </nav>
   </header>
 
   <div class="hero">
     <div>
       <h1>Signal on the<br>threat surface.</h1>
-      <p class="tagline">Structured feeds for bug bounty scope, emerging CVEs, cloud incidents, public exploits, and malware URLs — built for researchers and security teams.</p>
+      <p class="tagline">Structured, always-fresh intel: vulnerabilities and exploited CVEs, malware and phishing indicators, ransomware claims, cloud incidents, vendor advisories, and bug bounty scope.</p>
     </div>
     <div class="stats">
       <div>
@@ -156,15 +187,21 @@
         <div class="stat-label">programs tracked</div>
       </div>
       <div>
-        <div class="stat-value" id="stat-domains">—</div>
-        <div class="stat-label">unique domains</div>
-      </div>
-      <div>
         <div class="stat-value" id="stat-cves">—</div>
         <div class="stat-label">CVEs in window</div>
       </div>
+      <div>
+        <div class="stat-value" id="stat-kev">—</div>
+        <div class="stat-label">exploited CVEs</div>
+      </div>
+      <div>
+        <div class="stat-value" id="stat-ransomware">—</div>
+        <div class="stat-label">ransomware claims</div>
+      </div>
     </div>
   </div>
+
+  <div class="status-banner" id="status-banner" role="status" aria-live="polite" hidden></div>
 
   <section>
     <h2 class="section-label">Explore</h2>
@@ -176,15 +213,38 @@
       </a>
       <a class="browse-card" href="/cves.html">
         <h2>Vulnerabilities</h2>
-        <p>Recent CVEs, actively exploited (KEV), Exploit-DB, and CERT-EU advisories.</p>
-        <div class="meta">NVD · KEV · ExploitDB · CERT-EU</div>
+        <p>Recent CVEs, actively exploited (KEV), Exploit-DB, CERT-EU, GHSA, and EPSS scores.</p>
+        <div class="meta">NVD · KEV · Exploit-DB · CERT-EU · GHSA · EPSS</div>
+      </a>
+      <a class="browse-card" href="/iocs.html">
+        <h2>Live indicators</h2>
+        <p>Defanged phishing URLs and ransomware leak-site victim domains in one feed.</p>
+        <div class="meta" id="ioc-meta">loading…</div>
+      </a>
+      <a class="browse-card" href="/ransomware.html">
+        <h2>Ransomware claims</h2>
+        <p>Recent leak-site claims with group, sector, country, and claim metadata.</p>
+        <div class="meta" id="ransom-meta">loading…</div>
+      </a>
+      <a class="browse-card" href="/phishing.html">
+        <h2>Phishing URLs</h2>
+        <p>A deduplicated OpenPhish snapshot, defanged before it reaches the browser.</p>
+        <div class="meta" id="phish-meta">loading…</div>
       </a>
       <a class="browse-card" href="/threats.html">
-        <h2>Cloud threats</h2>
-        <p>Incidents, campaigns and supply-chain compromises from Wiz Research.</p>
+        <h2>Cloud threats &amp; advisories</h2>
+        <p>Wiz Research incidents and campaigns, plus Microsoft and Ubuntu advisories.</p>
         <div class="meta" id="wiz-meta">loading…</div>
       </a>
     </div>
+  </section>
+
+  <section class="pricing-strip">
+    <div>
+      <h2>Free to read. Pro to respond.</h2>
+      <p>Every feed and page here is public and unkeyed. Pro adds private watchlists, correlated alerts, signed webhooks, and STIX 2.1 export.</p>
+    </div>
+    <a class="cta" href="/saas.html">Compare plans →</a>
   </section>
 
   <section>
@@ -193,6 +253,7 @@
       Public JSON endpoints, updated on a schedule. No key required for read access.
       Every file carries a <code>schema_version</code>; see the
       <a href="/docs/CONTRACT.md" style="color:var(--link);">field contract</a> before depending on a shape.
+      Per-source health is published at <a href="/data/status.json" style="color:var(--link);">/data/status.json</a>.
     </p>
     <div class="api-list" id="api-list">
       <div class="api-row" style="color:var(--text-muted);">Loading endpoints…</div>
@@ -213,6 +274,11 @@
     <div class="footer-left">
       <span class="footer-brand">Threats</span>
       <span id="footer-sync">—</span>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="/status.html">Source status</a>
+        <a href="/saas.html">Pricing</a>
+        <a href="https://github.com/nestho/threats-platform" target="_blank" rel="noopener">GitHub</a>
+      </nav>
     </div>
     <div class="support">
       <span>Support the project</span>
@@ -225,70 +291,123 @@
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script type="module">
-import { esc, timeAgo, timeKey, showToast, copyEndpointUrl, fetchAll } from '/assets/app.js';
+import { esc, timeAgo, timeKey, copyEndpointUrl, fetchAll } from '/assets/app.js';
 
 const ENDPOINTS = [
-  { path: '/data/cves.json', desc: 'Recent CVEs (NVD, full window) + actively exploited (CISA KEV)', key: 'cves' },
-  { path: '/data/exploitdb.json', desc: 'Public exploits from Exploit-DB', key: 'edb' },
+  // Same run as cves_headline.json, which the validator requires to share an
+  // updated_at, so the headline stamp is accurate for the full file too.
+  { path: '/data/cves.json', desc: 'Full CVE window and actively exploited list (NVD, CISA KEV)', key: 'cves' },
+  { path: '/data/cves_headline.json', desc: 'Bounded CVE slice for the homepage', key: 'cves' },
+  { path: '/data/ghsa.json', desc: 'GitHub Security Advisories (package ecosystems)', key: 'ghsa' },
+  { path: '/data/exploitdb.json', desc: 'Public exploits (Exploit-DB)', key: 'edb' },
   { path: '/data/cert_eu.json', desc: 'CERT-EU security advisories', key: 'cert' },
-  { path: '/data/ghsa.json', desc: 'GitHub Security Advisories (packages)', key: 'ghsa' },
-  { path: '/data/wiz.json', desc: 'Cloud incidents & campaigns (Wiz Research, weekly)', key: 'wiz' },
-  { path: '/data/urlhaus.json', desc: 'Malware distribution URLs (defanged)', key: 'urlhaus' },
+  { path: '/data/advisories.json', desc: 'Vendor advisories (Microsoft, Ubuntu)', key: 'advisories' },
+  { path: '/data/wiz.json', desc: 'Cloud incidents and campaigns (Wiz Research)', key: 'wiz' },
+  { path: '/data/ransomware.json', desc: 'Recent ransomware leak-site claims', key: 'ransomware' },
+  { path: '/data/phishing.json', desc: 'OpenPhish URL snapshot (defanged)', key: 'phishing' },
+  { path: '/data/epss.json', desc: 'EPSS scores for the current CVE window', key: 'epss' },
+  { path: '/data/iocs.json', desc: 'Combined live indicators (phishing + ransomware)', key: 'iocs' },
   { path: '/data/domains.json', desc: 'Bug bounty programs and in-scope domains', key: 'domains' },
-  { path: '/data/cves_headline.json', desc: 'Bounded CVE slice for UIs (this page)', key: 'headline' },
+  { path: '/data/status.json', desc: 'Per-source freshness and health', key: 'status' },
 ];
 
+// The homepage must stay light: it does not fetch cves.json (850 KB) or
+// iocs.json (127 KB). Counts for those come from cves_headline.json and from
+// status.json, which records the item count of every source.
 const cache = {};
+let loaded;
+try {
+  loaded = await fetchAll({
+    domains: '/data/domains.json',
+    cves: '/data/cves_headline.json',
+    ghsa: '/data/ghsa.json',
+    edb: '/data/exploitdb.json',
+    cert: '/data/cert_eu.json',
+    advisories: '/data/advisories.json',
+    wiz: '/data/wiz.json',
+    ransomware: '/data/ransomware.json',
+    phishing: '/data/phishing.json',
+    status: '/data/status.json',
+  });
+} catch {
+  loaded = {};
+}
+Object.assign(cache, loaded);
 
-// The homepage renders ~7 items, so it must not download the full NVD window.
-// cves_headline.json is a bounded slice with the same record shape; cves.html
-// still loads the complete cves.json.
-const data = await fetchAll({
-  domains: '/data/domains.json',
-  cves: '/data/cves_headline.json',
-  ghsa: '/data/ghsa.json',
-  urlhaus: '/data/urlhaus.json',
-  edb: '/data/exploitdb.json',
-  cert: '/data/cert_eu.json',
-  wiz: '/data/wiz.json',
-});
-Object.assign(cache, data);
+const number = (value) => (typeof value === 'number' ? value.toLocaleString('en-US') : '—');
+const statusSource = (id) => (cache.status?.sources || []).find((source) => source.id === id);
 
 // ---- stats + card metadata (each degrades independently) ----
 if (cache.domains) {
   const programs = cache.domains.total_programs ?? '—';
   const domains = cache.domains.total_unique_domains ?? '—';
   document.getElementById('stat-programs').textContent = programs;
-  document.getElementById('stat-domains').textContent = domains;
   document.getElementById('prog-meta').textContent = `${programs} programs · ${domains} domains`;
 } else {
   document.getElementById('prog-meta').textContent = 'unavailable';
 }
 
-if (cache.cves) {
-  const total = cache.cves.items?.length ?? cache.cves.recent?.total ?? '—';
-  document.getElementById('stat-cves').textContent = total;
-} else {
-  document.getElementById('stat-cves').textContent = '—';
-}
-
-document.getElementById('wiz-meta').textContent = cache.wiz
-  ? `${cache.wiz.total} tracked`
+document.getElementById('stat-cves').textContent = cache.cves
+  ? number(cache.cves.recent_total ?? cache.cves.items?.length)
+  : '—';
+document.getElementById('stat-kev').textContent = cache.cves
+  ? number(cache.cves.kev_total)
+  : '—';
+document.getElementById('stat-ransomware').textContent = number(cache.ransomware?.total);
+document.getElementById('ransom-meta').textContent = cache.ransomware
+  ? `${number(cache.ransomware.total)} claims`
   : 'unavailable';
 
+if (cache.phishing) {
+  const hosts = new Set((cache.phishing.items || []).map((item) => item.host));
+  document.getElementById('phish-meta').textContent =
+    `${number(cache.phishing.total)} URLs · ${number(hosts.size)} hosts`;
+} else {
+  document.getElementById('phish-meta').textContent = 'unavailable';
+}
+
+const iocCount = statusSource('iocs')?.items;
+document.getElementById('ioc-meta').textContent = typeof iocCount === 'number'
+  ? `${number(iocCount)} indicators`
+  : 'phishing + ransomware';
+
+document.getElementById('wiz-meta').textContent = cache.wiz
+  ? `${number(cache.wiz.total)} cloud items · ${number(cache.advisories?.total)} advisories`
+  : 'unavailable';
+
+// ---- source health banner ----
+if (cache.status) {
+  const sources = cache.status.sources || [];
+  const affected = sources.filter((source) => source.stale || source.error);
+  const banner = document.getElementById('status-banner');
+  const overall = cache.status.overall || 'degraded';
+  const summary = overall === 'ok'
+    ? `All ${sources.length} sources current — checked ${timeAgo(cache.status.generated_at)}.`
+    : `${affected.length} of ${sources.length} sources need attention: `
+      + affected.slice(0, 3).map((source) => source.label).join(', ')
+      + (affected.length > 3 ? '…' : '') + '.';
+  banner.hidden = false;
+  banner.className = `status-banner ${overall}`;
+  banner.innerHTML = `<span class="dot ${esc(overall)}" aria-hidden="true"></span>`
+    + `<span>${esc(summary)}</span>`
+    + '<a href="/status.html">Source status →</a>';
+}
+
 // ---- API catalog ----
-document.getElementById('api-list').innerHTML = ENDPOINTS.map((ep) => {
-  const updated = cache[ep.key]?.updated_at ? timeAgo(cache[ep.key].updated_at) : '—';
+document.getElementById('api-list').innerHTML = ENDPOINTS.map((endpoint) => {
+  const doc = cache[endpoint.key];
+  const stamp = endpoint.key === 'status' ? doc?.generated_at : doc?.updated_at;
+  const updated = stamp ? timeAgo(stamp) : '—';
   return `<div class="api-row">
     <span class="method">GET</span>
     <div>
-      <div class="api-path">${esc(ep.path)}</div>
-      <div class="api-desc">${esc(ep.desc)}</div>
+      <div class="api-path">${esc(endpoint.path)}</div>
+      <div class="api-desc">${esc(endpoint.desc)}</div>
     </div>
     <span class="api-updated">${esc(updated)}</span>
     <div class="api-actions">
-      <button type="button" class="btn-ghost" data-copy="${esc(ep.path)}">Copy</button>
-      <a class="btn-ghost" href="${esc(ep.path)}" target="_blank" rel="noopener">Open</a>
+      <button type="button" class="btn-ghost" data-copy="${esc(endpoint.path)}">Copy</button>
+      <a class="btn-ghost" href="${esc(endpoint.path)}" target="_blank" rel="noopener">Open</a>
     </div>
   </div>`;
 }).join('');
@@ -297,72 +416,97 @@ for (const btn of document.querySelectorAll('[data-copy]')) {
   btn.addEventListener('click', () => copyEndpointUrl(btn.dataset.copy));
 }
 
-// ---- footer sync time: the oldest feed, not the newest ----
-// Showing the newest made a stale feed look healthy: five feeds refreshed hourly
-// and one weekly, so "last sync" always read "just now" no matter how old the
-// Wiz data was. The oldest is the honest number.
+// ---- footer: the oldest feed snapshot is the honest number ----
+// A single freshly updated feed used to make the whole site look current.
 const times = Object.values(cache)
-  .map((d) => d?.updated_at)
+  .map((doc) => doc?.updated_at)
   .filter(Boolean)
-  .map((t) => new Date(t).getTime())
-  .filter((n) => !Number.isNaN(n));
+  .map((stamp) => new Date(stamp).getTime())
+  .filter((value) => !Number.isNaN(value));
 if (times.length) {
   const oldest = new Date(Math.min(...times)).toISOString();
   document.getElementById('footer-sync').textContent =
-    'All feeds current as of ' + oldest.slice(0, 10) + ' UTC';
+    'Oldest feed snapshot ' + oldest.slice(0, 10) + ' UTC';
 }
 
 // ---- recent activity ----
 const events = [];
 // cves_headline.json is a flat {items:[...]}; cves.json is {recent:{items:[...]}}.
-// Accept either so this keeps working if the homepage is pointed back at the
-// full feed.
 const recentCves = cache.cves?.items || cache.cves?.recent?.items || [];
-for (const c of recentCves.slice(0, 3)) {
+for (const cve of recentCves.slice(0, 3)) {
   events.push({
-    time: c.published,
-    tag: c.kev ? 'KEV' : 'CVE',
-    hot: Boolean(c.kev),
-    html: `<a href="${esc(c.link)}" target="_blank" rel="noopener noreferrer">${esc(c.id)}</a> — ${esc((c.description || '').slice(0, 70))}${(c.description || '').length > 70 ? '…' : ''}`,
+    time: cve.published,
+    tag: cve.kev ? 'KEV' : 'CVE',
+    hot: Boolean(cve.kev),
+    html: `<a href="${esc(cve.link)}" target="_blank" rel="noopener noreferrer">${esc(cve.id)}</a> — ${esc((cve.description || '').slice(0, 70))}${(cve.description || '').length > 70 ? '…' : ''}`,
   });
 }
-for (const e of (cache.edb?.items || []).slice(0, 2)) {
+for (const claim of (cache.ransomware?.items || []).slice(0, 2)) {
   events.push({
-    time: e.published,
-    tag: e.type || 'exploit',
-    // Previously hardcoded true, which made every Exploit-DB badge orange and
-    // therefore carried no information. A published exploit is worth a look, but
-    // it is not "actively exploited" -- that is what the KEV badge is for.
+    time: claim.published,
+    tag: claim.group || 'ransom',
     hot: false,
-    html: `<a href="${esc(e.link)}" target="_blank" rel="noopener noreferrer">EDB-${esc(e.id)}</a> — ${esc(e.title)}`,
+    html: `<a href="${esc(claim.link)}" target="_blank" rel="noopener noreferrer">${esc(claim.victim)}</a> listed by ${esc(claim.group || 'an unnamed group')}`,
   });
 }
-for (const c of (cache.cert?.items || []).slice(0, 2)) {
+for (const url of (cache.phishing?.items || []).slice(0, 2)) {
   events.push({
-    time: c.published,
+    time: url.collected_at,
+    tag: 'phishing',
+    hot: false,
+    html: `<a href="/phishing.html">${esc(url.host)}</a> <span class="mono">${esc(url.url_defanged)}</span>`,
+  });
+}
+for (const advisory of (cache.advisories?.items || []).slice(0, 2)) {
+  events.push({
+    time: advisory.published,
+    tag: advisory.vendor || 'advisory',
+    hot: false,
+    html: `<a href="${esc(advisory.link)}" target="_blank" rel="noopener noreferrer">${esc(advisory.id)}</a> — ${esc(advisory.title)}`,
+  });
+}
+for (const exploit of (cache.edb?.items || []).slice(0, 2)) {
+  events.push({
+    time: exploit.published,
+    tag: exploit.type || 'exploit',
+    hot: false,
+    html: `<a href="${esc(exploit.link)}" target="_blank" rel="noopener noreferrer">EDB-${esc(exploit.id)}</a> — ${esc(exploit.title)}`,
+  });
+}
+for (const item of (cache.ghsa?.items || []).slice(0, 1)) {
+  events.push({
+    time: item.published,
+    tag: item.ecosystem || 'GHSA',
+    hot: false,
+    html: `<a href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">${esc(item.id)}</a> — ${esc(item.title)}`,
+  });
+}
+for (const item of (cache.cert?.items || []).slice(0, 1)) {
+  events.push({
+    time: item.published,
     tag: 'CERT-EU',
     hot: false,
-    html: `<a href="${esc(c.link)}" target="_blank" rel="noopener noreferrer">${esc(c.id)}</a> — ${esc(c.title)}`,
+    html: `<a href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">${esc(item.id)}</a> — ${esc(item.title)}`,
   });
 }
-for (const g of (cache.ghsa?.items || []).slice(0, 2)) {
+for (const item of (cache.wiz?.items || []).slice(0, 1)) {
   events.push({
-    time: g.published,
-    tag: g.ecosystem || 'GHSA',
+    time: item.published,
+    tag: item.type || 'cloud',
     hot: false,
-    html: `<a href="${esc(g.link)}" target="_blank" rel="noopener noreferrer">${esc(g.id)}</a> — ${esc(g.title)}`,
+    html: `<a href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">${esc(item.title)}</a>`,
   });
 }
 
 events.sort((a, b) => timeKey(b.time) - timeKey(a.time));
-const top = events.slice(0, 7);
+const top = events.slice(0, 8);
 const feed = document.getElementById('recent-feed');
 feed.innerHTML = top.length
-  ? top.map((e) => `
+  ? top.map((event) => `
     <div class="recent-item">
-      <span class="tag${e.hot ? ' hot' : ''}">${esc(e.tag)}</span>
-      <div class="recent-body">${e.html}</div>
-      <span class="recent-time">${esc(timeAgo(e.time))}</span>
+      <span class="tag${event.hot ? ' hot' : ''}">${esc(event.tag)}</span>
+      <div class="recent-body">${event.html}</div>
+      <span class="recent-time">${esc(timeAgo(event.time))}</span>
     </div>`).join('')
   : '<div class="recent-empty">No recent items.</div>';
 
@@ -371,12 +515,12 @@ document.getElementById('search-form').addEventListener('submit', (event) => {
   event.preventDefault();
   const query = document.getElementById('global-search').value.trim();
   if (!query) return;
-  // Route by what the query looks like, so a program name does not land on the
-  // vulnerability browser and a CVE does not land on the program list.
-  if (/^CVE-\d{4}-\d+/i.test(query)) {
+  // Route by what the query looks like, so each result lands on the page that
+  // actually indexes it.
+  if (/^(CVE-\d{4}-\d+|GHSA-|EDB-\d+)/i.test(query)) {
     location.href = '/cves.html?q=' + encodeURIComponent(query);
-  } else if (/^GHSA-/i.test(query)) {
-    location.href = '/cves.html?q=' + encodeURIComponent(query);
+  } else if (/^https?:\/\//i.test(query)) {
+    location.href = '/iocs.html?q=' + encodeURIComponent(query);
   } else {
     location.href = '/programs.html?q=' + encodeURIComponent(query);
   }

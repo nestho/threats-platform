@@ -23,6 +23,8 @@ import time
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
+
+from feed_io import write_json
 from urllib.parse import urlparse
 
 SOURCE_URL = "https://raw.githubusercontent.com/projectdiscovery/public-bugbounty-programs/main/dist/data.json"
@@ -190,6 +192,8 @@ def main() -> int:
 
     output = {
         "schema_version": SCHEMA_VERSION,
+        "source": "ProjectDiscovery + curated manual entries",
+        "source_url": SOURCE_URL,
         "updated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "total_programs": len(programs_out),
         "total_unique_domains": len(all_domains),
@@ -202,8 +206,7 @@ def main() -> int:
         "programs": programs_out,
     }
 
-    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
-        json.dump(output, f, indent=2, ensure_ascii=False)
+    write_json(OUTPUT_PATH, output)
 
     print(
         f"Wrote {len(programs_out)} programs ({len(manual_entries)} manual), "

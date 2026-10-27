@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source status — Threats</title>
+<meta name="description" content="Per-source freshness and health for every threat feed: last attempt, last success, cadence, item count, and failures.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/app.css">
+<style>
+  .badge.ok { color: #4ade80; border-color: rgba(74,222,128,0.35); }
+  .badge.stale { color: var(--med); border-color: rgba(234,179,8,0.35); }
+  .badge.failed { color: var(--crit); border-color: rgba(239,68,68,0.4); }
+  .badge.never { color: var(--text-muted); }
+
+  .table-wrap { border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  th, td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { color: var(--text-muted); font-weight: 500; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: var(--surface-2); }
+  td.source { font-weight: 500; white-space: nowrap; }
+  td.source .id { display: block; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 400; margin-top: 2px; }
+  td.source .err { display: block; color: var(--crit); font-size: 11px; font-weight: 400; margin-top: 4px; max-width: 340px; }
+  td.feeds a { color: var(--link); font-family: 'JetBrains Mono', monospace; font-size: 11px; display: inline-block; margin-right: 6px; }
+  td.feeds a:hover { text-decoration: underline; }
+  td.num { font-family: 'JetBrains Mono', monospace; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.when { white-space: nowrap; color: var(--text-secondary); }
+  td.cadence { white-space: nowrap; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+  .critical-mark { color: var(--accent); font-size: 10px; font-weight: 600; margin-left: 6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="site">
+    <a class="logo" href="/">
+      <span class="logo-mark">T</span>
+      <span class="logo-name">Threats <span class="sub">/ Status</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/programs.html">Programs</a>
+      <a href="/cves.html">Vulnerabilities</a>
+      <a href="/iocs.html">IOCs</a>
+      <a href="/ransomware.html">Ransomware</a>
+      <a href="/phishing.html">Phishing</a>
+      <a href="/threats.html">Cloud threats</a>
+      <a href="/status.html" aria-current="page">Status</a>
+      <a href="/saas.html">Pricing</a>
+    </nav>
+  </header>
+
+  <h1>Source status</h1>
+  <p class="sub">Every feed reports when it last succeeded, how often it runs, and whether that is late. Nothing here hides a failure behind a fresh timestamp.</p>
+
+  <div class="status-banner" id="overall-banner" role="status" aria-live="polite" hidden></div>
+
+  <div class="stat-grid">
+    <div class="stat-card"><div class="num" id="stat-sources">—</div><div class="lbl">sources registered</div></div>
+    <div class="stat-card"><div class="num" id="stat-ok">—</div><div class="lbl">current</div></div>
+    <div class="stat-card"><div class="num" id="stat-stale">—</div><div class="lbl">stale</div></div>
+    <div class="stat-card"><div class="num" id="stat-failed">—</div><div class="lbl">failing</div></div>
+  </div>
+
+  <p class="note">
+    A source is stale when it has not succeeded within twice its cadence. The overall state is
+    <strong>degraded</strong> when any source is stale or failing, and <strong>outage</strong> when a
+    critical source is stale. This page refreshes every 60 seconds.
+  </p>
+
+  <div class="meta-bar">
+    <span id="generated-label" role="status" aria-live="polite"></span>
+    <span>
+      <button id="refresh" type="button">Refresh now</button>
+      &nbsp;·&nbsp;
+      <a href="/data/status.json" style="color:var(--link);">/data/status.json</a>
+    </span>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <caption class="visually-hidden">Freshness and health of every threat feed source</caption>
+      <thead>
+        <tr>
+          <th scope="col">Source</th>
+          <th scope="col">Feeds</th>
+          <th scope="col">Cadence</th>
+          <th scope="col">Last success</th>
+          <th scope="col">Items</th>
+          <th scope="col">State</th>
+        </tr>
+      </thead>
+      <tbody id="rows">
+        <tr><td colspan="6" class="empty">Loading status…</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script type="module">
+import { esc, timeAgo, fetchJson } from '/assets/app.js';
+
+const LABELS = { ok: 'current', degraded: 'degraded', outage: 'outage' };
+
+function duration(minutes) {
+  const value = Number(minutes);
+  if (!Number.isFinite(value) || value < 0) return '—';
+  if (value >= 1440) return `${Math.round(value / 1440)}d`;
+  if (value >= 60) return `${Math.round(value / 60)}h`;
+  return `${Math.round(value)}m`;
+}
+
+function safeHttpUrl(value) {
+  return typeof value === 'string' && /^https?:\/\//i.test(value) ? value : null;
+}
+
+function feedLinks(feeds) {
+  return (feeds || [])
+    .map((feed) => `<a href="/data/${esc(feed)}" target="_blank" rel="noopener">${esc(feed)}</a>`)
+    .join('');
+}
+
+function stateOf(source) {
+  if (source.error) return { key: 'failed', label: 'failing' };
+  if (source.stale || !source.last_success) return { key: 'stale', label: 'stale' };
+  return { key: 'ok', label: 'current' };
+}
+
+function render(status) {
+  const sources = (status.sources || []).slice().sort((a, b) => {
+    if (Boolean(a.critical) !== Boolean(b.critical)) return a.critical ? -1 : 1;
+    const aState = stateOf(a).key === 'ok' ? 1 : 0;
+    const bState = stateOf(b).key === 'ok' ? 1 : 0;
+    if (aState !== bState) return aState - bState;
+    return String(a.label).localeCompare(String(b.label));
+  });
+
+  const counts = { ok: 0, stale: 0, failed: 0 };
+  for (const source of sources) counts[stateOf(source).key] += 1;
+
+  const rows = document.getElementById('rows');
+  rows.innerHTML = sources.map((source) => {
+    const state = stateOf(source);
+    const upstream = safeHttpUrl(Array.isArray(source.url) ? source.url[0] : source.url);
+    const label = upstream
+      ? `<a href="${esc(upstream)}" target="_blank" rel="noopener noreferrer">${esc(source.label)}</a>`
+      : esc(source.label);
+    const meta = [
+      `<span class="id">${esc(source.id)}${source.http_status ? ' · HTTP ' + esc(source.http_status) : ''}</span>`,
+      source.error ? `<span class="err">${esc(source.error)}</span>` : '',
+    ].join('');
+    return `<tr>
+      <td class="source">${label}${source.critical ? '<span class="critical-mark">CRITICAL</span>' : ''}${meta}</td>
+      <td class="feeds">${feedLinks(source.feeds)}</td>
+      <td class="cadence">${esc(duration(source.cadence_minutes))}</td>
+      <td class="when" title="${esc(source.last_success || 'never')}">${esc(source.last_success ? timeAgo(source.last_success) : 'never')}</td>
+      <td class="num">${typeof source.items === 'number' ? source.items.toLocaleString('en-US') : '—'}</td>
+      <td><span class="badge ${state.key}">${state.label}</span></td>
+    </tr>`;
+  }).join('') || '<tr><td colspan="6" class="empty">No sources registered.</td></tr>';
+
+  document.getElementById('stat-sources').textContent = sources.length;
+  document.getElementById('stat-ok').textContent = counts.ok;
+  document.getElementById('stat-stale').textContent = counts.stale;
+  document.getElementById('stat-failed').textContent = counts.failed;
+
+  const banner = document.getElementById('overall-banner');
+  const overall = status.overall || 'degraded';
+  const explanation = {
+    ok: 'All sources are current.',
+    degraded: 'Some sources are stale or failing; data on the affected pages may be older than its cadence.',
+    outage: 'A critical source is stale; public data may be incomplete.',
+  }[overall] || 'Source health is unknown.';
+  banner.hidden = false;
+  banner.className = `status-banner ${esc(overall)}`;
+  banner.innerHTML = `<span class="dot ${esc(overall)}" aria-hidden="true"></span>`
+    + `<span><strong>${esc(LABELS[overall] || overall)}</strong> — ${esc(explanation)}</span>`;
+
+  document.getElementById('generated-label').textContent = status.generated_at
+    ? `Checked ${status.generated_at.slice(0, 16).replace('T', ' ')} UTC (${timeAgo(status.generated_at)})`
+    : 'Generation time unavailable';
+}
+
+async function load() {
+  const status = await fetchJson('/data/status.json');
+  if (!status) {
+    const banner = document.getElementById('overall-banner');
+    banner.hidden = false;
+    banner.className = 'status-banner outage';
+    banner.innerHTML = '<span class="dot outage" aria-hidden="true"></span><span><strong>unavailable</strong> — the status file could not be loaded.</span>';
+    document.getElementById('rows').innerHTML =
+      '<tr><td colspan="6" class="empty">Status unavailable.</td></tr>';
+    document.getElementById('generated-label').textContent = '';
+    return;
+  }
+  render(status);
+}
+
+document.getElementById('refresh').addEventListener('click', load);
+load();
+setInterval(load, 60000);
+</script>
+</body>
+</html>

@@ -1,24 +1,21 @@
 # threats-platform — Architecture & Operations
 
-_Last audited: 2026-09-27, directly against the live `main` branch of
-[nestho/threats-platform](https://github.com/nestho/threats-platform)._
+_Last reviewed: 2026-10-28 against `main` and the live `threats.top` deployment._
 
-This document is the source of truth for how the system is built and why.
-Every time a script, page, or workflow changes, this file gets updated in
-the same commit — it should never drift from what's actually deployed.
+This document describes what is deployed and why. When a script, page, feed, or workflow changes materially, this file changes in the same pull request.
 
 ---
 
 ## 1. What this is
 
-An open threat-intelligence data platform. It collects data from several
-free, official, no-API-key sources, publishes it as static JSON + a set of
-static HTML pages on GitHub Pages, and lets the operator add hand-picked
-data through a small admin panel backed by a Cloudflare Worker.
+A static threat-intelligence publication. Free, official, no-key sources are collected by scheduled GitHub Actions, normalised into committed JSON, validated before publication, and served by GitHub Pages at `threats.top`.
 
-No paid infrastructure. No database server. No backend process running
-anywhere — everything is either a GitHub Action (scheduled batch job) or a
-static file served by GitHub Pages.
+There is no database server, no long-running backend, and no runtime dependency. The only compute outside GitHub Actions is a retired Cloudflare Worker that now fails closed; it holds no secrets and cannot write data.
+
+Two properties are non-negotiable:
+
+1. **No demo data.** Every published number comes from a live upstream. An empty or malformed feed is a failure, not a reason to render a placeholder.
+2. **No direct path to `main`.** Automated and manual changes both arrive as pull requests that must pass the required checks.
 
 ---
 
@@ -26,398 +23,292 @@ static file served by GitHub Pages.
 
 ```mermaid
 flowchart TB
-    subgraph Sources["External free data sources"]
-        PD[ProjectDiscovery<br/>public-bugbounty-programs]
-        NVD[NVD API]
-        KEV[CISA KEV catalog]
-        GHSA_SRC[GitHub Security<br/>Advisories]
-        EDB_SRC[Exploit-DB RSS]
-        CERT_SRC[CERT-EU RSS]
-        UH_SRC[URLhaus CSV<br/>abuse.ch]
-        WIZ_SRC[Wiz Cloud Threat<br/>Landscape RSS]
+    subgraph Sources["Free upstreams (no API key)"]
+        NVD[NVD 2.0]
+        KEV[CISA KEV]
+        GHSA[GitHub Security Advisories]
+        EDB[Exploit-DB RSS]
+        CERT[CERT-EU RSS]
+        WIZ[Wiz Cloud Threat Landscape]
+        PD[ProjectDiscovery programs]
+        RL[ransomware.live]
+        OP[OpenPhish]
+        VEND[MSRC + Ubuntu RSS]
+        EPSS[FIRST EPSS]
     end
 
-    subgraph Actions["GitHub Actions (scheduled, hourly cron)"]
-        WF[update-data.yml<br/>picks which feed(s) to run<br/>based on UTC hour]
-        C1[collector.py]
-        C2[cve_feed.py]
-        C3[ghsa_feed.py]
-        C4[exploitdb_feed.py]
-        C5[cert_eu_feed.py]
-        C6[urlhaus_feed.py]
-        C7[wiz_feed.py]
-        GATE[validate_feeds.py<br/>THE GATE]
+    subgraph Collect["scripts/run_collectors.py (hourly trigger, cadence-driven)"]
+        CVE[cve_feed.py]
+        GHSAF[ghsa_feed.py]
+        EDBF[exploitdb_feed.py]
+        CERTF[cert_eu_feed.py]
+        WIZF[wiz_feed.py]
+        DOM[collector.py]
+        RWF[ransomware_feed.py]
+        PHF[phishing_feed.py]
+        ADV[advisories_feed.py]
+        EPSSF[epss_feed.py]
+        IOC[iocs_feed.py]
+        STATUS[status.py]
     end
 
-    subgraph Repo["Repo: data/ (committed JSON)"]
-        D1[domains.json]
-        D2[cves.json]
-        D3[ghsa.json]
-        D4[exploitdb.json]
-        D5[cert_eu.json]
-        D6[urlhaus.json]
-        D7[manual.json<br/>hand-edited, never<br/>overwritten by scripts]
-        D8[wiz.json]
-        D9[cves_headline.json<br/>bounded slice of cves.json]
+    subgraph Validate["Gate"]
+        VALIDATE[scripts/validate_feeds.py]
+        TESTS[validate.yml: Feed data / Unit tests / Python tests]
     end
 
-    subgraph CI2["GitHub Actions (pull_request)"]
-        VAL[validate.yml<br/>2 jobs: feed gate + unit tests<br/>contents:read only]
+    subgraph Publish["Delivery"]
+        PR[automation/data-* pull request]
+        RULE[ruleset protect-main<br/>no bypass, squash only]
+        PAGES[GitHub Pages<br/>threats.top]
     end
 
-    subgraph Pages["GitHub Pages (threats.top)"]
-        P1[index.html]
-        P2[programs.html]
-        P3[cves.html]
-        P4[admin/index.html]
-    end
+    DATA[(data/*.json<br/>committed)]
 
-    subgraph Admin["Manual data entry path"]
-        Worker["Cloudflare Worker<br/>worker/admin.js<br/>IN version control"]
-        GH_API[GitHub Contents API]
-    end
+    NVD & KEV --> CVE
+    GHSA --> GHSAF
+    EDB --> EDBF
+    CERT --> CERTF
+    WIZ --> WIZF
+    PD --> DOM
+    RL --> RWF
+    OP --> PHF
+    VEND --> ADV
+    EPSS --> EPSSF
+    PHF & RWF --> IOC
+    CVE & GHSAF & EDBF & CERTF & WIZF & DOM & RWF & PHF & ADV & EPSSF & IOC --> STATUS
 
-    PD --> C1
-    NVD --> C2
-    KEV --> C2
-    GHSA_SRC --> C3
-    EDB_SRC --> C4
-    CERT_SRC --> C5
-    UH_SRC --> C6
-    WIZ_SRC --> C7
-
-    WF --> C1 & C2 & C3 & C4 & C5 & C6 & C7
-    C1 --> D1
-    C2 --> D2
-    C3 --> D3
-    C4 --> D4
-    C5 --> D5
-    C6 --> D6
-    C7 --> D8
-    C2 --> D9
-    D7 -.merged into.-> D1
-
-    C1 & C2 & C3 & C4 & C5 & C6 & C7 --> GATE
-    GATE -->|"pass"| Repo
-    GATE -.->|"fail: nothing committed"| WF
-
-    PR[Pull request] --> VAL
-    VAL -->|"fail: cannot merge"| PR
-    VAL -->|"pass"| Repo
-
-    D1 & D2 & D3 & D4 & D5 & D6 & D8 & D9 --> Pages
-
-    P4 -- password + payload --> Worker
-    Worker -- reads/writes --> D7
-    Worker -- commits via --> GH_API
-    GH_API -- pushes to --> Repo
+    CVE & GHSAF & EDBF & CERTF & WIZF & DOM & RWF & PHF & ADV & EPSSF & IOC --> DATA
+    DATA --> VALIDATE
+    VALIDATE --> PR
+    PR --> TESTS
+    TESTS --> RULE
+    RULE --> DATA
+    DATA --> PAGES
 ```
+
+The important arrow is the loop: a collector never writes to production. It writes a candidate file, the validator inspects it against the previous committed version, and only a pull request that passes all three checks can update `main`, from which Pages deploys.
 
 ---
 
 ## 3. Repository layout
 
 ```
-threats-platform/
-├── .github/
-│   ├── workflows/
-│   │   ├── update-data.yml   # hourly cron (staggered feeds) + weekly cron (wiz).
-│   │   │                     # validate -> commit, in that order
-│   │   └── validate.yml      # pull_request gate: feed validity + unit tests
-│   └── dependabot.yml        # keeps the SHA-pinned actions current
-├── admin/
-│   └── index.html            # manual data-entry UI (same-origin /admin-api)
-├── assets/
-│   ├── app.css                # design tokens, header, controls, tabs, badges
-│   ├── app.js                 # esc, timeAgo, timeKey, copy, fetch, initTabs
-│   └── app.test.mjs           # node --test; esc() is the XSS boundary
-├── data/                      # generated JSON, committed to the repo
-│   ├── domains.json           # bug bounty programs + domains (collector.py)
-│   ├── cves.json              # NVD recent (full window) + CISA KEV (cve_feed.py)
-│   ├── cves_headline.json     # bounded 25-item slice of cves.json, for the homepage
-│   ├── ghsa.json              # GitHub Security Advisories (ghsa_feed.py)
-│   ├── exploitdb.json         # Exploit-DB entries (exploitdb_feed.py)
-│   ├── cert_eu.json           # CERT-EU advisories (cert_eu_feed.py)
-│   ├── urlhaus.json           # malware URLs, defanged (urlhaus_feed.py)
-│   ├── wiz.json               # cloud incidents/campaigns (wiz_feed.py, weekly)
-│   └── manual.json            # HAND-EDITED ONLY — never overwritten by scripts
-├── scripts/
-│   ├── normalize.py           # shared timestamp normalisation (+ self-check)
-│   ├── validate_feeds.py      # THE GATE. runs before every commit
-│   ├── collector.py
-│   ├── cve_feed.py
-│   ├── ghsa_feed.py
-│   ├── exploitdb_feed.py
-│   ├── cert_eu_feed.py
-│   ├── urlhaus_feed.py
-│   └── wiz_feed.py
-├── worker/
-│   ├── admin.js               # the only write path into published data
-│   ├── admin.test.mjs         # node --test; 20 tests over the auth boundary
-│   └── wrangler.toml          # deploy config; secrets are NOT in this file
-├── index.html                 # homepage: stats, recent activity, API catalog
-├── programs.html              # program browser (cards/table/grouped)
-├── cves.html                  # vulnerability browser (5 tabs)
-├── threats.html               # cloud threat landscape (Wiz)
-├── docs/
-│   ├── DEEP-ANALYSIS.md       # audit: what is wrong and why
-│   └── CONTRACT.md            # generated API contract (from validate_feeds.py)
-├── scripts/setup-ruleset.sh   # one-shot branch protection for main (needs gh auth)
-├── CNAME                      # threats.top
-├── .gitattributes             # text=auto, and -diff for the large data/ files
-├── requirements.txt           # empty on purpose — stdlib only, no dependencies
-├── CONSTRAINTS.md             # the quality bar
-└── README.md                  # placeholder, not yet written
+.github/
+  workflows/
+    update-data.yml       hourly collection → validate → automation PR
+    validate.yml          pull-request gate: Feed data, Unit tests, Python tests
+  dependabot.yml          SHA-pinned action updates
+assets/
+  app.css                 shared design system
+  app.js                  esc(), time helpers, tabs, fetch helpers
+  app.test.mjs            XSS and time-helper tests
+data/                     committed JSON; this is the database
+  cves.json               NVD window + KEV
+  cves_headline.json      bounded homepage slice
+  ghsa.json               GitHub advisories
+  exploitdb.json          Exploit-DB
+  cert_eu.json            CERT-EU
+  wiz.json                Cloud incidents and campaigns
+  domains.json            bug bounty programs
+  manual.json             hand-edited scope, merged into domains.json
+  ransomware.json         leak-site claims
+  phishing.json           defanged OpenPhish URLs
+  advisories.json         Microsoft and Ubuntu notices
+  epss.json               EPSS scores for the CVE window
+  iocs.json               derived phishing + ransomware indicators
+  status.json             per-source freshness and health
+scripts/
+  run_collectors.py       cadence selection, subprocess isolation, status
+  status.py               source table, freshness rules, status document
+  feed_io.py              atomic writes, provenance envelope, escaping helpers
+  normalize.py            timestamp normalisation and self-check
+  validate_feeds.py       the gate and the contract source of truth
+  dev.py                  local test/validate/sync/serve CLI
+  setup-ruleset.sh        idempotent repository protection
+  *_feed.py               one collector per source
+  tests/                  Python unit tests and fixtures
+worker/
+  admin.js                retired; every legacy route returns 410
+  admin.test.mjs          verifies the retirement contract
+*.html                    static pages, one per surface
+docs/                     contract, design, analysis
 ```
-
-Frontend design system: dark neutral background (`#09090b`), Inter for UI
-text, JetBrains Mono for code/IDs, orange accent (`#f97316`). `index.html`,
-`programs.html`, and `cves.html` all share this system. **`admin/index.html`
-is still on an older, different color scheme** (teal/orange on near-black) —
-cosmetic inconsistency, not a functional bug (see §7).
 
 ---
 
 ## 4. Data sources
 
-| Source | Script | Output | Auth | Cadence | Notes |
-|---|---|---|---|---|---|
-| ProjectDiscovery public-bugbounty-programs | `collector.py` | `domains.json` | none | every 6h | Also merges `manual.json` by name; detects platform (HackerOne/Bugcrowd/etc) from program URL |
-| NVD API 2.0 | `cve_feed.py` | `cves.json` → `recent` | none | every 2h | **Known bug: capped at 200 results, no pagination — see §7** |
-| CISA KEV catalog | `cve_feed.py` | `cves.json` → `actively_exploited` | none | every 2h | Also cross-flags `recent` items with `kev: true` |
-| GitHub Security Advisories | `ghsa_feed.py` | `ghsa.json` | none | every 3h | Atom feed, official GitHub endpoint |
-| Exploit-DB | `exploitdb_feed.py` | `exploitdb.json` | none | every 4h | Official RSS (`exploit-db.com/rss.xml`) |
-| CERT-EU | `cert_eu_feed.py` | `cert_eu.json` | none | every 4h | RSS with a regex fallback parser in case the feed isn't strict XML |
-| URLhaus (abuse.ch) | `urlhaus_feed.py` | `urlhaus.json` | none | every hour | **URLs are defanged (`hxxp`, `[.]`) before being written — deliberate, see §6** |
-| Wiz Cloud Threat Landscape | `wiz_feed.py` | `wiz.json` | none | **weekly** | Cloud incidents, campaigns, supply-chain compromises. **Analysis feed, not an alert feed** — 0 items in 7d, 3 in 30d measured over its 509-item feed, so it has its own cron and is labelled as analysis in the UI. Added 2026-09-27; it closed the platform's largest content gap (every other feed is vulnerability/exploit shaped) |
+| Source | Script | Output | Cadence | Notes |
+|---|---|---|---|---|
+| NVD 2.0 | `cve_feed.py` | `cves.json` → `recent` | 2h | Window widens after an outage, capped at 120 days. Paginates to exhaustion and publishes `items_parsed`/`items_available`. |
+| CISA KEV | `cve_feed.py` | `cves.json` → `actively_exploited` | 2h | Last 90 days of additions; recent CVEs are cross-flagged `kev: true`. |
+| GitHub Security Advisories | `ghsa_feed.py` | `ghsa.json` | 3h | REST API with the job token; ecosystem is preserved. |
+| Exploit-DB | `exploitdb_feed.py` | `exploitdb.json` | 4h | Official RSS. |
+| CERT-EU | `cert_eu_feed.py` | `cert_eu.json` | 4h | RSS with a tolerant parser. |
+| Wiz Cloud Threat Landscape | `wiz_feed.py` | `wiz.json` | 30 days | Analysis, not alerts; the low cadence is deliberate. |
+| ProjectDiscovery + curated | `collector.py` | `domains.json` | 6h | Merges `manual.json` by program name; canonical platform enum. |
+| ransomware.live | `ransomware_feed.py` | `ransomware.json` | 1h | Attacker-supplied text is truncated; only http(s) URLs are kept. |
+| OpenPhish | `phishing_feed.py` | `phishing.json` | 1h | Every URL is defanged before it is written. |
+| Microsoft MSRC + Ubuntu | `advisories_feed.py` | `advisories.json` | 4h | Two RSS feeds, per-upstream partial-failure reporting. |
+| FIRST EPSS | `epss_feed.py` | `epss.json` | 6h | Scores only the CVE ids in the current window; no bulk archive. |
+| Derived | `iocs_feed.py` | `iocs.json` | 1h | Combines phishing and ransomware domains into one indicator list. |
 
-**Dropped source:** PacketStorm Security — killed its free RSS on
-2025-10-23, now paid-API only. Not pursued further.
-
-**Considered and deliberately skipped:** MITRE ATT&CK (no clean CVE→ATT&CK
-mapping feed exists; would require guessing) and `cve.org`/`cvelistV5`
-(redundant with NVD, which already ingests from it; the only gain is a
-few hours' head start before NVD scores a CVE, not worth the added
-complexity of parsing GitHub Release zip deltas).
+Keyed feeds (URLhaus, ThreatFox, Feodo, DShield) are deliberately excluded. They are either retired upstream, require an abuse.ch Auth-Key, or return empty. See the design record in `docs/superpowers/specs/`.
 
 ---
 
-## 5. Scheduling logic
+## 5. Scheduling and freshness
 
-Single workflow (`update-data.yml`), single hourly cron
-(`0 * * * *`), which decides **which** feeds to run based on the current
-UTC hour — avoids juggling multiple overlapping cron expressions:
-
-| Feed | Runs |
-|---|---|
-| `urlhaus` | every hour |
-| `cve` | even hours (every 2h) |
-| `ghsa` | hours divisible by 3 |
-| `exploitdb`, `cert_eu` | hours divisible by 4 |
-| `collector` | hours divisible by 6 |
-
-`wiz` is **not** in the hourly rotation. It has its own weekly cron
-(`17 6 * * 1`) because its publication rate is roughly monthly, and running it
-alongside hourly feeds would imply a freshness it does not have.
-
-`workflow_dispatch` allows manually triggering a single feed or `all`.
-
-### The pull-request gate
-
-`update-data.yml` validates between fetch and commit, so a bad feed from a
-scheduled run cannot reach `main`. That left one path open: `data/*.json` edited
-by hand and merged through a pull request — which is exactly how the original
-empty CERT-EU feed could have been introduced. `validate.yml` closes it.
-
-| | |
-|---|---|
-| Trigger | `pull_request` against `main` |
-| Permissions | `contents: read` — never `write` |
-| Jobs | `validate-data`, `test` (separate, so one failure doesn't mask the other) |
-| Comparison | against `github.event.pull_request.base.sha`, fetched with `--depth=1` |
-
-`pull_request` rather than `pull_request_target` is deliberate: the latter runs
-with a read/write token even for forks, so editing the workflow in a PR could
-exfiltrate secrets.
-
-Comparing against the base branch makes the check answer *"did this pull request
-empty or halve a feed"*, not *"is a feed empty"*. It also means a PR that changes
-a collector's output shape without regenerating its data fails — forcing the
-contract change and the data that satisfies it to land together.
-
-**These gates are advisory until `main` is protected.** Both workflows can be
-bypassed with `git push --no-verify` on a direct push. Run
-`scripts/setup-ruleset.sh` (requires `gh auth login`) to make `main` reject
-force-pushes and deletions.
-
-The commit step has retry logic on both the feed script itself (up to 4
-attempts with exponential backoff) and on `git push` (rebases on conflict
-and retries), since multiple scheduled runs could in theory race — though
-`concurrency: cancel-in-progress: false` also serializes runs so this is
-mostly defense-in-depth.
-
-### The validation gate (added 2026-09-27)
-
-Step order is **fetch → validate → commit**. `scripts/validate_feeds.py` runs
-against `HEAD`, which at that point is still the previously committed data, so it
-can compare this run's output to what was live before it. Nothing invalid reaches
-`main`.
-
-This exists because the old contract — "exit 0 means the file is good" — was
-false. A collector served an HTML error page wrote `{"total": 0, "items": []}`,
-exited 0, and the workflow committed it and reported success. The gate now
-catches that case, a >50% item-count drop, NVD truncation, schema drift, an
-unbumped `schema_version`, non-ISO timestamps, a non-canonical `platform`, and
-defanging regressions. See `docs/DEEP-ANALYSIS.md` §2.1.
-
----
-
-## 5b. Branching
+A single hourly trigger (`7 * * * *`) runs `scripts/run_collectors.py --feeds auto`. The script does not use cron arithmetic; it reads `scripts/status.py` and runs a source when:
 
 ```
-main                    production; GitHub Pages serves from here
-└── develop             integration branch
-    ├── fix/*           bug fixes
-    └── feat/*          features
+now >= last_success + cadence - 5 minutes
 ```
 
-Fixes and features are **branches, not repositories.** They were originally
-proposed as separate repos, which would not work here: `cve_feed.py` is touched
-by both the pagination fix and by feature work, `assets/app.js` likewise, so
-separate repos mean the same file in two places, guaranteed to drift. GitHub
-Pages also serves one repository, so a feature repo's `index.html` never
-deploys. Branches give the same isolation without the duplication.
+The five-minute grace prevents an hourly source from waiting an extra hour because the previous run finished seconds late. A source that has never succeeded is always due.
 
-The 2026-09-27 rework followed this: `fix/data-integrity` (5 commits, self-contained
-— the gate passes on its own tree) merged into `develop`, then
-`feat/cloud-threats-and-frontend` (4 commits, depends on the fix for
-`cves_headline.json`) merged into `develop`, then `develop` into `main`.
+Each collector runs in its own subprocess with a 900-second timeout. Output is captured, the status entry records duration, HTTP status when available, item count, and the last error line, and `status.json` is rewritten after every source so a crash halfway through still leaves an accurate record.
 
-A `hotfix/*` branch cut from `main` and merged back into both `main` and
-`develop` is the intended path for anything urgent.
+Freshness rules:
 
-Worth knowing: the hourly cron commits to `main` directly, so a `main` merge can
-be rejected mid-push by a scheduled run landing at the same moment. That happened
-during the 2026-09-27 merge and is handled by `git merge origin/main` plus a
-regeneration — see the `chore(data): regenerate all feeds` commit.
+- A source is `stale` when its age exceeds **twice** its cadence.
+- `status.json.overall` is:
+  - `ok` — no stale source and no recorded error;
+  - `degraded` — a non-critical source is stale, or any source has an error;
+  - `outage` — the critical source (`cve`) is stale.
+- The workflow step *Fail on critical collector outage* exits non-zero when `cve` has never succeeded or is older than 24 hours. Publication happens before that step, so healthy feeds still ship during a partial outage.
 
-## 6. Manual data entry (admin panel)
-
-Path: `threats.top/admin/` → Cloudflare Worker (`threats-admin`) → GitHub
-Contents API → `data/manual.json` → picked up by `collector.py` on its next
-run and merged into `domains.json`.
-
-- The Worker holds `GITHUB_TOKEN` (fine-grained PAT, Contents:
-  read/write, scoped to this one repo only) and `ADMIN_PASSWORD` as
-  Cloudflare **secrets** — never exposed client-side.
-- `admin/index.html` never stores the password; it's typed in each visit
-  and held only in a JS variable in memory. The "Unlock" step calls the
-  Worker's `/list` endpoint to genuinely verify the password (not just a
-  cosmetic UI toggle).
-- **The Worker's source is now in this repo** as `worker/admin.js`, with
-  `worker/wrangler.toml` for deployment and `worker/admin.test.mjs` (20 tests over
-  the auth boundary). It is served from this zone at `/admin-api/*` rather than a
-  `*.workers.dev` subdomain, so the admin page's call is same-origin and the URL
-  is no longer a discoverable third-party endpoint.
-  **It is a clean-room reconstruction, not a copy** — diff it against the
-  dashboard version before deploying. Items marked `VERIFY` in the source are
-  assumptions.
-- **Secrets are `ADMIN_PASSWORD_HASH` (a SHA-256 digest, not the password) and
-  `GITHUB_TOKEN`**, set via `wrangler secret put`. The Worker fails closed if the
-  hash is unset.
-
-Security properties already in place:
-- CORS should be restricted to `https://threats.top` (verify this is
-  actually set — it was flagged during development, confirm in the
-  Cloudflare dashboard since the Worker isn't in the repo to check here).
-- Malware URLs from URLhaus are defanged before ever reaching a page.
-- All external/untrusted string data (program names, platforms, domain
-  names, CVE descriptions) is passed through an `esc()` helper before
-  being inserted into the DOM in `index.html`, `programs.html`, and
-  `cves.html` — confirmed present and applied consistently as of this
-  audit.
+Collectors also fail loudly on invalid data. `NormalisationTally` tolerates a small number of unparseable timestamps (5%, floor 3) so one odd advisory does not destroy a feed, records the failures in the output, and raises once the count looks systematic.
 
 ---
 
-## 7. Known issues / tech debt
+## 6. Delivery, validation, and branch protection
 
-**Closed and shipped to `main` on 2026-09-27.** Full detail and reproductions in
-[`docs/DEEP-ANALYSIS.md`](docs/DEEP-ANALYSIS.md).
+### 6.1 The scheduled pipeline
 
-1. ~~NVD CVE feed silently truncated~~ — **fixed.** Now paginates on
-   `totalResults`. Measured 200 → 1533 CVEs; `items_available`/`items_parsed` are
-   both published so truncation is detectable.
-2. ~~Cloudflare Worker not version-controlled~~ — **fixed.** See §6.
-3. ~~`admin/index.html` on the old colour scheme~~ — **fixed.** All pages now use
-   `assets/app.css`.
-4. ~~No schema validation~~ — **fixed.** `scripts/validate_feeds.py` gates every
-   commit. (The underlying RSS fragility it mitigates is permanent; see below.)
-5. ~~CERT-EU timestamps unparseable in the browser~~ — **fixed.** All timestamps
-   are ISO-8601 UTC via `scripts/normalize.py`.
-6. ~~CVSS v4.0 scores discarded~~ — **fixed.** +158 real scores per run.
-7. ~~Platform enum split (`Bugcrowd` / `BugCrowd`)~~ — **fixed.** Manual values
-   are canonicalised on read and validated on write.
-8. ~~Keyboard-inaccessible program cards~~ — **fixed.** Cards are real
-   `<button>`s with `aria-expanded`; tabs have `role="tablist"`; result counts
-   are announced.
-9. **RSS-scraped sources remain fragile by nature.** Exploit-DB, CERT-EU, URLhaus
-   and Wiz are all website feeds, not APIs. A site-side change breaks them
-   silently. The empty-feed gate converts that from *silent* to *loud*, which is
-   mitigation, not a fix.
+`update-data.yml`:
 
-9b. **No pull-request gate.** — **fixed** in `184d286`; see §5.
-10. **No branch protection on `main`.** Both workflows are advisory until this
-    exists. `scripts/setup-ruleset.sh` is committed and ready; it needs
-    `gh auth login` and 30 seconds. This is the highest-priority remaining item,
-    because a direct push bypasses every gate described in this document.
-11. **GitHub Actions are three majors behind.** `checkout` v4.2.2,
-    `setup-python` v5.4.0, `setup-node` v4.4.0, against v7 available. Kept on the
-    versions proven working in production rather than bumped blind, since a major
-    bump cannot be verified without running it. `.github/dependabot.yml` tracks
-    them.
-12. **No JSON Schema files.** `validate_feeds.py` enforces the contract in code
-    and generates the docs from the same table, so they cannot drift — but a
-    consumer cannot machine-validate against it without running Python.
-13. **Frontend has no end-to-end or accessibility test.** `assets/app.test.mjs`
-    covers `esc()` and the time helpers as units. Nothing verifies that a rendered
-    page is actually navigable, and nothing catches a future renderer passing
-    unescaped data to `innerHTML`. This is the highest-value remaining gap,
-    because `esc()` is the only XSS control the site has.
-14. **The Worker's in-memory rate limiter is best-effort.** It resets when a
-    Worker isolate is recycled. Cloudflare Rate Limiting Rules or a Durable
-    Object would be a real control.
-15. **HoneyDB is not integrated.** The API works and would add live attacker
-    infrastructure, which nothing else here covers — but its terms require a
-    paid licence for "distributing as a value-added service", and this platform
-    publishes to a public API. Needs a licensing decision first.
+1. Checks out `main` with `persist-credentials: false`.
+2. Resolves a bot token from the GitHub App (`DATA_BOT_APP_ID` + `DATA_BOT_PRIVATE_KEY`) or the PAT fallback (`DATA_BOT_TOKEN`).
+3. Runs the due collectors with a read-only job token.
+4. Runs `validate_feeds.py --against HEAD` even if collection failed.
+5. If `data/` changed, commits the snapshot to `automation/data-<UTC>` and opens a PR, or pushes onto the one already-open automation PR. It then enables auto-merge with squash and branch deletion.
+6. Fails the run if a critical collector is beyond its hard limit, after publication has been attempted.
 
-## 8. Open questions for the next session
+The bot identity matters. A PR created with the built-in `GITHUB_TOKEN` does not trigger other workflows, so the required checks would never appear and the PR could never merge. `update-data.yml` warns and skips publication when no bot credential exists rather than opening a permanently blocked PR.
 
-- [ ] **Is the deployed Worker's CORS actually restricted, and does it
-      rate-limit?** `worker/admin.js` does both, but the live dashboard version
-      is what has been serving traffic. Diff it before deploying.
-- [ ] **Should `admin/` be publicly deployed at all?** It now shares an origin
-      with the site. A Cloudflare Access policy in front of `/admin/*` would
-      remove the shared-password question entirely.
-- [ ] **Do we want a stability guarantee for the public JSON?** `schema_version`
-      and `docs/CONTRACT.md` exist, but there is no `/v1/` and no deprecation
-      window. If third parties depend on this, a versioned contract is worth it.
-      If it is a hobby feed, documenting today's shape is enough. This gates
-      whether JSON Schema files are worth adding.
-- [ ] **What to do with the 28 programs that publish no domains?** They render as
-      empty cards on the site's core page. `domains.json` now reports the count as
-      `programs_without_domains`, but nothing acts on it. Filtering them is a
-      judgement call about whether undisclosed scope belongs on a scope page.
-- [ ] **HoneyDB licensing.** See §7.14. Do not integrate before this is resolved.
-- [ ] **Should URLhaus get a UI?** It is deliberately API-only — it is live
-      malware distribution URLs and there is no browsing experience that makes
-      that a good idea. Worth confirming that is the intent rather than an
-      oversight.
+### 6.2 The pull-request gate
 
-## 9. Documentation policy going forward
+`validate.yml` runs on `pull_request` against `main` and on manual dispatch, with `contents: read` and no secrets. It has three independent jobs:
 
-Every time we add or materially change a script, data file, page, or
-workflow step, this file gets a corresponding update **in the same
-commit** — new row in the source table, new architecture note, or an
-entry in §7 if it's a known limitation rather than a finished feature.
-No feature is "done" until this doc reflects it.
+| Job name | What it proves |
+|---|---|
+| **Feed data** | Fetches the base commit and validates this PR's `data/` against it. Catches an emptied or halved feed, schema drift, bad timestamps, non-canonical enums, demo markers, and cross-file status inconsistencies. |
+| **Unit tests** | `node --test assets worker` — escaping and the retired Worker contract. |
+| **Python tests** | `python3 -m unittest discover -s scripts/tests -t scripts` — normalisation, collectors, status, orchestrator, validator. |
+
+Using `pull_request` rather than `pull_request_target` means fork PRs get a read-only token and no secrets.
+
+### 6.3 The ruleset
+
+`scripts/setup-ruleset.sh` creates or updates `protect-main`:
+
+- target: the default branch;
+- enforcement: active;
+- `bypass_actors: []` — no account, including the owner, can push around it;
+- deletion and non-fast-forward forbidden;
+- required linear history;
+- pull request required, squash-only;
+- required checks: **Feed data**, **Unit tests**, **Python tests**;
+- `strict_required_status_checks_policy: false` so an automation PR is not deadlocked every time another data PR lands first.
+
+The script also sets:
+
+- squash-only merges, auto-merge on, delete-branch-on-merge on;
+- the default Actions token to read-only and unable to approve PRs;
+- Pages to serve `main` / with HTTPS enforced for `threats.top`.
+
+Zero required approvals is deliberate: GitHub does not allow an author to approve their own PR, and a solo-maintained repository would deadlock. The gate is the PR plus the three checks. Raise the count to 1 when a second maintainer exists.
+
+`require_extra_approval_for_unattributed_changes` is explicitly disabled. It defaults to on and would demand a human approval for bot-authored commits, which would make automated data PRs unmergeable.
+
+---
+
+## 7. Frontend
+
+Each page is static HTML with an inline module that fetches its JSON from `/data/`. There is no build step, framework, or bundler.
+
+| Page | Data |
+|---|---|
+| `index.html` | headline CVE slice, programs, ransomware, status |
+| `cves.html` | `cves.json`, `epss.json`, `exploitdb.json`, `cert_eu.json`, `ghsa.json` |
+| `programs.html` | `domains.json` |
+| `iocs.html` | `iocs.json` |
+| `ransomware.html` | `ransomware.json` |
+| `phishing.html` | `phishing.json` |
+| `threats.html` | `wiz.json`, `advisories.json` |
+| `status.html` | `status.json` |
+| `saas.html` | static pricing; no account system in v1 |
+
+All upstream strings pass through `esc()` before entering the DOM. URLs are validated as `http(s)` on the collector side; defanged indicators are rendered as text, not links. A page whose data fetch fails shows an explicit error state rather than stale or fabricated content.
+
+---
+
+## 8. Phase 2 and the retired Worker
+
+`worker/admin.js` used to authenticate an admin password or an HMAC key and commit `manual.json` and tenant data straight to `main` through a GitHub PAT. That was a second write path that bypassed every check, and the tenant data it wrote was public. It is retired: every legacy route returns `410 Gone`, `/health` reports the retirement, and the file reads no secret.
+
+Phase 2 (accounts, private watchlists, correlated alerts, signed webhooks, STIX export, D1) is designed in [`docs/SAAS-ARCHITECTURE.md`](docs/SAAS-ARCHITECTURE.md) and is not deployed. The pricing page states that public data is live today and Pro is a waitlist, which is accurate.
+
+---
+
+## 9. Known limitations
+
+1. **RSS-scraped sources are fragile.** Exploit-DB, CERT-EU, Wiz, MSRC, and Ubuntu are website feeds, not contracts. A site-side change breaks them. The empty-feed and schema gates make that loud instead of silent.
+2. **Wiz is low-volume by nature.** Thirty-day cadence and an analysis label are honest, not a bug.
+3. **NVD is rate-limited.** Unauthenticated access allows five requests per 30 seconds; `NVD_REQUEST_INTERVAL = 7` stays under it. A long outage widens the window up to 120 days.
+4. **EPSS is a rolling snapshot.** `epss.json` scores the current CVE window, not the full historical catalogue.
+5. **The automation depends on a bot credential.** Without it, collection and validation still run, but nothing publishes.
+6. **No end-to-end browser test.** `node --test` covers the escaping helper and the retired Worker; it does not prove a rendered page is navigable.
+7. **No machine-readable JSON Schema.** The contract is enforced in Python and generated into `docs/CONTRACT.md`; a consumer cannot validate without running it.
+8. **One maintainer, zero required approvals.** The checks are the gate; there is no second human review.
+9. **Pages has no atomic deploy hook.** It builds from `main`, so a merge is live after the Pages build completes, typically within a minute or two.
+
+---
+
+## 10. Operations
+
+### Check health
+
+`/data/status.json` and `/status.html`. Look at `overall`, then each source's `stale`, `error`, and `age_minutes`.
+
+### Force a collection
+
+Run *Update Threat Data* with:
+
+- `feeds=auto` — only sources whose cadence is due;
+- `feeds=all` — every source;
+- `feeds=cve,phishing` — a specific list.
+
+### Change program scope by hand
+
+Edit `data/manual.json`, run `python3 scripts/dev.py sync --feed domains`, and open a PR. Nothing writes `manual.json` automatically.
+
+### Roll back
+
+Revert the offending PR. Because `data/` is committed history, any prior snapshot is recoverable, and the next scheduled run will regenerate forward from the reverted state.
+
+### Re-apply protection
+
+```bash
+bash scripts/setup-ruleset.sh
+```
+
+It is idempotent and prints the verified ruleset, merge settings, token permissions, Pages state, and whether bot credentials exist.
+
+---
+
+## 11. Documentation policy
+
+A feature is not done until this file, the contract, and the constraints file reflect it. The contract is generated from the same table the validator enforces, so it cannot drift; the other two are reviewed in the same pull request as the change.

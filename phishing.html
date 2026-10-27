@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phishing URLs — Threats</title>
+<meta name="description" content="A deduplicated OpenPhish snapshot of active phishing URLs, defanged before it reaches the browser.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/app.css">
+<style>
+  .badge.phish { color: var(--accent); border-color: rgba(249,115,22,0.35); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="site">
+    <a class="logo" href="/">
+      <span class="logo-mark">T</span>
+      <span class="logo-name">Threats <span class="sub">/ Phishing</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/programs.html">Programs</a>
+      <a href="/cves.html">Vulnerabilities</a>
+      <a href="/iocs.html">IOCs</a>
+      <a href="/ransomware.html">Ransomware</a>
+      <a href="/phishing.html" aria-current="page">Phishing</a>
+      <a href="/threats.html">Cloud threats</a>
+      <a href="/status.html">Status</a>
+      <a href="/saas.html">Pricing</a>
+    </nav>
+  </header>
+
+  <h1>Phishing URLs</h1>
+  <p class="sub">A deduplicated snapshot of the OpenPhish public feed, collected on the data schedule.</p>
+  <p class="note warn">
+    <code>collected_at</code> is when our collector saw the URL, not when it was registered or first
+    used. Every URL is <strong>defanged</strong> (<code>hxxp://</code>, <code>[.]</code>); copy and refang
+    it only inside an isolated analysis environment.
+  </p>
+  <div class="note" id="freshness-note" hidden></div>
+
+  <div class="stat-grid three">
+    <div class="stat-card"><div class="num" id="stat-urls">—</div><div class="lbl">URLs in snapshot</div></div>
+    <div class="stat-card"><div class="num" id="stat-hosts">—</div><div class="lbl">unique hosts</div></div>
+    <div class="stat-card"><div class="num" id="stat-snapshot">—</div><div class="lbl">snapshot age</div></div>
+  </div>
+
+  <div class="controls">
+    <label for="search" class="visually-hidden">Search phishing URLs</label>
+    <input id="search" type="search" placeholder="Search host or defanged URL…" autocomplete="off">
+  </div>
+
+  <div class="meta-bar">
+    <span id="count-label" role="status" aria-live="polite"></span>
+    <span>
+      <span id="updated-label"></span>
+      &nbsp;·&nbsp;
+      <button id="copy-hosts" type="button">Copy filtered hosts</button>
+      <button id="copy-json" type="button">Copy JSON endpoint</button>
+    </span>
+  </div>
+
+  <div id="list"></div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script type="module">
+import { esc, timeAgo, copyText, copyEndpointUrl, fetchJson, setResultCount, showStaleNote } from '/assets/app.js';
+
+let items = [];
+let filtered = [];
+
+function card(item) {
+  return `<article class="feed-item">
+    <div class="feed-head">
+      <h2 class="feed-title mono">${esc(item.host)}</h2>
+      <div class="feed-badges"><span class="badge phish">URL</span></div>
+    </div>
+    <p class="feed-desc mono">${esc(item.url_defanged)}</p>
+    <div class="feed-meta">
+      <span>seen ${esc(timeAgo(item.collected_at))}</span>
+      <button type="button" class="copy-inline" data-value="${esc(item.url_defanged)}">Copy URL</button>
+    </div>
+  </article>`;
+}
+
+function render() {
+  const query = document.getElementById('search').value.trim().toLowerCase();
+  filtered = query
+    ? items.filter((item) =>
+        (item.host || '').toLowerCase().includes(query) ||
+        (item.url_defanged || '').toLowerCase().includes(query))
+    : items;
+
+  setResultCount(document.getElementById('count-label'), filtered.length, 'URL');
+  const list = document.getElementById('list');
+  list.innerHTML = filtered.length
+    ? filtered.map(card).join('')
+    : '<p class="empty">No matching URLs.</p>';
+
+  for (const button of list.querySelectorAll('.copy-inline')) {
+    button.addEventListener('click', () => copyText(button.dataset.value, 'Copied defanged URL'));
+  }
+}
+
+document.getElementById('search').addEventListener('input', render);
+document.getElementById('copy-json').addEventListener('click', () => {
+  copyEndpointUrl('/data/phishing.json', 'Copied /data/phishing.json');
+});
+document.getElementById('copy-hosts').addEventListener('click', () => {
+  // Hosts, not URLs: a host list is what you paste into a proxy or DNS filter,
+  // and duplicates would only make that list harder to review.
+  const hosts = [...new Set(filtered.map((item) => item.host).filter(Boolean))];
+  if (!hosts.length) {
+    copyText('', 'Nothing to copy');
+    return;
+  }
+  copyText(hosts.join('\n'), `Copied ${hosts.length} hosts`);
+});
+
+const data = await fetchJson('/data/phishing.json');
+if (data) {
+  items = data.items || [];
+  const hosts = new Set(items.map((item) => item.host).filter(Boolean));
+  document.getElementById('stat-urls').textContent = items.length.toLocaleString('en-US');
+  document.getElementById('stat-hosts').textContent = hosts.size.toLocaleString('en-US');
+  document.getElementById('stat-snapshot').textContent = data.updated_at ? timeAgo(data.updated_at) : '—';
+  if (data.updated_at) {
+    document.getElementById('updated-label').textContent = 'Snapshot ' + data.updated_at.slice(0, 16).replace('T', ' ') + ' UTC';
+  }
+}
+
+const q = new URLSearchParams(location.search).get('q');
+if (q) document.getElementById('search').value = q;
+
+showStaleNote('freshness-note', ['phishing']);
+render();
+</script>
+</body>
+</html>

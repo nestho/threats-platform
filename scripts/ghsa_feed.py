@@ -1,44 +1,50 @@
 #!/usr/bin/env python3
 """
-Pulls the latest GitHub Security Advisories (GHSA) — official, free,
-no-key Atom feed covering vulnerabilities in open-source packages
-(npm, PyPI, RubyGems, Go modules, etc). Complements NVD/KEV, which
-skew toward enterprise/OS-level CVEs, with the software-supply-chain
-angle.
+Pulls the latest GitHub Security Advisories (GHSA) — official, free, no key.
+
+Uses GitHub's public `/advisories` REST endpoint rather than the older Atom
+feed. The Atom feed (`github.com/security-advisories.atom`) returned HTTP 502
+from GitHub itself during the 2026-10-27 rebuild, while the REST endpoint was
+healthy and carries the same records plus a structured ecosystem field.
+
+The endpoint is public but rate-limited per IP (60 requests/hour). One request
+per run stays far below that; when a `GITHUB_TOKEN` is present in the
+environment it is used to raise the limit.
+
+Source: https://api.github.com/advisories?per_page=100&sort=published
 """
 import json
-import re
+import os
 import sys
 import time
 import urllib.error
 import urllib.request
-import xml.etree.ElementTree as ET
-from datetime import datetime, timezone
 
+from feed_io import write_json
 from normalize import NormalisationTally
 
-FEED_URL = "https://github.com/security-advisories.atom"
+API_URL = "https://api.github.com/advisories?per_page=100&sort=published&direction=desc"
 OUTPUT_PATH = "data/ghsa.json"
 SCHEMA_VERSION = 2
 MAX_ITEMS = 100
 
-ATOM_NS = "{http://www.w3.org/2005/Atom}"
 
-
-def fetch_text(url, *, attempts=4):
+def fetch_json(url, *, attempts=4):
+    token = os.environ.get("GITHUB_TOKEN", "").strip()
     last_error = None
     for attempt in range(1, attempts + 1):
-        req = urllib.request.Request(
-            url,
-            headers={
-                "User-Agent": "threats-top-collector",
-                "Accept": "application/atom+xml",
-            },
-        )
+        headers = {
+            "User-Agent": "threats-top-collector",
+            "Accept": "application/vnd.github+json",
+            "X-GitHub-Api-Version": "2022-11-28",
+        }
+        if token:
+            headers["Authorization"] = f"Bearer {token}"
+        request = urllib.request.Request(url, headers=headers)
         try:
-            with urllib.request.urlopen(req, timeout=60) as resp:
-                return resp.read().decode("utf-8", errors="replace")
-        except (urllib.error.URLError, TimeoutError) as exc:
+            with urllib.request.urlopen(request, timeout=60) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
             last_error = exc
             if attempt == attempts:
                 break
@@ -48,52 +54,53 @@ def fetch_text(url, *, attempts=4):
     raise RuntimeError(f"GET failed after {attempts} attempts: {url}") from last_error
 
 
-def strip_html(text):
-    return re.sub(r"<[^>]+>", " ", text or "").strip()
+def first_ecosystem(advisory):
+    for vulnerability in advisory.get("vulnerabilities") or []:
+        package = vulnerability.get("package") or {}
+        ecosystem = package.get("ecosystem")
+        if ecosystem:
+            return ecosystem
+    return None
+
+
+def build_items(raw, tally):
+    items = []
+    for advisory in raw[:MAX_ITEMS]:
+        ghsa_id = advisory.get("ghsa_id")
+        if not ghsa_id:
+            continue
+        items.append({
+            "id": ghsa_id,
+            "title": (advisory.get("summary") or "").strip(),
+            "published": tally.iso(advisory.get("published_at"), field="items[].published"),
+            "ecosystem": first_ecosystem(advisory),
+            "summary": (advisory.get("description") or "").strip()[:300],
+            "link": advisory.get("html_url") or "",
+        })
+    items.sort(key=lambda item: item["published"] or "", reverse=True)
+    return items
 
 
 def main() -> int:
-    xml_text = fetch_text(FEED_URL)
-    root = ET.fromstring(xml_text)
+    raw = fetch_json(API_URL)
+    if not isinstance(raw, list):
+        print("::error::GitHub advisories API returned a non-list payload", file=sys.stderr)
+        return 1
 
     tally = NormalisationTally("ghsa")
-    items = []
-    for entry in root.findall(f"{ATOM_NS}entry")[:MAX_ITEMS]:
-        entry_id = entry.findtext(f"{ATOM_NS}id") or ""
-        ghsa_match = re.search(r"GHSA-[a-z0-9\-]+", entry_id)
-        title = (entry.findtext(f"{ATOM_NS}title") or "").strip()
-        published = entry.findtext(f"{ATOM_NS}published") or ""
-        content = strip_html(entry.findtext(f"{ATOM_NS}content") or "")[:300]
-
-        link_el = entry.find(f"{ATOM_NS}link")
-        link = link_el.get("href") if link_el is not None else ""
-
-        category_el = entry.find(f"{ATOM_NS}category")
-        ecosystem = category_el.get("term") if category_el is not None else None
-
-        items.append({
-            "id": ghsa_match.group(0) if ghsa_match else entry_id,
-            "title": title,
-            "published": tally.iso(published, field="items[].published"),
-            "ecosystem": ecosystem,
-            "summary": content,
-            "link": link,
-        })
-
-    items.sort(key=lambda x: x["published"] or "", reverse=True)
-
+    items = build_items(raw, tally)
     tally.raise_if_exceeded()
 
     output = {
         "schema_version": SCHEMA_VERSION,
-        "updated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "updated_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        "source": "GitHub Security Advisories",
+        "source_url": "https://api.github.com/advisories",
         "total": len(items),
         "normalisation_failures": tally.failures,
         "items": items,
     }
-
-    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
-        json.dump(output, f, indent=2, ensure_ascii=False)
+    write_json(OUTPUT_PATH, output)
 
     print(f"Wrote {len(items)} GitHub Security Advisories.")
     if not items:

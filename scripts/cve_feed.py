@@ -35,13 +35,25 @@ import urllib.parse
 import urllib.request
 from datetime import datetime, timedelta, timezone
 
+from feed_io import DATA_DIR, read_json, write_json
 from normalize import NormalisationTally
 
-OUTPUT_PATH = "data/cves.json"
-HEADLINE_PATH = "data/cves_headline.json"
+OUTPUT_PATH = DATA_DIR / "cves.json"
+HEADLINE_PATH = DATA_DIR / "cves_headline.json"
+STATUS_PATH = DATA_DIR / "status.json"
 SCHEMA_VERSION = 2
-NVD_LOOKBACK_DAYS = 3
-KEV_LOOKBACK_DAYS = 90  # keep the KEV list to recent additions, not the full 1000+ archive
+NVD_MIN_LOOKBACK_DAYS = 3
+# A failed run must not leave a permanent hole. The next successful run widens
+# its window to cover the gap, capped so a months-long outage cannot turn into a
+# 50k-CVE download that trips NVD's rate limit.
+NVD_MAX_LOOKBACK_DAYS = 120
+KEV_LOOKBACK_DAYS = 90  # recent additions, not the full 1600-entry archive
+NVD_BASE_URL = "https://services.nvd.nist.gov/rest/json/cves/2.0"
+KEV_MIRROR_URL = (
+    "https://raw.githubusercontent.com/cisagov/kev-data/develop/"
+    "known_exploited_vulnerabilities.json"
+)
+KEV_OFFICIAL_URL = "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
 
 # The homepage renders ~7 items but index.html used to fetch the whole
 # window to do it -- 920 KB of JSON for 7 cards. This cap feeds a small
@@ -79,7 +91,31 @@ def fetch_json(url, *, attempts=4):
     raise RuntimeError(f"GET failed after {attempts} attempts: {url}") from last_error
 
 
-def fetch_nvd_recent():
+def lookback_days():
+    """
+    Widen the NVD window to cover time since the last successful run.
+
+    Without this, three days of failed runs meant the CVEs published during the
+    outage were never collected: the fixed 3-day window had moved past them.
+    """
+    status = read_json(STATUS_PATH, {}) or {}
+    entries = status.get("sources") or []
+    last_success = next(
+        (entry.get("last_success") for entry in entries
+         if isinstance(entry, dict) and entry.get("id") == "cve"),
+        None,
+    )
+    if not last_success:
+        return NVD_MIN_LOOKBACK_DAYS
+    try:
+        last = datetime.strptime(last_success, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+    except ValueError:
+        return NVD_MIN_LOOKBACK_DAYS
+    gap = (datetime.now(timezone.utc) - last).days + 1
+    return max(NVD_MIN_LOOKBACK_DAYS, min(NVD_MAX_LOOKBACK_DAYS, gap))
+
+
+def fetch_nvd_recent(lookback):
     """
     Page through the whole lookback window.
 
@@ -88,7 +124,7 @@ def fetch_nvd_recent():
     any future truncation instead of it passing unnoticed.
     """
     end = datetime.now(timezone.utc)
-    start = end - timedelta(days=NVD_LOOKBACK_DAYS)
+    start = end - timedelta(days=lookback)
     base_params = {
         "pubStartDate": start.strftime("%Y-%m-%dT%H:%M:%S.000"),
         "pubEndDate": end.strftime("%Y-%m-%dT%H:%M:%S.000"),
@@ -100,7 +136,7 @@ def fetch_nvd_recent():
 
     for page in range(1, NVD_MAX_PAGES + 1):
         params = {**base_params, "resultsPerPage": NVD_PAGE_SIZE, "startIndex": start_index}
-        url = "https://services.nvd.nist.gov/rest/json/cves/2.0?" + urllib.parse.urlencode(params)
+        url = f"{NVD_BASE_URL}?" + urllib.parse.urlencode(params)
         payload = fetch_json(url)
 
         total = payload.get("totalResults", 0)
@@ -159,8 +195,13 @@ def extract_severity(metrics):
 
 
 def fetch_kev():
-    url = "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
-    return fetch_json(url)
+    # CISA's own host is not reachable from some build environments; the
+    # cisagov/kev-data mirror is the same catalog published by the same org.
+    try:
+        return fetch_json(KEV_MIRROR_URL)
+    except RuntimeError as mirror_error:
+        print(f"  KEV mirror failed ({mirror_error}); trying cisa.gov", file=sys.stderr)
+        return fetch_json(KEV_OFFICIAL_URL)
 
 
 def build_recent(nvd_raw, tally):
@@ -221,13 +262,15 @@ def build_kev(kev_raw, tally):
 
 def main():
     tally = NormalisationTally("cve")
-    nvd_raw, nvd_total = fetch_nvd_recent()
+    window = lookback_days()
+    nvd_raw, nvd_total = fetch_nvd_recent(window)
     recent = build_recent(nvd_raw, tally)
-    print(f"  NVD: parsed {len(recent)} of {nvd_total} available")
+    print(f"  NVD: parsed {len(recent)} of {nvd_total} available over {window} day(s)")
 
     kev_raw = fetch_kev()
     kev_recent = build_kev(kev_raw, tally)
-    print(f"  KEV: {len(kev_recent)} entries in the last {KEV_LOOKBACK_DAYS} days")
+    print(f"  KEV: {len(kev_recent)} entries in the last {KEV_LOOKBACK_DAYS} days "
+          f"(catalog has {len(kev_raw.get('vulnerabilities', []))})")
 
     kev_ids = {v["id"] for v in kev_recent} | {
         v.get("cveID") for v in kev_raw.get("vulnerabilities", []) if v.get("cveID")
@@ -244,8 +287,10 @@ def main():
     output = {
         "schema_version": SCHEMA_VERSION,
         "updated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "source": "NVD + CISA KEV",
+        "source_url": [NVD_BASE_URL, KEV_MIRROR_URL],
         "recent": {
-            "lookback_days": NVD_LOOKBACK_DAYS,
+            "lookback_days": window,
             "total": len(recent),
             "items_available": nvd_total,
             "normalisation_failures": tally.failures,
@@ -254,27 +299,31 @@ def main():
         },
         "actively_exploited": {
             "lookback_days": KEV_LOOKBACK_DAYS,
+            "catalog_total": len(kev_raw.get("vulnerabilities", [])),
             "total": len(kev_recent),
             "items": kev_recent,
         },
     }
-
-    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
-        json.dump(output, f, indent=2, ensure_ascii=False)
+    write_json(OUTPUT_PATH, output)
 
     # Small, purpose-built file for the homepage. Same envelope as cves.json so
     # the existing renderer works unchanged, but bounded so first paint does not
-    # download the entire NVD window.
+    # download the entire NVD window. The totals ride along so the homepage
+    # counter can show the full window without fetching 1.8 MB.
     headline = {
         "schema_version": SCHEMA_VERSION,
         "updated_at": output["updated_at"],
+        "source": output["source"],
+        "source_url": output["source_url"],
         "note": "Bounded slice of cves.json for the homepage. Use /data/cves.json for the full window.",
         "normalisation_failures": output["recent"]["normalisation_failures"],
+        "recent_total": output["recent"]["total"],
+        "kev_total": output["actively_exploited"]["total"],
+        "kev_catalog_total": output["actively_exploited"]["catalog_total"],
         "total": min(HEADLINE_ITEMS, len(recent)),
         "items": recent[:HEADLINE_ITEMS],
     }
-    with open(HEADLINE_PATH, "w", encoding="utf-8") as f:
-        json.dump(headline, f, indent=2, ensure_ascii=False)
+    write_json(HEADLINE_PATH, headline)
 
     print(f"Wrote {len(recent)} recent CVEs (of {nvd_total} available), {len(kev_recent)} KEV entries.")
 

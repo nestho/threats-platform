@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vulnerabilities — Threats</title>
-<meta name="description" content="Recent CVEs, CISA KEV actively exploited vulnerabilities, Exploit-DB exploits, and CERT-EU advisories.">
+<meta name="description" content="Recent CVEs, CISA KEV actively exploited vulnerabilities, EPSS exploit probability, Exploit-DB exploits, CERT-EU advisories, and GitHub Security Advisories.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/app.css">
@@ -34,16 +34,23 @@
     <nav class="site-nav" aria-label="Primary">
       <a href="/programs.html">Programs</a>
       <a href="/cves.html" aria-current="page">Vulnerabilities</a>
+      <a href="/iocs.html">IOCs</a>
+      <a href="/ransomware.html">Ransomware</a>
+      <a href="/phishing.html">Phishing</a>
       <a href="/threats.html">Cloud threats</a>
+      <a href="/status.html">Status</a>
+      <a href="/saas.html">Pricing</a>
     </nav>
   </header>
 
   <h1>Vulnerabilities</h1>
-  <p class="sub">NVD · CISA KEV · Exploit-DB · CERT-EU · GitHub Advisories</p>
+  <p class="sub">NVD · CISA KEV · EPSS · Exploit-DB · CERT-EU · GitHub Advisories</p>
+  <div class="note" id="freshness-note" hidden></div>
 
   <div class="tabs" role="tablist" aria-label="Vulnerability source">
     <button class="tab" role="tab" id="tab-recent" aria-controls="list" aria-selected="true" data-view="recent">Recent CVEs</button>
     <button class="tab" role="tab" id="tab-kev" aria-controls="list" aria-selected="false" data-view="kev" tabindex="-1">Actively exploited</button>
+    <button class="tab" role="tab" id="tab-epss" aria-controls="list" aria-selected="false" data-view="epss" tabindex="-1">EPSS</button>
     <button class="tab" role="tab" id="tab-exploitdb" aria-controls="list" aria-selected="false" data-view="exploitdb" tabindex="-1">Exploit-DB</button>
     <button class="tab" role="tab" id="tab-cert_eu" aria-controls="list" aria-selected="false" data-view="cert_eu" tabindex="-1">CERT-EU</button>
     <button class="tab" role="tab" id="tab-ghsa" aria-controls="list" aria-selected="false" data-view="ghsa" tabindex="-1">GitHub Advisories</button>
@@ -71,7 +78,7 @@
 </div>
 
 <script type="module">
-import { esc, timeAgo, timeKey, fetchAll, initTabs, setResultCount } from '/assets/app.js';
+import { esc, timeAgo, timeKey, fetchAll, initTabs, setResultCount, showStaleNote } from '/assets/app.js';
 
 let store = {};
 
@@ -116,6 +123,29 @@ function kevCard(i) {
     <p class="desc">${esc(i.name)} — ${esc(i.vendor)} / ${esc(i.product)}</p>
     <p class="desc">${esc(i.description)}</p>
     <p class="meta-row">Added to KEV ${esc(i.date_added)}</p>
+  </article>`;
+}
+
+function epssCard(i) {
+  // A CVE id is only made into a URL when it matches the shape the feed
+  // contract requires. Building an href from an unvalidated string is how a
+  // data source turns into a redirect primitive.
+  const id = /^CVE-\d{4}-\d+$/i.test(i.cve || '')
+    ? `<a href="https://nvd.nist.gov/vuln/detail/${encodeURIComponent(i.cve)}" target="_blank" rel="noopener noreferrer">${esc(i.cve)}</a>`
+    : `<span>${esc(i.cve)}</span>`;
+  const score = Number(i.epss);
+  const percentile = Number(i.percentile);
+  // EPSS is a 30-day exploitation probability, not a severity. The badge uses
+  // severity colours as a rough band, but the text is the probability itself so
+  // nobody reads 0.94 as "CVSS 9.4".
+  const band = score >= 0.1 ? 'crit' : score >= 0.01 ? 'high' : 'med';
+  return `<article class="card">
+    <div class="card-head">
+      <h2 class="id">${id}</h2>
+      <div class="badges"><span class="badge ${band}">EPSS ${esc((score * 100).toFixed(1))}%</span></div>
+    </div>
+    <p class="desc">${esc((score * 100).toFixed(1))}% probability of exploitation in the next 30 days · ${esc((percentile * 100).toFixed(1))}th percentile</p>
+    <p class="meta-row">EPSS score date ${esc(i.date)}</p>
   </article>`;
 }
 
@@ -178,6 +208,13 @@ const VIEWS = {
       (i.vendor || '').toLowerCase().includes(q) ||
       (i.product || '').toLowerCase().includes(q) ||
       (i.name || '').toLowerCase().includes(q),
+  },
+  epss: {
+    key: 'epss',
+    card: epssCard,
+    empty: 'EPSS data unavailable.',
+    pick: (d) => d?.items || [],
+    match: (i, q) => (i.cve || '').toLowerCase().includes(q),
   },
   exploitdb: {
     key: 'edb',
@@ -256,11 +293,14 @@ document.getElementById('sev-filter').addEventListener('change', render);
 
 const loaded = await fetchAll({
   cves: '/data/cves.json',
+  epss: '/data/epss.json',
   edb: '/data/exploitdb.json',
   cert: '/data/cert_eu.json',
   ghsa: '/data/ghsa.json',
 });
 store = loaded;
+
+showStaleNote('freshness-note', ['cve', 'epss', 'exploitdb', 'cert_eu', 'ghsa']);
 
 const times = Object.values(loaded).map((d) => d?.updated_at).filter(Boolean);
 if (times.length) {

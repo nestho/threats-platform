@@ -213,6 +213,155 @@ input:focus, select:focus { border-color: var(--border-hover); }
 .badge.kev { background: var(--crit); color: #fff; border-color: var(--crit); }
 .badge.hot { color: var(--accent); border-color: rgba(249, 115, 22, 0.4); }
 
+/* ── Freshness signals ──────────────────────────────────────────────── */
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.dot.ok { background: #4ade80; }
+.dot.degraded { background: var(--med); }
+.dot.outage { background: var(--crit); }
+
+.status-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  margin-bottom: 32px;
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  background: var(--surface);
+}
+
+.status-banner.ok { border-color: rgba(74, 222, 128, 0.25); }
+.status-banner.degraded { border-color: rgba(234, 179, 8, 0.3); }
+.status-banner.outage { border-color: rgba(239, 68, 68, 0.35); }
+.status-banner a { color: var(--link); margin-left: auto; white-space: nowrap; }
+.status-banner a:hover { text-decoration: underline; }
+
+/* Static explanatory note, and the same element used for a live stale
+   warning. `hidden` is the default state on every page that calls
+   showStaleNote(), so nothing renders unless a source is actually stale. */
+.note {
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.55;
+  border-left: 2px solid var(--border);
+  padding-left: 10px;
+  margin-bottom: 20px;
+}
+
+.note.warn { border-left-color: var(--accent); color: var(--text-secondary); }
+.note a { color: var(--link); }
+.note a:hover { text-decoration: underline; }
+
+/* ── Stat grid ──────────────────────────────────────────────────────── */
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.stat-grid.three { grid-template-columns: repeat(3, 1fr); }
+
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 15px 17px;
+}
+
+.stat-card .num {
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-card .lbl { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+/* ── Feed entries ───────────────────────────────────────────────────── */
+
+/* Shared by the indicator, ransomware, phishing and advisory browsers so
+   their card spacing cannot drift apart page by page. */
+.feed-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 15px 18px;
+  margin-bottom: 8px;
+  background: var(--surface);
+}
+
+.feed-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.feed-title {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.45;
+  word-break: break-word;
+}
+.feed-title a:hover { color: var(--link); }
+
+.feed-badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+.feed-desc {
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.55;
+  margin-top: 8px;
+  max-width: 720px;
+}
+
+.feed-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+  margin-top: 8px;
+}
+
+.mono { font-family: 'JetBrains Mono', monospace; }
+
+.copy-inline {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 11px;
+  padding: 3px 8px;
+  cursor: pointer;
+}
+.copy-inline:hover { border-color: var(--border-hover); color: var(--text); }
+
 /* ── Toast ──────────────────────────────────────────────────────────── */
 
 .toast {
@@ -236,12 +385,25 @@ input:focus, select:focus { border-color: var(--border-hover); }
 
 /* ── Responsive ─────────────────────────────────────────────────────── */
 
+/* The primary nav grew from five links to eight when the sensor pages were
+   replaced by real feeds. Between 720px and 900px that no longer fits beside
+   the logo, so the header wraps instead of overflowing. */
+@media (max-width: 900px) {
+  header.site { flex-wrap: wrap; height: auto; padding: 12px 0; gap: 10px 16px; }
+  .site-nav { flex-wrap: wrap; gap: 12px; }
+  .back { margin-left: auto; }
+}
+
 @media (max-width: 720px) {
   header.site { flex-wrap: wrap; height: auto; padding: 14px 0; gap: 12px; }
   .site-nav { order: 2; }
   .back { order: 3; margin-left: auto; }
   .tabs { gap: 4px; }
   .tab { padding: 6px 10px; font-size: 12px; }
+  .stat-grid, .stat-grid.three { grid-template-columns: 1fr 1fr; }
+  .feed-head { flex-direction: column; }
+  .feed-badges { justify-content: flex-start; }
+  .status-banner a { margin-left: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {

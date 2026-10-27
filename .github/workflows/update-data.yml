@@ -1,259 +1,220 @@
 name: Update Threat Data
 
+# Scheduled collection.
+#
+# This workflow never writes to main. It commits the regenerated snapshot to an
+# `automation/data-*` branch and opens a pull request, so automated data goes
+# through the same feed validator and tests as a hand edit. The ruleset on main
+# requires those checks and has no bypass actors.
+#
+# Which sources run is decided by each source's cadence in scripts/status.py,
+# not by cron arithmetic: a missed hourly run is caught up on the next one, and
+# a 12-hour or 30-day source does not depend on its cron minute ever matching.
+
 on:
-  # Single hourly cron. Which feeds run is decided inside the job
-  # based on the current hour (cleaner than many overlapping crons).
   schedule:
-    - cron: '0 * * * *'
-    # Wiz is an analysis feed, not an alert feed: measured over its 509-item
-    # feed it publishes 0 items per week and ~3 per month. Running it on the
-    # hourly CVE cadence would imply a freshness it does not have, so it gets
-    # its own weekly schedule and is labelled as analysis in the UI.
-    - cron: '17 6 * * 1'
+    - cron: '7 * * * *'
 
   workflow_dispatch:
     inputs:
-      feed:
-        description: 'Feed to update'
-        required: true
-        type: choice
-        options:
-          - urlhaus
-          - ghsa
-          - cve
-          - collector
-          - exploitdb
-          - cert_eu
-          - wiz
-          - all
-        default: all
+      feeds:
+        description: 'auto (cadence-driven), all, or a comma-separated source id list'
+        required: false
+        default: auto
+        type: string
 
+# Read-only for the checkout token. Write access comes from the data bot's own
+# token below, and only for the publish step.
 permissions:
-  contents: write
+  contents: read
 
-# Serialize all data updates so multiple feeds cannot race
-# while committing/pushing to main.
 concurrency:
   group: threat-data-update
   cancel-in-progress: false
 
+env:
+  FEEDS: ${{ github.event.inputs.feeds || 'auto' }}
+
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
 
     steps:
-      - name: Checkout
+      - name: Checkout main
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
-          fetch-depth: 0
           ref: main
+          # The publish step authenticates the remote with the bot token. If
+          # checkout persisted its own read-only token, every push would use
+          # that header instead and fail with 403.
+          persist-credentials: false
 
       - name: Setup Python
         uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
         with:
           python-version: '3.12'
-          cache: pip
 
-      - name: Install dependencies
-        run: |
-          set -euo pipefail
-          python -m pip install --upgrade pip
-          python -m pip install -r requirements.txt
-
-      - name: Select feed(s)
-        id: feed
+      # Secrets cannot be tested in an `if:` expression, so the presence check
+      # happens in a shell step that publishes an output.
+      - name: Check data bot credentials
+        id: credentials
         env:
-          EVENT_NAME: ${{ github.event_name }}
-          INPUT_FEED: ${{ inputs.feed }}
+          APP_ID: ${{ vars.DATA_BOT_APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.DATA_BOT_PRIVATE_KEY }}
         run: |
           set -euo pipefail
-
-          if [[ "${EVENT_NAME}" == "workflow_dispatch" ]]; then
-            feed="${INPUT_FEED}"
+          if [[ -n "${APP_ID}" && -n "${APP_PRIVATE_KEY}" ]]; then
+            echo "use_app=true" >> "$GITHUB_OUTPUT"
           else
-            # Hourly schedule logic (UTC hour):
-            #   every hour  -> urlhaus
-            #   every 2h    -> cve   (even hours)
-            #   every 3h    -> ghsa  (hours % 3 == 0)
-            #   every 4h    -> exploitdb + cert_eu
-            #   every 6h    -> collector
-            #
-            # wiz is intentionally absent: it has its own weekly cron above.
-            HOUR=$(date -u +%H)
-            HOUR=$((10#$HOUR))   # force decimal
-
-            feeds=("urlhaus")
-
-            if (( HOUR % 2 == 0 )); then
-              feeds+=("cve")
-            fi
-            if (( HOUR % 3 == 0 )); then
-              feeds+=("ghsa")
-            fi
-            if (( HOUR % 4 == 0 )); then
-              feeds+=("exploitdb")
-              feeds+=("cert_eu")
-            fi
-            if (( HOUR % 6 == 0 )); then
-              feeds+=("collector")
-            fi
-
-            # Join with comma for the next step
-            feed=$(IFS=,; echo "${feeds[*]}")
+            echo "use_app=false" >> "$GITHUB_OUTPUT"
           fi
 
-          echo "feed=${feed}" >> "${GITHUB_OUTPUT}"
-          echo "========================================"
-          echo "Selected feed(s): ${feed}"
-          echo "========================================"
+      - name: Mint data bot token
+        id: app-token
+        if: steps.credentials.outputs.use_app == 'true'
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        with:
+          app-id: ${{ vars.DATA_BOT_APP_ID }}
+          private-key: ${{ secrets.DATA_BOT_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: ${{ github.event.repository.name }}
+          permission-contents: write
+          permission-pull-requests: write
 
-      - name: Update selected feed(s)
+      - name: Resolve publish token
+        id: bot
         env:
-          FEED: ${{ steps.feed.outputs.feed }}
+          APP_TOKEN: ${{ steps.app-token.outputs.token }}
+          FALLBACK_TOKEN: ${{ secrets.DATA_BOT_TOKEN }}
         run: |
           set -euo pipefail
-
-          retry() {
-            local attempts=4
-            local delay=5
-            local attempt=1
-
-            while true; do
-              echo "Attempt ${attempt}/${attempts}: $*"
-              if "$@"; then
-                return 0
-              fi
-              if (( attempt >= attempts )); then
-                echo "::error::Command failed after ${attempts} attempts"
-                return 1
-              fi
-              echo "Command failed. Retrying in ${delay}s..."
-              sleep "${delay}"
-              delay=$((delay * 2))
-              attempt=$((attempt + 1))
-            done
-          }
-
-          run_one() {
-            case "$1" in
-              urlhaus)
-                echo "Updating URLhaus..."
-                retry python scripts/urlhaus_feed.py
-                ;;
-              ghsa)
-                echo "Updating GitHub Security Advisories..."
-                retry python scripts/ghsa_feed.py
-                ;;
-              cve)
-                echo "Updating CVE / CISA KEV..."
-                retry python scripts/cve_feed.py
-                ;;
-              collector)
-                echo "Updating ProjectDiscovery programs/domains..."
-                retry python scripts/collector.py
-                ;;
-              exploitdb)
-                echo "Updating Exploit-DB..."
-                retry python scripts/exploitdb_feed.py
-                ;;
-              cert_eu)
-                echo "Updating CERT-EU..."
-                retry python scripts/cert_eu_feed.py
-                ;;
-              wiz)
-                echo "Updating Wiz Cloud Threat Landscape..."
-                retry python scripts/wiz_feed.py
-                ;;
-              *)
-                echo "::error::Unsupported feed: $1"
-                return 1
-                ;;
-            esac
-          }
-
-          if [[ "${FEED}" == "all" ]]; then
-            for f in collector cve ghsa urlhaus exploitdb cert_eu wiz; do
-              run_one "$f"
-            done
+          if [[ -n "${APP_TOKEN}" ]]; then
+            echo "::add-mask::${APP_TOKEN}"
+            echo "token=${APP_TOKEN}" >> "$GITHUB_OUTPUT"
+            echo "mode=app" >> "$GITHUB_OUTPUT"
+          elif [[ -n "${FALLBACK_TOKEN}" ]]; then
+            echo "::add-mask::${FALLBACK_TOKEN}"
+            echo "token=${FALLBACK_TOKEN}" >> "$GITHUB_OUTPUT"
+            echo "mode=token" >> "$GITHUB_OUTPUT"
           else
-            # FEED can be a single name or comma-separated list
-            IFS=',' read -ra FEEDS <<< "${FEED}"
-            for f in "${FEEDS[@]}"; do
-              run_one "$(echo "$f" | xargs)"
-            done
+            echo "token=" >> "$GITHUB_OUTPUT"
+            echo "mode=none" >> "$GITHUB_OUTPUT"
+            echo "::warning::No data bot credentials. Set vars.DATA_BOT_APP_ID + secrets.DATA_BOT_PRIVATE_KEY, or secrets.DATA_BOT_TOKEN, to publish. Collectors will still run and be validated."
           fi
 
-      - name: Validate feed data
+      # A bad upstream must not stop the healthy ones. run_collectors.py isolates
+      # each source, records failures in data/status.json, and exits non-zero
+      # only when a critical source is beyond its hard freshness limit.
+      - name: Collect due sources
+        id: collect
+        continue-on-error: true
         env:
-          FEED: ${{ steps.feed.outputs.feed }}
+          # GHSA's REST API gives 60 requests/hour unauthenticated and far more
+          # with a token. The job token is enough to read public advisories.
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          python3 scripts/run_collectors.py --feeds "${FEEDS}"
+
+      # The gate. Collectors refuse to replace a feed with invalid data, and this
+      # check also compares the result against main, so a source that returns
+      # something well-formed but empty still fails instead of emptying the site.
+      - name: Validate generated feeds
+        if: always()
+        run: |
+          set -euo pipefail
+          python3 scripts/validate_feeds.py --against HEAD
+
+      - name: Detect data changes
+        id: changes
+        if: always()
+        run: |
+          set -euo pipefail
+          if [[ -z "$(git status --porcelain -- data/)" ]]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No feed files changed."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git status --short -- data/
+          fi
+
+      # Only one automation pull request is kept open at a time. When it exists,
+      # the fresh snapshot is pushed onto its branch instead of opening a
+      # duplicate; the pull request checks then re-run against the new snapshot.
+      - name: Publish data pull request
+        id: publish
+        if: steps.changes.outputs.changed == 'true' && steps.bot.outputs.mode != 'none'
+        env:
+          GH_TOKEN: ${{ steps.bot.outputs.token }}
         run: |
           set -euo pipefail
 
-          # The gate. Collectors exit non-zero on a hard failure, but a source can
-          # also return something well-formed and simply wrong (an HTML challenge
-          # page parsed to zero advisories, a partial NVD window). This step is
-          # what makes the "exit 0 means the file is good" contract true.
-          #
-          # Runs against HEAD, which at this point is still the previously
-          # committed data -- so the regression check compares this run's output
-          # to what was live before it. Bad data fails here and is never
-          # committed.
-          if ! python3 scripts/validate_feeds.py --against HEAD; then
-            echo "::error::Feed validation failed for: ${FEED} -- refusing to commit"
-            echo "--- diagnostics ---"
-            for f in data/*.json; do
-              echo "  $f: $(python3 -c "import json,sys; d=json.load(open(sys.argv[1])); print('items=' + str(sum(len(v) for v in d.values() if isinstance(v,list)) or 'n/a'))" "$f" 2>/dev/null || echo 'UNREADABLE')"
-            done
-            exit 1
+          git config user.name "threats-data-bot"
+          git config user.email "threats-data-bot@users.noreply.github.com"
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+
+          existing="$(gh pr list --state open --base main --json headRefName \
+            --jq '.[] | select(.headRefName | startswith("automation/data-")) | .headRefName' \
+            | head -n 1)"
+
+          if [[ -n "${existing}" ]]; then
+            branch="${existing}"
+            snapshot="$(mktemp -d)"
+            cp -R data/. "${snapshot}/"
+            # Return the worktree to main before moving onto the PR branch. The
+            # generated snapshot is already copied aside.
+            git checkout -- data/
+            git clean -fdq data/
+            git fetch --depth=1 origin "${branch}"
+            git checkout -B "${branch}" FETCH_HEAD
+            rsync -a --delete "${snapshot}/" data/
+            rm -rf "${snapshot}"
+          else
+            branch="automation/data-$(date -u +%Y%m%d-%H%M)"
+            git checkout -b "${branch}"
           fi
 
-      - name: Commit and push
-        env:
-          FEED: ${{ steps.feed.outputs.feed }}
-        run: |
-          set -euo pipefail
-
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          git add data/
-
+          git add -A data/
           if git diff --cached --quiet; then
-            echo "========================================"
-            echo "No data changes for: ${FEED}"
-            echo "Nothing to commit."
-            echo "========================================"
+            echo "The automation branch already contains this snapshot; nothing to publish."
             exit 0
           fi
 
-          git commit -m "chore(data): update ${FEED} feed(s)"
+          stamp="$(date -u +%Y-%m-%dT%H:%MZ)"
+          git commit -m "chore(data): refresh feeds ${stamp}"
+          git push -u origin "${branch}"
 
-          git fetch origin main
-          git rebase origin/main
+          if [[ -n "${existing}" ]]; then
+            echo "Updated the open automation pull request branch ${branch}; checks will re-run."
+            exit 0
+          fi
 
-          retry_push() {
-            local attempts=4
-            local delay=5
-            local attempt=1
+          overall="$(python3 -c 'import json; print(json.load(open("data/status.json"))["overall"])')"
+          {
+            echo "Automated feed refresh from \`update-data.yml\`."
+            echo
+            echo "- Sources requested: \`${FEEDS}\`"
+            echo "- Source health: \`${overall}\`"
+            echo "- Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+            echo
+            echo "The \`Feed data\` check compares this snapshot against \`main\`. The pull request merges automatically once every required check passes."
+          } > /tmp/pr-body.md
 
-            while true; do
-              echo "Push attempt ${attempt}/${attempts}"
-              if git push origin HEAD:main; then
-                echo "Push successful."
-                return 0
-              fi
-              if (( attempt >= attempts )); then
-                echo "::error::git push failed after ${attempts} attempts"
-                return 1
-              fi
-              echo "Push failed. Refreshing main and retrying in ${delay}s..."
-              sleep "${delay}"
-              delay=$((delay * 2))
-              attempt=$((attempt + 1))
-              git fetch origin main
-              git rebase origin/main
-            done
-          }
+          pr_url="$(gh pr create --base main --head "${branch}" \
+            --title "chore(data): refresh feeds ${stamp}" \
+            --body-file /tmp/pr-body.md)"
+          echo "pr_url=${pr_url}" >> "$GITHUB_OUTPUT"
 
-          retry_push
+          if ! gh pr merge --auto --squash --delete-branch "${pr_url}"; then
+            echo "::warning::Auto-merge could not be enabled. The pull request is open and still gated by the required checks: ${pr_url}"
+          fi
+
+      # Publication happens before this so a partial outage still ships the
+      # healthy feeds, but the run goes red: an outage that only disappears into
+      # a stale feed is exactly the failure mode this workflow exists to stop.
+      - name: Fail on critical collector outage
+        if: steps.collect.outcome == 'failure'
+        run: |
+          echo "::error::A critical source is beyond its hard freshness limit, or a collector could not start. Healthy feeds were still published; see the collection log and /status.html."
+          exit 1

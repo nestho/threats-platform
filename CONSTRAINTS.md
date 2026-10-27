@@ -1,35 +1,21 @@
 # Constraints
 
-_Last reviewed: 2026-09-27. Companion to [`ARCHITECTURE.md`](ARCHITECTURE.md) (what the
-system is) and [`docs/DEEP-ANALYSIS.md`](docs/DEEP-ANALYSIS.md) (what's wrong with it). This
-file is the quality bar: what "good enough to ship" means, with numbers._
+_Last reviewed: 2026-10-28. Companion to [`ARCHITECTURE.md`](ARCHITECTURE.md) (what the system is) and [`docs/CONTRACT.md`](docs/CONTRACT.md) (the public data shape). This file is the quality bar: what "good enough to publish" means, with the command that produces each verdict._
 
-**Status: Floor active. Feed validation and both test suites run in CI on every
-pull request** via `.github/workflows/validate.yml`, and the feed gate also runs
-inside the scheduled `update-data.yml` before it commits.
+**Status: enforced.** `main` is protected by the `protect-main` ruleset with no bypass actors. Every change, including scheduled data, arrives as a pull request that must pass **Feed data**, **Unit tests**, and **Python tests**. The default Actions token is read-only, and Pages serves `threats.top` over enforced HTTPS.
 
-**These gates are advisory until `main` is protected.** A direct push with
-`--no-verify` bypasses both workflows. Run `scripts/setup-ruleset.sh` (needs
-`gh auth login`) — that is the difference between a gate and a gate that is
-merely present. Types/lint/secrets remain PROPOSED; see §Open Decisions.
-
-Everything in the "Enforced" table below runs with **zero dependencies**, because the
-project's defining constraint is `requirements.txt` being empty. The feed gate is
-`scripts/validate_feeds.py`; the escaping tests are `node --test`.
+Unlike the 2026-09 version of this file, these are no longer advisory: a direct push to `main` is rejected by GitHub, not just discouraged by convention.
 
 ---
 
-## Floor (always enforced, no setup required)
+## Floor (always enforced)
 
-- No new suppression comments: `# noqa`, `# type: ignore`, `# nosemgrep`
-- No unimplemented stubs: `raise NotImplementedError`, bare `except:`, empty `except: pass`
-  that converts a failure into silence
-- No skipped or deleted tests without a reason in the commit message
-- No secrets in source. Admin password and `GITHUB_TOKEN` are Cloudflare secrets, never in
-  this repo.
-- **Every collector exits non-zero on failure.** `exit 0` currently means "the file is
-  good", which is false — see DEEP-ANALYSIS §2.1. This floor line exists because that
-  contract is the project's most dangerous lie.
+- No suppression comments: `# noqa`, `# type: ignore`, `# nosemgrep`.
+- No unimplemented stubs: `raise NotImplementedError`, bare `except:`, or `except: pass` that converts a failure into silence.
+- No skipped or deleted tests without a reason in the commit message.
+- No secrets in source. Bot credentials live in GitHub Actions variables and secrets; the retired Worker holds none.
+- **Every collector exits non-zero on failure.** A zero exit means the file is valid, and the validator is what decides validity.
+- **No demo, sample, or placeholder data.** A missing feed is an error state, not a reason to render invented rows.
 - This file does not get weakened to make a change pass.
 
 ---
@@ -38,57 +24,46 @@ project's defining constraint is `requirements.txt` being empty. The feed gate i
 
 | Dimension | Rule | Checked by | Runs at |
 |---|---|---|---|
-| **Feed completeness** | A feed must not drop from N>0 items to 0 | `python3 scripts/validate_feeds.py` | cron (pre-commit) **+ PR** |
+| **Feed completeness** | A feed must not drop from N>0 items to 0 | `python3 scripts/validate_feeds.py` | cron **+ PR** |
+| **Feed regression** | A feed must not lose >50% of its items versus the base commit | `python3 scripts/validate_feeds.py --against <sha>` | cron **+ PR** |
 | **Feed schema** | Every record matches the contract in the validator | `python3 scripts/validate_feeds.py` | cron **+ PR** |
 | **NVD completeness** | `items_parsed` == `items_available` | `python3 scripts/validate_feeds.py` | cron **+ PR** |
-| **Timestamps** | Every date field is ISO-8601 UTC (`Z`) or date-only | `python3 scripts/validate_feeds.py` | cron **+ PR** |
-| **Enums** | `platform` ∈ canonical set; Wiz `type` ∈ canonical set | `python3 scripts/validate_feeds.py` | cron **+ PR** |
-| **Schema version** | `schema_version` == the expected version for that file | `python3 scripts/validate_feeds.py` | cron **+ PR** |
-| **Defanging** | Every `urlhaus` URL starts `hxxp`/`hxxps` | `python3 scripts/validate_feeds.py` | cron **+ PR** |
+| **Provenance** | Every feed carries `source`, `source_url`, `updated_at`, `schema_version` | `python3 scripts/validate_feeds.py` | cron **+ PR** |
+| **Timestamps** | Every date is ISO-8601 UTC (`Z`) or date-only | `python3 scripts/validate_feeds.py` | cron **+ PR** |
+| **Enums** | `platform`, Wiz `type`, and vendor are canonical | `python3 scripts/validate_feeds.py` | cron **+ PR** |
+| **Schema version** | `schema_version` equals the expected version for that file | `python3 scripts/validate_feeds.py` | cron **+ PR** |
+| **URL schemes** | Published links are `http(s)`; `javascript:` and relative payloads are rejected | `python3 scripts/validate_feeds.py` | cron **+ PR** |
+| **Defanging** | Published phishing and ransomware URLs start `hxxp` | `python3 scripts/validate_feeds.py` | cron **+ PR** |
 | **Sentinels** | No `"Unknown"` standing in for a null | `python3 scripts/validate_feeds.py` | cron **+ PR** |
+| **Status consistency** | `status.json` item counts, timestamps, and `overall` agree with the feeds | `python3 scripts/validate_feeds.py` | cron **+ PR** |
+| **Demo data** | No demo markers in feeds or public HTML | `python3 scripts/validate_feeds.py` | cron **+ PR** |
 | **XSS: escaping** | `esc()` emits no raw `< > " '` and is injective | `node --test assets` | **PR**, local |
-| **Source hygiene** | No literal control byte in any source file | `node --test assets` | **PR**, local |
-| **Auth boundary** | Worker rejects bad origin/password/payload, fails closed | `node --test worker` | **PR**, local |
-| **Timestamp rules** | Normalisation handles every upstream format, refuses unknowns | `python3 scripts/normalize.py` | cron **+ PR** |
+| **Retired Worker** | Every legacy admin route fails closed with 410 | `node --test worker` | **PR**, local |
+| **Timestamp rules** | Normalisation handles every upstream format and refuses unknown zones | `python3 scripts/normalize.py` | **PR**, local |
+| **Python logic** | Collectors, status, orchestrator, and validator behave as specified | `python3 -m unittest discover -s scripts/tests -t scripts` | **PR**, local |
+| **PR gate** | The three checks above are required by the ruleset | `bash scripts/setup-ruleset.sh` (verifies) | repo setting |
+| **No bypass** | `bypass_actors` is empty; direct pushes are rejected | `gh api repos/nestho/threats-platform/rulesets` | repo setting |
+| **Token hardening** | Default workflow token is read-only and cannot approve PRs | `gh api repos/nestho/threats-platform/actions/permissions/workflow` | repo setting |
+| **Action pinning** | Every `uses:` is pinned to a full commit SHA | `grep -rn "uses:" .github/workflows/` | review |
 
-The "Source hygiene" row exists because `worker/admin.js` shipped with a regex
-character class containing real `0x00`/`0x1f`/`0x7f` bytes. It behaved correctly,
-but it made git classify the file as binary — so diffs and code review were
-silently useless for it — and the companion test payload had a literal NUL that
-made the test pass for a reason its name did not describe.
-| Types (Python) | Zero type errors | `mypy scripts/` | pre-commit |
-| Lint | Zero errors | `ruff check scripts/` | pre-commit |
-| Secrets | No secrets in source | `gitleaks detect --redact --no-banner` | pre-commit, CI |
-| Workflow supply chain | Actions pinned to commit SHA | `zizmor scan` | CI |
-| Accessibility | Zero critical/serious axe violations | `axe https://threats.top --tags wcag2a,wcag2aa` | post-deploy |
-| Project coverage | 0% → **must not fall**; 32 unit tests at the two boundaries | `node --test assets worker` | CI |
-
-Every row names the command that produces the verdict. A dimension with a number and no
-command is an aspiration, not a constraint.
-
-**Ratchet note.** There is no line-coverage number yet because there is no Python test
-runner — the two suites are `node --test` against the JS boundaries. The count is 32
-tests, all passing, covering the two places where a silent failure would be worst: the
-XSS escaper and the admin auth boundary. The collectors themselves are covered only by
-`validate_feeds.py` running against their real output in CI, which catches shape and
-completeness regressions but not logic errors. That gap is real and is listed in
-ARCHITECTURE.md §7.12.
+A dimension with a number and no command is an aspiration, not a constraint.
 
 ---
 
 ## Measured, not yet enforced
 
-| Metric | Today (2026-09-27) | Direction |
+| Metric | Today (2026-10-28) | Direction |
 |---|---|---|
-| Copies of `esc()` across HTML pages | **1** (`assets/app.js`) | was 3 — target met |
-| Copies of the `:root`/header CSS block | **1** (`assets/app.css`) | was 3 — target met |
-| Feeds with a human-facing UI | **5 of 7** | was 4 of 6 (GHSA + Wiz added) |
-| Homepage first-paint payload | **282 KB raw / 45 KB gz** | was 1188 / 213 before the pagination fix |
+| Sources collected | **11** | add only with a real upstream |
+| Published feeds | **12** (`+ status.json`) | every feed has a UI surface |
+| Python unit tests | **98** | must not fall |
+| JavaScript unit tests | **19** | must not fall |
 | Runtime dependencies | **0** | must stay 0 |
-| `worker/` source in version control | **yes** | was no |
-| Source files git treats as binary | **0** | must stay 0 — see the Source hygiene row |
-| GitHub Actions pinned to a SHA | **3 of 3** | must stay 3 of 3 |
-| Paths to `main` that bypass a gate | **1** (direct push) | target 0 — needs the ruleset |
+| GitHub Actions pinned to a SHA | **9 of 9** | must stay 9 of 9 |
+| Paths to `main` that bypass a check | **0** | must stay 0 |
+| Pages HTTPS enforced | **yes** (`threats.top`) | must stay yes |
+| Source files git treats as binary | **0** | must stay 0 |
+| Required human approvals | **0** | raise to 1 with a second maintainer |
 
 ---
 
@@ -96,52 +71,35 @@ ARCHITECTURE.md §7.12.
 
 These look like violations and are not. Do not "fix" them.
 
-- **No framework, no build step, no bundler.** Static HTML + stdlib Python is the reason
-  this project costs nothing to run and has no supply chain. Adding React/Vite/npm to
-  "improve" the frontend would be a regression, not an improvement.
-- **No `requirements.txt` entries.** The file is empty on purpose (ARCHITECTURE.md §3).
-  Dev-only tools (mypy, ruff, pytest) belong in a separate `requirements-dev.txt`.
-- **`data/*.json` is committed.** It is the database. Do not add `.gitignore` entries for it
-  and do not "clean up" the churn from the hourly feed commits.
-- **No pagination in the UI beyond what exists.** 30-per-page client-side paging over a
-  ~450KB JSON payload is the right call at this scale.
+- **No framework, build step, or bundler.** Static HTML plus stdlib Python is why this costs nothing to run and has no frontend supply chain.
+- **No `requirements.txt` entries.** Runtime dependencies are zero on purpose. Dev-only tools, if added, belong in `requirements-dev.txt`.
+- **`data/*.json` is committed.** It is the database and the audit trail. Do not gitignore it or "clean up" feed churn.
+- **Zero required approvals.** GitHub forbids self-approval, and the repository has one maintainer plus a bot. The PR plus three checks is the gate; a fourth human gate would deadlock. This is a staffing constraint, not a security preference.
+- **Wiz runs every 30 days.** Its publication rate is monthly. Running it hourly would imply freshness it does not have.
+- **The Worker is retired, not deleted.** Keeping it in the tree with tests makes the removed write path explicit and prevents it from being silently reintroduced.
+- **No client-side pagination beyond what exists.** Client-side paging over committed JSON is correct at this scale.
 
 ---
 
 ## Exceptions
 
-_None yet._
+_None._
 
-Format for new rows: `| ID | Rule | Path | Reason | Owner | Expires |` — 90-day expiry,
-per the skill's default.
+Format for new rows: `| ID | Rule | Path | Reason | Owner | Expires |` — 90-day expiry.
 
 ---
 
-## Open Decisions
+## Open decisions
 
-The feed-validation and escaping rows are implemented and blocking. These remain:
-
-1. **Types/lint/secrets for Python?** `mypy` and `ruff` would be two dev
-   dependencies. The project has held `requirements.txt` at zero for its whole life;
-   a `requirements-dev.txt` keeps runtime at zero but is still a policy decision.
-2. **Block or warn?** Proposed: block on the Floor and every row above; warn on
-   types/lint for two weeks if they are added at all.
-3. **Accessibility check.** `axe` needs a running URL, so it belongs on a post-deploy
-   hook. There is none. Worth standing one up — the keyboard-accessibility work on this
-   branch was done by reading, not by testing, and nothing prevents a regression.
-4. **Python test runner?** The collectors have no unit tests. `pytest` is one dev
-   dependency and would let `normalize.py` and the merge logic in `collector.py` be
-   tested against fixtures instead of against live upstreams in CI.
-5. **Branch protection.** Not a constraint question so much as an unfinished
-   control. The script is committed and validated; it needs `gh auth login` and a
-   decision about whether `main` should require review or just forbid
-   force-push.
+1. **Second maintainer / human approval.** Set `required_approving_review_count` to 1 when someone else can review. The script documents the change.
+2. **Bot credentials are not configured yet.** Without `DATA_BOT_APP_ID` + `DATA_BOT_PRIVATE_KEY` (or `DATA_BOT_TOKEN`), scheduled collection validates but cannot publish. This is the one operational blocker for unattended production updates.
+3. **JSON Schema files.** The contract is enforced in Python and generated into `docs/CONTRACT.md`. A `data/*.schema.json` set would let consumers validate without Python.
+4. **Browser end-to-end and accessibility tests.** `node --test` covers `esc()` and the Worker, not a rendered page. A headless smoke test over every page would close the highest-value remaining gap.
+5. **Python type checking and linting.** `mypy` and `ruff` are dev dependencies. The project has held runtime dependencies at zero; a separate `requirements-dev.txt` keeps that property.
+6. **Worker removal.** Delete `worker/` once the Phase 2 D1 API exists and the retirement page is no longer needed.
 
 ---
 
 ## Guarding the bar itself
 
-Per the skill: if the agent writes the code and the checks, the checks prove something. At
-review time, watch the diff for the five standard moves — a threshold moved, a test got
-easier, a checker got silenced, work left unfinished, or a new exception appeared. Tightening
-this file should be silent; loosening it should be loud.
+At review time, watch the diff for five moves: a threshold was moved, a test got easier, a checker was silenced, work was left unfinished, or a new exception appeared. Tightening this file should be silent; loosening it should be loud.

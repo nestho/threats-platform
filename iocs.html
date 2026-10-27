@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Live indicators — Threats</title>
+<meta name="description" content="Defanged phishing URLs from OpenPhish and ransomware leak-site victim domains, combined into one searchable indicator feed.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/app.css">
+<style>
+  .badge.url { color: var(--accent); border-color: rgba(249,115,22,0.35); }
+  .badge.domain { color: var(--link); border-color: rgba(56,189,248,0.35); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="site">
+    <a class="logo" href="/">
+      <span class="logo-mark">T</span>
+      <span class="logo-name">Threats <span class="sub">/ Indicators</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/programs.html">Programs</a>
+      <a href="/cves.html">Vulnerabilities</a>
+      <a href="/iocs.html" aria-current="page">IOCs</a>
+      <a href="/ransomware.html">Ransomware</a>
+      <a href="/phishing.html">Phishing</a>
+      <a href="/threats.html">Cloud threats</a>
+      <a href="/status.html">Status</a>
+      <a href="/saas.html">Pricing</a>
+    </nav>
+  </header>
+
+  <h1>Live indicators</h1>
+  <p class="sub">Phishing URLs from OpenPhish and ransomware leak-site victim domains, combined and deduplicated.</p>
+  <p class="note warn">
+    Every URL here is <strong>defanged</strong> (<code>hxxp://</code>, <code>[.]</code>) at the collector
+    boundary. Copying an indicator gives you the defanged form; refang it yourself in an isolated
+    analysis environment. These are observations, not blocklist recommendations.
+  </p>
+  <div class="note" id="freshness-note" hidden></div>
+
+  <div class="stat-grid">
+    <div class="stat-card"><div class="num" id="stat-total">—</div><div class="lbl">indicators</div></div>
+    <div class="stat-card"><div class="num" id="stat-urls">—</div><div class="lbl">URLs</div></div>
+    <div class="stat-card"><div class="num" id="stat-domains">—</div><div class="lbl">domains</div></div>
+    <div class="stat-card"><div class="num" id="stat-sources">—</div><div class="lbl">sources</div></div>
+  </div>
+
+  <div class="tabs" role="tablist" aria-label="Indicator type">
+    <button class="tab" role="tab" id="tab-all" aria-controls="list" aria-selected="true" data-view="all">All</button>
+    <button class="tab" role="tab" id="tab-url" aria-controls="list" aria-selected="false" data-view="url" tabindex="-1">URLs</button>
+    <button class="tab" role="tab" id="tab-domain" aria-controls="list" aria-selected="false" data-view="domain" tabindex="-1">Domains</button>
+  </div>
+
+  <div class="controls">
+    <label for="search" class="visually-hidden">Search indicators</label>
+    <input id="search" type="search" placeholder="Search an indicator, host, or context…" autocomplete="off">
+    <label for="source-filter" class="section-label" style="margin:0;">Source</label>
+    <select id="source-filter"><option value="">All sources</option></select>
+  </div>
+
+  <div class="meta-bar">
+    <span id="count-label" role="status" aria-live="polite"></span>
+    <span>
+      <span id="updated-label"></span>
+      &nbsp;·&nbsp;
+      <button id="copy-json" type="button">Copy JSON endpoint</button>
+    </span>
+  </div>
+
+  <div id="list" role="tabpanel" aria-labelledby="tab-all"></div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script type="module">
+import { esc, timeAgo, copyText, copyEndpointUrl, fetchJson, initTabs, setResultCount, showStaleNote } from '/assets/app.js';
+
+let items = [];
+let sources = [];
+
+function sevClass(severity) {
+  if (severity === 'CRITICAL') return 'crit';
+  if (severity === 'HIGH') return 'high';
+  if (severity === 'MEDIUM') return 'med';
+  return '';
+}
+
+function card(item) {
+  const type = item.type === 'url' ? 'URL' : 'Domain';
+  const typeClass = item.type === 'url' ? 'url' : 'domain';
+  const seen = [
+    item.first_seen ? `first seen ${timeAgo(item.first_seen)}` : null,
+    item.last_seen ? `last seen ${timeAgo(item.last_seen)}` : null,
+  ].filter(Boolean).join(' · ');
+  return `<article class="feed-item">
+    <div class="feed-head">
+      <h2 class="feed-title mono">${esc(item.value)}</h2>
+      <div class="feed-badges">
+        <span class="badge ${typeClass}">${type}</span>
+        <span class="badge ${sevClass(item.severity)}">${esc(item.severity)}</span>
+      </div>
+    </div>
+    <p class="feed-desc">${esc(item.context)} · ${esc(item.source)}</p>
+    <div class="feed-meta">
+      <span>${esc(seen || 'observation time unavailable')}</span>
+      <button type="button" class="copy-inline" data-value="${esc(item.value)}">Copy indicator</button>
+    </div>
+  </article>`;
+}
+
+function currentView() {
+  return document.querySelector('.tab[aria-selected="true"]')?.dataset.view || 'all';
+}
+
+function render() {
+  const view = currentView();
+  const query = document.getElementById('search').value.trim().toLowerCase();
+  const source = document.getElementById('source-filter').value;
+
+  const filtered = items.filter((item) => {
+    if (view !== 'all' && item.type !== view) return false;
+    if (source && item.source !== source) return false;
+    if (!query) return true;
+    return (
+      (item.value || '').toLowerCase().includes(query) ||
+      (item.context || '').toLowerCase().includes(query) ||
+      (item.source || '').toLowerCase().includes(query)
+    );
+  });
+
+  setResultCount(document.getElementById('count-label'), filtered.length, 'indicator');
+  const list = document.getElementById('list');
+  list.innerHTML = filtered.length
+    ? filtered.map(card).join('')
+    : '<p class="empty">No matching indicators.</p>';
+
+  for (const button of list.querySelectorAll('.copy-inline')) {
+    button.addEventListener('click', () => copyText(button.dataset.value, 'Copied indicator'));
+  }
+}
+
+initTabs('.tabs', (view) => {
+  document.getElementById('list').setAttribute('aria-labelledby', `tab-${view}`);
+  render();
+});
+
+document.getElementById('search').addEventListener('input', render);
+document.getElementById('source-filter').addEventListener('change', render);
+document.getElementById('copy-json').addEventListener('click', () => {
+  copyEndpointUrl('/data/iocs.json', 'Copied /data/iocs.json');
+});
+
+const data = await fetchJson('/data/iocs.json');
+if (data) {
+  items = data.items || [];
+  sources = [...new Set(items.map((item) => item.source).filter(Boolean))].sort();
+  document.getElementById('stat-total').textContent = items.length.toLocaleString('en-US');
+  document.getElementById('stat-urls').textContent = items.filter((item) => item.type === 'url').length.toLocaleString('en-US');
+  document.getElementById('stat-domains').textContent = items.filter((item) => item.type === 'domain').length.toLocaleString('en-US');
+  document.getElementById('stat-sources').textContent = sources.length;
+  if (data.updated_at) {
+    document.getElementById('updated-label').textContent = 'Updated ' + data.updated_at.slice(0, 10) + ' UTC';
+  }
+  const select = document.getElementById('source-filter');
+  select.insertAdjacentHTML('beforeend',
+    sources.map((source) => `<option value="${esc(source)}">${esc(source)}</option>`).join(''));
+}
+
+const q = new URLSearchParams(location.search).get('q');
+if (q) document.getElementById('search').value = q;
+
+showStaleNote('freshness-note', ['iocs', 'phishing', 'ransomware']);
+render();
+</script>
+</body>
+</html>

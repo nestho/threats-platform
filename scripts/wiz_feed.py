@@ -35,6 +35,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 
+from feed_io import write_json
 from normalize import NormalisationTally
 
 FEED_URL = "https://www.wiz.io/api/feed/cloud-threat-landscape/rss.xml"
@@ -126,6 +127,7 @@ def main() -> int:
         "schema_version": SCHEMA_VERSION,
         "updated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "source": "Wiz Research — Cloud Threat Landscape",
+        "source_url": FEED_URL,
         "cadence": "weekly",
         "note": "Analysis feed, not an alert feed. Wiz publishes roughly monthly.",
         "total": len(items),
@@ -133,8 +135,7 @@ def main() -> int:
         "items": items,
     }
 
-    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
-        json.dump(output, f, indent=2, ensure_ascii=False)
+    write_json(OUTPUT_PATH, output)
 
     kinds = {}
     for item in items:

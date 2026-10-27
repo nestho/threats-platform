@@ -119,6 +119,34 @@ export async function fetchAll(map) {
 }
 
 /**
+ * Reveal a warning note when any of the given sources is stale or failing.
+ *
+ * Pages otherwise show only their own feed's `updated_at`, which cannot tell a
+ * reader whether that timestamp is on schedule. status.json already records the
+ * answer, so consult it rather than duplicating cadence rules in every page.
+ *
+ * @param {string} elementId  id of a hidden .note element
+ * @param {string[]} sourceIds  status.json source ids used by this page
+ */
+export async function showStaleNote(elementId, sourceIds) {
+  const element = document.getElementById(elementId);
+  if (!element) return;
+  const status = await fetchJson('/data/status.json');
+  if (!status) return;
+  const affected = (status.sources || []).filter(
+    (source) => sourceIds.includes(source.id) && (source.stale || source.error),
+  );
+  if (!affected.length) return;
+  element.hidden = false;
+  element.className = 'note warn';
+  element.innerHTML =
+    'Stale or failing source' + (affected.length === 1 ? '' : 's') + ': '
+    + affected.map((source) => esc(source.label)).join(', ')
+    + '. The data below may be older than its cadence. '
+    + '<a href="/status.html">See source status →</a>';
+}
+
+/**
  * Wire up a tab group with correct ARIA and keyboard behaviour.
  *
  * The previous markup was a row of <button>s with an .active class: no
