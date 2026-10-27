@@ -51,7 +51,7 @@ Wiz publishes analysis, not alerts (measured: 0 items in 7 days, 3 in 30), so it
    - **Python tests** — `python3 -m unittest discover -s scripts/tests -t scripts` (98 tests).
 5. `main` is protected by the `protect-main` ruleset with **no bypass actors**: pull requests only, linear history, squash merge only, no deletion, no force-push. Pages deploys from `main`.
 
-The automation needs a bot identity, because pull requests created with the built-in `GITHUB_TOKEN` do not trigger the required checks. Configure either a GitHub App (`vars.DATA_BOT_APP_ID` + `secrets.DATA_BOT_PRIVATE_KEY`) or a fine-grained PAT (`secrets.DATA_BOT_TOKEN`) with Contents and Pull requests write on this repository. `scripts/setup-ruleset.sh` prints the setup steps and verifies the credentials.
+The automation publishes as the GitHub App `threats-data-bot` (id `5502502`), installed on this repository only with Contents and Pull requests write, configured through `vars.DATA_BOT_APP_ID` + `secrets.DATA_BOT_PRIVATE_KEY`. The bot identity matters because pull requests created with the built-in `GITHUB_TOKEN` do not trigger the required checks. `secrets.DATA_BOT_TOKEN` remains a fine-grained PAT fallback. `scripts/setup-ruleset.sh` prints the setup steps and verifies the credentials.
 
 ## Local development
 
