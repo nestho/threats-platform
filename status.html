@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07080b">
 <title>Source status — Threats</title>
 <meta name="description" content="Per-source freshness and health for every threat feed: last attempt, last success, cadence, item count, and failures.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,27 +32,60 @@
   .critical-mark { color: var(--accent); font-size: 10px; font-weight: 600; margin-left: 6px; }
 </style>
 </head>
-<body>
-<div class="wrap">
+<body class="console">
+<a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site">
-    <a class="logo" href="/">
-      <span class="logo-mark">T</span>
-      <span class="logo-name">Threats <span class="sub">/ Status</span></span>
-    </a>
-    <nav class="site-nav" aria-label="Primary">
-      <a href="/programs.html">Programs</a>
-      <a href="/cves.html">Vulnerabilities</a>
-      <a href="/iocs.html">IOCs</a>
-      <a href="/ransomware.html">Ransomware</a>
-      <a href="/phishing.html">Phishing</a>
-      <a href="/threats.html">Cloud threats</a>
-      <a href="/status.html" aria-current="page">Status</a>
-      <a href="/saas.html">Pricing</a>
-    </nav>
+<aside class="rail" aria-label="Console">
+  <a class="rail-brand" href="/">
+    <span class="rail-mark" aria-hidden="true">T</span>
+    <span>
+      <span class="rail-name">Threats</span>
+      <span class="rail-tag">Ops console</span>
+    </span>
+  </a>
+  <nav class="rail-nav" aria-label="Primary">
+    <span class="rail-label">Intelligence</span>
+    <a href="/"><span>Overview</span><span class="n">01</span></a>
+    <a href="/cves.html"><span>Vulnerabilities</span><span class="n">02</span></a>
+    <a href="/iocs.html"><span>Indicators</span><span class="n">03</span></a>
+    <a href="/ransomware.html"><span>Ransomware</span><span class="n">04</span></a>
+    <a href="/phishing.html"><span>Phishing</span><span class="n">05</span></a>
+    <a href="/threats.html"><span>Cloud threats</span><span class="n">06</span></a>
+    <span class="rail-label">Platform</span>
+    <a href="/programs.html"><span>Programs</span><span class="n">07</span></a>
+    <a href="/status.html" aria-current="page"><span>Status</span><span class="n">08</span></a>
+    <a href="/saas.html"><span>Pricing</span><span class="n">09</span></a>
+  </nav>
+  <div class="rail-health">
+    <span class="rail-label">Source health</span>
+    <div class="rail-health-row"><span class="dot" id="rail-dot" aria-hidden="true"></span><span id="rail-health-text">checking…</span></div>
+    <div class="rail-health-meta" id="rail-health-meta">status.json</div>
+  </div>
+  <div class="rail-foot">
+    <a href="https://github.com/nestho/threats-platform" target="_blank" rel="noopener">GitHub ↗</a>
+    <span>v1 · static</span>
+  </div>
+</aside>
+
+<div class="wrap" id="main" role="main">
+
+
+    <header class="topbar">
+    <div class="crumb"><a href="/">Threats</a><span class="sep">/</span><span class="here">Status</span></div>
+    <div class="topbar-right">
+      <a class="live-chip" id="live-chip" href="/status.html">
+        <span class="dot" id="live-dot" aria-hidden="true"></span>
+        <span id="live-text">source health</span>
+      </a>
+      <time class="clock" id="shell-clock">--:--Z</time>
+    </div>
   </header>
 
-  <h1>Source status</h1>
+<script type="module">
+import { initConsoleShell } from '/assets/app.js';
+initConsoleShell();
+</script>
+<h1>Source status</h1>
   <p class="sub">Every feed reports when it last succeeded, how often it runs, and whether that is late. Nothing here hides a failure behind a fresh timestamp.</p>
 
   <div class="status-banner" id="overall-banner" role="status" aria-live="polite" hidden></div>
@@ -101,7 +135,7 @@
 <script type="module">
 import { esc, timeAgo, fetchJson } from '/assets/app.js';
 
-const LABELS = { ok: 'current', degraded: 'degraded', outage: 'outage' };
+const LABELS = { ok: 'Current', degraded: 'Degraded', outage: 'Outage' };
 
 function duration(minutes) {
   const value = Number(minutes);

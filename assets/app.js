@@ -199,3 +199,67 @@ export function setResultCount(element, count, noun = 'result') {
   const text = `${count} ${noun}${count === 1 ? '' : 's'}`;
   element.textContent = text;
 }
+
+/**
+ * Bring the console shell to life: current-page marking, UTC clock, and the
+ * live source-health chip in the rail and top bar.
+ *
+ * Every page ships the shell as static HTML so it works without JavaScript;
+ * this only upgrades it. Health is read from status.json, the same file the
+ * status page uses, so the chip cannot drift from the source of truth.
+ */
+export function initConsoleShell() {
+  const current = document.querySelector('.rail-nav a[aria-current="page"]');
+  if (!current) {
+    const here = location.pathname.replace(/index\.html$/, '/');
+    for (const link of document.querySelectorAll('.rail-nav a')) {
+      if (new URL(link.getAttribute('href'), location.origin).pathname === here) {
+        link.setAttribute('aria-current', 'page');
+        break;
+      }
+    }
+  }
+
+  const clock = document.getElementById('shell-clock');
+  const stamp = () => {
+    const now = new Date();
+    if (clock) {
+      clock.textContent = now.toISOString().slice(11, 16) + 'Z';
+      clock.dateTime = now.toISOString();
+    }
+    for (const element of document.querySelectorAll('[data-shell-date]')) {
+      element.textContent = now
+        .toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC' })
+        .toUpperCase();
+    }
+  };
+  stamp();
+  setInterval(stamp, 30000);
+
+  const dot = document.getElementById('rail-dot');
+  const label = document.getElementById('rail-health-text');
+  const meta = document.getElementById('rail-health-meta');
+  const chip = document.getElementById('live-chip');
+  const chipText = document.getElementById('live-text');
+
+  fetchJson('/data/status.json').then((status) => {
+    if (!status) {
+      if (label) label.textContent = 'status unavailable';
+      if (meta) meta.textContent = 'status.json unreachable';
+      return;
+    }
+    const sources = status.sources || [];
+    const overall = status.overall === 'ok' ? 'ok' : status.overall === 'outage' ? 'outage' : 'degraded';
+    const text = overall === 'ok' ? 'all sources current' : overall === 'outage' ? 'critical outage' : 'degraded';
+    if (dot) dot.className = `dot ${overall}`;
+    if (label) label.textContent = text;
+    if (meta) {
+      const checked = status.generated_at
+        ? status.generated_at.slice(11, 16) + 'Z'
+        : 'schedule unknown';
+      meta.textContent = `${sources.length} sources · ${checked}`;
+    }
+    if (chip) chip.className = `live-chip ${overall}`;
+    if (chipText) chipText.textContent = text;
+  });
+}
