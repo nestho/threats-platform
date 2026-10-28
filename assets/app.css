@@ -476,6 +476,108 @@ select { cursor: pointer; }
 
 .empty { color: var(--text-muted); padding: 48px 0; text-align: center; font-size: 13px; }
 
+/* ── Buttons ────────────────────────────────────────────────────────── */
+
+/* Shared by checkout, the admin panel and the Pro console so the primary
+   action cannot look like three different products. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.2;
+  padding: 9px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-hover);
+  background: var(--surface-2);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.12s, background 0.12s, color 0.12s, filter 0.12s;
+}
+
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+.btn:disabled { opacity: 0.55; cursor: not-allowed; }
+.btn:disabled:hover { border-color: var(--border-hover); color: var(--text); }
+
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #0a0a0a;
+  font-weight: 600;
+}
+.btn-primary:hover { color: #0a0a0a; filter: brightness(1.08); }
+
+.btn-danger { color: var(--crit); border-color: rgba(239, 68, 68, 0.45); background: transparent; }
+.btn-danger:hover { color: var(--crit); border-color: var(--crit); background: rgba(239, 68, 68, 0.08); }
+
+.btn-sm { padding: 5px 10px; font-family: var(--mono); font-size: 11px; }
+
+/* ── Forms ──────────────────────────────────────────────────────────── */
+
+.field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+
+.field > label,
+.field > legend {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.field input,
+.field select,
+.field textarea { width: 100%; flex: none; min-width: 0; }
+
+textarea {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 13px;
+  padding: 9px 12px;
+  min-height: 84px;
+  resize: vertical;
+  transition: border-color 0.12s, background 0.12s;
+}
+
+textarea:hover { border-color: var(--border-hover); }
+textarea:focus { border-color: var(--border-hover); background: var(--surface-2); outline: none; }
+
+.field .hint { font-size: 11.5px; color: var(--text-muted); line-height: 1.5; }
+.field .err { font-size: 11.5px; color: var(--crit); min-height: 0; line-height: 1.4; }
+.field [aria-invalid="true"] { border-color: var(--crit); }
+
+fieldset.field { border: 0; padding: 0; margin: 0; }
+
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-grid .span-2 { grid-column: 1 / -1; }
+
+.form-alert {
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  background: rgba(239, 68, 68, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 12.5px;
+  color: var(--text);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.form-alert.ok { border-color: rgba(61, 220, 151, 0.35); background: rgba(61, 220, 151, 0.08); }
+
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 /* ── Badges ─────────────────────────────────────────────────────────── */
 
 .badge {
@@ -497,6 +599,8 @@ select { cursor: pointer; }
 .badge.crit { color: var(--crit); border-color: rgba(239, 68, 68, 0.4); }
 .badge.high { color: var(--high); border-color: rgba(249, 115, 22, 0.4); }
 .badge.med { color: var(--med); border-color: rgba(234, 179, 8, 0.35); }
+.badge.ok { color: var(--ok); border-color: rgba(61, 220, 151, 0.4); }
+.badge.muted { color: var(--text-muted); }
 .badge.kev { background: var(--crit); color: #fff; border-color: var(--crit); }
 .badge.hot { color: var(--accent); border-color: rgba(249, 115, 22, 0.4); }
 
@@ -776,6 +880,9 @@ select { cursor: pointer; }
   overflow-x: auto;
   /* Keeps the first row's rule off the wrapper border. */
   padding: 8px;
+  /* Absolutely positioned .visually-hidden labels inside a wide table would
+     otherwise resolve against the viewport and widen the document. */
+  position: relative;
 }
 
 table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
@@ -887,6 +994,7 @@ tbody tr:hover { background: var(--surface-2); }
 
   .tabs { gap: 4px; }
   .tab { padding: 6px 10px; font-size: 10px; }
+  .form-grid { grid-template-columns: 1fr; }
   .stat-grid, .stat-grid.three { grid-template-columns: 1fr 1fr; }
   .feed-head { flex-direction: column; }
   .feed-badges { justify-content: flex-start; }

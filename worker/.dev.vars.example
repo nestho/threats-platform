@@ -1,0 +1,24 @@
+# Local development values for `wrangler dev --local`.
+#
+# Copy to `.dev.vars` (ignored) and replace every placeholder. Never use these
+# values in production, and never commit the filled-in file.
+#
+#   openssl rand -base64 48     # SESSION_SECRET, LICENSE_SALT, IP_HASH_SALT
+#   node scripts/admin-credentials.mjs
+#
+# The Worker reads every key except ADMIN_PASSWORD; scripts/smoke.mjs uses
+# ADMIN_PASSWORD and TOTP_SECRET to sign in with a generated code.
+
+ENVIRONMENT = "development"
+SITE_ORIGIN = "https://threats.top"
+ALLOWED_ORIGINS = "http://localhost:8080,http://127.0.0.1:8787"
+
+SESSION_SECRET = "replace-with-openssl-rand-base64-48"
+LICENSE_SALT = "replace-with-openssl-rand-base64-48"
+IP_HASH_SALT = "replace-with-openssl-rand-base64-48"
+
+ADMIN_PASSWORD_HASH = "pbkdf2_sha256$210000$replace$replace"
+TOTP_SECRET = "REPLACE-WITH-BASE32-TOTP-SECRET"
+
+# Only for the local smoke run; never read by the Worker.
+ADMIN_PASSWORD = "replace-with-the-password-you-chose"

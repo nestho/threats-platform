@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07080b">
 <title>Pricing — Threats</title>
-<meta name="description" content="All public threat feeds are free. Pro adds private watchlists, correlated alerts, signed webhooks, and STIX 2.1 export, onboarded by manual invoice.">
+<meta name="description" content="All public threat feeds are free. Pro is a crypto-paid licence that unlocks the STIX 2.1 export, with manual verification and no automatic renewal.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/app.css">
@@ -32,6 +32,9 @@
   .tier-list li::before { content: "✓ "; color: #4ade80; font-weight: 700; }
   .tier-list li.soon::before { content: "→ "; color: var(--text-muted); }
   .tier-list .soon { color: var(--text-muted); }
+  .tier-foot { font-size: 12px; color: var(--text-muted); line-height: 1.55; margin-top: 14px; }
+  .tier-foot a { color: var(--link); }
+  .tier-foot a:hover { text-decoration: underline; }
 
   .btn {
     display: inline-block;
@@ -50,8 +53,9 @@
   .btn-primary { background: var(--accent); border-color: var(--accent); color: #0a0a0a; font-weight: 600; }
   .btn-primary:hover { color: #0a0a0a; filter: brightness(1.08); }
 
-  .badge.status { color: #4ade80; border-color: rgba(74,222,128,0.35); }
   .badge.soon { color: var(--med); border-color: rgba(234,179,8,0.35); }
+  .step p a { color: var(--link); }
+  .step p a:hover { text-decoration: underline; }
 
   section { margin-bottom: 44px; }
   .section-title { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 6px; }
@@ -114,6 +118,8 @@
     <a href="/programs.html"><span>Programs</span><span class="n">08</span></a>
     <a href="/status.html"><span>Status</span><span class="n">09</span></a>
     <a href="/saas.html" aria-current="page"><span>Pricing</span><span class="n">10</span></a>
+    <a href="/subscribe.html"><span>Subscribe</span><span class="n">11</span></a>
+    <a href="/pro.html"><span>Pro console</span><span class="n">12</span></a>
   </nav>
   <div class="rail-health">
     <span class="rail-label">Source health</span>
@@ -145,12 +151,12 @@ import { initConsoleShell } from '/assets/app.js';
 initConsoleShell();
 </script>
 <h1>Plans that match how you use the data</h1>
-  <p class="sub">Read everything for free. Pay only when you need private watchlists and alerting.</p>
+  <p class="sub">Read everything for free. Pay in crypto when you need the STIX 2.1 export in your own tooling.</p>
 
   <div class="tier-grid">
     <div class="tier-card">
       <div class="tier-head">
-        <span class="tier-title">Free <span class="badge status">Available now</span></span>
+        <span class="tier-title">Free <span class="badge ok">Available now</span></span>
         <span class="tier-price">$0</span>
       </div>
       <p class="tier-sub">For researchers, students, and anyone who needs current public threat data without a key.</p>
@@ -159,37 +165,40 @@ initConsoleShell();
         <li>Global CVE, indicator, and program search</li>
         <li>Per-source freshness and status page</li>
         <li>No account, no API key</li>
-        <li class="soon">GitHub sign-in and a 3-asset private watchlist <span class="badge soon">next release</span></li>
+        <li class="soon">GitHub sign-in and a 3-asset private watchlist <span class="badge soon">roadmap</span></li>
       </ul>
       <a class="btn" href="/cves.html">Browse the feeds →</a>
     </div>
 
     <div class="tier-card pro">
       <div class="tier-head">
-        <span class="tier-title">Pro <span class="badge soon">Waitlist</span></span>
-        <span class="tier-price">$39<small>/mo</small></span>
+        <span class="tier-title">Pro <span class="badge ok">Available now</span></span>
+        <span class="tier-price"><span id="pro-price-amount">$39</span><small>/mo</small></span>
       </div>
-      <p class="tier-sub">For SOC teams that need their own attack surface watched continuously, not just a public feed.</p>
+      <p class="tier-sub">For analysts and small teams pulling the public feeds into their own pipelines as STIX 2.1.</p>
       <ul class="tier-list">
         <li>Everything in Free</li>
-        <li>500 private watchlist assets (domains, vendors, packages, IPs)</li>
-        <li>Correlated alerts with 90-day retention</li>
-        <li>Signed webhooks for Splunk, Sentinel, and CrowdStrike</li>
-        <li>Tenant-scoped STIX 2.1 export</li>
-        <li>600 API requests/min and priority support</li>
+        <li>STIX 2.1 bundle of the current CVE and indicator feeds</li>
+        <li>Licence-checked API with a per-key export limit</li>
+        <li>Pro console: activation, expiry, key rotation, revocation</li>
+        <li>Paid in USDT or BTC, verified by a person</li>
+        <li class="soon">Private watchlists and correlated alerts <span class="badge soon">roadmap</span></li>
+        <li class="soon">Signed webhooks for Splunk, Sentinel, and CrowdStrike <span class="badge soon">roadmap</span></li>
       </ul>
-      <a class="btn btn-primary" href="https://github.com/nestho/threats-platform/issues/new?title=Pro%20access%20request&amp;body=%23%23%20Organization%0A%0A%23%23%20Use%20case%0A%0A%23%23%20Approximate%20assets%0A%0A%23%23%20Contact" target="_blank" rel="noopener">Request Pro access →</a>
+      <a class="btn btn-primary" href="/subscribe.html">Subscribe with USDT or BTC →</a>
+      <p class="tier-foot">Already have a key? <a href="/pro.html">Open the Pro console</a>.</p>
     </div>
   </div>
 
   <p class="note">
-    Public data is live today. Accounts, watchlists, and Pro alerting are being rolled out; Pro access is
-    handled manually during the private beta. Nothing on this page is a checkout or a staged console.
+    Public data is free and keyless today. Pro is a licence for the STIX export, paid in crypto and
+    approved by hand; nothing renews automatically and no card details are collected. Roadmap items
+    are labelled and are not charged for.
   </p>
 
   <section>
     <h2 class="section-title">Compare plans</h2>
-    <p class="section-intro">Entitlements are enforced server-side when the hosted console opens. Public files stay unkeyed and free.</p>
+    <p class="section-intro">Entitlements are enforced server-side on every licensed request. Public files stay unkeyed and free.</p>
     <div class="compare-wrap">
       <table class="compare">
         <caption class="visually-hidden">Free and Pro capability comparison</caption>
@@ -198,13 +207,15 @@ initConsoleShell();
         </thead>
         <tbody>
           <tr><td>Public feeds and pages</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
-          <tr><td>GitHub account and private watchlist</td><td class="soon">Next release</td><td class="soon">Waitlist</td></tr>
-          <tr><td>Watchlist assets</td><td>3</td><td>500</td></tr>
-          <tr><td>API rate limit</td><td>Static files, no key</td><td>600/min</td></tr>
-          <tr><td>Correlated alerts</td><td class="no">—</td><td>90-day retention</td></tr>
-          <tr><td>Signed webhooks</td><td class="no">—</td><td class="yes">Yes</td></tr>
+          <tr><td>API key</td><td class="no">None needed</td><td>Licence key</td></tr>
           <tr><td>STIX 2.1 export</td><td class="no">—</td><td class="yes">Yes</td></tr>
-          <tr><td>Support</td><td>Community</td><td>Priority</td></tr>
+          <tr><td>Export limit</td><td class="no">—</td><td>Per licence, per minute</td></tr>
+          <tr><td>Term</td><td class="no">No account</td><td>1, 3, or 12 months</td></tr>
+          <tr><td>Payment</td><td class="no">—</td><td>USDT (TRC20) or BTC</td></tr>
+          <tr><td>Renewal</td><td class="no">—</td><td>Manual, never automatic</td></tr>
+          <tr><td>Private watchlists</td><td class="soon">Roadmap</td><td class="soon">Roadmap</td></tr>
+          <tr><td>Correlated alerts</td><td class="no">—</td><td class="soon">Roadmap</td></tr>
+          <tr><td>Signed webhooks</td><td class="no">—</td><td class="soon">Roadmap</td></tr>
         </tbody>
       </table>
     </div>
@@ -212,22 +223,22 @@ initConsoleShell();
 
   <section>
     <h2 class="section-title">How Pro onboarding works</h2>
-    <p class="section-intro">No checkout, no card form, no surprise renewal. Three steps, handled by a person.</p>
+    <p class="section-intro">No checkout timer, no card form, no surprise renewal. Three steps, with a person checking the payment.</p>
     <div class="steps">
       <div class="step">
         <div class="n">01</div>
-        <h3>Request access</h3>
-        <p>Open the access request with your organization, use case, and approximate asset count.</p>
+        <h3>Pick a term and send crypto</h3>
+        <p>Choose 1, 3, or 12 months on the <a href="/subscribe.html">subscribe page</a> and send the amount in USDT (TRC20) or BTC to the wallet shown there.</p>
       </div>
       <div class="step">
         <div class="n">02</div>
-        <h3>Confirm and invoice</h3>
-        <p>We confirm scope and send a monthly invoice. Pro is $39/month during the beta.</p>
+        <h3>Report the transfer</h3>
+        <p>Submit your name, email, optional phone, and the transaction ID. You get an order code immediately and can track it from the same page.</p>
       </div>
       <div class="step">
         <div class="n">03</div>
-        <h3>Enable the tenant</h3>
-        <p>After payment we enable your tenant, watchlist quota, and webhook setup.</p>
+        <h3>Verified, then activated</h3>
+        <p>The transfer is matched by hand, usually within one business day. The licence key is emailed to you and activated on the <a href="/pro.html">Pro console</a>.</p>
       </div>
     </div>
   </section>
@@ -236,20 +247,28 @@ initConsoleShell();
     <h2 class="section-title">Questions</h2>
     <div class="faq">
       <details>
+        <summary>Why crypto only?</summary>
+        <p>It keeps card data out of the platform and removes the payment processor dependency. The trade-off is manual verification: a person checks the transaction before the licence is issued. The wallets and the exact network are shown at <a href="/subscribe.html">checkout</a>.</p>
+      </details>
+      <details>
+        <summary>How is a payment verified?</summary>
+        <p>The amount, network, and transaction ID are matched against the order. If the transfer underpaid or needs a second look, the review email says so. Approval issues a licence key and emails it to the address on the order; the <a href="/subscribe.html#lookup-h">order lookup</a> shows the current state until then.</p>
+      </details>
+      <details>
+        <summary>What exactly does the licence unlock?</summary>
+        <p>A STIX 2.1 bundle built from the current public CVE and indicator feeds, plus the Pro console for activation and expiry. Watchlists, alerting, and webhooks are roadmap items and are not charged for.</p>
+      </details>
+      <details>
+        <summary>Can I move the key to another machine?</summary>
+        <p>Yes. The key is not device-bound. “Remember on this device” only decides whether a browser keeps a copy. If a key needs to change, the owner rotates it from the admin panel; the old one stops working at its next request.</p>
+      </details>
+      <details>
         <summary>Do I need an account to read the data?</summary>
         <p>No. Every feed under <code>/data/</code> is a public JSON file with no key and no login. You can fetch it from a script, a notebook, or a SIEM.</p>
       </details>
       <details>
-        <summary>Is the data really free, and where does it come from?</summary>
-        <p>Yes. We collect from official or public sources such as NVD, CISA KEV, GitHub Advisories, Exploit-DB, CERT-EU, Wiz Research, ransomware.live, OpenPhish, Microsoft, Ubuntu, and FIRST EPSS. The <a href="/status.html">status page</a> lists every source, its cadence, and its upstream URL. Upstream terms still apply to your use of the data.</p>
-      </details>
-      <details>
-        <summary>Why manual invoices instead of card checkout?</summary>
-        <p>Billing is deliberately simple during the beta. It keeps payment data out of the platform while the hosted console is being finished. Card checkout is planned after that.</p>
-      </details>
-      <details>
-        <summary>Where would my watchlist and alerts live?</summary>
-        <p>In a private Cloudflare D1 database, never in this Git repository. Public files will continue to contain only public threat data. Today there is no account system, so there is nothing private to store yet.</p>
+        <summary>Where is my data kept?</summary>
+        <p>Orders, subscriptions, and licence hashes live in a private Cloudflare D1 database, never in the public repository. The site stores no card data, hashes the IP address attached to an order, and ships a review log the owner can audit.</p>
       </details>
       <details>
         <summary>Can I run the collectors myself?</summary>
@@ -261,6 +280,8 @@ initConsoleShell();
   <footer>
     <span>Threats — open threat intelligence</span>
     <nav class="footer-links" aria-label="Footer">
+      <a href="/subscribe.html">Subscribe</a>
+      <a href="/pro.html">Pro console</a>
       <a href="/status.html">Source status</a>
       <a href="/data/status.json">status.json</a>
       <a href="https://github.com/nestho/threats-platform" target="_blank" rel="noopener">GitHub</a>
@@ -268,5 +289,18 @@ initConsoleShell();
   </footer>
 
 </div>
+
+<script type="module">
+import { apiOrigin, formatUsd } from '/assets/checkout.js';
+
+fetch(`${apiOrigin(location.hostname)}/api/config`)
+  .then((response) => (response.ok ? response.json() : null))
+  .then((config) => {
+    const price = document.getElementById('pro-price-amount');
+    const cents = config?.pro_monthly_cents;
+    if (price && typeof cents === 'number' && cents > 0) price.textContent = formatUsd(cents);
+  })
+  .catch(() => { /* the static price stays */ });
+</script>
 </body>
 </html>

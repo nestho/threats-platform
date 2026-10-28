@@ -1,10 +1,13 @@
 # High-Level & Detailed SaaS Architecture — `threats.top` (`nestho/threats-platform`)
 
-> **Status: Phase 2 design, not deployed.** v1 (2026-10-28) publishes only the public
-> feed set listed in [`README.md`](../README.md). The legacy Edge Worker is retired and
-> returns `410`; there is no account system, no D1 database, no live sensor feed, and no
-> keyed abuse.ch source. Everything below is the target architecture for Phase 2 and must
-> not be read as a description of production.
+> **Status: historical exploration, superseded.** The first shipped Pro slice is
+> live: manual crypto checkout, an audited admin panel, licence keys, and a STIX
+> 2.1 export on `api.threats.top`, backed by D1. Read
+> [`docs/superpowers/specs/2026-10-28-pro-subscriptions-design.md`](superpowers/specs/2026-10-28-pro-subscriptions-design.md)
+> for what was built and [`docs/PAYMENTS.md`](PAYMENTS.md) for the runbook.
+> The account system, watchlists, alerting, sensors, and keyed abuse.ch sources
+> described below remain unbuilt targets, not production. The legacy Edge Worker
+> is retired and returns `410`; the replacement API never writes to git.
 
 **Document ID**: `THREATS-SAAS-ARCH-001`  
 **Version**: `2.0.0-Production`  

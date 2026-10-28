@@ -27,6 +27,15 @@ Please include:
 
 - The static site at `threats.top`: XSS or HTML injection, unsafe URL handling,
   clickjacking, dependency-free script behaviour.
+- The Pro API at `api.threats.top`: authentication or session bypass, CSRF,
+  licence forgery or replay, admin route access control, order or customer
+  enumeration, rate-limit bypass, CSV or STIX output injection, and CORS
+  mistakes that expose credentials or data.
+- Pro operational data in D1: exposure of names, emails, phone numbers,
+  transaction references, or licence hashes; cross-customer access; audit-log
+  tampering.
+- Payment pages: order-form manipulation that changes the recorded amount,
+  term, wallet, or method in a way the owner would not see at review.
 - The data pipeline: validator bypasses, feed poisoning, provenance forgery,
   integrity checks that can be skipped.
 - GitHub Actions and repository configuration: token or secret exposure,
@@ -40,6 +49,18 @@ Please include:
 - Findings that require a compromised device, browser extension, or account.
 - Reports produced only by an automated scanner with no demonstrated impact.
 - Denial of service, spam, social engineering, and physical attacks.
+- Recovering a transfer sent to the wrong chain, the wrong token contract, or a
+  mistyped address; crypto transfers are irreversible by design.
+- Disputes about a manual approval, a refusal, or a refund decision. Those go to
+  the support address on the site, not the security channel.
+
+## Secrets and test data
+
+Never include a password, TOTP seed, session cookie, licence key, or real
+customer record in a report. Use a throwaway order and a licence you created
+yourself. The admin credentials are generated locally by the owner and are
+never committed; if you find one in the repository or a build artefact, treat
+that as a critical finding and report it privately without quoting the value.
 
 ## Response targets
 
