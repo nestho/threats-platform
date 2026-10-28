@@ -7,18 +7,20 @@
 <title>Vulnerabilities — Threats</title>
 <meta name="description" content="Recent CVEs, CISA KEV actively exploited vulnerabilities, EPSS exploit probability, Exploit-DB exploits, CERT-EU advisories, and GitHub Security Advisories.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/app.css">
 <style>
   .card { border: 1px solid var(--border); border-radius: var(--radius); padding: 15px 18px; margin-bottom: 8px; background: var(--surface); transition: border-color 0.12s, background 0.12s; }
   .card:hover { border-color: var(--border-hover); background: var(--surface-2); }
   .card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
-  .id { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; }
+  .id { font-family: var(--mono); font-size: 14px; font-weight: 500; }
   .id a:hover { color: var(--link); }
   .badges { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
-  .desc { color: var(--text-secondary); font-size: 13px; line-height: 1.55; margin-top: 8px; max-width: 720px; }
-  .meta-row { color: var(--text-muted); font-size: 11px; font-family: 'JetBrains Mono', monospace; margin-top: 8px; }
-  .unscored { color: var(--text-muted); font-size: 11px; font-family: 'JetBrains Mono', monospace; }
+  /* 68ch keeps advisory prose near 95 characters a line; the old 720px
+     stretched it to ~124 on a 1440 viewport. */
+  .desc { color: var(--text-secondary); font-size: 13px; line-height: 1.55; margin-top: 8px; max-width: 68ch; overflow-wrap: anywhere; }
+  .meta-row { color: var(--text-muted); font-size: 11px; font-family: var(--mono); margin-top: 8px; }
+  .unscored { color: var(--text-muted); font-size: 11px; font-family: var(--mono); }
 
   /* GHSA had no UI anywhere before this: it was fetched on the homepage, listed
      in the API catalog, and then never rendered. */

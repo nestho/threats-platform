@@ -18,7 +18,9 @@
   --border-hover: #333d4d;
   --text: #e9ecf1;
   --text-secondary: #a2acba;
-  --text-muted: #707b8c;
+  /* 4.61:1 on the darkest border tone and 5.69:1 on --surface, so muted labels
+     stay AA wherever they sit. The previous #707b8c bottomed out at 3.6:1. */
+  --text-muted: #808da6;
   --accent: #f97316;
   --accent-soft: rgba(249, 115, 22, 0.1);
   --accent-line: rgba(249, 115, 22, 0.45);
@@ -36,7 +38,7 @@
   --wrap: 1180px;
   --rail-w: 236px;
 
-  --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -48,12 +50,15 @@
 html { color-scheme: dark; }
 
 body {
-  background:
+  /* Solid colour and gradients are separate properties: a shorthand layer list
+     ending in var(--bg) is opaque to contrast parsers, which then guess the
+     page background and report false failures. */
+  background-color: var(--bg);
+  background-image:
     radial-gradient(900px 440px at 82% -10%, rgba(249, 115, 22, 0.06), transparent 62%),
-    radial-gradient(760px 420px at 4% 2%, rgba(92, 200, 255, 0.045), transparent 58%),
-    var(--bg);
+    radial-gradient(760px 420px at 4% 2%, rgba(92, 200, 255, 0.045), transparent 58%);
   color: var(--text);
-  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
   font-size: 14px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -244,7 +249,9 @@ a { color: inherit; text-decoration: none; }
   height: 62px;
   margin-bottom: 30px;
   border-bottom: 1px solid var(--border);
-  background: rgba(7, 8, 11, 0.82);
+  /* 0.92: at 0.82 the hero's orange glow raised the rendered backdrop enough
+     that the muted clock dropped to 4.0:1. Blur stays, the tint got denser. */
+  background: rgba(7, 8, 11, 0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
@@ -301,10 +308,22 @@ a { color: inherit; text-decoration: none; }
 
 .clock {
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 11px;
   letter-spacing: 0.06em;
-  color: var(--text-muted);
+  /* AA measured on rendered pixels, not the token ratio: 10.5px muted mono
+     medianed 4.0:1 through antialiasing, so it takes the secondary tone. */
+  color: var(--text-secondary);
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.topbar-date {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  /* Same rendered-pixel floor as .clock: 10.5px muted mono antialiases to 4.1:1
+     against the topbar's translucent fill. */
+  color: var(--text-secondary);
   white-space: nowrap;
 }
 
@@ -462,9 +481,11 @@ select { cursor: pointer; }
 .badge {
   display: inline-block;
   font-family: var(--mono);
-  font-size: 9.5px;
+  /* 11px is the floor for functional text; badges carry severity and are also
+     links on some pages, so they cannot stay at the old 9.5px. */
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   padding: 2px 7px;
   border-radius: 4px;
@@ -684,7 +705,11 @@ select { cursor: pointer; }
   font-size: 13px;
   line-height: 1.55;
   margin-top: 8px;
-  max-width: 760px;
+  /* Was 760px, which ran to ~136 characters a line at 1440. */
+  max-width: 68ch;
+  /* Defanged URLs, hashes and package paths arrive as single unbreakable
+     tokens and otherwise push the card past a 390px viewport. */
+  overflow-wrap: anywhere;
 }
 
 .feed-meta {
@@ -749,6 +774,8 @@ select { cursor: pointer; }
   border-radius: var(--radius);
   background: var(--surface);
   overflow-x: auto;
+  /* Keeps the first row's rule off the wrapper border. */
+  padding: 8px;
 }
 
 table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
@@ -854,6 +881,7 @@ tbody tr:hover { background: var(--surface-2); }
   .topbar form { order: 3; max-width: none; flex-basis: 100%; }
   .topbar-right { margin-left: auto; }
   .clock { display: none; }
+  .topbar-date { display: none; }
 
   h1 { font-size: 25px; }
 

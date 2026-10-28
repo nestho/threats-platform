@@ -15,3 +15,12 @@ __pycache__/
 # Cloudflare Worker tooling state
 scheduler/.wrangler/
 scheduler/node_modules/
+
+# Impeccable is installed per machine (`npx impeccable@4.8.0` or the Qoder
+# skill); the repo keeps only its shared config. Vendoring the 2 MB skill and
+# its 17 MB engine would drift from the version CI pins.
+.qoder/skills/impeccable/
+.impeccable/config.local.json
+.impeccable/review/
+.impeccable/live/
+.impeccable/*.png

@@ -7,7 +7,7 @@
 <title>Threats — Open threat intelligence</title>
 <meta name="description" content="Open, structured threat intelligence: recent CVEs, actively exploited vulnerabilities, malware and phishing indicators, ransomware claims, cloud incidents, vendor advisories, and bug bounty scope.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/app.css">
 <style>
   .hero {
@@ -19,18 +19,6 @@
     border-bottom: 1px solid var(--border);
     margin-bottom: 34px;
   }
-  .eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: var(--mono);
-    font-size: 10.5px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 16px;
-  }
-  .eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--accent); }
   .hero h1 {
     font-size: clamp(34px, 4.6vw, 52px);
     font-weight: 700;
@@ -360,6 +348,7 @@
       <input id="global-search" type="search" placeholder="Search CVE, program, or URL…" autocomplete="off">
     </form>
     <div class="topbar-right">
+      <span class="topbar-date" data-shell-date>—</span>
       <a class="live-chip" id="live-chip" href="/status.html">
         <span class="dot" id="live-dot" aria-hidden="true"></span>
         <span id="live-text">source health</span>
@@ -375,7 +364,6 @@ initConsoleShell();
 
   <div class="hero">
     <div>
-      <p class="eyebrow">Live threat surface · <span data-shell-date>—</span></p>
       <h1>Signal on the<br><span class="dim">threat surface.</span></h1>
       <p class="tagline">Structured, always-fresh intel: vulnerabilities and exploited CVEs, malware and phishing indicators, ransomware claims, cloud incidents, vendor advisories, and bug bounty scope.</p>
       <div class="hero-actions">
