@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-28T13:18:52Z",
+  "updated_at": "2026-10-28T15:55:14Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,241 @@
   ],
   "note": "Bounded slice of cves.json for the homepage. Use /data/cves.json for the full window.",
   "normalisation_failures": [],
-  "recent_total": 2030,
+  "recent_total": 1979,
   "kev_total": 104,
   "kev_catalog_total": 1760,
   "total": 25,
   "items": [
+    {
+      "id": "CVE-2026-93518",
+      "published": "2026-10-28T15:17:10Z",
+      "description": "An integer truncation issue in XkbResizeKeyType() that could lead to a heap buffer overflow by authenticated X clients in X.org X server before 21.1.25 and XWayland before 24.1.14 could be exploited for crashes or potential code execution in the X server.",
+      "severity": "HIGH",
+      "score": 7.8,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93518",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-93519",
+      "published": "2026-10-28T15:17:10Z",
+      "description": "A buffer overflow when handling pointer barriers in the XFIXES extension in X.Org X server before 21.1.25 and XWayland before 24.1.14 could be used by authenticated X clients to crash or potentially execute code in X server context.",
+      "severity": "HIGH",
+      "score": 7.8,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93519",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-93520",
+      "published": "2026-10-28T15:17:10Z",
+      "description": "A heap buffer overflow caused by mismatching size calculations between XkbAllocNames and  ChangeKeycodeRange in X.org X server before 2.1.25 and XWayland before 24.1.14 could be used by authenticated X clients to crash or potentially execute code in X server context.",
+      "severity": "HIGH",
+      "score": 7.8,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93520",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-115402",
+      "published": "2026-10-28T15:17:04Z",
+      "description": "OpenVPN ovpn-dco-win 0.6.5 through 2.8.13 allows unprivileged local users to cause a denial of service (system crash) via a race condition in the TCP connect path.",
+      "severity": "MEDIUM",
+      "score": 5.7,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115402",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-106971",
+      "published": "2026-10-28T15:17:02Z",
+      "description": "An integer overflow in the MessagePack\\BufferUnpacker component of rybakit/msgpack v0.11.0 allows attackers to cause a Denial of Service (DoS) via a crafted input.",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-106971",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-106972",
+      "published": "2026-10-28T15:17:02Z",
+      "description": "An uncontrolled recursion in the MessagePack\\BufferUnpacker::unpack() component of rybakit/msgpack v0.11.0 allows attackers to cause a Denial of Service (DoS) via a crafted input.",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-106972",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-93517",
+      "published": "2026-10-28T14:17:08Z",
+      "description": "A heap buffer overflow in handling GLX\nRenderLarge request where dataBytes exceeds cmdlen in X.org X server before 21.1.25 and XWayland before 24.1.14 that could be be triggered by an authenticated X client could cause crashes or code execution in X server context.",
+      "severity": "HIGH",
+      "score": 8.5,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93517",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-59185",
+      "published": "2026-10-28T14:17:05Z",
+      "description": "identrail is a machine identity security platform for AWS, GitHub/OIDC, and Kubernetes. Prior to 1.0.2, the default-on `POST /v1/workspaces/:workspace_id/projects/:project_id/github/connect/complete` endpoint in `internal/api/router.go` accepts `installation_id` from the request body or `X-GitHub-In",
+      "severity": "HIGH",
+      "score": 8.5,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59185",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-59959",
+      "published": "2026-10-28T14:17:05Z",
+      "description": "SAIL is a cross-platform library for loading and saving images with support for animation, metadata, and ICC profiles. Prior to version 1.0.2, the built-in WebP decoder can crash during loader initialization when processing a malformed animated WebP file with inconsistent container or `ANMF` frame m",
+      "severity": "MEDIUM",
+      "score": 4.8,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59959",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-52729",
+      "published": "2026-10-28T14:17:04Z",
+      "description": "Xibo is an open source digital signage platform with a web content management system and Windows display player software. Prior to 4.4.3, missing access-control checks on `PUT/DELETE /action/{id}` allow an authenticated user to modify or delete actions on any Layout. Exploitation requires the privil",
+      "severity": "HIGH",
+      "score": 7.1,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-52729",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-59164",
+      "published": "2026-10-28T14:17:04Z",
+      "description": "NORA is a self-hosted artifact registry and pull-through cache. Prior to 0.9.5, `nora-registry` authenticates the token-management UI but fails to require administrator authorization. `auth_middleware()` protects `/ui/tokens` and `/api/ui/tokens`, but state-changing requests are checked only with `r",
+      "severity": "HIGH",
+      "score": 7.1,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59164",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-59172",
+      "published": "2026-10-28T14:17:04Z",
+      "description": "Joker is a small Clojure interpreter, linter and formatter written in Go. Prior to 1.8.2, `joker --lint <file>` walks upward from the linted file to locate a `.jokerd/` directory and executes matching `linter.*` files before linting. Those files contain executable Joker/Clojure code, so linting a fi",
+      "severity": "HIGH",
+      "score": 7.8,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59172",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-59176",
+      "published": "2026-10-28T14:17:04Z",
+      "description": "Functype is a family of TypeScript functional programming libraries. Prior to 1.4.4, the `set_functype_version` MCP tool in `functype-mcp-server` accepts an unconstrained `version` string using only `z.string()` validation in `packages/mcp-server/src/index.ts` and interpolates it into `functype@<ver",
+      "severity": "HIGH",
+      "score": 7.8,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59176",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-59177",
+      "published": "2026-10-28T14:17:04Z",
+      "description": "ESPHome Device Builder Dashboard is a dashboard for the ESPHome home management software. Prior to 1.0.10, the `Home Assistant` add-on's trusted `ingress` site binds to `0.0.0.0` while intentionally skipping dashboard authentication because the supervisor is expected to authenticate requests upstrea",
+      "severity": "HIGH",
+      "score": 8.8,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59177",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-59179",
+      "published": "2026-10-28T14:17:04Z",
+      "description": "OpenHop is a tool for creating interactive data-flow diagrams. Prior to 0.3.7, `@openhop/server` passes unauthenticated flow route parameters from `GET /api/flows/:id` and `DELETE /api/flows/:id` in `packages/server/src/routes.ts` to `FlowStore.filePath()` in `packages/server/src/store.ts` without a",
+      "severity": "HIGH",
+      "score": 8.3,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59179",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-50541",
+      "published": "2026-10-28T14:17:03Z",
+      "description": "Xibo is an open source digital signage platform with a web content management system and Windows display player software. Prior to 4.4.3, missing access-control checks on `GET /dataset/export/csv/{id}` allow an authenticated user to export data from any dataset, including datasets created by adminis",
+      "severity": "MEDIUM",
+      "score": 6.5,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-50541",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-115968",
+      "published": "2026-10-28T14:16:58Z",
+      "description": "Deserialization of Untrusted Data vulnerability in Ultimate Member Ultimate Member ultimate-member allows Object Injection.This issue affects Ultimate Member: from n/a through 2.13.1.",
+      "severity": "CRITICAL",
+      "score": 9.8,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115968",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-116078",
+      "published": "2026-10-28T14:16:58Z",
+      "description": "Allocation of Resources Without Limits or Throttling vulnerability in the HTTP/2 request body reader of mtrudel bandit allows an unauthenticated remote attacker to exhaust server memory via a request body sent as many 1-byte DATA frames.\n\ndo_read_data/5 in lib/bandit/http2/stream.ex keeps every DATA",
+      "severity": "HIGH",
+      "score": 8.7,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116078",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-116389",
+      "published": "2026-10-28T14:16:58Z",
+      "description": "Deserialization of Untrusted Data vulnerability in crossi72 Phoenix Media Rename phoenix-media-rename allows Object Injection.This issue affects Phoenix Media Rename: from n/a through 3.13.5.",
+      "severity": "HIGH",
+      "score": 8.8,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116389",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-116390",
+      "published": "2026-10-28T14:16:58Z",
+      "description": "Deserialization of Untrusted Data vulnerability in stepasyuk Filter Everything&nbsp;— WordPress &amp; WooCommerce Filters filter-everything allows Object Injection.This issue affects Filter Everything&nbsp;— WordPress &amp; WooCommerce Filters: from n/a through 1.9.7.",
+      "severity": "HIGH",
+      "score": 7.2,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116390",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-115590",
+      "published": "2026-10-28T14:16:57Z",
+      "description": "Deserialization of Untrusted Data vulnerability in weDevs Dokan dokan-lite allows Object Injection.This issue affects Dokan: from n/a through 5.3.1.",
+      "severity": "HIGH",
+      "score": 7.2,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115590",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-115603",
+      "published": "2026-10-28T14:16:57Z",
+      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Advanced Ads GmbH Advanced Ads – Tracking advanced-ads-tracking allows Blind SQL Injection.This issue affects Advanced Ads – Tracking: from n/a before 4.0.0.",
+      "severity": "HIGH",
+      "score": 8.5,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115603",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-105420",
+      "published": "2026-10-28T14:16:56Z",
+      "description": "Wing FTP Server does not verify user's base folder. An attacker with admin privileges can add user directories via scripts, allowing the added directories to escape the base folder. This allows the attacker to write files on the system and can lead to remote code execution with process owner privile",
+      "severity": "CRITICAL",
+      "score": 9.4,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105420",
+      "kev": false
+    },
     {
       "id": "CVE-2026-93515",
       "published": "2026-10-28T13:17:29Z",
@@ -31,236 +261,6 @@
       "score": 5.5,
       "cvss_version": "31",
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93516",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-55369",
-      "published": "2026-10-28T13:17:08Z",
-      "description": "Waline is a comment system with backend support. Prior to version 1.41.1, the login endpoint POST /api/token reads the email field from the request body without checking its type and passes it straight into the MongoDB storage query. When email is not a string (for example a JSON object such as {\"$n",
-      "severity": "MEDIUM",
-      "score": 6.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-55369",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-67073",
-      "published": "2026-10-28T13:17:08Z",
-      "description": "HCL BigFix AEX is affected by an Unrestricted File Upload and Improper Access Control vulnerability. This could allow an attacker to upload malicious or unauthorized files and directly access or download sensitive uploaded content, potentially leading to information disclosure, unauthorized access, ",
-      "severity": "HIGH",
-      "score": 8.6,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67073",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-67074",
-      "published": "2026-10-28T13:17:08Z",
-      "description": "HCL BigFix AEX is affected by a Remote Code Execution Vulnerability . It may allow attackers to execute code with the privileges of the affected application or service, potentially leading to unauthorized access, data exposure, or system compromise.",
-      "severity": "CRITICAL",
-      "score": 9.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67074",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-67077",
-      "published": "2026-10-28T13:17:08Z",
-      "description": "HCL BigFix AEX is affected by a Server-Side Request Forgery vulnerability, which could allow an attacker to cause the application to send unauthorized requests to external resources. Successful exploitation could lead to access to unintended services, sensitive information disclosure, or unauthorize",
-      "severity": "MEDIUM",
-      "score": 4.2,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67077",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-67079",
-      "published": "2026-10-28T13:17:08Z",
-      "description": "HCL BigFix AEX is affected by a Clickjacking vulnerability, which could allow an attacker to embed the application within a malicious web page or iframe and trick users into performing unintended actions, potentially leading to unauthorized transactions or changes to their accounts.",
-      "severity": "MEDIUM",
-      "score": 6.4,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67079",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-67080",
-      "published": "2026-10-28T13:17:08Z",
-      "description": "HCL BigFix AEX is affected by an Information Disclosure vulnerability due to improper handling of errors or exceptional conditions. This could allow an attacker to obtain sensitive technical information, including stack traces, system details, or internal paths, potentially facilitating further atta",
-      "severity": "MEDIUM",
-      "score": 6.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67080",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-21830",
-      "published": "2026-10-28T13:17:07Z",
-      "description": "HCL BigFix AEX product is affected by a vulnerability in the aws-sdk package.. It may cause AWS API requests to be sent to unintended or non‐AWS endpoints.",
-      "severity": "LOW",
-      "score": 3.7,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-21830",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-116404",
-      "published": "2026-10-28T13:17:06Z",
-      "description": "Missing Authorization vulnerability in David Anderson Redux Framework redux-framework allows Lifting Sensitive Data Embedded in Cache.This issue affects Redux Framework: from n/a through 4.5.16.",
-      "severity": "MEDIUM",
-      "score": 6.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116404",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-118035",
-      "published": "2026-10-28T13:17:06Z",
-      "description": "In Progress® Telerik® Document Processing Libraries prior to version 2026.3.1027, uncontrolled recursion, inefficient algorithmic complexity and infinite loop vulnerabilities in RadWordsProcessing allow an unauthenticated attacker to terminate or hang the host process via a crafted DOCX, DOC, RTF or",
-      "severity": "HIGH",
-      "score": 7.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118035",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-118036",
-      "published": "2026-10-28T13:17:06Z",
-      "description": "In Progress® Telerik® Document Processing Libraries prior to version 2026.3.1027, uncontrolled recursion, infinite loop, inefficient algorithmic complexity and resource allocation vulnerabilities in RadPdfProcessing and AI document summarization and question answering allow an unauthenticated attack",
-      "severity": "HIGH",
-      "score": 7.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118036",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-118037",
-      "published": "2026-10-28T13:17:06Z",
-      "description": "In Progress® Telerik® Document Processing Libraries prior to version 2026.3.1027, uncontrolled recursion, infinite loop, unchecked loop condition and inefficient regular expression vulnerabilities in RadSpreadProcessing and RadSpreadStreamProcessing allow an unauthenticated attacker to terminate or ",
-      "severity": "HIGH",
-      "score": 7.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118037",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-118038",
-      "published": "2026-10-28T13:17:06Z",
-      "description": "In Progress® Telerik® Document Processing Libraries prior to version 2026.3.1027, a path traversal vulnerability in the Convert and Merge AI agent tools allows an authenticated attacker with low privileges who can supply tool arguments to read files outside the configured output directory, and to ov",
-      "severity": "HIGH",
-      "score": 7.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118038",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-118039",
-      "published": "2026-10-28T13:17:06Z",
-      "description": "In Progress® Telerik® Document Processing Libraries prior to version 2026.3.1027, an XML external entity reference vulnerability in SVG image processing allows an unauthenticated attacker to read local files on the server via a crafted SVG image with a nested embedded SVG, when the image is processe",
-      "severity": "HIGH",
-      "score": 7.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118039",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-118040",
-      "published": "2026-10-28T13:17:06Z",
-      "description": "In Progress® Telerik® Document Processing Libraries prior to version 2026.3.1027, improper verification of cryptographic signatures and improper certificate validation in RadPdfProcessing digital signature validation allow an unauthenticated attacker to cause signature validation to report forged co",
-      "severity": "HIGH",
-      "score": 7.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118040",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-115609",
-      "published": "2026-10-28T13:17:05Z",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Stiofan GetPaid invoicing allows Stored XSS.This issue affects GetPaid: from n/a through 2.8.62.",
-      "severity": "HIGH",
-      "score": 7.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115609",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-115612",
-      "published": "2026-10-28T13:17:05Z",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in iova.mihai SliceWP slicewp allows Stored XSS.This issue affects SliceWP: from n/a through 1.2.13.",
-      "severity": "HIGH",
-      "score": 7.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115612",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-115904",
-      "published": "2026-10-28T13:17:05Z",
-      "description": "Topluyo is a social networking platform. A vulnerability exists in Topluyo Desktop for Linux prior to version 2026.9.2410 where user-controlled URLs are unsafely processed, leading to OS Command Injection via the `openExternalLinks()` routine in `utils.js`. An attacker who controls a target URL can ",
-      "severity": "CRITICAL",
-      "score": 9.6,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115904",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-115957",
-      "published": "2026-10-28T13:17:05Z",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in WP Discussion Board WP Discussion Board wp-discussion-board allows Stored XSS.This issue affects WP Discussion Board: from n/a through 2.6.0.",
-      "severity": "MEDIUM",
-      "score": 6.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115957",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-116391",
-      "published": "2026-10-28T13:17:05Z",
-      "description": "Deserialization of Untrusted Data vulnerability in GS Plugins GS Logo Slider gs-logo-slider allows Object Injection.This issue affects GS Logo Slider: from n/a through 3.8.9.",
-      "severity": "HIGH",
-      "score": 8.8,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116391",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-116392",
-      "published": "2026-10-28T13:17:05Z",
-      "description": "Deserialization of Untrusted Data vulnerability in PickPlugins Accordion accordions allows Object Injection.This issue affects Accordion: from n/a through 2.3.25.",
-      "severity": "HIGH",
-      "score": 7.2,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116392",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-116393",
-      "published": "2026-10-28T13:17:05Z",
-      "description": "Missing Authorization vulnerability in iHomefinder, Inc. Optima Express optima-express allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Optima Express: from n/a through 9.0.0.",
-      "severity": "HIGH",
-      "score": 7.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116393",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-111411",
-      "published": "2026-10-28T13:17:04Z",
-      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Aman FunnelKit Automations wp-marketing-automations allows Blind SQL Injection.This issue affects FunnelKit Automations: from n/a through 3.8.5.2.",
-      "severity": "CRITICAL",
-      "score": 9.3,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111411",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-111850",
-      "published": "2026-10-28T13:17:04Z",
-      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in BuddyPress BuddyPress buddypress allows SQL Injection.This issue affects BuddyPress: from n/a through 14.5.2.",
-      "severity": "HIGH",
-      "score": 8.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111850",
       "kev": false
     }
   ]
