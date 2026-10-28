@@ -98,22 +98,29 @@ def is_http_url(value):
     return parsed.scheme in ("http", "https") and bool(parsed.netloc)
 
 
+DEFANGED_SCHEMES = {"https": "hxxps", "http": "hxxp"}
+LIVE_SCHEMES = {defanged: live for live, defanged in DEFANGED_SCHEMES.items()}
+
+
+def swap_scheme(value, schemes):
+    scheme, separator, rest = value.partition("://")
+    replacement = schemes.get(scheme.lower())
+    if not separator or replacement is None:
+        return value
+    return f"{replacement}{separator}{rest}"
+
+
 def defang(url):
     """Neutralise a live URL so the feed can be displayed and copied safely."""
     if not isinstance(url, str):
         return ""
-    value = url.strip()
-    if value.startswith("https://"):
-        return "hxxps://" + value[len("https://"):]
-    if value.startswith("http://"):
-        return "hxxp://" + value[len("http://"):]  # NOSONAR: defanging transform, no request is made
-    return value
+    return swap_scheme(url.strip(), DEFANGED_SCHEMES)
 
 
 def refang(value):
     if not isinstance(value, str):
         return ""
-    return value.replace("hxxps://", "https://", 1).replace("hxxp://", "http://", 1)  # NOSONAR: refanging for display/copy only
+    return swap_scheme(value.strip(), LIVE_SCHEMES)
 
 
 def strip_html(text):
