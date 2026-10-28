@@ -1,4 +1,5 @@
 """Tests for the publishing gate: records, envelopes, status and demo data."""
+import argparse
 import json
 import sys
 import tempfile
@@ -91,6 +92,30 @@ def status_entry(**overrides):
     }
     entry.update(overrides)
     return entry
+
+
+class BaselineRefTests(unittest.TestCase):
+    def test_plain_refs_are_accepted(self):
+        for ref in ["HEAD", "main", "origin/main", "0123456789abcdef", "v1.0.0", "release/v1"]:
+            self.assertTrue(validate_feeds.is_safe_ref(ref), ref)
+
+    def test_options_and_revision_syntax_are_rejected(self):
+        for ref in ["--all", "-n", "HEAD;rm -rf /", "HEAD..main", "HEAD^{tree}", "a b", "", "main/"]:
+            self.assertFalse(validate_feeds.is_safe_ref(ref), repr(ref))
+
+    def test_load_baseline_refuses_unsafe_refs_without_running_git(self):
+        with mock.patch("validate_feeds.subprocess.run") as run:
+            self.assertIsNone(validate_feeds.load_baseline("cves.json", "--upload-pack=evil"))
+        run.assert_not_called()
+
+    def test_load_baseline_refuses_paths_outside_data(self):
+        with mock.patch("validate_feeds.subprocess.run") as run:
+            self.assertIsNone(validate_feeds.load_baseline("../etc/passwd", "HEAD"))
+        run.assert_not_called()
+
+    def test_cli_rejects_an_unsafe_ref(self):
+        with self.assertRaises(argparse.ArgumentTypeError):
+            validate_feeds.git_ref_argument("--all")
 
 
 class RecordTests(unittest.TestCase):

@@ -1,0 +1,53 @@
+name: Bug report
+description: Something on the site, a feed, or the pipeline is wrong
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include secrets, personal data, or live malware samples.
+        For a security vulnerability, use [private reporting](../security/advisories/new) instead of this form.
+  - type: textarea
+    id: summary
+    attributes:
+      label: What is wrong
+      description: One or two sentences. Include the page URL or feed file.
+      placeholder: On /cves.html the severity filter returns no rows for "Critical".
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open ...
+        2. Select ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Browser and OS
+      placeholder: Firefox 141 on macOS 26
+  - type: input
+    id: data_context
+    attributes:
+      label: Data context
+      description: For feed issues, paste the record id and the timestamp shown on the page.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Confirmations
+      options:
+        - label: I checked /status.html and the source was not already reported stale or failing.
+          required: true
+        - label: This is not a security vulnerability.
+          required: true

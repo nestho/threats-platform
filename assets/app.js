@@ -274,7 +274,7 @@ export function initConsoleShell() {
   const chip = document.getElementById('live-chip');
   const chipText = document.getElementById('live-text');
 
-  fetchJson('/data/status.json').then((file) => {
+  const paintHealth = (file) => {
     if (!file) {
       if (label) label.textContent = 'status unavailable';
       if (meta) meta.textContent = 'status.json unreachable';
@@ -293,5 +293,9 @@ export function initConsoleShell() {
     }
     if (chip) chip.className = `live-chip ${overall}`;
     if (chipText) chipText.textContent = text;
-  });
+  };
+
+  // fetchJson resolves to null instead of rejecting, but an explicit second
+  // handler keeps the chain complete if that ever changes.
+  fetchJson('/data/status.json').then(paintHealth, () => paintHealth(null));
 }
