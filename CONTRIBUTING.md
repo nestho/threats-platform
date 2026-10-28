@@ -46,7 +46,9 @@ python3 scripts/validate_feeds.py --against HEAD
 2. Use a conventional commit subject (`feat(cves): ...`, `fix(map): ...`).
 3. Fill in the pull request template, including the test plan you actually ran.
 4. Wait for **Feed data**, **Unit tests**, and **Python tests** to pass. The
-   SonarCloud check must also pass; findings must be fixed rather than muted.
+   SonarCloud check must also pass. Security and reliability findings are fixed
+   rather than muted; the only scoped exclusions are generated data and
+   static-page duplication, both listed in `.sonarcloud.properties`.
 5. Squash merge. History is linear.
 
 ## Adding or changing a data source
