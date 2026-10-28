@@ -36,7 +36,9 @@ export async function uuidv5(name) {
   const encoded = encoder.encode(name);
   payload.set(namespace);
   payload.set(encoded, namespace.length);
-  const digest = new Uint8Array(await crypto.subtle.digest("SHA-1", payload));
+  // RFC 4122 UUIDv5 and STIX 2.1 deterministic ids require SHA-1. This is a
+  // name hash for id stability, never a signature or password hash.
+  const digest = new Uint8Array(await crypto.subtle.digest("SHA-1", payload)); // NOSONAR
   digest[6] = (digest[6] & 0x0f) | 0x50;
   digest[8] = (digest[8] & 0x3f) | 0x80;
   return formatUuid(digest);

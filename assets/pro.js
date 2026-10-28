@@ -320,10 +320,10 @@ export function initPro({ hostname, origin, fetchImpl = fetch } = {}) {
   });
   document.getElementById("forget-device").addEventListener("click", forget);
   document.getElementById("copy-curl").addEventListener("click", () => {
-    copyText(document.getElementById("curl").textContent, "cURL command copied");
+    void copyText(document.getElementById("curl").textContent, "cURL command copied");
   });
 
-  requestJson(fetchImpl, `${api}/api/config`).then((result) => {
+  void requestJson(fetchImpl, `${api}/api/config`).then((result) => {
     const support = result.ok && result.data?.support_email ? result.data.support_email : FALLBACK_SUPPORT;
     for (const link of document.querySelectorAll("[data-support]")) {
       link.textContent = support;
@@ -342,5 +342,5 @@ export function initPro({ hostname, origin, fetchImpl = fetch } = {}) {
   if (rememberEl) rememberEl.checked = stored.remember;
   activateEl.hidden = true;
   loadingEl.hidden = false;
-  verify(stored.key, { remember: stored.remember, auto: true });
+  void verify(stored.key, { remember: stored.remember, auto: true });
 }

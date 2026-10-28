@@ -15,12 +15,34 @@
  */
 
 import { readFileSync } from "node:fs";
+import { randomInt } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { totpCode } from "../src/auth.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
-const base = (process.env.SMOKE_BASE_URL || process.argv[2] || "http://127.0.0.1:8787").replace(/\/+$/, "");
+
+// This script drives a Developer-mode Worker only. Refuse anything that is not
+// a loopback address so a copied command cannot post test orders to a real host.
+const LOOPBACK_HOSTS = new Set(["127.0.0.1", "localhost", "[::1]", "::1"]);
+
+function loopbackBase(raw) {
+  let url;
+  try {
+    url = new URL(raw);
+  } catch {
+    throw new Error(`SMOKE_BASE_URL is not a URL: ${raw}`);
+  }
+  if (url.protocol !== "http:" && url.protocol !== "https:") {
+    throw new Error("SMOKE_BASE_URL must be http or https");
+  }
+  if (!LOOPBACK_HOSTS.has(url.hostname)) {
+    throw new Error(`SMOKE_BASE_URL must be loopback, got ${url.hostname}`);
+  }
+  return `${url.origin}${url.pathname.replace(/\/+$/, "")}`;
+}
+
+const base = loopbackBase(process.env.SMOKE_BASE_URL || process.argv[2] || "http://127.0.0.1:8787");
 
 function loadDevVars() {
   const file = join(here, "..", ".dev.vars");
@@ -60,7 +82,7 @@ if (!password || !totpSecret || /replace/i.test(totpSecret)) {
 
 // Fixed-window limits persist in --local D1. A fresh test IP per run keeps a
 // repeated smoke from tripping the order or login limit on the previous run.
-const testIp = `198.51.100.${1 + Math.floor(Math.random() * 250)}`;
+const testIp = `198.51.100.${randomInt(1, 251)}`;
 
 let subscriptionId = null;
 let revoked = false;
@@ -137,7 +159,7 @@ async function main() {
   });
   check(order.response.status === 201, `order failed with ${order.response.status}: ${order.data?.error?.code}`);
   const code = order.data.order.code;
-  check(/^TH-/.test(code), "order code has the wrong shape");
+  check(code.startsWith("TH-"), "order code has the wrong shape");
   console.log(`ok  order ${code}`);
 
   session = await signIn();
@@ -169,7 +191,9 @@ async function main() {
   check(me.response.status === 200, `pro/me failed with ${me.response.status}`);
   check(me.data.plan === "pro" && me.data.status === "active", "pro/me reports the wrong plan");
   check(me.data.key_prefix.length === 8, "pro/me returned a malformed key prefix");
-  console.log(`ok  licence active, ${me.data.days_left} days left`);
+  const daysLeft = Number(me.data.days_left);
+  check(Number.isInteger(daysLeft) && daysLeft > 0, "pro/me returned a bad days_left");
+  console.log(`ok  licence active, ${daysLeft} days left`);
 
   const stix = await call("/api/stix", { headers: bearer });
   check(stix.response.status === 200, `stix failed with ${stix.response.status}: ${stix.data?.error?.code}`);

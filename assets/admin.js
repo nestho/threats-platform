@@ -275,12 +275,12 @@ export function initAdmin({ hostname, origin, fetchImpl = fetch } = {}) {
     for (const panel of document.querySelectorAll(".admin-panel")) {
       panel.hidden = panel.id !== `panel-${view}`;
     }
-    if (view === "overview") loadOverview();
-    else if (view === "orders") loadOrders();
-    else if (view === "subscriptions") loadSubscriptions();
-    else if (view === "customers") loadCustomers();
-    else if (view === "audit") loadAudit();
-    else if (view === "settings") loadSettings();
+    if (view === "overview") void loadOverview();
+    else if (view === "orders") void loadOrders();
+    else if (view === "subscriptions") void loadSubscriptions();
+    else if (view === "customers") void loadCustomers();
+    else if (view === "audit") void loadAudit();
+    else if (view === "settings") void loadSettings();
   }
 
   function selectView(view) {
@@ -423,7 +423,7 @@ export function initAdmin({ hostname, origin, fetchImpl = fetch } = {}) {
     }
     renderPager($("orders-pager"), { page, pageSize: page_size, total }, (next) => {
       state.orders.page = next;
-      loadOrders();
+      void loadOrders();
     });
   }
 
@@ -539,7 +539,7 @@ export function initAdmin({ hostname, origin, fetchImpl = fetch } = {}) {
     } else {
       showToast(`Subscription extended to ${formatDate(result.data.subscription.expires_at)}`);
     }
-    loadOrders();
+    void loadOrders();
   }
 
   async function confirmReject() {
@@ -568,7 +568,7 @@ export function initAdmin({ hostname, origin, fetchImpl = fetch } = {}) {
     }
     $("order-dialog").close();
     showToast("Order rejected");
-    loadOrders();
+    void loadOrders();
   }
 
   /* Subscriptions */
@@ -630,7 +630,7 @@ export function initAdmin({ hostname, origin, fetchImpl = fetch } = {}) {
 
     renderPager($("subscriptions-pager"), { page, pageSize: page_size, total }, (next) => {
       state.subscriptions.page = next;
-      loadSubscriptions();
+      void loadSubscriptions();
     });
   }
 
@@ -720,7 +720,7 @@ export function initAdmin({ hostname, origin, fetchImpl = fetch } = {}) {
       $("sub-dialog").close();
       showToast(`Extended to ${formatDate(result.data.subscription.expires_at)}`);
     }
-    loadSubscriptions();
+    void loadSubscriptions();
   }
 
   /* Comp grant */
@@ -770,7 +770,7 @@ export function initAdmin({ hostname, origin, fetchImpl = fetch } = {}) {
       email: result.data.customer.email,
       expiresAt: result.data.subscription.expires_at,
     });
-    loadSubscriptions();
+    void loadSubscriptions();
   }
 
   /* Customers */
@@ -813,7 +813,7 @@ export function initAdmin({ hostname, origin, fetchImpl = fetch } = {}) {
 
     renderPager($("customers-pager"), { page, pageSize: page_size, total }, (next) => {
       state.customers.page = next;
-      loadCustomers();
+      void loadCustomers();
     });
   }
 
@@ -848,7 +848,7 @@ export function initAdmin({ hostname, origin, fetchImpl = fetch } = {}) {
 
     renderPager($("audit-pager"), { page, pageSize: page_size, total }, (next) => {
       state.audit.page = next;
-      loadAudit();
+      void loadAudit();
     });
   }
 
@@ -1052,25 +1052,25 @@ export function initAdmin({ hostname, origin, fetchImpl = fetch } = {}) {
 
   $("orders-status").addEventListener("change", (event) => {
     state.orders = { ...state.orders, status: event.target.value, page: 1 };
-    loadOrders();
+    void loadOrders();
   });
   $("orders-search").addEventListener("input", debounce((event) => {
     state.orders = { ...state.orders, q: event.target.value, page: 1 };
-    loadOrders();
+    void loadOrders();
   }));
 
   $("subscriptions-status").addEventListener("change", (event) => {
     state.subscriptions = { ...state.subscriptions, status: event.target.value, page: 1 };
-    loadSubscriptions();
+    void loadSubscriptions();
   });
   $("subscriptions-search").addEventListener("input", debounce((event) => {
     state.subscriptions = { ...state.subscriptions, q: event.target.value, page: 1 };
-    loadSubscriptions();
+    void loadSubscriptions();
   }));
 
   $("customers-search").addEventListener("input", debounce((event) => {
     state.customers = { page: 1, q: event.target.value };
-    loadCustomers();
+    void loadCustomers();
   }));
 
   $("order-approve-open").addEventListener("click", () => setOrderMode("approve"));
@@ -1121,5 +1121,5 @@ export function initAdmin({ hostname, origin, fetchImpl = fetch } = {}) {
     showLogin(result.status === 401 ? "" : errorText(result, "The admin API is unreachable."));
   }
 
-  boot();
+  void boot();
 }

@@ -422,7 +422,7 @@ export function initCheckout({ hostname, origin, fetchImpl = fetch } = {}) {
   });
 
   document.getElementById("conf-copy").addEventListener("click", () => {
-    copyText(document.getElementById("conf-code").textContent, "Order code copied");
+    void copyText(document.getElementById("conf-code").textContent, "Order code copied");
   });
 
   document.getElementById("conf-track").addEventListener("click", () => {
@@ -431,7 +431,7 @@ export function initCheckout({ hostname, origin, fetchImpl = fetch } = {}) {
     document.getElementById("lookup-code").focus({ preventScroll: true });
   });
 
-  requestJson(fetchImpl, api, "/api/config").then((result) => {
+  void requestJson(fetchImpl, api, "/api/config").then((result) => {
     if (!result.ok || !result.data || !Array.isArray(result.data.plan_months)) {
       const support = document.getElementById("api-support");
       support.textContent = state.support;
