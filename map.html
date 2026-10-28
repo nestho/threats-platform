@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07080b">
+<title>Threat geography — Threats</title>
+<meta name="description" content="Ransomware leak-site victim claims by country, plotted from the live claims that carry an ISO country code.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/app.css">
+<style>
+  /* Map-specific styles live here rather than in app.css: this is the only page
+     with a chart surface. */
+  .map-panel {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: linear-gradient(180deg, var(--surface-2) 0%, var(--surface) 100%);
+    padding: 18px;
+    margin-bottom: 20px;
+  }
+
+  .world { width: 100%; height: auto; display: block; }
+
+  /* Land without claims stays a quiet surface so the coloured countries carry
+     the signal instead of competing with the coastline. */
+  .world .country {
+    fill: var(--surface-3);
+    stroke: var(--bg);
+    stroke-width: 0.5;
+    vector-effect: non-scaling-stroke;
+    transition: fill 0.15s;
+  }
+
+  .world .lvl-1 { fill: rgba(249, 115, 22, 0.24); }
+  .world .lvl-2 { fill: rgba(249, 115, 22, 0.46); }
+  .world .lvl-3 { fill: rgba(249, 115, 22, 0.7); }
+  .world .lvl-4 { fill: var(--accent); }
+
+  .world .country[tabindex="0"] { cursor: pointer; }
+  .world .country:hover { stroke: var(--text-secondary); }
+  .world .country:focus-visible { outline: none; stroke: var(--link); stroke-width: 2; }
+  .world .country.selected { stroke: var(--link); stroke-width: 1.6; }
+
+  .map-legend {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 16px;
+  }
+
+  .swatch { width: 18px; height: 9px; border-radius: 2px; display: inline-block; margin-right: 5px; }
+  .swatch.lvl-0 { background: var(--surface-3); }
+  .swatch.lvl-1 { background: rgba(249, 115, 22, 0.24); }
+  .swatch.lvl-2 { background: rgba(249, 115, 22, 0.46); }
+  .swatch.lvl-3 { background: rgba(249, 115, 22, 0.7); }
+  .swatch.lvl-4 { background: var(--accent); }
+
+  .map-link { color: var(--link); font-family: var(--mono); font-size: 11px; text-decoration: none; }
+  .map-link:hover { text-decoration: underline; }
+  td .share { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  td .groups { color: var(--text-muted); }
+</style>
+</head>
+<body class="console">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<aside class="rail" aria-label="Console">
+  <a class="rail-brand" href="/">
+    <span class="rail-mark" aria-hidden="true">T</span>
+    <span>
+      <span class="rail-name">Threats</span>
+      <span class="rail-tag">Ops console</span>
+    </span>
+  </a>
+  <nav class="rail-nav" aria-label="Primary">
+    <span class="rail-label">Intelligence</span>
+    <a href="/"><span>Overview</span><span class="n">01</span></a>
+    <a href="/cves.html"><span>Vulnerabilities</span><span class="n">02</span></a>
+    <a href="/iocs.html"><span>Indicators</span><span class="n">03</span></a>
+    <a href="/ransomware.html"><span>Ransomware</span><span class="n">04</span></a>
+    <a href="/map.html" aria-current="page"><span>Geography</span><span class="n">05</span></a>
+    <a href="/phishing.html"><span>Phishing</span><span class="n">06</span></a>
+    <a href="/threats.html"><span>Cloud threats</span><span class="n">07</span></a>
+    <span class="rail-label">Platform</span>
+    <a href="/programs.html"><span>Programs</span><span class="n">08</span></a>
+    <a href="/status.html"><span>Status</span><span class="n">09</span></a>
+    <a href="/saas.html"><span>Pricing</span><span class="n">10</span></a>
+  </nav>
+  <div class="rail-health">
+    <span class="rail-label">Source health</span>
+    <div class="rail-health-row"><span class="dot" id="rail-dot" aria-hidden="true"></span><span id="rail-health-text">checking…</span></div>
+    <div class="rail-health-meta" id="rail-health-meta">status.json</div>
+  </div>
+  <div class="rail-foot">
+    <a href="https://github.com/nestho/threats-platform" target="_blank" rel="noopener">GitHub ↗</a>
+    <span>v1 · static</span>
+  </div>
+</aside>
+
+<div class="wrap" id="main" role="main">
+
+  <header class="topbar">
+    <div class="crumb"><a href="/">Threats</a><span class="sep">/</span><span class="here">Geography</span></div>
+    <div class="topbar-right">
+      <a class="live-chip" id="live-chip" href="/status.html">
+        <span class="dot" id="live-dot" aria-hidden="true"></span>
+        <span id="live-text">source health</span>
+      </a>
+      <time class="clock" id="shell-clock">--:--Z</time>
+    </div>
+  </header>
+
+  <h1>Threat geography</h1>
+  <p class="sub">Where recent ransomware leak-site claims say their victims are. Each claim carries the country the leak site published; claims without one are counted, never guessed.</p>
+  <p class="note" id="coverage-note">Loading country coverage…</p>
+  <div class="note" id="freshness-note" hidden></div>
+
+  <div class="stat-grid">
+    <div class="stat-card"><div class="num" id="stat-countries">—</div><div class="lbl">countries</div></div>
+    <div class="stat-card"><div class="num" id="stat-claims">—</div><div class="lbl">claims placed</div></div>
+    <div class="stat-card"><div class="num" id="stat-unmapped">—</div><div class="lbl">claims without a country</div></div>
+    <div class="stat-card"><div class="num" id="stat-top">—</div><div class="lbl" id="stat-top-label">busiest country</div></div>
+  </div>
+
+  <div class="controls">
+    <label for="search" class="visually-hidden">Search countries</label>
+    <input id="search" type="search" placeholder="Search a country or ISO code…" autocomplete="off">
+    <label for="group-filter" class="section-label" style="margin:0;">Group</label>
+    <select id="group-filter"><option value="">All groups</option></select>
+  </div>
+
+  <div class="meta-bar">
+    <span id="count-label" role="status" aria-live="polite"></span>
+    <span>
+      <button id="clear-selection" type="button" hidden>Show all countries</button>
+      <span id="updated-label"></span>
+      &nbsp;·&nbsp;
+      <button id="copy-json" type="button">Copy JSON endpoint</button>
+    </span>
+  </div>
+
+  <div class="map-panel">
+    <svg id="world" class="world" role="img" aria-labelledby="world-title world-desc" preserveAspectRatio="xMidYMid meet">
+      <title id="world-title">World map of ransomware victim claims by country</title>
+      <desc id="world-desc">Countries are shaded by how many recent leak-site claims named a victim there.</desc>
+    </svg>
+    <div class="map-legend" aria-hidden="true">
+      <span>Claims vs busiest country</span>
+      <span><i class="swatch lvl-0"></i>none</span>
+      <span><i class="swatch lvl-1"></i>&lt;8%</span>
+      <span><i class="swatch lvl-2"></i>8–20%</span>
+      <span><i class="swatch lvl-3"></i>20–50%</span>
+      <span><i class="swatch lvl-4"></i>≥50%</span>
+    </div>
+    <p class="note" id="map-gaps" hidden></p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <caption class="visually-hidden">Countries by number of ransomware victim claims</caption>
+      <thead>
+        <tr>
+          <th scope="col">Country</th>
+          <th scope="col">Claims</th>
+          <th scope="col">Share</th>
+          <th scope="col">Groups</th>
+          <th scope="col">Latest claim</th>
+        </tr>
+      </thead>
+      <tbody id="countries"></tbody>
+    </table>
+  </div>
+  <p class="note" id="claim-note" hidden></p>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script type="module">
+import { esc, timeAgo, fetchJson, copyEndpointUrl, showStaleNote, initConsoleShell, setResultCount } from '/assets/app.js';
+import { aggregateClaims, levelFor, countryName, groupTotals } from '/assets/geo.js';
+import { WORLD_PATHS, WORLD_VIEWBOX } from '/assets/world-map.js';
+
+initConsoleShell();
+
+const SVG_NS = 'http://www.w3.org/2000/svg';
+let claims = [];
+let selected = null;
+
+const svg = document.getElementById('world');
+svg.setAttribute('viewBox', WORLD_VIEWBOX);
+
+/* Geometry is drawn once; filtering only repaints classes. Re-creating 175
+   paths per keystroke would be the only expensive thing on this page. */
+const shapes = new Map();
+for (const [code, path] of Object.entries(WORLD_PATHS)) {
+  const shape = document.createElementNS(SVG_NS, 'path');
+  shape.setAttribute('d', path);
+  shape.setAttribute('class', 'country');
+  shape.dataset.code = code;
+  svg.append(shape);
+  shapes.set(code, shape);
+}
+
+function claimWord(count) {
+  return count === 1 ? 'claim' : 'claims';
+}
+
+function filteredClaims() {
+  const group = document.getElementById('group-filter').value;
+  return group ? claims.filter((claim) => claim.group === group) : claims;
+}
+
+function mapCountries(aggregate) {
+  const query = document.getElementById('search').value.trim().toLowerCase();
+  return aggregate.countries.filter((country) => {
+    if (!query) return true;
+    return country.code.toLowerCase().includes(query)
+      || countryName(country.code).toLowerCase().includes(query);
+  });
+}
+
+function paintMap(view, aggregate) {
+  const shown = new Set(view.map((country) => country.code));
+  for (const [code, shape] of shapes) {
+    const country = view.find((entry) => entry.code === code);
+    const level = country ? levelFor(country.count, aggregate.max) : 0;
+    const classes = ['country'];
+    if (level) classes.push(`lvl-${level}`);
+    if (code === selected) classes.push('selected');
+    shape.setAttribute('class', classes.join(' '));
+    if (!country) {
+      shape.removeAttribute('tabindex');
+      shape.removeAttribute('role');
+      shape.removeAttribute('aria-label');
+      shape.removeAttribute('aria-pressed');
+      shape.replaceChildren();
+      continue;
+    }
+    // Only coloured countries are reachable by keyboard, so tabbing lands on
+    // places that actually have something to report.
+    const label = `${countryName(code)}, ${country.count} ${claimWord(country.count)}`;
+    shape.setAttribute('tabindex', '0');
+    shape.setAttribute('role', 'button');
+    shape.setAttribute('aria-pressed', String(code === selected));
+    shape.setAttribute('aria-label', label);
+    shape.replaceChildren();
+    const title = document.createElementNS(SVG_NS, 'title');
+    title.textContent = `${countryName(code)} · ${country.count} ${claimWord(country.count)}`;
+    shape.append(title);
+  }
+  document.getElementById('world-desc').textContent = shown.size
+    ? `${shown.size} countries have at least one claim; ${aggregate.mapped} claims are placed.`
+    : 'No claim in the current filter carries a country code.';
+}
+
+function row(country, aggregate) {
+  const share = aggregate.mapped ? (country.count / aggregate.mapped) * 100 : 0;
+  const groups = country.groups
+    .slice(0, 3)
+    .map((group) => `${group.name} (${group.count})`)
+    .join(', ');
+  const extra = country.groups.length > 3 ? ` +${country.groups.length - 3}` : '';
+  return `<tr>
+    <td>${esc(countryName(country.code))} <span class="groups">${esc(country.code)}</span></td>
+    <td class="share">${country.count}</td>
+    <td class="share">${share.toFixed(1)}%</td>
+    <td class="groups">${esc(groups + extra)}</td>
+    <td class="groups">${esc(timeAgo(country.latest))}</td>
+  </tr>`;
+}
+
+function render() {
+  const aggregate = aggregateClaims(filteredClaims());
+  const visible = mapCountries(aggregate);
+  /* Selection narrows the table only. Blanking the rest of the map on click
+     would hide the comparison the page exists to make. */
+  const rows = selected ? visible.filter((country) => country.code === selected) : visible;
+
+  paintMap(visible, aggregate);
+
+  document.getElementById('stat-countries').textContent = aggregate.countries.length.toLocaleString('en-US');
+  document.getElementById('stat-claims').textContent = aggregate.mapped.toLocaleString('en-US');
+  document.getElementById('stat-unmapped').textContent = aggregate.unmapped.toLocaleString('en-US');
+
+  const top = aggregate.countries[0];
+  document.getElementById('stat-top').textContent = top ? countryName(top.code) : '—';
+  document.getElementById('stat-top-label').textContent = top
+    ? `${top.count} ${claimWord(top.count)}`
+    : 'busiest country';
+
+  setResultCount(document.getElementById('count-label'), rows.length, 'country', 'countries');
+  const body = document.getElementById('countries');
+  body.innerHTML = rows.length
+    ? rows.map((country) => row(country, aggregate)).join('')
+    : '<tr><td colspan="5" class="empty">No country in the current filter has a claim.</td></tr>';
+
+  document.getElementById('clear-selection').hidden = !selected;
+
+  /* Natural Earth 1:110m has no polygon for microstates such as Singapore, so a
+     country with claims can be absent from the drawing. Say so instead of
+     letting the map and the table disagree without explanation. */
+  const gaps = visible.filter((country) => !shapes.has(country.code));
+  const gapNote = document.getElementById('map-gaps');
+  if (!gaps.length) {
+    gapNote.hidden = true;
+    gapNote.textContent = '';
+  } else {
+    const names = gaps
+      .map((country) => `${countryName(country.code)} (${country.code})`)
+      .join(', ');
+    const pronoun = gaps.length === 1 ? 'it' : 'them';
+    gapNote.hidden = false;
+    gapNote.textContent = `Not drawn at this outline scale: ${names}. The table still counts ${pronoun}.`;
+  }
+}
+
+function select(code) {
+  selected = selected === code ? null : code;
+  render();
+}
+
+svg.addEventListener('click', (event) => {
+  const node = event.target.closest('.country');
+  if (node?.getAttribute('role') === 'button') select(node.dataset.code);
+});
+
+svg.addEventListener('keydown', (event) => {
+  if (event.key !== 'Enter' && event.key !== ' ') return;
+  const node = event.target.closest?.('.country');
+  if (node?.getAttribute('role') !== 'button') return;
+  event.preventDefault();
+  select(node.dataset.code);
+});
+
+document.getElementById('search').addEventListener('input', render);
+document.getElementById('group-filter').addEventListener('change', () => {
+  selected = null;
+  render();
+});
+document.getElementById('clear-selection').addEventListener('click', () => select(null));
+document.getElementById('copy-json').addEventListener('click', () => {
+  copyEndpointUrl('/data/ransomware.json', 'Copied /data/ransomware.json');
+});
+
+const data = await fetchJson('/data/ransomware.json');
+if (data) {
+  claims = Array.isArray(data.items) ? data.items : [];
+  const aggregate = aggregateClaims(claims);
+
+  document.getElementById('coverage-note').innerHTML = aggregate.total
+    ? `Country coverage: <strong>${aggregate.mapped} of ${aggregate.total}</strong> recent claims carry an ISO country code`
+      + ` (${Math.round((aggregate.mapped / aggregate.total) * 100)}%). Claims without one are counted but not placed.`
+    : 'The ransomware feed is empty, so nothing can be placed.';
+
+  const groups = groupTotals(aggregate.countries);
+  document.getElementById('group-filter').insertAdjacentHTML('beforeend',
+    groups.map((group) => `<option value="${esc(group.name)}">${esc(group.name)} (${group.count})</option>`).join(''));
+
+  if (data.updated_at) {
+    document.getElementById('updated-label').textContent = 'Updated ' + data.updated_at.slice(0, 10) + ' UTC';
+  }
+  if (data.note) {
+    const note = document.getElementById('claim-note');
+    note.hidden = false;
+    note.textContent = data.note;
+  }
+} else {
+  document.getElementById('coverage-note').textContent = 'The ransomware feed is unavailable, so the map cannot be drawn.';
+}
+
+showStaleNote('freshness-note', ['ransomware']);
+render();
+</script>
+</body>
+</html>

@@ -11,7 +11,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { esc, timeAgo, timeKey, recomputeHealth } from "./app.js";
+import { esc, timeAgo, timeKey, recomputeHealth, setResultCount } from "./app.js";
 
 /*
  * These assert on the string esc() returns, not on a parsed DOM.
@@ -272,6 +272,22 @@ test("timeKey: sorts unparseable timestamps last instead of corrupting order", (
  * the same `node --test assets worker` invocation as everything else, so the
  * check is actually executed rather than merely written down.
  */
+test("setResultCount: pluralises regular nouns and takes an irregular plural", () => {
+  const element = { textContent: "" };
+
+  setResultCount(element, 1, "result");
+  assert.equal(element.textContent, "1 result");
+
+  setResultCount(element, 3, "result");
+  assert.equal(element.textContent, "3 results");
+
+  setResultCount(element, 1, "country", "countries");
+  assert.equal(element.textContent, "1 country");
+
+  setResultCount(element, 23, "country", "countries");
+  assert.equal(element.textContent, "23 countries");
+});
+
 test("repo: no source file contains a literal control byte", async () => {
   const { readdir, readFile } = await import("node:fs/promises");
   const { join, extname } = await import("node:path");
