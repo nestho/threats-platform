@@ -52,7 +52,7 @@ Wiz publishes analysis, not alerts (measured: 0 items in 7 days, 3 in 30), so it
 3. If `data/` changed, the workflow commits to an `automation/data-*` branch and opens or updates one pull request. Auto-merge (squash) is enabled, so it lands as soon as the required checks pass.
 4. `validate.yml` runs on every pull request and must report three green checks:
    - **Feed data** — validates the snapshot against the base commit, so the gate answers "did this PR empty or halve a feed" rather than "is a feed empty".
-   - **Unit tests** — `node --test assets worker scheduler` (44 tests).
+   - **Unit tests** — `node --test assets worker scheduler` (51 tests).
    - **Python tests** — `python3 -m unittest discover -s scripts/tests -t scripts` (105 tests).
 5. `main` is protected by the `protect-main` ruleset with **no bypass actors**: pull requests only, linear history, squash merge only, no deletion, no force-push. Pages deploys from `main`.
 

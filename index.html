@@ -93,14 +93,53 @@
   section { margin-bottom: 52px; }
   .section-intro { color: var(--text-secondary); font-size: 13px; margin: -6px 0 16px; max-width: 66ch; line-height: 1.6; }
 
-  .browse-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  /* The command band is the dashboard's anchor: the live claim map beside the
+     source health and country ranking that explain it. */
+  .command-band {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+    gap: 12px;
+    margin-bottom: 52px;
+  }
+
+  .map-panel { padding: 16px 18px 14px; display: flex; flex-direction: column; }
+  .panel-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .panel-head .section-label { margin: 0; }
+  .map-panel .world { margin: 10px 0 0; }
+  .map-foot { font-family: var(--mono); font-size: 10.5px; color: var(--text-muted); margin-top: 12px; line-height: 1.5; }
+
+  .side-stack { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+  .health-panel { padding: 16px 18px; }
+  .health-line { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--text); }
+  .health-meta { font-family: var(--mono); font-size: 10.5px; color: var(--text-muted); margin-top: 7px; line-height: 1.5; }
+  .health-panel .map-link { display: inline-block; margin-top: 10px; }
+
+  .rank-panel { padding: 16px 18px; flex: 1; }
+  .rank-list { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-top: 14px; }
+  .rank-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 58px 32px;
+    align-items: center;
+    gap: 10px;
+    font-size: 12.5px;
+    color: var(--text-secondary);
+  }
+  .rank-row:hover .rank-name { color: var(--text); }
+  .rank-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .rank-name .code { font-family: var(--mono); font-size: 9.5px; color: var(--text-muted); margin-left: 5px; }
+  .rank-bar { height: 5px; border-radius: 3px; background: var(--surface-3); overflow: hidden; }
+  .rank-bar i { display: block; height: 100%; background: var(--accent); border-radius: 3px; }
+  .rank-count { font-family: var(--mono); font-size: 11px; text-align: right; color: var(--text); font-variant-numeric: tabular-nums; }
+  .rank-empty { color: var(--text-muted); font-size: 12.5px; padding: 6px 0; }
+
+  .browse-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
   .browse-card {
     position: relative;
     display: block;
     background: linear-gradient(180deg, var(--surface-2), var(--surface));
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 20px 22px;
+    padding: 14px 16px;
     overflow: hidden;
     transition: border-color 0.15s, transform 0.15s;
   }
@@ -108,19 +147,27 @@
   .browse-card::after {
     content: "→";
     position: absolute;
-    top: 18px;
-    right: 20px;
+    top: 13px;
+    right: 14px;
     font-family: var(--mono);
-    font-size: 12px;
+    font-size: 11px;
     color: var(--text-muted);
     transition: color 0.12s, transform 0.12s;
   }
   .browse-card:hover::after { color: var(--accent); transform: translateX(2px); }
-  .browse-card h2 { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 8px; padding-right: 22px; }
-  .browse-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.55; }
+  .browse-card h2 { font-size: 13px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 5px; padding-right: 18px; }
+  .browse-card p {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
   .browse-card .meta {
-    margin-top: 16px;
-    font-size: 10.5px;
+    margin-top: 10px;
+    font-size: 10px;
     color: var(--text-muted);
     font-family: var(--mono);
     letter-spacing: 0.02em;
@@ -250,15 +297,21 @@
 
   @media (max-width: 980px) {
     .hero { grid-template-columns: 1fr; gap: 28px; }
+    .command-band { grid-template-columns: 1fr; }
+    .side-stack { display: grid; grid-template-columns: 1fr 1fr; }
     .browse-grid { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 720px) {
     .stats { grid-template-columns: 1fr 1fr; }
-    .browse-grid { grid-template-columns: 1fr; }
+    .side-stack { grid-template-columns: 1fr; }
+    .browse-grid { grid-template-columns: 1fr 1fr; }
     .api-row { grid-template-columns: 50px 1fr; gap: 8px 12px; }
     .api-updated, .api-actions { grid-column: 2; }
     .api-actions { justify-content: flex-start; }
     .support { align-items: flex-start; }
+  }
+  @media (max-width: 460px) {
+    .browse-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -350,7 +403,52 @@ initConsoleShell();
     </div>
   </div>
 
-  <div class="status-banner" id="status-banner" role="status" aria-live="polite" hidden></div>
+  <section class="command-band" aria-label="Live threat surface">
+    <div class="panel map-panel">
+      <div class="panel-head">
+        <h2 class="section-label" style="margin:0;">Threat geography</h2>
+        <a class="map-link" href="/map.html">Open full map →</a>
+      </div>
+      <svg id="overview-map" class="world" role="img" aria-labelledby="overview-map-title overview-map-desc" preserveAspectRatio="xMidYMid meet">
+        <title id="overview-map-title">World map of ransomware victim claims by country</title>
+        <desc id="overview-map-desc">Shading shows how many recent leak-site claims named a victim in each country.</desc>
+      </svg>
+      <div class="map-legend" aria-hidden="true">
+        <span>Claims vs busiest country</span>
+        <span><i class="swatch lvl-0"></i>none</span>
+        <span><i class="swatch lvl-1"></i>&lt;8%</span>
+        <span><i class="swatch lvl-2"></i>8–20%</span>
+        <span><i class="swatch lvl-3"></i>20–50%</span>
+        <span><i class="swatch lvl-4"></i>≥50%</span>
+      </div>
+      <p class="map-foot" id="map-foot">Loading claim map…</p>
+    </div>
+    <aside class="side-stack">
+      <div class="panel health-panel" id="health-panel" role="status" aria-live="polite">
+        <div class="health-line"><span class="dot" id="health-dot" aria-hidden="true"></span><span id="health-text">checking sources…</span></div>
+        <div class="health-meta" id="health-meta">status.json</div>
+        <div class="health-meta" id="health-detail" hidden></div>
+        <a class="map-link" href="/status.html">Source status →</a>
+      </div>
+      <div class="panel rank-panel">
+        <div class="panel-head">
+          <h2 class="section-label" style="margin:0;">Top countries</h2>
+          <a class="map-link" href="/map.html">All →</a>
+        </div>
+        <ol class="rank-list" id="rank-list"><li class="rank-empty">Loading ranking…</li></ol>
+      </div>
+    </aside>
+  </section>
+
+  <section>
+    <div class="recent-head">
+      <h2 class="section-label" style="margin:0;">Recent activity</h2>
+      <a href="/cves.html">View all →</a>
+    </div>
+    <div class="recent-list" id="recent-feed" aria-live="polite">
+      <div class="recent-empty">Loading…</div>
+    </div>
+  </section>
 
   <section>
     <h2 class="section-label">Explore</h2>
@@ -414,16 +512,6 @@ initConsoleShell();
     </div>
   </section>
 
-  <section>
-    <div class="recent-head">
-      <h2 class="section-label" style="margin:0;">Recent activity</h2>
-      <a href="/cves.html">View all →</a>
-    </div>
-    <div class="recent-list" id="recent-feed" aria-live="polite">
-      <div class="recent-empty">Loading…</div>
-    </div>
-  </section>
-
   <footer>
     <div class="footer-left">
       <span class="footer-brand">Threats</span>
@@ -445,7 +533,7 @@ initConsoleShell();
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script type="module">
-import { esc, timeAgo, timeKey, copyEndpointUrl, fetchAll } from '/assets/app.js';
+import { esc, timeAgo, timeKey, copyEndpointUrl, fetchAll, recomputeHealth } from '/assets/app.js';
 
 const ENDPOINTS = [
   // Same run as cves_headline.json, which the validator requires to share an
@@ -529,22 +617,33 @@ document.getElementById('wiz-meta').textContent = cache.wiz
   ? `${number(cache.wiz.total)} cloud items · ${number(cache.advisories?.total)} advisories`
   : 'unavailable';
 
-// ---- source health banner ----
+// ---- source health ----
 if (cache.status) {
-  const sources = cache.status.sources || [];
+  const status = recomputeHealth(cache.status);
+  const { sources, overall } = status;
   const affected = sources.filter((source) => source.stale || source.error);
-  const banner = document.getElementById('status-banner');
-  const overall = cache.status.overall || 'degraded';
-  const summary = overall === 'ok'
-    ? `All ${sources.length} sources current — checked ${timeAgo(cache.status.generated_at)}.`
-    : `${affected.length} of ${sources.length} sources need attention: `
-      + affected.slice(0, 3).map((source) => source.label).join(', ')
-      + (affected.length > 3 ? '…' : '') + '.';
-  banner.hidden = false;
-  banner.className = `status-banner ${overall}`;
-  banner.innerHTML = `<span class="dot ${esc(overall)}" aria-hidden="true"></span>`
-    + `<span>${esc(summary)}</span>`
-    + '<a href="/status.html">Source status →</a>';
+  const headings = {
+    ok: `All ${sources.length} sources current`,
+    outage: 'Critical source is stale',
+  };
+  document.getElementById('health-dot').className = `dot ${overall}`;
+  document.getElementById('health-text').textContent =
+    headings[overall] || `${affected.length} of ${sources.length} sources need attention`;
+
+  const checked = cache.status.generated_at
+    ? cache.status.generated_at.slice(11, 16) + 'Z'
+    : 'schedule unknown';
+  document.getElementById('health-meta').textContent = `${sources.length} sources · checked ${checked}`;
+
+  const detail = document.getElementById('health-detail');
+  if (affected.length) {
+    detail.hidden = false;
+    detail.textContent = 'Stale or failing: ' + affected.map((source) => source.label).join(', ') + '.';
+  }
+} else {
+  document.getElementById('health-dot').className = 'dot';
+  document.getElementById('health-text').textContent = 'status unavailable';
+  document.getElementById('health-meta').textContent = 'status.json unreachable';
 }
 
 // ---- API catalog ----
@@ -663,6 +762,49 @@ feed.innerHTML = top.length
       <span class="recent-time">${esc(timeAgo(event.time))}</span>
     </div>`).join('')
   : '<div class="recent-empty">No recent items.</div>';
+
+// ---- live claim map + country ranking ----
+// The outline module is imported after the rest of the page has rendered: it is
+// 119 KB of path data, and nothing above it depends on the map being drawn.
+const mapSvg = document.getElementById('overview-map');
+const mapFoot = document.getElementById('map-foot');
+const rankList = document.getElementById('rank-list');
+
+if (cache.ransomware?.items?.length) {
+  try {
+    const [{ aggregateClaims, countryName }, { createWorldView, countryRanking }] = await Promise.all([
+      import('/assets/geo.js'),
+      import('/assets/world-map-view.js'),
+    ]);
+    const aggregate = aggregateClaims(cache.ransomware.items);
+    createWorldView(mapSvg).paint(aggregate.countries, { max: aggregate.max });
+
+    const placed = new Set(aggregate.countries.map((country) => country.code));
+    mapSvg.addEventListener('click', (event) => {
+      const code = event.target.closest('.country')?.dataset.code;
+      if (code && placed.has(code)) location.href = `/map.html?country=${code}`;
+    });
+
+    mapFoot.textContent =
+      `${number(aggregate.mapped)} of ${number(aggregate.total)} recent claims are placed in `
+      + `${aggregate.countries.length} countries. Click a shaded country for its claims.`;
+
+    const ranked = countryRanking(aggregate);
+    rankList.innerHTML = ranked.length
+      ? ranked.map((country) => `<li><a class="rank-row" href="/map.html?country=${esc(country.code)}">`
+        + `<span class="rank-name">${esc(countryName(country.code))}`
+        + `<span class="code">${esc(country.code)}</span></span>`
+        + `<span class="rank-bar"><i style="width:${country.bar}%"></i></span>`
+        + `<span class="rank-count">${country.count}</span></a></li>`).join('')
+      : '<li class="rank-empty">No claim in the window carries a country code.</li>';
+  } catch {
+    mapFoot.textContent = 'The live claim map could not be loaded. Open the full map for the breakdown.';
+    rankList.innerHTML = '<li class="rank-empty">Country ranking unavailable.</li>';
+  }
+} else {
+  mapFoot.textContent = 'The ransomware feed is unavailable, so the map cannot be drawn.';
+  rankList.innerHTML = '<li class="rank-empty">Country ranking unavailable.</li>';
+}
 
 // ---- search ----
 document.getElementById('search-form').addEventListener('submit', (event) => {
