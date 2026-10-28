@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07080b">
+<title>Subscribe to Pro — Threats</title>
+<meta name="description" content="Buy Threats Pro with USDT on TRON or BTC. Submit the transaction, a human verifies it, and a licence key unlocks the STIX 2.1 export.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/app.css">
+<style>
+  .checkout-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 330px;
+    gap: 28px;
+    align-items: start;
+  }
+  .checkout-main { min-width: 0; }
+
+  .step { padding: 24px 0 6px; border-top: 1px solid var(--border); margin-top: 24px; }
+  .step:first-child { border-top: none; margin-top: 0; padding-top: 0; }
+  .step-head { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+  .step-n {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    border: 1px solid var(--accent-line);
+    border-radius: 6px;
+    padding: 2px 7px;
+  }
+  .step-head h2 { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; }
+  .step-intro { font-size: 13px; color: var(--text-secondary); line-height: 1.6; max-width: 62ch; margin-bottom: 16px; }
+
+  .plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .plan {
+    position: relative;
+    display: block;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    padding: 15px 16px 14px;
+    cursor: pointer;
+    transition: border-color 0.12s, background 0.12s;
+  }
+  .plan:hover { border-color: var(--border-hover); }
+  .plan:focus-within { outline: 2px solid var(--link); outline-offset: 2px; }
+  .plan:has(input:checked) {
+    border-color: var(--accent);
+    background: linear-gradient(180deg, rgba(249, 115, 22, 0.09), var(--surface) 78%);
+  }
+  .plan input, .wallet input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .plan-body { display: flex; flex-direction: column; }
+  .plan-term { font-size: 12.5px; font-weight: 600; color: var(--text); }
+  .plan-price {
+    font-family: var(--mono);
+    font-size: 23px;
+    letter-spacing: -0.03em;
+    margin: 5px 0 2px;
+    font-variant-numeric: tabular-nums;
+  }
+  .plan:has(input:checked) .plan-price { color: var(--accent); }
+  .plan-meta { font-family: var(--mono); font-size: 10px; letter-spacing: 0.05em; color: var(--text-muted); }
+
+  .pay-line { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px; max-width: 66ch; }
+  .pay-line strong { color: var(--text); font-family: var(--mono); font-weight: 500; }
+
+  .wallet-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+  .wallet {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    padding: 15px 16px 12px;
+    transition: border-color 0.12s, background 0.12s;
+  }
+  .wallet:hover { border-color: var(--border-hover); }
+  .wallet:has(input:checked) {
+    border-color: var(--accent);
+    background: linear-gradient(180deg, rgba(249, 115, 22, 0.06), var(--surface) 80%);
+  }
+  .wallet-pick {
+    position: relative;
+    display: grid;
+    grid-template-columns: 16px minmax(0, 1fr);
+    gap: 4px 10px;
+    align-items: start;
+    cursor: pointer;
+  }
+  .wallet-pick:focus-within .wallet-radio { outline: 2px solid var(--link); outline-offset: 2px; }
+  .wallet-radio {
+    grid-row: 1 / span 2;
+    width: 14px;
+    height: 14px;
+    margin-top: 3px;
+    border: 1px solid var(--border-hover);
+    border-radius: 50%;
+  }
+  .wallet:has(input:checked) .wallet-radio {
+    border-color: var(--accent);
+    background: radial-gradient(circle, var(--accent) 0 4px, transparent 4.5px);
+  }
+  .wallet-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .wallet-name { font-size: 13.5px; font-weight: 600; }
+  .wallet-addr { font-size: 11px; color: var(--text-secondary); overflow-wrap: anywhere; line-height: 1.55; }
+  .wallet-actions { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+  .summary {
+    position: sticky;
+    top: 84px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: linear-gradient(180deg, var(--surface-2) 0%, var(--surface) 100%);
+    overflow: hidden;
+  }
+  .summary-head {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .summary-body { padding: 12px 18px 16px; }
+  .summary-row { display: flex; justify-content: space-between; gap: 12px; padding: 6px 0; font-size: 12.5px; }
+  .summary-row dt { color: var(--text-muted); }
+  .summary-row dd { color: var(--text); font-weight: 500; text-align: right; }
+  .summary-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-top: 10px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    color: var(--text-muted);
+  }
+  .summary-total .amt { font-family: var(--mono); font-size: 24px; color: var(--text); letter-spacing: -0.03em; }
+  .summary-foot {
+    padding: 13px 18px;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+    font-size: 11.5px;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  .aside-note { font-size: 11.5px; color: var(--text-muted); line-height: 1.55; padding: 14px 4px 0; }
+
+  .submit-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 18px; }
+  .submit-note { font-size: 11.5px; color: var(--text-muted); line-height: 1.5; max-width: 44ch; }
+  .opt { font-size: 10px; letter-spacing: 0.02em; text-transform: none; color: var(--text-muted); }
+
+  .confirm {
+    border: 1px solid rgba(61, 220, 151, 0.32);
+    border-radius: var(--radius);
+    background: linear-gradient(180deg, rgba(61, 220, 151, 0.06), var(--surface) 70%);
+    padding: 22px 24px;
+    margin-top: 24px;
+  }
+  .confirm h2 { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin: 10px 0 6px; }
+  .confirm p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; max-width: 64ch; }
+  .confirm-code-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: 18px 0 4px; }
+  .confirm-code {
+    font-family: var(--mono);
+    font-size: 21px;
+    letter-spacing: 0.07em;
+    color: var(--text);
+    background: var(--bg-elev);
+    border: 1px dashed var(--border-hover);
+    border-radius: var(--radius-sm);
+    padding: 9px 14px;
+  }
+  .confirm-facts {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px 18px;
+    margin: 18px 0 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .confirm-facts span {
+    display: block;
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .confirm-facts strong { font-size: 12.5px; font-weight: 500; }
+  .confirm-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  .lookup { margin-top: 48px; padding: 22px 24px; }
+  .lookup h2 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+  .lookup-intro { font-size: 12.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 16px; max-width: 62ch; }
+  .lookup-grid { display: grid; grid-template-columns: 1fr 1fr auto; gap: 12px; align-items: end; }
+  .lookup-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+  .lookup-code { font-size: 15px; letter-spacing: 0.05em; }
+  .lookup-facts {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px 18px;
+    padding: 14px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .lookup-facts dt {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .lookup-facts dd { font-size: 12.5px; }
+  .lookup-msg { font-size: 12.5px; color: var(--text-secondary); line-height: 1.6; margin-top: 14px; max-width: 68ch; }
+
+  .faq { border-top: 1px solid var(--border); margin-top: 44px; }
+  .faq h2 { font-size: 15px; font-weight: 600; margin: 22px 0 8px; }
+  .faq details { border-bottom: 1px solid var(--border); padding: 13px 0; }
+  .faq summary {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    list-style: none;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::before { content: "+"; font-family: var(--mono); color: var(--accent); width: 1em; flex-shrink: 0; }
+  .faq details[open] summary::before { content: "-"; }
+  .faq p { font-size: 12.5px; color: var(--text-secondary); line-height: 1.6; margin-top: 8px; max-width: 74ch; }
+  .faq a { color: var(--link); }
+  .faq a:hover { text-decoration: underline; }
+
+  @media (max-width: 1180px) {
+    .checkout-layout { grid-template-columns: minmax(0, 1fr) 300px; gap: 20px; }
+    .wallet-grid { grid-template-columns: 1fr; }
+    .confirm-facts { grid-template-columns: 1fr 1fr; }
+    .lookup-facts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  @media (max-width: 900px) {
+    .checkout-layout { grid-template-columns: 1fr; }
+    .summary { position: static; }
+    .aside-note { padding-top: 0; }
+  }
+  @media (max-width: 720px) {
+    .plan-grid { grid-template-columns: 1fr; }
+    .plan { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .plan-price { margin: 0; font-size: 20px; }
+    .plan-meta { display: none; }
+    .lookup-grid { grid-template-columns: 1fr; }
+    .lookup-facts { grid-template-columns: 1fr 1fr; }
+    .confirm-code { font-size: 17px; }
+  }
+</style>
+</head>
+<body class="console">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<aside class="rail" aria-label="Console">
+  <a class="rail-brand" href="/">
+    <span class="rail-mark" aria-hidden="true">T</span>
+    <span>
+      <span class="rail-name">Threats</span>
+      <span class="rail-tag">Ops console</span>
+    </span>
+  </a>
+  <nav class="rail-nav" aria-label="Primary">
+    <span class="rail-label">Intelligence</span>
+    <a href="/"><span>Overview</span><span class="n">01</span></a>
+    <a href="/cves.html"><span>Vulnerabilities</span><span class="n">02</span></a>
+    <a href="/iocs.html"><span>Indicators</span><span class="n">03</span></a>
+    <a href="/ransomware.html"><span>Ransomware</span><span class="n">04</span></a>
+    <a href="/map.html"><span>Live map</span><span class="n">05</span></a>
+    <a href="/phishing.html"><span>Phishing</span><span class="n">06</span></a>
+    <a href="/threats.html"><span>Cloud threats</span><span class="n">07</span></a>
+    <span class="rail-label">Platform</span>
+    <a href="/programs.html"><span>Programs</span><span class="n">08</span></a>
+    <a href="/status.html"><span>Status</span><span class="n">09</span></a>
+    <a href="/saas.html"><span>Pricing</span><span class="n">10</span></a>
+    <a href="/subscribe.html" aria-current="page"><span>Subscribe</span><span class="n">11</span></a>
+    <a href="/pro.html"><span>Pro console</span><span class="n">12</span></a>
+  </nav>
+  <div class="rail-health">
+    <span class="rail-label">Source health</span>
+    <div class="rail-health-row"><span class="dot" id="rail-dot" aria-hidden="true"></span><span id="rail-health-text">checking…</span></div>
+    <div class="rail-health-meta" id="rail-health-meta">status.json</div>
+  </div>
+  <div class="rail-foot">
+    <a href="https://github.com/nestho/threats-platform" target="_blank" rel="noopener">GitHub ↗</a>
+    <span>v1 · static</span>
+  </div>
+</aside>
+
+<div class="wrap" id="main" role="main">
+
+  <header class="topbar">
+    <div class="crumb"><a href="/">Threats</a><span class="sep">/</span><a href="/saas.html">Pricing</a><span class="sep">/</span><span class="here">Subscribe</span></div>
+    <div class="topbar-right">
+      <a class="live-chip" id="live-chip" href="/status.html">
+        <span class="dot" id="live-dot" aria-hidden="true"></span>
+        <span id="live-text">source health</span>
+      </a>
+      <time class="clock" id="shell-clock">--:--Z</time>
+    </div>
+  </header>
+
+<script type="module">
+import { initConsoleShell } from '/assets/app.js';
+initConsoleShell();
+</script>
+
+  <h1>Pro access, paid in crypto</h1>
+  <p class="sub">One licence key unlocks the STIX 2.1 export. Send USDT or BTC, report the transaction, and a human verifies it before the key is issued. No card, no automatic renewal.</p>
+
+  <noscript>
+    <div class="status-banner degraded">
+      <span class="dot degraded" aria-hidden="true"></span>
+      <span>Checkout needs JavaScript to reach the payment service. Email <a href="mailto:nestho@icloud.com">nestho@icloud.com</a> to order manually.</span>
+    </div>
+  </noscript>
+
+  <div class="checkout-layout">
+    <div class="checkout-main">
+
+      <div class="status-banner outage" id="api-down" hidden>
+        <span class="dot outage" aria-hidden="true"></span>
+        <span>Checkout is temporarily unavailable. Email <a id="api-support" href="mailto:nestho@icloud.com">nestho@icloud.com</a> to order manually.</span>
+      </div>
+
+      <div id="checkout-start">
+
+        <section class="step" aria-labelledby="plan-h">
+          <div class="step-head"><span class="step-n" aria-hidden="true">01</span><h2 id="plan-h">Choose a term</h2></div>
+          <p class="step-intro">The term starts when your payment is approved, not when you submit it. Renewals add to the time you already have.</p>
+          <fieldset class="field">
+            <legend class="visually-hidden">Billing term</legend>
+            <div class="plan-grid" id="plans">
+              <p class="empty">Loading plans…</p>
+            </div>
+          </fieldset>
+        </section>
+
+        <section class="step" aria-labelledby="pay-h">
+          <div class="step-head"><span class="step-n" aria-hidden="true">02</span><h2 id="pay-h">Send the payment</h2></div>
+          <p class="pay-line" id="pay-instruction">Loading payment options…</p>
+          <fieldset class="field">
+            <legend class="visually-hidden">Payment method</legend>
+            <div class="wallet-grid" id="wallets"></div>
+          </fieldset>
+          <p class="note warn" id="network-warning">Use the exact network shown on the wallet. A wrong-network transfer cannot be recovered.</p>
+        </section>
+
+        <section class="step" id="report-step" aria-labelledby="report-h">
+          <div class="step-head"><span class="step-n" aria-hidden="true">03</span><h2 id="report-h">Report the transfer</h2></div>
+          <p class="step-intro">We match name, email, and transaction ID to the payment. Only the transaction ID has to be exact.</p>
+
+          <form id="order-form" novalidate>
+            <div class="form-alert" id="form-alert" role="alert" hidden></div>
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Full name</label>
+                <input id="name" name="name" autocomplete="name" required minlength="2" maxlength="80">
+                <p class="err" id="name-err"></p>
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required maxlength="254">
+                <p class="hint">The licence key is sent here.</p>
+                <p class="err" id="email-err"></p>
+              </div>
+              <div class="field">
+                <label for="phone">Phone <span class="opt">optional</span></label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="32">
+                <p class="err" id="phone-err"></p>
+              </div>
+              <div class="field">
+                <label for="tx_ref">Transaction ID</label>
+                <input id="tx_ref" name="tx_ref" class="mono" required spellcheck="false" autocomplete="off" maxlength="128">
+                <p class="hint">Shown by the explorer once the transfer confirms.</p>
+                <p class="err" id="tx_ref-err"></p>
+              </div>
+              <div class="field span-2">
+                <label for="note">Note <span class="opt">optional</span></label>
+                <input id="note" name="note" maxlength="500" placeholder="Anything we should know when matching the payment">
+                <p class="err" id="note-err"></p>
+              </div>
+              <div class="hp" aria-hidden="true">
+                <label for="company">Company</label>
+                <input id="company" name="company" tabindex="-1" autocomplete="off">
+              </div>
+            </div>
+            <div class="submit-row">
+              <button class="btn btn-primary" type="submit" id="order-submit">Submit for review</button>
+              <p class="submit-note">You get an order code now; the licence arrives by email after verification.</p>
+            </div>
+          </form>
+        </section>
+
+        <section class="step confirm" id="confirmation" hidden aria-live="polite">
+          <span class="badge med">Awaiting verification</span>
+          <h2>Order received</h2>
+          <p>We have your transfer claim. A human checks it against the chain, then the licence key is emailed to you.</p>
+          <div class="confirm-code-row">
+            <code class="confirm-code" id="conf-code">—</code>
+            <button class="btn btn-sm" type="button" id="conf-copy">Copy code</button>
+          </div>
+          <div class="confirm-facts">
+            <div><span>Term</span><strong id="conf-term">—</strong></div>
+            <div><span>Amount</span><strong id="conf-amount">—</strong></div>
+            <div><span>Paid with</span><strong id="conf-method">—</strong></div>
+            <div><span>Submitted</span><strong id="conf-created">—</strong></div>
+          </div>
+          <div class="confirm-actions">
+            <button class="btn" type="button" id="conf-track">Check this order</button>
+            <a class="btn" id="conf-explorer" href="https://tronscan.org" target="_blank" rel="noopener" hidden>View transfer ↗</a>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <aside class="checkout-aside" aria-label="Order summary">
+      <div class="summary">
+        <div class="summary-head">Order summary</div>
+        <div class="summary-body">
+          <div class="summary-row"><span>Plan</span><span id="sum-plan">—</span></div>
+          <div class="summary-row"><span>Paid with</span><span id="sum-method">—</span></div>
+          <div class="summary-row"><span>Verification</span><span>Manual review</span></div>
+          <div class="summary-total"><span>Total</span><span class="amt" id="sum-amount">—</span></div>
+        </div>
+        <p class="summary-foot">One transfer buys the term you pick. Nothing renews automatically and no card details are collected.</p>
+      </div>
+      <p class="aside-note">Typical verification is under one business day. If the transfer needs a second look, reply to the review email.</p>
+    </aside>
+  </div>
+
+  <section class="lookup panel" aria-labelledby="lookup-h">
+    <h2 id="lookup-h">Check an order</h2>
+    <p class="lookup-intro">Use the code from confirmation and the email address on the order.</p>
+    <form id="lookup-form" class="lookup-grid" novalidate>
+      <div class="field">
+        <label for="lookup-code">Order code</label>
+        <input id="lookup-code" name="code" class="mono" placeholder="TH-XXXXX-XXXXX" required maxlength="16" autocomplete="off" spellcheck="false">
+      </div>
+      <div class="field">
+        <label for="lookup-email">Email on the order</label>
+        <input id="lookup-email" name="email" type="email" autocomplete="email" required maxlength="254">
+      </div>
+      <button class="btn" type="submit">Check status</button>
+    </form>
+    <div class="form-alert" id="lookup-alert" role="alert" hidden></div>
+    <div id="lookup-result" hidden></div>
+  </section>
+
+  <div class="faq">
+    <h2>Questions</h2>
+    <details>
+      <summary>Why crypto only?</summary>
+      <p>It keeps card data out of the platform and there is no payment processor to depend on. The trade-off is manual verification: a person checks the transaction before the licence is issued.</p>
+    </details>
+    <details>
+      <summary>What happens after I submit the transaction?</summary>
+      <p>You get an order code immediately. The owner matches the transfer to the amount and network, then emails the licence key to the address on the order. <a href="#lookup-h">Order lookup</a> shows the current state.</p>
+    </details>
+    <details>
+      <summary>What does the licence unlock today?</summary>
+      <p>A STIX 2.1 export of the public vulnerability and indicator feeds, plus the Pro console that shows entitlement status. Watchlists, correlated alerts, and webhooks are on the roadmap and are not charged for.</p>
+    </details>
+    <details>
+      <summary>What if I send the wrong amount or the wrong network?</summary>
+      <p>Wrong-network transfers cannot be recovered by us. An underpayment is visible in the review and can be topped up before approval; reply to the review email with the second transaction ID.</p>
+    </details>
+    <details>
+      <summary>Where is my data kept?</summary>
+      <p>Orders, subscriptions, and licence hashes live in a private Cloudflare D1 database, never in the public repository. The site stores no card data and hashes the IP address attached to an order.</p>
+    </details>
+  </div>
+
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script type="module">
+import { initCheckout } from '/assets/checkout.js';
+initCheckout();
+</script>
+</body>
+</html>
