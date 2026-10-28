@@ -50,7 +50,7 @@ node scripts/admin-credentials.mjs
 ```
 
 The script prints a password (once), a hash in the stored
-`pbkdf2_sha256$210000$…` format, a base32 TOTP secret, and an `otpauth://` URI
+`pbkdf2_sha256$100000$…` format, a base32 TOTP secret, and an `otpauth://` URI
 for an authenticator app. It writes nothing anywhere. Pipe each value into
 Wrangler from `worker/`:
 

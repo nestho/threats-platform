@@ -7,7 +7,10 @@
  * must not interleave with other requests through the event loop.
  */
 
-const PBKDF2_ITERATIONS = 210_000;
+// Workers WebCrypto rejects any count above 100000 ("Pbkdf2 failed"), so this
+// is the platform ceiling, not the OWASP recommendation. The generated admin
+// password carries 144 bits of entropy and sign-in is rate-limited.
+const PBKDF2_ITERATIONS = 100_000;
 const TOTP_STEP_SECONDS = 30;
 const TOTP_DIGITS = 6;
 
