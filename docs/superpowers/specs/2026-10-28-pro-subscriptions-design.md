@@ -55,11 +55,22 @@ admin/index.html ──/api/admin/*──▶ Worker (session cookie + CSRF) ─�
 pro.html ──Bearer license──▶ /api/pro/me, /api/stix ──▶ D1 + /data/*.json
 ```
 
-- Worker name `threats-platform-api`, route `threats.top/api/*`, D1 binding `DB`.
-- Static UI stays on GitHub Pages. The Worker never writes to git.
-- The STIX endpoint fetches `/data/cves.json`, `/data/iocs.json`, and
-  `/data/ransomware.json` from `SITE_ORIGIN` (default `https://threats.top`) with
-  a five-minute edge cache. It never trusts client input.
+- Worker name `threats-platform-api`, custom domain `api.threats.top`, D1
+  binding `DB`.
+- Why not `threats.top/api/*`: that hostname resolves directly to GitHub Pages
+  (DNS-only), so a zone route would never receive requests unless the production
+  record were proxied. A dedicated API hostname is a deliberate entry point and
+  leaves delivery untouched.
+- Static UI stays on GitHub Pages. The Worker never writes to git. Pages call
+  the API cross-origin with `credentials: include`; the Worker allows exactly
+  `https://threats.top` (plus the local dev origin) and sends no wildcard CORS.
+  `threats.top` and `api.threats.top` are same-site, so the
+  `SameSite=Strict` admin cookie is still sent.
+- The STIX endpoint fetches `/data/cves.json` and `/data/iocs.json` from
+  `SITE_ORIGIN` (default `https://threats.top`) with a five-minute edge cache.
+  It never trusts client input. Ransomware victim claims are not indicators and
+  are deliberately excluded from STIX; they remain available on the public
+  site and in `data/ransomware.json`.
 - A daily cron prunes orders that were never paid, login attempts, and expired
   rate-limit windows.
 
@@ -207,8 +218,9 @@ per 15 minutes.
 3. Owner runs `node scripts/admin-credentials.mjs`, which prints the password
    hash and a TOTP enrollment URI, and pipes both into `wrangler secret put`.
    Neither value is shown in chat or committed.
-4. Deploy `threats-platform-api` on `threats.top/api/*`; delete the retired
-   `/admin-api/*` route and its unused secrets.
+4. Deploy `threats-platform-api` as the `api.threats.top` custom domain. The
+   retired `threats-admin` Worker and its `/admin-api/*` route stay parked at
+   410 until its secrets are deleted with the owner's approval.
 5. Verify `/api/health`, create a real test order, approve it with the owner's
    credentials, and confirm the key unlocks STIX.
 6. Document verification, refunds, revocation, rotation, D1 backups, and
