@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07080b">
+<title>Pro console — Threats</title>
+<meta name="description" content="Activate a Threats Pro licence key, check its term, and download the STIX 2.1 bundle. Keys are checked server-side on every request.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/app.css">
+<style>
+  .pro-layout { max-width: 860px; }
+  .pro-layout .sub { max-width: 64ch; }
+
+  .pro-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: linear-gradient(180deg, var(--surface-2) 0%, var(--surface) 100%);
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .pro-card-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+  .pro-card-head h2 { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; }
+  .pro-card-intro { font-size: 13px; color: var(--text-secondary); line-height: 1.6; max-width: 64ch; margin-bottom: 18px; }
+
+  .loading-row { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-secondary); padding: 6px 0; }
+  .loading-row .dot { background: var(--accent); animation: pulse 1.4s ease-in-out infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { .loading-row .dot { animation: none; opacity: 0.7; } }
+
+  .key-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: end; }
+  .key-row .field { max-width: 520px; }
+  #key-input { font-size: 13px; letter-spacing: 0.02em; }
+
+  .check {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 16px 0 2px;
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    cursor: pointer;
+    max-width: 62ch;
+  }
+  .check input {
+    width: 15px;
+    height: 15px;
+    min-width: 0;
+    margin: 2px 0 0;
+    padding: 0;
+    accent-color: var(--accent);
+    flex: none;
+  }
+  .check strong { color: var(--text); font-weight: 500; }
+
+  .activate-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 18px; }
+  .activate-note { font-size: 11.5px; color: var(--text-muted); line-height: 1.5; max-width: 46ch; }
+
+  .next-links { font-size: 12.5px; color: var(--text-secondary); line-height: 1.6; margin-top: 14px; }
+  .next-links a { color: var(--link); }
+  .next-links a:hover { text-decoration: underline; }
+
+  .status-head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+  .status-head h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.025em; }
+  .status-head h2:focus { outline: none; }
+  .status-sub { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; max-width: 72ch; }
+
+  .pro-stats { margin-bottom: 20px; }
+  .pro-stats .stat-card { padding: 14px 16px; }
+  .pro-stats .num { font-size: 18px; line-height: 1.3; letter-spacing: -0.02em; }
+  .pro-stats .lbl { margin-top: 6px; }
+
+  .key-line {
+    display: flex;
+    align-items: center;
+    gap: 10px 14px;
+    flex-wrap: wrap;
+    padding: 13px 0 16px;
+    border-top: 1px solid var(--border);
+  }
+  .key-line > span:first-child {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .key-masked {
+    font-family: var(--mono);
+    font-size: 13.5px;
+    letter-spacing: 0.02em;
+    color: var(--text);
+    background: var(--bg-elev);
+    border: 1px dashed var(--border-hover);
+    border-radius: var(--radius-sm);
+    padding: 5px 10px;
+  }
+  .key-note { font-size: 11.5px; color: var(--text-muted); max-width: 48ch; }
+
+  .status-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .status-actions .btn { font-family: inherit; font-size: 13px; }
+  .status-actions .spacer { flex: 1; }
+
+  .integration { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--border); }
+  .integration h3 { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+  .integration p { font-size: 12px; color: var(--text-muted); line-height: 1.55; margin-bottom: 10px; max-width: 66ch; }
+  .code-block {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--bg-elev);
+    overflow: hidden;
+  }
+  .code-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 7px 12px;
+    border-bottom: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .code-block pre {
+    margin: 0;
+    padding: 12px 14px;
+    font-family: var(--mono);
+    font-size: 12px;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  .faq { border-top: 1px solid var(--border); margin-top: 40px; }
+  .faq h2 { font-size: 15px; font-weight: 600; margin: 22px 0 8px; }
+  .faq details { border-bottom: 1px solid var(--border); padding: 13px 0; }
+  .faq summary {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    list-style: none;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::before { content: "+"; font-family: var(--mono); color: var(--accent); width: 1em; flex-shrink: 0; }
+  .faq details[open] summary::before { content: "-"; }
+  .faq p { font-size: 12.5px; color: var(--text-secondary); line-height: 1.6; margin-top: 8px; max-width: 74ch; }
+  .faq a { color: var(--link); }
+  .faq a:hover { text-decoration: underline; }
+
+  @media (max-width: 720px) {
+    .pro-card { padding: 18px; }
+    .key-row { grid-template-columns: 1fr; align-items: stretch; }
+    .key-row .btn { width: 100%; }
+    .status-actions .btn { width: 100%; }
+    .status-actions .spacer { display: none; }
+    .pro-stats .num { font-size: 16px; }
+  }
+</style>
+</head>
+<body class="console">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<aside class="rail" aria-label="Console">
+  <a class="rail-brand" href="/">
+    <span class="rail-mark" aria-hidden="true">T</span>
+    <span>
+      <span class="rail-name">Threats</span>
+      <span class="rail-tag">Ops console</span>
+    </span>
+  </a>
+  <nav class="rail-nav" aria-label="Primary">
+    <span class="rail-label">Intelligence</span>
+    <a href="/"><span>Overview</span><span class="n">01</span></a>
+    <a href="/cves.html"><span>Vulnerabilities</span><span class="n">02</span></a>
+    <a href="/iocs.html"><span>Indicators</span><span class="n">03</span></a>
+    <a href="/ransomware.html"><span>Ransomware</span><span class="n">04</span></a>
+    <a href="/map.html"><span>Live map</span><span class="n">05</span></a>
+    <a href="/phishing.html"><span>Phishing</span><span class="n">06</span></a>
+    <a href="/threats.html"><span>Cloud threats</span><span class="n">07</span></a>
+    <span class="rail-label">Platform</span>
+    <a href="/programs.html"><span>Programs</span><span class="n">08</span></a>
+    <a href="/status.html"><span>Status</span><span class="n">09</span></a>
+    <a href="/saas.html"><span>Pricing</span><span class="n">10</span></a>
+    <a href="/subscribe.html"><span>Subscribe</span><span class="n">11</span></a>
+    <a href="/pro.html" aria-current="page"><span>Pro console</span><span class="n">12</span></a>
+  </nav>
+  <div class="rail-health">
+    <span class="rail-label">Source health</span>
+    <div class="rail-health-row"><span class="dot" id="rail-dot" aria-hidden="true"></span><span id="rail-health-text">checking…</span></div>
+    <div class="rail-health-meta" id="rail-health-meta">status.json</div>
+  </div>
+  <div class="rail-foot">
+    <a href="https://github.com/nestho/threats-platform" target="_blank" rel="noopener">GitHub ↗</a>
+    <span>v1 · static</span>
+  </div>
+</aside>
+
+<div class="wrap" id="main" role="main">
+
+  <header class="topbar">
+    <div class="crumb"><a href="/">Threats</a><span class="sep">/</span><a href="/saas.html">Pricing</a><span class="sep">/</span><span class="here">Pro console</span></div>
+    <div class="topbar-right">
+      <a class="live-chip" id="live-chip" href="/status.html">
+        <span class="dot" id="live-dot" aria-hidden="true"></span>
+        <span id="live-text">source health</span>
+      </a>
+      <time class="clock" id="shell-clock">--:--Z</time>
+    </div>
+  </header>
+
+<script type="module">
+import { initConsoleShell } from '/assets/app.js';
+initConsoleShell();
+</script>
+
+  <div class="pro-layout">
+
+    <h1>Your Pro licence, on this device</h1>
+    <p class="sub">Activate the key from your review email to download the STIX 2.1 bundle. The licence service checks the key on every request, so a revoked or lapsed term stops working immediately — here and in any script that uses it.</p>
+
+    <noscript>
+      <div class="status-banner degraded">
+        <span class="dot degraded" aria-hidden="true"></span>
+        <span>The console needs JavaScript to reach the licence service. Email <a href="mailto:nestho@icloud.com">nestho@icloud.com</a> for your bundle.</span>
+      </div>
+    </noscript>
+
+    <section class="pro-card" id="pro-loading" aria-live="polite" hidden>
+      <div class="loading-row"><span class="dot" aria-hidden="true"></span><span>Checking the licence saved on this device…</span></div>
+    </section>
+
+    <section class="pro-card" id="pro-activate" aria-labelledby="activate-h">
+      <div class="pro-card-head">
+        <h2 id="activate-h">Activate your licence</h2>
+        <span class="badge">One key per subscription</span>
+      </div>
+      <p class="pro-card-intro">Paste the key exactly as it arrived. The first eight characters identify it in our records; the rest never leaves this browser except as an authentication token.</p>
+
+      <form id="activate-form" novalidate>
+        <div class="key-row">
+          <div class="field">
+            <label for="key-input">Licence key</label>
+            <input id="key-input" name="key" class="mono" placeholder="THREATS-PRO-XXXXXXXXXXXX…" required spellcheck="false" autocomplete="off" autocapitalize="characters" aria-describedby="key-hint key-err">
+            <p class="hint" id="key-hint">Starts with THREATS-PRO-, 32 characters in total. Spaces and lowercase are accepted.</p>
+            <p class="err" id="key-err"></p>
+          </div>
+        </div>
+
+        <label class="check" for="remember-key">
+          <input id="remember-key" name="remember" type="checkbox">
+          <span><strong>Remember on this device</strong><br>Stores the key in this browser so the console opens without pasting it again. Leave it off on a shared machine; the key then clears when the tab closes.</span>
+        </label>
+
+        <div class="form-alert" id="activate-alert" role="alert" hidden></div>
+        <p class="next-links" id="pro-next" hidden>
+          <a href="/subscribe.html">Start a new subscription →</a>
+          <span class="sep" aria-hidden="true">·</span>
+          Need help? <a href="mailto:nestho@icloud.com" data-support>nestho@icloud.com</a>
+        </p>
+
+        <div class="activate-actions">
+          <button class="btn btn-primary" type="submit" id="activate-submit">Activate key</button>
+          <p class="activate-note">The key is sent only to api.threats.top. This page stores nothing until it is confirmed active.</p>
+        </div>
+      </form>
+    </section>
+
+    <section class="pro-card" id="pro-active" aria-labelledby="pro-status-head" hidden>
+      <div class="status-head">
+        <span class="badge ok">Active</span>
+        <h2 id="pro-status-head" tabindex="-1">Pro is unlocked</h2>
+      </div>
+      <p class="status-sub">Exports run against this licence until it expires. You can use the same key on another machine; only the remembered copies differ.</p>
+
+      <div class="stat-grid pro-stats">
+        <div class="stat-card"><div class="num" id="pro-plan">—</div><div class="lbl">Plan</div></div>
+        <div class="stat-card"><div class="num" id="pro-expiry">—</div><div class="lbl">Expires</div></div>
+        <div class="stat-card"><div class="num" id="pro-days">—</div><div class="lbl">Remaining</div></div>
+        <div class="stat-card"><div class="num" id="pro-limit">—</div><div class="lbl">Exports / minute</div></div>
+      </div>
+
+      <div class="key-line">
+        <span>Licence key</span>
+        <code class="key-masked" id="pro-key-masked">—</code>
+        <span class="key-note">Only the eight-character prefix is shown, the same part recorded by the admin.</span>
+      </div>
+
+      <div class="status-actions">
+        <button class="btn btn-primary" type="button" id="stix-download">Download STIX bundle</button>
+        <button class="btn" type="button" id="pro-recheck">Check again</button>
+        <span class="spacer"></span>
+        <button class="btn btn-danger" type="button" id="forget-device">Forget this device</button>
+      </div>
+      <div class="form-alert" id="stix-alert" role="alert" hidden></div>
+
+      <div class="integration">
+        <h3>Get the bundle from a script</h3>
+        <p>Send the key as a Bearer token. The response is a STIX 2.1 bundle named by the <code>content-disposition</code> header, and the limit above applies per licence, per minute.</p>
+        <div class="code-block">
+          <div class="code-head"><span>shell</span><button class="btn btn-sm" type="button" id="copy-curl">Copy</button></div>
+          <pre><code id="curl">—</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <div class="faq">
+      <h2>Questions</h2>
+      <details>
+        <summary>What does the licence unlock today?</summary>
+        <p>A STIX 2.1 export of the public vulnerability and indicator feeds, built when you request it. Watchlists, correlated alerts, and signed webhooks are on the roadmap and are not charged for.</p>
+      </details>
+      <details>
+        <summary>Where is my key, and can I get it again?</summary>
+        <p>The key is emailed to the address on the order after a human verifies the transfer, and only a hash is stored. If you lost it, ask for a rotation from the review email; the old key stops working and a new one is issued.</p>
+      </details>
+      <details>
+        <summary>Can I activate the same key on two machines?</summary>
+        <p>Yes. The key is not device-bound. “Remember on this device” only decides whether this browser keeps a copy. Revoking the subscription stops every copy at its next request.</p>
+      </details>
+      <details>
+        <summary>What happens when the term ends?</summary>
+        <p>Exports return an expiry message until the subscription is renewed. Renew with a new order, then activate the new key; the term starts when the payment is approved, not when the old one ends early.</p>
+      </details>
+      <details>
+        <summary>What is stored on my device, and what reaches the server?</summary>
+        <p>The key goes only to api.threats.top, and only when you activate, re-check, or download. This page keeps it in memory, plus localStorage or sessionStorage if you asked to remember it. “Forget this device” clears both, and no analytics service sees the key.</p>
+      </details>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script type="module">
+import { initPro } from '/assets/pro.js';
+initPro();
+</script>
+</body>
+</html>
