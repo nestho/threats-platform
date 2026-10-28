@@ -56,12 +56,27 @@ def cmd_sync(args):
 
 
 class StaticHandler(http.server.SimpleHTTPRequestHandler):
+    # HTTP/1.1 keeps the browser's six pooled connections open across the ten
+    # feed fetches; HTTP/1.0 opens one connection per file.
+    protocol_version = "HTTP/1.1"
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(ROOT), **kwargs)
 
 
+class StaticServer(socketserver.ThreadingTCPServer):
+    daemon_threads = True
+    # The stdlib default is 5, and the overview opens ten connections at once.
+    request_queue_size = 64
+
+
+def make_server(port):
+    return StaticServer(("127.0.0.1", port), StaticHandler)
+
+
 def cmd_serve(args):
-    with socketserver.TCPServer(("127.0.0.1", args.port), StaticHandler) as httpd:
+    httpd = make_server(args.port)
+    with httpd:
         print(f"Serving threats.top locally at http://localhost:{args.port}")
         print("Press Ctrl+C to stop.")
         try:

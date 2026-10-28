@@ -10,60 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/app.css">
 <style>
-  /* Map-specific styles live here rather than in app.css: this is the only page
-     with a chart surface. */
-  .map-panel {
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    background: linear-gradient(180deg, var(--surface-2) 0%, var(--surface) 100%);
-    padding: 18px;
-    margin-bottom: 20px;
-  }
-
-  .world { width: 100%; height: auto; display: block; }
-
-  /* Land without claims stays a quiet surface so the coloured countries carry
-     the signal instead of competing with the coastline. */
-  .world .country {
-    fill: var(--surface-3);
-    stroke: var(--bg);
-    stroke-width: 0.5;
-    vector-effect: non-scaling-stroke;
-    transition: fill 0.15s;
-  }
-
-  .world .lvl-1 { fill: rgba(249, 115, 22, 0.24); }
-  .world .lvl-2 { fill: rgba(249, 115, 22, 0.46); }
-  .world .lvl-3 { fill: rgba(249, 115, 22, 0.7); }
-  .world .lvl-4 { fill: var(--accent); }
-
-  .world .country[tabindex="0"] { cursor: pointer; }
-  .world .country:hover { stroke: var(--text-secondary); }
-  .world .country:focus-visible { outline: none; stroke: var(--link); stroke-width: 2; }
-  .world .country.selected { stroke: var(--link); stroke-width: 1.6; }
-
-  .map-legend {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    flex-wrap: wrap;
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-top: 16px;
-  }
-
-  .swatch { width: 18px; height: 9px; border-radius: 2px; display: inline-block; margin-right: 5px; }
-  .swatch.lvl-0 { background: var(--surface-3); }
-  .swatch.lvl-1 { background: rgba(249, 115, 22, 0.24); }
-  .swatch.lvl-2 { background: rgba(249, 115, 22, 0.46); }
-  .swatch.lvl-3 { background: rgba(249, 115, 22, 0.7); }
-  .swatch.lvl-4 { background: var(--accent); }
-
-  .map-link { color: var(--link); font-family: var(--mono); font-size: 11px; text-decoration: none; }
-  .map-link:hover { text-decoration: underline; }
+  /* The world surface, shading steps and legend are shared with the overview
+     and live in app.css; only the geography page's layout is local. */
+  .map-panel { padding: 18px; margin-bottom: 20px; }
   td .share { font-family: var(--mono); font-variant-numeric: tabular-nums; }
   td .groups { color: var(--text-muted); }
 </style>
@@ -146,7 +95,7 @@
     </span>
   </div>
 
-  <div class="map-panel">
+  <div class="panel map-panel">
     <svg id="world" class="world" role="img" aria-labelledby="world-title world-desc" preserveAspectRatio="xMidYMid meet">
       <title id="world-title">World map of ransomware victim claims by country</title>
       <desc id="world-desc">Countries are shaded by how many recent leak-site claims named a victim there.</desc>
@@ -184,33 +133,17 @@
 
 <script type="module">
 import { esc, timeAgo, fetchJson, copyEndpointUrl, showStaleNote, initConsoleShell, setResultCount } from '/assets/app.js';
-import { aggregateClaims, levelFor, countryName, groupTotals } from '/assets/geo.js';
-import { WORLD_PATHS, WORLD_VIEWBOX } from '/assets/world-map.js';
+import { aggregateClaims, countryName, groupTotals } from '/assets/geo.js';
+import { createWorldView, countryFromQuery, claimWord } from '/assets/world-map-view.js';
 
 initConsoleShell();
 
-const SVG_NS = 'http://www.w3.org/2000/svg';
 let claims = [];
-let selected = null;
+let selected = countryFromQuery(location.search);
 
 const svg = document.getElementById('world');
-svg.setAttribute('viewBox', WORLD_VIEWBOX);
-
-/* Geometry is drawn once; filtering only repaints classes. Re-creating 175
-   paths per keystroke would be the only expensive thing on this page. */
-const shapes = new Map();
-for (const [code, path] of Object.entries(WORLD_PATHS)) {
-  const shape = document.createElementNS(SVG_NS, 'path');
-  shape.setAttribute('d', path);
-  shape.setAttribute('class', 'country');
-  shape.dataset.code = code;
-  svg.append(shape);
-  shapes.set(code, shape);
-}
-
-function claimWord(count) {
-  return count === 1 ? 'claim' : 'claims';
-}
+const world = createWorldView(svg, { focusable: true });
+const shapes = world.shapes;
 
 function filteredClaims() {
   const group = document.getElementById('group-filter').value;
@@ -227,36 +160,9 @@ function mapCountries(aggregate) {
 }
 
 function paintMap(view, aggregate) {
-  const shown = new Set(view.map((country) => country.code));
-  for (const [code, shape] of shapes) {
-    const country = view.find((entry) => entry.code === code);
-    const level = country ? levelFor(country.count, aggregate.max) : 0;
-    const classes = ['country'];
-    if (level) classes.push(`lvl-${level}`);
-    if (code === selected) classes.push('selected');
-    shape.setAttribute('class', classes.join(' '));
-    if (!country) {
-      shape.removeAttribute('tabindex');
-      shape.removeAttribute('role');
-      shape.removeAttribute('aria-label');
-      shape.removeAttribute('aria-pressed');
-      shape.replaceChildren();
-      continue;
-    }
-    // Only coloured countries are reachable by keyboard, so tabbing lands on
-    // places that actually have something to report.
-    const label = `${countryName(code)}, ${country.count} ${claimWord(country.count)}`;
-    shape.setAttribute('tabindex', '0');
-    shape.setAttribute('role', 'button');
-    shape.setAttribute('aria-pressed', String(code === selected));
-    shape.setAttribute('aria-label', label);
-    shape.replaceChildren();
-    const title = document.createElementNS(SVG_NS, 'title');
-    title.textContent = `${countryName(code)} · ${country.count} ${claimWord(country.count)}`;
-    shape.append(title);
-  }
-  document.getElementById('world-desc').textContent = shown.size
-    ? `${shown.size} countries have at least one claim; ${aggregate.mapped} claims are placed.`
+  const { shown } = world.paint(view, { max: aggregate.max, selected });
+  document.getElementById('world-desc').textContent = shown
+    ? `${shown} countries have at least one claim; ${aggregate.mapped} claims are placed.`
     : 'No claim in the current filter carries a country code.';
 }
 
@@ -354,6 +260,12 @@ if (data) {
   claims = Array.isArray(data.items) ? data.items : [];
   const aggregate = aggregateClaims(claims);
 
+  // A deep link may name a country the current feed window knows nothing
+  // about; drop it rather than showing a selection with no matching row.
+  if (selected && !aggregate.countries.some((country) => country.code === selected)) {
+    selected = null;
+  }
+
   document.getElementById('coverage-note').innerHTML = aggregate.total
     ? `Country coverage: <strong>${aggregate.mapped} of ${aggregate.total}</strong> recent claims carry an ISO country code`
       + ` (${Math.round((aggregate.mapped / aggregate.total) * 100)}%). Claims without one are counted but not placed.`
@@ -372,6 +284,7 @@ if (data) {
     note.textContent = data.note;
   }
 } else {
+  selected = null;
   document.getElementById('coverage-note').textContent = 'The ransomware feed is unavailable, so the map cannot be drawn.';
 }
 
