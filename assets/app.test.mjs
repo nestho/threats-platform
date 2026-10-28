@@ -11,7 +11,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { esc, timeAgo, timeKey } from "./app.js";
+import { esc, timeAgo, timeKey, recomputeHealth } from "./app.js";
 
 /*
  * These assert on the string esc() returns, not on a parsed DOM.
@@ -148,6 +148,97 @@ test("timeAgo: returns an em dash for absent or unparseable input", () => {
   assert.equal(timeAgo(""), "—");
   assert.equal(timeAgo("Tue, 22 Sep 2026 18:52:36 CEST"), "—");
   assert.equal(timeAgo("not a date"), "—");
+});
+
+/*
+ * recomputeHealth exists because status.json is a snapshot: its `stale` flags
+ * are frozen at generation time. The bug it prevents is the site showing
+ * "all sources current" against five-hour-old timestamps after GitHub's
+ * scheduler silently skipped several hourly slots.
+ */
+const NOW = new Date("2026-10-28T06:00:00Z").getTime();
+const source = (overrides) => ({
+  id: "cve",
+  label: "CVE",
+  cadence_minutes: 60,
+  last_success: "2026-10-28T05:30:00Z",
+  stale: false,
+  critical: false,
+  items: 10,
+  ...overrides,
+});
+
+test("recomputeHealth: keeps a fresh source current", () => {
+  const health = recomputeHealth({ sources: [source({})] }, NOW);
+  assert.equal(health.sources[0].stale, false);
+  assert.equal(health.sources[0].age_minutes, 30, "age is derived from last_success");
+  assert.equal(health.overall, "ok");
+});
+
+test("recomputeHealth: ignores a stale flag that has outlived the snapshot", () => {
+  // The published file says stale=false, but the timestamp is five hours old.
+  const health = recomputeHealth(
+    { overall: "ok", sources: [source({ last_success: "2026-10-28T01:00:00Z" })] },
+    NOW,
+  );
+  assert.equal(health.sources[0].stale, true);
+  assert.equal(health.overall, "degraded");
+});
+
+test("recomputeHealth: keeps a source stale when the file says so", () => {
+  const health = recomputeHealth({ sources: [source({ stale: true })] }, NOW);
+  assert.equal(health.sources[0].stale, true, "a published stale flag is never cleared client-side");
+  assert.equal(health.overall, "degraded");
+});
+
+test("recomputeHealth: treats a missing or unparseable last_success as stale", () => {
+  for (const last_success of [null, undefined, "", "not a date"]) {
+    const health = recomputeHealth({ sources: [source({ last_success })] }, NOW);
+    assert.equal(health.sources[0].stale, true, `failed for ${JSON.stringify(last_success)}`);
+    assert.equal(health.sources[0].age_minutes, null);
+  }
+});
+
+test("recomputeHealth: a stale critical source is an outage", () => {
+  const health = recomputeHealth(
+    { sources: [source({ critical: true, last_success: "2026-10-28T00:00:00Z" })] },
+    NOW,
+  );
+  assert.equal(health.overall, "outage");
+});
+
+test("recomputeHealth: an error alone degrades, but does not reach outage", () => {
+  const health = recomputeHealth({ sources: [source({ error: "HTTP 503" })] }, NOW);
+  assert.equal(health.overall, "degraded");
+  assert.equal(health.sources[0].stale, false);
+});
+
+test("recomputeHealth: a future timestamp from clock skew is not stale", () => {
+  const health = recomputeHealth({ sources: [source({ last_success: "2026-10-28T07:00:00Z" })] }, NOW);
+  assert.equal(health.sources[0].stale, false);
+  assert.equal(health.sources[0].age_minutes, 0, "negative age must clamp to zero");
+});
+
+test("recomputeHealth: missing cadence falls back to a day, matching status.py", () => {
+  // Fallback cadence is 1440 minutes, so staleness starts past 48 hours.
+  const inside = recomputeHealth(
+    { sources: [source({ cadence_minutes: undefined, last_success: "2026-10-27T07:00:00Z" })] },
+    NOW,
+  );
+  assert.equal(inside.sources[0].stale, false, "23h is inside the 48h fallback window");
+  const outside = recomputeHealth(
+    { sources: [source({ cadence_minutes: undefined, last_success: "2026-10-26T05:00:00Z" })] },
+    NOW,
+  );
+  assert.equal(outside.sources[0].stale, true, "49h is past the 48h fallback window");
+});
+
+test("recomputeHealth: preserves fields the renderer needs", () => {
+  const health = recomputeHealth({ sources: [source({})], generated_at: "2026-10-28T05:59:00Z" }, NOW);
+  assert.deepEqual(
+    { id: health.sources[0].id, items: health.sources[0].items, generated_at: health.generated_at },
+    { id: "cve", items: 10, generated_at: "2026-10-28T05:59:00Z" },
+  );
 });
 
 test("timeKey: sorts unparseable timestamps last instead of corrupting order", () => {

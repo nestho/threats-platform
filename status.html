@@ -133,7 +133,7 @@ initConsoleShell();
 </div>
 
 <script type="module">
-import { esc, timeAgo, fetchJson } from '/assets/app.js';
+import { esc, timeAgo, fetchJson, recomputeHealth } from '/assets/app.js';
 
 const LABELS = { ok: 'Current', degraded: 'Degraded', outage: 'Outage' };
 
@@ -161,8 +161,11 @@ function stateOf(source) {
   return { key: 'ok', label: 'current' };
 }
 
-function render(status) {
-  const sources = (status.sources || []).slice().sort((a, b) => {
+function render(file) {
+  // The published flags describe the moment status.json was generated; re-derive
+  // them so a scheduler gap shows as stale instead of staying green.
+  const status = recomputeHealth(file);
+  const sources = status.sources.slice().sort((a, b) => {
     if (Boolean(a.critical) !== Boolean(b.critical)) return a.critical ? -1 : 1;
     const aState = stateOf(a).key === 'ok' ? 1 : 0;
     const bState = stateOf(b).key === 'ok' ? 1 : 0;
