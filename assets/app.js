@@ -225,11 +225,13 @@ export function initTabs(selector, onChange) {
  *
  * A count that changes silently on every keystroke is invisible to a screen
  * reader user; without this the search box appears to do nothing.
+ *
+ * `plural` exists for nouns that do not take a plain "s" ("country" is not
+ * replaced by "countrys"), and defaults to the regular form.
  */
-export function setResultCount(element, count, noun = 'result') {
+export function setResultCount(element, count, noun = 'result', plural = `${noun}s`) {
   if (!element) return;
-  const text = `${count} ${noun}${count === 1 ? '' : 's'}`;
-  element.textContent = text;
+  element.textContent = `${count} ${count === 1 ? noun : plural}`;
 }
 
 /**
