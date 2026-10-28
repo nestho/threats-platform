@@ -1,33 +1,46 @@
 #:schema node_modules/wrangler/config-schema.json
-# Parked legacy admin Worker for threats.top.
+# Pro subscriptions API for threats.top.
 #
-# The old version wrote to data/manual.json and data/saas_tenants.json through
-# the GitHub Contents API, using a PAT and a shared admin password. That was a
-# second write path into main and is retired. This version answers /health and
-# returns 410 for every legacy route; it reads no secrets and calls no backend.
+# Serves orders, admin review, licence checks and the STIX export on a dedicated
+# API hostname. The static site stays on GitHub Pages and reaches this Worker
+# cross-origin with credentials.
 #
-# DEPLOY (only to replace the live dashboard Worker with the fail-closed one)
-#   npm i -g wrangler
-#   wrangler deploy
-#   wrangler secret delete GITHUB_TOKEN
-#   wrangler secret delete ADMIN_PASSWORD_HASH
-#   wrangler secret delete SAAS_SIGNING_SECRET
+# DEPLOY
+#   npx wrangler d1 create threats-platform
+#   npx wrangler d1 migrations apply threats-platform --remote
+#   npx wrangler secret put ADMIN_PASSWORD_HASH
+#   npx wrangler secret put TOTP_SECRET
+#   npx wrangler deploy
 #
-# Phase 2 replaces this with the D1-backed /api Worker. The route below remains
-# so old clients receive an explicit 410 instead of falling through to Pages.
+# Local development
+#   npx wrangler d1 migrations apply threats-platform --local
+#   npx wrangler dev --local --persist
 
-name = "threats-admin"
-main = "admin.js"
-compatibility_date = "2026-09-27"
+name = "threats-platform-api"
+main = "src/index.mjs"
+compatibility_date = "2026-10-28"
 
-# No workers_dev subdomain: a second origin would be an unreviewed entry point.
+# No workers.dev hostname: the API has exactly one reviewed entry point.
 workers_dev = false
 
 routes = [
-  { pattern = "threats.top/admin-api/*", zone_name = "threats.top" },
+  { pattern = "api.threats.top", custom_domain = true },
 ]
 
-# No observability: this Worker handles no credentials, but request metadata is
-# still not worth persisting for a 410 surface.
+[[d1_databases]]
+binding = "DB"
+database_name = "threats-platform"
+database_id = "SET_AT_DEPLOY"
+migrations_dir = "migrations"
+
+[vars]
+ENVIRONMENT = "production"
+SITE_ORIGIN = "https://threats.top"
+ALLOWED_ORIGINS = "https://threats.top"
+
+# Daily housekeeping: expire subscriptions and unpaid orders, prune attempts.
+[triggers]
+crons = ["17 3 * * *"]
+
 [observability]
-enabled = false
+enabled = true
