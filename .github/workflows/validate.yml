@@ -142,6 +142,25 @@ jobs:
         with:
           node-version: '20'
 
+      # The 4.8.0 tarball is fetched and checked against the registry's
+      # integrity hash rather than resolved through npx: the version cannot
+      # drift, and no lifecycle script runs on the runner. The unpacked CLI
+      # lives under .cache/, which is ignored.
+      - name: Install scanner
+        env:
+          TARBALL_URL: https://registry.npmjs.org/impeccable/-/impeccable-4.8.0.tgz
+          TARBALL_SHA512: e0+wbJppJMiQN8npKmIkBbKetfSlarak7OIGlsRhc8folekz4PgStjuprhYi+imjqBb6OCMJLV9II2hHGmcCyg==
+        run: |
+          set -euo pipefail
+          mkdir -p .cache/impeccable
+          curl -fsSL --retry 3 "$TARBALL_URL" -o .cache/impeccable.tgz
+          actual=$(openssl dgst -sha512 -binary .cache/impeccable.tgz | openssl base64 -A)
+          if [[ "$actual" != "$TARBALL_SHA512" ]]; then
+            echo "::error::Impeccable tarball does not match the pinned integrity hash."
+            exit 1
+          fi
+          tar -xzf .cache/impeccable.tgz -C .cache/impeccable --strip-components=1
+
       # Advisory on purpose. Findings annotate the pull request and never block
       # a merge, because taste rules must not override a human. A detector that
       # cannot scan (exit 1) does fail the job: a check that silently stops
@@ -152,7 +171,7 @@ jobs:
           IMPECCABLE_NO_TELEMETRY: '1'
         run: |
           set +e
-          npx --yes impeccable@4.8.0 detect --github --no-advisory *.html assets
+          node .cache/impeccable/cli/bin/cli.js detect --github --no-advisory ./*.html assets
           code=$?
           set -e
           echo "detector exit: $code"
