@@ -148,12 +148,13 @@ jobs:
       # lives under .cache/, which is ignored.
       - name: Install scanner
         env:
-          TARBALL_URL: https://registry.npmjs.org/impeccable/-/impeccable-4.8.0.tgz
           TARBALL_SHA512: e0+wbJppJMiQN8npKmIkBbKetfSlarak7OIGlsRhc8folekz4PgStjuprhYi+imjqBb6OCMJLV9II2hHGmcCyg==
         run: |
           set -euo pipefail
           mkdir -p .cache/impeccable
-          curl -fsSL --retry 3 "$TARBALL_URL" -o .cache/impeccable.tgz
+          curl --proto '=https' --tlsv1.2 -fsSL --retry 3 \
+            https://registry.npmjs.org/impeccable/-/impeccable-4.8.0.tgz \
+            -o .cache/impeccable.tgz
           actual=$(openssl dgst -sha512 -binary .cache/impeccable.tgz | openssl base64 -A)
           if [[ "$actual" != "$TARBALL_SHA512" ]]; then
             echo "::error::Impeccable tarball does not match the pinned integrity hash."
