@@ -880,6 +880,9 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
   overflow-x: auto;
   /* Keeps the first row's rule off the wrapper border. */
   padding: 8px;
+  /* Absolutely positioned .visually-hidden labels inside a wide table would
+     otherwise resolve against the viewport and widen the document. */
+  position: relative;
 }
 
 table { width: 100%; border-collapse: collapse; font-size: 12.5px; }

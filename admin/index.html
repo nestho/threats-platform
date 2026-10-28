@@ -4,30 +4,274 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07080b">
-<title>Program updates — Threats</title>
+<title>Admin — Threats</title>
+<meta name="description" content="Owner console for Threats Pro orders, licences and settings.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/app.css">
 <style>
-  .wrap { max-width: 680px; }
-  .panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 24px; margin-bottom: 16px; }
-  .panel h2 { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
-  .panel p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
-  .panel ul { margin: 12px 0 0; padding-left: 20px; font-size: 13px; color: var(--text-secondary); line-height: 1.8; }
-  .panel a { color: var(--link); }
-  .panel a:hover { text-decoration: underline; }
-  .btn {
-    display: inline-block;
-    margin-top: 16px;
-    font-size: 13px;
-    font-weight: 600;
+  /* ── Login ─────────────────────────────────────────────────────────── */
+
+  .login-view { display: flex; justify-content: center; padding: 7vh 0 0; }
+  .login-card { width: min(430px, 100%); padding: 30px 28px; }
+  .login-mark {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #fb923c 0%, #ea580c 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 16px;
     color: #0a0a0a;
-    background: var(--accent);
-    border-radius: 8px;
-    padding: 9px 16px;
+    margin-bottom: 18px;
+    box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.35), 0 6px 18px rgba(249, 115, 22, 0.16);
   }
-  .btn:hover { filter: brightness(1.08); }
+  .login-card h1 { font-size: 24px; margin-bottom: 4px; }
+  .login-card .sub { margin-bottom: 20px; }
+  .login-card .form-grid { gap: 14px; margin-bottom: 18px; }
+  .login-card .btn { width: 100%; padding: 11px 16px; }
+  .login-foot {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 11.5px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ── App shell ─────────────────────────────────────────────────────── */
+
+  .admin-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .admin-head h1 { margin-bottom: 4px; }
+  .admin-head .sub { margin-bottom: 0; }
+  .admin-session {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 6px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+  .admin-session #session-meta { font-variant-numeric: tabular-nums; }
+
+  .admin-section { margin-top: 28px; }
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  .section-head h2 { font-size: 15px; font-weight: 600; }
+  .section-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .toolbar {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .toolbar .field { flex: 0 1 172px; }
+  .toolbar .field.grow { flex: 1 1 240px; }
+  .toolbar-actions { display: flex; gap: 8px; margin-left: auto; flex-wrap: wrap; }
+
+  .table-message { text-align: center; color: var(--text-muted); padding: 26px 14px; }
+  .subline { color: var(--text-muted); font-size: 11px; line-height: 1.45; margin-top: 2px; }
+  .money { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .row-actions { display: flex; gap: 6px; flex-wrap: nowrap; }
+  #subscriptions-body td:nth-child(3),
+  #subscriptions-body td:nth-child(4) { white-space: nowrap; }
+  .inline-link { color: var(--link); overflow-wrap: anywhere; }
+  .inline-link:hover { text-decoration: underline; }
+
+  .pager {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    color: var(--text-muted);
+  }
+  .pager-actions { display: flex; gap: 6px; }
+  .scroll-hint { display: none; }
+
+  /* ── Settings ──────────────────────────────────────────────────────── */
+
+  .settings-card { padding: 24px; max-width: 820px; }
+  .settings-card .form-grid { gap: 16px; }
+  .settings-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .opt {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--text-muted);
+  }
+  .mono-input { font-family: var(--mono); font-size: 12px; }
+
+  /* ── Dialogs ───────────────────────────────────────────────────────── */
+
+  dialog.sheet {
+    width: min(620px, calc(100vw - 28px));
+    max-height: min(88vh, 780px);
+    margin: auto;
+    padding: 0;
+    border: 1px solid var(--border-hover);
+    border-radius: var(--radius);
+    background: linear-gradient(180deg, var(--surface-2) 0%, var(--surface) 100%);
+    color: var(--text);
+    overflow: hidden;
+  }
+  dialog.sheet[open] { display: flex; flex-direction: column; }
+  dialog.sheet::backdrop { background: rgba(3, 4, 7, 0.7); backdrop-filter: blur(3px); }
+
+  .sheet-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 18px 22px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.015);
+    flex-shrink: 0;
+  }
+  .sheet-kicker {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .sheet-head h2 { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
+  .sheet-target { font-size: 11px; color: var(--text-muted); margin-top: 4px; overflow-wrap: anywhere; }
+  .sheet-head-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+  .icon-btn {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .icon-btn:hover { color: var(--text); border-color: var(--border-hover); }
+
+  .sheet-body { padding: 20px 22px; overflow-y: auto; }
+  .sheet-lede { font-size: 12.5px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px; }
+
+  .sheet-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 14px 22px;
+    border-top: 1px solid var(--border);
+    background: rgba(0, 0, 0, 0.18);
+    flex-shrink: 0;
+  }
+  .foot-right { display: flex; gap: 8px; margin-left: auto; flex-wrap: wrap; }
+
+  .detail-list { display: grid; gap: 8px; margin-bottom: 16px; }
+  .detail-list > div {
+    display: grid;
+    grid-template-columns: 128px minmax(0, 1fr);
+    gap: 12px;
+    align-items: baseline;
+    font-size: 12.5px;
+  }
+  .detail-list dt {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .detail-list dd { color: var(--text); overflow-wrap: anywhere; }
+
+  .review-note {
+    border-left: 2px solid var(--accent-line);
+    padding: 6px 0 6px 10px;
+    margin-bottom: 16px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    overflow-wrap: anywhere;
+  }
+
+  .sheet-body .form-alert { margin-top: 16px; margin-bottom: 0; }
+  .sheet-body .field + .field { margin-top: 14px; }
+
+  .key-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    border: 1px solid var(--accent-line);
+    border-radius: var(--radius-sm);
+    background: var(--accent-soft);
+  }
+  .key-box code { font-size: 13px; letter-spacing: 0.04em; overflow-wrap: anywhere; }
+  .key-meta { font-size: 11px; color: var(--text-muted); line-height: 1.55; margin-bottom: 16px; }
+  #license-message { font-family: var(--mono); font-size: 11.5px; line-height: 1.6; min-height: 200px; }
+
+  @media (max-width: 720px) {
+    .login-view { padding-top: 3vh; }
+    .admin-session { padding-top: 0; }
+    .toolbar .field, .toolbar .field.grow { flex: 1 1 100%; }
+    .toolbar-actions { margin-left: 0; width: 100%; }
+    .toolbar-actions .btn { flex: 1; }
+    .settings-card { padding: 18px; }
+    .detail-list > div { grid-template-columns: 1fr; gap: 2px; }
+    .sheet-head, .sheet-body { padding-left: 16px; padding-right: 16px; }
+    .sheet-foot { padding: 12px 16px; }
+    .sheet-foot .btn { flex: 1; }
+    .foot-right { margin-left: 0; width: 100%; }
+    .foot-right .btn { flex: 1; }
+
+    /* Wide tables scroll inside their wrapper; say so, because iOS hides the
+       scrollbar until the first swipe. */
+    .scroll-hint {
+      display: block;
+      margin: -2px 0 10px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    .row-actions { flex-wrap: wrap; }
+  }
 </style>
 </head>
 <body class="console">
@@ -47,12 +291,15 @@
     <a href="/cves.html"><span>Vulnerabilities</span><span class="n">02</span></a>
     <a href="/iocs.html"><span>Indicators</span><span class="n">03</span></a>
     <a href="/ransomware.html"><span>Ransomware</span><span class="n">04</span></a>
-    <a href="/phishing.html"><span>Phishing</span><span class="n">05</span></a>
-    <a href="/threats.html"><span>Cloud threats</span><span class="n">06</span></a>
+    <a href="/map.html"><span>Live map</span><span class="n">05</span></a>
+    <a href="/phishing.html"><span>Phishing</span><span class="n">06</span></a>
+    <a href="/threats.html"><span>Cloud threats</span><span class="n">07</span></a>
     <span class="rail-label">Platform</span>
-    <a href="/programs.html"><span>Programs</span><span class="n">07</span></a>
-    <a href="/status.html"><span>Status</span><span class="n">08</span></a>
-    <a href="/saas.html"><span>Pricing</span><span class="n">09</span></a>
+    <a href="/programs.html"><span>Programs</span><span class="n">08</span></a>
+    <a href="/status.html"><span>Status</span><span class="n">09</span></a>
+    <a href="/saas.html"><span>Pricing</span><span class="n">10</span></a>
+    <a href="/subscribe.html"><span>Subscribe</span><span class="n">11</span></a>
+    <a href="/pro.html"><span>Pro console</span><span class="n">12</span></a>
   </nav>
   <div class="rail-health">
     <span class="rail-label">Source health</span>
@@ -67,9 +314,8 @@
 
 <div class="wrap" id="main" role="main">
 
-
-    <header class="topbar">
-    <div class="crumb"><a href="/">Threats</a><span class="sep">/</span><span class="here">Program updates</span></div>
+  <header class="topbar">
+    <div class="crumb"><a href="/">Threats</a><span class="sep">/</span><span class="here">Admin</span></div>
     <div class="topbar-right">
       <a class="live-chip" id="live-chip" href="/status.html">
         <span class="dot" id="live-dot" aria-hidden="true"></span>
@@ -79,41 +325,466 @@
     </div>
   </header>
 
+  <noscript>
+    <div class="form-alert">The admin panel needs JavaScript. Every action is still enforced by the API.</div>
+  </noscript>
+
+  <!-- Login -->
+  <section class="login-view" id="login-view" aria-labelledby="login-title">
+    <div class="login-card panel">
+      <div class="login-mark" aria-hidden="true">T</div>
+      <h1 id="login-title">Admin sign-in</h1>
+      <p class="sub">Owner access only. Use the password and the current six-digit authenticator code.</p>
+
+      <div class="form-alert" id="login-alert" role="alert" hidden></div>
+
+      <form id="login-form">
+        <div class="form-grid">
+          <div class="field span-2">
+            <label for="login-password">Password</label>
+            <input id="login-password" type="password" name="password" autocomplete="current-password" required>
+          </div>
+          <div class="field span-2">
+            <label for="login-code">Authenticator code</label>
+            <input id="login-code" type="text" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="[0-9]{6}" placeholder="000000" required>
+            <span class="hint">A code cannot be reused, so a repeated sign-in needs a fresh one.</span>
+          </div>
+        </div>
+        <button class="btn btn-primary" id="login-submit" type="submit">Sign in</button>
+      </form>
+
+      <p class="login-foot">Sessions last 8 hours and are bound to this browser. Ten wrong attempts from one address lock sign-in for 15 minutes.</p>
+    </div>
+  </section>
+
+  <!-- App -->
+  <section id="app-view" hidden aria-labelledby="app-title">
+    <div class="admin-head">
+      <div>
+        <h1 id="app-title" tabindex="-1">Admin</h1>
+        <p class="sub">Verify transfers, issue licences and manage Pro subscriptions.</p>
+      </div>
+      <div class="admin-session">
+        <span id="session-meta"></span>
+        <button class="btn btn-sm" id="logout" type="button">Sign out</button>
+      </div>
+    </div>
+
+    <div class="tabs" id="admin-tabs" role="tablist" aria-label="Admin sections">
+      <button class="tab" id="tab-overview" type="button" role="tab" data-view="overview" aria-selected="true" aria-controls="panel-overview">Overview</button>
+      <button class="tab" id="tab-orders" type="button" role="tab" data-view="orders" aria-selected="false" aria-controls="panel-orders">Orders</button>
+      <button class="tab" id="tab-subscriptions" type="button" role="tab" data-view="subscriptions" aria-selected="false" aria-controls="panel-subscriptions">Subscriptions</button>
+      <button class="tab" id="tab-customers" type="button" role="tab" data-view="customers" aria-selected="false" aria-controls="panel-customers">Customers</button>
+      <button class="tab" id="tab-audit" type="button" role="tab" data-view="audit" aria-selected="false" aria-controls="panel-audit">Audit</button>
+      <button class="tab" id="tab-settings" type="button" role="tab" data-view="settings" aria-selected="false" aria-controls="panel-settings">Settings</button>
+    </div>
+
+    <!-- Overview -->
+    <div class="admin-panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview" tabindex="0">
+      <div class="form-alert" id="overview-alert" role="alert" hidden></div>
+
+      <div class="stat-grid">
+        <div class="stat-card"><div class="num" id="stat-pending">—</div><div class="lbl">Pending orders</div></div>
+        <div class="stat-card"><div class="num" id="stat-active">—</div><div class="lbl">Active Pro</div></div>
+        <div class="stat-card"><div class="num" id="stat-mrr">—</div><div class="lbl">MRR</div></div>
+        <div class="stat-card"><div class="num" id="stat-expiring">—</div><div class="lbl">Expiring in 7 days</div></div>
+      </div>
+
+      <div class="stat-grid three">
+        <div class="stat-card"><div class="num" id="stat-orders30">—</div><div class="lbl">Orders · 30 days</div></div>
+        <div class="stat-card"><div class="num" id="stat-revenue30">—</div><div class="lbl">Revenue · 30 days</div></div>
+        <div class="stat-card"><div class="num" id="stat-customers">—</div><div class="lbl">Customers</div></div>
+      </div>
+
+      <section class="admin-section" aria-labelledby="pending-heading">
+        <div class="section-head">
+          <h2 id="pending-heading">Awaiting review</h2>
+          <div class="section-actions">
+            <button class="btn btn-sm" type="button" data-refresh="overview">Refresh</button>
+            <button class="btn btn-sm" type="button" data-goto="orders">All orders →</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <caption class="visually-hidden">Orders waiting for payment verification</caption>
+            <thead>
+              <tr>
+                <th scope="col">Order</th>
+                <th scope="col">Buyer</th>
+                <th scope="col">Term</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Age</th>
+                <th scope="col"><span class="visually-hidden">Actions</span></th>
+              </tr>
+            </thead>
+            <tbody id="overview-pending-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <!-- Orders -->
+    <div class="admin-panel" id="panel-orders" role="tabpanel" aria-labelledby="tab-orders" tabindex="0" hidden>
+      <div class="toolbar">
+        <div class="field">
+          <label for="orders-status">Status</label>
+          <select id="orders-status">
+            <option value="">All statuses</option>
+            <option value="pending">Pending</option>
+            <option value="approved">Approved</option>
+            <option value="rejected">Rejected</option>
+            <option value="expired">Expired</option>
+          </select>
+        </div>
+        <div class="field grow">
+          <label for="orders-search">Search</label>
+          <input id="orders-search" type="search" autocomplete="off" placeholder="Code, email, transaction or name">
+        </div>
+        <div class="toolbar-actions">
+          <button class="btn btn-sm" type="button" data-refresh="orders">Refresh</button>
+          <button class="btn btn-sm" type="button" data-export="orders">Export CSV</button>
+        </div>
+      </div>
+
+      <p class="scroll-hint">Swipe the table sideways for method, status and the review action.</p>
+      <div class="table-wrap">
+        <table>
+          <caption class="visually-hidden">Crypto orders</caption>
+          <thead>
+            <tr>
+              <th scope="col">Order</th>
+              <th scope="col">Buyer</th>
+              <th scope="col">Term</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Method</th>
+              <th scope="col">Age</th>
+              <th scope="col">Status</th>
+              <th scope="col"><span class="visually-hidden">Actions</span></th>
+            </tr>
+          </thead>
+          <tbody id="orders-body"></tbody>
+        </table>
+      </div>
+      <div class="pager" id="orders-pager"></div>
+    </div>
+
+    <!-- Subscriptions -->
+    <div class="admin-panel" id="panel-subscriptions" role="tabpanel" aria-labelledby="tab-subscriptions" tabindex="0" hidden>
+      <div class="toolbar">
+        <div class="field">
+          <label for="subscriptions-status">Status</label>
+          <select id="subscriptions-status">
+            <option value="">All statuses</option>
+            <option value="active">Active</option>
+            <option value="expired">Expired</option>
+            <option value="revoked">Revoked</option>
+          </select>
+        </div>
+        <div class="field grow">
+          <label for="subscriptions-search">Search</label>
+          <input id="subscriptions-search" type="search" autocomplete="off" placeholder="Email, licence prefix or order">
+        </div>
+        <div class="toolbar-actions">
+          <button class="btn btn-sm btn-primary" id="grant-open" type="button">Grant Pro</button>
+          <button class="btn btn-sm" type="button" data-refresh="subscriptions">Refresh</button>
+          <button class="btn btn-sm" type="button" data-export="subscriptions">Export CSV</button>
+        </div>
+      </div>
+
+      <p class="scroll-hint">Swipe the table sideways for licence, source and actions.</p>
+      <div class="table-wrap">
+        <table>
+          <caption class="visually-hidden">Pro subscriptions</caption>
+          <thead>
+            <tr>
+              <th scope="col">Customer</th>
+              <th scope="col">Plan</th>
+              <th scope="col">Started</th>
+              <th scope="col">Expires</th>
+              <th scope="col">Status</th>
+              <th scope="col">Licence</th>
+              <th scope="col">Source</th>
+              <th scope="col"><span class="visually-hidden">Actions</span></th>
+            </tr>
+          </thead>
+          <tbody id="subscriptions-body"></tbody>
+        </table>
+      </div>
+      <div class="pager" id="subscriptions-pager"></div>
+    </div>
+
+    <!-- Customers -->
+    <div class="admin-panel" id="panel-customers" role="tabpanel" aria-labelledby="tab-customers" tabindex="0" hidden>
+      <div class="toolbar">
+        <div class="field grow">
+          <label for="customers-search">Search</label>
+          <input id="customers-search" type="search" autocomplete="off" placeholder="Name, email or phone">
+        </div>
+        <div class="toolbar-actions">
+          <button class="btn btn-sm" type="button" data-refresh="customers">Refresh</button>
+        </div>
+      </div>
+
+      <p class="scroll-hint">Swipe the table sideways for the action.</p>
+      <div class="table-wrap">
+        <table>
+          <caption class="visually-hidden">Customers</caption>
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Joined</th>
+              <th scope="col"><span class="visually-hidden">Actions</span></th>
+            </tr>
+          </thead>
+          <tbody id="customers-body"></tbody>
+        </table>
+      </div>
+      <div class="pager" id="customers-pager"></div>
+    </div>
+
+    <!-- Audit -->
+    <div class="admin-panel" id="panel-audit" role="tabpanel" aria-labelledby="tab-audit" tabindex="0" hidden>
+      <div class="toolbar">
+        <div class="toolbar-actions">
+          <button class="btn btn-sm" type="button" data-refresh="audit">Refresh</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <caption class="visually-hidden">Admin audit log</caption>
+          <thead>
+            <tr>
+              <th scope="col">When</th>
+              <th scope="col">Action</th>
+              <th scope="col">Target</th>
+              <th scope="col">Detail</th>
+            </tr>
+          </thead>
+          <tbody id="audit-body"></tbody>
+        </table>
+      </div>
+      <div class="pager" id="audit-pager"></div>
+    </div>
+
+    <!-- Settings -->
+    <div class="admin-panel" id="panel-settings" role="tabpanel" aria-labelledby="tab-settings" tabindex="0" hidden>
+      <form class="panel settings-card" id="settings-form" novalidate>
+        <div class="form-alert" id="settings-alert" role="alert" hidden></div>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="set-pro_monthly_cents">Pro price · cents per month</label>
+            <input id="set-pro_monthly_cents" type="number" min="100" max="1000000" step="1">
+            <span class="hint" id="price-preview">Shown on the checkout and pricing pages.</span>
+          </div>
+          <div class="field">
+            <label for="set-stix_rate_per_min">STIX requests · per minute</label>
+            <input id="set-stix_rate_per_min" type="number" min="1" max="10000" step="1">
+            <span class="hint">Per-licence limit for the STIX export.</span>
+          </div>
+
+          <div class="field span-2">
+            <label for="set-usdt_trc20_address">USDT · TRON (TRC20) address</label>
+            <input class="mono-input" id="set-usdt_trc20_address" type="text" spellcheck="false" autocomplete="off">
+            <span class="hint">Shown to buyers. Check it character by character before saving.</span>
+          </div>
+          <div class="field span-2">
+            <label for="set-btc_address">Bitcoin · native SegWit address</label>
+            <input class="mono-input" id="set-btc_address" type="text" spellcheck="false" autocomplete="off">
+            <span class="hint">Starts with bc1q. A wrong address sends payments into the void.</span>
+          </div>
+
+          <div class="field">
+            <label for="set-support_email">Support email</label>
+            <input id="set-support_email" type="email" autocomplete="off">
+            <span class="hint">Printed on order confirmations and the pricing page.</span>
+          </div>
+          <div class="field">
+            <label for="set-order_retention_days">Order retention · days</label>
+            <input id="set-order_retention_days" type="number" min="31" max="3650" step="1">
+            <span class="hint">Orders older than this are pruned by the nightly job. 31 to 3650.</span>
+          </div>
+        </div>
+
+        <div class="settings-actions">
+          <button class="btn" id="settings-reload" type="button">Reload</button>
+          <button class="btn btn-primary" id="settings-save" type="submit">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</div>
+
+<!-- Order review -->
+<dialog class="sheet" id="order-dialog" aria-labelledby="order-title">
+  <div class="sheet-head">
+    <div>
+      <div class="sheet-kicker">Order</div>
+      <h2 id="order-title"><span class="mono" id="order-title-code">—</span></h2>
+    </div>
+    <div class="sheet-head-right">
+      <span class="badge muted" id="order-status">—</span>
+      <button class="icon-btn" id="order-x" type="button" aria-label="Close order">×</button>
+    </div>
+  </div>
+  <div class="sheet-body">
+    <dl class="detail-list" id="order-details"></dl>
+    <p class="review-note" id="order-review-note" hidden></p>
+
+    <div id="order-approve" hidden>
+      <div class="form-grid">
+        <div class="field">
+          <label for="order-months">Months to grant</label>
+          <input id="order-months" type="number" min="1" max="24" step="1" value="1">
+          <span class="hint">Renewals extend from the later of today and the current expiry.</span>
+        </div>
+        <div class="field">
+          <label for="order-approve-note">Review note <span class="opt">optional</span></label>
+          <textarea id="order-approve-note" maxlength="500" placeholder="Transfer matched on the explorer"></textarea>
+        </div>
+      </div>
+      <div class="form-alert" id="order-approve-alert" role="alert" hidden></div>
+    </div>
+
+    <div id="order-reject" hidden>
+      <div class="field">
+        <label for="order-reject-note">Reason</label>
+        <textarea id="order-reject-note" maxlength="500" placeholder="No matching transfer on the explorer"></textarea>
+        <span class="hint">Stored on the order and in the audit log. Keep it factual.</span>
+      </div>
+      <div class="form-alert" id="order-reject-alert" role="alert" hidden></div>
+    </div>
+  </div>
+
+  <div class="sheet-foot" id="order-default-actions">
+    <button class="btn btn-danger" id="order-reject-open" type="button">Reject…</button>
+    <div class="foot-right">
+      <button class="btn" id="order-close" type="button">Close</button>
+      <button class="btn btn-primary" id="order-approve-open" type="button">Approve…</button>
+    </div>
+  </div>
+  <div class="sheet-foot" id="order-approve-actions" hidden>
+    <button class="btn" id="order-approve-cancel" type="button">Back</button>
+    <div class="foot-right">
+      <button class="btn btn-primary" id="order-approve-confirm" type="button">Approve and issue licence</button>
+    </div>
+  </div>
+  <div class="sheet-foot" id="order-reject-actions" hidden>
+    <button class="btn" id="order-reject-cancel" type="button">Back</button>
+    <div class="foot-right">
+      <button class="btn btn-danger" id="order-reject-confirm" type="button">Reject order</button>
+    </div>
+  </div>
+</dialog>
+
+<!-- Subscription action -->
+<dialog class="sheet" id="sub-dialog" aria-labelledby="sub-title">
+  <div class="sheet-head">
+    <div>
+      <div class="sheet-kicker">Subscription</div>
+      <h2 id="sub-title">Extend subscription</h2>
+      <div class="sheet-target mono" id="sub-target"></div>
+    </div>
+  </div>
+  <div class="sheet-body">
+    <p class="sheet-lede" id="sub-message"></p>
+    <div class="field" id="sub-months-field">
+      <label for="sub-months">Months</label>
+      <input id="sub-months" type="number" min="1" max="24" step="1" value="1">
+    </div>
+    <div class="field" id="sub-note-field" hidden>
+      <label for="sub-note">Reason</label>
+      <textarea id="sub-note" maxlength="500" placeholder="Chargeback, refund, abuse report"></textarea>
+    </div>
+    <div class="form-alert" id="sub-alert" role="alert" hidden></div>
+  </div>
+  <div class="sheet-foot">
+    <button class="btn" id="sub-cancel" type="button">Cancel</button>
+    <div class="foot-right">
+      <button class="btn btn-primary" id="sub-confirm" type="button">Confirm</button>
+    </div>
+  </div>
+</dialog>
+
+<!-- Comp grant -->
+<dialog class="sheet" id="grant-dialog" aria-labelledby="grant-title">
+  <form id="grant-form" novalidate>
+    <div class="sheet-head">
+      <div>
+        <div class="sheet-kicker">Comp access</div>
+        <h2 id="grant-title">Grant Pro</h2>
+      </div>
+    </div>
+    <div class="sheet-body">
+      <p class="sheet-lede">Creates a subscription with no payment attached. The licence key is shown once, so copy it before closing.</p>
+      <div class="form-grid">
+        <div class="field span-2">
+          <label for="grant-email">Customer email</label>
+          <input id="grant-email" type="email" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="grant-name">Name <span class="opt">optional</span></label>
+          <input id="grant-name" type="text" maxlength="80" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="grant-months">Months</label>
+          <input id="grant-months" type="number" min="1" max="24" step="1" value="1">
+        </div>
+        <div class="field span-2">
+          <label for="grant-note">Note <span class="opt">optional</span></label>
+          <textarea id="grant-note" maxlength="500" placeholder="Trial for a partner team"></textarea>
+        </div>
+      </div>
+      <div class="form-alert" id="grant-alert" role="alert" hidden></div>
+    </div>
+    <div class="sheet-foot">
+      <button class="btn" id="grant-cancel" type="button">Cancel</button>
+      <div class="foot-right">
+        <button class="btn btn-primary" id="grant-submit" type="submit">Grant Pro</button>
+      </div>
+    </div>
+  </form>
+</dialog>
+
+<!-- Licence issued -->
+<dialog class="sheet" id="license-dialog" aria-labelledby="license-title">
+  <div class="sheet-head">
+    <div>
+      <div class="sheet-kicker">Licence issued</div>
+      <h2 id="license-title">Send this to the customer now</h2>
+    </div>
+  </div>
+  <div class="sheet-body">
+    <p class="sheet-lede">The key is stored as a hash only and cannot be shown again. Rotate it if it is lost.</p>
+    <div class="key-box">
+      <code class="mono" id="license-key"></code>
+      <button class="btn btn-sm" id="license-copy-key" type="button">Copy key</button>
+    </div>
+    <p class="key-meta" id="license-meta"></p>
+    <div class="field">
+      <label for="license-message">Ready-to-send message</label>
+      <textarea id="license-message" readonly rows="11"></textarea>
+    </div>
+    <div class="form-alert" id="license-alert" role="alert" hidden></div>
+  </div>
+  <div class="sheet-foot">
+    <button class="btn" id="license-copy-message" type="button">Copy message</button>
+    <div class="foot-right">
+      <button class="btn btn-primary" id="license-done" type="button">Done</button>
+    </div>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
 <script type="module">
 import { initConsoleShell } from '/assets/app.js';
+import { initAdmin } from '/assets/admin.js';
 initConsoleShell();
+initAdmin();
 </script>
-<h1>Program updates go through a pull request</h1>
-  <p class="sub">The old write-in-a-form admin path has been retired.</p>
-
-  <div class="panel">
-    <h2>Why</h2>
-    <p>
-      The retired admin API committed straight to <code>main</code> with a long-lived token, which
-      bypassed review and the feed checks. <code>main</code> is now protected: every change arrives
-      as a pull request that must pass the data, Python, and unit checks before it can merge.
-    </p>
-  </div>
-
-  <div class="panel">
-    <h2>How to add or correct a program</h2>
-    <ul>
-      <li>
-        Open an issue with the program name, platform, and in-scope domains:
-        <a href="https://github.com/nestho/threats-platform/issues/new?title=Program%20scope%20update&amp;body=%23%23%20Program%0A%0A%23%23%20Platform%0A%0A%23%23%20Domains%0A%0A%23%23%20Source%20URL" target="_blank" rel="noopener">new scope issue</a>.
-      </li>
-      <li>
-        Or edit <a href="https://github.com/nestho/threats-platform/blob/main/data/manual.json" target="_blank" rel="noopener"><code>data/manual.json</code></a>
-        in a branch and open a pull request.
-      </li>
-      <li>
-        <code>collector.py</code> merges the entry into the public program list on the next scheduled run,
-        after the validator accepts it.
-      </li>
-    </ul>
-    <a class="btn" href="https://github.com/nestho/threats-platform/issues/new?title=Program%20scope%20update&amp;body=%23%23%20Program%0A%0A%23%23%20Platform%0A%0A%23%23%20Domains%0A%0A%23%23%20Source%20URL" target="_blank" rel="noopener">Open a scope issue →</a>
-  </div>
-
-</div>
 </body>
 </html>

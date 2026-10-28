@@ -37,6 +37,8 @@ export function withCors(response, origin) {
   const headers = new Headers(response.headers);
   headers.set("access-control-allow-origin", origin);
   headers.set("access-control-allow-credentials", "true");
+  // The admin CSV export reads the filename from content-disposition.
+  headers.set("access-control-expose-headers", "content-disposition");
   headers.append("vary", "Origin");
   return new Response(response.body, { status: response.status, headers });
 }
