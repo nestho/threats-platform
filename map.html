@@ -203,9 +203,13 @@ for (const [code, path] of Object.entries(WORLD_PATHS)) {
   const shape = document.createElementNS(SVG_NS, 'path');
   shape.setAttribute('d', path);
   shape.setAttribute('class', 'country');
-  shape.setAttribute('data-code', code);
+  shape.dataset.code = code;
   svg.append(shape);
   shapes.set(code, shape);
+}
+
+function claimWord(count) {
+  return count === 1 ? 'claim' : 'claims';
 }
 
 function filteredClaims() {
@@ -227,7 +231,10 @@ function paintMap(view, aggregate) {
   for (const [code, shape] of shapes) {
     const country = view.find((entry) => entry.code === code);
     const level = country ? levelFor(country.count, aggregate.max) : 0;
-    shape.setAttribute('class', `country${level ? ` lvl-${level}` : ''}${code === selected ? ' selected' : ''}`);
+    const classes = ['country'];
+    if (level) classes.push(`lvl-${level}`);
+    if (code === selected) classes.push('selected');
+    shape.setAttribute('class', classes.join(' '));
     if (!country) {
       shape.removeAttribute('tabindex');
       shape.removeAttribute('role');
@@ -238,13 +245,14 @@ function paintMap(view, aggregate) {
     }
     // Only coloured countries are reachable by keyboard, so tabbing lands on
     // places that actually have something to report.
+    const label = `${countryName(code)}, ${country.count} ${claimWord(country.count)}`;
     shape.setAttribute('tabindex', '0');
     shape.setAttribute('role', 'button');
     shape.setAttribute('aria-pressed', String(code === selected));
-    shape.setAttribute('aria-label', `${countryName(code)}, ${country.count} claim${country.count === 1 ? '' : 's'}`);
+    shape.setAttribute('aria-label', label);
     shape.replaceChildren();
     const title = document.createElementNS(SVG_NS, 'title');
-    title.textContent = `${countryName(code)} · ${country.count} claim${country.count === 1 ? '' : 's'}`;
+    title.textContent = `${countryName(code)} · ${country.count} ${claimWord(country.count)}`;
     shape.append(title);
   }
   document.getElementById('world-desc').textContent = shown.size
@@ -254,11 +262,16 @@ function paintMap(view, aggregate) {
 
 function row(country, aggregate) {
   const share = aggregate.mapped ? (country.count / aggregate.mapped) * 100 : 0;
+  const groups = country.groups
+    .slice(0, 3)
+    .map((group) => `${group.name} (${group.count})`)
+    .join(', ');
+  const extra = country.groups.length > 3 ? ` +${country.groups.length - 3}` : '';
   return `<tr>
     <td>${esc(countryName(country.code))} <span class="groups">${esc(country.code)}</span></td>
     <td class="share">${country.count}</td>
     <td class="share">${share.toFixed(1)}%</td>
-    <td class="groups">${esc(country.groups.slice(0, 3).map((group) => `${group.name} (${group.count})`).join(', '))}${country.groups.length > 3 ? ` +${country.groups.length - 3}` : ''}</td>
+    <td class="groups">${esc(groups + extra)}</td>
     <td class="groups">${esc(timeAgo(country.latest))}</td>
   </tr>`;
 }
@@ -279,7 +292,7 @@ function render() {
   const top = aggregate.countries[0];
   document.getElementById('stat-top').textContent = top ? countryName(top.code) : '—';
   document.getElementById('stat-top-label').textContent = top
-    ? `${top.count} claim${top.count === 1 ? '' : 's'}`
+    ? `${top.count} ${claimWord(top.count)}`
     : 'busiest country';
 
   setResultCount(document.getElementById('count-label'), rows.length, 'country', 'countries');
@@ -295,10 +308,17 @@ function render() {
      letting the map and the table disagree without explanation. */
   const gaps = visible.filter((country) => !shapes.has(country.code));
   const gapNote = document.getElementById('map-gaps');
-  gapNote.hidden = !gaps.length;
-  gapNote.textContent = gaps.length
-    ? `Not drawn at this outline scale: ${gaps.map((country) => `${countryName(country.code)} (${country.code})`).join(', ')}. The table still counts ${gaps.length === 1 ? 'it' : 'them'}.`
-    : '';
+  if (!gaps.length) {
+    gapNote.hidden = true;
+    gapNote.textContent = '';
+  } else {
+    const names = gaps
+      .map((country) => `${countryName(country.code)} (${country.code})`)
+      .join(', ');
+    const pronoun = gaps.length === 1 ? 'it' : 'them';
+    gapNote.hidden = false;
+    gapNote.textContent = `Not drawn at this outline scale: ${names}. The table still counts ${pronoun}.`;
+  }
 }
 
 function select(code) {
@@ -308,7 +328,7 @@ function select(code) {
 
 svg.addEventListener('click', (event) => {
   const node = event.target.closest('.country');
-  if (node?.getAttribute('role') === 'button') select(node.getAttribute('data-code'));
+  if (node?.getAttribute('role') === 'button') select(node.dataset.code);
 });
 
 svg.addEventListener('keydown', (event) => {
@@ -316,7 +336,7 @@ svg.addEventListener('keydown', (event) => {
   const node = event.target.closest?.('.country');
   if (node?.getAttribute('role') !== 'button') return;
   event.preventDefault();
-  select(node.getAttribute('data-code'));
+  select(node.dataset.code);
 });
 
 document.getElementById('search').addEventListener('input', render);

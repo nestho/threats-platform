@@ -13,13 +13,19 @@ than from an IP geolocation service with a non-commercial licence.
 
 Regenerate with:
 
-    curl -sSo /tmp/ne110m.geojson \\
-      https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson
-    python3 scripts/build_world_map.py /tmp/ne110m.geojson
+    python3 scripts/build_world_map.py
+
+The upstream file is pinned to a commit SHA rather than `master`, so a
+regeneration reproduces the committed asset byte for byte.
 """
 import json
-import sys
+import urllib.request
 from pathlib import Path
+
+SOURCE = (
+    "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/"
+    "9380cca83db5f9aef52d5e762765100745f84b27/geojson/ne_110m_admin_0_countries.geojson"
+)
 
 OUTPUT = Path(__file__).resolve().parent.parent / "assets" / "world-map.js"
 
@@ -73,10 +79,8 @@ def iso_code(properties):
 
 
 def main():
-    if len(sys.argv) != 2:
-        print("usage: build_world_map.py <ne_110m_admin_0_countries.geojson>", file=sys.stderr)
-        return 2
-    document = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+    with urllib.request.urlopen(SOURCE, timeout=120) as response:
+        document = json.loads(response.read().decode("utf-8"))
 
     paths = {}
     skipped = []
@@ -115,4 +119,4 @@ def main():
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    raise SystemExit(main())
