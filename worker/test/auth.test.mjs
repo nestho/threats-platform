@@ -51,6 +51,14 @@ test("a password hash verifies only with the right password", async () => {
   assert.equal(await verifyPassword("correct horse", stored.replace("$1000$", "$2000$")), false);
 });
 
+test("the default hash stays under the Workers PBKDF2 ceiling", async () => {
+  const stored = await hashPassword("ceiling");
+  const iterations = Number(stored.split("$")[1]);
+  // Cloudflare WebCrypto rejects any count above 100000 with "Pbkdf2 failed".
+  assert.ok(iterations <= 100_000, `PBKDF2 iterations ${iterations} exceed the Workers limit`);
+  assert.ok(iterations >= 50_000, "PBKDF2 iterations are too low to be useful");
+});
+
 test("two hashes of the same password use different salts", async () => {
   const a = await hashPassword("same", { iterations: 1000 });
   const b = await hashPassword("same", { iterations: 1000 });
