@@ -47,13 +47,13 @@ Wiz publishes analysis, not alerts (measured: 0 items in 7 days, 3 in 30), so it
 
 ## How data reaches production
 
-1. `update-data.yml` is scheduled three times an hour (`:07`, `:27`, `:47`). GitHub treats schedules as best-effort, so redundant slots are cheaper than a missed hour. `scripts/run_collectors.py` decides which sources are due from the cadence table in `scripts/status.py`, runs each collector in its own subprocess with a 900-second timeout, and writes `status.json` after each one. A failed source does not stop the healthy ones.
+1. Collection is triggered every 15 minutes by a Cloudflare Cron Trigger in `scheduler/`, which calls `workflow_dispatch` on `update-data.yml`. GitHub's own scheduler delivered only 3–8 of 24 daily events, in 2–5 hour gaps, so the three `schedule` slots remain only as a fallback. `scripts/run_collectors.py` decides which sources are due from the cadence table in `scripts/status.py`, runs each collector in its own subprocess with a 900-second timeout, and writes `status.json` after each one. A failed source does not stop the healthy ones.
 2. `scripts/validate_feeds.py` checks schema, provenance, timestamps, URL schemes, empty and halved feeds, status cross-file consistency, and the public HTML for demo markers.
 3. If `data/` changed, the workflow commits to an `automation/data-*` branch and opens or updates one pull request. Auto-merge (squash) is enabled, so it lands as soon as the required checks pass.
 4. `validate.yml` runs on every pull request and must report three green checks:
    - **Feed data** — validates the snapshot against the base commit, so the gate answers "did this PR empty or halve a feed" rather than "is a feed empty".
-   - **Unit tests** — `node --test assets worker` (28 tests).
-   - **Python tests** — `python3 -m unittest discover -s scripts/tests -t scripts` (103 tests).
+   - **Unit tests** — `node --test assets worker scheduler` (32 tests).
+   - **Python tests** — `python3 -m unittest discover -s scripts/tests -t scripts` (105 tests).
 5. `main` is protected by the `protect-main` ruleset with **no bypass actors**: pull requests only, linear history, squash merge only, no deletion, no force-push. Pages deploys from `main`.
 
 The automation publishes as the GitHub App `threats-data-bot` (id `5502502`), installed on this repository only with Contents and Pull requests write, configured through `vars.DATA_BOT_APP_ID` + `secrets.DATA_BOT_PRIVATE_KEY`. The bot identity matters because pull requests created with the built-in `GITHUB_TOKEN` do not trigger the required checks. `secrets.DATA_BOT_TOKEN` remains a fine-grained PAT fallback. `scripts/setup-ruleset.sh` prints the setup steps and verifies the credentials.
@@ -76,7 +76,7 @@ Direct equivalents:
 python3 scripts/normalize.py
 python3 scripts/validate_feeds.py
 python3 -m unittest discover -s scripts/tests -t scripts -v
-node --test assets worker
+node --test assets worker scheduler
 ```
 
 ## Repository layout
@@ -88,7 +88,8 @@ scripts/tests/        Python unit tests and XML/JSON fixtures
 assets/               shared CSS, escaping/time helpers, JS tests
 *.html                static pages; each fetches its data from /data/
 worker/               retired Edge Worker; every legacy route returns 410
-.github/workflows/    scheduled collection and pull-request validation
+scheduler/            Cloudflare Worker that dispatches collection every 15 minutes
+.github/workflows/    collection and pull-request validation
 docs/                 API contract, design history, deep analysis
 ```
 
@@ -98,6 +99,7 @@ The `worker/` directory is retained only so the retired surface is explicit and 
 
 - **Check health:** [`/data/status.json`](https://threats.top/data/status.json) or [`/status.html`](https://threats.top/status.html). `overall` is `ok`, `degraded`, or `outage`; a source is `stale` after twice its cadence.
 - **Collect now:** run the *Update Threat Data* workflow with `feeds=auto`, `all`, or a comma-separated source list.
+- **Scheduling:** `scheduler/` holds the Cron Trigger. From that directory run `npx wrangler deploy`, then `npx wrangler secret put GH_TOKEN` with a fine-grained token that has only `Actions: write` on this repository. Tokens expire: a `401` in `npx wrangler tail` means rotate it, and the resulting gap surfaces as `degraded` or `outage` on `/status.html`.
 - **Change scope by hand:** edit `data/manual.json`, regenerate `domains.json`, and open a pull request. This is the only supported write path.
 - **Roll back:** revert the offending pull request. Feed history is ordinary git history, so any previous snapshot is recoverable.
 - **Apply repository protection:** `bash scripts/setup-ruleset.sh` is idempotent and verifies the ruleset, merge settings, token permissions, Pages HTTPS, and bot credentials after applying them.

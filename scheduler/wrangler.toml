@@ -1,0 +1,13 @@
+name = "threats-scheduler"
+main = "src/index.mjs"
+compatibility_date = "2026-10-28"
+
+# Scheduled collection only. The site stays static; this Worker exists because
+# GitHub's schedule trigger is best-effort and drops most events for this repo.
+[triggers]
+crons = ["*/15 * * * *"]
+
+[vars]
+REPO = "nestho/threats-platform"
+
+# GH_TOKEN is a secret, not a var: npx wrangler secret put GH_TOKEN
