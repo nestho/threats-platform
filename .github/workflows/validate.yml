@@ -108,7 +108,7 @@ jobs:
       # worst: esc() is the site's only XSS control, and the edge Worker is the
       # only network-facing surface that used to write to main.
       - name: Test
-        run: node --test assets worker
+        run: node --test assets worker scheduler
 
   test-python:
     name: Python tests

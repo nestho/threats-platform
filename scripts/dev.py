@@ -41,10 +41,10 @@ def cmd_test(_args):
         if code != 0:
             return code
 
-    print("==> node unit tests (assets + worker)")
+    print("==> node unit tests (assets + worker + scheduler)")
     env = os.environ.copy()
     env["PATH"] = ":".join(["/opt/homebrew/bin", "/usr/local/bin", env.get("PATH", "")])
-    return run(["node", "--test", "assets", "worker"], env=env)
+    return run(["node", "--test", "assets", "worker", "scheduler"], env=env)
 
 
 def cmd_sync(args):
