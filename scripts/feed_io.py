@@ -156,7 +156,7 @@ def item_count(document):
     if not isinstance(document, dict):
         return 0
     total = 0
-    for key in ("items", "programs"):
+    for key in ("items", "programs", "events"):
         value = document.get(key)
         if isinstance(value, list):
             total += len(value)

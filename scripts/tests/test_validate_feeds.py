@@ -59,6 +59,20 @@ def program(**overrides):
     return record
 
 
+def live(**overrides):
+    record = {
+        "id": "rw-1",
+        "kind": "claim",
+        "ts": NOW,
+        "country": "US",
+        "group": "LockBit",
+        "sector": "Manufacturing",
+        "host": None,
+    }
+    record.update(overrides)
+    return record
+
+
 def envelope(items, **overrides):
     document = {
         "schema_version": 1,
@@ -178,6 +192,49 @@ class RecordTests(unittest.TestCase):
         self.assertTrue(any("entirely of markup" in error for error in report.errors))
 
 
+class LiveEventTests(unittest.TestCase):
+    def check(self, record):
+        report = validate_feeds.Report()
+        validate_feeds.check_record(record, "live_event", "test", report)
+        return report
+
+    def test_a_valid_claim_passes(self):
+        self.assertEqual(self.check(live()).errors, [])
+
+    def test_a_valid_host_event_passes(self):
+        record = live(kind="host", group=None, sector=None, host="evil.example")
+        self.assertEqual(self.check(record).errors, [])
+
+    def test_an_unknown_kind_is_rejected(self):
+        self.assertTrue(any("kind" in error for error in self.check(live(kind="attack")).errors))
+
+    def test_a_country_must_be_an_iso_code(self):
+        for country in ("US\n", "usa", "U1", ""):
+            report = self.check(live(country=country))
+            self.assertTrue(any("country" in error for error in report.errors), repr(country))
+
+    def test_a_claim_must_not_carry_a_hostname(self):
+        report = self.check(live(host="evil.example"))
+        self.assertTrue(any("must not carry a hostname" in error for error in report.errors))
+
+    def test_a_claim_needs_a_group(self):
+        for group in (None, "", "   "):
+            report = self.check(live(group=group))
+            self.assertTrue(any("group" in error for error in report.errors), repr(group))
+
+    def test_a_host_event_must_not_carry_claim_fields(self):
+        report = self.check(live(kind="host", group="LockBit", host="evil.example"))
+        self.assertTrue(any("claim fields" in error for error in report.errors))
+
+    def test_a_host_event_needs_a_hostname(self):
+        report = self.check(live(kind="host", group=None, sector=None, host="not a host"))
+        self.assertTrue(any("not a hostname" in error for error in report.errors))
+
+    def test_a_null_timestamp_is_rejected(self):
+        report = self.check(live(ts=None))
+        self.assertTrue(any("timestamp is null" in error for error in report.errors))
+
+
 class EnvelopeTests(unittest.TestCase):
     def test_a_complete_envelope_passes(self):
         report = validate_feeds.Report()
@@ -266,25 +323,32 @@ class FeedTests(unittest.TestCase):
 
 
 class StatusTests(unittest.TestCase):
-    def make_repo(self, tmp, *, feed_items, status_overrides=None):
+    def make_repo(self, tmp, *, feed_items, status_overrides=None,
+                  generated_at=None, feed_updated_at=None):
         tmp = Path(tmp)
         data = tmp / "data"
         data.mkdir()
-        (data / "iocs.json").write_text(json.dumps(envelope(feed_items)), encoding="utf-8")
+        feed = envelope(feed_items)
+        if feed_updated_at:
+            feed["updated_at"] = feed_updated_at
+        (data / "iocs.json").write_text(json.dumps(feed), encoding="utf-8")
         document = {
             "schema_version": 1,
-            "generated_at": NOW,
+            "generated_at": generated_at or NOW,
             "overall": "ok",
             "sources": [status_entry(**(status_overrides or {}))],
         }
         (data / "status.json").write_text(json.dumps(document), encoding="utf-8")
         return data
 
-    def run_status_check(self, tmp, *, feed_items=None, status_overrides=None):
+    def run_status_check(self, tmp, *, feed_items=None, status_overrides=None,
+                         generated_at=None, feed_updated_at=None):
         data = self.make_repo(
             tmp,
             feed_items=feed_items if feed_items is not None else [ioc()],
             status_overrides=status_overrides,
+            generated_at=generated_at,
+            feed_updated_at=feed_updated_at,
         )
         report = validate_feeds.Report()
         with mock.patch.object(validate_feeds, "DATA_DIR", data):
@@ -326,6 +390,40 @@ class StatusTests(unittest.TestCase):
                 },
             )
         self.assertTrue(any("the timestamp says True" in error for error in report.errors))
+
+    def test_a_snapshot_is_judged_by_its_own_clock(self):
+        # The flags describe the moment the file was written. Feeds that age
+        # while a pull request waits for review must not invalidate it, and
+        # the site's current state comes from the next collection, not from
+        # rewriting history.
+        with tempfile.TemporaryDirectory() as tmp:
+            report = self.run_status_check(
+                tmp,
+                generated_at="2026-10-01T00:00:00Z",
+                feed_updated_at="2026-10-01T00:00:00Z",
+                feed_items=[ioc(last_seen="2026-10-01T00:00:00Z")],
+                status_overrides={
+                    "last_success": "2026-10-01T00:00:00Z",
+                    "last_attempt": "2026-10-01T00:00:00Z",
+                    "stale": False,
+                },
+            )
+        self.assertEqual(report.errors, [])
+
+    def test_a_source_cannot_be_fresher_than_the_snapshot(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            report = self.run_status_check(
+                tmp,
+                generated_at="2026-10-01T00:00:00Z",
+                feed_updated_at="2026-10-05T00:00:00Z",
+                feed_items=[ioc(last_seen="2026-10-05T00:00:00Z")],
+                status_overrides={
+                    "last_success": "2026-10-05T00:00:00Z",
+                    "last_attempt": "2026-10-05T00:00:00Z",
+                    "stale": False,
+                },
+            )
+        self.assertTrue(any("later than generated_at" in error for error in report.errors))
 
     def test_overall_must_agree_with_the_sources(self):
         with tempfile.TemporaryDirectory() as tmp:

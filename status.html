@@ -7,7 +7,7 @@
 <title>Source status — Threats</title>
 <meta name="description" content="Per-source freshness and health for every threat feed: last attempt, last success, cadence, item count, and failures.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/app.css">
 <style>
   .badge.ok { color: #4ade80; border-color: rgba(74,222,128,0.35); }
@@ -15,20 +15,20 @@
   .badge.failed { color: var(--crit); border-color: rgba(239,68,68,0.4); }
   .badge.never { color: var(--text-muted); }
 
-  .table-wrap { border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); overflow-x: auto; }
+  .table-wrap { border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); overflow-x: auto; padding: 8px; }
   table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
   th, td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
   th { color: var(--text-muted); font-weight: 500; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; }
   tbody tr:last-child td { border-bottom: none; }
   tbody tr:hover { background: var(--surface-2); }
   td.source { font-weight: 500; white-space: nowrap; }
-  td.source .id { display: block; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 400; margin-top: 2px; }
+  td.source .id { display: block; color: var(--text-muted); font-family: var(--mono); font-size: 10.5px; font-weight: 400; margin-top: 2px; }
   td.source .err { display: block; color: var(--crit); font-size: 11px; font-weight: 400; margin-top: 4px; max-width: 340px; }
-  td.feeds a { color: var(--link); font-family: 'JetBrains Mono', monospace; font-size: 11px; display: inline-block; margin-right: 6px; }
+  td.feeds a { color: var(--link); font-family: var(--mono); font-size: 11px; display: inline-block; margin-right: 6px; }
   td.feeds a:hover { text-decoration: underline; }
-  td.num { font-family: 'JetBrains Mono', monospace; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
   td.when { white-space: nowrap; color: var(--text-secondary); }
-  td.cadence { white-space: nowrap; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+  td.cadence { white-space: nowrap; color: var(--text-muted); font-family: var(--mono); }
   .critical-mark { color: var(--accent); font-size: 10px; font-weight: 600; margin-left: 6px; }
 </style>
 </head>
@@ -49,7 +49,7 @@
     <a href="/cves.html"><span>Vulnerabilities</span><span class="n">02</span></a>
     <a href="/iocs.html"><span>Indicators</span><span class="n">03</span></a>
     <a href="/ransomware.html"><span>Ransomware</span><span class="n">04</span></a>
-    <a href="/map.html"><span>Geography</span><span class="n">05</span></a>
+    <a href="/map.html"><span>Live map</span><span class="n">05</span></a>
     <a href="/phishing.html"><span>Phishing</span><span class="n">06</span></a>
     <a href="/threats.html"><span>Cloud threats</span><span class="n">07</span></a>
     <span class="rail-label">Platform</span>

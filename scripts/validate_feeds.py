@@ -68,6 +68,7 @@ EXPECTED_SCHEMA_VERSION = {
     "advisories.json": 1,
     "epss.json": 1,
     "iocs.json": 1,
+    "live.json": 1,
 }
 
 # Feeds that are allowed to be empty. Deliberately empty: a source that can
@@ -92,11 +93,13 @@ CANONICAL_PLATFORMS = {
 
 THREAT_EVENT_TYPES = {"incident", "campaign", "research", "vulnerability", "malware", "threat actor"}
 IOC_TYPES = {"url", "domain"}
+LIVE_EVENT_KINDS = {"claim", "host"}
 SEVERITIES = {"CRITICAL", "HIGH", "MEDIUM", "LOW"}
 STATUS_OVERALL = {"ok", "degraded", "outage"}
 
 ISO_DATETIME = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$")
 ISO_DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+COUNTRY_CODE = re.compile(r"[A-Z]{2}")
 # Used only for the "field is entirely markup" shape check -- see check_record.
 TAG_ONLY = re.compile(r"<[^>]*>")
 DEFANGED = re.compile(r"^hxxps?://")
@@ -220,6 +223,15 @@ CONTRACT = {
         "last_seen": "nullable_iso_datetime",
         "link": "url",
     },
+    "live_event": {
+        "id": "str -- stable event ID",
+        "kind": f"enum -- one of {sorted(LIVE_EVENT_KINDS)}",
+        "ts": "iso_datetime -- when the claim was published or the host observed",
+        "country": "str -- ISO 3166-1 alpha-2; claim = victim country, host = hosting country",
+        "group": "nullable_str -- ransomware group, claim events only",
+        "sector": "nullable_str -- claimed victim sector, claim events only",
+        "host": "nullable_str -- phishing hostname, host events only",
+    },
     "status_source": {
         "id": "str",
         "label": "str",
@@ -251,6 +263,7 @@ FEED_SPECS = {
     "advisories.json": ("flat", [(("items",), "vendor_advisory", None)]),
     "epss.json": ("flat", [(("items",), "epss_score", None)]),
     "iocs.json": ("flat", [(("items",), "ioc", None)]),
+    "live.json": ("flat", [(("events",), "live_event", None)]),
     "domains.json": ("programs", [(("programs",), "program", None)]),
 }
 
@@ -267,6 +280,7 @@ SORTED_FEEDS = {
     "advisories.json": ("published", True),
     "epss.json": ("epss", True),
     "iocs.json": ("last_seen", True),
+    "live.json": ("ts", True),
 }
 
 
@@ -409,6 +423,29 @@ def check_record(item, record_type, where, report):
             report.fail(f"{where}.host", f"{host!r} is not a hostname")
         check_timestamp(item.get("collected_at"), allow_null=False,
                         where=f"{where}.collected_at", report=report)
+
+    if record_type == "live_event":
+        kind = item.get("kind")
+        if kind not in LIVE_EVENT_KINDS:
+            report.fail(f"{where}.kind", f"{kind!r} is not one of {sorted(LIVE_EVENT_KINDS)}")
+        check_timestamp(item.get("ts"), allow_null=False,
+                        where=f"{where}.ts", report=report)
+        country = item.get("country")
+        if not isinstance(country, str) or not COUNTRY_CODE.fullmatch(country):
+            report.fail(f"{where}.country",
+                        f"{country!r} is not an ISO 3166-1 alpha-2 code")
+        if kind == "claim":
+            if item.get("host") is not None:
+                report.fail(f"{where}.host", "a claim event must not carry a hostname")
+            group = item.get("group")
+            if not isinstance(group, str) or not group.strip():
+                report.fail(f"{where}.group", "a claim event needs a group (or 'Unattributed')")
+        elif kind == "host":
+            if item.get("group") is not None or item.get("sector") is not None:
+                report.fail(where, "a host event must not carry claim fields")
+            host = item.get("host")
+            if not isinstance(host, str) or not HOSTNAME.match(host.lower()):
+                report.fail(f"{where}.host", f"{host!r} is not a hostname")
 
     if record_type == "epss_score":
         for field in ("epss", "percentile"):
@@ -736,6 +773,20 @@ def load_status(report):
 
 def validate_status_and_freshness(report, status_entries):
     """Cross-file: status.json must agree with the feeds it describes."""
+    try:
+        document = json.loads(STATUS_PATH.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return
+    # The flags describe the run that wrote the file, so staleness is checked
+    # against generated_at rather than "now". Judging by now would fail a pull
+    # request that simply waited in review longer than twice a cadence, and
+    # the site's current state comes from the next collection either way.
+    try:
+        snapshot = datetime.strptime(document.get("generated_at"),
+                                     "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+    except (TypeError, ValueError):
+        return
+
     covered = {}
     for source_id, entry in status_entries.items():
         for feed in entry.get("feeds") or []:
@@ -799,7 +850,10 @@ def validate_status_and_freshness(report, status_entries):
             except ValueError:
                 expected = True
             else:
-                expected = (datetime.now(timezone.utc) - last).total_seconds() / 60 > cadence * 2
+                if last > snapshot:
+                    report.fail(f"data/status.json:{source_id}.last_success",
+                                "is later than generated_at; a snapshot cannot report the future")
+                expected = (snapshot - last).total_seconds() / 60 > cadence * 2
         if entry.get("stale") is not expected:
             report.fail(f"data/status.json:{source_id}.stale",
                         f"is {entry.get('stale')} but the timestamp says {expected}")
@@ -809,10 +863,6 @@ def validate_status_and_freshness(report, status_entries):
         expected_overall = "degraded"
         if any(entry.get("stale") and entry.get("critical") for entry in status_entries.values()):
             expected_overall = "outage"
-    try:
-        document = json.loads(STATUS_PATH.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError):
-        return
     if document.get("overall") != expected_overall:
         report.fail("data/status.json:overall",
                     f"is {document.get('overall')!r} but the sources say {expected_overall!r}")

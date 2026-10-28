@@ -59,15 +59,140 @@ def ring_path(ring):
     return f"M{head[0]:g} {head[1]:g} {body}Z"
 
 
-def geometry_paths(geometry):
+def geometry_polygons(geometry):
     kind = geometry.get("type")
     if kind == "Polygon":
-        polygons = [geometry["coordinates"]]
-    elif kind == "MultiPolygon":
-        polygons = geometry["coordinates"]
-    else:
-        return ""
-    return "".join(ring_path(ring) for polygon in polygons for ring in polygon)
+        return [geometry["coordinates"]]
+    if kind == "MultiPolygon":
+        return geometry["coordinates"]
+    return []
+
+
+def geometry_paths(geometry):
+    return "".join(
+        ring_path(ring) for polygon in geometry_polygons(geometry) for ring in polygon
+    )
+
+
+def ring_area(ring):
+    """Signed shoelace area; the sign only tells winding direction."""
+    total = 0.0
+    for index, (x1, y1) in enumerate(ring):
+        x2, y2 = ring[(index + 1) % len(ring)]
+        total += x1 * y2 - x2 * y1
+    return total / 2.0
+
+
+def largest_ring(polygons):
+    """
+    Outer ring of the biggest polygon.
+
+    A country's outline is a list of polygons, each starting with its outer ring
+    and followed by holes. France is mainland plus French Guiana, so the
+    mainland has to win or its marker drifts into the Atlantic.
+    """
+    best = None
+    best_area = 0.0
+    for polygon in polygons or []:
+        ring = polygon[0] if polygon else []
+        if len(ring) < 3:
+            continue
+        area = abs(ring_area(ring))
+        if area > best_area:
+            best, best_area = ring, area
+    return best
+
+
+def ring_centroid(ring):
+    """Area-weighted centroid; may fall outside a concave ring."""
+    area = ring_area(ring)
+    if not area:
+        return (0.0, 0.0)
+    x_sum = 0.0
+    y_sum = 0.0
+    for index, (x1, y1) in enumerate(ring):
+        x2, y2 = ring[(index + 1) % len(ring)]
+        cross = x1 * y2 - x2 * y1
+        x_sum += (x1 + x2) * cross
+        y_sum += (y1 + y2) * cross
+    return (x_sum / (6.0 * area), y_sum / (6.0 * area))
+
+
+def point_in_ring(point, ring):
+    x, y = point
+    inside = False
+    for index, (x1, y1) in enumerate(ring):
+        x2, y2 = ring[(index + 1) % len(ring)]
+        if (y1 > y) != (y2 > y):
+            cross = x1 + (y - y1) * (x2 - x1) / (y2 - y1)
+            if cross > x:
+                inside = not inside
+    return inside
+
+
+def _edge_distance(point, segment):
+    """Distance from a point to a segment, used to find the roomiest spot."""
+    px, py = point
+    (x1, y1), (x2, y2) = segment
+    dx, dy = x2 - x1, y2 - y1
+    if dx == 0 and dy == 0:
+        return ((px - x1) ** 2 + (py - y1) ** 2) ** 0.5
+    t = max(0.0, min(1.0, ((px - x1) * dx + (py - y1) * dy) / (dx * dx + dy * dy)))
+    nearest = (x1 + t * dx, y1 + t * dy)
+    return ((px - nearest[0]) ** 2 + (py - nearest[1]) ** 2) ** 0.5
+
+
+def interior_point(ring, steps=16):
+    """
+    A point that is inside `ring`.
+
+    Concave countries (Norway, Croatia, the United States with Alaska) put their
+    centroid in the water, which would place their pulse offshore. When that
+    happens, sample a grid and keep the inside point furthest from any edge —
+    the same idea as a pole of inaccessibility, small enough to run per country
+    at build time.
+    """
+    if len(ring) < 3:
+        return None
+    centroid = ring_centroid(ring)
+    if point_in_ring(centroid, ring):
+        return centroid
+
+    xs = [x for x, _ in ring]
+    ys = [y for _, y in ring]
+    min_x, max_x = min(xs), max(xs)
+    min_y, max_y = min(ys), max(ys)
+    segments = [(ring[i], ring[(i + 1) % len(ring)]) for i in range(len(ring))]
+
+    best = None
+    best_clearance = 0.0
+    for row in range(1, steps):
+        y = min_y + (max_y - min_y) * row / steps
+        for column in range(1, steps):
+            x = min_x + (max_x - min_x) * column / steps
+            if not point_in_ring((x, y), ring):
+                continue
+            clearance = min(_edge_distance((x, y), segment) for segment in segments)
+            if clearance > best_clearance:
+                best, best_clearance = (x, y), clearance
+    return best
+
+
+def project_polygons(polygons):
+    """Project lon/lat polygons into the same space as the SVG paths."""
+    return [[[project(lon, lat) for lon, lat in ring] for ring in polygon] for polygon in polygons]
+
+
+def centroid_table(features):
+    """Country code -> [x, y] in the same projected space as the SVG paths."""
+    table = {}
+    for feature in features:
+        ring = largest_ring(feature.get("polygons"))
+        point = interior_point(ring) if ring else None
+        if point is None:
+            continue
+        table[feature["code"]] = [round(point[0], PRECISION), round(point[1], PRECISION)]
+    return table
 
 
 def iso_code(properties):
@@ -83,6 +208,7 @@ def main():
         document = json.loads(response.read().decode("utf-8"))
 
     paths = {}
+    polygons = {}
     skipped = []
     for feature in document["features"]:
         code = iso_code(feature["properties"])
@@ -94,8 +220,14 @@ def main():
         if code in paths:
             # Natural Earth splits a few countries into multiple features.
             paths[code] += path
+            polygons[code].extend(geometry_polygons(geometry))
         else:
             paths[code] = path
+            polygons[code] = geometry_polygons(geometry)
+
+    centroids = centroid_table(
+        [{"code": code, "polygons": project_polygons(polygons[code])} for code in sorted(polygons)]
+    )
 
     lines = [
         "// Generated by scripts/build_world_map.py -- do not edit by hand.",
@@ -107,6 +239,14 @@ def main():
     ]
     for code in sorted(paths):
         lines.append(f"  {code}: {json.dumps(paths[code])},")
+    lines.append("});")
+    lines.append("")
+    # Marker anchors, in the same projected space: the interior point of each
+    # country's largest polygon, so a pulse never lands in the sea.
+    lines.append("export const WORLD_CENTROIDS = Object.freeze({")
+    for code in sorted(centroids):
+        x, y = centroids[code]
+        lines.append(f"  {code}: [{x:g}, {y:g}],")
     lines.append("});")
     lines.append("")
 

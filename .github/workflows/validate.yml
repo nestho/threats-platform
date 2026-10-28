@@ -8,7 +8,8 @@ name: Validate
 # wise arrive unnoticed.
 #
 # Three independent jobs, so a test failure cannot hide a feed failure (or the
-# reverse) and all three can be required by name in the ruleset.
+# reverse) and all three can be required by name in the ruleset. The fourth job
+# (Design detector) is advisory and is deliberately not a required check.
 
 on:
   pull_request:
@@ -127,3 +128,55 @@ jobs:
       # same way they do when a collector runs from the repository root.
       - name: Test
         run: python3 -m unittest discover -s scripts/tests -t scripts -v
+
+  design:
+    name: Design detector
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Setup Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '20'
+
+      # The 4.8.0 tarball is fetched and checked against the registry's
+      # integrity hash rather than resolved through npx: the version cannot
+      # drift, and no lifecycle script runs on the runner. The unpacked CLI
+      # lives under .cache/, which is ignored.
+      - name: Install scanner
+        env:
+          TARBALL_SHA512: e0+wbJppJMiQN8npKmIkBbKetfSlarak7OIGlsRhc8folekz4PgStjuprhYi+imjqBb6OCMJLV9II2hHGmcCyg==
+        run: |
+          set -euo pipefail
+          mkdir -p .cache/impeccable
+          curl --proto '=https' --tlsv1.2 -fsSL --retry 3 \
+            https://registry.npmjs.org/impeccable/-/impeccable-4.8.0.tgz \
+            -o .cache/impeccable.tgz
+          actual=$(openssl dgst -sha512 -binary .cache/impeccable.tgz | openssl base64 -A)
+          if [[ "$actual" != "$TARBALL_SHA512" ]]; then
+            echo "::error::Impeccable tarball does not match the pinned integrity hash."
+            exit 1
+          fi
+          tar -xzf .cache/impeccable.tgz -C .cache/impeccable --strip-components=1
+
+      # Advisory on purpose. Findings annotate the pull request and never block
+      # a merge, because taste rules must not override a human. A detector that
+      # cannot scan (exit 1) does fail the job: a check that silently stops
+      # scanning is worse than no check at all.
+      - name: Scan pages and styles
+        env:
+          DO_NOT_TRACK: '1'
+          IMPECCABLE_NO_TELEMETRY: '1'
+        run: |
+          set +e
+          node .cache/impeccable/cli/bin/cli.js detect --github --no-advisory ./*.html assets
+          code=$?
+          set -e
+          echo "detector exit: $code"
+          if [[ $code -eq 1 ]]; then
+            echo "::error::Impeccable could not scan its targets."
+            exit 1
+          fi

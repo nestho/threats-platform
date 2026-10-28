@@ -130,6 +130,16 @@ increment `schema_version`. The validation rules are listed in CONSTRAINTS.md.
   last_seen   nullable_iso_datetime
   link        url
 
+## live_event
+
+  id       str -- stable event ID
+  kind     enum -- one of ['claim', 'host']
+  ts       iso_datetime -- when the claim was published or the host observed
+  country  str -- ISO 3166-1 alpha-2; claim = victim country, host = hosting country
+  group    nullable_str -- ransomware group, claim events only
+  sector   nullable_str -- claimed victim sector, claim events only
+  host     nullable_str -- phishing hostname, host events only
+
 ## status_source
 
   id               str
@@ -156,4 +166,5 @@ increment `schema_version`. The validation rules are listed in CONSTRAINTS.md.
   advisories.json       envelope=flat      sections=items
   epss.json             envelope=flat      sections=items
   iocs.json             envelope=flat      sections=items
+  live.json             envelope=flat      sections=events
   domains.json          envelope=programs  sections=programs

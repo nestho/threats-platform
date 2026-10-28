@@ -17,6 +17,7 @@ Every number on the site comes from a live feed. There is no demo data, no sampl
 | [Vulnerabilities](https://threats.top/cves.html) | NVD window, CISA KEV, EPSS, Exploit-DB, CERT-EU, GHSA |
 | [Live indicators](https://threats.top/iocs.html) | Defanged phishing URLs and ransomware victim domains |
 | [Ransomware](https://threats.top/ransomware.html) | Leak-site claims with group, sector, and country |
+| [Live map](https://threats.top/map.html) | Victim claims and phishing hosting by country, with a 72-hour replay |
 | [Phishing](https://threats.top/phishing.html) | A deduplicated OpenPhish snapshot |
 | [Cloud threats](https://threats.top/threats.html) | Wiz Research incidents plus Microsoft and Ubuntu advisories |
 | [Programs](https://threats.top/programs.html) | Bug bounty scope and in-scope domains |
@@ -41,7 +42,12 @@ All public feeds are unkeyed. Each file carries `schema_version`, `source`, `sou
 | `data/advisories.json` | Microsoft MSRC + Ubuntu | 4h | Vendor security notices |
 | `data/epss.json` | FIRST EPSS | 6h | Exploit prediction scores for the CVE window |
 | `data/iocs.json` | Derived | 1h | Combined phishing and ransomware indicators |
+| `data/live.json` | Derived + DB-IP Lite | 1h | Geo-placed claims and phishing hosts for the live map |
 | `data/status.json` | Derived | every run | Health of every source above |
+
+Phishing host locations in `live.json` come from [DB-IP Lite](https://db-ip.com)
+under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); the attribution
+is repeated on the page and in the feed metadata.
 
 Wiz publishes analysis, not alerts (measured: 0 items in 7 days, 3 in 30), so it runs on a 30-day cadence and is labelled as analysis in the UI rather than implying hourly freshness.
 
