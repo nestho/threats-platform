@@ -1,0 +1,40 @@
+name: Feature request
+description: Propose a capability for the site, feeds, or API
+title: "[feat] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: Who is blocked, and by what? Describe the workflow, not only the feature.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Threat intelligence pages
+        - Bug bounty pages
+        - Data source or collector
+        - API / data contract
+        - Accessibility
+        - Documentation or CI
+    validations:
+      required: true
+  - type: textarea
+    id: data
+    attributes:
+      label: Data source
+      description: If this needs new data, name the source, its licence, its cadence, and whether it requires a key.
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered

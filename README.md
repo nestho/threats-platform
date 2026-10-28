@@ -1,5 +1,10 @@
 # threats.top
 
+[![Update Threat Data](https://github.com/nestho/threats-platform/actions/workflows/update-data.yml/badge.svg)](https://github.com/nestho/threats-platform/actions/workflows/update-data.yml)
+[![Validate](https://github.com/nestho/threats-platform/actions/workflows/validate.yml/badge.svg)](https://github.com/nestho/threats-platform/actions/workflows/validate.yml)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=nestho_threats-platform&metric=alert_status)](https://sonarcloud.io/dashboard?id=nestho_threats-platform)
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
+
 Open threat intelligence, built from free official sources and published as static JSON and HTML. There is no database server and no backend process at runtime: GitHub Actions collects the data, `scripts/validate_feeds.py` gates it, GitHub Pages serves `threats.top`, and every change to production arrives through a pull request.
 
 Every number on the site comes from a live feed. There is no demo data, no sample tenant, and no placeholder row that could be mistaken for real intelligence.
@@ -42,13 +47,13 @@ Wiz publishes analysis, not alerts (measured: 0 items in 7 days, 3 in 30), so it
 
 ## How data reaches production
 
-1. `update-data.yml` runs hourly at `:07`. `scripts/run_collectors.py` decides which sources are due from the cadence table in `scripts/status.py`, runs each collector in its own subprocess with a 900-second timeout, and writes `status.json` after each one. A failed source does not stop the healthy ones.
+1. `update-data.yml` is scheduled three times an hour (`:07`, `:27`, `:47`). GitHub treats schedules as best-effort, so redundant slots are cheaper than a missed hour. `scripts/run_collectors.py` decides which sources are due from the cadence table in `scripts/status.py`, runs each collector in its own subprocess with a 900-second timeout, and writes `status.json` after each one. A failed source does not stop the healthy ones.
 2. `scripts/validate_feeds.py` checks schema, provenance, timestamps, URL schemes, empty and halved feeds, status cross-file consistency, and the public HTML for demo markers.
 3. If `data/` changed, the workflow commits to an `automation/data-*` branch and opens or updates one pull request. Auto-merge (squash) is enabled, so it lands as soon as the required checks pass.
 4. `validate.yml` runs on every pull request and must report three green checks:
    - **Feed data** — validates the snapshot against the base commit, so the gate answers "did this PR empty or halve a feed" rather than "is a feed empty".
-   - **Unit tests** — `node --test assets worker` (19 tests).
-   - **Python tests** — `python3 -m unittest discover -s scripts/tests -t scripts` (98 tests).
+   - **Unit tests** — `node --test assets worker` (28 tests).
+   - **Python tests** — `python3 -m unittest discover -s scripts/tests -t scripts` (103 tests).
 5. `main` is protected by the `protect-main` ruleset with **no bypass actors**: pull requests only, linear history, squash merge only, no deletion, no force-push. Pages deploys from `main`.
 
 The automation publishes as the GitHub App `threats-data-bot` (id `5502502`), installed on this repository only with Contents and Pull requests write, configured through `vars.DATA_BOT_APP_ID` + `secrets.DATA_BOT_PRIVATE_KEY`. The bot identity matters because pull requests created with the built-in `GITHUB_TOKEN` do not trigger the required checks. `secrets.DATA_BOT_TOKEN` remains a fine-grained PAT fallback. `scripts/setup-ruleset.sh` prints the setup steps and verifies the credentials.
@@ -108,4 +113,18 @@ The `worker/` directory is retained only so the retired surface is explicit and 
 | [`docs/DEEP-ANALYSIS.md`](docs/DEEP-ANALYSIS.md) | Historical audit behind the 2026-09 integrity rework |
 | [`docs/superpowers/specs/2026-10-27-real-threats-platform-design.md`](docs/superpowers/specs/2026-10-27-real-threats-platform-design.md) | Design record for the v1 rebuild |
 
-Upstream data remains subject to each source's own terms. The code is published as-is, without warranty.
+## Community
+
+| Document | Purpose |
+|---|---|
+| [`CONTRIBUTING.md`](CONTRIBUTING.md) | Development setup, pull request rules, how to add a source |
+| [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) | Contributor Covenant 2.1 |
+| [`SECURITY.md`](SECURITY.md) | Private vulnerability reporting and scope |
+| [`ACCESSIBILITY.md`](ACCESSIBILITY.md) | WCAG 2.2 AA target and known limitations |
+
+## License
+
+Licensed under the [Apache License 2.0](LICENSE). Upstream data remains subject to
+each source's own terms; the licence covers the code and does not grant rights to
+third-party feed content. The software is provided as-is, without warranty.
+

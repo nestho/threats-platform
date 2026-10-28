@@ -47,10 +47,9 @@ class WriteJsonTests(unittest.TestCase):
 
 class StableIdTests(unittest.TestCase):
     def test_same_identity_produces_the_same_id(self):
-        self.assertEqual(
-            feed_io.stable_id("ioc", "url", "hxxps://evil.example/x"),
-            feed_io.stable_id("ioc", "url", "hxxps://evil.example/x"),
-        )
+        first = feed_io.stable_id("ioc", "url", "hxxps://evil.example/x")
+        second = feed_io.stable_id("ioc", "url", "hxxps://evil.example/x")
+        self.assertEqual(first, second)
 
     def test_different_identity_produces_a_different_id(self):
         self.assertNotEqual(

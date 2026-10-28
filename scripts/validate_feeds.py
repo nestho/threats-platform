@@ -485,7 +485,20 @@ def check_envelope(doc, feed, report):
                     where=f"{where}.updated_at", report=report)
 
 
+# --against is operator input and reaches argv. Accept only plain ref names and
+# object ids: no leading dash (git would read it as an option), no "..", no
+# whitespace, no revision syntax such as "HEAD^{tree}".
+GIT_REF_RE = re.compile(r"[A-Za-z0-9][A-Za-z0-9._/-]*\Z")
+FEED_NAME_RE = re.compile(r"[A-Za-z0-9._-]+\.json\Z")
+
+
+def is_safe_ref(ref):
+    return bool(GIT_REF_RE.fullmatch(ref)) and ".." not in ref and not ref.endswith("/")
+
+
 def load_baseline(feed, ref):
+    if not is_safe_ref(ref) or not FEED_NAME_RE.fullmatch(feed):
+        return None
     try:
         out = subprocess.run(
             ["git", "show", f"{ref}:data/{feed}"],
@@ -859,9 +872,15 @@ def print_contract():
         print(f"  {feed.ljust(20)}  envelope={kind:<9} sections={sections}")
 
 
+def git_ref_argument(value):
+    if not is_safe_ref(value):
+        raise argparse.ArgumentTypeError(f"unsafe git ref: {value!r}")
+    return value
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--against", default="HEAD",
+    parser.add_argument("--against", default="HEAD", type=git_ref_argument,
                         help="git ref holding the baseline for the regression check (default: HEAD)")
     parser.add_argument("--no-regression", action="store_true",
                         help="skip the baseline comparison")

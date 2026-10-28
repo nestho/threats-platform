@@ -106,14 +106,14 @@ def defang(url):
     if value.startswith("https://"):
         return "hxxps://" + value[len("https://"):]
     if value.startswith("http://"):
-        return "hxxp://" + value[len("http://"):]
+        return "hxxp://" + value[len("http://"):]  # NOSONAR: defanging transform, no request is made
     return value
 
 
 def refang(value):
     if not isinstance(value, str):
         return ""
-    return value.replace("hxxps://", "https://", 1).replace("hxxp://", "http://", 1)
+    return value.replace("hxxps://", "https://", 1).replace("hxxp://", "http://", 1)  # NOSONAR: refanging for display/copy only
 
 
 def strip_html(text):

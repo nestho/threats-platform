@@ -1,0 +1,55 @@
+name: Data correction
+description: A published record is wrong, mislabelled, or out of date
+title: "[data] "
+labels: ["data"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Corrections are only accepted with a primary-source link. We do not edit
+        a record to match an unsourced claim.
+  - type: dropdown
+    id: feed
+    attributes:
+      label: Feed
+      options:
+        - cves.json
+        - ghsa.json
+        - exploitdb.json
+        - cert_eu.json
+        - wiz.json
+        - ransomware.json
+        - phishing.json
+        - advisories.json
+        - epss.json
+        - iocs.json
+        - domains.json
+        - status.json
+        - other / not sure
+    validations:
+      required: true
+  - type: input
+    id: record
+    attributes:
+      label: Record identifier
+      description: CVE id, advisory id, indicator value, or the exact row you saw.
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong
+    validations:
+      required: true
+  - type: input
+    id: evidence
+    attributes:
+      label: Primary source URL
+      description: The upstream page that proves the correct value.
+    validations:
+      required: true
+  - type: input
+    id: observed
+    attributes:
+      label: When you saw it (UTC)
+      placeholder: 2026-10-28 06:08Z
