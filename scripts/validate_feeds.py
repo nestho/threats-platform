@@ -773,6 +773,20 @@ def load_status(report):
 
 def validate_status_and_freshness(report, status_entries):
     """Cross-file: status.json must agree with the feeds it describes."""
+    try:
+        document = json.loads(STATUS_PATH.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return
+    # The flags describe the run that wrote the file, so staleness is checked
+    # against generated_at rather than "now". Judging by now would fail a pull
+    # request that simply waited in review longer than twice a cadence, and
+    # the site's current state comes from the next collection either way.
+    try:
+        snapshot = datetime.strptime(document.get("generated_at"),
+                                     "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+    except (TypeError, ValueError):
+        return
+
     covered = {}
     for source_id, entry in status_entries.items():
         for feed in entry.get("feeds") or []:
@@ -836,7 +850,10 @@ def validate_status_and_freshness(report, status_entries):
             except ValueError:
                 expected = True
             else:
-                expected = (datetime.now(timezone.utc) - last).total_seconds() / 60 > cadence * 2
+                if last > snapshot:
+                    report.fail(f"data/status.json:{source_id}.last_success",
+                                "is later than generated_at; a snapshot cannot report the future")
+                expected = (snapshot - last).total_seconds() / 60 > cadence * 2
         if entry.get("stale") is not expected:
             report.fail(f"data/status.json:{source_id}.stale",
                         f"is {entry.get('stale')} but the timestamp says {expected}")
@@ -846,10 +863,6 @@ def validate_status_and_freshness(report, status_entries):
         expected_overall = "degraded"
         if any(entry.get("stale") and entry.get("critical") for entry in status_entries.values()):
             expected_overall = "outage"
-    try:
-        document = json.loads(STATUS_PATH.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError):
-        return
     if document.get("overall") != expected_overall:
         report.fail("data/status.json:overall",
                     f"is {document.get('overall')!r} but the sources say {expected_overall!r}")
