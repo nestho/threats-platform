@@ -16,6 +16,7 @@ Unlike the 2026-09 version of this file, these are no longer advisory: a direct 
 - No secrets in source. Bot credentials live in GitHub Actions variables and secrets; the retired Worker holds none.
 - **Every collector exits non-zero on failure.** A zero exit means the file is valid, and the validator is what decides validity.
 - **No demo, sample, or placeholder data.** A missing feed is an error state, not a reason to render invented rows.
+- **No invented geography.** The live map places only records whose feed carries a country. Phishing hosts are placed by the registered IP country (DB-IP Lite) and labelled as hosting, never as attacker origin. There are no source-to-destination arcs, because no publishable feed records attacker origin.
 - This file does not get weakened to make a change pass.
 
 ---
@@ -54,10 +55,10 @@ A dimension with a number and no command is an aspiration, not a constraint.
 
 | Metric | Today (2026-10-28) | Direction |
 |---|---|---|
-| Sources collected | **11** | add only with a real upstream |
-| Published feeds | **12** (`+ status.json`) | every feed has a UI surface |
-| Python unit tests | **98** | must not fall |
-| JavaScript unit tests | **19** | must not fall |
+| Sources collected | **12** | add only with a real upstream |
+| Published feeds | **13** (`+ status.json`) | every feed has a UI surface |
+| Python unit tests | **169** | must not fall |
+| JavaScript unit tests | **72** | must not fall |
 | Runtime dependencies | **0** | must stay 0 |
 | GitHub Actions pinned to a SHA | **9 of 9** | must stay 9 of 9 |
 | Paths to `main` that bypass a check | **0** | must stay 0 |

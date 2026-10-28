@@ -128,6 +128,7 @@ class EnvelopeTests(unittest.TestCase):
     def test_item_count_understands_every_feed_shape(self):
         self.assertEqual(feed_io.item_count({"items": [1, 2]}), 2)
         self.assertEqual(feed_io.item_count({"programs": [1]}), 1)
+        self.assertEqual(feed_io.item_count({"events": [1, 2, 3]}), 3)
         self.assertEqual(
             feed_io.item_count({"recent": {"items": [1]}, "actively_exploited": {"items": [2, 3]}}),
             3,

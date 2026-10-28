@@ -127,6 +127,18 @@ SOURCES = {
         "feeds": ["iocs.json"],
         "primary_feed": "iocs.json",
     },
+    # Derived from phishing and ransomware, so it runs after both. The country
+    # database it needs is an input, not a source: live_feed.py downloads it and
+    # publishes claims only if that download fails.
+    "live": {
+        "label": "Live map (claims + phishing hosting)",
+        "url": ["https://api.ransomware.live/v2/recentvictims", "https://openphish.com/feed.txt"],
+        "cadence_minutes": 60,
+        "critical": False,
+        "script": "live_feed.py",
+        "feeds": ["live.json"],
+        "primary_feed": "live.json",
+    },
 }
 
 
@@ -160,6 +172,8 @@ def feed_totals():
             total += len(document["items"])
         if isinstance(document.get("programs"), list):
             total += len(document["programs"])
+        if isinstance(document.get("events"), list):
+            total += len(document["events"])
         for section in ("recent", "actively_exploited"):
             value = document.get(section)
             if isinstance(value, dict) and isinstance(value.get("items"), list):

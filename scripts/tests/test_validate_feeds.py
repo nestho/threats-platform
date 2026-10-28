@@ -59,6 +59,20 @@ def program(**overrides):
     return record
 
 
+def live(**overrides):
+    record = {
+        "id": "rw-1",
+        "kind": "claim",
+        "ts": NOW,
+        "country": "US",
+        "group": "LockBit",
+        "sector": "Manufacturing",
+        "host": None,
+    }
+    record.update(overrides)
+    return record
+
+
 def envelope(items, **overrides):
     document = {
         "schema_version": 1,
@@ -176,6 +190,49 @@ class RecordTests(unittest.TestCase):
             report,
         )
         self.assertTrue(any("entirely of markup" in error for error in report.errors))
+
+
+class LiveEventTests(unittest.TestCase):
+    def check(self, record):
+        report = validate_feeds.Report()
+        validate_feeds.check_record(record, "live_event", "test", report)
+        return report
+
+    def test_a_valid_claim_passes(self):
+        self.assertEqual(self.check(live()).errors, [])
+
+    def test_a_valid_host_event_passes(self):
+        record = live(kind="host", group=None, sector=None, host="evil.example")
+        self.assertEqual(self.check(record).errors, [])
+
+    def test_an_unknown_kind_is_rejected(self):
+        self.assertTrue(any("kind" in error for error in self.check(live(kind="attack")).errors))
+
+    def test_a_country_must_be_an_iso_code(self):
+        for country in ("US\n", "usa", "U1", ""):
+            report = self.check(live(country=country))
+            self.assertTrue(any("country" in error for error in report.errors), repr(country))
+
+    def test_a_claim_must_not_carry_a_hostname(self):
+        report = self.check(live(host="evil.example"))
+        self.assertTrue(any("must not carry a hostname" in error for error in report.errors))
+
+    def test_a_claim_needs_a_group(self):
+        for group in (None, "", "   "):
+            report = self.check(live(group=group))
+            self.assertTrue(any("group" in error for error in report.errors), repr(group))
+
+    def test_a_host_event_must_not_carry_claim_fields(self):
+        report = self.check(live(kind="host", group="LockBit", host="evil.example"))
+        self.assertTrue(any("claim fields" in error for error in report.errors))
+
+    def test_a_host_event_needs_a_hostname(self):
+        report = self.check(live(kind="host", group=None, sector=None, host="not a host"))
+        self.assertTrue(any("not a hostname" in error for error in report.errors))
+
+    def test_a_null_timestamp_is_rejected(self):
+        report = self.check(live(ts=None))
+        self.assertTrue(any("timestamp is null" in error for error in report.errors))
 
 
 class EnvelopeTests(unittest.TestCase):

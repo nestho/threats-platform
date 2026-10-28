@@ -103,6 +103,8 @@ assets/
   app.css                 shared design system
   app.js                  esc(), time helpers, tabs, fetch helpers
   app.test.mjs            XSS and time-helper tests
+  live-map.js             pure model helpers for the live map
+  live-map.test.mjs       window, replay, aggregation and ingest-state tests
 data/                     committed JSON; this is the database
   cves.json               NVD window + KEV
   cves_headline.json      bounded homepage slice
@@ -117,6 +119,7 @@ data/                     committed JSON; this is the database
   advisories.json         Microsoft and Ubuntu notices
   epss.json               EPSS scores for the CVE window
   iocs.json               derived phishing + ransomware indicators
+  live.json               geo-placed claims and phishing hosts for the live map
   status.json             per-source freshness and health
 scripts/
   run_collectors.py       cadence selection, subprocess isolation, status
@@ -153,6 +156,8 @@ docs/                     contract, design, analysis
 | Microsoft MSRC + Ubuntu | `advisories_feed.py` | `advisories.json` | 4h | Two RSS feeds, per-upstream partial-failure reporting. |
 | FIRST EPSS | `epss_feed.py` | `epss.json` | 6h | Scores only the CVE ids in the current window; no bulk archive. |
 | Derived | `iocs_feed.py` | `iocs.json` | 1h | Combines phishing and ransomware domains into one indicator list. |
+| DB-IP Lite | `ip_country.py` | lookup table | monthly archive | Free CC BY 4.0 country database, cached under `.cache/` and never committed. Downloads the current month, falls back to the previous one. |
+| Derived | `live_feed.py` | `live.json` | 1h | Joins the ransomware window and the OpenPhish snapshot: claims keep the country they publish, phishing hosts are resolved and located by registered IP country. Exits non-zero on an empty result; publishes claims alone if the database is unavailable. |
 
 Keyed feeds (URLhaus, ThreatFox, Feodo, DShield) are deliberately excluded. They are either retired upstream, require an abuse.ch Auth-Key, or return empty. See the design record in `docs/superpowers/specs/`.
 
@@ -246,6 +251,7 @@ Each page is static HTML with an inline module that fetches its JSON from `/data
 | `programs.html` | `domains.json` |
 | `iocs.html` | `iocs.json` |
 | `ransomware.html` | `ransomware.json` |
+| `map.html` | `live.json` |
 | `phishing.html` | `phishing.json` |
 | `threats.html` | `wiz.json`, `advisories.json` |
 | `status.html` | `status.json` |

@@ -4,17 +4,264 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07080b">
-<title>Threat geography — Threats</title>
-<meta name="description" content="Ransomware leak-site victim claims by country, plotted from the live claims that carry an ISO country code.">
+<title>Live threat map — Threats</title>
+<meta name="description" content="Ransomware victim claims and phishing hosting plotted from live feeds, with a 72-hour replay and an explicit freshness banner.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/app.css">
 <style>
-  /* The world surface, shading steps and legend are shared with the overview
-     and live in app.css; only the geography page's layout is local. */
-  .map-panel { padding: 18px; margin-bottom: 20px; }
-  td .share { font-family: var(--mono); font-variant-numeric: tabular-nums; }
-  td .groups { color: var(--text-muted); }
+  /* Page-local: the map surface, timeline, ticker and pulse layer. The world
+     outline, shading steps and legend swatches are shared and live in app.css. */
+  /* Rendered lines here run past 80 characters at the shared 80ch measure;
+     both paragraphs are long, so hold them to a comfortable reading width. */
+  .sub, #coverage-note { max-width: 58ch; }
+
+  .map-panel { padding: 16px; margin-bottom: 16px; position: relative; overflow: hidden; }
+
+  .map-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+
+  .seg-group { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; padding: 2px; gap: 2px; }
+
+  .seg {
+    background: none;
+    border: 0;
+    border-radius: 999px;
+    padding: 5px 12px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    cursor: pointer;
+  }
+
+  .seg[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent); }
+  .seg:hover { color: var(--text); }
+
+  .ingest {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+
+  .ingest.live { color: var(--ok); }
+  .ingest.live .dot { animation: breathe 2.6s ease-in-out infinite; }
+  .ingest.delayed { color: var(--med); }
+  .ingest.delayed .dot { background: var(--med); }
+  .ingest.stale { color: var(--crit); }
+  .ingest.stale .dot { background: var(--crit); }
+  .ingest.offline .dot { background: var(--text-muted); }
+
+  @keyframes breathe {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 3px rgba(61, 220, 151, 0.14); }
+    50% { opacity: 0.55; box-shadow: 0 0 0 5px rgba(61, 220, 151, 0.05); }
+  }
+
+  /* Claim pulses: one ring per recorded claim, sized by the country's share.
+     The layer is aria-hidden; the table and ticker carry the same events as text. */
+  .pulse {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 1.3;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: pulse-ring 1.9s cubic-bezier(0.2, 0.6, 0.3, 1) forwards;
+  }
+
+  @keyframes pulse-ring {
+    from { transform: scale(1); opacity: 0.9; }
+    to { transform: scale(var(--reach, 4)); opacity: 0; }
+  }
+
+  .world .country.flash { animation: flash-fill 1.6s ease-out; }
+  @keyframes flash-fill { from { fill: var(--accent); } }
+
+  .pulse-key {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+    border: 1.5px solid var(--accent);
+    border-radius: 50%;
+  }
+
+  .timeline { padding: 14px 16px 12px; margin-bottom: 16px; }
+
+  .spark {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 46px;
+    margin-bottom: 12px;
+  }
+
+  .spark .bar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 1px;
+    min-height: 2px;
+  }
+
+  .spark .claims { background: rgba(249, 115, 22, 0.55); border-radius: 1px 1px 0 0; }
+  .spark .hosts { background: rgba(92, 200, 255, 0.45); border-radius: 1px 1px 0 0; }
+
+  .spark-head {
+    position: absolute;
+    top: -4px;
+    bottom: -4px;
+    width: 1px;
+    background: var(--link);
+    opacity: 0.75;
+    transition: left 0.08s linear;
+  }
+
+  .controls button, .timeline-row button {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    padding: 8px 12px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: border-color 0.12s, color 0.12s, background 0.12s;
+  }
+
+  .controls button:hover, .timeline-row button:hover {
+    border-color: var(--border-hover);
+    color: var(--text);
+  }
+
+  .controls button[aria-pressed="true"] {
+    background: var(--accent-soft);
+    border-color: var(--accent-line);
+    color: var(--accent);
+  }
+
+  .timeline-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+
+  .timeline-row input[type="range"] {
+    flex: 1;
+    min-width: 180px;
+    accent-color: var(--accent);
+    height: 22px;
+    background: transparent;
+  }
+
+  .time-readout {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .live-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 16px; margin-bottom: 20px; }
+
+  .ticker-panel, .source-panel { padding: 16px 18px; }
+
+  .ticker { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-top: 10px; }
+
+  .ticker li {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    border-bottom: 1px dashed var(--border);
+    padding-bottom: 9px;
+  }
+
+  .ticker li:last-child { border-bottom: 0; padding-bottom: 0; }
+
+  .ticker time {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    color: var(--text-secondary);
+    min-width: 58px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .kind {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+
+  .kind.claim { color: var(--accent); }
+  .kind.host { color: var(--link); }
+
+  .ticker-label { color: var(--text-secondary); overflow-wrap: anywhere; }
+
+  .provenance { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+
+  .provenance li {
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 60ch;
+  }
+
+  .provenance a { color: var(--link); }
+  .provenance a:hover { text-decoration: underline; }
+
+  .country-button {
+    background: none;
+    border: 0;
+    padding: 0;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    border-bottom: 1px dashed var(--border-hover);
+  }
+
+  .country-button:hover { color: var(--link); border-bottom-color: var(--link); }
+
+  td .num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  td .code { color: var(--text-muted); font-family: var(--mono); font-size: 10.5px; }
+  td .top-group { color: var(--text-muted); overflow-wrap: anywhere; }
+  tr.sel td { background: rgba(92, 200, 255, 0.05); }
+
+  @media (max-width: 980px) {
+    .live-grid { grid-template-columns: 1fr; }
+  }
+
+  .map-scroll { overflow: hidden; }
+
+  @media (max-width: 720px) {
+    .map-head { align-items: flex-start; }
+    .seg-group { width: 100%; }
+    .seg { flex: 1; text-align: center; }
+    /* At phone width the continent shapes shrink to a few pixels, which is
+       untappable. Let the drawing keep its size and pan inside the panel. */
+    .map-scroll { overflow-x: auto; }
+    .world { min-width: 560px; }
+  }
 </style>
 </head>
 <body class="console">
@@ -34,7 +281,7 @@
     <a href="/cves.html"><span>Vulnerabilities</span><span class="n">02</span></a>
     <a href="/iocs.html"><span>Indicators</span><span class="n">03</span></a>
     <a href="/ransomware.html"><span>Ransomware</span><span class="n">04</span></a>
-    <a href="/map.html" aria-current="page"><span>Geography</span><span class="n">05</span></a>
+    <a href="/map.html" aria-current="page"><span>Live map</span><span class="n">05</span></a>
     <a href="/phishing.html"><span>Phishing</span><span class="n">06</span></a>
     <a href="/threats.html"><span>Cloud threats</span><span class="n">07</span></a>
     <span class="rail-label">Platform</span>
@@ -56,7 +303,7 @@
 <div class="wrap" id="main" role="main">
 
   <header class="topbar">
-    <div class="crumb"><a href="/">Threats</a><span class="sep">/</span><span class="here">Geography</span></div>
+    <div class="crumb"><a href="/">Threats</a><span class="sep">/</span><span class="here">Live map</span></div>
     <div class="topbar-right">
       <a class="live-chip" id="live-chip" href="/status.html">
         <span class="dot" id="live-dot" aria-hidden="true"></span>
@@ -66,23 +313,26 @@
     </div>
   </header>
 
-  <h1>Threat geography</h1>
-  <p class="sub">Where recent ransomware leak-site claims say their victims are. Each claim carries the country the leak site published; claims without one are counted, never guessed.</p>
-  <p class="note" id="coverage-note">Loading country coverage…</p>
-  <div class="note" id="freshness-note" hidden></div>
+  <h1>Live threat map</h1>
+  <p class="sub">Ransomware victim claims and phishing hosting, plotted from the feeds as the collectors publish them. Every ring is a record with a timestamp: a quiet hour is a quiet feed, not a quiet internet.</p>
 
   <div class="stat-grid">
+    <div class="stat-card"><div class="num" id="stat-claims">—</div><div class="lbl">claims</div></div>
+    <div class="stat-card"><div class="num" id="stat-hosts">—</div><div class="lbl">phishing hosts</div></div>
     <div class="stat-card"><div class="num" id="stat-countries">—</div><div class="lbl">countries</div></div>
-    <div class="stat-card"><div class="num" id="stat-claims">—</div><div class="lbl">claims placed</div></div>
-    <div class="stat-card"><div class="num" id="stat-unmapped">—</div><div class="lbl">claims without a country</div></div>
-    <div class="stat-card"><div class="num" id="stat-top">—</div><div class="lbl" id="stat-top-label">busiest country</div></div>
+    <div class="stat-card"><div class="num" id="stat-latest">—</div><div class="lbl">newest event</div></div>
   </div>
+
+  <p class="note" id="coverage-note">Loading the live feed…</p>
+  <div class="note" id="freshness-note" hidden></div>
 
   <div class="controls">
     <label for="search" class="visually-hidden">Search countries</label>
     <input id="search" type="search" placeholder="Search a country or ISO code…" autocomplete="off">
     <label for="group-filter" class="section-label" style="margin:0;">Group</label>
     <select id="group-filter"><option value="">All groups</option></select>
+    <button id="pause-feed" type="button" aria-pressed="false">Pause updates</button>
+    <button id="copy-json" type="button">Copy JSON endpoint</button>
   </div>
 
   <div class="meta-bar">
@@ -90,147 +340,492 @@
     <span>
       <button id="clear-selection" type="button" hidden>Show all countries</button>
       <span id="updated-label"></span>
-      &nbsp;·&nbsp;
-      <button id="copy-json" type="button">Copy JSON endpoint</button>
     </span>
   </div>
 
   <div class="panel map-panel">
-    <svg id="world" class="world" role="img" aria-labelledby="world-title world-desc" preserveAspectRatio="xMidYMid meet">
-      <title id="world-title">World map of ransomware victim claims by country</title>
-      <desc id="world-desc">Countries are shaded by how many recent leak-site claims named a victim there.</desc>
-    </svg>
+    <div class="map-head">
+      <div class="seg-group" role="group" aria-label="Map layer">
+        <button type="button" class="seg" data-layer="claims" aria-pressed="true">Victim claims</button>
+        <button type="button" class="seg" data-layer="hosts" aria-pressed="false">Phishing hosting</button>
+        <button type="button" class="seg" data-layer="both" aria-pressed="false">Combined</button>
+      </div>
+      <div class="ingest offline" id="ingest">
+        <span class="dot" aria-hidden="true"></span>
+        <span id="ingest-text">Feed: checking…</span>
+      </div>
+    </div>
+    <div class="map-scroll">
+      <svg id="world" class="world" role="img" aria-labelledby="world-title world-desc" preserveAspectRatio="xMidYMid meet">
+        <title id="world-title">World map of live threat events by country</title>
+        <desc id="world-desc">Countries are shaded by how many recent claims or phishing hosts are placed there.</desc>
+      </svg>
+    </div>
     <div class="map-legend" aria-hidden="true">
-      <span>Claims vs busiest country</span>
+      <span id="legend-title">Claims vs busiest country</span>
       <span><i class="swatch lvl-0"></i>none</span>
       <span><i class="swatch lvl-1"></i>&lt;8%</span>
       <span><i class="swatch lvl-2"></i>8–20%</span>
       <span><i class="swatch lvl-3"></i>20–50%</span>
       <span><i class="swatch lvl-4"></i>≥50%</span>
+      <span id="legend-pulse"><i class="pulse-key"></i>new claim</span>
     </div>
     <p class="note" id="map-gaps" hidden></p>
   </div>
 
+  <div class="panel timeline">
+    <div class="spark" id="spark" aria-hidden="true"></div>
+    <div class="timeline-row">
+      <label for="head" class="visually-hidden">Replay position over the last 72 hours</label>
+      <input type="range" id="head" min="0" max="72" step="1" value="0" aria-describedby="head-label">
+      <button id="replay" type="button">Replay 72h</button>
+    </div>
+    <div class="time-readout">
+      <span id="head-label">now</span>
+      <span id="head-count"></span>
+    </div>
+  </div>
+
+  <div class="live-grid">
+    <section class="panel ticker-panel" aria-labelledby="ticker-title">
+      <h2 class="section-label" id="ticker-title" style="margin:0;">Recent events</h2>
+      <ol class="ticker" id="ticker"></ol>
+    </section>
+    <section class="panel source-panel" aria-labelledby="layers-title">
+      <h2 class="section-label" id="layers-title" style="margin:0;">What the layers are</h2>
+      <ul class="provenance">
+        <li><strong>Victim claims</strong> — ransomware leak-site victims published in the last 72 hours, shown in the country the claim names (ransomware.live).</li>
+        <li><strong>Phishing hosting</strong> — hostnames in the current OpenPhish snapshot, resolved at collection time; the country is where the IP is registered, not where the attacker sits.</li>
+        <li><strong>No source-to-destination arcs.</strong> No publishable feed records attacker origin, so the map shows where events are recorded rather than inventing a path.</li>
+        <li>IP geolocation: <a href="https://db-ip.com" target="_blank" rel="noopener">IP Geolocation by DB-IP</a>, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>. Phishing hosts: OpenPhish.</li>
+      </ul>
+    </section>
+  </div>
+
   <div class="table-wrap">
     <table>
-      <caption class="visually-hidden">Countries by number of ransomware victim claims</caption>
+      <caption class="visually-hidden">Countries by live threat events in the selected window</caption>
       <thead>
         <tr>
           <th scope="col">Country</th>
           <th scope="col">Claims</th>
-          <th scope="col">Share</th>
-          <th scope="col">Groups</th>
-          <th scope="col">Latest claim</th>
+          <th scope="col">Phishing hosts</th>
+          <th scope="col">Total</th>
+          <th scope="col">Top group</th>
+          <th scope="col">Latest event</th>
         </tr>
       </thead>
       <tbody id="countries"></tbody>
     </table>
   </div>
-  <p class="note" id="claim-note" hidden></p>
 </div>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script type="module">
 import { esc, timeAgo, fetchJson, copyEndpointUrl, showStaleNote, initConsoleShell, setResultCount } from '/assets/app.js';
-import { aggregateClaims, countryName, groupTotals } from '/assets/geo.js';
-import { createWorldView, countryFromQuery, claimWord } from '/assets/world-map-view.js';
+import { countryName } from '/assets/geo.js';
+import { createWorldView, countryFromQuery } from '/assets/world-map-view.js';
+import { WORLD_CENTROIDS } from '/assets/world-map.js';
+import {
+  WINDOW_HOURS,
+  aggregateEvents,
+  eventLabel,
+  eventTime,
+  eventsInWindow,
+  hourlyBuckets,
+  ingestState,
+  newEventIds,
+  pulseCount,
+  pulseRadius,
+} from '/assets/live-map.js';
 
 initConsoleShell();
 
-let claims = [];
-let selected = countryFromQuery(location.search);
+const HOUR = 3_600_000;
+const SVG_NS = 'http://www.w3.org/2000/svg';
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const svg = document.getElementById('world');
+const spark = document.getElementById('spark');
+const slider = document.getElementById('head');
+const search = document.getElementById('search');
+const groupSelect = document.getElementById('group-filter');
+const replayButton = document.getElementById('replay');
+const pauseButton = document.getElementById('pause-feed');
+
 const world = createWorldView(svg, { focusable: true });
 const shapes = world.shapes;
 
-function filteredClaims() {
-  const group = document.getElementById('group-filter').value;
-  return group ? claims.filter((claim) => claim.group === group) : claims;
+/* Appended after the country paths so the rings sit above the fill. */
+const pulseLayer = document.createElementNS(SVG_NS, 'g');
+pulseLayer.setAttribute('aria-hidden', 'true');
+svg.append(pulseLayer);
+
+let live = null;
+let events = [];
+let seenIds = new Set();
+let now = Date.now();
+let hoursBack = 0;
+let head = now;
+let layer = 'claims';
+let selected = countryFromQuery(location.search);
+let paused = false;
+let failures = 0;
+let pollTimer = null;
+let replayTimer = null;
+let replayState = 'idle';
+let activePulses = 0;
+
+function currentEvents() {
+  const group = groupSelect.value;
+  return group ? events.filter((event) => event.kind === 'claim' && event.group === group) : events;
 }
 
-function mapCountries(aggregate) {
-  const query = document.getElementById('search').value.trim().toLowerCase();
-  return aggregate.countries.filter((country) => {
+function metric(country) {
+  if (layer === 'hosts') return country.hosts;
+  if (layer === 'both') return country.total;
+  return country.claims;
+}
+
+function paintMap(aggregate, countries) {
+  /* Zero-count countries are not painted on a single layer: on the claims
+     layer a hosts-only country would otherwise draw as an empty, clickable
+     shape. The max is taken before search filtering so a query does not
+     re-scale the shading and make a few matches look like a hot spot. */
+  const painted = countries
+    .map((country) => ({ ...country, count: metric(country) }))
+    .filter((country) => country.count > 0);
+  const max = aggregate.countries.reduce((peak, country) => Math.max(peak, metric(country)), 0);
+  const describe = (code, country) =>
+    `${countryName(code)} · ${country.claims} ${country.claims === 1 ? 'claim' : 'claims'}, `
+    + `${country.hosts} ${country.hosts === 1 ? 'phishing host' : 'phishing hosts'}`;
+  const { shown } = world.paint(painted, { max, selected, label: describe });
+  document.getElementById('world-desc').textContent = shown
+    ? `Events are placed in ${shown} ${shown === 1 ? 'country' : 'countries'}; ${aggregate.total} events are visible at the selected time.`
+    : 'No event in the current filter is placed in a country.';
+}
+
+function spawnPulse(code, count, peak) {
+  if (reduceMotion || layer === 'hosts' || activePulses >= 48) return;
+  const centre = WORLD_CENTROIDS[code];
+  const radius = pulseRadius(count, peak);
+  if (!centre || !radius) return;
+
+  const group = document.createElementNS(SVG_NS, 'g');
+  group.setAttribute('transform', `translate(${centre[0]} ${centre[1]})`);
+  const rings = pulseCount(count, peak);
+  for (let index = 0; index < rings; index += 1) {
+    const circle = document.createElementNS(SVG_NS, 'circle');
+    circle.setAttribute('class', 'pulse');
+    circle.setAttribute('r', '2.2');
+    circle.style.setProperty('--reach', (radius / 2.2).toFixed(2));
+    circle.style.animationDelay = `${index * 160}ms`;
+    group.append(circle);
+  }
+  pulseLayer.append(group);
+  activePulses += rings;
+  setTimeout(() => {
+    group.remove();
+    activePulses -= rings;
+  }, 2600);
+}
+
+function pulseClaims(list) {
+  const perCountry = new Map();
+  for (const event of list) {
+    if (event.kind !== 'claim') continue;
+    perCountry.set(event.country, (perCountry.get(event.country) || 0) + 1);
+  }
+  const peak = Math.max(1, ...perCountry.values());
+  for (const [code, count] of perCountry) spawnPulse(code, count, peak);
+}
+
+function flashCountries(list) {
+  if (reduceMotion) return;
+  for (const code of new Set(list.map((event) => event.country))) {
+    const shape = shapes.get(code);
+    if (!shape) continue;
+    shape.classList.remove('flash');
+    requestAnimationFrame(() => shape.classList.add('flash'));
+    setTimeout(() => shape.classList.remove('flash'), 1800);
+  }
+}
+
+function renderSpark() {
+  const buckets = hourlyBuckets(currentEvents(), { end: now });
+  const peak = Math.max(1, ...buckets.map((bucket) => bucket.total));
+  spark.innerHTML = buckets
+    .map((bucket) => {
+      const total = Math.max(2, Math.round((bucket.total / peak) * 42));
+      const claims = bucket.total ? Math.round((bucket.claims / bucket.total) * total) : 0;
+      const hosts = bucket.total ? total - claims : 0;
+      return `<span class="bar">${hosts ? `<i class="hosts" style="height:${hosts}px"></i>` : ''}`
+        + `${claims ? `<i class="claims" style="height:${claims}px"></i>` : ''}</span>`;
+    })
+    .join('');
+  const marker = document.createElement('span');
+  marker.className = 'spark-head';
+  marker.id = 'spark-head';
+  spark.append(marker);
+}
+
+function renderHead() {
+  document.getElementById('spark-head').style.left = `${((WINDOW_HOURS - hoursBack) / WINDOW_HOURS) * 100}%`;
+  document.getElementById('head-label').textContent = hoursBack === 0
+    ? 'now'
+    : `${hoursBack}h ago · ${new Date(head).toISOString().slice(0, 16).replace('T', ' ')}Z`;
+  const atHead = eventsInWindow(currentEvents(), { end: now, head }).length;
+  const total = eventsInWindow(currentEvents(), { end: now }).length;
+  document.getElementById('head-count').textContent = hoursBack === 0
+    ? `${atHead.toLocaleString('en-US')} events in the window`
+    : `${atHead.toLocaleString('en-US')} of ${total.toLocaleString('en-US')} events shown`;
+}
+
+function row(country) {
+  const top = country.groups[0];
+  const topLabel = top ? `${top.name} (${top.count})` : '—';
+  return `<tr${country.code === selected ? ' class="sel"' : ''}>
+    <td><button type="button" class="country-button" data-code="${esc(country.code)}">${esc(countryName(country.code))}</button> <span class="code">${esc(country.code)}</span></td>
+    <td class="num">${country.claims}</td>
+    <td class="num">${country.hosts}</td>
+    <td class="num">${country.total}</td>
+    <td class="top-group">${esc(topLabel)}</td>
+    <td class="top-group">${esc(timeAgo(country.latest))}</td>
+  </tr>`;
+}
+
+function renderTicker(visible) {
+  /* Every phishing host carries the collection timestamp, so a strictly
+     chronological top-7 would be nothing but hosts. Cap them so the claims
+     this page exists to show stay in the ticker; order stays newest first. */
+  const items = [];
+  let hosts = 0;
+  for (const event of visible) {
+    if (items.length === 7) break;
+    if (event.kind === 'host') {
+      if (hosts === 4) continue;
+      hosts += 1;
+    }
+    items.push(event);
+  }
+  document.getElementById('ticker').innerHTML = items.length
+    ? items.map((event) => `<li>
+        <time datetime="${esc(event.ts)}">${esc(timeAgo(event.ts))}</time>
+        <span class="kind ${event.kind === 'claim' ? 'claim' : 'host'}">${event.kind === 'claim' ? 'claim' : 'hosting'}</span>
+        <button type="button" class="country-button" data-code="${esc(event.country)}">${esc(countryName(event.country))}</button>
+        <span class="ticker-label">${esc(eventLabel(event))}</span>
+      </li>`).join('')
+    : '<li><span class="ticker-label">No event in the selected window.</span></li>';
+}
+
+function render() {
+  const aggregate = aggregateEvents(currentEvents(), { end: now, head });
+  const visible = eventsInWindow(currentEvents(), { end: now, head });
+  const query = search.value.trim().toLowerCase();
+  const countries = aggregate.countries.filter((country) => {
     if (!query) return true;
     return country.code.toLowerCase().includes(query)
       || countryName(country.code).toLowerCase().includes(query);
   });
-}
+  /* Selection narrows the table only: blanking the rest of the map would hide
+     the comparison the page exists to make. */
+  const rows = selected ? countries.filter((country) => country.code === selected) : countries;
 
-function paintMap(view, aggregate) {
-  const { shown } = world.paint(view, { max: aggregate.max, selected });
-  document.getElementById('world-desc').textContent = shown
-    ? `${shown} countries have at least one claim; ${aggregate.mapped} claims are placed.`
-    : 'No claim in the current filter carries a country code.';
-}
+  paintMap(aggregate, countries);
+  renderHead();
+  renderTicker(visible);
 
-function row(country, aggregate) {
-  const share = aggregate.mapped ? (country.count / aggregate.mapped) * 100 : 0;
-  const groups = country.groups
-    .slice(0, 3)
-    .map((group) => `${group.name} (${group.count})`)
-    .join(', ');
-  const extra = country.groups.length > 3 ? ` +${country.groups.length - 3}` : '';
-  return `<tr>
-    <td>${esc(countryName(country.code))} <span class="groups">${esc(country.code)}</span></td>
-    <td class="share">${country.count}</td>
-    <td class="share">${share.toFixed(1)}%</td>
-    <td class="groups">${esc(groups + extra)}</td>
-    <td class="groups">${esc(timeAgo(country.latest))}</td>
-  </tr>`;
-}
-
-function render() {
-  const aggregate = aggregateClaims(filteredClaims());
-  const visible = mapCountries(aggregate);
-  /* Selection narrows the table only. Blanking the rest of the map on click
-     would hide the comparison the page exists to make. */
-  const rows = selected ? visible.filter((country) => country.code === selected) : visible;
-
-  paintMap(visible, aggregate);
-
+  document.getElementById('stat-claims').textContent = aggregate.claims.toLocaleString('en-US');
+  document.getElementById('stat-hosts').textContent = aggregate.hosts.toLocaleString('en-US');
   document.getElementById('stat-countries').textContent = aggregate.countries.length.toLocaleString('en-US');
-  document.getElementById('stat-claims').textContent = aggregate.mapped.toLocaleString('en-US');
-  document.getElementById('stat-unmapped').textContent = aggregate.unmapped.toLocaleString('en-US');
-
-  const top = aggregate.countries[0];
-  document.getElementById('stat-top').textContent = top ? countryName(top.code) : '—';
-  document.getElementById('stat-top-label').textContent = top
-    ? `${top.count} ${claimWord(top.count)}`
-    : 'busiest country';
+  document.getElementById('stat-latest').textContent = visible.length ? timeAgo(visible[0].ts) : '—';
 
   setResultCount(document.getElementById('count-label'), rows.length, 'country', 'countries');
-  const body = document.getElementById('countries');
-  body.innerHTML = rows.length
-    ? rows.map((country) => row(country, aggregate)).join('')
-    : '<tr><td colspan="5" class="empty">No country in the current filter has a claim.</td></tr>';
-
+  document.getElementById('countries').innerHTML = rows.length
+    ? rows.map(row).join('')
+    : '<tr><td colspan="6" class="empty">No country has an event in this window and filter.</td></tr>';
   document.getElementById('clear-selection').hidden = !selected;
 
-  /* Natural Earth 1:110m has no polygon for microstates such as Singapore, so a
-     country with claims can be absent from the drawing. Say so instead of
-     letting the map and the table disagree without explanation. */
-  const gaps = visible.filter((country) => !shapes.has(country.code));
+  const gaps = countries.filter((country) => !shapes.has(country.code));
   const gapNote = document.getElementById('map-gaps');
   if (!gaps.length) {
     gapNote.hidden = true;
     gapNote.textContent = '';
   } else {
-    const names = gaps
-      .map((country) => `${countryName(country.code)} (${country.code})`)
-      .join(', ');
-    const pronoun = gaps.length === 1 ? 'it' : 'them';
+    const names = gaps.map((country) => `${countryName(country.code)} (${country.code})`).join(', ');
     gapNote.hidden = false;
-    gapNote.textContent = `Not drawn at this outline scale: ${names}. The table still counts ${pronoun}.`;
+    gapNote.textContent = `Not drawn at this outline scale: ${names}. The table still counts ${gaps.length === 1 ? 'it' : 'them'}.`;
   }
+}
+
+function setHoursBack(value, { pulse = false } = {}) {
+  const next = Math.min(WINDOW_HOURS, Math.max(0, Math.round(value)));
+  const previousHead = head;
+  hoursBack = next;
+  head = now - next * HOUR;
+  slider.value = String(next);
+  if (pulse && head > previousHead) {
+    pulseClaims(currentEvents().filter((event) => {
+      const time = eventTime(event);
+      return time !== null && time > previousHead && time <= head;
+    }));
+  }
+  render();
+}
+
+function updateReplayButton() {
+  const label = replayState === 'playing' ? 'Pause' : replayState === 'paused' ? 'Resume' : 'Replay 72h';
+  replayButton.textContent = label;
+  replayButton.setAttribute('aria-label', replayState === 'playing'
+    ? 'Pause the 72-hour replay'
+    : 'Replay the last 72 hours of events');
+}
+
+function stopReplay(state = 'idle') {
+  clearInterval(replayTimer);
+  replayTimer = null;
+  replayState = state;
+  updateReplayButton();
+}
+
+function startReplay() {
+  if (reduceMotion) {
+    /* No timed playback: jump to the start of the window and let the slider
+       step through it, so the replay still works without rapid flashes. */
+    setHoursBack(WINDOW_HOURS);
+    updateReplayButton();
+    return;
+  }
+  if (replayState === 'paused' && hoursBack > 0) {
+    replayState = 'playing';
+    updateReplayButton();
+  } else {
+    setHoursBack(WINDOW_HOURS);
+    replayState = 'playing';
+    updateReplayButton();
+  }
+  clearInterval(replayTimer);
+  replayTimer = setInterval(() => {
+    if (hoursBack <= 0) {
+      stopReplay();
+      return;
+    }
+    setHoursBack(hoursBack - 1, { pulse: true });
+    if (hoursBack === 0) stopReplay();
+  }, 95);
+}
+
+function renderLegend() {
+  const noun = layer === 'hosts' ? 'Hosts' : layer === 'both' ? 'Events' : 'Claims';
+  document.getElementById('legend-title').textContent = `${noun} vs busiest country`;
+  document.getElementById('legend-pulse').hidden = layer === 'hosts';
+}
+
+function syncSeg() {
+  for (const button of document.querySelectorAll('.seg')) {
+    button.setAttribute('aria-pressed', String(button.dataset.layer === layer));
+  }
+  renderLegend();
+}
+
+function renderIngest() {
+  const state = failures >= 2
+    ? { state: 'offline', ageMinutes: null }
+    : ingestState({ updatedAt: live?.updated_at, now });
+  const badge = document.getElementById('ingest');
+  badge.className = `ingest ${state.state}`;
+  const word = { live: 'Live', delayed: 'Delayed', stale: 'Stale', offline: 'Offline' }[state.state];
+  const age = state.ageMinutes === null
+    ? 'no usable timestamp'
+    : state.ageMinutes < 1 ? 'updated just now' : `updated ${state.ageMinutes}m ago`;
+  document.getElementById('ingest-text').textContent = paused ? `${word} · updates paused` : `${word} · ${age}`;
+}
+
+function renderCoverage() {
+  const note = document.getElementById('coverage-note');
+  if (!live) {
+    note.textContent = 'The live feed is unavailable. The map stays blank rather than presenting old events as live.';
+    return;
+  }
+  const coverage = live.coverage || {};
+  const claims = `${coverage.claims_mapped ?? 0} of ${coverage.claims_in_window ?? 0}`;
+  const hosts = `${coverage.hosts_mapped ?? 0} of ${coverage.hosts_resolved ?? 0}`;
+  note.innerHTML = `Placed at country level: <strong>${claims}</strong> claims published in the window, `
+    + `and <strong>${hosts}</strong> resolved phishing hosts (${coverage.hosts_total ?? 0} in the snapshot). `
+    + 'Records without a country are counted, never guessed.'
+    + (coverage.geo_available === false
+      ? ' The country database was unavailable for this run, so only claims are shown.'
+      : '');
 }
 
 function select(code) {
   selected = selected === code ? null : code;
+  const url = new URL(location.href);
+  if (selected) url.searchParams.set('country', selected);
+  else url.searchParams.delete('country');
+  history.replaceState(null, '', url);
   render();
 }
+
+function addGroupOptions() {
+  const totals = new Map();
+  for (const event of events) {
+    if (event.kind !== 'claim') continue;
+    totals.set(event.group, (totals.get(event.group) || 0) + 1);
+  }
+  const current = groupSelect.value;
+  const options = [...totals]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([name, count]) => `<option value="${esc(name)}">${esc(name)} (${count})</option>`);
+  groupSelect.innerHTML = `<option value="">All groups</option>${options.join('')}`;
+  groupSelect.value = totals.has(current) ? current : '';
+}
+
+function applyDocument(data) {
+  live = data;
+  events = Array.isArray(data.events) ? data.events : [];
+  now = Date.now();
+  /* The head is derived from "now" and the replay offset. Without this, a
+     refresh while at "now" would keep an old head and hide the new events. */
+  head = now - hoursBack * HOUR;
+  document.getElementById('updated-label').textContent = data.updated_at
+    ? `Updated ${data.updated_at.slice(11, 16)}Z · ${data.updated_at.slice(0, 10)}`
+    : '';
+  addGroupOptions();
+  renderSpark();
+  renderCoverage();
+  render();
+  renderIngest();
+  showStaleNote('freshness-note', ['live']);
+}
+
+async function poll() {
+  if (paused || document.hidden) return;
+  const data = await fetchJson('/data/live.json');
+  if (!data || !Array.isArray(data.events)) {
+    failures += 1;
+    renderIngest();
+    return;
+  }
+  failures = 0;
+  if (live && data.updated_at === live.updated_at) {
+    renderIngest();
+    return;
+  }
+
+  const fresh = newEventIds(seenIds, data.events);
+  applyDocument(data);
+  for (const event of events) seenIds.add(event.id);
+
+  if (hoursBack === 0 && fresh.length) {
+    const freshEvents = events.filter((event) => fresh.includes(event.id));
+    pulseClaims(freshEvents);
+    flashCountries(freshEvents.filter((event) => event.kind === 'claim'));
+  }
+}
+
+/* ── Wiring ─────────────────────────────────────────────────────────── */
 
 svg.addEventListener('click', (event) => {
   const node = event.target.closest('.country');
@@ -245,51 +840,84 @@ svg.addEventListener('keydown', (event) => {
   select(node.dataset.code);
 });
 
-document.getElementById('search').addEventListener('input', render);
-document.getElementById('group-filter').addEventListener('change', () => {
-  selected = null;
-  render();
-});
-document.getElementById('clear-selection').addEventListener('click', () => select(null));
-document.getElementById('copy-json').addEventListener('click', () => {
-  copyEndpointUrl('/data/ransomware.json', 'Copied /data/ransomware.json');
+document.addEventListener('click', (event) => {
+  const button = event.target.closest('.country-button');
+  if (button) select(button.dataset.code);
 });
 
-const data = await fetchJson('/data/ransomware.json');
-if (data) {
-  claims = Array.isArray(data.items) ? data.items : [];
-  const aggregate = aggregateClaims(claims);
-
-  // A deep link may name a country the current feed window knows nothing
-  // about; drop it rather than showing a selection with no matching row.
-  if (selected && !aggregate.countries.some((country) => country.code === selected)) {
-    selected = null;
-  }
-
-  document.getElementById('coverage-note').innerHTML = aggregate.total
-    ? `Country coverage: <strong>${aggregate.mapped} of ${aggregate.total}</strong> recent claims carry an ISO country code`
-      + ` (${Math.round((aggregate.mapped / aggregate.total) * 100)}%). Claims without one are counted but not placed.`
-    : 'The ransomware feed is empty, so nothing can be placed.';
-
-  const groups = groupTotals(aggregate.countries);
-  document.getElementById('group-filter').insertAdjacentHTML('beforeend',
-    groups.map((group) => `<option value="${esc(group.name)}">${esc(group.name)} (${group.count})</option>`).join(''));
-
-  if (data.updated_at) {
-    document.getElementById('updated-label').textContent = 'Updated ' + data.updated_at.slice(0, 10) + ' UTC';
-  }
-  if (data.note) {
-    const note = document.getElementById('claim-note');
-    note.hidden = false;
-    note.textContent = data.note;
-  }
-} else {
-  selected = null;
-  document.getElementById('coverage-note').textContent = 'The ransomware feed is unavailable, so the map cannot be drawn.';
+for (const button of document.querySelectorAll('.seg')) {
+  button.addEventListener('click', () => {
+    layer = button.dataset.layer;
+    syncSeg();
+    render();
+  });
 }
 
-showStaleNote('freshness-note', ['ransomware']);
-render();
+search.addEventListener('input', render);
+
+groupSelect.addEventListener('change', () => {
+  selected = null;
+  if (groupSelect.value && layer !== 'claims') {
+    layer = 'claims';
+    syncSeg();
+  }
+  renderSpark();
+  render();
+});
+
+document.getElementById('clear-selection').addEventListener('click', () => select(null));
+
+slider.addEventListener('input', () => {
+  stopReplay('paused');
+  setHoursBack(Number(slider.value), { pulse: true });
+});
+
+replayButton.addEventListener('click', () => {
+  if (replayState === 'playing') stopReplay('paused');
+  else startReplay();
+});
+
+pauseButton.addEventListener('click', () => {
+  paused = !paused;
+  pauseButton.textContent = paused ? 'Resume updates' : 'Pause updates';
+  pauseButton.setAttribute('aria-pressed', String(paused));
+  if (paused) stopReplay(); else poll();
+  renderIngest();
+});
+
+document.getElementById('copy-json').addEventListener('click', () => {
+  copyEndpointUrl('/data/live.json', 'Copied /data/live.json');
+});
+
+/* ── Boot ───────────────────────────────────────────────────────────── */
+
+const initial = await fetchJson('/data/live.json');
+if (initial && Array.isArray(initial.events)) {
+  applyDocument(initial);
+  for (const event of events) seenIds.add(event.id);
+  /* Drop a deep link the current window knows nothing about, rather than
+     showing a selection with no matching row. */
+  if (selected && !events.some((event) => event.country === selected)) {
+    selected = null;
+    const url = new URL(location.href);
+    url.searchParams.delete('country');
+    history.replaceState(null, '', url);
+  }
+  render();
+  /* Replay is opt-in: starting it automatically would show a partial window
+     (and partial totals) to every first-time visitor for the first seconds. */
+} else {
+  /* `live` stays null so the page says the feed is unavailable instead of
+     presenting an empty window as a quiet internet. */
+  renderSpark();
+  render();
+  renderIngest();
+  renderCoverage();
+  showStaleNote('freshness-note', ['live']);
+}
+
+renderLegend();
+pollTimer = setInterval(poll, 60_000);
 </script>
 </body>
 </html>

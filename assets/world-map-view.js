@@ -66,8 +66,10 @@ export function createWorldView(svg, { focusable = false } = {}) {
     shapes.set(code, shape);
   }
 
-  function paint(countries, { max = 0, selected = null } = {}) {
+  function paint(countries, { max = 0, selected = null, label = null } = {}) {
     const present = new Map(countries.map((entry) => [entry.code, entry]));
+    const describe = label || ((code, country) =>
+      `${countryName(code)}, ${country.count} ${claimWord(country.count)}`);
     for (const [code, shape] of shapes) {
       const country = present.get(code);
       const classes = ['country'];
@@ -87,16 +89,17 @@ export function createWorldView(svg, { focusable = false } = {}) {
         continue;
       }
 
-      const label = `${countryName(code)}, ${country.count} ${claimWord(country.count)}`;
       if (focusable) {
         shape.setAttribute('tabindex', '0');
         shape.setAttribute('role', 'button');
         shape.setAttribute('aria-pressed', String(code === selected));
-        shape.setAttribute('aria-label', label);
+        shape.setAttribute('aria-label', describe(code, country));
       }
       shape.replaceChildren();
       const title = document.createElementNS(SVG_NS, 'title');
-      title.textContent = `${countryName(code)} · ${country.count} ${claimWord(country.count)}`;
+      title.textContent = label
+        ? describe(code, country)
+        : `${countryName(code)} · ${country.count} ${claimWord(country.count)}`;
       shape.append(title);
     }
     return { drawn: shapes.size, shown: present.size };
