@@ -10,10 +10,17 @@ name: Update Threat Data
 # Which sources run is decided by each source's cadence in scripts/status.py,
 # not by cron arithmetic: a missed hourly run is caught up on the next one, and
 # a 12-hour or 30-day source does not depend on its cron minute ever matching.
+#
+# Three entries per hour, not one: GitHub's schedule trigger is best-effort and
+# this repository was seeing roughly six of twenty-four daily events delivered,
+# in 2-6 hour gaps. Extra runs that find nothing due cost about 30 seconds and
+# publish nothing, and the concurrency group keeps them from overlapping.
 
 on:
   schedule:
     - cron: '7 * * * *'
+    - cron: '27 * * * *'
+    - cron: '47 * * * *'
 
   workflow_dispatch:
     inputs:

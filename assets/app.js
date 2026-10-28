@@ -119,11 +119,42 @@ export async function fetchAll(map) {
 }
 
 /**
+ * Recompute source freshness against the reader's clock.
+ *
+ * status.json records `stale` when it is generated, but the file is only
+ * rewritten when a collector publishes. A missed schedule slot leaves the file
+ * claiming "current" while its timestamps age, and the UI would trust a verdict
+ * that quietly stopped being true. Cadence and last_success are enough to
+ * re-derive it, using the same rules as scripts/status.py: stale past twice the
+ * cadence, outage when a critical source is stale, degraded on any error.
+ *
+ * @param {{sources?: object[], overall?: string}} status
+ * @param {number} now  epoch milliseconds, injectable for tests
+ */
+export function recomputeHealth(status, now = Date.now()) {
+  const sources = (status.sources || []).map((source) => {
+    const cadence = Number(source.cadence_minutes) || 1440;
+    const last = source.last_success ? new Date(source.last_success).getTime() : NaN;
+    const ageMinutes = Number.isNaN(last)
+      ? Infinity
+      : Math.floor(Math.max(0, now - last) / 60000);
+    return {
+      ...source,
+      age_minutes: Number.isFinite(ageMinutes) ? ageMinutes : null,
+      stale: Boolean(source.stale) || ageMinutes > cadence * 2,
+    };
+  });
+  const critical = sources.some((source) => source.critical && source.stale);
+  const degraded = sources.some((source) => source.stale || source.error);
+  return { ...status, sources, overall: critical ? 'outage' : degraded ? 'degraded' : 'ok' };
+}
+
+/**
  * Reveal a warning note when any of the given sources is stale or failing.
  *
  * Pages otherwise show only their own feed's `updated_at`, which cannot tell a
- * reader whether that timestamp is on schedule. status.json already records the
- * answer, so consult it rather than duplicating cadence rules in every page.
+ * reader whether that timestamp is on schedule. status.json records cadence and
+ * last_success, so consult it rather than duplicating cadence rules per page.
  *
  * @param {string} elementId  id of a hidden .note element
  * @param {string[]} sourceIds  status.json source ids used by this page
@@ -131,9 +162,10 @@ export async function fetchAll(map) {
 export async function showStaleNote(elementId, sourceIds) {
   const element = document.getElementById(elementId);
   if (!element) return;
-  const status = await fetchJson('/data/status.json');
-  if (!status) return;
-  const affected = (status.sources || []).filter(
+  const file = await fetchJson('/data/status.json');
+  if (!file) return;
+  const status = recomputeHealth(file);
+  const affected = status.sources.filter(
     (source) => sourceIds.includes(source.id) && (source.stale || source.error),
   );
   if (!affected.length) return;
@@ -242,14 +274,14 @@ export function initConsoleShell() {
   const chip = document.getElementById('live-chip');
   const chipText = document.getElementById('live-text');
 
-  fetchJson('/data/status.json').then((status) => {
-    if (!status) {
+  fetchJson('/data/status.json').then((file) => {
+    if (!file) {
       if (label) label.textContent = 'status unavailable';
       if (meta) meta.textContent = 'status.json unreachable';
       return;
     }
-    const sources = status.sources || [];
-    const overall = status.overall === 'ok' ? 'ok' : status.overall === 'outage' ? 'outage' : 'degraded';
+    const status = recomputeHealth(file);
+    const { sources, overall } = status;
     const text = overall === 'ok' ? 'all sources current' : overall === 'outage' ? 'critical outage' : 'degraded';
     if (dot) dot.className = `dot ${overall}`;
     if (label) label.textContent = text;
