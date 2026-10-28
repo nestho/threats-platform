@@ -91,6 +91,17 @@ class DefangTests(unittest.TestCase):
         self.assertEqual(feed_io.defang("javascript:alert(1)"), "javascript:alert(1)")
         self.assertEqual(feed_io.defang(None), "")
 
+    def test_scheme_matching_ignores_case(self):
+        self.assertEqual(feed_io.defang("HTTP://evil.example/x"), "hxxp://evil.example/x")
+        self.assertEqual(feed_io.refang("HXXPS://evil.example/x"), "https://evil.example/x")
+
+    def test_only_the_scheme_is_rewritten(self):
+        url = "https://evil.example/a?b=http://c.example&d=https://e.example"
+        self.assertEqual(
+            feed_io.defang(url),
+            "hxxps://evil.example/a?b=http://c.example&d=https://e.example",
+        )
+
 
 class UrlTests(unittest.TestCase):
     def test_only_absolute_http_urls_are_accepted(self):
