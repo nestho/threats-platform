@@ -1,21 +1,22 @@
 # threats-platform — Architecture & Operations
 
-_Last reviewed: 2026-10-28 against `main` and the live `threats.top` deployment._
+_Last reviewed: 2026-10-29 against `main`, the live `threats.top` deployment, and the Pro subscription API._
 
-This document describes what is deployed and why. When a script, page, feed, or workflow changes materially, this file changes in the same pull request.
+This document describes what is deployed and why. When a script, page, feed, workflow, or API route changes materially, this file changes in the same pull request.
 
 ---
 
 ## 1. What this is
 
-A static threat-intelligence publication. Free, official, no-key sources are collected by scheduled GitHub Actions, normalised into committed JSON, validated before publication, and served by GitHub Pages at `threats.top`.
+A static threat-intelligence publication plus one small transactional API. Free, official, no-key sources are collected by scheduled GitHub Actions, normalised into committed JSON, validated before publication, and served by GitHub Pages at `threats.top`.
 
-There is no database server, no long-running backend, and no runtime dependency. The only compute outside GitHub Actions is a retired Cloudflare Worker that now fails closed; it holds no secrets and cannot write data.
+The public site has no database server, no long-running backend, and no runtime dependency. The only network-facing service beyond GitHub Pages is the Cloudflare Worker `threats-platform-api` on `api.threats.top`. It sells and administers Pro: orders, subscriptions, licences, admin sessions, and the STIX export. It stores operational data in D1, never writes to git, and never serves or alters the public feeds. A second Worker, `threats-scheduler`, only dispatches collection.
 
-Two properties are non-negotiable:
+Three properties are non-negotiable:
 
 1. **No demo data.** Every published number comes from a live upstream. An empty or malformed feed is a failure, not a reason to render a placeholder.
 2. **No direct path to `main`.** Automated and manual changes both arrive as pull requests that must pass the required checks.
+3. **Subscription data never enters git.** Orders, emails, phone numbers, and licence hashes live in D1; the repository contains code and public feeds only.
 
 ---
 
@@ -63,6 +64,12 @@ flowchart TB
         PAGES[GitHub Pages<br/>threats.top]
     end
 
+    subgraph Pro["Pro (separate, transactional)"]
+        API[threats-platform-api<br/>api.threats.top]
+        D1[(D1 threats-platform)]
+        API --> D1
+    end
+
     DATA[(data/*.json<br/>committed)]
 
     NVD & KEV --> CVE
@@ -85,9 +92,13 @@ flowchart TB
     TESTS --> RULE
     RULE --> DATA
     DATA --> PAGES
+    PAGES -. checkout, Pro console, admin .-> API
+    PAGES -. STIX reads cves.json and iocs.json .-> API
 ```
 
-The important arrow is the loop: a collector never writes to production. It writes a candidate file, the validator inspects it against the previous committed version, and only a pull request that passes all three checks can update `main`, from which Pages deploys.
+The loop at the top is the public pipeline: a collector never writes to production. It writes a candidate file, the validator inspects it against the previous committed version, and only a pull request that passes all three checks can update `main`, from which Pages deploys.
+
+The Pro path is deliberately separate. The Worker owns orders, subscriptions, licences, and admin sessions in D1; it reads the published feeds over HTTPS when a licensed buyer asks for STIX. It has no write path to git and no path into the collection pipeline.
 
 ---
 
@@ -105,6 +116,9 @@ assets/
   app.test.mjs            XSS and time-helper tests
   live-map.js             pure model helpers for the live map
   live-map.test.mjs       window, replay, aggregation and ingest-state tests
+  checkout.js             subscribe page helpers and wiring
+  admin.js                owner console helpers and wiring
+  pro.js                  licence activation and STIX download
 data/                     committed JSON; this is the database
   cves.json               NVD window + KEV
   cves_headline.json      bounded homepage slice
@@ -129,14 +143,38 @@ scripts/
   validate_feeds.py       the gate and the contract source of truth
   dev.py                  local test/validate/sync/serve CLI
   setup-ruleset.sh        idempotent repository protection
+  admin-credentials.mjs   owner-run password hash + TOTP enrolment URI generator
   *_feed.py               one collector per source
   tests/                  Python unit tests and fixtures
+admin/
+  index.html              owner console: login, orders, subscriptions, audit, settings
 worker/
-  admin.js                retired; every legacy route returns 410
-  admin.test.mjs          verifies the retirement contract
-*.html                    static pages, one per surface
-docs/                     contract, design, analysis
+  wrangler.toml           Worker name, api.threats.top, D1 binding, daily cron
+  migrations/0001_init.sql  settings, customers, orders, subscriptions, licenses, audit
+  src/index.mjs           router, CORS, error mapping, scheduled prune
+  src/public.mjs          config, orders, lookup, Pro status, STIX download
+  src/admin.mjs           session, orders, subscriptions, customers, audit, CSV
+  src/auth.mjs            PBKDF2, TOTP, session HMAC, cookie parsing
+  src/repo.mjs            the only SQL; an in-memory fake mirrors it in tests
+  src/stix.mjs            STIX 2.1 bundle construction and feed fetch cache
+  src/validation.mjs      order, lookup, months, and email rules
+  src/codes.mjs           order codes and licence keys
+  src/settings.mjs        writable settings whitelist and public config
+  src/license.mjs         licence shape and salted hash
+  src/subscriptions.mjs   expiry extension and status
+  src/csv.mjs             formula-neutralised CSV
+  test/                   handler, schema, auth, domain, STIX and repo tests
+scheduler/
+  wrangler.toml           threats-scheduler Cron Trigger every 15 minutes
+  src/index.mjs           dispatches update-data.yml
+*.html                    static pages, one per public surface
+docs/                     contract, payment runbook, design, analysis
 ```
+
+The API's SQL is confined to `worker/src/repo.mjs`, so every handler is tested
+against an in-memory implementation of the same interface. The schema test
+applies the real migration to SQLite; `wrangler dev --local` exercises the same
+statements against D1 before deployment.
 
 ---
 
@@ -165,7 +203,9 @@ Keyed feeds (URLhaus, ThreatFox, Feodo, DShield) are deliberately excluded. They
 
 ## 5. Scheduling and freshness
 
-A single hourly trigger (`7 * * * *`) runs `scripts/run_collectors.py --feeds auto`. The script does not use cron arithmetic; it reads `scripts/status.py` and runs a source when:
+Collection is driven by the `threats-scheduler` Worker in `scheduler/`, whose Cloudflare Cron Trigger fires every 15 minutes and calls `workflow_dispatch` on `update-data.yml`. GitHub's own schedule is best-effort and was delivering only a fraction of events, so the workflow keeps three hourly `schedule` entries (`:07`, `:27`, `:47`) as a fallback. Runs that find nothing due are cheap and publish nothing.
+
+The run itself does not use cron arithmetic. It reads `scripts/status.py` and runs a source when:
 
 ```
 now >= last_success + cadence - 5 minutes
@@ -210,8 +250,10 @@ The bot identity matters. A PR created with the built-in `GITHUB_TOKEN` does not
 | Job name | What it proves |
 |---|---|
 | **Feed data** | Fetches the base commit and validates this PR's `data/` against it. Catches an emptied or halved feed, schema drift, bad timestamps, non-canonical enums, demo markers, and cross-file status inconsistencies. |
-| **Unit tests** | `node --test assets worker` — escaping and the retired Worker contract. |
-| **Python tests** | `python3 -m unittest discover -s scripts/tests -t scripts` — normalisation, collectors, status, orchestrator, validator. |
+| **Unit tests** | `node --test assets worker scheduler` — escaping, the API's auth and handlers against the in-memory repository, the D1 schema, STIX shape, and the scheduler contract. 194 tests. |
+| **Python tests** | `python3 -m unittest discover -s scripts/tests -t scripts` — normalisation, collectors, status, orchestrator, validator. 171 tests. |
+
+A fourth **Design detector** job runs Impeccable over the pages and styles. It annotates findings and fails only if the scanner itself cannot run; it is advisory, not required, because taste rules must not override a human. Python tests need no Node and unit tests need no Python, which keeps both fast.
 
 Using `pull_request` rather than `pull_request_target` means fork PRs get a read-only token and no secrets.
 
@@ -255,17 +297,33 @@ Each page is static HTML with an inline module that fetches its JSON from `/data
 | `phishing.html` | `phishing.json` |
 | `threats.html` | `wiz.json`, `advisories.json` |
 | `status.html` | `status.json` |
-| `saas.html` | static pricing; no account system in v1 |
+| `saas.html` | static pricing plus `/api/config` for the current price and support address |
+| `subscribe.html` | `/api/config`, `/api/orders`, `/api/orders/lookup` |
+| `pro.html` | `/api/config`, `/api/pro/me`, `/api/stix` |
+| `admin/index.html` | `/api/admin/*`; public HTML, every read and write enforced server-side |
 
-All upstream strings pass through `esc()` before entering the DOM. URLs are validated as `http(s)` on the collector side; defanged indicators are rendered as text, not links. A page whose data fetch fails shows an explicit error state rather than stale or fabricated content.
+Public pages fetch committed JSON from `/data/`. The three Pro surfaces fetch the API cross-origin with credentials. All upstream strings pass through `esc()` before entering the DOM; the console pages render with `textContent` and never build HTML from input. URLs are validated as `http(s)` on the collector side; defanged indicators are rendered as text, not links. A page whose data fetch fails shows an explicit error state rather than stale or fabricated content.
+
+The admin page is `noindex`. Being able to load it grants nothing: the API checks the signed session cookie on every read and the CSRF token on every mutation, and refuses a foreign `Origin` before a handler runs.
 
 ---
 
-## 8. Phase 2 and the retired Worker
+## 8. The Pro API and the retired Worker
 
-`worker/admin.js` used to authenticate an admin password or an HMAC key and commit `manual.json` and tenant data straight to `main` through a GitHub PAT. That was a second write path that bypassed every check, and the tenant data it wrote was public. It is retired: every legacy route returns `410 Gone`, `/health` reports the retirement, and the file reads no secret.
+The old `worker/admin.js` authenticated an admin password or an HMAC key and committed `manual.json` and tenant data straight to `main` through a GitHub PAT. That was a second write path that bypassed every check, and the tenant data it wrote was public. It is gone: the file and its tests were deleted, and every legacy `/admin-api/*` route now has no handler and returns the router's 404.
 
-Phase 2 (accounts, private watchlists, correlated alerts, signed webhooks, STIX export, D1) is designed in [`docs/SAAS-ARCHITECTURE.md`](docs/SAAS-ARCHITECTURE.md) and is not deployed. The pricing page states that public data is live today and Pro is a waitlist, which is accurate.
+The replacement is `threats-platform-api`, a single Worker on `api.threats.top` with a D1 database named `threats-platform`:
+
+- **Public routes** — `GET /api/health`, `GET /api/config`, `POST /api/orders`, `POST /api/orders/lookup`. Order creation is rate-limited to five per hour per hashed IP, uses a honeypot, and refuses a duplicate `(method, transaction reference)` pair.
+- **Licence routes** — `GET /api/pro/me` and `GET /api/stix`. The licence key is a Bearer credential; only a salted hash and an 8-character prefix are stored. STIX is rate-limited per licence and returns a STIX 2.1 bundle built from the published `cves.json` and `iocs.json`, cached for five minutes at the edge.
+- **Admin routes** — sign-in with password and TOTP, orders, subscriptions, customers, audit, stats, settings, and CSV export. Reads need an HMAC-signed 8-hour session cookie; mutations also need the CSRF token issued with that session and a matching `Origin`.
+- **Scheduled** — a daily cron deletes unpaid pending orders past the retention window, prunes login attempts and rate-limit windows, and leaves paid history intact.
+
+Tables: `settings`, `customers`, `orders`, `subscriptions`, `licenses`, `audit_log`, `login_attempts`, `rate_limit`. All SQL lives in `worker/src/repo.mjs`. Orders store hashed IP and user agent, never raw values; no PII is written to logs.
+
+The two wallets, price, STIX limit, support address, and retention window are D1 settings, editable in the admin panel and audited. Secrets (`ADMIN_PASSWORD_HASH`, `TOTP_SECRET`, `SESSION_SECRET`, `LICENSE_SALT`, `IP_HASH_SALT`) are Worker secrets only. The retired `threats-admin` Worker is still parked at 410 until its secrets are deleted with the owner's approval; it is not part of this codebase's deploy path.
+
+The operator procedure, including on-chain verification, refunds, key rotation, revocation, backup, retention, and incident response, is [`docs/PAYMENTS.md`](docs/PAYMENTS.md). The design record is [`docs/superpowers/specs/2026-10-28-pro-subscriptions-design.md`](docs/superpowers/specs/2026-10-28-pro-subscriptions-design.md). `docs/SAAS-ARCHITECTURE.md` is an earlier exploration and is superseded by both.
 
 ---
 
@@ -276,10 +334,14 @@ Phase 2 (accounts, private watchlists, correlated alerts, signed webhooks, STIX 
 3. **NVD is rate-limited.** Unauthenticated access allows five requests per 30 seconds; `NVD_REQUEST_INTERVAL = 7` stays under it. A long outage widens the window up to 120 days.
 4. **EPSS is a rolling snapshot.** `epss.json` scores the current CVE window, not the full historical catalogue.
 5. **The automation depends on a bot credential.** It is configured as the GitHub App `threats-data-bot`; if the App is uninstalled or its key revoked, collection and validation still run but nothing publishes.
-6. **No end-to-end browser test.** `node --test` covers the escaping helper and the retired Worker; it does not prove a rendered page is navigable.
+6. **No end-to-end browser test.** `node --test` covers the escaping helper, the API handlers, the schema, and the scheduler contract; it does not prove a rendered page is navigable. Browser QA is manual at 1440 and 390.
 7. **No machine-readable JSON Schema.** The contract is enforced in Python and generated into `docs/CONTRACT.md`; a consumer cannot validate without running it.
-8. **One maintainer, zero required approvals.** The checks are the gate; there is no second human review.
-9. **Pages has no atomic deploy hook.** It builds from `main`, so a merge is live after the Pages build completes, typically within a minute or two.
+8. **Payment verification is manual.** There is no on-chain watcher and no price oracle. A wrong-network transfer, a short amount, or a fake token is caught by a human at review time, not by code. Approval latency is a person, not a queue.
+9. **One admin account, one role.** TOTP replay is blocked by persisting the accepted step, but there is no per-user identity, no second reviewer, and no way to grant read-only access.
+10. **No automatic renewal or dunning.** A customer's subscription simply expires; there is no reminder email and no recurring charge. Renewals are new orders, reviewed the same way.
+11. **Pro availability depends on one Worker and one D1 database.** The public site is unaffected by an API outage, but checkout, the Pro console, and the admin panel stop working. There is no multi-region failover.
+12. **One maintainer, zero required approvals.** The checks are the gate; there is no second human review.
+13. **Pages has no atomic deploy hook.** It builds from `main`, so a merge is live after the Pages build completes, typically within a minute or two. The API is deployed separately with Wrangler and is not part of the Pages build.
 
 ---
 
@@ -288,6 +350,35 @@ Phase 2 (accounts, private watchlists, correlated alerts, signed webhooks, STIX 
 ### Check health
 
 `/data/status.json` and `/status.html`. Look at `overall`, then each source's `stale`, `error`, and `age_minutes`.
+
+For Pro, `GET https://api.threats.top/api/health` returns `{"status":"ok","schema":1,"time":"…"}`. Cloudflare observability is enabled for the Worker; `npx wrangler tail threats-platform-api` streams live requests during an incident.
+
+### Deploy the API
+
+From `worker/`:
+
+```bash
+npx wrangler d1 migrations apply threats-platform --remote
+npx wrangler secret put SESSION_SECRET      # plus the other four, once
+npx wrangler deploy
+curl -fsS https://api.threats.top/api/health
+```
+
+`ADMIN_PASSWORD_HASH` and `TOTP_SECRET` come from `node scripts/admin-credentials.mjs`, run locally by the owner. No secret is written to the repository, a chat, or an issue. The full checklist and rotation effects are in [`docs/PAYMENTS.md`](docs/PAYMENTS.md) §2 and §13.
+
+### Review a payment
+
+Sign in at `admin/`, open **Orders**, filter to `pending`, and verify the transfer on the explorer named in [`docs/PAYMENTS.md`](docs/PAYMENTS.md). Approve with a month count, or reject with a required note. A new subscriber's licence key is shown once; a renewal keeps the existing key.
+
+### Back up or restore D1
+
+```bash
+cd worker
+npx wrangler d1 export threats-platform --remote --output ./backup.sql
+npx wrangler d1 time-travel info threats-platform --remote
+```
+
+The export contains buyer PII: never commit it. Time Travel keeps 30 days of history. Restore replaces the whole database at the chosen bookmark; prefer a targeted correction through the panel for a single bad row.
 
 ### Force a collection
 
@@ -304,6 +395,8 @@ Edit `data/manual.json`, run `python3 scripts/dev.py sync --feed domains`, and o
 ### Roll back
 
 Revert the offending PR. Because `data/` is committed history, any prior snapshot is recoverable, and the next scheduled run will regenerate forward from the reverted state.
+
+The Worker is deployed separately: reverting a Worker PR restores the previous code only after `npx wrangler deploy` from the reverted commit. D1 data is not part of the revert. If a bad change wrote subscription state, export the table first, then correct it through the panel or a targeted statement.
 
 ### Re-apply protection
 

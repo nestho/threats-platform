@@ -15,6 +15,18 @@ __pycache__/
 # Cloudflare Worker tooling state
 scheduler/.wrangler/
 scheduler/node_modules/
+worker/.wrangler/
+worker/node_modules/
+worker/.dev.vars
+worker/.dev.vars.*
+!worker/.dev.vars.example
+
+# Wrangler and D1 artefacts: local state, exports, and anything containing
+# operator secrets or buyer PII must never be committed.
+worker/*.sql
+worker/backup*.sql
+worker/threats-*.sql
+.worker-dist/
 
 # Local collector inputs — the DB-IP Lite archive is a 4.5 MB monthly download,
 # regenerable and never published, so it stays out of the repository.

@@ -23,7 +23,7 @@ function translate(error) {
   return error;
 }
 
-export async function createRepo(db) {
+export function createRepo(db) {
   const first = async (sql, ...params) => (await db.prepare(sql).bind(...params).first()) ?? null;
   const all = async (sql, ...params) => (await db.prepare(sql).bind(...params).all()).results ?? [];
   const run = async (sql, ...params) => (await db.prepare(sql).bind(...params).run()).meta ?? {};

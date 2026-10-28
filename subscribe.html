@@ -368,29 +368,29 @@ initConsoleShell();
             <div class="form-grid">
               <div class="field">
                 <label for="name">Full name</label>
-                <input id="name" name="name" autocomplete="name" required minlength="2" maxlength="80">
+                <input id="name" name="name" autocomplete="name" required minlength="2" maxlength="80" aria-describedby="name-err">
                 <p class="err" id="name-err"></p>
               </div>
               <div class="field">
                 <label for="email">Email</label>
-                <input id="email" name="email" type="email" autocomplete="email" required maxlength="254">
+                <input id="email" name="email" type="email" autocomplete="email" required maxlength="254" aria-describedby="email-err">
                 <p class="hint">The licence key is sent here.</p>
                 <p class="err" id="email-err"></p>
               </div>
               <div class="field">
                 <label for="phone">Phone <span class="opt">optional</span></label>
-                <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="32">
+                <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="32" aria-describedby="phone-err">
                 <p class="err" id="phone-err"></p>
               </div>
               <div class="field">
                 <label for="tx_ref">Transaction ID</label>
-                <input id="tx_ref" name="tx_ref" class="mono" required spellcheck="false" autocomplete="off" maxlength="128">
+                <input id="tx_ref" name="tx_ref" class="mono" required spellcheck="false" autocomplete="off" maxlength="128" aria-describedby="tx_ref-err">
                 <p class="hint">Shown by the explorer once the transfer confirms.</p>
                 <p class="err" id="tx_ref-err"></p>
               </div>
               <div class="field span-2">
                 <label for="note">Note <span class="opt">optional</span></label>
-                <input id="note" name="note" maxlength="500" placeholder="Anything we should know when matching the payment">
+                <input id="note" name="note" maxlength="500" placeholder="Anything we should know when matching the payment" aria-describedby="note-err">
                 <p class="err" id="note-err"></p>
               </div>
               <div class="hp" aria-hidden="true">

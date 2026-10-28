@@ -1,6 +1,7 @@
 /**
  * Repository contract. These expectations run against the in-memory fake here;
- * the D1 adapter that must mirror them is exercised by the Task 12 integration.
+ * the D1 adapter that must mirror them is exercised by `worker/scripts/smoke.mjs`
+ * against `wrangler dev --local`.
  *
  *     node --test worker/test/repo-contract.test.mjs
  */

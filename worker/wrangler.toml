@@ -8,13 +8,17 @@
 # DEPLOY
 #   npx wrangler d1 create threats-platform
 #   npx wrangler d1 migrations apply threats-platform --remote
-#   npx wrangler secret put ADMIN_PASSWORD_HASH
-#   npx wrangler secret put TOTP_SECRET
+#   npx wrangler secret put SESSION_SECRET
+#   npx wrangler secret put LICENSE_SALT
+#   npx wrangler secret put IP_HASH_SALT
+#   npx wrangler secret put ADMIN_PASSWORD_HASH   # node ../scripts/admin-credentials.mjs
+#   npx wrangler secret put TOTP_SECRET           # same script
 #   npx wrangler deploy
 #
 # Local development
 #   npx wrangler d1 migrations apply threats-platform --local
-#   npx wrangler dev --local --persist
+#   npx wrangler dev --local
+#   node scripts/smoke.mjs   # end-to-end, uses .dev.vars
 
 name = "threats-platform-api"
 main = "src/index.mjs"
