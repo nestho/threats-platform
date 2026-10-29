@@ -1,11 +1,211 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-29T14:07:35Z",
+  "updated_at": "2026-10-29T17:05:29Z",
   "source": "GitHub Security Advisories",
   "source_url": "https://api.github.com/advisories",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-qr28-fpjm-wq7f",
+      "title": "decode-uri-component vulnerable to denial of service via quadratic replacement of percent-encoded runs",
+      "published": "2026-10-29T16:41:28Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\n`decodeUriComponent()` takes quadratic time on malformed input that has many distinct percent-encoded runs. A single unauthenticated request of about 224 KB can block the Node.js event loop for about 20 seconds. Version 0.5.0, the release that fixed CVE-2026-45822, is affected.\n\n### Det",
+      "link": "https://github.com/advisories/GHSA-qr28-fpjm-wq7f"
+    },
+    {
+      "id": "GHSA-vpp8-g58w-m8mp",
+      "title": "Twisted: Unauthenticated Remote Denial of Service in the Twisted HTTP/2 Server via Rapid Stream Reset",
+      "published": "2026-10-29T16:41:06Z",
+      "ecosystem": "pip",
+      "summary": "## Summary\n\nAn uncontrolled-resource-consumption vulnerability (CWE-400) in the Twisted HTTP/2 server lets any unauthenticated remote client exhaust server CPU over a single connection. A client that sends a request header block with `END_STREAM` and then immediately resets the stream makes the serv",
+      "link": "https://github.com/advisories/GHSA-vpp8-g58w-m8mp"
+    },
+    {
+      "id": "GHSA-9hj8-73fh-9963",
+      "title": "zip: legacy Shrink/Reduce/Implode decoder: denial of service from attacker-controlled ZIP64 uncompressed size",
+      "published": "2026-10-29T16:40:19Z",
+      "ecosystem": "rust",
+      "summary": "### Summary\n\nA malicious 149-byte ZIP archive can cause a denial of service in applications that enable `legacy-zip` and use `ZipArchive::extract()`. An attacker-controlled ZIP64 uncompressed size triggers a `capacity overflow` panic in the Shrink decoder in optimized builds, potentially terminating",
+      "link": "https://github.com/advisories/GHSA-9hj8-73fh-9963"
+    },
+    {
+      "id": "GHSA-hjqx-j4rw-g7xv",
+      "title": "zip: Arbitrary file write outside the extraction directory, because ZipArchive::extract validates symlink targets lexically.",
+      "published": "2026-10-29T16:40:12Z",
+      "ecosystem": "rust",
+      "summary": "### Summary\n\n- **Verified version:** zip `9.0.0-pre3`\n- **Affected versions:** `7.2.0` and later\n- **Precondition:** The attacker knows (or can guess) the absolute path of the extraction destination\n\nThe validation applied to symlinks is purely lexical.\nAs a result, an attacker can write arbitrary f",
+      "link": "https://github.com/advisories/GHSA-hjqx-j4rw-g7xv"
+    },
+    {
+      "id": "GHSA-8hxf-qr8p-62x4",
+      "title": "zip: AES Entry HMAC Authentication Bypass on Premature EOF",
+      "published": "2026-10-29T16:40:07Z",
+      "ecosystem": "rust",
+      "summary": "### Summary\n\nAn AES-encrypted (AE-x) entry's authentication code is verified only when the reader's byte counter lands exactly on zero. If the bounded entry reader reaches the archive's actual EOF before the attacker-controlled, header-declared `compressed_size`, the counter remains positive, the HM",
+      "link": "https://github.com/advisories/GHSA-8hxf-qr8p-62x4"
+    },
+    {
+      "id": "GHSA-q7v9-x93c-xqv3",
+      "title": "zip: Unbounded Symlink-Target Handling Can Abort Or Exhaust Memory During Extraction",
+      "published": "2026-10-29T16:40:01Z",
+      "ecosystem": "rust",
+      "summary": "### Summary\n\nThe symbolic-link branch of `ZipArchive::extract_internal()` allocates a buffer using an attacker-declared size before reading any entry data. A 112-byte archive terminates the extracting process with `SIGABRT` through this infallible allocation.\n\n### Details\n\n```rust\n#[cfg(any(unix, wi",
+      "link": "https://github.com/advisories/GHSA-q7v9-x93c-xqv3"
+    },
+    {
+      "id": "GHSA-8g5g-mxqh-grgj",
+      "title": "Vite: `server.fs.deny` bypassed with queries",
+      "published": "2026-10-29T16:39:56Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nThe contents of files that are specified by [`server.fs.deny`](https://vite.dev/config/server-options#server-fs-deny) can be returned to the browser. This is the same as https://github.com/vitejs/vite/security/advisories/GHSA-v2wj-q39q-566r.\n\n### Impact\n\nOnly apps that match the followi",
+      "link": "https://github.com/advisories/GHSA-8g5g-mxqh-grgj"
+    },
+    {
+      "id": "GHSA-6j52-38f8-qhxr",
+      "title": "Shopify App: Token exchange shop context confusion may allow cross-shop authorization bypass in affected apps",
+      "published": "2026-10-29T16:39:49Z",
+      "ecosystem": "rubygems",
+      "summary": "In token-exchange authenticated controllers, `shopify_app` exposes shop context through helpers such as `current_shopify_domain`. Prior to the fix, `current_shopify_domain` could resolve to the sanitized `shop` query parameter instead of the shop identity derived from the verified Shopify ID token o",
+      "link": "https://github.com/advisories/GHSA-6j52-38f8-qhxr"
+    },
+    {
+      "id": "GHSA-8rvj-mm4h-c258",
+      "title": "cert-manager: Direct ACME Challenge resources can bypass Issuer DNS01 solver policy and use ClusterIssuer DNS credentials",
+      "published": "2026-10-29T16:39:41Z",
+      "ecosystem": "go",
+      "summary": "## Summary\n\n`Challenge` resources under `acme.cert-manager.io` can be created directly by namespace users. On create, cert-manager performs no admission validation tying the Challenge to an `Order`, an owner reference, or an Issuer-selected solver. The ACME Challenge controller then reconciles the d",
+      "link": "https://github.com/advisories/GHSA-8rvj-mm4h-c258"
+    },
+    {
+      "id": "GHSA-v3f7-2p4r-mwfw",
+      "title": "Keycloak vulnerable to cross-site scripting (xss) via case-insensitive uri validation bypass",
+      "published": "2026-10-29T16:39:03Z",
+      "ecosystem": "maven",
+      "summary": "### Description\nA flaw was found in Keycloak. A remote attacker with administrative privileges, specifically those with `manage-client` permission or access to client registration endpoints, could bypass client Uniform Resource Identifier (URI) validation. This is achieved by registering a malicious",
+      "link": "https://github.com/advisories/GHSA-v3f7-2p4r-mwfw"
+    },
+    {
+      "id": "GHSA-9jrw-8xf7-xqhq",
+      "title": "Keycloak vulnerable to information disclosure through arbitrary filesystem path probing",
+      "published": "2026-10-29T16:38:31Z",
+      "ecosystem": "maven",
+      "summary": "### Description\nA flaw was found in Keycloak. A realm administrator with the \"manage-realm\" role can exploit this vulnerability by submitting an arbitrary filesystem path as a keystore parameter when creating a key provider component. This allows the administrator to probe arbitrary filesystem paths",
+      "link": "https://github.com/advisories/GHSA-9jrw-8xf7-xqhq"
+    },
+    {
+      "id": "GHSA-w3p3-7cjg-vgfw",
+      "title": "Keycloak allows unauthorized access to resources via uma permission ticket bypass",
+      "published": "2026-10-29T16:37:57Z",
+      "ecosystem": "maven",
+      "summary": "### Description\nA flaw was found in org.keycloak.authorization. An authenticated user with a granted User-Managed Access (UMA) permission ticket for one resource can exploit this by using a specific permission request prefix to bypass per-resource access control. This allows the user to gain unautho",
+      "link": "https://github.com/advisories/GHSA-w3p3-7cjg-vgfw"
+    },
+    {
+      "id": "GHSA-f5p5-6xmx-p252",
+      "title": "Keycloak vulnerable to authorization bypass via incorrect uri comparison",
+      "published": "2026-10-29T16:37:26Z",
+      "ecosystem": "maven",
+      "summary": "### Description\nA flaw was found in Keycloak Policy Enforcer. This vulnerability allows any authenticated user to bypass all authorization policies, including role, scope, and User-Managed Access (UMA) permission checks. By including the configured access-denied page path within a request URL, eithe",
+      "link": "https://github.com/advisories/GHSA-f5p5-6xmx-p252"
+    },
+    {
+      "id": "GHSA-r7rc-c989-86g6",
+      "title": "Keycloak: Attacker can re-enable and take over disabled clients via registration access token",
+      "published": "2026-10-29T16:36:21Z",
+      "ecosystem": "maven",
+      "summary": "### Description\nA flaw was found in Keycloak's client registration service. A remote attacker, possessing a previously issued Registration Access Token (RAT), could exploit this vulnerability to re-enable a client that an administrator had explicitly disabled. This bypasses security controls, allowi",
+      "link": "https://github.com/advisories/GHSA-r7rc-c989-86g6"
+    },
+    {
+      "id": "GHSA-w9x9-j56r-h98r",
+      "title": "@eeacms/volto-chatbot has Unauthenticated Danswer API Confused Deputy Proxy",
+      "published": "2026-10-29T16:35:48Z",
+      "ecosystem": "npm",
+      "summary": "## Unauthenticated Danswer API Confused Deputy Proxy in @eeacms/volto-chatbot\n\n### Summary\n\n`@eeacms/volto-chatbot` exposes an Express middleware route (`**/_v1_da/**`) that accepts unauthenticated HTTP requests from any network client and proxies them to the configured upstream Danswer API, automat",
+      "link": "https://github.com/advisories/GHSA-w9x9-j56r-h98r"
+    },
+    {
+      "id": "GHSA-8vfg-2r28-hvhj",
+      "title": "Crass: Non-ASCII characters cause superlinear CPU consumption",
+      "published": "2026-10-29T16:35:29Z",
+      "ecosystem": "rubygems",
+      "summary": "### Impact\n\nWhen parsing an input containing non-ASCII characters, inefficiencies in how Crass tracks the positions of multi-byte characters result in superlinear parsing time. An attacker-controlled input consisting of many non-ASCII characters could cause excessive CPU consumption and potentially ",
+      "link": "https://github.com/advisories/GHSA-8vfg-2r28-hvhj"
+    },
+    {
+      "id": "GHSA-wwpr-jff3-395c",
+      "title": "Crass: A large number of adjacent CSS comments can trigger a SystemStackError",
+      "published": "2026-10-29T16:35:23Z",
+      "ecosystem": "rubygems",
+      "summary": "### Impact\n\nWhen the `:preserve_comments` option is not enabled (which is the default behavior), Crass discards CSS comments by recursively consuming the next token. An attacker who provides a stylesheet containing a very large number of adjacent comments can cause excessive recursion and trigger a ",
+      "link": "https://github.com/advisories/GHSA-wwpr-jff3-395c"
+    },
+    {
+      "id": "GHSA-6jxj-px6v-747w",
+      "title": "Crass: Deeply nested CSS blocks and functions can trigger a SystemStackError or excessive memory usage",
+      "published": "2026-10-29T16:35:16Z",
+      "ecosystem": "rubygems",
+      "summary": "### Impact\n\nCrass recursively parses CSS simple blocks and functions without a depth guard. An attacker-controlled value containing many deeply nested blocks can recurse until Ruby raises `SystemStackError: stack level too deep`, or can cause excessive memory usage.\n\n### Patches\n\nThis is fixed in Cr",
+      "link": "https://github.com/advisories/GHSA-6jxj-px6v-747w"
+    },
+    {
+      "id": "GHSA-c33x-vcv4-vg3g",
+      "title": "Cedar: JSON template is in scope missing slot-id validation allows link panic and decision divergence",
+      "published": "2026-10-29T16:35:04Z",
+      "ecosystem": "rust",
+      "summary": "Cedar users must be using all of the following features to be affected by this advisory: JSON format policies, policy templates, and the `is in` scope condition. This advisory only affects JSON-formatted Cedar policy templates containing `is in` scope conditions that are **malformed** according to t",
+      "link": "https://github.com/advisories/GHSA-c33x-vcv4-vg3g"
+    },
+    {
+      "id": "GHSA-q344-5v34-gm84",
+      "title": "@sylphx/pdf-reader-mcp: HTTP transport accepts unauthenticated requests despite a configured MCP_API_KEY",
+      "published": "2026-10-29T16:34:35Z",
+      "ecosystem": "npm",
+      "summary": "### Impact\n\nWhen `@sylphx/pdf-reader-mcp` is run as an HTTP server (`MCP_TRANSPORT=http`), it reads the `MCP_API_KEY` environment variable and logs `API key authentication enabled (X-API-Key header)` at startup, but it never validated the `X-API-Key` header on incoming requests. The key was read int",
+      "link": "https://github.com/advisories/GHSA-q344-5v34-gm84"
+    },
+    {
+      "id": "GHSA-26mh-57q7-jfvr",
+      "title": "PraisonAI vulnerable to Remote Code Execution via Broken AST Sandbox",
+      "published": "2026-10-29T16:34:26Z",
+      "ecosystem": "pip",
+      "summary": "### Summary\nJobWorkflowExecutor._exec_inline_python() is designed to safely execute inline Python expressions from YAML workflow script: steps using AST validation. The function claims to block dangerous operations by (a) checking all AST nodes against an allowlist, and (b) providing a __builtins__ ",
+      "link": "https://github.com/advisories/GHSA-26mh-57q7-jfvr"
+    },
+    {
+      "id": "GHSA-r899-h629-j84r",
+      "title": "Parse Server vulnerable to stored XSS via malformed Content-Type bypassing file upload extension blocklist",
+      "published": "2026-10-29T16:33:48Z",
+      "ecosystem": "npm",
+      "summary": "### Impact\n\nParse Server's file upload validation uses the `fileUpload.fileExtensions` option (enabled by default with a blocklist) to reject files that browsers may render as active content, mitigating stored cross-site scripting (XSS). When an uploaded file's extension is not recognized by the `mi",
+      "link": "https://github.com/advisories/GHSA-r899-h629-j84r"
+    },
+    {
+      "id": "GHSA-rhj7-vh3v-mcq6",
+      "title": "Daptin: ParseAcceptLanguage `_` separator bypass enables >250x CPU amplification via Accept-Language header in LanguageMiddleware",
+      "published": "2026-10-29T16:33:09Z",
+      "ecosystem": "go",
+      "summary": "### Summary\n\nDaptin's `LanguageMiddleware` (registered as a global gin middleware) calls `golang.org/x/text/language.ParseAcceptLanguage` on the raw `Accept-Language` header of every HTTP request without imposing any size or shape filter. The underlying parser has quadratic-time behaviour on long li",
+      "link": "https://github.com/advisories/GHSA-rhj7-vh3v-mcq6"
+    },
+    {
+      "id": "GHSA-pg53-p7qp-65cv",
+      "title": "PocketMine-MP has potential memory/network vulnerability from repeated ResourcePackClientResponsePacket packets",
+      "published": "2026-10-29T16:32:58Z",
+      "ecosystem": "composer",
+      "summary": "### Summary\nDuring the resource pack stage of logging in, after the server sends `ResourcePackStackPacket`, a malicious client can send a batch of multiple `ResourcePackClientResponsePacket` packets with status `ResourcePackClientResponsePacket::STATUS_COMPLETED` causing the server to repeatedly exe",
+      "link": "https://github.com/advisories/GHSA-pg53-p7qp-65cv"
+    },
+    {
+      "id": "GHSA-68wq-phq7-p2vg",
+      "title": "MultiFactor Authentication for SilverStripe can bypass MFA during password reset flow",
+      "published": "2026-10-29T16:32:39Z",
+      "ecosystem": "composer",
+      "summary": "### Impact\nIn CMS 5, the password reset flow let a user with multi-factor authentication enabled change their password and get a logged-in session before completing multi-factor authentication. Exploiting this requires access to the user's email account. CMS 6 is not affected.",
+      "link": "https://github.com/advisories/GHSA-68wq-phq7-p2vg"
+    },
     {
       "id": "GHSA-r4j5-9xpp-3985",
       "title": "Tornado: Event loop blocking and excess memory use from chunked bodies with many small chunks",
@@ -605,206 +805,6 @@
       "ecosystem": "npm",
       "summary": "### Impact\nThe breadcrumbs `style` option is applied to the breadcrumb button as SVG attributes rather than as CSS, and the attribute names are not filtered. An attacker who controls the chart configuration can supply keys under `breadcrumbs.style` that name event handlers, and those keys become liv",
       "link": "https://github.com/advisories/GHSA-35rr-xwfh-x789"
-    },
-    {
-      "id": "GHSA-5ghw-9mgr-jvx2",
-      "title": "Highcharts Grid Pro: cell-renderer `attributes` map written with raw `setAttribute`",
-      "published": "2026-10-28T19:56:02Z",
-      "ecosystem": "npm",
-      "summary": "### Impact\nThe input-type cell renderers copy every entry of the renderer's `attributes` option onto the input or select element they create, without checking the attribute names. An attacker who controls the Grid configuration can supply entries under a column's `cells.renderer.attributes` or `cell",
-      "link": "https://github.com/advisories/GHSA-5ghw-9mgr-jvx2"
-    },
-    {
-      "id": "GHSA-6g3c-p4fg-xv47",
-      "title": "Highcharts Grid: custom icon definition objects written with raw `setAttribute` on `<path>`",
-      "published": "2026-10-28T19:55:46Z",
-      "ecosystem": "npm",
-      "summary": "### Impact\nA custom icon supplied under `rendering.icons` as an icon definition object is built by creating an SVG path for each of its child entries and setting every key of that entry as an attribute of the path, without filtering the attribute names; only the string form of the option is passed t",
-      "link": "https://github.com/advisories/GHSA-6g3c-p4fg-xv47"
-    },
-    {
-      "id": "GHSA-grj7-r4jv-pw9j",
-      "title": "Highcharts Dashboards: `chartConstructor` is an unchecked lookup into the Highcharts namespace",
-      "published": "2026-10-28T19:55:41Z",
-      "ecosystem": "npm",
-      "summary": "### Impact\nThe Highcharts component uses the value of `chartConstructor` to select a function from the Highcharts namespace and invokes it with the component's container element and its `chartOptions`, without checking the value against the supported chart constructors. An attacker who controls the ",
-      "link": "https://github.com/advisories/GHSA-grj7-r4jv-pw9j"
-    },
-    {
-      "id": "GHSA-c75x-9x9h-28rm",
-      "title": "Highcharts Dashboards / Grid Pro: `DataTable.setCell` and column writers treat `__proto__` as an existing column.",
-      "published": "2026-10-28T19:55:37Z",
-      "ecosystem": "npm",
-      "summary": "### Impact\nWhen a single cell value is written to a data table, the column id is used as a key on the table's column collection without filtering, so a column id of `__proto__` resolves to `Object.prototype`, is taken for an existing column, and the write lands at the row index on `Object.prototype`",
-      "link": "https://github.com/advisories/GHSA-c75x-9x9h-28rm"
-    },
-    {
-      "id": "GHSA-jqgh-w3cc-7jqw",
-      "title": "Highcharts Dashboards: `__proto__` data table id writes sync listeners to `Object.prototype`",
-      "published": "2026-10-28T19:55:32Z",
-      "ecosystem": "npm",
-      "summary": "### Impact\nThe data cursor keeps its listener and state bookkeeping in plain objects keyed by data table id, so a table id of `__proto__` supplied in the `dataPool` connector configuration resolves to `Object.prototype` when a sync registers its listeners, and the registration creates a property on ",
-      "link": "https://github.com/advisories/GHSA-jqgh-w3cc-7jqw"
-    },
-    {
-      "id": "GHSA-65hg-cf3f-5m39",
-      "title": "Highcharts Core: HTML text parsing falls back to unfiltered `innerHTML` during printing",
-      "published": "2026-10-28T19:55:22Z",
-      "ecosystem": "npm",
-      "summary": "### Impact\nWhen the HTML text parser cannot obtain a document from `DOMParser` because the call throws, it falls back to assigning the raw markup to the `innerHTML` of an element created in the hosting document, and the allow-list is applied only to the resulting DOM afterwards. In Chromium the Trus",
-      "link": "https://github.com/advisories/GHSA-65hg-cf3f-5m39"
-    },
-    {
-      "id": "GHSA-mw4f-gj5x-6xr4",
-      "title": "Highcharts Core: `javascript:` URL in an `xlink:href` attribute survives text filtering and reaches exported charts",
-      "published": "2026-10-28T19:55:10Z",
-      "ecosystem": "npm",
-      "summary": "### Impact\nThe filter applied to markup in text options checks `href`, `src` and a few similar attributes against an allowed-scheme list, but accepts `xlink:href` without that check, so an SVG anchor whose `xlink:href` is a `javascript:` URL passes the filter, whether or not the option is rendered w",
-      "link": "https://github.com/advisories/GHSA-mw4f-gj5x-6xr4"
-    },
-    {
-      "id": "GHSA-375p-5qhx-8wq4",
-      "title": "Echo's middleware.Static: `%2F`-encoded path bypasses route/group middleware guarding a statically-served path",
-      "published": "2026-10-28T19:54:20Z",
-      "ecosystem": "go",
-      "summary": "## Summary\n\nWhen `middleware.Static` is mounted globally (`e.Use(middleware.Static(...))`) and an application relies on a **route- or group-level middleware guard** to restrict a path that also falls under the served static root, a `%2F`-encoded request bypasses that guard while the file is still se",
-      "link": "https://github.com/advisories/GHSA-375p-5qhx-8wq4"
-    },
-    {
-      "id": "GHSA-h9g5-28mm-hx3g",
-      "title": "Echo vulnerable to Reflected Cross-Site Scripting (XSS) via unsanitized JSONP callback in Context.JSONP / Context.JSONPBlob",
-      "published": "2026-10-28T19:54:05Z",
-      "ecosystem": "go",
-      "summary": "### Summary\n\nThe `Context.JSONP`, `Context.JSONPBlob`, and internal `jsonPBlob` helper in `context.go` directly concatenate the caller-supplied `callback` parameter into a JavaScript response **without any validation, escaping, or allow-listing**.  \n\nThis creates a high-impact **reflected XSS** that",
-      "link": "https://github.com/advisories/GHSA-h9g5-28mm-hx3g"
-    },
-    {
-      "id": "GHSA-246p-cpwv-v3jq",
-      "title": "Echo has Rate Limiter Bypass via Spoofed X-Forwarded-For Header in Default Configuration",
-      "published": "2026-10-28T19:53:47Z",
-      "ecosystem": "go",
-      "summary": "## Summary\n\nWhen `echo.New()` is used without explicitly setting `Echo#IPExtractor`, the `RealIP()` method falls back to reading the client-supplied `X-Forwarded-For` (or `X-Real-IP`) header without any proxy-origin validation. The default `RateLimiter()` middleware derives its per-client identifier",
-      "link": "https://github.com/advisories/GHSA-246p-cpwv-v3jq"
-    },
-    {
-      "id": "GHSA-r7w9-592q-9vg4",
-      "title": "Echo has CSRF Protection Bypass via MethodOverride Rewriting POST to Safe Method",
-      "published": "2026-10-28T19:53:36Z",
-      "ecosystem": "go",
-      "summary": "## Summary\n\nThe `MethodOverride` middleware accepts any non-empty string as the override target method — including safe methods (GET, HEAD, OPTIONS, TRACE) — when rewriting a POST request. When `MethodOverride` is registered before `CSRF` in the post-routing middleware chain (`e.Use()`), it rewrites",
-      "link": "https://github.com/advisories/GHSA-r7w9-592q-9vg4"
-    },
-    {
-      "id": "GHSA-99jh-6h7p-pp36",
-      "title": "Echo: Reverse Proxy Forwards Attacker-Supplied X-Real-IP to Upstream by Default",
-      "published": "2026-10-28T19:53:24Z",
-      "ecosystem": "go",
-      "summary": "## Summary\n\nThe Echo proxy middleware (`middleware/proxy.go`) preserves an incoming `X-Real-IP` header verbatim and forwards it to the upstream service when `Echo#IPExtractor` is not configured — which is the default. Because any HTTP client can supply an arbitrary `X-Real-IP` value, an attacker can",
-      "link": "https://github.com/advisories/GHSA-99jh-6h7p-pp36"
-    },
-    {
-      "id": "GHSA-4mfg-r38w-w8fg",
-      "title": "mcp-sanitizer: URL sanitizer allows localhost/IPv6 loopback SSRF bypass via explicit port or bracketed IPv6",
-      "published": "2026-10-28T19:51:39Z",
-      "ecosystem": "npm",
-      "summary": "## URL sanitizer allows localhost/IPv6 loopback SSRF bypass via explicit port or bracketed IPv6\n\n### Summary\n\n`mcp-sanitizer` v1.3.3 fails to block Server-Side Request Forgery (SSRF) targets when a `localhost` URL includes an explicit port (e.g., `http://localhost:8080/`) or when an IPv6 loopback/li",
-      "link": "https://github.com/advisories/GHSA-4mfg-r38w-w8fg"
-    },
-    {
-      "id": "GHSA-7w82-6f9j-v9jp",
-      "title": "mcp-sanitizer: File Path Sanitizer Permits Arbitrary User-Home Absolute Paths",
-      "published": "2026-10-28T19:51:34Z",
-      "ecosystem": "npm",
-      "summary": "## File Path Sanitizer Permits Arbitrary User-Home Absolute Paths\n\n### Summary\n\n`mcp-sanitizer` v1.3.3 explicitly whitelists `/home/` and `/Users/` as allowed absolute path prefixes in its file path validation logic (`src/utils/validation-utils.js:188-196`). As a result, paths such as `/home/alice/.",
-      "link": "https://github.com/advisories/GHSA-7w82-6f9j-v9jp"
-    },
-    {
-      "id": "GHSA-5j9r-fx4x-rpvg",
-      "title": "rucio has an Authorization Bypass on REST API endpoint for signing URLs",
-      "published": "2026-10-28T19:50:05Z",
-      "ecosystem": "pip",
-      "summary": "## Summary\nThe `/credentials/signurl` endpoint decides authorization from the client-supplied `X-Rucio-Account` HTTP header instead of the authenticated token's account. Any client holding **any** valid auth token (even a low-privilege account they legitimately own) can send `X-Rucio-Account: root` ",
-      "link": "https://github.com/advisories/GHSA-5j9r-fx4x-rpvg"
-    },
-    {
-      "id": "GHSA-473q-m89c-ghf8",
-      "title": "MySqlConnector: Account password disclosed to a man-in-the-middle in zero-configuration TLS mode (clear-text password sent before certificate is verified)",
-      "published": "2026-10-28T19:49:44Z",
-      "ecosystem": "nuget",
-      "summary": "## Summary\n\nWith `SslMode` set to `VerifyCA` or `VerifyFull` with no configured CA certificate, an unvalidated TLS connection is treated as secure and a clear-text password can be sent before the certificate is checked. This can occur when relying on the password to validate a self-signed cert, e.g.",
-      "link": "https://github.com/advisories/GHSA-473q-m89c-ghf8"
-    },
-    {
-      "id": "GHSA-8qx7-j2v2-x6q5",
-      "title": "Caddy has an RFC 7230 §6.1 compliance issue / Hop-by-hop headers that leak through",
-      "published": "2026-10-28T19:49:33Z",
-      "ecosystem": "go",
-      "summary": "### AI Disclosure\nThis vulnerability was discovered via deepseek-v4-pro[1m] for finding potential vulnerabilities / inconsistencies in the code base. I made the AI check if Caddy is compliant with various RFCs, incl. 7230. I also used it to help write the PoC, since it was honestly much faster than ",
-      "link": "https://github.com/advisories/GHSA-8qx7-j2v2-x6q5"
-    },
-    {
-      "id": "GHSA-m65p-9j7q-6w33",
-      "title": "MLflow vulnerable to arbitrary file read on unauthenticated servers via prompt model version source",
-      "published": "2026-10-27T21:26:56Z",
-      "ecosystem": "pip",
-      "summary": "### Summary\nOn MLflow tracking servers running without authentication, which is the default for mlflow server, a remote attacker can read arbitrary files from the server’s filesystem by creating a model version tagged as a prompt whose source is a schemeless local path.\n\nThe fix for CVE-2026-2614 in",
-      "link": "https://github.com/advisories/GHSA-m65p-9j7q-6w33"
-    },
-    {
-      "id": "GHSA-j7qq-vr8c-xvw3",
-      "title": "MLflow CrewAI autologging records LLM provider API keys in logged trace spans",
-      "published": "2026-10-27T21:26:39Z",
-      "ecosystem": "pip",
-      "summary": "### Summary\n\n`mlflow.crewai.autolog()` leaks CrewAI LLM provider API keys into MLflow trace telemetry.\n\nWhen a CrewAI `Agent` is instrumented with MLflow autologging, MLflow serializes the agent's `__dict__` and converts its fields to strings. The `llm` field contains the CrewAI LLM object, whose st",
-      "link": "https://github.com/advisories/GHSA-j7qq-vr8c-xvw3"
-    },
-    {
-      "id": "GHSA-26p8-2jq9-3vq9",
-      "title": "MLflow vulnerable to remote code execution on unauthenticated servers via third-party scorer deserialization importing caller-placed artifact modules",
-      "published": "2026-10-27T21:26:32Z",
-      "ecosystem": "pip",
-      "summary": "## Summary\n\nMLflow 3.12.0 introduced registration and deserialization support for third-party scorers in OSS MLflow. During scorer deserialization, the server accepts a request-controlled Python module path beneath one of four allowed package prefixes, imports that module, obtains a request-controll",
-      "link": "https://github.com/advisories/GHSA-26p8-2jq9-3vq9"
-    },
-    {
-      "id": "GHSA-x94g-w73q-hpcw",
-      "title": "dd-trace: ReDOS in URL query string obfuscation",
-      "published": "2026-10-27T21:07:25Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\nA regular expression used to obfuscate URL query strings can consume excessive CPU when processing certain attacker-controlled input. This can stall request processing and cause denial of service in applications using affected HTTP tracing integrations.\n\n### Details\n\nThe default query-s",
-      "link": "https://github.com/advisories/GHSA-x94g-w73q-hpcw"
-    },
-    {
-      "id": "GHSA-mf2p-h6hf-fcwm",
-      "title": "TinyMCE Cross-Site Scripting (XSS) vulnerability using media plugin `data-mce-object` serialization",
-      "published": "2026-10-27T21:07:12Z",
-      "ecosystem": "npm",
-      "summary": "### Impact\nStored XSS vulnerability in the media plugin. Attackers can inject malicious scripts via elements crafted through the data-mce-object attribute, which are created and executed before sanitization. Impacts users of TinyMCE with the media plugin enabled.\n\n### Patches\nThis vulnerability has ",
-      "link": "https://github.com/advisories/GHSA-mf2p-h6hf-fcwm"
-    },
-    {
-      "id": "GHSA-w4fh-qvv9-3v23",
-      "title": "Model Context Protocol Python SDK: Server bearer-token authentication accepts tokens issued for a different resource server",
-      "published": "2026-10-27T21:06:59Z",
-      "ecosystem": "pip",
-      "summary": "### Summary\nIn affected versions, the SDK's server-side bearer authentication had no way to check that a token was issued for your server (its audience). Where one authorization server issues tokens for several services, a valid token for another service was also accepted by your MCP server.\n\n### Am",
-      "link": "https://github.com/advisories/GHSA-w4fh-qvv9-3v23"
-    },
-    {
-      "id": "GHSA-f5m9-jfrj-jjj7",
-      "title": "OpenTelemetry Python: Unbounded memory allocation in Jaeger baggage propagation",
-      "published": "2026-10-27T21:06:54Z",
-      "ecosystem": "pip",
-      "summary": "## Summary\n\n`JaegerPropagator.extract()` in `opentelemetry-propagator-jaeger` did not enforce limits when extracting inbound `uberctx-*` baggage headers. Attacker-controlled baggage could cause unnecessary CPU work and short-lived heap allocations while processing more data than the propagator shoul",
-      "link": "https://github.com/advisories/GHSA-f5m9-jfrj-jjj7"
-    },
-    {
-      "id": "GHSA-5h93-6whr-6q8j",
-      "title": "Model Context Protocol Python SDK: HTTP client transports followed cross-origin redirects carrying custom headers and bodies",
-      "published": "2026-10-27T21:05:34Z",
-      "ecosystem": "pip",
-      "summary": "### Summary\nIn affected versions, the SDK's Streamable HTTP and SSE client transports followed HTTP redirects to any host. If the configured MCP endpoint answered with a redirect to a different origin:\n\n- custom headers set on the client (for example an `X-API-Key` credential) were sent to that orig",
-      "link": "https://github.com/advisories/GHSA-5h93-6whr-6q8j"
     }
   ]
 }
