@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-29T06:56:31Z",
+  "updated_at": "2026-10-29T10:16:16Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,131 @@
   ],
   "recent": {
     "lookback_days": 3,
-    "total": 2244,
-    "items_available": 2244,
+    "total": 2211,
+    "items_available": 2211,
     "normalisation_failures": [],
-    "items_parsed": 2244,
+    "items_parsed": 2211,
     "items": [
+      {
+        "id": "CVE-2026-115303",
+        "published": "2026-10-29T09:17:08Z",
+        "description": "The Contact Form by Supsystic WordPress plugin before 1.11.1 does not strip CR/LF characters or re-validate submitted field values before concatenating them into outgoing email headers when a form is configured to map a submitted field into its Reply-To, From or Cc header, allowing unauthenticated u",
+        "severity": "LOW",
+        "score": 3.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115303",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-7190",
+        "published": "2026-10-29T09:17:08Z",
+        "description": "A cross-site scripting (XSS) vulnerability in the ICTBroadcast software, which affects the demo environment. The vulnerability is found in the ‘login.php’ endpoint, where the ‘editForm[extension_username]’ parameter is reflected in the response without proper filtering. Successful exploitation of th",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-7190",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-85498",
+        "published": "2026-10-29T09:17:08Z",
+        "description": "A flaw was found in polkit. When processing input that begins with a null byte, an arithmetic error in the authentication agent helper causes an integer underflow during buffer length calculation, resulting in an out-of-bounds memory read. An attacker capable of supplying crafted input can trigger t",
+        "severity": "LOW",
+        "score": 3.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-85498",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-114358",
+        "published": "2026-10-29T09:17:07Z",
+        "description": "This\nvulnerability exists in the Radius\nXenia M2M Platform due to insufficient validation of user supplied input in\nthe password recovery functionality in the web management interface. An\nunauthenticated remote attacker could exploit this vulnerability by supplying\ncrafted SQL query through input fi",
+        "severity": "CRITICAL",
+        "score": 9.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-114358",
+        "kev": false
+      },
+      {
+        "id": "CVE-2025-62841",
+        "published": "2026-10-29T08:17:00Z",
+        "description": "An use of hard-coded cryptographic key vulnerability has been reported to affect HBS 3 Hybrid Backup Sync and Hybrid Backup Sync. If exploited, the vulnerability could allow remote attackers to compromise the security of the system.\n\nWe have already fixed the vulnerability in the following version:\n",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-62841",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-117174",
+        "published": "2026-10-29T08:17:00Z",
+        "description": "Rejected reason: VUL-2026-008368 為先回報之相同問題",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117174",
+        "kev": false
+      },
+      {
+        "id": "CVE-2025-62839",
+        "published": "2026-10-29T08:16:59Z",
+        "description": "An use of hard-coded cryptographic key vulnerability has been reported to affect HBS 3 Hybrid Backup Sync and Hybrid Backup Sync. If exploited, the vulnerability could allow remote attackers to compromise the security of the system.\n\nWe have already fixed the vulnerability in the following version:\n",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-62839",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-117548",
+        "published": "2026-10-29T07:16:44Z",
+        "description": "A NULL pointer dereference flaw was found in 389-ds-base. This flaw occurs when a ModifyDN (rename) operation uses an attribute's schema alias name (such as \"commonName\") instead of its canonical name (such as \"cn\") as the new relative distinguished name. An authenticated attacker with the ModifyDN ",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117548",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-117627",
+        "published": "2026-10-29T07:16:44Z",
+        "description": "A flaw was found in the JWT Authorization Grant implementation of the keycloak-services component. When an OIDC or Google identity provider is configured with specific login restrictions, such as claim filtering, these checks are correctly applied during standard browser logins but are skipped durin",
+        "severity": "MEDIUM",
+        "score": 5.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117627",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-117688",
+        "published": "2026-10-29T07:16:44Z",
+        "description": "A flaw was found in the client registration component of Keycloak, an open-source identity and access management solution. When a vault provider is used to store sensitive information, an authenticated client owner can use a specially crafted reference to trick the system into revealing secrets. By ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117688",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-117859",
+        "published": "2026-10-29T07:16:44Z",
+        "description": "A flaw was found in the Pushed Authorization Request PAR implementation of the keycloak-services component. The issue occurs when an authentication flow is restarted, which incorrectly clears the internal markers used to track PAR consumption while leaving the request active. This allows an attacker",
+        "severity": "MEDIUM",
+        "score": 5.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117859",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118030",
+        "published": "2026-10-29T07:16:44Z",
+        "description": "A flaw was found in the HOTP authentication mechanism of the keycloak-services component, which provides identity and access management services. The issue occurs because the system validates a one-time password and updates its internal counter in two separate steps without proper locking. An attack",
+        "severity": "MEDIUM",
+        "score": 4.2,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118030",
+        "kev": false
+      },
       {
         "id": "CVE-2026-78395",
         "published": "2026-10-29T06:17:24Z",
@@ -22001,456 +22121,6 @@
         "score": 5.1,
         "cvss_version": "40",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103377",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-95663",
-        "published": "2026-10-26T09:16:37Z",
-        "description": "Insufficient Session Expiration vulnerability in Apache Camel Keycloak component.\n\n\n\nThis issue affects Apache Camel: from 4.16.0 before 4.18.5, from 4.19.0 before 4.22.2.\n\n\n\nWhen token introspection is enabled on the camel-keycloak KeycloakSecurityPolicy (useTokenIntrospection=true), the security p",
-        "severity": "MEDIUM",
-        "score": 4.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-95663",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-95664",
-        "published": "2026-10-26T09:16:37Z",
-        "description": "Improper Neutralization of Special Elements used in an Expression Language Statement ('Expression Language Injection') vulnerability in Apache Camel AWS2-s3 component.\n\n\n\nThis issue affects Apache Camel: from 4.8.0 before 4.18.5, from 4.19.0 before 4.22.2.\n\n\n\nFor the object it uploads, reads or dele",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-95664",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-82943",
-        "published": "2026-10-26T09:16:36Z",
-        "description": "SOEM version 2.0.0 and earlier contains vulnerabilities where a malicious device can send messages that cause the master to read data from memory locations beyond the intended buffer. The software uses length values from device responses without validating them against actual buffer sizes. An attack",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82943",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-82944",
-        "published": "2026-10-26T09:16:36Z",
-        "description": "SOEM version 2.0.0 and earlier contains a vulnerability in multi-segment data transfers where a malicious device can overflow memory buffers. The software checks the total size only once at the beginning, but doesn't track the cumulative size as multiple segments arrive. An attacker can declare a sm",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82944",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-82945",
-        "published": "2026-10-26T09:16:36Z",
-        "description": "SOEM version 2.0.0 and earlier contains a vulnerability during device configuration where a malicious device can cause memory corruption. The software writes configuration data to a fixed-size array without checking if the array index exceeds its maximum size of EC_MAXFMMU entries. A device presenti",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82945",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-82946",
-        "published": "2026-10-26T09:16:36Z",
-        "description": "SOEM version 2.0.0 and earlier contains a vulnerability where a malicious device can crash the master system. When the software receives an error response, it clears an internal pointer but continues processing. If another message arrives before timeout, the software attempts to use the cleared poin",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82946",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-82947",
-        "published": "2026-10-26T09:16:36Z",
-        "description": "SOEM version 2.0.0 and earlier contains multiple vulnerabilities in frame processing where a malicious device can cause the master to read data outside allocated buffers. The software uses length and offset values from device messages without validating them against buffer sizes. This can cause the ",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82947",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-95628",
-        "published": "2026-10-26T09:16:36Z",
-        "description": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in Apache Camel Docling component.\n\n\n\nThis issue affects Apache Camel: from 4.15.0 before 4.18.5, from 4.19.0 before 4.22.2.\n\n\n\nDoclingProducer builds the command line of the external docling tool and append",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-95628",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-95629",
-        "published": "2026-10-26T09:16:36Z",
-        "description": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in Apache Camel Docling component.\n\n\n\nThis issue affects Apache Camel: from 4.15.0 before 4.18.5, from 4.19.0 before 4.22.2.\n\n\n\nDoclingProducer runs the external docling tool in CLI mode, the default, and te",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-95629",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116235",
-        "published": "2026-10-26T09:16:35Z",
-        "description": "A flaw has been found in Oray Pugongying X5 Pro 7.6.1. Affected by this vulnerability is an unknown functionality of the component L2TP Authentication. This manipulation of the argument Username causes crlf injection. The attack may be initiated remotely. The exploit has been published and may be us",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116235",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116236",
-        "published": "2026-10-26T09:16:35Z",
-        "description": "A vulnerability has been found in Oray Pugongying X5 Pro 7.6.1. Affected by this issue is the function plugin_init of the file /tmp/upload_files of the component PPPoE WAN Setting Handler. Such manipulation of the argument pppd_options leads to unrestricted upload. The attack may be launched remotel",
-        "severity": "HIGH",
-        "score": 7.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116236",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116372",
-        "published": "2026-10-26T09:16:35Z",
-        "description": "MISP mispguard is a security filtering proxy that inspects and blocks MISP feed responses based on configured rules. The process_feed_response method in src/mispguard.py was responsible for evaluating feed responses before they reached the MISP instance. The original logic only explicitly handled th",
-        "severity": "HIGH",
-        "score": 7.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116372",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-70388",
-        "published": "2026-10-26T09:16:35Z",
-        "description": "SOEM version 2.0.0 and earlier contains vulnerabilities where a malicious device on the network can send specially crafted messages that cause the master to write data outside allocated memory boundaries. The software performs arithmetic on message length values without proper validation, allowing n",
-        "severity": "HIGH",
-        "score": 8.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-70388",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-110376",
-        "published": "2026-10-26T09:16:34Z",
-        "description": "Missing Authorization vulnerability in VillaTheme DEPART depart-deposit-and-part-payment-for-woo allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects DEPART: from n/a through 1.0.10.",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110376",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-111841",
-        "published": "2026-10-26T09:16:34Z",
-        "description": "Cross-Site Request Forgery (CSRF) vulnerability in Aman FunnelKit Automations wp-marketing-automations allows Cross Site Request Forgery.This issue affects FunnelKit Automations: from n/a through 3.8.5.2.",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111841",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-112828",
-        "published": "2026-10-26T09:16:34Z",
-        "description": "Missing Authorization vulnerability in Meow Apps AI Engine ai-engine allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects AI Engine: from n/a through 3.8.6.",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-112828",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-113438",
-        "published": "2026-10-26T09:16:34Z",
-        "description": "Pleasanter provided fails to properly verify passwords in LDAP authentication when processing specially crafted requests under certain configurations.  If exploited, an attacker may bypass LDAP authentication by providing only a valid Login ID, without a password. As a result, an attacker may view, ",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113438",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115425",
-        "published": "2026-10-26T09:16:34Z",
-        "description": "Multiple cross site scripting (XSS) vulnerabilities affect OPNsense firewall vesrion 26.7.1_1 and earlier allows low privileged attacker to execute Javascript in the context of another user visiting a specific page or clicking on a specifically crafted link.",
-        "severity": "MEDIUM",
-        "score": 5.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115425",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116233",
-        "published": "2026-10-26T09:16:34Z",
-        "description": "A security vulnerability has been detected in Oray Pugongying X5 Pro 7.6.1. This impacts an unknown function of the component Dnsmasq. The manipulation of the argument rent_time leads to crlf injection. The attack can be initiated remotely. The exploit has been disclosed publicly and may be used. Th",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116233",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116234",
-        "published": "2026-10-26T09:16:34Z",
-        "description": "A vulnerability was detected in Oray Pugongying X5 Pro 7.6.1. Affected is an unknown function of the file /etc/ipsec.conf of the component IPsec Policy Handler. The manipulation of the argument secproto results in crlf injection. The attack can be launched remotely. The exploit is now public and may",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116234",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-101259",
-        "published": "2026-10-26T09:16:33Z",
-        "description": "Generation of Error Message Containing Sensitive Information vulnerability in Apache Camel CoAP component.\n\n\n\nThis issue affects Apache Camel: from 4.0.0 before 4.18.5, from 4.19.0 before 4.22.2.\n\n\n\nWhen the CoAP consumer could not build its response once the route had completed, CamelCoapResource c",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101259",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96581",
-        "published": "2026-10-26T08:17:20Z",
-        "description": "Authorization Bypass Through User-Controlled Key vulnerability in ash-project ash allows a user of one tenant to read, overwrite and take over another tenant's records via an upserting create action.\n\nUnder attribute multitenancy, Ash.Actions.Create (lib/ash/actions/create/create.ex) and Ash.Actions",
-        "severity": "HIGH",
-        "score": 7.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96581",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116229",
-        "published": "2026-10-26T08:17:17Z",
-        "description": "A vulnerability was determined in ffxiv-teamcraft FFXIV Teamcraft up to 11.4.31. Impacted is the function clipboard.readText of the file apps/electron/src/preload.ts of the component Renderer-Process IPC Bridge. This manipulation causes cross site scripting. The attack is possible to be carried out ",
-        "severity": "LOW",
-        "score": 2.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116229",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116230",
-        "published": "2026-10-26T08:17:17Z",
-        "description": "A vulnerability was identified in Ndemic Creations Plague Inc Evolved up to 1.24.0.3. The affected element is an unknown function of the component Workshop Scenario Loader. Such manipulation leads to deserialization. The attack may be performed from remote. Upgrading to version 1.24.0.4 is sufficien",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116230",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116231",
-        "published": "2026-10-26T08:17:17Z",
-        "description": "A security flaw has been discovered in Oray Pugongying X5 Pro 7.6.1. The impacted element is an unknown function of the component Ser2net. Performing a manipulation of the argument regmsg results in crlf injection. It is possible to initiate the attack remotely. The exploit has been released to the ",
-        "severity": "HIGH",
-        "score": 8.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116231",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116232",
-        "published": "2026-10-26T08:17:17Z",
-        "description": "A weakness has been identified in Oray Pugongying X5 Pro 7.6.1. This affects the function snmp_set of the component SNMP Handler. Executing a manipulation of the argument info.community can lead to crlf injection. It is possible to launch the attack remotely. The exploit has been made available to t",
-        "severity": "HIGH",
-        "score": 8.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116232",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116124",
-        "published": "2026-10-26T07:17:09Z",
-        "description": "A security vulnerability has been detected in GNOME libgsf up to 1.14.60. The impacted element is the function ole_info_read_metabat of the file gsf/gsf-infile-msole.c of the component OLE2 Parser. The manipulation leads to heap-based buffer overflow. The attack can be initiated remotely. The identi",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116124",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116223",
-        "published": "2026-10-26T07:17:09Z",
-        "description": "A flaw has been found in icret EasyImage up to 2.8.7. The impacted element is an unknown function of the file app/del.php. Executing a manipulation of the argument hash can lead to improper privilege management. The attack can be launched remotely. The exploit has been published and may be used. Thi",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116223",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116224",
-        "published": "2026-10-26T07:17:09Z",
-        "description": "A vulnerability has been found in fr0tt benotes up to 2.8.1. This affects the function getUrlInfo of the file app/Http/Controllers/PostController.php of the component Bookmark Metadata Endpoint. The manipulation of the argument url leads to server-side request forgery. The attack may be initiated re",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116224",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116227",
-        "published": "2026-10-26T07:17:09Z",
-        "description": "A vulnerability has been found in Edimax BR-6208AC 1.32. This vulnerability affects unknown code of the component Virtual Server Page. The manipulation leads to cross site scripting. Remote exploitation of the attack is possible. The exploit has been disclosed to the public and may be used. The vend",
-        "severity": "LOW",
-        "score": 1.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116227",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116228",
-        "published": "2026-10-26T07:17:09Z",
-        "description": "A vulnerability was found in 777genius agent-teams-ai up to 2.17.10. This issue affects the function doStart of the file src/main/services/infrastructure/HttpServer.ts of the component Local HTTP Service. The manipulation results in missing authentication. The attack is only possible with local acce",
-        "severity": "LOW",
-        "score": 1.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116228",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107899",
-        "published": "2026-10-26T07:17:08Z",
-        "description": "V-SFT provided by FUJI ELECTRIC CO., LTD. contains an out-of-bounds read vulnerability in VS6EditData!CDataRomErrorCheck::CheckSymbolMacroParam. Opening a crafted V7 file may lead to information exposure or arbitrary code execution on the affected product.",
-        "severity": "HIGH",
-        "score": 8.4,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107899",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107900",
-        "published": "2026-10-26T07:17:08Z",
-        "description": "V-SFT provided by FUJI ELECTRIC CO., LTD. contains an out-of-bounds read vulnerability in VS6ComFile!CCheck::ItemCheck. Opening a crafted V7 file may lead to information exposure or arbitrary code execution on the affected product.",
-        "severity": "HIGH",
-        "score": 8.4,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107900",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-111974",
-        "published": "2026-10-26T07:17:08Z",
-        "description": "The GiveWP WordPress plugin before 4.19.0.1 does not restrict the currency of a donation to the one the site or form accepts, while comparing its amount limits as bare numbers, allowing unauthenticated users to make donations below a form's configured minimum or fixed amount.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111974",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-103306",
-        "published": "2026-10-26T07:17:07Z",
-        "description": "The Online Payments with iK Pay Gateway WordPress plugin before 3.0.4 does not properly verify the authenticity of its payment gateway callback on a default installation, allowing unauthenticated attackers to forge a successful payment notification and mark arbitrary orders as paid without any payme",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103306",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-103319",
-        "published": "2026-10-26T07:17:07Z",
-        "description": "The OPay Payment Gateway for WooCommerce WordPress plugin through 2.5.5 does not properly verify that payment notifications originate from the payment provider, as the secret used to validate their signature is empty by default, allowing unauthenticated attackers to forge a valid notification and ma",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103319",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-103381",
-        "published": "2026-10-26T07:17:07Z",
-        "description": "The Mintpay for WooCommerce WordPress plugin through 2.2.3 does not verify the authenticity of the payment callback it processes, allowing unauthenticated attackers to mark arbitrary orders as paid, to cancel arbitrary orders, and to disclose order details including customer contact information.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103381",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107894",
-        "published": "2026-10-26T07:17:07Z",
-        "description": "V-SFT provided by FUJI ELECTRIC CO., LTD. contains a stack-based buffer overflow vulnerability. Opening a crafted V7 file may lead to information exposure or arbitrary code execution on the affected product.",
-        "severity": "HIGH",
-        "score": 8.4,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107894",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107895",
-        "published": "2026-10-26T07:17:07Z",
-        "description": "V-SFT provided by FUJI ELECTRIC CO., LTD. contains an out-of-bounds write vulnerability. Opening a crafted V7 file may lead to information exposure or arbitrary code execution on the affected product.",
-        "severity": "HIGH",
-        "score": 8.4,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107895",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107896",
-        "published": "2026-10-26T07:17:07Z",
-        "description": "V-SFT provided by FUJI ELECTRIC CO., LTD. contains an out-of-bounds read vulnerability in VS6ComFile!load_gr_item. Opening a crafted V7 file may lead to information exposure or arbitrary code execution on the affected product.",
-        "severity": "HIGH",
-        "score": 8.4,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107896",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107897",
-        "published": "2026-10-26T07:17:07Z",
-        "description": "V-SFT provided by FUJI ELECTRIC CO., LTD. contains an out-of-bounds read vulnerability in VS6MemInIF!set_temp_type_default. Opening a crafted V7 file may lead to information exposure or arbitrary code execution on the affected product.",
-        "severity": "HIGH",
-        "score": 8.4,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107897",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107898",
-        "published": "2026-10-26T07:17:07Z",
-        "description": "V-SFT provided by FUJI ELECTRIC CO., LTD. contains an out-of-bounds read vulnerability in VS6EditData!CDataRomErrorCheck::MacroCommandCheck. Opening a crafted V7 file may lead to information exposure or arbitrary code execution on the affected product.",
-        "severity": "HIGH",
-        "score": 8.4,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107898",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-103298",
-        "published": "2026-10-26T07:17:06Z",
-        "description": "The CCAvenue Payment Gateway for WooCommerce WordPress plugin through 3.1 does not verify that a payment-confirmation request genuinely originates from the payment provider, and derives its verification key from a value that is empty on a default install, allowing unauthenticated attackers to forge ",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103298",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-103299",
-        "published": "2026-10-26T07:17:06Z",
-        "description": "The Payment Gateway  WordPress plugin through 2.2.0 does not ensure a shared secret is configured before using it to authenticate the bank's payment-notification callback, allowing unauthenticated attackers to forge a valid notification and mark any WooCommerce order as paid on installs where the se",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103299",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-103300",
-        "published": "2026-10-26T07:17:06Z",
-        "description": "The Eurobank WooCommerce Payment Gateway WordPress plugin through 2.1.1 does not verify that a payment-confirmation request genuinely originates from the payment provider, and ships with the secret that would authenticate it empty by default, allowing unauthenticated attackers to mark any pending or",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103300",
         "kev": false
       }
     ]
