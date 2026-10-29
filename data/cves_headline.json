@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-28T23:22:09Z",
+  "updated_at": "2026-10-29T02:35:34Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,161 @@
   ],
   "note": "Bounded slice of cves.json for the homepage. Use /data/cves.json for the full window.",
   "normalisation_failures": [],
-  "recent_total": 2213,
+  "recent_total": 2216,
   "kev_total": 106,
   "kev_catalog_total": 1762,
   "total": 25,
   "items": [
+    {
+      "id": "CVE-2026-66092",
+      "published": "2026-10-29T02:16:53Z",
+      "description": "In openEQUELLA before 2026.2, the pre-login notice is stored as HTML and rendered on the legacy logon page without encoding or sanitisation. A user holding the EDIT_SYSTEM_SETTINGS permission can set a notice containing an arbitrary script (PUT /api/preloginnotice), resulting in stored cross-site sc",
+      "severity": "MEDIUM",
+      "score": 4.8,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-66092",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-66088",
+      "published": "2026-10-29T02:16:52Z",
+      "description": "In openEQUELLA before 2026.1, the system.execute() function available to the scripting engine runs supplied operating system commands without validation or an allow-list of permitted executables. A user able to create or edit scripts can use it to execute arbitrary commands with the privileges of th",
+      "severity": "CRITICAL",
+      "score": 9.4,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-66088",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-66089",
+      "published": "2026-10-29T02:16:52Z",
+      "description": "In openEQUELLA before 2026.1, the SOAP API parses XML supplied in the stopEdit operation with a parser that resolves external entities. This allows an attacker to read arbitrary files accessible to the openEQUELLA service or cause the server to issue requests to attacker-specified locations (SSRF).",
+      "severity": "MEDIUM",
+      "score": 6.1,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-66089",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-66090",
+      "published": "2026-10-29T02:16:52Z",
+      "description": "In openEQUELLA before 2026.1, the XML parser used for item metadata does not disable external entity resolution. A user permitted to create items (CREATE_ITEM) can submit crafted XML to POST /api/item and cause the server to read arbitrary files accessible to the openEQUELLA service, or make request",
+      "severity": "HIGH",
+      "score": 7.1,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-66090",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-66091",
+      "published": "2026-10-29T02:16:52Z",
+      "description": "In openEQUELLA before 2026.1, the GET /api/userquery/userinfobackup endpoint performs no authentication or authorisation check. An unauthenticated attacker who supplies another user's uniqueId can retrieve that user's stored personal details (username, first name, last name and email address) within",
+      "severity": "MEDIUM",
+      "score": 6.9,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-66091",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-16889",
+      "published": "2026-10-29T02:16:51Z",
+      "description": "In openEQUELLA before 2026.1, the pre-login notice image upload endpoint (PUT /api/preloginnotice/image/{name}) does not validate the type of uploaded files and serves them with a Content-Type derived from the supplied filename. A user holding the EDIT_SYSTEM_SETTINGS permission can upload an HTML f",
+      "severity": "MEDIUM",
+      "score": 4.8,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-16889",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-113409",
+      "published": "2026-10-29T02:16:50Z",
+      "description": "The Ortto plugin for WordPress before 1.0.25 did not escape stored settings on its admin settings page, leading to stored cross-site scripting. A threat actor able to modify the plugin's configuration could execute arbitrary JavaScript in an administrator's session when they visited the impacted pag",
+      "severity": "MEDIUM",
+      "score": 4.8,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113409",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-114173",
+      "published": "2026-10-29T02:16:50Z",
+      "description": "The Ortto plugin for WordPress before 1.0.25 did not filter the WooCommerce product data it embedded in public storefront pages. An unauthenticated threat actor could read product passwords and private product metadata from an affected store.",
+      "severity": "MEDIUM",
+      "score": 5.3,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-114173",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-113387",
+      "published": "2026-10-29T02:16:49Z",
+      "description": "The Ortto plugin for WordPress before 1.0.25 did not authenticate configuration update requests, relying only on a secret exposed in public HTML. An unauthenticated threat actor could overwrite the plugin's configuration to serve arbitrary scripts.",
+      "severity": "HIGH",
+      "score": 8.6,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113387",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-21157",
+      "published": "2026-10-29T01:17:23Z",
+      "description": "Improper input validation in Bixby prior to version 4.0.85.6 allows privileged local attackers to launch arbitrary activity.",
+      "severity": "HIGH",
+      "score": 8.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-21157",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-113957",
+      "published": "2026-10-29T01:17:22Z",
+      "description": "An attacker who controls the registry, a mirror, or the network path to it may be able to serve arbitrary image content in response to a pull by digest, so that a user runs an image other than the one they pinned. The fix compares the returned digest to the pinned digest and fails the pull on a mism",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113957",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-118590",
+      "published": "2026-10-29T01:17:22Z",
+      "description": "A security vulnerability has been detected in nipy nibabel up to 5.4.2. The affected element is the function array_from_file of the file nibabel/volumeutils.py of the component Header Handler. The manipulation leads to uncontrolled memory allocation. The attack is possible to be carried out remotely",
+      "severity": "MEDIUM",
+      "score": 6.9,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118590",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-118586",
+      "published": "2026-10-29T00:17:26Z",
+      "description": "A security flaw has been discovered in dfm feedfinder2 up to 0.0.4. This issue affects the function find_feeds of the file feedfinder2.py. Performing a manipulation results in server-side request forgery. Remote exploitation of the attack is possible. The project was informed of the problem early th",
+      "severity": "MEDIUM",
+      "score": 6.9,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118586",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-118589",
+      "published": "2026-10-29T00:17:26Z",
+      "description": "A weakness has been identified in nschloe meshio up to 5.3.5. Impacted is an unknown function of the file meshio/_vtk_42.py of the component VTK Reader. Executing a manipulation of the argument DIMENSIONS can lead to uncontrolled memory allocation. The attack can be executed remotely. The project wa",
+      "severity": "MEDIUM",
+      "score": 6.9,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118589",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-118585",
+      "published": "2026-10-29T00:17:25Z",
+      "description": "A vulnerability was identified in configuroweb inventariobasico c9377cdba474deb3eb5a0704d197b5733af16b47/f9db0c0a04d79ad931c218140df4fb23809d4fab. This vulnerability affects unknown code of the file addlist.php of the component Add Product Page. Such manipulation of the argument product name leads t",
+      "severity": "LOW",
+      "score": 2.0,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118585",
+      "kev": false
+    },
     {
       "id": "CVE-2026-85749",
       "published": "2026-10-28T23:17:11Z",
@@ -111,156 +261,6 @@
       "score": null,
       "cvss_version": null,
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111486",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-111575",
-      "published": "2026-10-28T23:17:08Z",
-      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111575",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-93851",
-      "published": "2026-10-28T22:17:17Z",
-      "description": "Mattermost versions 11.9.x <= 11.9.1, 11.8.x <= 11.8.5, 11.7.x <= 11.7.10 fail to validate the target post ID in the Agents plugin's mention reminder component, which allows an authenticated user who can post in a channel visible to a system administrator to cause the administrator's browser to send",
-      "severity": "HIGH",
-      "score": 8.0,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93851",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-61569",
-      "published": "2026-10-28T22:17:16Z",
-      "description": "AVideo is a video-sharing Platform. Prior to 8.1.0, the unauthenticated streamer login at `objects/login.json.php` passes the `user` parameter to `Streamer::get` in `objects/Streamer.php`, where it is interpolated into a single-quoted MariaDB SELECT without parameterization or escaping. Although `ob",
-      "severity": "HIGH",
-      "score": 7.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-61569",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-61571",
-      "published": "2026-10-28T22:17:16Z",
-      "description": "AVideo is a video-sharing Platform. Prior to 8.1.0, the encoder lacks a global authentication layer and exposes control and status PHP endpoints to anonymous network callers. `view/run.php` has a commented-out guard and invokes `Encoder::run()`. `view/queue.json.php` calls `Encoder::getAll(true)`, r",
-      "severity": "HIGH",
-      "score": 7.3,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-61571",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-61572",
-      "published": "2026-10-28T22:17:16Z",
-      "description": "AVideo is a video-sharing Platform. Before the initial remediation attempt in 8.1.0, `url_get_contents` in `objects/functions.php` accepts caller-controlled destinations after only `FILTER_VALIDATE_URL` syntax validation, without rejecting private, loopback, or link-local addresses, and disables TLS",
-      "severity": "HIGH",
-      "score": 8.6,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-61572",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-61573",
-      "published": "2026-10-28T22:17:16Z",
-      "description": "AVideo is a video-sharing Platform. Prior to 8.1.0, the anonymous login interface reflects request values into HTML and JavaScript without output encoding. In `view/index.php`, `webSiteRootURL` is returned verbatim by `Streamer::getStreamerURL()` in `objects/Streamer.php` and reaches navigation and ",
-      "severity": "MEDIUM",
-      "score": 6.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-61573",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-61575",
-      "published": "2026-10-28T22:17:16Z",
-      "description": "AVideo is a video-sharing Platform. Prior to 8.1.0, `view/queue.php` uses `pathinfo` on the caller-controlled `fileURI` and stores its filename through `setTitle` in `encoder_queue.title` without neutralization. `fileURI` is not in the `objects/security.php` filter lists, and the `Login::canUpload()",
-      "severity": "MEDIUM",
-      "score": 4.7,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-61575",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-54453",
-      "published": "2026-10-28T22:17:15Z",
-      "description": "OpenCATS is an open-source applicant tracking system and recruitment CRM for staffing agencies and hiring teams. Prior to version 0.10.0, the Professional License configuration feature in `SettingsUI` (`manageProfessional`) accepts administrator-controlled license key input that is reconstructed int",
-      "severity": "HIGH",
-      "score": 7.2,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-54453",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-54455",
-      "published": "2026-10-28T22:17:15Z",
-      "description": "OpenCATS is an open-source applicant tracking system and recruitment CRM for staffing agencies and hiring teams. Prior to version 0.10.0, activity DataGrid date filtering in `home:CallsDataGrid` and `activity:ActivityDataGrid` uses request-controlled `period`, `startDate` and `endDate` parameters wi",
-      "severity": "HIGH",
-      "score": 7.6,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-54455",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-57448",
-      "published": "2026-10-28T22:17:15Z",
-      "description": "Blombooru is a self-hosted personal booru for organizing and tagging private image collections. Prior to 1.40.0, the administrator-only `GET /proxy-image` endpoint, exposed as `/api/booru-import/proxy-image`, accepts a `url` query parameter and fetches it server-side without meaningful destination v",
-      "severity": "MEDIUM",
-      "score": 6.2,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57448",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-61546",
-      "published": "2026-10-28T22:17:15Z",
-      "description": "AnkiMCP is an Anki addon that implements an MCP server, enabling AI assistants to interact with the Anki flashcard application. Prior to version 0.21.0, `anki_mcp_server/mcp_server.py` globally disables FastMCP DNS-rebinding protection through `TransportSecuritySettings` with `enable_dns_rebinding_p",
-      "severity": "HIGH",
-      "score": 8.8,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-61546",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-61564",
-      "published": "2026-10-28T22:17:15Z",
-      "description": "AVideo is a video-sharing Platform. Prior to 8.1.0, the unauthenticated installer endpoint `install/checkConfiguration.php` assembles `videos/configuration.php` by interpolating request parameters, including `webSiteRootURL`, into single-quoted PHP string literals without escaping. An attacker can t",
-      "severity": "CRITICAL",
-      "score": 10.0,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-61564",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-61567",
-      "published": "2026-10-28T22:17:15Z",
-      "description": "AVideo is a video-sharing Platform. Prior to 8.1.0, the live-streaming endpoint `view/videosListToLive.php` accepts an attacker-named streamer in `webSiteRootURL`, calls `Login::run` in `objects/Login.php`, and trusts the returned JSON as session state. An unauthenticated remote attacker who can hos",
-      "severity": "CRITICAL",
-      "score": 10.0,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-61567",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-118753",
-      "published": "2026-10-28T22:17:14Z",
-      "description": "FreeImage (danoli3 fork) before 3.19.25 contains a heap buffer overflow vulnerability in PluginGIF.cpp that allows attackers to write past the canvas allocation via unclipped GIF frame rectangles. Attackers can craft a GIF whose frame left plus width exceeds the logical screen width, causing GifPlay",
-      "severity": "HIGH",
-      "score": 8.5,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118753",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-118754",
-      "published": "2026-10-28T22:17:14Z",
-      "description": "Dolibarr ERP CRM before 24.0.2 contains a missing authorization vulnerability in htdocs/public/recruitment/view.php that allows unauthenticated attackers to view unpublished draft job positions. Attackers can enumerate sequential provisional references via the ref parameter to read titles, descripti",
-      "severity": "MEDIUM",
-      "score": 6.9,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118754",
       "kev": false
     }
   ]
