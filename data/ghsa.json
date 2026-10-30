@@ -1,11 +1,27 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-30T16:06:14Z",
+  "updated_at": "2026-10-30T20:55:56Z",
   "source": "GitHub Security Advisories",
   "source_url": "https://api.github.com/advisories",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-5xjx-3w67-w9x9",
+      "title": "pypi-publish action revocation of CA in the chain that Sigstore uses in Trusted Publishing and Digital Attestations for PyPI",
+      "published": "2026-10-30T20:24:24Z",
+      "ecosystem": "actions",
+      "summary": "### Summary\n\nThe [pypi-publish action][pypi-publish] versions before 1.14.2 used to bundle the `emSign` root CA trust store certificate through the `certifi` distribution. It has since been removed through the bundle and the new version no longer includes them.\n\n[pypi-publish]: https://github.com/ma",
+      "link": "https://github.com/advisories/GHSA-5xjx-3w67-w9x9"
+    },
+    {
+      "id": "GHSA-jm85-8cpp-9cjc",
+      "title": "AdminNeo: version-cache array injection causes persistent denial of service",
+      "published": "2026-10-30T18:53:08Z",
+      "ecosystem": "composer",
+      "summary": "### Summary\nAdminNeo v5.4.1 gets the latest version from GitHub API in a browser JavaScript function. Version number is then sent by POST request to `?script=version`. This endpoint lacks origin validation and accepts POST data from any source. An attacker can POST `version[]` parameter which PHP co",
+      "link": "https://github.com/advisories/GHSA-jm85-8cpp-9cjc"
+    },
     {
       "id": "GHSA-9pg5-8c7x-5hfx",
       "title": "joserfc: Compact JWS size guard allocates attacker-controlled segments before rejection",
@@ -789,22 +805,6 @@
       "ecosystem": "npm",
       "summary": "### Impact\nAn attacker who controls the Grid configuration can set `credits.href` to a `javascript:` URL. The value is not validated against an allowed-scheme list before it is applied to the credits link, so activating that link runs attacker-supplied script in the origin of the page hosting the Gr",
       "link": "https://github.com/advisories/GHSA-6hgp-fmhr-mrg4"
-    },
-    {
-      "id": "GHSA-r5wg-q8fc-p6w2",
-      "title": "Highcharts Grid parses pagination language options as HTML",
-      "published": "2026-10-28T19:57:34Z",
-      "ecosystem": "npm",
-      "summary": "### Impact\nThe pagination language strings are written into the DOM as markup rather than as text. An attacker who controls those language options can supply elements carrying event handlers, and those handlers execute in the origin of the page hosting the Grid when the pagination controls render. E",
-      "link": "https://github.com/advisories/GHSA-r5wg-q8fc-p6w2"
-    },
-    {
-      "id": "GHSA-58g7-7f52-h92c",
-      "title": "Highcharts Dashboards parses fullscreen labels as HTML",
-      "published": "2026-10-28T19:57:19Z",
-      "ecosystem": "npm",
-      "summary": "### Impact\nThe edit mode fullscreen labels are parsed as HTML when the corresponding control is rendered. An attacker who controls the Dashboards language options can supply markup carrying event handlers, which then execute in the origin of the page hosting the dashboard. Exploitation requires that",
-      "link": "https://github.com/advisories/GHSA-58g7-7f52-h92c"
     }
   ]
 }
