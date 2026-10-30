@@ -1,11 +1,51 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-30T12:41:30Z",
+  "updated_at": "2026-10-30T16:06:14Z",
   "source": "GitHub Security Advisories",
   "source_url": "https://api.github.com/advisories",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-9pg5-8c7x-5hfx",
+      "title": "joserfc: Compact JWS size guard allocates attacker-controlled segments before rejection",
+      "published": "2026-10-30T14:54:25Z",
+      "ecosystem": "pip",
+      "summary": "## Summary\n\njoserfc 1.7.4 defines compact-JWS header, payload, and signature limits, but\ncalls `value.split(b\".\")` before validating them. Python `bytes.split()` copies\nthe attacker-controlled segments, so the current guard allocates roughly one\ncomplete payload before rejecting it.\n\n## Reproduction",
+      "link": "https://github.com/advisories/GHSA-9pg5-8c7x-5hfx"
+    },
+    {
+      "id": "GHSA-jpxq-7h8p-2q76",
+      "title": "joserfc: Unbounded JWE General JSON `recipients` Array Leads to CPU Exhaustion (DoS) via Repeated RSA Private-Key Decryption",
+      "published": "2026-10-30T14:54:20Z",
+      "ecosystem": "pip",
+      "summary": "### Summary\n\n`joserfc.jwe.decrypt_json()`, the library's public parser for JWE General JSON Serialization, accepts an attacker-controlled `recipients` array of unbounded length and performs one full private-key decryption operation (`decrypt_cek`) for **every** recipient present in the input, with n",
+      "link": "https://github.com/advisories/GHSA-jpxq-7h8p-2q76"
+    },
+    {
+      "id": "GHSA-f3fj-9625-rv3m",
+      "title": "charmbracelet/soft-serve: Race in `SetPrivate` leaves a private repository readable by unauthenticated users",
+      "published": "2026-10-30T14:53:57Z",
+      "ecosystem": "go",
+      "summary": "## Summary\n\nSoft Serve cached repository records in memory with no expiry, and trusted the cached record for every access check. `SetPrivate` cleared the cached record before it saved the new visibility, and not afterwards.\n\nA request that arrived between the two read the old, public record from the",
+      "link": "https://github.com/advisories/GHSA-f3fj-9625-rv3m"
+    },
+    {
+      "id": "GHSA-fgxm-5hvv-x4vh",
+      "title": "charmbracelet/soft-serve HTTP responses disclose the existence and names of private repositories",
+      "published": "2026-10-30T14:42:35Z",
+      "ecosystem": "go",
+      "summary": "## Summary\n\nSoft Serve answers Go's `?go-get=1` requests by walking up the requested path until it finds a repository, then rendering that repository's name and clone URL into a `go-import` meta tag. The walk checked that each candidate repository existed, but never that the caller could read it.\n\nA",
+      "link": "https://github.com/advisories/GHSA-fgxm-5hvv-x4vh"
+    },
+    {
+      "id": "GHSA-qm8w-vx34-5j9j",
+      "title": "@nx/maven and @nx/gradle have OS command injection via nx.json plugin options",
+      "published": "2026-10-30T14:42:14Z",
+      "ecosystem": "npm",
+      "summary": "## Summary\n\n`@nx/maven` and `@nx/gradle` spawn their project-graph analyzers through a shell and interpolate plugin options read from `nx.json` straight into the command line. Because a shell parses the whole line, an option value containing shell syntax is executed as a command by any `nx` command ",
+      "link": "https://github.com/advisories/GHSA-qm8w-vx34-5j9j"
+    },
     {
       "id": "GHSA-qr28-fpjm-wq7f",
       "title": "decode-uri-component vulnerable to denial of service via quadratic replacement of percent-encoded runs",
@@ -765,46 +805,6 @@
       "ecosystem": "npm",
       "summary": "### Impact\nThe edit mode fullscreen labels are parsed as HTML when the corresponding control is rendered. An attacker who controls the Dashboards language options can supply markup carrying event handlers, which then execute in the origin of the page hosting the dashboard. Exploitation requires that",
       "link": "https://github.com/advisories/GHSA-58g7-7f52-h92c"
-    },
-    {
-      "id": "GHSA-rcqf-f6h2-ccg9",
-      "title": "Highcharts Dashboards parses sidebar component labels as HTML",
-      "published": "2026-10-28T19:56:57Z",
-      "ecosystem": "npm",
-      "summary": "### Impact\nThe component language strings shown in the edit mode sidebar are parsed as HTML rather than inserted as text. An attacker who controls those language options can supply markup carrying event handlers, which execute in the origin of the page hosting the dashboard once the sidebar renders ",
-      "link": "https://github.com/advisories/GHSA-rcqf-f6h2-ccg9"
-    },
-    {
-      "id": "GHSA-5793-x2q3-c3q7",
-      "title": "Highcharts: `javascript:` URL in credits.href runs script on click",
-      "published": "2026-10-28T19:56:23Z",
-      "ecosystem": "npm",
-      "summary": "### Impact\nA `credits.href` value beginning with `javascript:` is assigned to the window location when the credits label is clicked, without being checked against an allowed-scheme list. An attacker who controls the chart configuration can therefore run script in the origin of the page hosting the c",
-      "link": "https://github.com/advisories/GHSA-5793-x2q3-c3q7"
-    },
-    {
-      "id": "GHSA-rmqc-xvr3-v46c",
-      "title": "Highcharts: dotted series.keys paths write to Object.prototype",
-      "published": "2026-10-28T19:56:18Z",
-      "ecosystem": "npm",
-      "summary": "### Impact\nA dot-separated key path taken from `series.keys` is followed without filtering the individual segments. An attacker who controls `series.keys` and the matching point data can use a path such as `__proto__.polluted` to set arbitrary properties on `Object.prototype`. The resulting properti",
-      "link": "https://github.com/advisories/GHSA-rmqc-xvr3-v46c"
-    },
-    {
-      "id": "GHSA-gfvx-2c2g-38wq",
-      "title": "Highcharts: series column construction writes to Object.prototype",
-      "published": "2026-10-28T19:56:13Z",
-      "ecosystem": "npm",
-      "summary": "### Impact\nWhen series columns are built from point objects, the point option keys are used directly as data column ids, so the write that populates a column reaches `Object.prototype` and the `Object` constructor. Keys named `__proto__` and `constructor` survive `JSON.parse` as own enumerable prope",
-      "link": "https://github.com/advisories/GHSA-gfvx-2c2g-38wq"
-    },
-    {
-      "id": "GHSA-35rr-xwfh-x789",
-      "title": "Highcharts Core: `breadcrumbs.style` keys become SVG event-handler attributes",
-      "published": "2026-10-28T19:56:07Z",
-      "ecosystem": "npm",
-      "summary": "### Impact\nThe breadcrumbs `style` option is applied to the breadcrumb button as SVG attributes rather than as CSS, and the attribute names are not filtered. An attacker who controls the chart configuration can supply keys under `breadcrumbs.style` that name event handlers, and those keys become liv",
-      "link": "https://github.com/advisories/GHSA-35rr-xwfh-x789"
     }
   ]
 }
