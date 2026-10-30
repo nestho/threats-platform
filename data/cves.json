@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-30T20:55:55Z",
+  "updated_at": "2026-10-30T22:55:56Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,491 @@
   ],
   "recent": {
     "lookback_days": 3,
-    "total": 2040,
-    "items_available": 2040,
+    "total": 2066,
+    "items_available": 2066,
     "normalisation_failures": [],
-    "items_parsed": 2040,
+    "items_parsed": 2066,
     "items": [
+      {
+        "id": "CVE-2026-63121",
+        "published": "2026-10-30T22:16:58Z",
+        "description": "Kubewarden policies is a collection of WebAssembly policies for securing and governing Kubernetes clusters. For versions provisionally classified as affected before 2.1.2, `trusted-repos-policy` compares an image's `registry` hostname against `reject lists` and `allow lists` case-sensitively even th",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63121",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-63182",
+        "published": "2026-10-30T22:16:58Z",
+        "description": "LightSAML implements SAML 2.0 data model classes, XML serialization and deserialization, XML security, certificate support, and message bindings. Prior to 4.7.1 and 5.0.1, LightSAML and xmlseclibs disagree about which assertion an inbound SAML signature covers. `Response::deserialize` uses `manyElem",
+        "severity": "HIGH",
+        "score": 8.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63182",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-63184",
+        "published": "2026-10-30T22:16:58Z",
+        "description": "Refitter is a tool for generating a C# REST API client using the Refit library. Prior to 2.1.1, the `refitter` dotnet tool invokes `NJsonSchema` with unsafe defaults for `$ref` resolution when generating Refit interfaces and contracts from attacker-controlled or attacker-influenced OpenAPI descripti",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63184",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-63201",
+        "published": "2026-10-30T22:16:58Z",
+        "description": "Netopeer2 is a server for implementing network configuration management based on the `NETCONF` Protocol. In affected versions, a low-privileged authenticated `NETCONF` user can remotely crash `netopeer2-server` by sending a `get RPC` with an invalid `subtree filter` whose text contains format specif",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63201",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-63224",
+        "published": "2026-10-30T22:16:58Z",
+        "description": "OpenRemote is an open-source internet-of-things platform. Prior to 1.26.0, the `datapoint export` API constructs `CSV crosstab` SQL by concatenating an `asset name` and `attribute name` into a `COPY` query that uses `crosstab` and streams `TO STDOUT`. The `asset name` enters both a double-quoted col",
+        "severity": "HIGH",
+        "score": 7.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63224",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-63115",
+        "published": "2026-10-30T22:16:57Z",
+        "description": "ActivityPub is a multi-tenant ActivityPub server for Ghost, built with Fedify. From 1.0.0 until 1.2.6, the `Undo` handler allows a remote federated server to cause the service to act on a `follow` or `repost` as though the activity came from a different account. This permits removal of an existing `",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63115",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-62277",
+        "published": "2026-10-30T22:16:56Z",
+        "description": "LubeLogger is a self-hosted, open-source, web-based vehicle maintenance and fuel mileage tracker. Prior to 1.6.8, `PrintRecordStickers` in `/Controllers/VehicleController.cs` checks through `CollaboratorFilter` that the authenticated caller can view the supplied `vehicleId`, but fetches caller-suppl",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62277",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-62347",
+        "published": "2026-10-30T22:16:56Z",
+        "description": "Element Call is a native Matrix video conferencing application. From 0.16.0 until 0.20.3, the standalone Element Call `SPA` logs the `password` URL query parameter. When a user submits an error report, called a rageshake, these logs are shared with the application operator. Users can therefore unint",
+        "severity": "MEDIUM",
+        "score": 5.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62347",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-55613",
+        "published": "2026-10-30T22:16:55Z",
+        "description": "uhttpd is a small HTTP server. In unpatched repository snapshots, `uh_ubus_data_send()` in `ubus.c` can desynchronize HTTP request boundaries when a `POST /ubus` JSON body arrives in multiple TCP segments. An initial segment completing a JSON object sets `du->jsobj`; a later segment takes the existi",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-55613",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-55614",
+        "published": "2026-10-30T22:16:55Z",
+        "description": "uhttpd is a small HTTP server. In unpatched repository snapshots, `client_parse_header()` in `client.c` lowercases header names but compares the `Transfer-Encoding` value to `chunked` using case-sensitive `strcmp`. A mixed-case transfer-coding token is accepted without enabling `r->transfer_chunked`",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-55614",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118938",
+        "published": "2026-10-30T22:16:54Z",
+        "description": "In Trail of Bits fickling through 0.1.12, a pickle STACK_GLOBAL operand carrying a dotted __qualname__ (for example \"Values.read_file\") is resolved by pickle's find_class through _getattribute to an arbitrary attribute path rather than to a module-level function. Fickling records only the leading co",
+        "severity": "HIGH",
+        "score": 8.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118938",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-16760",
+        "published": "2026-10-30T22:16:54Z",
+        "description": "In Trail of Bits fickling through 0.1.12, the _process_import() method in fickle.py adds an imported name to the likely_safe_imports set whenever the source module is present in sys.stdlib_module_names and the name is absent from the UNSAFE_IMPORTS denylist, without inspecting what the name resolves",
+        "severity": "HIGH",
+        "score": 8.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-16760",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-55146",
+        "published": "2026-10-30T22:16:54Z",
+        "description": "LORIS (Longitudinal Online Research and Imaging System) is a self-hosted web application that provides data- and project-management for neuroimaging research. In versions from 16.0.0 prior to 27.0.4 and from 28.0.0 prior to 28.0.2, the `issue_tracker` backend does not correctly verify edit access pe",
+        "severity": "MEDIUM",
+        "score": 4.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-55146",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-55147",
+        "published": "2026-10-30T22:16:54Z",
+        "description": "LORIS (Longitudinal Online Research and Imaging System) is a self-hosted web application that provides data- and project-management for neuroimaging research. In versions from 22.0.0 prior to 27.0.4 and from 28.0.0 prior to 28.0.2, the `API` for the `imaging_browser` module permits edits to imaging ",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-55147",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-55612",
+        "published": "2026-10-30T22:16:54Z",
+        "description": "uhttpd is a small HTTP server. In unpatched repository snapshots, `client_poll_post_data()` in `client.c` consumes an invalid chunk-length line, such as a size exceeding INT_MAX, then clears `r->content_length` and `r->transfer_chunked` without draining the remaining body or setting `request.connect",
+        "severity": "LOW",
+        "score": 3.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-55612",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-111578",
+        "published": "2026-10-30T22:16:53Z",
+        "description": "The PDF Invoices & Packing Slips for WooCommerce WordPress plugin from 5.16.2 before 5.16.5 does not properly escape several customer-supplied order fields — including the billing and shipping address values and the customer order note — before they are output in generated invoice and packing-slip d",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111578",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-62990",
+        "published": "2026-10-30T21:17:16Z",
+        "description": "Shopper is a Headless e-commerce Admin Panel. In versions from 2.0.0 prior to 2.10.1 and in the 3.0.0 prereleases beta.1 and beta.2, authenticated back-office staff with a content-upload permission can store executable media on the administrator's own origin. In the 2.x implementation, relevant uplo",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62990",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-62991",
+        "published": "2026-10-30T21:17:16Z",
+        "description": "Shopper is a Headless e-commerce Admin Panel. Prior to 2.10.1, the customer detail route `/cpanel/customers/{user}/show` in `packages/admin/src/Livewire/Pages/Customers/Show.php` checks `read_customers` but looks up an arbitrary user ID without applying the `customers` role scope used by the listing",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62991",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-62966",
+        "published": "2026-10-30T21:17:15Z",
+        "description": "ESPAsyncWebServer is an asynchronous HTTP and WebSocket server library for ESP32, ESP8266, RP2040 and RP2350. Prior to version 3.11.2, the multipart parser in `src/WebRequest.cpp` frees `_itemBuffer` and sets it to NULL when `BOUNDARY_OR_DATA` matches the closing boundary of a file part, before conf",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62966",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-62967",
+        "published": "2026-10-30T21:17:15Z",
+        "description": "ZTNET is a ZeroTier web UI for private controllers with multiuser and organization support. Prior to 0.8.0, any authenticated low-privilege user can permanently deactivate another account, including an administrator, through `POST /api/auth/user/invalidateUser`. In `src/pages/api/auth/user/invalidat",
+        "severity": "HIGH",
+        "score": 8.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62967",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-62968",
+        "published": "2026-10-30T21:17:15Z",
+        "description": "Dream Displays provides in-game screens for streaming videos in Minecraft. From 1.5.0 until 1.8.2, user-controlled input can influence arguments passed to `yt-dlp` under specific conditions. Unintended command-line options may be interpreted by `yt-dlp`, potentially altering its behavior. This issue",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62968",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-62979",
+        "published": "2026-10-30T21:17:15Z",
+        "description": "jack lets users share media libraries through their Radarr/Sonarr stack, peer-to-peer. Prior to 0.1.0, `middleware/handle-error.ts` serializes raw `FetchError` objects into HTTP responses. `lib/servers/base.ts` attaches outbound request headers on upstream non-success responses and schema-validation",
+        "severity": "HIGH",
+        "score": 8.4,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62979",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-62989",
+        "published": "2026-10-30T21:17:15Z",
+        "description": "Shopper is a Headless e-commerce Admin Panel. Prior to 2.10.0, the Variants Livewire component in `packages/admin/src/Livewire/Components/Products/Form/Variants.php` exposes `DeleteAction` and `DeleteBulkAction` without server-side authorization. An authenticated staff user with `edit_products` can ",
+        "severity": "HIGH",
+        "score": 8.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62989",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-62849",
+        "published": "2026-10-30T21:17:14Z",
+        "description": "ThingLinks is an enterprise IoT platform. Prior to 1.4.0, an unauthenticated SQL injection vulnerability in the `TDengine TDS APIs` allows request-controlled JSON field values submitted to `/anyUser/tds/insertTableData` to reach unsafe SQL construction in the `TDS mapper`. A remote unauthenticated a",
+        "severity": "CRITICAL",
+        "score": 9.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62849",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-62853",
+        "published": "2026-10-30T21:17:14Z",
+        "description": "ThingLinks is an enterprise IoT platform. Prior to 1.4.0, the `/groovyScriptTest/registerScript` endpoint accepts user-supplied Groovy script content and passes it to an unsandboxed `Groovy compilation and loading` flow. An authenticated attacker can provide code that is compiled and instantiated on",
+        "severity": "CRITICAL",
+        "score": 9.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62853",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-62860",
+        "published": "2026-10-30T21:17:14Z",
+        "description": "Picsou is a self-hosted personal finance dashboard. In the affected login implementation, the `/api/auth/login` endpoint reveals whether a username exists through a timing discrepancy. In `backend/src/main/java/com/picsou/controller/AuthController.java`, `AuthController.login()` throws `BadCredentia",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62860",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-62863",
+        "published": "2026-10-30T21:17:14Z",
+        "description": "MoLing is a computer-use and browser-use based MCP server. Prior to 0.5.0, when MoLing runs in SSE mode using `-l`, its `/sse` and `/message` HTTP endpoints do not authenticate requests and the `mcp-go` dependency sets `Access-Control-Allow-Origin: *`. A malicious web page can open a cross-origin `E",
+        "severity": "CRITICAL",
+        "score": 9.6,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62863",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-62864",
+        "published": "2026-10-30T21:17:14Z",
+        "description": "Ring is a Clojure web applications library inspired by Python's WSGI and Ruby's Rack. Prior to 1.15.5, `wrap-nested-params` in the `ring.middleware.nested-params` namespace uses a backtracking regular expression to match parameter names from URL query strings and HTTP request bodies. An attacker can",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62864",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-62958",
+        "published": "2026-10-30T21:17:14Z",
+        "description": "libriscv is a RISC-V sandbox and emulator. Prior to 1.18, a crafted ELF binary can cause out-of-bounds reads in the host emulator. `Memory<W>::binary_loader` checks `PT_LOAD` program-header bounds, but `Memory<W>::serialize_execute_segment` trusts section-header `sh_offset` and `sh_size` when locati",
+        "severity": "HIGH",
+        "score": 7.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62958",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-62965",
+        "published": "2026-10-30T21:17:14Z",
+        "description": "SABnzbd is an open source automated Usenet download tool. Prior to 5.1.0Beta3, orphan-job management in `sabnzbd/api.py` accepts the user-controlled `value` parameter without path confinement before `os.path.join()` with `download_dir`. An absolute path discards that base directory. An attacker with",
+        "severity": "HIGH",
+        "score": 7.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62965",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-59993",
+        "published": "2026-10-30T21:17:13Z",
+        "description": "Picotls is a TLS protocol library that allows users select different crypto backends based on their use case. In affected revisions through 44bc503, when picotls is used as a `client-side TLS stack`, a peer can send a `HelloRetryRequest` followed by a `spoofed Hello message` that causes a null-point",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59993",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-62250",
+        "published": "2026-10-30T21:17:13Z",
+        "description": "LibreDWG is a free C library to read and write DWG files. Prior to 0.14.8413, a crafted pre-R13 DWG can make `decode_preR13_entities()` in `src/decode.c` enter a nonterminating loop that allocates a new object each iteration. `decode_preR13` in `src/decode_r11.c` computes `size` from the raw file-co",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62250",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-62254",
+        "published": "2026-10-30T21:17:13Z",
+        "description": "LibreDWG is a free C library to read and write DWG files. Prior to 0.14, a specially crafted R13-R2000 DWG can trigger algorithmic resource exhaustion in `decode_R13_R2000` in `src/decode.c`. The class-decoding loop performs `realloc` on every iteration without a sanity check on `num_classes`. Manip",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62254",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-62297",
+        "published": "2026-10-30T21:17:13Z",
+        "description": "ag-psd is a JavaScript library for reading and writing Photoshop Document files. Before the allocation-limit remediation attempt in version 31.0.0, `readPsd()` commits image and layer buffers from attacker-declared PSD geometry before validating the declarations against the actual available data or ",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62297",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-62300",
+        "published": "2026-10-30T21:17:13Z",
+        "description": "Filecoin Pin is an IPFS Pinning Service API implementation that pins to Filecoin's PDP service. In daemon deployments up to and including version 1.1.0, `POST /pins` in `src/filecoin-pinning-server.ts` checks a caller-supplied CID with `CID.parse` and passes it to `pinStore.pin`, but does not enforc",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62300",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-62847",
+        "published": "2026-10-30T21:17:13Z",
+        "description": "Metalama is a Roslyn-based open-source patterns and architecture toolkit for C#. Prior to 2025.1.18, 2026.0.25 and 2026.1.19, Metalama.Framework and Metalama.Tool load and execute compile-time assemblies, auxiliary executable tools and embedded helper assemblies from predictable temporary directorie",
+        "severity": "HIGH",
+        "score": 8.2,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62847",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-62848",
+        "published": "2026-10-30T21:17:13Z",
+        "description": "Metalama is a Roslyn-based open-source patterns and architecture toolkit for C#. From 2023.0.101-rc until 2025.1.18, 2026.0.25 and 2026.1.19, the Windows Visual Studio integration deserializes local named-pipe messages without restricting which CLR types can be instantiated. The pipe connects `deven",
+        "severity": "HIGH",
+        "score": 7.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62848",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-58412",
+        "published": "2026-10-30T21:17:12Z",
+        "description": "Filecoin Pin is an IPFS Pinning Service API implementation that pins to Filecoin's PDP service. Prior to 1.1.0, the upload GitHub Action's fork detection in `upload-action/src/build.js` checks only `event.pull_request`. In the documented two-workflow pattern, an untrusted fork pull-request workflow ",
+        "severity": "HIGH",
+        "score": 8.2,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-58412",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-54610",
+        "published": "2026-10-30T21:16:57Z",
+        "description": "LibreDWG is a free C library to read and write DWG files. Prior to 0.14, `bit_TV_to_utf8()` in `src/bits.c` can write to the caller-provided `src` buffer despite accepting const input. On an `iconv()` error other than `E2BIG`, the function frees its output buffer and passes the original input alias ",
+        "severity": "LOW",
+        "score": 3.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-54610",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-119342",
+        "published": "2026-10-30T21:16:53Z",
+        "description": "Stirling-PDF is a locally hosted web application that facilitates various operations on PDF files. From 2.13.1 until 2.13.2, the POST /api/v1/convert/svg/pdf endpoint renders attacker-supplied SVG through Apache Batik, and a scheme-less root-relative image reference bypasses SvgSanitizer.isExternalU",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119342",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-119343",
+        "published": "2026-10-30T21:16:53Z",
+        "description": "Stirling-PDF is a locally hosted web application that facilitates various operations on PDF files. Prior to 3.0.0, POST /api/v1/ai/tools/create-pdf-from-html-agent accepts attacker-controlled htmlContent and passes it to WeasyPrint without CustomHtmlSanitizer, unlike the sanitized /api/v1/convert/ht",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119343",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-40573",
+        "published": "2026-10-30T21:16:53Z",
+        "description": "NovumOS is a custom 32-bit operating system written in Zig and x86 Assembly. Prior to version 0.25-beta.1, the `Nova` interpreter runs in Ring 0 with unrestricted kernel-memory access. Loading a malicious `.nv` script through the shell permits a local user to execute code with kernel privileges with",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-40573",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-119340",
+        "published": "2026-10-30T21:16:52Z",
+        "description": "Tesseract is an open source OCR engine. Prior to 5.5.4, GENERIC_2D_ARRAY::DeSerializeSize in src/ccstruct/matrix.h reads matrix dimensions as signed int32_t values and compares them only with UINT16_MAX, allowing negative values to reach ResizeNoInit. Negative dimensions or a 65535 by 65535 product ",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119340",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-119341",
+        "published": "2026-10-30T21:16:52Z",
+        "description": "Tesseract is an open source OCR engine. Prior to 5.5.4, ReadAdaptedClass in src/classify/adaptive.cpp raw-reads an ADAPT_CLASS_STRUCT from a pre-adapted-template .a file without neutralizing TempProtos and Config pointer fields before any destructor path. When the legacy engine is selected, classify",
+        "severity": "NONE",
+        "score": 0.0,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119341",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-117645",
+        "published": "2026-10-30T21:16:51Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in phoenixframework phoenix_html allows an attacker who controls attribute names to inject attributes and script into rendered HTML via Phoenix.HTML.attributes_escape/1.\n\nattributes_escape/1 in lib/pho",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117645",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-117666",
+        "published": "2026-10-30T21:16:51Z",
+        "description": "Improper Validation of Certificate with Host Mismatch vulnerability in deadtrickster ssl_verify_fun allows an adversary in the middle to impersonate a TLS peer via a certificate that carries a partial-label wildcard. try_match_wildcard/4 in src/ssl_verify_hostname.erl anchors only the text before an",
+        "severity": "CRITICAL",
+        "score": 9.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117666",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-119338",
+        "published": "2026-10-30T21:16:51Z",
+        "description": "Tesseract is an open source OCR engine. From 5.4.0 until 5.5.4, AppendLinePolygon in src/api/pagerenderer.cpp destroys the caller-owned right-to-left Pta accumulator while receiving it by value, leaving line_top_rtl_pts and line_bottom_rtl_pts dangling. On an upright Hebrew or Arabic page at the def",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119338",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-119339",
+        "published": "2026-10-30T21:16:51Z",
+        "description": "Tesseract is an open source OCR engine. Prior to 5.5.4, WeightMatrix::DeSerialize trusts a mode byte from a traineddata LSTM network and calls WeightMatrix::DeSerializeOld when kDoubleFlag is clear. In default FAST_FLOAT builds, DeSerializeOld invokes ASSERT_HOST instead of returning an error, so lo",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119339",
+        "kev": false
+      },
       {
         "id": "CVE-2026-95673",
         "published": "2026-10-30T20:17:29Z",
@@ -5477,9 +5957,9 @@
         "id": "CVE-2026-107312",
         "published": "2026-10-30T04:17:59Z",
         "description": "Allocation of Resources Without Limits or Throttling vulnerability in Drupal Examples for Developers allows Excessive Allocation. This issue affects Examples for Developers versions: from 0.0.0 to 4.0.7.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
+        "severity": "MEDIUM",
+        "score": 4.3,
+        "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107312",
         "kev": false
       },
@@ -5507,9 +5987,9 @@
         "id": "CVE-2026-107306",
         "published": "2026-10-30T04:17:58Z",
         "description": "Improper Neutralization of Input During Web Page Generation (\"Cross-site Scripting\") vulnerability in Drupal Menu Link Attributes allows Stored XSS. This issue affects Menu Link Attributes versions: from 0.0.0 to 1.8.0.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
+        "severity": "LOW",
+        "score": 3.8,
+        "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107306",
         "kev": false
       },
@@ -5517,9 +5997,9 @@
         "id": "CVE-2026-107307",
         "published": "2026-10-30T04:17:58Z",
         "description": "Incorrect Authorization vulnerability in Drupal SmartLinker AI allows Forceful Browsing. This issue affects SmartLinker AI versions: from 0.0.0 to 1.0.3.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
+        "severity": "MEDIUM",
+        "score": 4.3,
+        "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107307",
         "kev": false
       },
@@ -5527,9 +6007,9 @@
         "id": "CVE-2026-107308",
         "published": "2026-10-30T04:17:58Z",
         "description": "Improper Neutralization of Input During Web Page Generation (\"Cross-site Scripting\") vulnerability in Drupal Country allows Cross-Site Scripting (XSS). This issue affects Country versions: from 0.0.0 to 2.1.3, from 2.2.0 to 2.2.1.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
+        "severity": "LOW",
+        "score": 3.1,
+        "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107308",
         "kev": false
       },
@@ -5537,9 +6017,9 @@
         "id": "CVE-2026-107309",
         "published": "2026-10-30T04:17:58Z",
         "description": "Missing Authorization vulnerability in Drupal Easy Breadcrumb allows Forceful Browsing. This issue affects Easy Breadcrumb versions: from 0.0.0 to 2.0.11.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
+        "severity": "LOW",
+        "score": 3.7,
+        "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107309",
         "kev": false
       },
@@ -5547,9 +6027,9 @@
         "id": "CVE-2026-107310",
         "published": "2026-10-30T04:17:58Z",
         "description": "Server-Side Request Forgery (SSRF) vulnerability in Drupal Freelinking allows Server Side Request Forgery. This issue affects Freelinking versions: from 0.0.0 to 4.0.3.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
+        "severity": "MEDIUM",
+        "score": 4.3,
+        "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107310",
         "kev": false
       },
@@ -5557,9 +6037,9 @@
         "id": "CVE-2026-107311",
         "published": "2026-10-30T04:17:58Z",
         "description": "Improper Check for Unusual or Exceptional Conditions vulnerability in Drupal Permissions by Term allows Forceful Browsing. This issue affects Permissions by Term versions: from 0.0.0 to 3.1.41.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
+        "severity": "LOW",
+        "score": 3.7,
+        "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107311",
         "kev": false
       },
@@ -5627,9 +6107,9 @@
         "id": "CVE-2026-107262",
         "published": "2026-10-30T04:17:55Z",
         "description": "Cross-Site Request Forgery (CSRF) vulnerability in Drupal Advanced Filesystem allows Cross Site Request Forgery. This issue affects Advanced Filesystem versions: from 0.0.0 to 1.0.28.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107262",
         "kev": false
       },
@@ -20191,226 +20671,6 @@
         "score": null,
         "cvss_version": null,
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-12534",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97045",
-        "published": "2026-10-27T22:19:22Z",
-        "description": "In childTextNodesAreLiteral, walking up the tree previously stopped at the nearest foreign ancestor once an HTML integration point was found. However, that integration point may itself be a descendant of an element that was foster-parented into a foreign namespace (such as <mglyph> or <malignmark> f",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97045",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-78661",
-        "published": "2026-10-27T22:18:05Z",
-        "description": "When coalescing adjacent text nodes in addText and fosterParent, appending to an existing TextNode's Data via string concatenation (n.Data += text) reallocated and copied the accumulated string on every token. Inputs containing many short text runs separated by ignored end tags (such as \"a</x>\") cau",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-78661",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-62765",
-        "published": "2026-10-27T22:17:29Z",
-        "description": "Access of resource using incompatible type ('type confusion') in Microsoft Edge (Chromium-based) allows an unauthorized attacker to execute code over a network.",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62765",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-57190",
-        "published": "2026-10-27T22:17:27Z",
-        "description": "Asterisk is an open source private branch exchange and telephony toolkit. Prior to Asterisk 20.20.1, 21.12.3, 22.10.1, 23.4.1 and Certified Asterisk 20.7-cert11, 22.8-cert3, the `PostgreSQL` and `TDS/MSSQL` Channel Event Log backends `cel_pgsql` and `cel_tds` may permit arbitrary SQL execution when ",
-        "severity": "HIGH",
-        "score": 7.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57190",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-57191",
-        "published": "2026-10-27T22:17:27Z",
-        "description": "Asterisk is an open source private branch exchange and telephony toolkit. Prior to Asterisk 20.20.1, 21.12.3, 22.10.1, 23.4.1 and Certified Asterisk 20.7-cert11, 22.8-cert3, an unbounded `sscanf` in `res_pjsip_pubsub` when parsing the `MWI NOTIFY` `Message-Account` field may allow an unauthenticated",
-        "severity": "HIGH",
-        "score": 8.2,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57191",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-57192",
-        "published": "2026-10-27T22:17:27Z",
-        "description": "Asterisk is an open source private branch exchange and telephony toolkit. Prior to Asterisk 20.20.1, 21.12.3, 22.10.1, 23.4.1 and Certified Asterisk 20.7-cert11, 22.8-cert3, an authenticated attacker may cause a heap buffer overflow through an out-of-bounds write in the `Codec2` decoder caused by a ",
-        "severity": "MEDIUM",
-        "score": 6.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57192",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-57199",
-        "published": "2026-10-27T22:17:27Z",
-        "description": "Asterisk is an open source private branch exchange and telephony toolkit. Prior to Asterisk 20.20.1, 21.12.3, 22.10.1, 23.4.1 and Certified Asterisk 20.7-cert11, 22.8-cert3, `app_sms.c` copies externally controlled `SMS` lengths into `fixed in-struct buffers` without sufficient bounds checks, allowi",
-        "severity": "LOW",
-        "score": 2.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57199",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-57203",
-        "published": "2026-10-27T22:17:27Z",
-        "description": "Asterisk is an open source private branch exchange and telephony toolkit. Prior to Asterisk 20.20.1, 21.12.3, 22.10.1, 23.4.1 and Certified Asterisk 20.7-cert11, 22.8-cert3, `ast_loggrabber` executes a `Python script` from the world-writable `/tmp` directory. An attacker already authorized to open a",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57203",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-57186",
-        "published": "2026-10-27T22:17:26Z",
-        "description": "Asterisk is an open source private branch exchange and telephony toolkit. From 21.0.0-pre1 until Asterisk 21.12.3, 22.10.1, 23.4.1 and Certified Asterisk 22.8-cert3, the `chan_ooh323` `Q.931 party-number parser` lacks the `CVE-2022-37325` fix because that fix was never forward-ported from Asterisk 2",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57186",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-85898",
-        "published": "2026-10-27T21:19:34Z",
-        "description": "Access of resource using incompatible type ('type confusion') in Microsoft Edge (Chromium-based) allows an unauthorized attacker to execute code over a network.",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-85898",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-83831",
-        "published": "2026-10-27T21:19:08Z",
-        "description": "Double free in Microsoft Edge (Chromium-based) allows an unauthorized attacker to execute code over a network.",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-83831",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116775",
-        "published": "2026-10-27T21:18:06Z",
-        "description": "pageant provides a PageantStream type that implements AsyncRead and AsyncWrite traits and can be used to communicate with a running Pageant instance. From 0.2.0 until 0.2.5, PageantStream::new in pageant/src/wmmessage.rs trusts a peer-controlled four-byte length prefix and buffers until len + 4 byte",
-        "severity": "LOW",
-        "score": 2.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116775",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-39928",
-        "published": "2026-10-27T21:18:06Z",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-39928",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-57195",
-        "published": "2026-10-27T21:18:06Z",
-        "description": "Asterisk is an open source private branch exchange and telephony toolkit. Prior to Asterisk 20.20.1, 21.12.3, 22.10.1, 23.4.1 and Certified Asterisk 20.7-cert11, 22.8-cert3, a NULL pointer dereference in the `Asterisk Manager Interface (AMI)` may allow an unauthenticated attacker to crash Asterisk w",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57195",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-57200",
-        "published": "2026-10-27T21:18:06Z",
-        "description": "Asterisk is an open source private branch exchange and telephony toolkit. Prior to Asterisk 20.20.1, 21.12.3, 22.10.1, 23.4.1 and Certified Asterisk 22.8-cert3, an authenticated attacker with read-only permissions for the `Asterisk REST Interface (ARI)` may, under certain conditions, execute write o",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57200",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116692",
-        "published": "2026-10-27T21:18:05Z",
-        "description": "MLflow is an open source AI engineering platform for agents, large language models, and machine learning models. From 3.12.0rc0 until 3.17.0, third-party scorer deserialization in mlflow/genai/scorers/base.py accepts request-selected descendants of THIRD_PARTY_SCORER_ALLOWED_MODULES rather than requ",
-        "severity": "CRITICAL",
-        "score": 9.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116692",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116693",
-        "published": "2026-10-27T21:18:05Z",
-        "description": "dd-trace is the Datadog APM client for Node.js. From 2.0.0 until 5.131.1 and 6.20.1, the default DD_TRACE_OBFUSCATION_QUERY_STRING_REGEXP can perform excessive backtracking on attacker-controlled URL query strings. The expression is applied synchronously while recording HTTP URL metadata, allowing a",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116693",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116694",
-        "published": "2026-10-27T21:18:05Z",
-        "description": "OpenTelemetry Python provides the Python API and SDK for OpenTelemetry. Prior to 1.45.0, JaegerPropagator.extract() in opentelemetry-propagator-jaeger processes inbound uberctx-* baggage values without entry, per-entry byte, or total-byte limits. Services that enable the optional Jaeger propagator c",
-        "severity": "MEDIUM",
-        "score": 6.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116694",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116695",
-        "published": "2026-10-27T21:18:05Z",
-        "description": "Crass is a Ruby CSS parser that is compliant with the CSS Syntax Level 3 specification. Prior to 1.0.8, Crass incorrectly treats a closing parenthesis after an escaped backslash as escaped while consuming the remnants of a bad URL. Crass therefore keeps declarations, style rules, or at-rules inside ",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116695",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116696",
-        "published": "2026-10-27T21:18:05Z",
-        "description": "russh is a Rust SSH client and server library that includes an SSH agent protocol implementation. Prior to 0.65.0, russh::keys::agent::server::serve in russh/src/keys/agent/server.rs accepts repeated SSH_AGENT_CONSTRAIN_CONFIRM records while adding a key and appends every Constraint::Confirm record ",
-        "severity": "LOW",
-        "score": 3.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116696",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116773",
-        "published": "2026-10-27T21:18:05Z",
-        "description": "russh is a Rust SSH client and server library that includes an SSH agent protocol implementation. Prior to 0.65.0, the client Session::process_packet path in russh/src/client/encrypted.rs accepts repeated packets encoded with russh's private msg::EXT_INFO = 7 before authentication, while the standar",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116773",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116774",
-        "published": "2026-10-27T21:18:05Z",
-        "description": "russh is a Rust SSH client and server library that includes an SSH agent protocol implementation. From 0.60.0 until 0.65.0, channel-open parsing accepts a peer-declared maximum_packet_size of zero and passes it into ChannelTx::poll_writable in russh/src/channels/io/tx.rs. The Channel::data, Channel:",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116774",
         "kev": false
       }
     ]
