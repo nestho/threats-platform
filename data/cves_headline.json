@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-31T15:41:31Z",
+  "updated_at": "2026-10-31T18:39:55Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,141 @@
   ],
   "note": "Bounded slice of cves.json for the homepage. Use /data/cves.json for the full window.",
   "normalisation_failures": [],
-  "recent_total": 1569,
+  "recent_total": 1446,
   "kev_total": 110,
   "kev_catalog_total": 1766,
   "total": 25,
   "items": [
+    {
+      "id": "CVE-2026-120208",
+      "published": "2026-10-31T18:17:09Z",
+      "description": "libheif 1.18.0 before 1.23.3 contains a heap-based buffer overflow vulnerability in unc_decoder_mixed_interleave::processTile() that allows attackers to write out of bounds by supplying chroma components with unequal bit depths. Attackers can craft a HEIF file declaring, for example, 16-bit Cb and 8",
+      "severity": "HIGH",
+      "score": 7.7,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120208",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-120209",
+      "published": "2026-10-31T18:17:09Z",
+      "description": "AJ-Report through 1.7.1 signs share tokens with a hard-coded JWT secret, allowing attackers to forge valid Share-Tokens offline. Attackers can mint a token with reportCode 'dataSet' to access the testTransform endpoint, which passes scripts to GroovyClassLoader for unauthenticated remote code execut",
+      "severity": "CRITICAL",
+      "score": 9.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120209",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-120210",
+      "published": "2026-10-31T18:17:09Z",
+      "description": "FFmpeg 5.0 through 9.0.2 contains a path traversal vulnerability in the IMF demuxer that allows attackers to open files outside the package via unvalidated ASSETMAP Path elements. Attackers can supply a crafted IMF package with '..' or absolute paths to demux local MXF files, probe file existence an",
+      "severity": "MEDIUM",
+      "score": 5.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120210",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-120202",
+      "published": "2026-10-31T18:17:08Z",
+      "description": "Highflame ramparts 0.8.1 through 0.8.10 contains a security scan bypass vulnerability that allows attackers to hide malicious payloads because collect_bundle_siblings and walk_bundle_subdir skip nested directories and .pyc files. Attackers can distribute a skill bundle with an unchecked-hash .pyc un",
+      "severity": "HIGH",
+      "score": 7.1,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120202",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-120203",
+      "published": "2026-10-31T18:17:08Z",
+      "description": "ShowDoc 2.8.14 before 3.9.6 contains a code injection vulnerability in its Mock feature that allows authenticated users to execute shell commands through mockjs templates. Attackers can store a template via MockController::add with escaped parentheses that mockjs evaluates with eval(), then trigger ",
+      "severity": "HIGH",
+      "score": 8.7,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120203",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-120204",
+      "published": "2026-10-31T18:17:08Z",
+      "description": "DeepInfer through 0.1.0 contains a path traversal vulnerability in the unauthenticated /profile endpoint that allows remote attackers to create arbitrary directories via the output_dir parameter. Attackers, including cross-site GET requests from an operator's browser, can write chrome trace files to",
+      "severity": "MEDIUM",
+      "score": 6.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120204",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-120205",
+      "published": "2026-10-31T18:17:08Z",
+      "description": "Thelia before 3.1.0 contains a stored cross-site scripting vulnerability in ForSomeCustomers::getSummary() that allows unauthenticated attackers to inject scripts via unescaped customer names. Attackers can register with a script payload as their name that executes when administrators view related c",
+      "severity": "HIGH",
+      "score": 7.4,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120205",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-120206",
+      "published": "2026-10-31T18:17:08Z",
+      "description": "Thelia before 3.2.0 contains a cross-site request forgery vulnerability in the back office that allows attackers to forge administrative actions because per-session CSRF tokens leak via URL query strings. Attackers can reuse leaked tokens or target the unprotected setToggleVisibilityAction and updat",
+      "severity": "MEDIUM",
+      "score": 5.9,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120206",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-120207",
+      "published": "2026-10-31T18:17:08Z",
+      "description": "Thelia Page Module before 2.0.4 contains a cross-site request forgery vulnerability that allows remote attackers to delete page tags, documents and images by abusing back-office delete routes lacking CSRF tokens and permission checks. Attackers can lure a logged-in administrator into navigating to c",
+      "severity": "HIGH",
+      "score": 7.0,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120207",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-120199",
+      "published": "2026-10-31T18:17:07Z",
+      "description": "LearnHouse before 1.1.1 contains a missing authorization vulnerability in the assignment API that allows authenticated users to read other users' grades and submissions. Attackers can supply another user_id to the submissions grade endpoint or query submission read functions to view other students' ",
+      "severity": "MEDIUM",
+      "score": 5.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120199",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-120200",
+      "published": "2026-10-31T18:17:07Z",
+      "description": "Nexterm through 1.2.2-BETA contains a missing authorization vulnerability that allows authenticated users to hibernate, resume, or terminate other users' remote sessions via session lifecycle routes. Attackers who obtain a session ID can call the hibernate, resume, or DELETE connection endpoints to ",
+      "severity": "MEDIUM",
+      "score": 5.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120200",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-120201",
+      "published": "2026-10-31T18:17:07Z",
+      "description": "Jpom 2.10.0 through 2.11.12 contains an authentication bypass vulnerability that allows unauthenticated attackers to gain super-administrator access by injecting query conditions into the JPOM-USER-TOKEN header. Attackers can send a value like 'is not null', which Hutool's Condition parser treats as",
+      "severity": "CRITICAL",
+      "score": 9.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120201",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-102212",
+      "published": "2026-10-31T16:16:52Z",
+      "description": "Heap-based buffer overflow in Opengear IM72XX, CM71XX, and ACM70XX firmware versions 4.8.0 through 5.5.2 on console server appliances allows an unauthenticated remote attacker to crash the index.cgi process via a crafted multipart/form-data POST request containing an overlong Content-Disposition nam",
+      "severity": "HIGH",
+      "score": 8.4,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102212",
+      "kev": false
+    },
     {
       "id": "CVE-2026-78189",
       "published": "2026-10-31T15:16:54Z",
@@ -131,136 +261,6 @@
       "score": 6.4,
       "cvss_version": "31",
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107711",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-109197",
-      "published": "2026-10-31T10:16:37Z",
-      "description": "The WP Directory Kit plugin for WordPress is vulnerable to generic SQL Injection via the 'idfield' parameter in all versions up to, and including, 1.6.0 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible fo",
-      "severity": "HIGH",
-      "score": 7.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-109197",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-109231",
-      "published": "2026-10-31T10:16:37Z",
-      "description": "The Germanized for WooCommerce plugin for WordPress is vulnerable to Unauthorized Access of Private Data via Activation Token Reuse in versions up to, and including, 4.1.4. This is due to the `on_user_email_changed` hook — which is responsible for rotating the activation token and recording a pendin",
-      "severity": "MEDIUM",
-      "score": 4.3,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-109231",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-116752",
-      "published": "2026-10-31T10:16:37Z",
-      "description": "The GeoDirectory – WP Business Directory Plugin and Classified Listings Directory plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'post_images' parameter in all versions up to, and including, 2.8.197 due to insufficient input sanitization and output escaping. This makes it ",
-      "severity": "MEDIUM",
-      "score": 6.4,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116752",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-118598",
-      "published": "2026-10-31T10:16:37Z",
-      "description": "A logic error in Epiphany's site permission handling can cause camera and microphone access to be granted when the user only approves a different permission.\n\nIn src/ephy-window.c, set_permission() stores the user's Allow/Deny choice after a WebKit permission dialog. Types CLIPBOARD and WEBSITE_DATA",
-      "severity": "MEDIUM",
-      "score": 6.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118598",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-104926",
-      "published": "2026-10-31T10:16:36Z",
-      "description": "The WooCommerce Extra Product Options Pro plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the '<fieldname>_start / <fieldname>_end' parameter in all versions up to, and including, 3.3.2 due to insufficient input sanitization and output escaping. This makes it possible for un",
-      "severity": "MEDIUM",
-      "score": 6.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-104926",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-100151",
-      "published": "2026-10-31T10:16:29Z",
-      "description": "The Ninja Forms – Contact Form Builder with Calculators, Quizzes, Signatures & AI Form Builder plugin for WordPress is vulnerable to Reflected DOM-Based Cross-Site Scripting via 'querystring:<key>' URL Parameter in all versions up to, and including, 3.15.5 due to insufficient input sanitization and ",
-      "severity": "MEDIUM",
-      "score": 6.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100151",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-114217",
-      "published": "2026-10-31T09:16:33Z",
-      "description": "A flaw was found in konflux-ci. Continuous Integration (CI) automation scripts store sensitive GitHub access tokens in plaintext on the runner without cleaning them up after execution. A local attacker with access to the CI environment can read these stored credentials to gain unauthorized repositor",
-      "severity": "HIGH",
-      "score": 8.6,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-114217",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-116086",
-      "published": "2026-10-31T09:16:33Z",
-      "description": "A flaw was found in konflux-ci. An attacker with permission to trigger automated workflow runs can cause an information disclosure by providing crafted issue titles to workflow scripts. The affected script incorporates user-provided titles directly into data queries without adequate sanitization, al",
-      "severity": "HIGH",
-      "score": 8.8,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116086",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-116964",
-      "published": "2026-10-31T09:16:33Z",
-      "description": "A flaw was found in konflux-ci. An attacker with repository write access can achieve arbitrary code execution within the Continuous Integration and Continuous Delivery (CI/CD) workflow environment. By injecting shell commands into environment export scripts, the attacker causes manifest synchronizat",
-      "severity": "HIGH",
-      "score": 8.4,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116964",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-117681",
-      "published": "2026-10-31T09:16:33Z",
-      "description": "A flaw was found in konflux-ci. This vulnerability allows privilege escalation when the user interface proxy automatically disables Transport Layer Security (TLS) certificate verification for connections to internal backend services in environments lacking a default service certificate authority. Be",
-      "severity": "HIGH",
-      "score": 8.0,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117681",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-118235",
-      "published": "2026-10-31T09:16:33Z",
-      "description": "The SimpleForm – Form Maker to Chat Apps with Quiz, Poll and Multi Lead Notifications plugin for WordPress is vulnerable to Arbitrary File Upload in all versions up to, and including, 3.10.2 via the handle_upload function. This is due to missing server-side file key allowlist and pre-sanitization ex",
-      "severity": "CRITICAL",
-      "score": 9.8,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118235",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-119160",
-      "published": "2026-10-31T09:16:33Z",
-      "description": "The Smart Post – Post Grid, Post Carousel, Post Slider Gutenberg Blocks for Blog & News plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'display_name' parameter in all versions up to, and including, 4.0.9 due to insufficient input sanitization and output escaping. This make",
-      "severity": "MEDIUM",
-      "score": 6.4,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119160",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-120075",
-      "published": "2026-10-31T09:16:33Z",
-      "description": "The WP Activity Log plugin for WordPress is vulnerable to Stored Cross-Site Scripting in all versions up to, and including, 5.6.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execut",
-      "severity": "HIGH",
-      "score": 7.2,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120075",
       "kev": false
     }
   ]
