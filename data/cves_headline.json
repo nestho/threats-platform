@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-30T22:55:56Z",
+  "updated_at": "2026-10-31T00:54:56Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,221 @@
   ],
   "note": "Bounded slice of cves.json for the homepage. Use /data/cves.json for the full window.",
   "normalisation_failures": [],
-  "recent_total": 2066,
+  "recent_total": 2017,
   "kev_total": 110,
   "kev_catalog_total": 1766,
   "total": 25,
   "items": [
+    {
+      "id": "CVE-2026-117656",
+      "published": "2026-10-31T00:16:51Z",
+      "description": "Acceptance of Extraneous Untrusted Data With Trusted Data vulnerability in the Sign in with Apple strategy in pow-auth Assent allows an unauthenticated remote attacker to impersonate another user via the user parameter of the authorization callback.\n\nApple posts the user's name to the callback endpo",
+      "severity": "CRITICAL",
+      "score": 9.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117656",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-77152",
+      "published": "2026-10-31T00:16:51Z",
+      "description": "Improper Authorization vulnerability in Drupal Field Collection for Drupal 7 allows a user with the \"edit field collections\" permission to bypass access control on the parent (host) entity.\n\nThe access check for field collection items (field_collection_item_access()) granted edit and delete access t",
+      "severity": "MEDIUM",
+      "score": 5.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-77152",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-63400",
+      "published": "2026-10-30T23:17:15Z",
+      "description": "Coop is an open source review and moderation tool from ROOST. Prior to 1.0.2, `resetPasswordForToken` updates the password row without invalidating database-backed sessions. An attacker who has acquired a password and established a session retains access even after the legitimate user resets the pas",
+      "severity": "LOW",
+      "score": 2.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63400",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-63401",
+      "published": "2026-10-30T23:17:15Z",
+      "description": "Coop is an open source review and moderation tool from ROOST. Prior to 1.0.2, `addAccessibleQueuesForUser` and `removeAccessibleQueuesForUser` accepted arbitrary `queueId` and `userId` values without organization scoping. An authenticated user belonging to one organization and holding MRT queue-edit",
+      "severity": "MEDIUM",
+      "score": 5.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63401",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-63402",
+      "published": "2026-10-30T23:17:15Z",
+      "description": "i18next is an internationalization framework for JavaScript. Prior to version 26.3.4, `deepExtend` in `src/utils.js` checks property existence with the in operator and recurses into inherited built-ins reached through `Object.prototype`. An application must explicitly pass attacker-controlled resour",
+      "severity": "MEDIUM",
+      "score": 5.9,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63402",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-63410",
+      "published": "2026-10-30T23:17:15Z",
+      "description": "secp256k1-native is a native C secp256k1 implementation for Ruby. In affected native builds, native constant-time scalar multiplication through `Point#mul` or `scalar_multiply_ct` can leak timing information about a secret scalar when compiled by a toolchain that reconstructs branchless selection in",
+      "severity": "MEDIUM",
+      "score": 5.9,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63410",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-63414",
+      "published": "2026-10-30T23:17:15Z",
+      "description": "Shopify App is a Rails engine for building Shopify applications. From 22.1.0 until 23.0.3, `token-exchange` authenticated controllers can expose a request-derived `shop` context instead of the identity from a verified Shopify ID token or active Shopify session. `current_shopify_domain` can resolve t",
+      "severity": "HIGH",
+      "score": 7.6,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63414",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-63346",
+      "published": "2026-10-30T23:17:14Z",
+      "description": "Refitter is a tool for generating a C# REST API client using the Refit library. Prior to 2.1.2, the header parameter name in `parameters[].name` with `in: header` is emitted verbatim into a Refit `[Header(\"<name>\")]` attribute string without escaping quotation marks. An attacker-influenced OpenAPI d",
+      "severity": "HIGH",
+      "score": 8.6,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63346",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-63377",
+      "published": "2026-10-30T23:17:14Z",
+      "description": "TAKO AI Agent for Okta is a local-first AI agent that helps Okta administrators query tenant data using natural language. Prior to 3.0.1-beta, `POST /api/auth/setup` in `src/api/routers/auth.py` allows an unauthenticated network attacker to create the first administrator account before the legitimat",
+      "severity": "CRITICAL",
+      "score": 9.8,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63377",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-63378",
+      "published": "2026-10-30T23:17:14Z",
+      "description": "TAKO AI Agent for Okta is a local-first AI agent that helps Okta administrators query tenant data using natural language. Prior to 3.0.1-beta, any authenticated user with a valid `fctr_session` cookie can submit arbitrary Python source in the `script_code` field of `POST /api/react/execute-script`, ",
+      "severity": "HIGH",
+      "score": 8.8,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63378",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-63393",
+      "published": "2026-10-30T23:17:14Z",
+      "description": "OpenSearch SQL supports querying OpenSearch data using SQL and Piped Processing Language. In the 2.x line from 2.8.0.0 until 2.19.6.0, and the 3.x line prior to 3.7.0.0, a remote authenticated user with basic read/search permissions can provide a crafted `cursor` parameter to the `plugins/sql` endpo",
+      "severity": "HIGH",
+      "score": 8.7,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63393",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-63396",
+      "published": "2026-10-30T23:17:14Z",
+      "description": "Coop is an open source review and moderation tool from ROOST. Prior to 1.0.0, an unauthenticated actor can query `Query.allOrgs` through `/api/v1/graphql` on a publicly accessible deployment and obtain data for all organizations, including organization IDs, names, email addresses, website URLs and o",
+      "severity": "HIGH",
+      "score": 8.7,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63396",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-63398",
+      "published": "2026-10-30T23:17:14Z",
+      "description": "Coop is an open source review and moderation tool from ROOST. Prior to 1.0.2, the SAML strategy's verify callback resolved the authenticated user by email alone using `kyselyUserFindByEmail`, without binding the lookup to the organization in `/saml/login/:orgId/callback`. An attacker who administers",
+      "severity": "HIGH",
+      "score": 7.4,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63398",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-63399",
+      "published": "2026-10-30T23:17:14Z",
+      "description": "Coop is an open source review and moderation tool from ROOST. Prior to 1.0.0, the `GraphQL` `Mutation.createOrg` operation allows an unauthenticated actor to create arbitrary organizations on a publicly accessible instance. In addition to creating noise in the logs, the lack of rate limiting could p",
+      "severity": "MEDIUM",
+      "score": 6.9,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63399",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-63338",
+      "published": "2026-10-30T23:17:13Z",
+      "description": "IXP Manager is a full-stack web application for managing Internet Exchange Points. Prior to version 7.3.0, an authenticated user can view and edit a resource belonging to another user without authorization. The API-key edit/update path in `ApiKeyController` selects records by identifier without chec",
+      "severity": "HIGH",
+      "score": 8.3,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63338",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-63339",
+      "published": "2026-10-30T23:17:13Z",
+      "description": "IXP Manager is a full-stack web application for managing Internet Exchange Points. Prior to version 7.3.0, an authenticated, non-administrative user can elevate their privileges to administrator status. Restricting administrative functions reduces exposure but is not a complete fix. This issue is fi",
+      "severity": "HIGH",
+      "score": 8.8,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63339",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-63341",
+      "published": "2026-10-30T23:17:13Z",
+      "description": "Aedes is an MQTT broker that can run on any stream server. Prior to 1.1.1, the MQTT broker does not bound topic depth or structural complexity before passing topics through `mqemitter` into `qlobber`. A `PUBLISH`, `SUBSCRIBE`, or registered `Will` message containing an excessively deep topic can rea",
+      "severity": "HIGH",
+      "score": 7.5,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63341",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-63344",
+      "published": "2026-10-30T23:17:13Z",
+      "description": "Refitter is a tool for generating a C# REST API client using the Refit library. Prior to 2.1.2, content-type keys in the content maps of `requestBody/responses` are emitted verbatim into a Refit `[Headers(\"Accept: <ct>\", \"Content-Type: <ct>\")]` attribute string without escaping quotation marks. A cr",
+      "severity": "HIGH",
+      "score": 8.6,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63344",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-63345",
+      "published": "2026-10-30T23:17:13Z",
+      "description": "Refitter is a tool for generating a C# REST API client using the Refit library. Prior to 2.1.2, OpenAPI `paths`-object keys are emitted verbatim into Refit route attributes such as `[Get(\"<path>\")]` without escaping quotation marks or restricting characters. An attacker-influenced single-line, slash",
+      "severity": "HIGH",
+      "score": 8.6,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63345",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-61725",
+      "published": "2026-10-30T23:17:11Z",
+      "description": "sevenz-rust2 is a Rust-native 7z compressor and `decompress`or. Prior to 0.21.1, extracting an attacker-supplied 7z archive can write or overwrite files outside the destination directory. In `src/util/decompress.rs`, `decompress_impl` computes each destination with `dest.join(entry.name())` without ",
+      "severity": "MEDIUM",
+      "score": 6.1,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-61725",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-111477",
+      "published": "2026-10-30T23:17:09Z",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111477",
+      "kev": false
+    },
     {
       "id": "CVE-2026-63121",
       "published": "2026-10-30T22:16:58Z",
@@ -51,216 +261,6 @@
       "score": 7.1,
       "cvss_version": "40",
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63201",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-63224",
-      "published": "2026-10-30T22:16:58Z",
-      "description": "OpenRemote is an open-source internet-of-things platform. Prior to 1.26.0, the `datapoint export` API constructs `CSV crosstab` SQL by concatenating an `asset name` and `attribute name` into a `COPY` query that uses `crosstab` and streams `TO STDOUT`. The `asset name` enters both a double-quoted col",
-      "severity": "HIGH",
-      "score": 7.2,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63224",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-63115",
-      "published": "2026-10-30T22:16:57Z",
-      "description": "ActivityPub is a multi-tenant ActivityPub server for Ghost, built with Fedify. From 1.0.0 until 1.2.6, the `Undo` handler allows a remote federated server to cause the service to act on a `follow` or `repost` as though the activity came from a different account. This permits removal of an existing `",
-      "severity": "MEDIUM",
-      "score": 5.3,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63115",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-62277",
-      "published": "2026-10-30T22:16:56Z",
-      "description": "LubeLogger is a self-hosted, open-source, web-based vehicle maintenance and fuel mileage tracker. Prior to 1.6.8, `PrintRecordStickers` in `/Controllers/VehicleController.cs` checks through `CollaboratorFilter` that the authenticated caller can view the supplied `vehicleId`, but fetches caller-suppl",
-      "severity": "MEDIUM",
-      "score": 6.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62277",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-62347",
-      "published": "2026-10-30T22:16:56Z",
-      "description": "Element Call is a native Matrix video conferencing application. From 0.16.0 until 0.20.3, the standalone Element Call `SPA` logs the `password` URL query parameter. When a user submits an error report, called a rageshake, these logs are shared with the application operator. Users can therefore unint",
-      "severity": "MEDIUM",
-      "score": 5.9,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62347",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-55613",
-      "published": "2026-10-30T22:16:55Z",
-      "description": "uhttpd is a small HTTP server. In unpatched repository snapshots, `uh_ubus_data_send()` in `ubus.c` can desynchronize HTTP request boundaries when a `POST /ubus` JSON body arrives in multiple TCP segments. An initial segment completing a JSON object sets `du->jsobj`; a later segment takes the existi",
-      "severity": "MEDIUM",
-      "score": 6.9,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-55613",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-55614",
-      "published": "2026-10-30T22:16:55Z",
-      "description": "uhttpd is a small HTTP server. In unpatched repository snapshots, `client_parse_header()` in `client.c` lowercases header names but compares the `Transfer-Encoding` value to `chunked` using case-sensitive `strcmp`. A mixed-case transfer-coding token is accepted without enabling `r->transfer_chunked`",
-      "severity": "MEDIUM",
-      "score": 6.9,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-55614",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-118938",
-      "published": "2026-10-30T22:16:54Z",
-      "description": "In Trail of Bits fickling through 0.1.12, a pickle STACK_GLOBAL operand carrying a dotted __qualname__ (for example \"Values.read_file\") is resolved by pickle's find_class through _getattribute to an arbitrary attribute path rather than to a module-level function. Fickling records only the leading co",
-      "severity": "HIGH",
-      "score": 8.8,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118938",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-16760",
-      "published": "2026-10-30T22:16:54Z",
-      "description": "In Trail of Bits fickling through 0.1.12, the _process_import() method in fickle.py adds an imported name to the likely_safe_imports set whenever the source module is present in sys.stdlib_module_names and the name is absent from the UNSAFE_IMPORTS denylist, without inspecting what the name resolves",
-      "severity": "HIGH",
-      "score": 8.8,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-16760",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-55146",
-      "published": "2026-10-30T22:16:54Z",
-      "description": "LORIS (Longitudinal Online Research and Imaging System) is a self-hosted web application that provides data- and project-management for neuroimaging research. In versions from 16.0.0 prior to 27.0.4 and from 28.0.0 prior to 28.0.2, the `issue_tracker` backend does not correctly verify edit access pe",
-      "severity": "MEDIUM",
-      "score": 4.3,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-55146",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-55147",
-      "published": "2026-10-30T22:16:54Z",
-      "description": "LORIS (Longitudinal Online Research and Imaging System) is a self-hosted web application that provides data- and project-management for neuroimaging research. In versions from 22.0.0 prior to 27.0.4 and from 28.0.0 prior to 28.0.2, the `API` for the `imaging_browser` module permits edits to imaging ",
-      "severity": "MEDIUM",
-      "score": 6.3,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-55147",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-55612",
-      "published": "2026-10-30T22:16:54Z",
-      "description": "uhttpd is a small HTTP server. In unpatched repository snapshots, `client_poll_post_data()` in `client.c` consumes an invalid chunk-length line, such as a size exceeding INT_MAX, then clears `r->content_length` and `r->transfer_chunked` without draining the remaining body or setting `request.connect",
-      "severity": "LOW",
-      "score": 3.7,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-55612",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-111578",
-      "published": "2026-10-30T22:16:53Z",
-      "description": "The PDF Invoices & Packing Slips for WooCommerce WordPress plugin from 5.16.2 before 5.16.5 does not properly escape several customer-supplied order fields — including the billing and shipping address values and the customer order note — before they are output in generated invoice and packing-slip d",
-      "severity": "HIGH",
-      "score": 7.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111578",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-62990",
-      "published": "2026-10-30T21:17:16Z",
-      "description": "Shopper is a Headless e-commerce Admin Panel. In versions from 2.0.0 prior to 2.10.1 and in the 3.0.0 prereleases beta.1 and beta.2, authenticated back-office staff with a content-upload permission can store executable media on the administrator's own origin. In the 2.x implementation, relevant uplo",
-      "severity": "HIGH",
-      "score": 8.7,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62990",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-62991",
-      "published": "2026-10-30T21:17:16Z",
-      "description": "Shopper is a Headless e-commerce Admin Panel. Prior to 2.10.1, the customer detail route `/cpanel/customers/{user}/show` in `packages/admin/src/Livewire/Pages/Customers/Show.php` checks `read_customers` but looks up an arbitrary user ID without applying the `customers` role scope used by the listing",
-      "severity": "MEDIUM",
-      "score": 6.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62991",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-62966",
-      "published": "2026-10-30T21:17:15Z",
-      "description": "ESPAsyncWebServer is an asynchronous HTTP and WebSocket server library for ESP32, ESP8266, RP2040 and RP2350. Prior to version 3.11.2, the multipart parser in `src/WebRequest.cpp` frees `_itemBuffer` and sets it to NULL when `BOUNDARY_OR_DATA` matches the closing boundary of a file part, before conf",
-      "severity": "HIGH",
-      "score": 7.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62966",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-62967",
-      "published": "2026-10-30T21:17:15Z",
-      "description": "ZTNET is a ZeroTier web UI for private controllers with multiuser and organization support. Prior to 0.8.0, any authenticated low-privilege user can permanently deactivate another account, including an administrator, through `POST /api/auth/user/invalidateUser`. In `src/pages/api/auth/user/invalidat",
-      "severity": "HIGH",
-      "score": 8.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62967",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-62968",
-      "published": "2026-10-30T21:17:15Z",
-      "description": "Dream Displays provides in-game screens for streaming videos in Minecraft. From 1.5.0 until 1.8.2, user-controlled input can influence arguments passed to `yt-dlp` under specific conditions. Unintended command-line options may be interpreted by `yt-dlp`, potentially altering its behavior. This issue",
-      "severity": "HIGH",
-      "score": 8.7,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62968",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-62979",
-      "published": "2026-10-30T21:17:15Z",
-      "description": "jack lets users share media libraries through their Radarr/Sonarr stack, peer-to-peer. Prior to 0.1.0, `middleware/handle-error.ts` serializes raw `FetchError` objects into HTTP responses. `lib/servers/base.ts` attaches outbound request headers on upstream non-success responses and schema-validation",
-      "severity": "HIGH",
-      "score": 8.4,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62979",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-62989",
-      "published": "2026-10-30T21:17:15Z",
-      "description": "Shopper is a Headless e-commerce Admin Panel. Prior to 2.10.0, the Variants Livewire component in `packages/admin/src/Livewire/Components/Products/Form/Variants.php` exposes `DeleteAction` and `DeleteBulkAction` without server-side authorization. An authenticated staff user with `edit_products` can ",
-      "severity": "HIGH",
-      "score": 8.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62989",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-62849",
-      "published": "2026-10-30T21:17:14Z",
-      "description": "ThingLinks is an enterprise IoT platform. Prior to 1.4.0, an unauthenticated SQL injection vulnerability in the `TDengine TDS APIs` allows request-controlled JSON field values submitted to `/anyUser/tds/insertTableData` to reach unsafe SQL construction in the `TDS mapper`. A remote unauthenticated a",
-      "severity": "CRITICAL",
-      "score": 9.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62849",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-62853",
-      "published": "2026-10-30T21:17:14Z",
-      "description": "ThingLinks is an enterprise IoT platform. Prior to 1.4.0, the `/groovyScriptTest/registerScript` endpoint accepts user-supplied Groovy script content and passes it to an unsandboxed `Groovy compilation and loading` flow. An authenticated attacker can provide code that is compiled and instantiated on",
-      "severity": "CRITICAL",
-      "score": 9.9,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62853",
       "kev": false
     }
   ]

@@ -1,11 +1,515 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-30T20:55:56Z",
+  "updated_at": "2026-10-31T00:54:57Z",
   "source": "GitHub Security Advisories",
   "source_url": "https://api.github.com/advisories",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-8fmv-6rg5-5924",
+      "title": "Kubeflow Pipelines: Pipeline archive upload allows decompression bomb to exhaust server memory",
+      "published": "2026-10-30T23:13:38Z",
+      "ecosystem": "go",
+      "summary": "## Summary\n\nThe Kubeflow Pipelines API server decompresses uploaded pipeline archives without adequately bounding expanded data in affected versions. A small ZIP or gzip-compressed tar archive can consume disproportionately large amounts of memory while the server locates or reads the pipeline file,",
+      "link": "https://github.com/advisories/GHSA-8fmv-6rg5-5924"
+    },
+    {
+      "id": "GHSA-wg5q-x4j9-qm54",
+      "title": "Kubeflow Pipelines: Run-log endpoint permits unauthorized access to pod logs",
+      "published": "2026-10-30T23:13:29Z",
+      "ecosystem": "go",
+      "summary": "## Summary\n\nThe Kubeflow Pipelines API server's `GET /apis/v1alpha1/runs/{run_id}/nodes/{node_id}/log` handler retrieves logs without authorizing the caller against the selected run. A caller who can reach the backend and knows a victim run ID and a suitable pod or node identifier can read live or a",
+      "link": "https://github.com/advisories/GHSA-wg5q-x4j9-qm54"
+    },
+    {
+      "id": "GHSA-5849-834g-hvw5",
+      "title": "pypdf has possible infinite loop when hitting EOF in standard xref table during trailer search",
+      "published": "2026-10-30T23:13:16Z",
+      "ecosystem": "pip",
+      "summary": "### Impact\n\nAn attacker who uses this vulnerability can craft a PDF which leads to an infinite loop. This requires opening an incomplete file without a `trailer`.\n\n### Patches\n\nThis has been fixed in [pypdf==6.21.4](https://github.com/py-pdf/pypdf/releases/tag/6.21.4).\n\n### Workarounds\n\nIf you canno",
+      "link": "https://github.com/advisories/GHSA-5849-834g-hvw5"
+    },
+    {
+      "id": "GHSA-cggf-277g-3q54",
+      "title": "pypdf has possible large memory usage when parsing page tree",
+      "published": "2026-10-30T23:13:01Z",
+      "ecosystem": "pip",
+      "summary": "### Impact\n\nAn attacker who uses this vulnerability can craft a PDF which leads to large memory usage. This requires parsing the page tree with many shared resources.\n\n### Patches\n\nThis has been fixed in [pypdf==6.21.4](https://github.com/py-pdf/pypdf/releases/tag/6.21.4).\n\n### Workarounds\n\nIf you c",
+      "link": "https://github.com/advisories/GHSA-cggf-277g-3q54"
+    },
+    {
+      "id": "GHSA-mfr5-77xh-9j7h",
+      "title": "pypdf has possible infinite loop when cloning dictionaries",
+      "published": "2026-10-30T23:12:20Z",
+      "ecosystem": "pip",
+      "summary": "### Impact\n\nAn attacker who uses this vulnerability can craft a PDF which leads to an infinite loop. This requires cloning/duplicating a `DictionaryObject`.\n\n### Patches\n\nThis has been fixed in [pypdf==6.21.4](https://github.com/py-pdf/pypdf/releases/tag/6.21.4).\n\n### Workarounds\n\nIf you cannot upgr",
+      "link": "https://github.com/advisories/GHSA-mfr5-77xh-9j7h"
+    },
+    {
+      "id": "GHSA-4528-x5fx-h6hg",
+      "title": "joi: quadratic-time split in `string().email({ multiple: true })` allows denial of service",
+      "published": "2026-10-30T23:10:23Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\n`Joi.string().email({ multiple: true })` takes quadratic time to split a value that contains a long run of whitespace. One request with 100 KB of spaces blocks the Node.js event loop for several seconds, which causes a denial of service.\n\n### Details\n\nWhen the `multiple` option is set, ",
+      "link": "https://github.com/advisories/GHSA-4528-x5fx-h6hg"
+    },
+    {
+      "id": "GHSA-8494-f6mr-cjpv",
+      "title": "@hapi/content: quadratic-time parsing of Content-Disposition parameters allows denial of service",
+      "published": "2026-10-30T23:10:13Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\n`Content.disposition()` takes quadratic time when a `Content-Disposition` parameter contains a long token without `=`. One unauthenticated multipart request can block the Node.js event loop for several minutes.\n\n### Details\n\n`Content.disposition()` reads the parameters with a global reg",
+      "link": "https://github.com/advisories/GHSA-8494-f6mr-cjpv"
+    },
+    {
+      "id": "GHSA-g3hv-75wg-m249",
+      "title": "minimatch has potential denial of service via globparts amplification",
+      "published": "2026-10-30T23:09:55Z",
+      "ecosystem": "npm",
+      "summary": "minimatch 10.2.6 contains an attacker-controlled pattern amplification in firstPhasePreProcess() when optimizationLevel >= 2.\n\nresearcher: Reid Downing (b1nv0id)\nfiles: \n\n- src/index.ts: 690-770\n- src/index.ts: 780-796\n\nissue:\ninput-controlled growth of globParts during first-phase preprocessing, fo",
+      "link": "https://github.com/advisories/GHSA-g3hv-75wg-m249"
+    },
+    {
+      "id": "GHSA-3g3m-2fjr-6pw4",
+      "title": "Glob: AbortSignal cancellation bypass allows post-timeout filesystem traversal",
+      "published": "2026-10-30T23:09:11Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nIn glob 13.0.6, an aborted async walk rejects or emits an error but continues recursively reading directories in the background.\n\nThe root cause is that abort branches in src/walker.ts call cb() without returning. As a result, callers that rely on signal or AbortSignal.timeout() to boun",
+      "link": "https://github.com/advisories/GHSA-3g3m-2fjr-6pw4"
+    },
+    {
+      "id": "GHSA-c73q-w75p-j82v",
+      "title": "Authlib RFC 7592 examples omit registration-access-token client binding",
+      "published": "2026-10-30T23:09:04Z",
+      "ecosystem": "pip",
+      "summary": "## Description\n\n### Summary\n\nRFC 7592 (OAuth 2.0 Dynamic Client Registration Management Protocol) lets a previously registered client read, update, or delete its own registration, authenticated by a `registration_access_token` issued specifically to that client at registration time. The entire secur",
+      "link": "https://github.com/advisories/GHSA-c73q-w75p-j82v"
+    },
+    {
+      "id": "GHSA-42gh-23hr-vphw",
+      "title": "pypdf has possible long runtimes when retrieving page labels",
+      "published": "2026-10-30T23:08:55Z",
+      "ecosystem": "pip",
+      "summary": "### Impact\n\nAn attacker who uses this vulnerability can craft a PDF which leads to large runtimes. This requires retrieving the page labels of a file.\n\n### Patches\n\nThis has been fixed in [pypdf==6.21.3](https://github.com/py-pdf/pypdf/releases/tag/6.21.3).\n\n### Workarounds\n\nIf you cannot upgrade ye",
+      "link": "https://github.com/advisories/GHSA-42gh-23hr-vphw"
+    },
+    {
+      "id": "GHSA-4vqv-7265-gm2w",
+      "title": "pypdf has possible large memory usage for exceptions in strict mode",
+      "published": "2026-10-30T23:08:39Z",
+      "ecosystem": "pip",
+      "summary": "### Impact\n\nAn attacker who uses this vulnerability can craft a PDF which leads to large memory usage. This requires loading an invalid dictionary.\n\n### Patches\n\nThis has been fixed in [pypdf==6.21.3](https://github.com/py-pdf/pypdf/releases/tag/6.21.3).\n\n### Workarounds\n\nIf you cannot upgrade yet, ",
+      "link": "https://github.com/advisories/GHSA-4vqv-7265-gm2w"
+    },
+    {
+      "id": "GHSA-62m5-6wh8-28x7",
+      "title": "pypdf has possible long runtimes/large memory usage for encrypted PDF files",
+      "published": "2026-10-30T23:08:24Z",
+      "ecosystem": "pip",
+      "summary": "### Impact\n\nAn attacker who uses this vulnerability can craft a PDF which leads to large runtimes/memory usage. This requires accessing the page count of an encrypted PDF file, which itself declares a wrong `/Count` value.\n\n### Patches\n\nThis has been fixed in [pypdf==6.21.3](https://github.com/py-pd",
+      "link": "https://github.com/advisories/GHSA-62m5-6wh8-28x7"
+    },
+    {
+      "id": "GHSA-x3rh-gjgm-fmqc",
+      "title": "pypdf has possible large memory usage when parsing cross-reference streams",
+      "published": "2026-10-30T23:07:28Z",
+      "ecosystem": "pip",
+      "summary": "### Impact\n\nAn attacker who uses this vulnerability can craft a PDF which leads to large memory usage. This requires opening a file with cross-reference streams.\n\n### Patches\n\nThis has been fixed in [pypdf==6.21.3](https://github.com/py-pdf/pypdf/releases/tag/6.21.3).\n\n### Workarounds\n\nIf you cannot",
+      "link": "https://github.com/advisories/GHSA-x3rh-gjgm-fmqc"
+    },
+    {
+      "id": "GHSA-2qm8-x737-gmw5",
+      "title": "pyasn1 has quadratic CPU consumption in constructed BIT STRING decoding",
+      "published": "2026-10-30T23:07:04Z",
+      "ecosystem": "pip",
+      "summary": "## Summary\n\nIn pyasn1 through 0.6.4, decoding a constructed BIT STRING with many fragments repeatedly shifts and copies the entire value accumulated so far. For fixed-size fragments, CPU time grows quadratically with the encoded input size. An application that passes sufficiently large, attacker-con",
+      "link": "https://github.com/advisories/GHSA-2qm8-x737-gmw5"
+    },
+    {
+      "id": "GHSA-mm57-4v3p-rchx",
+      "title": "pyasn1 has quadratic-complexity denial of service in binary REAL decoding",
+      "published": "2026-10-30T23:06:46Z",
+      "ecosystem": "pip",
+      "summary": "## Summary\n\nIn pyasn1 0.6.4 and earlier, decoding a binary-encoded ASN.1 REAL with a large mantissa can consume CPU time quadratic in the mantissa length. The BER, CER, and DER decoders all use the affected `RealPayloadDecoder`. An application is exposed when it passes attacker-controlled ASN.1 cont",
+      "link": "https://github.com/advisories/GHSA-mm57-4v3p-rchx"
+    },
+    {
+      "id": "GHSA-9m75-vc3g-4x39",
+      "title": "pyasn1 has quadratic-time denial of service in constructed string and indefinite-length ANY decoding",
+      "published": "2026-10-30T23:03:51Z",
+      "ecosystem": "pip",
+      "summary": "## Summary\n\nIn pyasn1 0.6.4 and earlier, decoding a constructed OCTET STRING or character string made of many fragments can spend disproportionate CPU time repeatedly copying the accumulated value. A separate indefinite-length `ANY` path has the same problem while collecting the encoded components. ",
+      "link": "https://github.com/advisories/GHSA-9m75-vc3g-4x39"
+    },
+    {
+      "id": "GHSA-fm9c-5rcf-2q5p",
+      "title": "pyasn1 has quadratic CPU use in schemaless BER/CER/DER container decoding",
+      "published": "2026-10-30T23:03:37Z",
+      "ecosystem": "pip",
+      "summary": "### Summary\n\nWhen an application decodes attacker-controlled BER, CER, or DER data without an ASN.1 schema, a container with many distinct long tag IDs can cause quadratic CPU use. Repeated inputs can exhaust CPU and reduce service availability.\n\n### Details\n\nConstructedPayloadDecoderBase._decodeCom",
+      "link": "https://github.com/advisories/GHSA-fm9c-5rcf-2q5p"
+    },
+    {
+      "id": "GHSA-4642-5mcj-2rqw",
+      "title": "Forge: ASN.1 OID first arc truncation in asn1.oidToDer",
+      "published": "2026-10-30T23:02:40Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\n`asn1.oidToDer()` did not range-check the first two arcs of an OID string, so an OID such as `0.42.840.113549.1.1.1` or `4294977127.18.840.113549.1.1.1` was encoded as the DER of a different OID (here rsaEncryption, `1.2.840.113549.1.1.1`). This is an incomplete fix of CVE-2025-66030. F",
+      "link": "https://github.com/advisories/GHSA-4642-5mcj-2rqw"
+    },
+    {
+      "id": "GHSA-6wvx-3r32-xmcg",
+      "title": "Forge: Prototype Pollution in forge.http cookie handling via a malicious Set-Cookie",
+      "published": "2026-10-30T23:02:35Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\nThe `forge.http` client stored cookies from `Set-Cookie` response headers in a plain object keyed by cookie name and path. A malicious server could use the cookie name `__proto__` to add properties to `Object.prototype`, use inherited names such as `constructor` to add properties to `Obj",
+      "link": "https://github.com/advisories/GHSA-6wvx-3r32-xmcg"
+    },
+    {
+      "id": "GHSA-525v-9gp9-w22h",
+      "title": "Forge: TLS client crash when the server sends no certificate",
+      "published": "2026-10-30T23:02:30Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\nThe forge TLS client's check for a missing server certificate read the wrong property and never ran. A malicious TLS server, or an on-path attacker who removes the server's Certificate message, can make `connection.process()` throw a `TypeError`, which crashes applications that use the f",
+      "link": "https://github.com/advisories/GHSA-525v-9gp9-w22h"
+    },
+    {
+      "id": "GHSA-7wch-p9px-956x",
+      "title": "Forge: Regular expression denial of service in PEM decoding (pem.decode)",
+      "published": "2026-10-30T23:02:25Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n`pem.decode()`, which every node-forge API that parses PEM input uses, split messages with a regular expression that takes polynomial time on input without a matching END line, and parsed encapsulated headers with regular expressions that take quadratic time on long header lines. A remot",
+      "link": "https://github.com/advisories/GHSA-7wch-p9px-956x"
+    },
+    {
+      "id": "GHSA-h6cr-wjv9-3cpp",
+      "title": "Forge: Denial of Service via infinite loop in BigInteger.modInverse() with negative input (incomplete fix of CVE-2026-33891)",
+      "published": "2026-10-30T23:02:20Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\n`BigInteger.prototype.modInverse()` in node-forge's bundled jsbn library enters an infinite loop when the value or the modulus is negative, for example when a negative public exponent is passed to `forge.pki.rsa.generateKeyPair()`. This is an incomplete fix of CVE-2026-33891 (GHSA-5m6q-",
+      "link": "https://github.com/advisories/GHSA-h6cr-wjv9-3cpp"
+    },
+    {
+      "id": "GHSA-4487-j8r4-4g2f",
+      "title": "Forge: verifyCertificateChain() removes trusted CA certificates with the same subject from the CA store",
+      "published": "2026-10-30T23:02:14Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nWhen a CA store created by `pki.createCaStore()` holds two or more certificates with the same subject name, `pki.verifyCertificateChain()` permanently removes those certificates from the store while trying each one as the issuer. A peer can send any certificate that names that subject a",
+      "link": "https://github.com/advisories/GHSA-4487-j8r4-4g2f"
+    },
+    {
+      "id": "GHSA-5cwg-6vw7-rj6p",
+      "title": "Forge: AES-GCM authentication bypass via unvalidated tagLength option",
+      "published": "2026-10-30T23:02:09Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nThe AES-GCM mode in forge.cipher does not validate the tagLength option passed to start(). With a tagLength of 0 or a value that converts to 0 (such as null, false, '' or '0'), the authentication tag is empty, and decipher.finish() returns true for any ciphertext and additional data whe",
+      "link": "https://github.com/advisories/GHSA-5cwg-6vw7-rj6p"
+    },
+    {
+      "id": "GHSA-jc66-7q78-782g",
+      "title": "Forge: PKCS#12 MAC forgery and constant-key PBE via zero iteration count",
+      "published": "2026-10-30T23:02:05Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nforge.pkcs12.pkcs12FromAsn1() accepts a PKCS#12 MAC iteration count of zero (or less) from the input, and the PKCS#12 key derivation function then returns a constant key that does not depend on the password or salt. An attacker who does not know the password can modify a PKCS#12/PFX fil",
+      "link": "https://github.com/advisories/GHSA-jc66-7q78-782g"
+    },
+    {
+      "id": "GHSA-8hrf-8g6f-7xwp",
+      "title": "Forge: Denial of service in TLS record processing via a record interleaved with a fragmented handshake message",
+      "published": "2026-10-30T23:02:00Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nA connection created with `forge.tls.createConnection()` throws an uncaught `TypeError` from `process()` when it receives a record of another content type while waiting for the rest of a handshake message that was split across records. A peer can trigger this with 18 bytes before the ha",
+      "link": "https://github.com/advisories/GHSA-8hrf-8g6f-7xwp"
+    },
+    {
+      "id": "GHSA-hqq3-7jhf-c5jx",
+      "title": "Forge: Denial of service in TLS record processing via call stack exhaustion",
+      "published": "2026-10-30T23:01:54Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nConnections created with `forge.tls.createConnection()` processed received TLS records recursively, one stack level per record. A peer can send one chunk of thousands of small records, such as heartbeat records, which are accepted before the handshake, and `process()` throws `RangeError",
+      "link": "https://github.com/advisories/GHSA-hqq3-7jhf-c5jx"
+    },
+    {
+      "id": "GHSA-5x38-2vff-x55p",
+      "title": "Forge: X.509 basicConstraints bypass in verifyCertificateChain() via deprecated extension OIDs 2.5.29.10 and 2.5.29.13",
+      "published": "2026-10-30T23:01:46Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\nnode-forge parses certificate extensions with the deprecated OIDs `2.5.29.10` and `2.5.29.13` as `basicConstraints`, and `forge.pki.verifyCertificateChain()` used the first extension with that name. A certificate with a forged deprecated-OID extension (`cA` TRUE) before its genuine `basi",
+      "link": "https://github.com/advisories/GHSA-5x38-2vff-x55p"
+    },
+    {
+      "id": "GHSA-9vw2-f4vp-x7gf",
+      "title": "PHPUnit vulnerable to code execution by other local users via shared temporary directory in PHPT code coverage handling",
+      "published": "2026-10-30T23:01:21Z",
+      "ecosystem": "composer",
+      "summary": "### Summary\n\nWhen PHPT tests are run with code coverage, PHPUnit 13.4.0 to 13.4.3 writes the code of each PHPT test to a directory with a fixed name below the operating system's path used for temporary files, for instance `/tmp/phpunit-phpt` on Linux, and executes it from there. PHPUnit uses this di",
+      "link": "https://github.com/advisories/GHSA-9vw2-f4vp-x7gf"
+    },
+    {
+      "id": "GHSA-3xf4-9g3c-4h4w",
+      "title": "Nuxt dev server exposes generated appSecret through Vite file serving",
+      "published": "2026-10-30T23:01:12Z",
+      "ecosystem": "npm",
+      "summary": "### Impact\n\nWhen no `appSecret` is configured (via `NUXT_APP_SECRET`, `NITRO_APP_SECRET` or `runtimeConfig.appSecret`), `nuxt dev` generates a development secret and stores it in `<buildDir>/app-secret` (by default `.nuxt/app-secret`). The build directory is inside the directories that Nuxt passes t",
+      "link": "https://github.com/advisories/GHSA-3xf4-9g3c-4h4w"
+    },
+    {
+      "id": "GHSA-9v7c-q64q-vv33",
+      "title": "Nuxt: Dot segments in the request path bypass `server/middleware` path checks and server route rules on page routes",
+      "published": "2026-10-30T23:00:53Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nSince `4.6.0`, Nuxt resolves `.` and `..` segments in the request path, including percent-encoded forms such as `%2e`, before rendering a page. Nitro's routing, Nitro's route rules and `server/middleware` see the path with those segments still in place. A request for `/%2e/admin` theref",
+      "link": "https://github.com/advisories/GHSA-9v7c-q64q-vv33"
+    },
+    {
+      "id": "GHSA-x287-wcfc-q46c",
+      "title": "Nuxt dev server arbitrary file read through client error reports",
+      "published": "2026-10-30T23:00:48Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nA client that can connect to the dev server's HMR socket can send a `nuxt:dev:client-error` event whose message ends in an absolute file path. The dev server reads that file while building the error report, and its contents are returned in the error overlay, on the dev error channel, an",
+      "link": "https://github.com/advisories/GHSA-x287-wcfc-q46c"
+    },
+    {
+      "id": "GHSA-648h-gw55-m2g7",
+      "title": "Nuxt dev server exposes private runtime config through the Nitro dev bundle",
+      "published": "2026-10-30T23:00:43Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nWith Nitro 2 (the default server engine in Nuxt 3 and Nuxt 4), the Nitro development server bundle written by `nuxt dev` can be fetched through the Vite dev server. Nitro inlines the resolved `runtimeConfig` into that bundle, so private runtime config values that were resolved at build ",
+      "link": "https://github.com/advisories/GHSA-648h-gw55-m2g7"
+    },
+    {
+      "id": "GHSA-j63v-mwhm-56jx",
+      "title": "@sigstore/oci sends the registry Authorization header to a cross-host blob-upload Location",
+      "published": "2026-10-30T23:00:17Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\n@sigstore/oci sends the registry Authorization header to a cross-host blob-upload Location\n\n## Affected versions and vulnerable location\n\n- Confirmed on sigstore-js at `3a83271` (current HEAD).\n- File: `packages/oci/src/registry.ts`.\n  - `signIn()` installs the credential as a DEFAULT h",
+      "link": "https://github.com/advisories/GHSA-j63v-mwhm-56jx"
+    },
+    {
+      "id": "GHSA-h599-m3w5-9m7x",
+      "title": "MariaDB Connector/J: Rogue server can drive large heap allocations from server-declared lengths in OK packets",
+      "published": "2026-10-30T23:00:12Z",
+      "ecosystem": "maven",
+      "summary": "## Summary\n\nMariaDB Connector/J sized heap allocations from lengths declared by the server\nin OK packets before checking that those lengths fit in the packet. A rogue or\nMitM server can make the client allocate megabytes from a packet of a few bytes.\n\n## Details\n\nWhen `CLIENT_SESSION_TRACK` is negot",
+      "link": "https://github.com/advisories/GHSA-h599-m3w5-9m7x"
+    },
+    {
+      "id": "GHSA-797x-p4mc-jwpm",
+      "title": "MariaDB Connector/J: Length-encoded integers larger than Integer.MAX_VALUE were truncated before being used as lengths",
+      "published": "2026-10-30T23:00:07Z",
+      "ecosystem": "maven",
+      "summary": "## Summary\n\nMariaDB Connector/J narrowed 8-byte length-encoded integers received from the\nserver to `int` without validation. A rogue or MitM server can send a value above\n`Integer.MAX_VALUE` whose truncation becomes a negative or arbitrary length.\n\n## Details\n\nThe protocol encodes lengths as length",
+      "link": "https://github.com/advisories/GHSA-797x-p4mc-jwpm"
+    },
+    {
+      "id": "GHSA-4jq2-8v3c-97w8",
+      "title": "MariaDB Connector/J: XA recover() trusted server-supplied gtrid and bqual lengths",
+      "published": "2026-10-30T23:00:01Z",
+      "ecosystem": "maven",
+      "summary": "## Summary\n\n`XAResource.recover()` in MariaDB Connector/J trusted the `gtrid_length` and\n`bqual_length` columns returned by `XA RECOVER` to allocate and split each Xid.\n\n## Details\n\n`MariaDbPoolConnection` and `MariaDbPoolPinnedConnection` built each `Xid` of\nthe recovery list by allocating `new byt",
+      "link": "https://github.com/advisories/GHSA-4jq2-8v3c-97w8"
+    },
+    {
+      "id": "GHSA-fhx5-2xqw-2cgm",
+      "title": "MariaDB Connector/J: LOAD DATA LOCAL INFILE file check could be satisfied by text inside quoted identifiers, letting a malicious server read client files",
+      "published": "2026-10-30T22:59:49Z",
+      "ecosystem": "maven",
+      "summary": "## Summary\n\nMariaDB Connector/J checked a server's LOAD DATA LOCAL INFILE file request by\nsearching the text of the command it had sent for\n`LOAD DATA LOCAL INFILE '<file>'`. The search also matched inside quoted\nidentifiers, string literals and comments, so text returned by the server and\nre-used i",
+      "link": "https://github.com/advisories/GHSA-fhx5-2xqw-2cgm"
+    },
+    {
+      "id": "GHSA-grfq-r75j-rw9x",
+      "title": "MariaDB Connector/J: Server could switch character_set_results away from UTF-8 without the client noticing",
+      "published": "2026-10-30T22:59:45Z",
+      "ecosystem": "maven",
+      "summary": "## Summary\n\nMariaDB Connector/J decodes every result as UTF-8 and guards\n`character_set_client` against a change to another charset, but did not guard\n`character_set_results`, and relied on the server's global\n`session_track_system_variables` list to be told about charset changes at all.\n\n## Details",
+      "link": "https://github.com/advisories/GHSA-grfq-r75j-rw9x"
+    },
+    {
+      "id": "GHSA-mrwp-f3q8-3g9p",
+      "title": "follow-redirects: Cross-realm sensitiveHeaders arrays are discarded and custom credentials can follow redirects",
+      "published": "2026-10-30T22:59:33Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nfollow-redirects 1.16.0 and 1.16.1 validate the documented sensitiveHeaders option with instanceof Array. An array created in another JavaScript realm is silently replaced with an empty list, so a caller-declared custom credential header can be forwarded to an attacker-controlled cross-",
+      "link": "https://github.com/advisories/GHSA-mrwp-f3q8-3g9p"
+    },
+    {
+      "id": "GHSA-vp5q-ff62-jwqv",
+      "title": "russh: Agent server never calls `Agent::confirm`, so keys added with the confirm constraint (`ssh-add -c`) sign without confirmation",
+      "published": "2026-10-30T22:59:08Z",
+      "ecosystem": "rust",
+      "summary": "### Summary\n\nThe agent server in `russh::keys::agent::server` never calls `Agent::confirm` before signing with a key that was added with the confirm constraint. That constraint is `SSH_AGENT_CONSTRAIN_CONFIRM` (RFC 9987 §5.2.7.2), which is what `ssh-add -c` sends.\n\nThe call was replaced by a hard-co",
+      "link": "https://github.com/advisories/GHSA-vp5q-ff62-jwqv"
+    },
+    {
+      "id": "GHSA-662x-8wvj-2276",
+      "title": "pageant: unbounded frame buffering on peer-controlled 4-byte length prefix (memory-exhaustion DoS)",
+      "published": "2026-10-30T22:59:00Z",
+      "ecosystem": "rust",
+      "summary": "## Summary\n\n`pageant::PageantStream` reads a 4-byte big-endian length prefix from its input stream and buffers until `len + 4` bytes are available, without ever validating `len`. The underlying WM_COPYDATA transport physically cannot carry frames larger than 8 KiB (`_AGENT_MAX_MSGLEN`, the fixed-siz",
+      "link": "https://github.com/advisories/GHSA-662x-8wvj-2276"
+    },
+    {
+      "id": "GHSA-fw5c-8223-6h42",
+      "title": "russh: peer-declared zero maximum packet size permanently stalls channel writes (silent AsyncWrite hang)",
+      "published": "2026-10-30T22:58:53Z",
+      "ecosystem": "rust",
+      "summary": "## Summary\n\nA peer can advertise `maximum packet size = 0` in its channel-open message (`CHANNEL_OPEN` when attacking a server, `CHANNEL_OPEN_CONFIRMATION` when attacking a client). russh accepts the value without validation and copies it into the channel write state, where it caps the size of every",
+      "link": "https://github.com/advisories/GHSA-fw5c-8223-6h42"
+    },
+    {
+      "id": "GHSA-9wfm-jcj8-jfv9",
+      "title": "russh's SSH agent server is susceptible to unbound allocations via repeated SSH_AGENT_CONSTRAIN_CONFIRM messages",
+      "published": "2026-10-30T22:58:47Z",
+      "ecosystem": "rust",
+      "summary": "### Summary\n\n**All evidence, reproduction steps, and scripts in the report were verified against a real running instance. Nothing is fabricated or synthetic; every verdict is backed by captured output from an actual deployment.**\n\nThe SSH agent server that ships with russh (`russh::keys::agent::serv",
+      "link": "https://github.com/advisories/GHSA-9wfm-jcj8-jfv9"
+    },
+    {
+      "id": "GHSA-4p9f-7p9m-5vfg",
+      "title": "russh's SSH client is susceptible to unbounded allocations via EXT_INFO packets",
+      "published": "2026-10-30T22:58:39Z",
+      "ecosystem": "rust",
+      "summary": "### Summary\n\n**All evidence, reproduction steps, and scripts in the report were verified against a real running instance. Nothing is fabricated or synthetic; every verdict is backed by captured output from an actual deployment.** Concretely, the evidence comes from executing the real russh v0.64.1 c",
+      "link": "https://github.com/advisories/GHSA-4p9f-7p9m-5vfg"
+    },
+    {
+      "id": "GHSA-mpqx-q82w-9x46",
+      "title": "GraphQL-core has denial of service via memory leak in aborted validations",
+      "published": "2026-10-30T22:58:31Z",
+      "ecosystem": "pip",
+      "summary": "### Summary\n\nWhen a validation was aborted because the document contained more errors than allowed by `max_errors` (100 by default), `validate()` raised a single module-level `ValidationAbortedError` instance. Python appends the frames of every `raise` to the existing `__traceback__` of an exception",
+      "link": "https://github.com/advisories/GHSA-mpqx-q82w-9x46"
+    },
+    {
+      "id": "GHSA-7984-qgvg-3j9c",
+      "title": "OAuthLib: Token grants can use attacker-supplied client_id for authorization after authenticating a different client",
+      "published": "2026-10-30T22:58:16Z",
+      "ecosystem": "pip",
+      "summary": "## Summary\n\nOAuthlib's token grant handlers can authenticate one client while authorizing the grant type and requested scopes using a different, attacker-supplied `client_id` from the request body.\n\nIn affected token grant flows, `authenticate_client(request)` sets `request.client` to the authentica",
+      "link": "https://github.com/advisories/GHSA-7984-qgvg-3j9c"
+    },
+    {
+      "id": "GHSA-9gh4-xw24-9xh5",
+      "title": "OpenWISP Controller CA CRL REST API does not scope requests to managed organizations",
+      "published": "2026-10-30T22:58:10Z",
+      "ecosystem": "pip",
+      "summary": "## Summary\n\nThe authenticated REST API endpoint for downloading a CA Certificate Revocation List resolves the requested CA without applying the organization-scoped queryset used by the rest of the PKI API.\n\nAn organization manager with CA view permission can request another organization's sequential",
+      "link": "https://github.com/advisories/GHSA-9gh4-xw24-9xh5"
+    },
+    {
+      "id": "GHSA-g5jq-qmqr-qrwf",
+      "title": "Fiber: CORS wildcard origins matched without a dot boundary, allowing credentialed cross-origin reads",
+      "published": "2026-10-30T22:58:05Z",
+      "ecosystem": "go",
+      "summary": "### Summary\n\nIn v2.52.1 and v2.52.2 the CORS middleware matched a wildcard origin such as `https://*.example.com` by suffix only, without a dot boundary and without comparing the scheme. Any origin whose host ends with the base domain, for example `https://evil-example.com` or `http://notexample.com",
+      "link": "https://github.com/advisories/GHSA-g5jq-qmqr-qrwf"
+    },
+    {
+      "id": "GHSA-7wpf-ch8f-5f4x",
+      "title": "signalk-server has SSRF via absolute signalk.appIcon URL in the app store icon fetcher",
+      "published": "2026-10-30T22:57:37Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nThe app store icon code (`dist/appstore/icon-probe.js` around line 200 and `icon-bytes.js` around line 138) resolves a plugin's declared `signalk.appIcon`. Relative paths are pinned to the CDN, but an absolute http(s) URL is used as-is: the server fetches it, follows redirects, and stor",
+      "link": "https://github.com/advisories/GHSA-7wpf-ch8f-5f4x"
+    },
+    {
+      "id": "GHSA-4xm8-rg9h-jhq2",
+      "title": "Signal K resources API path traversal can disclose the JWT signing secret and enable remote code execution",
+      "published": "2026-10-30T22:57:22Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nPath traversal in the Signal K resources and applicationData APIs lets an\nunauthenticated or low-privileged user read, write and delete files outside\nthe storage root. Reading <config>/security.json discloses the JWT signing\nsecret, enabling admin token forgery and remote code execution",
+      "link": "https://github.com/advisories/GHSA-4xm8-rg9h-jhq2"
+    },
+    {
+      "id": "GHSA-hff9-5pqw-6w9f",
+      "title": "imgproxy has integer overflow in imgproxy ICO loader that causes denial of service and may permit remote code execution",
+      "published": "2026-10-30T22:57:00Z",
+      "ecosystem": "go",
+      "summary": "## Summary\n\nThe ICO loader allocates `data_size + BMP_FILE_HEADER_LEN` bytes after reading a 32-bit attacker-controlled `data_size`. For `data_size > UINT32_MAX - BMP_FILE_HEADER_LEN`, the addition wraps before allocation. imgproxy then writes the ICO prefix and reads up to the original declared siz",
+      "link": "https://github.com/advisories/GHSA-hff9-5pqw-6w9f"
+    },
+    {
+      "id": "GHSA-494m-4556-wf5p",
+      "title": "imgproxy has out-of-bounds heap read/write in ICO loader BMP header reconstruction that allows unauthenticated remote worker crash",
+      "published": "2026-10-30T22:56:14Z",
+      "ecosystem": "go",
+      "summary": "### Summary\n\nOut-of-bounds heap write in imgproxy's ICO loader (`vips/icoload.c`): when the ICO entry's image data buffer is small, the loader's BMP-header-reconstruction writes land past the allocation, corrupting the size field of the following heap chunk. The worker then aborts deterministically ",
+      "link": "https://github.com/advisories/GHSA-494m-4556-wf5p"
+    },
+    {
+      "id": "GHSA-mmq5-xm89-9pfg",
+      "title": "imgproxy has unbounded memory allocation in ICO loader that allows unauthenticated memory-exhaustion DoS via crafted data_size field",
+      "published": "2026-10-30T22:55:49Z",
+      "ecosystem": "go",
+      "summary": "### Summary\n\nUnbounded and unvalidated memory allocation in imgproxy's ICO loader (`vips/icoload.c`). An attacker-controlled `data_size` field (u32) from the ICO directory entry is passed directly to `VIPS_MALLOC` without any bounds check, so a single crafted 23-byte ICO file makes an imgproxy worke",
+      "link": "https://github.com/advisories/GHSA-mmq5-xm89-9pfg"
+    },
+    {
+      "id": "GHSA-2wrx-84qj-4pcg",
+      "title": "anacrolix torrent has unbounded recursion in the bencode decoder that causes stack-overflow crash and CPU-exhaustion DoS",
+      "published": "2026-10-30T22:55:09Z",
+      "ecosystem": "go",
+      "summary": "## Summary\n\nanacrolix/torrent's bencode decoder (`bencode/`) applies **no limit on the nesting depth** of nested dictionaries and lists. Two distinct denial-of-service mechanisms follow from that single root cause, both reachable from a single crafted `.torrent` file or from metadata obtained from a",
+      "link": "https://github.com/advisories/GHSA-2wrx-84qj-4pcg"
+    },
+    {
+      "id": "GHSA-p96f-p2p2-2g3h",
+      "title": "AdminNeo SQLite: multi_query Incorrect Check of Function Return Value RCE",
+      "published": "2026-10-30T22:53:08Z",
+      "ecosystem": "composer",
+      "summary": "### Summary\n\nThis vulnerability is a patch bypass that exploits catastrophic backtracking in a regular expression used to filter ATTACH statements in AdminNeo's SQLite functionality. The original vulnerability (CVE-2021-43008) allowed authenticated users to create PHP files through SQLite ATTACH sta",
+      "link": "https://github.com/advisories/GHSA-p96f-p2p2-2g3h"
+    },
+    {
+      "id": "GHSA-6vfx-w7q3-42gq",
+      "title": "AdminNeo SQLite Database-List Drop Arbitrary File Deletion",
+      "published": "2026-10-30T22:52:58Z",
+      "ecosystem": "composer",
+      "summary": "## Summary\n\nAdminNeo allows an authenticated SQLite-mode user to delete arbitrary files writable by the PHP process through the database-list drop action. The SQLite driver validates file extensions when creating or renaming databases, but the database-list drop path passes submitted `db[]` values d",
+      "link": "https://github.com/advisories/GHSA-6vfx-w7q3-42gq"
+    },
+    {
+      "id": "GHSA-79wv-8rh2-9vp2",
+      "title": "AdminNeo has Cookie Attribute Injection via Unsanitized X-Forwarded-Prefix in Set-Cookie Headers",
+      "published": "2026-10-30T22:52:47Z",
+      "ecosystem": "composer",
+      "summary": "### Summary\n\nAdminNeo versions 4.6.0 through at least 5.5.0 are vulnerable to cookie attribute injection via the `X-Forwarded-Prefix` HTTP header. An attacker who can influence this header (e.g., through a reverse proxy that forwards it from clients, an attacker-controlled upstream proxy, or a man-i",
+      "link": "https://github.com/advisories/GHSA-79wv-8rh2-9vp2"
+    },
+    {
+      "id": "GHSA-rx7m-wxwq-vxr9",
+      "title": "AdminNeo Vulnerable to XSS via Rogue MySQL Server Version String (CSP Nonce Bypass)",
+      "published": "2026-10-30T22:52:23Z",
+      "ecosystem": "composer",
+      "summary": "## Summary\n\nAdminNeo inserts the database server's version string into a `<script>` tag that carries a valid CSP nonce, without any sanitization. A rogue database server can return a crafted version string that breaks out of the JavaScript context and executes arbitrary code. Because the script tag ",
+      "link": "https://github.com/advisories/GHSA-rx7m-wxwq-vxr9"
+    },
+    {
+      "id": "GHSA-q5mp-gfjf-cf2j",
+      "title": "AdminNeo: RCE via SQLite VACUUM INTO (ATTACH Blocklist Bypass)",
+      "published": "2026-10-30T22:51:37Z",
+      "ecosystem": "composer",
+      "summary": "## Summary\nAdminer blocks `ATTACH` queries for SQLite to prevent arbitrary file creation. However, `VACUUM INTO` is not blocked and achieves the same result: writing a database file containing attacker-controlled PHP code to any path with any extension. An authenticated SQLite user can write a web s",
+      "link": "https://github.com/advisories/GHSA-q5mp-gfjf-cf2j"
+    },
+    {
+      "id": "GHSA-wm25-49w3-5qrg",
+      "title": "AdminNeo: CSRF Token Secret Recoverable from Single Observed Token, Enabling Cross-Site Request Forgery",
+      "published": "2026-10-30T22:51:29Z",
+      "ecosystem": "composer",
+      "summary": "### Summary\n\nAdminNeo's CSRF protection uses a BREACH-resistant XOR masking scheme, but the implementation transmits both the XOR mask and the masked value in every token. This allows any observer who sees a single CSRF token (via network sniffing, log files, Referrer header, or XSS) to instantly re",
+      "link": "https://github.com/advisories/GHSA-wm25-49w3-5qrg"
+    },
+    {
+      "id": "GHSA-c6q7-wqw2-h65w",
+      "title": "NationalSecurityAgency/emissary has an incomplete fix for CVE-2026-35571",
+      "published": "2026-10-30T22:51:19Z",
+      "ecosystem": "maven",
+      "summary": "### Summary\n\nThe URL validation regex `^(https?:/)?/.*` added to emissary's `NavAction.java` allows protocol-relative URLs (`//evil.com/...`) and single-slash scheme variants (`http:/evil.com`) to bypass validation, enabling SSRF and open redirect attacks.\n\n### Affected Package\n\n- **Ecosystem:** Mav",
+      "link": "https://github.com/advisories/GHSA-c6q7-wqw2-h65w"
+    },
     {
       "id": "GHSA-5xjx-3w67-w9x9",
       "title": "pypi-publish action revocation of CA in the chain that Sigstore uses in Trusted Publishing and Digital Attestations for PyPI",
@@ -301,510 +805,6 @@
       "ecosystem": "npm",
       "summary": "### Summary\n\nOn Windows, `systeminformation@5.33.15` builds a PowerShell command using the value passed to `services()`. The default sanitizer removes ASCII quotes but keeps Unicode curly quotes, spaces, and parentheses. A crafted service name can use those characters to break out of the generated f",
       "link": "https://github.com/advisories/GHSA-3f7j-7jwc-fxfj"
-    },
-    {
-      "id": "GHSA-w658-mh9p-ww8f",
-      "title": "Backstage catalog rules can be bypassed for URL locations using encoded path segments",
-      "published": "2026-10-28T22:42:36Z",
-      "ecosystem": "npm",
-      "summary": "## Summary\n\n`@backstage/plugin-catalog-backend` matches URL-type locations against `catalog.rules` location patterns using the raw URL string submitted by the user, while URL readers resolve that same string in canonical form when fetching the location's content. A URL can therefore be crafted so th",
-      "link": "https://github.com/advisories/GHSA-w658-mh9p-ww8f"
-    },
-    {
-      "id": "GHSA-6jp4-8v48-cc5v",
-      "title": "Electrum: Malicious server can replace a just-broadcast tx and try to trick user into RBF-ing it",
-      "published": "2026-10-28T21:23:44Z",
-      "ecosystem": "pip",
-      "summary": "### Summary\n\nThe main Electrum server the client connects to is trusted with mempool (\"unconfirmed\") transactions. This is documented [design](https://electrum.readthedocs.io/en/latest/faq.html#does-electrum-trust-servers). [0]\n\nHowever now someone figured out a way to practically exploit it:\n- when",
-      "link": "https://github.com/advisories/GHSA-6jp4-8v48-cc5v"
-    },
-    {
-      "id": "GHSA-2hw4-c9m4-f2fj",
-      "title": "knative.dev/pkg admission webhooks allow unbounded request-body memory exhaustion",
-      "published": "2026-10-28T21:20:53Z",
-      "ecosystem": "go",
-      "summary": "## ⚠️ Update (verification, 2026-05-19): C-2 confirmed end-to-end — **4.5× amplification observed** (worse than the advisory's conservative 2× claim)\n\nBuilt a Go PoC ([`cmd/poc-c2/main.go`](https://github.com/knative/pkg/blob/1ad5a1ce0ee7043081cb50fd1acc6d36a9126844/cmd/poc-c2/main.go)) that runs th",
-      "link": "https://github.com/advisories/GHSA-2hw4-c9m4-f2fj"
-    },
-    {
-      "id": "GHSA-jf75-q64q-g65r",
-      "title": "Waline login accepts a non-string email as a match-all MongoDB query",
-      "published": "2026-10-28T21:17:58Z",
-      "ecosystem": "npm",
-      "summary": "## Summary\n\nThe login endpoint POST /api/token reads the `email` field from the request body without checking its type and passes it straight into the MongoDB storage query. When `email` is not a string (for example a JSON object such as {\"$ne\": null}), the MongoDB storage adapter's parseWhere silen",
-      "link": "https://github.com/advisories/GHSA-jf75-q64q-g65r"
-    },
-    {
-      "id": "GHSA-f86p-h4j2-7qgj",
-      "title": "Seroval: Code injection through a typed array's own constructor property",
-      "published": "2026-10-28T21:17:36Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\nseroval writes a typed array as a call to its constructor. In affected versions, the constructor name in the output is read from a property that data on the value can replace, and it is written without checks. A typed array that received properties from untrusted data can then put arbit",
-      "link": "https://github.com/advisories/GHSA-f86p-h4j2-7qgj"
-    },
-    {
-      "id": "GHSA-9wx9-5pv9-3349",
-      "title": "Seroval: Script injection through RegExp sources in serialized output",
-      "published": "2026-10-28T21:17:31Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\nseroval writes a `RegExp` as a regular expression literal. In affected versions, the `<` character in a `RegExp` source is written without escaping. A source built from untrusted input can then end the HTML `<script>` element that the serialized output is placed in, and run script in th",
-      "link": "https://github.com/advisories/GHSA-9wx9-5pv9-3349"
-    },
-    {
-      "id": "GHSA-97r2-qh9m-474h",
-      "title": "Seroval: fromJSON deserializer trusts node-supplied array length and sequence doneAt (unauthenticated event-loop DoS)",
-      "published": "2026-10-28T21:17:27Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\n`fromJSON` and `fromCrossJSON` used two node fields without checking them.\n\n- An array node's element list was not checked to be an array. A small payload could set the length the decoder looped over. This part is also tracked in GHSA-wp97-x4hv-qvhp.\n- A sequence node's done index was n",
-      "link": "https://github.com/advisories/GHSA-97r2-qh9m-474h"
-    },
-    {
-      "id": "GHSA-wp97-x4hv-qvhp",
-      "title": "Seroval `fromJSON`/`fromCrossJSON` denial of service via unvalidated array node length",
-      "published": "2026-10-28T21:17:20Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\n`fromJSON` and `fromCrossJSON` did not check that an array node's element list is an array. A small crafted payload could set the length the decoder used. That length controlled how much memory was allocated and how many times the decoder looped, and it did not depend on the size of the",
-      "link": "https://github.com/advisories/GHSA-wp97-x4hv-qvhp"
-    },
-    {
-      "id": "GHSA-7rv5-mrxv-xcr9",
-      "title": "Seroval: Deserialization invokes attacker-chosen callables: AsyncIteratorFactoryInstance calls source.on(listener) without type check",
-      "published": "2026-10-28T21:17:15Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\nWhen `fromJSON` rebuilt an async iterator, it called `on()` on the iterator's source without checking that the source was a seroval stream. A crafted payload could pick another value as the source, such as a function returned by an application plugin. The deserializer then called that v",
-      "link": "https://github.com/advisories/GHSA-7rv5-mrxv-xcr9"
-    },
-    {
-      "id": "GHSA-5324-3w58-qpp2",
-      "title": "Mem0: Cross-tenant conversation leak via unescaped delimiter collision in session-scope key (_build_session_scope)",
-      "published": "2026-10-28T21:17:08Z",
-      "ecosystem": "pip",
-      "summary": "Summary\n\n_build_session_scope() in mem0/memory/main.py builds the conversation-history scope key used to fetch/store the last N raw messages by naively joining caller-supplied user_id/agent_id/run_id values with unescaped & and = delimiters:\n\ndef _build_session_scope(filters):\n    parts = []\n    for",
-      "link": "https://github.com/advisories/GHSA-5324-3w58-qpp2"
-    },
-    {
-      "id": "GHSA-h2r5-x5m7-3935",
-      "title": "Python Social Auth: OpenID Connect nonce is not bound to the browser session, so a stolen authorization code logs the attacker in as the victim",
-      "published": "2026-10-28T21:16:51Z",
-      "ecosystem": "pip",
-      "summary": "### Summary\n\nThe generic OpenID Connect backend (`OpenIdConnectAuth` and every backend built on it) stores the `nonce` in the shared Association table, not in the user's session. When the ID token comes back, `validate_claims` only checks that the nonce exists in that table and is not expired. It do",
-      "link": "https://github.com/advisories/GHSA-h2r5-x5m7-3935"
-    },
-    {
-      "id": "GHSA-6pwm-x34p-fvj2",
-      "title": "ONNX: Out-of-bounds read in ConvTranspose shape inference via undersized weight rank",
-      "published": "2026-10-28T21:16:42Z",
-      "ecosystem": "pip",
-      "summary": "## Summary\n\nONNX ConvTranspose shape inference performed an out-of-bounds read when the weight tensor had fewer than three dimensions and the model did not provide a `kernel_shape` attribute.\n\nThe inference function derived an empty `effective_kernel_shape` vector from the undersized weight tensor, ",
-      "link": "https://github.com/advisories/GHSA-6pwm-x34p-fvj2"
-    },
-    {
-      "id": "GHSA-q69g-f4f5-v8m7",
-      "title": "ONNX: Denial of service via unchecked expansion of packed sub-byte tensors in ONNX Python APIs",
-      "published": "2026-10-28T21:16:37Z",
-      "ecosystem": "pip",
-      "summary": "## Summary\n\nONNX's Python tensor-materialization helpers could allocate memory according to attacker-controlled tensor dimensions without verifying that a packed sub-byte payload contained the declared number of elements.\n\nA very small model could therefore cause a disproportionately large allocatio",
-      "link": "https://github.com/advisories/GHSA-q69g-f4f5-v8m7"
-    },
-    {
-      "id": "GHSA-m4pr-6v3c-6fgr",
-      "title": "ONNX: Null Pointer Dereference in ScanInferenceFunction Due to Missing Required Attribute",
-      "published": "2026-10-28T21:16:30Z",
-      "ecosystem": "pip",
-      "summary": "## Summary\n\nONNX shape inference did not safely validate the required Scan `num_scan_inputs` attribute. Two malformed values could terminate or disrupt the process:\n\n1. If the attribute was missing, `ctx.getAttribute(\"num_scan_inputs\")` returned null and was dereferenced.\n2. If the attribute was neg",
-      "link": "https://github.com/advisories/GHSA-m4pr-6v3c-6fgr"
-    },
-    {
-      "id": "GHSA-48m4-24cq-37qf",
-      "title": "ONNX: Out-of-Bounds Read in RNN/GRU/LSTM Shape Inference (Old Opsets, Missing Rank Check)",
-      "published": "2026-10-28T21:16:24Z",
-      "ecosystem": "pip",
-      "summary": "## Summary\n\nONNX shape inference performed an out-of-bounds read when processing a malformed RNN, GRU, or LSTM node from opsets 1–6 whose first input had a rank other than three.\n\n`RNNShapeInference_opset1_to_6()` checked whether the input shape was present but accessed `dim(0)` and `dim(1)` without",
-      "link": "https://github.com/advisories/GHSA-48m4-24cq-37qf"
-    },
-    {
-      "id": "GHSA-vvpg-rrww-wpmh",
-      "title": "vLLM: Permissive default CORS origins allow cross-origin requests to the vLLM HTTP server",
-      "published": "2026-10-28T21:15:49Z",
-      "ecosystem": "pip",
-      "summary": "### Summary\n\nThe OpenAI-compatible server registers Starlette `CORSMiddleware` with\n`allowed_origins` defaulting to `[\"*\"]`, and performs no authentication unless\n`--api-key` (or `VLLM_API_KEY`) is configured. A web page on any origin can send\nrequests to a vLLM server that the victim's browser can ",
-      "link": "https://github.com/advisories/GHSA-vvpg-rrww-wpmh"
-    },
-    {
-      "id": "GHSA-8397-8qf6-f2gm",
-      "title": "vLLM: Phi-4 multimodal audio encoder materializes and retains full attention matrices: a single max-length audio OOM-crashes the vLLM engine",
-      "published": "2026-10-28T21:15:41Z",
-      "ecosystem": "pip",
-      "summary": "### Summary\n\nThe Phi-4 multimodal audio encoder (`phi4mm_audio.py` / `phi4mm_utils.py`) runs its conformer attention in **eager mode by default**: the official HF config of `microsoft/Phi-4-multimodal-instruct` does not set `use_pt_scaled_dot_product_attention`, so the default `False` applies (`phi4",
-      "link": "https://github.com/advisories/GHSA-8397-8qf6-f2gm"
-    },
-    {
-      "id": "GHSA-gq5q-89c7-vhvx",
-      "title": "vLLM DeepSeek-OCR image processing vulnerable to denial of service",
-      "published": "2026-10-28T21:15:35Z",
-      "ecosystem": "pip",
-      "summary": "## Summary\n\nAny vLLM deployment serving a model of the DeepSeek-OCR family — `deepseek-ai/DeepSeek-OCR`, `deepseek-ai/DeepSeek-OCR-2`, or `baidu/Unlimited-OCR` (whose `UnlimitedOCRForCausalLM` subclasses `DeepseekOCRForCausalLM`) — can be **killed by a single unauthenticated chat request carrying an",
-      "link": "https://github.com/advisories/GHSA-gq5q-89c7-vhvx"
-    },
-    {
-      "id": "GHSA-h3rc-j82p-2c3h",
-      "title": "vLLM: Untrusted EPS inputs can trigger denial of service or Ghostscript RCE",
-      "published": "2026-10-28T21:15:29Z",
-      "ecosystem": "pip",
-      "summary": "### Summary\n\nIn vLLM 0.30.0, `ImageMediaIO` passes attacker-controlled image bytes to Pillow's format autodetection without restricting the accepted formats; the request's MIME label does not constrain decoder selection. An EPS payload labeled `image/png` reached the host's Ghostscript executable. O",
-      "link": "https://github.com/advisories/GHSA-h3rc-j82p-2c3h"
-    },
-    {
-      "id": "GHSA-6757-hggm-hp2w",
-      "title": "vLLM: Public multimodal SHM handle forgery reaches worker-side `pickle.loads()` with insecure serialization disabled",
-      "published": "2026-10-28T21:15:15Z",
-      "ecosystem": "pip",
-      "summary": "## Affected\n\n- **Ecosystem / package:** pip / `vllm`\n- **Affected versions:** vLLM < 0.32.0.\n\n## Summary\n\nWhen `--mm-processor-cache-type shm` is enabled, vLLM's multimodal SHM cache represents a cached item with an `address` and `monotonic_id` pair and treats that pair as authority to dereference s",
-      "link": "https://github.com/advisories/GHSA-6757-hggm-hp2w"
-    },
-    {
-      "id": "GHSA-q97c-p368-75c4",
-      "title": "vLLM: Out-of-vocabulary prompt token id passes input validation and triggers a CUDA device-side assert (engine crash / DoS)",
-      "published": "2026-10-28T21:15:08Z",
-      "ecosystem": "pip",
-      "summary": "For a model whose vocabulary size is an exact multiple of the embedding padding size (64) — e.g. any Llama-2-family model, vocab 32000 — a single request carrying a pre-tokenized prompt with token id equal to the vocab size (32000) passes vLLM's input-id validation but is one past the last embedding",
-      "link": "https://github.com/advisories/GHSA-q97c-p368-75c4"
-    },
-    {
-      "id": "GHSA-x567-49g5-p4cf",
-      "title": "vLLM: Responses API bypasses trust_request_chat_template for chat_template_kwargs",
-      "published": "2026-10-28T21:14:59Z",
-      "ecosystem": "pip",
-      "summary": "## Summary\n\nvLLM's `/v1/responses` endpoint accepts request-level `chat_template_kwargs`, but does not apply the `--trust-request-chat-template` gate that protects Chat Completions, render, tokenize, and pooling paths.\n\nWhen the server is run with the documented default `trust_request_chat_template=",
-      "link": "https://github.com/advisories/GHSA-x567-49g5-p4cf"
-    },
-    {
-      "id": "GHSA-542m-9234-8gvf",
-      "title": "vLLM: DoS via unbounded chat_template Jinja2 rendering exhausts the renderer thread pool",
-      "published": "2026-10-28T21:14:52Z",
-      "ecosystem": "pip",
-      "summary": "### Summary\nvLLM renders chat templates by passing the resolved Jinja2 source to `tokenizer.apply_chat_template()`, which compiles and `.render()`s it in an `ImmutableSandboxedEnvironment`. The sandbox prevents code-execution escapes but imposes **no wall-clock timeout, no output-size cap, and no ne",
-      "link": "https://github.com/advisories/GHSA-542m-9234-8gvf"
-    },
-    {
-      "id": "GHSA-mghf-wjfp-p5xm",
-      "title": "Wasmtime: Cranelift backend on aarch64 can jump to incorrect target on large Wasm `br_table` instruction",
-      "published": "2026-10-28T21:14:14Z",
-      "ecosystem": "rust",
-      "summary": "## Summary\n\nWhen running with the Cranelift compiler backend on an aarch64 target, Wasmtime can compile a Wasm module with more than ~256k targets on one `br_table` instruction in a way that results in an incorrect conditional branch target. This conditional branch could then jump to arbitrary other",
-      "link": "https://github.com/advisories/GHSA-mghf-wjfp-p5xm"
-    },
-    {
-      "id": "GHSA-vvm8-gf78-28g4",
-      "title": "Go JOSE: Panics in JSON parsing",
-      "published": "2026-10-28T21:14:08Z",
-      "ecosystem": "go",
-      "summary": "### Summary\n\nParsing deeply nested JSON structures can hit Go's stack limit, causing the application to crash.\n\nNote: this advisory is the same as https://github.com/go-jose/go-jose/security/advisories/GHSA-6mp9-8xrw-74r4.\n\n### Impact\n\nDenial of service vulnerability. Any application that parses unt",
-      "link": "https://github.com/advisories/GHSA-vvm8-gf78-28g4"
-    },
-    {
-      "id": "GHSA-4w3g-jfj2-cw2q",
-      "title": "Go JOSE: Panic during CBC-HMAC processing",
-      "published": "2026-10-28T21:14:00Z",
-      "ecosystem": "go",
-      "summary": "### Summary\n\nDecrypting a ciphertext with \"A128CBC-HS256\", \"A192CBC-HS384\", or \"A256CBC-HS512\" can result in a panic on untrusted input.\n\nNote this advisory is the same as https://github.com/go-jose/go-jose/security/advisories/GHSA-6mp9-8xrw-74r4.\n\n### Details\n\nInsufficient validation of parameters ",
-      "link": "https://github.com/advisories/GHSA-4w3g-jfj2-cw2q"
-    },
-    {
-      "id": "GHSA-4vjg-vx72-qq4g",
-      "title": "systeminformation has path traversal in Linux networkStats() that allows symlink-based file disclosure outside /sys/class/net",
-      "published": "2026-10-28T21:13:50Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\nOn Linux, `systeminformation@5.33.13` builds `/sys/class/net/<iface>` paths from the caller-supplied `networkStats(iface)` value without checking that the resolved path stays inside `/sys/class/net`. A caller who can create a symlink fixture and control the value passed to this API can ",
-      "link": "https://github.com/advisories/GHSA-4vjg-vx72-qq4g"
-    },
-    {
-      "id": "GHSA-7648-jmwf-vw7j",
-      "title": "systeminformation has prototype pollution in `networkStats()` via the interface name",
-      "published": "2026-10-28T21:13:32Z",
-      "ecosystem": "npm",
-      "summary": "## Summary\n\n`networkStats()` keeps a per interface cache for computing `rx_sec` / `tx_sec` between calls.\nThe cache is a plain JavaScript object and is indexed with the interface name the caller\nsupplied. Passing the name `__proto__` makes every cache write land on `Object.prototype`\ninstead of the ",
-      "link": "https://github.com/advisories/GHSA-7648-jmwf-vw7j"
-    },
-    {
-      "id": "GHSA-8prr-f582-jqq3",
-      "title": "LangGraph CLI prints the registry push token in `langgraph deploy --verbose` output",
-      "published": "2026-10-28T21:13:18Z",
-      "ecosystem": "pip",
-      "summary": "### Summary\n\n`langgraph deploy --verbose` printed the temporary registry push token that the CLI uses to log Docker in to the deployment's image registry. Anyone who could read that output, for example in CI logs, could use the token until it expired.\n\n### Details\n\nWhen Docker is available, `langgra",
-      "link": "https://github.com/advisories/GHSA-8prr-f582-jqq3"
-    },
-    {
-      "id": "GHSA-x8rm-f576-gq67",
-      "title": "graphql-scalars PhoneNumber scalar is vulnerable to regular expression denial of service",
-      "published": "2026-10-28T21:13:10Z",
-      "ecosystem": "npm",
-      "summary": "## Summary\n\nThe regular expression behind `GraphQLPhoneNumber` since 1.24.1 backtracks exponentially. A string made of a run of digits followed by one character that makes the match fail (for example `\"1\".repeat(30) + \"x\"`) blocks the JavaScript thread for seconds, and every additional digit doubles",
-      "link": "https://github.com/advisories/GHSA-x8rm-f576-gq67"
-    },
-    {
-      "id": "GHSA-pjh6-c8mg-3x7m",
-      "title": "Autobahn Python: permessage-brotli inflates a whole frame before maxMessagePayloadSize is checked (incomplete fix of GHSA-hxp9-w8x3-p566)",
-      "published": "2026-10-28T21:10:17Z",
-      "ecosystem": "pip",
-      "summary": "### Summary\n\npermessage-brotli inflates each frame fully before checking maxMessagePayloadSize, so one 421-byte frame makes the server allocate about 545 MiB even with a 1 MiB message limit (brotli expands about 1,000,000:1). Any unauthenticated client can exhaust server memory this way on servers t",
-      "link": "https://github.com/advisories/GHSA-pjh6-c8mg-3x7m"
-    },
-    {
-      "id": "GHSA-3cmx-xjww-583x",
-      "title": "i18next-http-backend: Query-parameter injection through & and = in lng when loadPath/addPath puts {{lng}} in the query string",
-      "published": "2026-10-28T21:10:08Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\nThe URL-segment check added for GHSA-q89c-q3h5-w34g blocks `?`, `#`, `%`, `:`, `/` and `@` in `lng`, but not `&` or `=`, and the checked value is inserted into the URL without encoding. The README documents a multiload loadPath of the form `/locales/resources.json?lng=de+en&ns=ns1+ns2`.",
-      "link": "https://github.com/advisories/GHSA-3cmx-xjww-583x"
-    },
-    {
-      "id": "GHSA-gg6h-894w-4m9c",
-      "title": "RE2JS: Quadratic-time denial of service in re2js lookbehind matching",
-      "published": "2026-10-28T21:10:01Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\nUsing the opt-in `LOOKBEHINDS` flag together with any repeated-matching API\n(`matcher().find()` in a loop, `matchAll()`, `split()`, `matcher().replaceAll()`)\ncauses quadratic-time (Θ(n²)) matching, contradicting the library's own\n\"linear time matching\" guarantee. A single call with a 16",
-      "link": "https://github.com/advisories/GHSA-gg6h-894w-4m9c"
-    },
-    {
-      "id": "GHSA-m665-v7pm-7grj",
-      "title": "zip: Critical Parser Differential & Security Control Bypass via Dual-Header Inconsistencies (Zip Cloaking) Leading to Arbitrary File Overwrite & RCE",
-      "published": "2026-10-28T21:09:50Z",
-      "ecosystem": "rust",
-      "summary": "## Summary\nA critical architectural parser differential exists in the `zip` crate (`<= 9.0.4`) between random-access archive readers (`ZipArchive`) and streaming readers (`ZipStreamReader`). `ZipArchive` considers the Central Directory File Header (CDFH) authoritative and ignores the filename declar",
-      "link": "https://github.com/advisories/GHSA-m665-v7pm-7grj"
-    },
-    {
-      "id": "GHSA-4hm6-w6qq-w73v",
-      "title": "LangGraph JavaScript custom authentication may permit cross-user Store access",
-      "published": "2026-10-28T21:09:42Z",
-      "ecosystem": "pip",
-      "summary": "## Summary\n\nLangGraph deployments using JavaScript or TypeScript custom authentication may fail to apply Store authorization changes returned by an authorization handler. In affected deployments, an authenticated user may be able to access Store data outside their authorized namespace.\n\n## Required ",
-      "link": "https://github.com/advisories/GHSA-4hm6-w6qq-w73v"
-    },
-    {
-      "id": "GHSA-wfhq-q4j2-c37m",
-      "title": "filelock: SoftReadWriteLock follows a lock tree swapped in after its first acquire and writes lock records into directories of the user running the lock",
-      "published": "2026-10-28T21:09:09Z",
-      "ecosystem": "pip",
-      "summary": "`SoftReadWriteLock` (and `AsyncSoftReadWriteLock`, which wraps one) checks once per lock object, by name, that `<path>.rw`, `<path>.rw/gen` and `<path>.rw/holders` are real directories and not symbolic links (files that redirect to another path). It then keeps only a boolean. Every later record oper",
-      "link": "https://github.com/advisories/GHSA-wfhq-q4j2-c37m"
-    },
-    {
-      "id": "GHSA-6627-m3xw-93mp",
-      "title": "filelock: StrictSoftFileLock creates its claim directories without the lock mode, so another local user with a write bit on them can end a live hold",
-      "published": "2026-10-28T21:09:04Z",
-      "ecosystem": "pip",
-      "summary": "`StrictSoftFileLock` and `AsyncStrictSoftFileLock` apply the caller's `mode` to the sentinel (the lock file at `<path>`) and to both claim files (the files whose presence says a process wants or holds the lock). They create the two directories that hold the claims, `<path>.filelock` and `<path>.file",
-      "link": "https://github.com/advisories/GHSA-6627-m3xw-93mp"
-    },
-    {
-      "id": "GHSA-9c4x-gm8v-wgc4",
-      "title": "filelock: StrictSoftFileLock and SoftReadWriteLock adopt a protocol directory another user created first, losing mutual exclusion",
-      "published": "2026-10-28T21:08:59Z",
-      "ecosystem": "pip",
-      "summary": "`StrictSoftFileLock`, `AsyncStrictSoftFileLock`, `SoftReadWriteLock` and `AsyncSoftReadWriteLock` keep their whole ownership state as files in a directory derived from the lock path (`<path>.filelock/claims`, `<path>.rw/{gen,holders}`). When that directory already exists they adopt it after checking",
-      "link": "https://github.com/advisories/GHSA-9c4x-gm8v-wgc4"
-    },
-    {
-      "id": "GHSA-8mx5-7m5m-r77g",
-      "title": "filelock: WindowsFileLock ignores mode: a 0o600 lock file and the ReadWriteLock database inherit the directory ACL",
-      "published": "2026-10-28T21:08:55Z",
-      "ecosystem": "pip",
-      "summary": "filelock on Windows ignores the `mode` argument. `FileLock(path, mode=0o600)` creates the same file as `FileLock(path)`: one with no security descriptor of its own (the Windows record that says who may access a file). Its access list, or ACL, is whatever the lock directory hands down to new files. f",
-      "link": "https://github.com/advisories/GHSA-8mx5-7m5m-r77g"
-    },
-    {
-      "id": "GHSA-cwqr-hh33-gh44",
-      "title": "filelock ReadWriteLock: a crafted lock database makes every acquire stall or hang regardless of timeout",
-      "published": "2026-10-28T21:08:49Z",
-      "ecosystem": "pip",
-      "summary": "`ReadWriteLock` and `AsyncReadWriteLock` (the SQLite-backed reader/writer lock) run `PRAGMA journal_mode=MEMORY` on a fresh connection for every acquire. That statement makes SQLite load the whole schema (the `sqlite_master` table, which lists every table and index with its `CREATE` text) of whateve",
-      "link": "https://github.com/advisories/GHSA-cwqr-hh33-gh44"
-    },
-    {
-      "id": "GHSA-rfpc-qcw5-3pc4",
-      "title": "filelock: SoftFileLock removes a live holder's marker when another user forges the PID in a writable marker",
-      "published": "2026-10-28T21:08:45Z",
-      "ecosystem": "pip",
-      "summary": "`SoftFileLock`, `MarkerSoftFileLock`, `SoftFileLease`, their async variants and a `FileLock` that has fallen back to a soft lock on `ENOSYS` decide from the record inside the marker file whether its owner is gone. The marker is the file whose presence says a process holds the lock. They do not check",
-      "link": "https://github.com/advisories/GHSA-rfpc-qcw5-3pc4"
-    },
-    {
-      "id": "GHSA-9j6q-wvj5-jgjg",
-      "title": "filelock: Symlink swap during SoftFileLock's writability check leaks whether a path exists and is writable by the lock taker",
-      "published": "2026-10-28T21:08:40Z",
-      "ecosystem": "pip",
-      "summary": "`raise_on_not_writable_file()` is the check that `SoftFileLock` and the locks sharing its acquire path run before every attempt. It looks at the lock path with `os.lstat`, so that it judges a planted symlink (a file that points at another path) by itself. When the node has no owner-write bit, it the",
-      "link": "https://github.com/advisories/GHSA-9j6q-wvj5-jgjg"
-    },
-    {
-      "id": "GHSA-69hj-f68j-2879",
-      "title": "filelock: UnixFileLock truncates and chmods any regular file another user renames or hard-links onto the lock path",
-      "published": "2026-10-28T21:08:35Z",
-      "ecosystem": "pip",
-      "summary": "`UnixFileLock`, the backend of `FileLock` and `AsyncFileLock` on Unix, empties whatever regular file it finds at the lock path once it holds the `flock` (a kernel lock on an open file). With an explicit `mode` it also chmods that file (sets its permission bits), whether or not this acquire created i",
-      "link": "https://github.com/advisories/GHSA-69hj-f68j-2879"
-    },
-    {
-      "id": "GHSA-j8f7-rjxc-mr56",
-      "title": "filelock: ReadWriteLock follows a symlink at the lock path into SQLite",
-      "published": "2026-10-28T21:08:30Z",
-      "ecosystem": "pip",
-      "summary": "### Summary\n\n`ReadWriteLock` and `AsyncReadWriteLock` resolve the lock path with `pathlib.Path.resolve()` and pass it to `sqlite3.connect()` without refusing a symlink. A local user who can create names in the lock's directory, such as `/tmp` or a shared cache, can plant a symlink at the lock path a",
-      "link": "https://github.com/advisories/GHSA-j8f7-rjxc-mr56"
-    },
-    {
-      "id": "GHSA-m462-7rxw-wvpg",
-      "title": "filelock: StrictSoftFileLock follows a symbolic link swapped in at <path>.filelock and creates claim files in a directory another local user chooses",
-      "published": "2026-10-28T21:08:23Z",
-      "ecosystem": "pip",
-      "summary": "`StrictSoftFileLock` and `AsyncStrictSoftFileLock` check `<path>.filelock` (the coordination directory that holds the lock's state) with one `lstat` call on its name. `lstat` reports what a name is without following a symbolic link (a file that redirects to another path). After that check, the code ",
-      "link": "https://github.com/advisories/GHSA-m462-7rxw-wvpg"
-    },
-    {
-      "id": "GHSA-fj95-fr6c-h845",
-      "title": "filelock: SoftReadWriteLock holder refresh writes through a hard link and hangs on a named pipe that another local user renames over its record",
-      "published": "2026-10-28T21:08:13Z",
-      "ecosystem": "pip",
-      "summary": "`SoftReadWriteLock` (and `AsyncSoftReadWriteLock`, which wraps one) refreshes its holder record (the file under `<path>.rw/holders/` that says a process holds or wants the lock) on every poll of a waiting acquire and on every heartbeat (the periodic refresh a holder runs to keep its record fresh). I",
-      "link": "https://github.com/advisories/GHSA-fj95-fr6c-h845"
-    },
-    {
-      "id": "GHSA-fq56-3cx3-fjxp",
-      "title": "filelock: SoftFileLock stale-lock break removes a live lock file on a reused inode number and admits two holders",
-      "published": "2026-10-28T21:08:08Z",
-      "ecosystem": "pip",
-      "summary": "The stale-lock break shared by `SoftFileLock`, `MarkerSoftFileLock` and `SoftFileLease` (and their async variants, and a `FileLock` that has fallen back to a soft lock on `ENOSYS`, the \"not implemented\" error) recognises the marker it judged stale by two values. The marker is the lock file at `<path",
-      "link": "https://github.com/advisories/GHSA-fq56-3cx3-fjxp"
-    },
-    {
-      "id": "GHSA-9jhj-wvmw-cfx5",
-      "title": "i18next-http-backend: Namespace value starting with / forms a protocol-relative URL when loadPath/addPath places {{ns}} right after a / (bypass of the // check added for GHSA-xvq9-wjp8-hwqf)",
-      "published": "2026-10-28T21:07:57Z",
-      "ecosystem": "npm",
-      "summary": "## Affected versions\nVerified on 4.0.2 (latest on npm) and on commit 07e0288 (the GHSA-xvq9-wjp8-hwqf fix). Earlier 3.x/4.x versions that allow `/` in ns are likely affected too. Not verified on them.\n\n## Impact\nSame class as GHSA-xvq9-wjp8-hwqf and GHSA-q89c-q3h5-w34g: when an attacker controls the",
-      "link": "https://github.com/advisories/GHSA-9jhj-wvmw-cfx5"
-    },
-    {
-      "id": "GHSA-ccrj-gw8r-854m",
-      "title": "opentelemetry-java: Quadratic CPU consumption in W3C tracestate parsing",
-      "published": "2026-10-28T21:07:40Z",
-      "ecosystem": "maven",
-      "summary": "### Summary\n\nOpenTelemetry Java's W3C trace-context propagator permits excessive CPU consumption when extracting crafted `tracestate` headers, potentially leading to denial of service. Regex backtracking causes quadratic parsing time for headers containing long runs of spaces or tabs without a follo",
-      "link": "https://github.com/advisories/GHSA-ccrj-gw8r-854m"
-    },
-    {
-      "id": "GHSA-c8p4-j97h-3vg8",
-      "title": "Happy DOM: SSRF via iframe and link stylesheet when parsing untrusted HTML",
-      "published": "2026-10-28T21:06:42Z",
-      "ecosystem": "npm",
-      "summary": "## Summary\nhappy-dom v20.8.9 makes real server-side HTTP requests to arbitrary URLs when parsing HTML containing `<iframe>` or `<link rel=\"stylesheet\">` elements. This behavior is enabled by default (`disableIframePageLoading: false`, `disableCSSFileLoading: false`). When an application uses happy-d",
-      "link": "https://github.com/advisories/GHSA-c8p4-j97h-3vg8"
-    },
-    {
-      "id": "GHSA-8rc2-428q-7ww3",
-      "title": "Vue I18n: `escapeParameter` does not escape named values when the same call also passes a list",
-      "published": "2026-10-28T21:06:34Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\nWhen `escapeParameter` is enabled (`escapeParameterHtml` in the Legacy API), Vue I18n escapes the interpolation parameters before formatting a message. `escapeParams()` escapes either the list values or the named values, but not both: the two branches are joined by `else`. When a single",
-      "link": "https://github.com/advisories/GHSA-8rc2-428q-7ww3"
-    },
-    {
-      "id": "GHSA-83rm-6c8r-g728",
-      "title": "Vue I18n: escapeParameter does not prevent XSS through srcdoc in translation messages",
-      "published": "2026-10-28T21:06:24Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\nWhen `escapeParameter` is enabled (`escapeParameterHtml` in the Legacy API), Vue I18n passes the translated string through `sanitizeTranslatedHtml()`. The sanitizer escapes `<` and `>` in attribute values and neutralizes event handler attributes such as `onerror`, but it does not handle",
-      "link": "https://github.com/advisories/GHSA-83rm-6c8r-g728"
-    },
-    {
-      "id": "GHSA-5fpq-26gf-qwcr",
-      "title": "Happy DOM has cookie scope forgery: no DNS-label boundary on Domain= matching , attacker origin sets victim cookies",
-      "published": "2026-10-28T21:06:13Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\nA cookie-scoping bug in happy-dom lets an attacker origin set cookies that a victim origin then receives, diverging from browser semantics.\n\n### Details\nhappy-dom matches Domain=example.com against notexample.com (endsWith without a DNS-label boundary), diverging from browser semantics (",
-      "link": "https://github.com/advisories/GHSA-5fpq-26gf-qwcr"
-    },
-    {
-      "id": "GHSA-3fx2-cqw9-xr3c",
-      "title": "LangGraph: Unencoded identifiers in LangGraph SDK v3 streaming can redirect authenticated GET requests",
-      "published": "2026-10-28T21:05:47Z",
-      "ecosystem": "pip",
-      "summary": "### Summary\n\nThe LangGraph Python SDK v3 streaming client interpolates caller-supplied `thread_id` and `assistant_id` values into request paths without encoding them at four synchronous and asynchronous call sites. Relative path segments can therefore redirect an authenticated GET request to another",
-      "link": "https://github.com/advisories/GHSA-3fx2-cqw9-xr3c"
-    },
-    {
-      "id": "GHSA-434m-5hcj-pxf3",
-      "title": "GraphQL Tools: Per-request connection parameters persist into later users' WebSocket authentications",
-      "published": "2026-10-28T21:05:17Z",
-      "ecosystem": "npm",
-      "summary": "# Stale authentication state in `@graphql-tools/executor-legacy-ws`: per-request `extensions.connectionParams` persist in executor closure state and are replayed in a later caller's `connection_init`\n\n## Report metadata\n\n| Field | Value |\n| --- | --- |\n| Package | `@graphql-tools/executor-legacy-ws`",
-      "link": "https://github.com/advisories/GHSA-434m-5hcj-pxf3"
-    },
-    {
-      "id": "GHSA-mp66-8ww2-pcwm",
-      "title": "GraphQL Tools: Shared legacy executor routes one subscription's results to a different caller",
-      "published": "2026-10-28T21:05:07Z",
-      "ecosystem": "npm",
-      "summary": "# Cross-tenant subscription data leak in `@graphql-tools/executor-legacy-ws`: a shared `websocket.onmessage` is replaced on every `subscribe()`, and `DATA` frames are delivered without checking the protocol operation id\n\n## Report metadata\n\n| Field | Value |\n| --- | --- |\n| Package | `@graphql-tools",
-      "link": "https://github.com/advisories/GHSA-mp66-8ww2-pcwm"
-    },
-    {
-      "id": "GHSA-rmxm-3fg6-px4f",
-      "title": "@hono/node-server: `serveStatic` decodes the request path a second time, leading to bypass of middleware on static paths",
-      "published": "2026-10-28T21:05:00Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\n`serveStatic` decodes the request path a second time after Hono has already decoded it for routing. A crafted request can be routed as one path and served as another, so middleware mounted on a static prefix does not run for a file under that prefix.\n\n### Details\n\nHono decodes the reque",
-      "link": "https://github.com/advisories/GHSA-rmxm-3fg6-px4f"
-    },
-    {
-      "id": "GHSA-2ffq-g2xg-c22p",
-      "title": "Echo: HTTPS Redirect and HSTS Bypass via Unconditional Trust of Forwarded Scheme Headers",
-      "published": "2026-10-28T21:04:52Z",
-      "ecosystem": "go",
-      "summary": "## Description\n\n`Context.Scheme()` unconditionally trusts four client-controlled HTTP headers to determine the request scheme, with no mechanism to configure trusted sources. This allows a remote unauthenticated attacker to bypass HTTPS redirect enforcement and suppress HSTS headers.\n\nThe trusted he",
-      "link": "https://github.com/advisories/GHSA-2ffq-g2xg-c22p"
-    },
-    {
-      "id": "GHSA-3pmx-cf9f-34xr",
-      "title": "Echo static file middleware route protection bypass via encoded dot-dot traversal",
-      "published": "2026-10-28T21:04:46Z",
-      "ecosystem": "go",
-      "summary": "## Summary\n\nEcho v5.2.0 contains a bypass of the fix for GHSA-vfp3-v2gw-7wfq. The fix rejects encoded path separators such as `%2F` and `%5C` before static file path unescaping, but two traversal forms still bypass route-level middleware protections for static files.\n\nThe primary bypass uses encoded",
-      "link": "https://github.com/advisories/GHSA-3pmx-cf9f-34xr"
-    },
-    {
-      "id": "GHSA-xwq5-6cqp-vx96",
-      "title": "Echo has a Static Middleware Double-Unescape Path Traversal",
-      "published": "2026-10-28T21:04:39Z",
-      "ecosystem": "go",
-      "summary": "## Summary\n\nCommit a9ede66a (PR #3006, issue #2599) silently fixed a path traversal vulnerability in the Echo web framework's static file middleware.\n\n## Vulnerability\n\nThe static middleware double-unescaped URL paths. Go's net/http already decodes Request.URL.Path, but middleware/static.go uncondit",
-      "link": "https://github.com/advisories/GHSA-xwq5-6cqp-vx96"
-    },
-    {
-      "id": "GHSA-v753-g4cw-jm48",
-      "title": "Echo has Open Redirect via Control-Character Prefix Defeating sanitizeURI",
-      "published": "2026-10-28T21:04:22Z",
-      "ecosystem": "go",
-      "summary": "## Summary\n\nEcho's dedicated open-redirect guard, `sanitizeURI`, decides whether a redirect target is a local path by inspecting exactly two byte positions: `uri[0]` and `uri[1]`. If the value begins with a control character such as a tab or a newline, followed by a separator pair, the guard does no",
-      "link": "https://github.com/advisories/GHSA-v753-g4cw-jm48"
-    },
-    {
-      "id": "GHSA-23wf-92cp-8pcj",
-      "title": "Echo has Arbitrary Scheme Injection in WWWRedirect/NonWWWRedirect Middlewares via X-Forwarded-Proto",
-      "published": "2026-10-28T21:04:10Z",
-      "ecosystem": "go",
-      "summary": "## Summary\n\nThe `c.Scheme()` method in Echo (`context.go:162-181`) trusts the `X-Forwarded-Proto`, `X-Forwarded-Protocol`, and `X-Url-Scheme` request headers without validating that the value is `http` or `https`. The `WWWRedirect()` and `NonWWWRedirect()` middlewares use this unsanitized scheme to ",
-      "link": "https://github.com/advisories/GHSA-23wf-92cp-8pcj"
-    },
-    {
-      "id": "GHSA-6hgp-fmhr-mrg4",
-      "title": "Highcharts Grid: `javascript:` URL in credits.href runs script on click",
-      "published": "2026-10-28T19:57:48Z",
-      "ecosystem": "npm",
-      "summary": "### Impact\nAn attacker who controls the Grid configuration can set `credits.href` to a `javascript:` URL. The value is not validated against an allowed-scheme list before it is applied to the credits link, so activating that link runs attacker-supplied script in the origin of the page hosting the Gr",
-      "link": "https://github.com/advisories/GHSA-6hgp-fmhr-mrg4"
     }
   ]
 }
