@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-31T15:41:31Z",
+  "updated_at": "2026-10-31T18:39:55Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,141 @@
   ],
   "recent": {
     "lookback_days": 3,
-    "total": 1569,
-    "items_available": 1569,
+    "total": 1446,
+    "items_available": 1446,
     "normalisation_failures": [],
-    "items_parsed": 1569,
+    "items_parsed": 1446,
     "items": [
+      {
+        "id": "CVE-2026-120208",
+        "published": "2026-10-31T18:17:09Z",
+        "description": "libheif 1.18.0 before 1.23.3 contains a heap-based buffer overflow vulnerability in unc_decoder_mixed_interleave::processTile() that allows attackers to write out of bounds by supplying chroma components with unequal bit depths. Attackers can craft a HEIF file declaring, for example, 16-bit Cb and 8",
+        "severity": "HIGH",
+        "score": 7.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120208",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120209",
+        "published": "2026-10-31T18:17:09Z",
+        "description": "AJ-Report through 1.7.1 signs share tokens with a hard-coded JWT secret, allowing attackers to forge valid Share-Tokens offline. Attackers can mint a token with reportCode 'dataSet' to access the testTransform endpoint, which passes scripts to GroovyClassLoader for unauthenticated remote code execut",
+        "severity": "CRITICAL",
+        "score": 9.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120209",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120210",
+        "published": "2026-10-31T18:17:09Z",
+        "description": "FFmpeg 5.0 through 9.0.2 contains a path traversal vulnerability in the IMF demuxer that allows attackers to open files outside the package via unvalidated ASSETMAP Path elements. Attackers can supply a crafted IMF package with '..' or absolute paths to demux local MXF files, probe file existence an",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120210",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120202",
+        "published": "2026-10-31T18:17:08Z",
+        "description": "Highflame ramparts 0.8.1 through 0.8.10 contains a security scan bypass vulnerability that allows attackers to hide malicious payloads because collect_bundle_siblings and walk_bundle_subdir skip nested directories and .pyc files. Attackers can distribute a skill bundle with an unchecked-hash .pyc un",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120202",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120203",
+        "published": "2026-10-31T18:17:08Z",
+        "description": "ShowDoc 2.8.14 before 3.9.6 contains a code injection vulnerability in its Mock feature that allows authenticated users to execute shell commands through mockjs templates. Attackers can store a template via MockController::add with escaped parentheses that mockjs evaluates with eval(), then trigger ",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120203",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120204",
+        "published": "2026-10-31T18:17:08Z",
+        "description": "DeepInfer through 0.1.0 contains a path traversal vulnerability in the unauthenticated /profile endpoint that allows remote attackers to create arbitrary directories via the output_dir parameter. Attackers, including cross-site GET requests from an operator's browser, can write chrome trace files to",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120204",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120205",
+        "published": "2026-10-31T18:17:08Z",
+        "description": "Thelia before 3.1.0 contains a stored cross-site scripting vulnerability in ForSomeCustomers::getSummary() that allows unauthenticated attackers to inject scripts via unescaped customer names. Attackers can register with a script payload as their name that executes when administrators view related c",
+        "severity": "HIGH",
+        "score": 7.4,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120205",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120206",
+        "published": "2026-10-31T18:17:08Z",
+        "description": "Thelia before 3.2.0 contains a cross-site request forgery vulnerability in the back office that allows attackers to forge administrative actions because per-session CSRF tokens leak via URL query strings. Attackers can reuse leaked tokens or target the unprotected setToggleVisibilityAction and updat",
+        "severity": "MEDIUM",
+        "score": 5.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120206",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120207",
+        "published": "2026-10-31T18:17:08Z",
+        "description": "Thelia Page Module before 2.0.4 contains a cross-site request forgery vulnerability that allows remote attackers to delete page tags, documents and images by abusing back-office delete routes lacking CSRF tokens and permission checks. Attackers can lure a logged-in administrator into navigating to c",
+        "severity": "HIGH",
+        "score": 7.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120207",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120199",
+        "published": "2026-10-31T18:17:07Z",
+        "description": "LearnHouse before 1.1.1 contains a missing authorization vulnerability in the assignment API that allows authenticated users to read other users' grades and submissions. Attackers can supply another user_id to the submissions grade endpoint or query submission read functions to view other students' ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120199",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120200",
+        "published": "2026-10-31T18:17:07Z",
+        "description": "Nexterm through 1.2.2-BETA contains a missing authorization vulnerability that allows authenticated users to hibernate, resume, or terminate other users' remote sessions via session lifecycle routes. Attackers who obtain a session ID can call the hibernate, resume, or DELETE connection endpoints to ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120200",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120201",
+        "published": "2026-10-31T18:17:07Z",
+        "description": "Jpom 2.10.0 through 2.11.12 contains an authentication bypass vulnerability that allows unauthenticated attackers to gain super-administrator access by injecting query conditions into the JPOM-USER-TOKEN header. Attackers can send a value like 'is not null', which Hutool's Condition parser treats as",
+        "severity": "CRITICAL",
+        "score": 9.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120201",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102212",
+        "published": "2026-10-31T16:16:52Z",
+        "description": "Heap-based buffer overflow in Opengear IM72XX, CM71XX, and ACM70XX firmware versions 4.8.0 through 5.5.2 on console server appliances allows an unauthenticated remote attacker to crash the index.cgi process via a crafted multipart/form-data POST request containing an overlong Content-Disposition nam",
+        "severity": "HIGH",
+        "score": 8.4,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102212",
+        "kev": false
+      },
       {
         "id": "CVE-2026-78189",
         "published": "2026-10-31T15:16:54Z",
@@ -14341,1366 +14471,6 @@
         "score": 4.4,
         "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-106484",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-58458",
-        "published": "2026-10-28T18:17:20Z",
-        "description": "Don't Starve Together (Steam AppID 322330) through build 747465 contains a memory-corruption vulnerability in the native persistent-string decoder that allows a remote attacker operating a public dedicated server to crash a victim's game client by publishing crafted world_gen_data with an invalid Kl",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-58458",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-79656",
-        "published": "2026-10-28T18:17:20Z",
-        "description": "A user with read access to Grafana's server logs, or to a log store they are shipped to, can recover the OAuth and OIDC access, refresh and ID tokens of users who sign in through the Generic OAuth, Google or GitLab providers. Grafana writes these tokens to its logs unredacted when an access or ID to",
-        "severity": "MEDIUM",
-        "score": 6.0,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-79656",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-84725",
-        "published": "2026-10-28T18:17:20Z",
-        "description": "when EAP runs with -secmgr, the openjdk-orb's JDKBridge honours attacker-supplied CDR codebase URLs during object unmarshalling on :3528, allowing an unauthenticated attacker to load and instantiate arbitrary classes from a remote URL in the server JVM before EJB security interceptors run.",
-        "severity": "HIGH",
-        "score": 8.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-84725",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118249",
-        "published": "2026-10-28T18:17:16Z",
-        "description": "Highcharts JS is a JavaScript charting library based on SVG. From 13.0.0 until 13.1.0, Highcharts builds series data columns by using point option keys directly as column IDs. Own enumerable __proto__ and constructor keys from parsed point objects can therefore direct integer-indexed writes to Objec",
-        "severity": "HIGH",
-        "score": 7.2,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118249",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118250",
-        "published": "2026-10-28T18:17:16Z",
-        "description": "Highcharts JS is a JavaScript charting library based on SVG. From 6.1.0 until 11.4.9, 12.6.1, and 3.1.0, Highcharts follows dot-separated series.keys paths without filtering each segment. An attacker who controls series.keys and matching point data can use a path through __proto__ to assign arbitrar",
-        "severity": "HIGH",
-        "score": 7.2,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118250",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118243",
-        "published": "2026-10-28T18:17:15Z",
-        "description": "Highcharts JS is a JavaScript charting library based on SVG. From 1.0.0 until 4.2.2, Highcharts Dashboards stores DataCursor listener and state maps in plain objects keyed by DataTable ID. A __proto__ table ID supplied through dataPool connector configuration resolves to Object.prototype, and sync r",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118243",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118244",
-        "published": "2026-10-28T18:17:15Z",
-        "description": "Highcharts JS is a JavaScript charting library based on SVG. From 12.0.0 until 12.6.1 and 13.1.0, Highcharts falls back to assigning raw markup to innerHTML when DOMParser cannot return a document, before its allow-list is applied. In Chromium, the Trusted Types callback can throw while a beforeprin",
-        "severity": "HIGH",
-        "score": 7.2,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118244",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118245",
-        "published": "2026-10-28T18:17:15Z",
-        "description": "Highcharts JS is a JavaScript charting library based on SVG. From 1.0.0 until 4.2.2, Highcharts Dashboards uses chartConstructor as an unchecked property lookup in the Highcharts namespace and invokes the selected member with the component container and chartOptions. An attacker who controls dashboa",
-        "severity": "HIGH",
-        "score": 8.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118245",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118246",
-        "published": "2026-10-28T18:17:15Z",
-        "description": "Highcharts JS is a JavaScript charting library based on SVG. From 10.0.0 until 11.4.9, 12.6.1, and 13.1.0, Highcharts applies breadcrumbs.style as SVG attributes rather than CSS and does not filter the attribute names. An attacker who controls chart configuration can provide event-handler keys throu",
-        "severity": "HIGH",
-        "score": 8.4,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118246",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118247",
-        "published": "2026-10-28T18:17:15Z",
-        "description": "Highcharts JS is a JavaScript charting library based on SVG. From 1.0.0 until Dashboards 4.2.2, and from 2.0.0 until Grid Pro 3.2.0, Highcharts DataTable single-cell writers use an untrusted column ID as a key without rejecting __proto__ or constructor. DataTable.setCell, including Dashboards connec",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118247",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118248",
-        "published": "2026-10-28T18:17:15Z",
-        "description": "Highcharts JS is a JavaScript charting library based on SVG. From 1.0.0 until 4.2.2, Highcharts Dashboards edit mode walks editableOptions propertyPath segments without rejecting prototype-related keys. An attacker who controls editableOptions can provide a path through __proto__ or constructor, and",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118248",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116531",
-        "published": "2026-10-28T18:17:14Z",
-        "description": "HTTP::Body versions before 1.23_01 for Perl lose track of chunk boundaries in chunked request bodies when a read ends inside a chunk.\n\nIn chunked mode, used when no content length is given, add() treats a chunk as complete once the buffer is as long as the chunk's declared size, but the buffer still",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116531",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116794",
-        "published": "2026-10-28T18:17:14Z",
-        "description": "russh is a Rust SSH client and server library that includes an SSH agent protocol implementation. From 0.50.0-beta.12 until 0.65.0, the agent server's Connection::try_sign path in russh/src/keys/agent/server.rs recognizes SSH_AGENT_CONSTRAIN_CONFIRM but returns a hard-coded successful result instead",
-        "severity": "HIGH",
-        "score": 8.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116794",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116795",
-        "published": "2026-10-28T18:17:14Z",
-        "description": "RE2JS is the JavaScript port of RE2, a regular expression engine that provides linear time matching. From 2.2.0 until 2.8.7, enabling LOOKBEHINDS and using repeated matching through matcher().find(), matchAll(), split(), or matcher().replaceAll() can cause quadratic total work. Machine.match restart",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116795",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116796",
-        "published": "2026-10-28T18:17:14Z",
-        "description": "Highcharts JS is a JavaScript charting library based on SVG. From 10.3.2 until 11.4.9, 12.6.2, and 13.1.1, Highcharts accepts an SVG anchor xlink:href attribute without applying the allowed-scheme check used for href and src. An attacker who controls a chart text option can preserve a javascript URL",
-        "severity": "HIGH",
-        "score": 7.2,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116796",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116797",
-        "published": "2026-10-28T18:17:14Z",
-        "description": "Highcharts JS is a JavaScript charting library based on SVG. From 2.0.0 until 3.2.0, Highcharts Grid Pro input renderers copy the cells.renderer.attributes and cells.editMode.renderer.attributes maps to input or select elements with raw setAttribute calls. An attacker who controls column configurati",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116797",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-117500",
-        "published": "2026-10-28T18:17:14Z",
-        "description": "HTTP::Body versions before 1.24_01 for Perl allow CPU exhaustion via regex backtracking on the filename of a multipart upload.\n\nFor every file part, the multipart parser finds the suffix of the uploaded filename by matching the default $basename_regexp, qr/[^.]+(\\.[^\\\\\\/]+)$/, against the whole base",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117500",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-117501",
-        "published": "2026-10-28T18:17:14Z",
-        "description": "HTTP::Body versions before 1.24_01 for Perl allow memory exhaustion via unbounded buffering of chunked request bodies.\n\nIn chunked mode, used when no content length is given, add() holds each chunk in memory until all of it has arrived. A line that is not a chunk-size line, a size line without CRLF,",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117501",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118242",
-        "published": "2026-10-28T18:17:14Z",
-        "description": "Highcharts JS is a JavaScript charting library based on SVG. From 2.3.0 until 3.2.0, Highcharts Grid creates SVG path elements from rendering.icons object definitions and previously copied every child key with setAttribute. An attacker who controls Grid configuration can supply event-handler attribu",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118242",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116266",
-        "published": "2026-10-28T18:17:13Z",
-        "description": "MIME::Head versions from 5.518 before 5.521 for Perl decode a partly encoded multipart boundary without flagging the parse as ambiguous.\n\nThe multipart_boundary() method decodes RFC 2047 encoded words anywhere in the boundary, but the ambiguity check only fires when the whole value is one encoded wo",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116266",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116267",
-        "published": "2026-10-28T18:17:13Z",
-        "description": "MIME::Parser versions before 5.521 for Perl allow memory exhaustion via indented error messages from a truncated, deeply nested message.\n\nEach stored parser diagnostic is indented by three spaces per nesting level. When a message nested N levels deep ends without its closing boundaries, every level ",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116267",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116268",
-        "published": "2026-10-28T18:17:13Z",
-        "description": "MIME::Field::ParamVal versions before 5.521 for Perl allow CPU exhaustion via unclosed comments in header parameters.\n\nThe comment pattern used to parse Content-Type and Content-Disposition parameters scans from each \"(\" to the next \")\". In a field with no \")\", every \"(\" scans to the end of the head",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116268",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116269",
-        "published": "2026-10-28T18:17:13Z",
-        "description": "MIME::Field::ParamVal versions before 5.521 for Perl turn an RFC 2231 filename with a hyphenated language tag into an empty recommended filename.\n\nA parameter such as filename*=utf-8'en-US'payload.exe is converted to an encoded word with the language tag appended to the charset. The decoder strips t",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116269",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116270",
-        "published": "2026-10-28T18:17:13Z",
-        "description": "MIME::Words versions before 5.521 for Perl allow memory exhaustion via repeated \"=?\" sequences in decode_mimewords.\n\nFor each \"=?\" that does not start a complete encoded word, decode_mimewords appends an error message containing the whole input string to $@. A boundary of 8,000 \"=?\" pairs (16,000 by",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116270",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116271",
-        "published": "2026-10-28T18:17:13Z",
-        "description": "MIME::Parser::FileUnder versions before 5.521 for Perl reuse a pre-created output directory and follow symlinks in it, letting local users redirect attachment writes.\n\nEach message is written to a directory named msg-<time>-<pid>-<n> under the output base, and an existing directory of that name is u",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116271",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116272",
-        "published": "2026-10-28T18:17:13Z",
-        "description": "MIME::Field::ParamVal versions before 5.521 for Perl do not flag a duplicate boundary parameter whose name contains a nested comment.\n\nA parameter written boundary((c))=\"A\" or boundary(\\))=\"A\" is stored under that literal name rather than as boundary. A second boundary parameter is then not reported",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116272",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116273",
-        "published": "2026-10-28T18:17:13Z",
-        "description": "MIME::Parser versions before 5.521 for Perl set no limit on the number of message parts by default, allowing memory exhaustion.\n\nThe max_parts option defaulted to -1, which disables the limit, so a parser created with default settings builds an entity for every part however many a message has.\n\nVers",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116273",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116285",
-        "published": "2026-10-28T18:17:13Z",
-        "description": "HTTP::Body versions before 1.23_01 for Perl allow CPU exhaustion via quadratic regex backtracking when parsing chunked request bodies.\n\nIn chunked mode, used when no content length is given, add() matches each chunk-size line with `/^([\\da-fA-F]+).*\\x0D\\x0A/`. On a line of hex digits whose first LF ",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116285",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116131",
-        "published": "2026-10-28T18:17:12Z",
-        "description": "HTTP::Body versions before 1.23_01 for Perl allow memory and temporary file exhaustion via an unlimited number of form fields and multipart parts.\n\nThe urlencoded parser splits the whole body on its separators at once, creating one scalar per separator before any field is stored. This costs about 90",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116131",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116132",
-        "published": "2026-10-28T18:17:12Z",
-        "description": "HTTP::Body versions before 1.23_01 for Perl leave the temporary file of an incomplete multipart upload on disk.\n\nThe multipart parser creates a temporary file as soon as a file part starts, but adds it to the upload list only when the part completes. Uploads are only ever deleted from that list, by ",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116132",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116133",
-        "published": "2026-10-28T18:17:12Z",
-        "description": "HTTP::Body versions before 1.23_01 for Perl allow CPU exhaustion via quadratic rescanning of a multipart body with a missing or malformed boundary.\n\nBefore the first part, and between parts, the multipart parser searches the whole buffered body for the next boundary. On a miss it keeps everything an",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116133",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116134",
-        "published": "2026-10-28T18:17:12Z",
-        "description": "HTTP::Body versions before 1.23_01 for Perl allow memory exhaustion via an unbounded multipart part header block.\n\nThe multipart parser takes everything up to the first blank line after a boundary as the part's header block, with no limit on its size or number of lines. Every line is stored in the p",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116134",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116135",
-        "published": "2026-10-28T18:17:12Z",
-        "description": "HTTP::Body versions before 1.23_01 for Perl drop mixed-case percent escapes from urlencoded form fields instead of decoding them.\n\nThe decode table holds only the all-lowercase and all-uppercase spelling of each hex pair, while the escape pattern matches either case. An escape such as %aB finds no e",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116135",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116264",
-        "published": "2026-10-28T18:17:12Z",
-        "description": "MIME::Field::ParamVal versions before 5.521 for Perl allow one invalid Content-Type parameter to hide the parameters after it, including the multipart boundary.\n\nParameter parsing stops at the first parameter whose name it cannot read, such as x:y=1 or a name containing an 8-bit byte, and drops ever",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116264",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116265",
-        "published": "2026-10-28T18:17:12Z",
-        "description": "MIME::Field::ParamVal versions before 5.521 for Perl do not flag an ambiguous multipart boundary written as RFC 2231 continuations.\n\nThe boundary ambiguity checks look only at a plain boundary= parameter, and a boundary split into RFC 2231 sections (boundary*0=, boundary*1= and so on) is joined afte",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116265",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-110181",
-        "published": "2026-10-28T18:17:05Z",
-        "description": "PostgreSQL Anonymizer contains a vulnerability related to anonymization functions defined using SQL-standard function bodies. PostgreSQL analyses such functions at declaration time, while Anonymizer only attempts to check them at execution time. This problem can be exploited by any user with the TEM",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110181",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-110182",
-        "published": "2026-10-28T18:17:05Z",
-        "description": "PostgreSQL Anonymizer contains a vulnerability related to the anon.partial() and anon.partial_email() functions. These function can reveal the while data if the data is small enough. The issue is fixed in PostgreSQL Anonymizer 3.3.0 and later versions.",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110182",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-110183",
-        "published": "2026-10-28T18:17:05Z",
-        "description": "PostgreSQL Anonymizer contains a vulnerability related to static masking and statistics persistence. Statistics pertaining to the original data remain visible in pg_stats until an ANALYZE operation is performed on the table, either manually or by autovacuum. This issue is fixed in PostgreSQL Anonymi",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110183",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-105620",
-        "published": "2026-10-28T18:17:04Z",
-        "description": "PostgreSQL Anonymizer doesn't mask data returned by a sub-query in a rule. The problem is resolved in PostgreSQL Anonymizer 3.3.0 and later versions.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105620",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-105613",
-        "published": "2026-10-28T18:17:03Z",
-        "description": "PostgreSQL Anonymizer's range-based dummy functions dont constraint the range size. This vulnerability can be exploited to exhaust the memory of a backend and OOM-kill it (when ovecommit is on), which results in a cluster-wide crash recovery. The problem is resolved in PostgreSQL Anonymizer 3.3.0 an",
-        "severity": "MEDIUM",
-        "score": 4.7,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105613",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-105614",
-        "published": "2026-10-28T18:17:03Z",
-        "description": "PostgreSQL Anonymizer's `anon.image_blur()` function doesn't check the declared dimension of the provided image, allowing an attacker to provide a small image with enormous declared dimensions. This vulnerability can be exploited to exhaust the memory of a backend and OOM-kill it (when ovecommit is ",
-        "severity": "MEDIUM",
-        "score": 4.7,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105614",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-105615",
-        "published": "2026-10-28T18:17:03Z",
-        "description": "PostgreSQL's optimized statistics on a table are visible as long as you have SELECT privilege on said table. A masked role can therefore read a limited subset of the data through the statistics view's histograms and mcvs. The vulnerability is resolved in PostgreSQL Anonymizer 3.3.0 and later version",
-        "severity": "LOW",
-        "score": 3.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105615",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-105616",
-        "published": "2026-10-28T18:17:03Z",
-        "description": "PostgreSQL restricts acces to the salt and shift via the `SHOW` command for users not member of `pg_read_all_settings`. But they are visible in `pg_db_role_setting` or `pg_roles` if they were set on the database, user or both. PostgreSQL Anonymizer's documentation recommends to use ALTER DATABASE / ",
-        "severity": "MEDIUM",
-        "score": 5.7,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105616",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-105617",
-        "published": "2026-10-28T18:17:03Z",
-        "description": "PostgreSQL Anonymizer doesn't invalidate plans prepared after a rule was added or a role changed. Users using such plans can still see the unmasked data until the end of the session. The problem is resolved in PostgreSQL Anonymizer 3.3.0 and later versions.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105617",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-105618",
-        "published": "2026-10-28T18:17:03Z",
-        "description": "PostgreSQL Anonymizer's documentation recommends applying rules on partitions and inheritance tables. Direct access to the paritions / inheritance tables is masked but not thru the parent table. The problem is resolved in PostgreSQL Anonymizer 3.3.0 and later versions.",
-        "severity": "MEDIUM",
-        "score": 5.7,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105618",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-105619",
-        "published": "2026-10-28T18:17:03Z",
-        "description": "PostgreSQL Anonymizer doesn't mask data accessed thru a security_invoker view. The problem is resolved in PostgreSQL Anonymizer 3.3.0 and later versions.",
-        "severity": "MEDIUM",
-        "score": 4.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105619",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-105612",
-        "published": "2026-10-28T18:17:02Z",
-        "description": "PostgreSQL Anonymizer contains a vulnerability that data-modifying CTEs to bypass the read-only restriction of masked roles. The problem is resolved in PostgreSQL Anonymizer 3.3.0 and later versions",
-        "severity": "LOW",
-        "score": 3.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105612",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-93523",
-        "published": "2026-10-28T17:18:53Z",
-        "description": "A heap buffer overflow caused by a XIPassiveUngrabDevice request with an out-of-range modifier value in X.Org X Server before 21.1.15 and XWayland before 24.1.14 could be used by authenticated X clients to crash or potentially execute code in X server context.",
-        "severity": "HIGH",
-        "score": 7.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93523",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-93524",
-        "published": "2026-10-28T17:18:53Z",
-        "description": "A buffer overread in CheckKeySyms() in X.Org X Server before 21.1.25 and XWayland before 24.1.14 could be used by authenticated X clients to leak small amounts of information from X server memory or potentially crash the X server.",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93524",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-93536",
-        "published": "2026-10-28T17:18:53Z",
-        "description": "A use after free caused by missing lifecycle management of gesture sprites in GestureBuildSprite() in X.Org X Server before 21.1.25 and XWayland before 24.1.14 could be used by authenticated X clients to crash the X server or potentially execute code.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93536",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-88967",
-        "published": "2026-10-28T17:18:46Z",
-        "description": "A user with query access to an Azure Monitor data source in Grafana can cause server-side requests to an attacker-controlled endpoint that disclose the data source's Azure access token (server-side request forgery).",
-        "severity": "HIGH",
-        "score": 7.7,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88967",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-88858",
-        "published": "2026-10-28T17:18:45Z",
-        "description": "A user with the Viewer role in Grafana can crash the server by submitting a crafted server-side math expression (uncontrolled recursion). A user with permission to provision alert rules can make the outage persist across restarts.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88858",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-82961",
-        "published": "2026-10-28T17:18:43Z",
-        "description": "The GPIO syscall handlers in drivers/gpio/gpio_handlers.c did not validate the pin argument supplied by a user-mode caller. z_vrfy_gpio_pin_configure(), z_vrfy_gpio_pin_get_config() and z_vrfy_gpio_pin_interrupt_configure() verified only the device object (K_SYSCALL_DRIVER_GPIO() / K_SYSCALL_OBJ()) ",
-        "severity": "HIGH",
-        "score": 7.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82961",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-82962",
-        "published": "2026-10-28T17:18:43Z",
-        "description": "ethernet_fill_header() in subsys/net/l2/ethernet/ethernet.c can prepend the Ethernet header in place, by pushing it into the headroom of the packet's first fragment, instead of allocating a separate header fragment. Before this fix the in-place path was selected purely from the build-time value of C",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82962",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-83525",
-        "published": "2026-10-28T17:18:43Z",
-        "description": "Incorrect operator (CWE-480) in the FetchSnapshot RPC handler\nin Apache Kafka from 2.8.0 before 4.2.2, and from 4.3.0 before 4.3.2\non all platforms allows an authenticated attacker with\nCLUSTER_ACTION privilege to cause a denial of service\n(controller process termination) via a crafted\nFetchSnapshot",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-83525",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118619",
-        "published": "2026-10-28T17:18:29Z",
-        "description": "Ultralytics Google Drive Download Path Traversal Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of Ultralytics. User interaction is required to exploit this vulnerability in that the target must visit a malicious pa",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "30",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118619",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118609",
-        "published": "2026-10-28T17:18:28Z",
-        "description": "Alpine iLX-F511 Android Auto Connection Handler Stack-based Buffer Overflow Remote Code Execution Vulnerability. This vulnerability allows physically present attackers to execute arbitrary code on affected installations of Alpine iLX-F511 devices. Authentication is not required to exploit this vulne",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "30",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118609",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118610",
-        "published": "2026-10-28T17:18:28Z",
-        "description": "Alpine iLX-F511 Android Auto Service Stack-based Buffer Overflow Remote Code Execution Vulnerability. This vulnerability allows network-adjacent attackers to execute arbitrary code on affected installations of Alpine iLX-F511 devices. Authentication is not required to exploit this vulnerability.\n\nTh",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "30",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118610",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118611",
-        "published": "2026-10-28T17:18:28Z",
-        "description": "Alpine iLX-F511 Bluetooth OBEX Packet Handling Heap-based Buffer Overflow Remote Code Execution Vulnerability. This vulnerability allows physically present attackers to execute arbitrary code on affected installations of Alpine iLX-F511 devices. Authentication is not required to exploit this vulnera",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "30",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118611",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118613",
-        "published": "2026-10-28T17:18:28Z",
-        "description": "Ultralytics torch_load Deserialization of Untrusted Data Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of Ultralytics. User interaction is required to exploit this vulnerability in that the target must visit a mali",
-        "severity": "HIGH",
-        "score": 7.8,
-        "cvss_version": "30",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118613",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118614",
-        "published": "2026-10-28T17:18:28Z",
-        "description": "Ultralytics check_det_dataset Code Injection Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of Ultralytics. User interaction is required to exploit this vulnerability in that the target must visit a malicious page o",
-        "severity": "HIGH",
-        "score": 7.8,
-        "cvss_version": "30",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118614",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118615",
-        "published": "2026-10-28T17:18:28Z",
-        "description": "Ultralytics torch_safe_load Command Injection Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of Ultralytics. User interaction is required to exploit this vulnerability in that the target must visit a malicious page ",
-        "severity": "HIGH",
-        "score": 7.8,
-        "cvss_version": "30",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118615",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118616",
-        "published": "2026-10-28T17:18:28Z",
-        "description": "Ultralytics parse_model Code Injection Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of Ultralytics. User interaction is required to exploit this vulnerability in that the target must visit a malicious page or open",
-        "severity": "HIGH",
-        "score": 7.8,
-        "cvss_version": "30",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118616",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118617",
-        "published": "2026-10-28T17:18:28Z",
-        "description": "Ultralytics load_dataset_cache_file Deserialization of Untrusted Data Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of Ultralytics. User interaction is required to exploit this vulnerability in that the target must",
-        "severity": "HIGH",
-        "score": 7.8,
-        "cvss_version": "30",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118617",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118618",
-        "published": "2026-10-28T17:18:28Z",
-        "description": "Ultralytics parse_model Code Injection Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of Ultralytics. User interaction is required to exploit this vulnerability in that the target must visit a malicious page or open",
-        "severity": "HIGH",
-        "score": 7.8,
-        "cvss_version": "30",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118618",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118601",
-        "published": "2026-10-28T17:18:27Z",
-        "description": "Alpine iLX-F511 SSH Hard-Coded Credentials Remote Code Execution Vulnerability. This vulnerability allows network-adjacent attackers to execute arbitrary code on affected installations of Alpine iLX-F511 devices. Authentication is not required to exploit this vulnerability.\n\nThe specific flaw exists",
-        "severity": "MEDIUM",
-        "score": 6.3,
-        "cvss_version": "30",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118601",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118602",
-        "published": "2026-10-28T17:18:27Z",
-        "description": "Alpine iLX-F511 Fiv.System Exposed Dangerous Method Local Privilege Escalation Vulnerability. This vulnerability allows local attackers to escalate privileges on affected installations of Alpine iLX-F511. An attacker must first obtain the ability to execute low-privileged code on the target system i",
-        "severity": "HIGH",
-        "score": 7.8,
-        "cvss_version": "30",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118602",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118603",
-        "published": "2026-10-28T17:18:27Z",
-        "description": "Alpine iLX-F511 vCard Parsing Stack-based Buffer Overflow Remote Code Execution Vulnerability. This vulnerability allows network-adjacent attackers to execute arbitrary code on affected Alpine iLX-F511 devices. User interaction is required to exploit this vulnerability in that the target must connec",
-        "severity": "HIGH",
-        "score": 8.0,
-        "cvss_version": "30",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118603",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118604",
-        "published": "2026-10-28T17:18:27Z",
-        "description": "Alpine iLX-F511 Framework Service Stack-based Buffer Overflow Remote Code Execution Vulnerability. This vulnerability allows physically present attackers to execute arbitrary code on affected installations of Alpine iLX-F511 devices. Authentication is not required to exploit this vulnerability.\n\nThe",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "30",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118604",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118605",
-        "published": "2026-10-28T17:18:27Z",
-        "description": "Alpine iLX-F511 prh_sdp_service_search_decode Stack-based Buffer Overflow Remote Code Execution Vulnerability. This vulnerability allows network-adjacent attackers to execute arbitrary code on affected installations of Alpine iLX-F511 devices. An attacker must first obtain the ability to pair a mali",
-        "severity": "HIGH",
-        "score": 8.0,
-        "cvss_version": "30",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118605",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118606",
-        "published": "2026-10-28T17:18:27Z",
-        "description": "Alpine iLX-F511 Framework Service Exposed Dangerous Function Remote Code Execution Vulnerability. This vulnerability allows network-adjacent attackers to execute arbitrary code on affected installations of Alpine iLX-F511 devices. Authentication is not required to exploit this vulnerability.\n\nThe sp",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "30",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118606",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118607",
-        "published": "2026-10-28T17:18:27Z",
-        "description": "Alpine iLX-F511 diagapp Command Injection Vulnerability. This vulnerability allows physically present attackers to execute arbitrary code on affected installations of Alpine iLX-F511 devices. Authentication is not required to exploit this vulnerability.\n\nThe specific flaw exists within the diagapp c",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "30",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118607",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118608",
-        "published": "2026-10-28T17:18:27Z",
-        "description": "Alpine iLX-F511 libanwbtstack.so prh_rfcomm_cc_process_test Out-Of-Bounds Read Information Disclosure Vulnerability. This vulnerability allows network-adjacent attackers to disclose sensitive information on affected installations of Alpine iLX-F511 devices. An attacker must first obtain the ability ",
-        "severity": "LOW",
-        "score": 3.5,
-        "cvss_version": "30",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118608",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118510",
-        "published": "2026-10-28T17:18:26Z",
-        "description": "A type-handling flaw in the relationship query building of this MongoDB integration library can cause a check for the absence of a related record to be compiled with an identifier of the wrong data type. In an application that relies on such a check to decide which documents a request may see or act",
-        "severity": "HIGH",
-        "score": 7.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118510",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118581",
-        "published": "2026-10-28T17:18:26Z",
-        "description": "A BSON encoding component of the MongoDB Java Driver does not verify that an externally supplied raw document's self-declared length agrees with the extent of the byte range it is given before that range is copied into an outgoing database command. An application that wraps untrusted raw bytes in su",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118581",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-117617",
-        "published": "2026-10-28T17:18:21Z",
-        "description": "Jenkins 2.587 and earlier, LTS 2.580.1 and earlier checks for symbolic links in the path of an extracted file only before creating its parent directories, not immediately before writing it, and allows symbolic links in artifacts to replace existing files or empty directories, allowing attackers with",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117617",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-117618",
-        "published": "2026-10-28T17:18:21Z",
-        "description": "In Jenkins 2.587 and earlier, LTS 2.580.1 and earlier, the HTTP endpoint for creating the first user account does not check whether the setup wizard has been completed, resulting in a race condition that allows unauthenticated attackers to create an administrator account while the initial user accou",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117618",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-117619",
-        "published": "2026-10-28T17:18:21Z",
-        "description": "Jenkins 2.587 and earlier, LTS 2.580.1 and earlier allows requests authenticated using HTTP Basic authentication, including with an API token, to obtain a \"remember me\" cookie, allowing attackers who have obtained a user's API token to retain access to Jenkins using a \"remember me\" cookie after the ",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117619",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-117620",
-        "published": "2026-10-28T17:18:21Z",
-        "description": "Jenkins 2.587 and earlier, LTS 2.580.1 and earlier allows attackers with Overall/Read permission to trigger warnings in the \"Manage Old Data\" feature that can be acted on by administrators to inject attacker-controlled data, overriding existing user account information, including login passwords.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117620",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-117621",
-        "published": "2026-10-28T17:18:21Z",
-        "description": "Jenkins 2.587 and earlier, LTS 2.580.1 and earlier computes on the agent the URL of the link shown in the workspace browser for each file and directory, resulting in a cross-site scripting (XSS) vulnerability exploitable by attackers in control of agent processes.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117621",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-117622",
-        "published": "2026-10-28T17:18:21Z",
-        "description": "Jenkins 2.587 and earlier, LTS 2.580.1 and earlier allows agents to send exceptions implementing the Stapler HttpResponse interface to the controller, resulting in a cross-site scripting (XSS) vulnerability exploitable by attackers in control of agent processes.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117622",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-117623",
-        "published": "2026-10-28T17:18:21Z",
-        "description": "Jenkins 2.587 and earlier, LTS 2.580.1 and earlier does not escape the text shown in the tooltips of breadcrumb bar overflow menu entries, resulting in a stored cross-site scripting (XSS) vulnerability exploitable by attackers with Overall/Read permission.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117623",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-117624",
-        "published": "2026-10-28T17:18:21Z",
-        "description": "Jenkins 2.587 and earlier, LTS 2.580.1 and earlier does not consistently enforce the restriction on deserializing objects of types marked as storing their configuration in independent top-level configuration files as nested values, allowing attackers to bypass the root element check and potentially ",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117624",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-117625",
-        "published": "2026-10-28T17:18:21Z",
-        "description": "A missing permission check in Jenkins 2.587 and earlier, LTS 2.580.1 and earlier allows attackers with Overall/Read permission to obtain the server, port, user name, and no-proxy host list of the configured HTTP proxy.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117625",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-117626",
-        "published": "2026-10-28T17:18:21Z",
-        "description": "Jenkins 2.587 and earlier, LTS 2.580.1 and earlier improperly identifies file paths attempting path traversal in the file browser for workspaces and $JENKINS_HOME/userContent/, allowing attackers with Overall/Read permission to obtain the names, sizes, and last modification times of files in the $JE",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117626",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-117612",
-        "published": "2026-10-28T17:18:20Z",
-        "description": "Jenkins 2.587 and earlier, LTS 2.580.1 and earlier does not apply its deserialization filter to classes referenced by the `resolves-to` attribute during XStream deserialization.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117612",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-117613",
-        "published": "2026-10-28T17:18:20Z",
-        "description": "Jenkins 2.587 and earlier, LTS 2.580.1 and earlier does not restrict item types in collections after deserialization, allowing attackers with access to POST config.xml API endpoints to submit crafted `config.xml` files that can lead to, e.g., stored cross-site scripting (XSS) vulnerabilities.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117613",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-117614",
-        "published": "2026-10-28T17:18:20Z",
-        "description": "Jenkins 2.587 and earlier, LTS 2.580.1 and earlier converts the launch commands in older agent configurations into launchers provided by the Command Agent Launcher Plugin without checking whether they have been approved by an administrator, allowing attackers with Agent/Configure permission to execu",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117614",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-117615",
-        "published": "2026-10-28T17:18:20Z",
-        "description": "Jenkins 2.587 and earlier, LTS 2.580.1 and earlier follows symbolic links when copying the directory of an item being renamed, allowing attackers with Item/Create and Item/Configure permission to read arbitrary files on the Jenkins controller file system.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117615",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-117616",
-        "published": "2026-10-28T17:18:20Z",
-        "description": "Jenkins 2.587 and earlier, LTS 2.580.1 and earlier provides an HTTP endpoint that loads agents by name without validating the name, allowing attackers with Overall/Read permission to load any config.xml file on the controller file system as an agent configuration, and to overwrite an arbitrary confi",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117616",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115644",
-        "published": "2026-10-28T17:18:00Z",
-        "description": "Apache Kafka Connect contains an authentication bypass vulnerability affecting the admin REST API when admin.listeners is configured with a separate listener from the main listeners property.\n\nWhen operators isolate the admin REST API by explicitly configuring the \"admin.listeners\" property, REST ex",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115644",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116593",
-        "published": "2026-10-28T17:18:00Z",
-        "description": "Apache Kafka Connect has the /connector-plugins/{connector-type}/config/validate endpoint on its REST API to validate connector configurations.\nApache Kafka Connect also support Configuration Providers which enable to hide the values of sensitive configuration and only resolve them at runtime. \n\nAn ",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116593",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-114349",
-        "published": "2026-10-28T17:17:56Z",
-        "description": "When a broker decodes a compressed record batch, the per-record decoder reads a declared body size from the decompressed stream and allocates a buffer of that size before validating it against the bytes available or any configured limit. The size is attacker-controlled, and the batch CRC does not co",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-114349",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-112375",
-        "published": "2026-10-28T17:17:42Z",
-        "description": "An authenticated Kafka principal with no authorization grants (not even ALTER_CONFIGS) can make a broker read a file or an environment variable from the broker host and return its contents. An IncrementalAlterConfigs (or AlterConfigs) request targeting a BROKER resource reaches the broker's configur",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-112375",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-111496",
-        "published": "2026-10-28T17:17:39Z",
-        "description": "Kafka Streams derives its stream-time clock from record timestamps. PunctuationSchedule.next() computed the next punctuation time as timestamp + (intervalsMissed + 1) * interval with no overflow check. A record with a timestamp at or near Long.MAX_VALUE advances stream time to that value, so the nex",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111496",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-111551",
-        "published": "2026-10-28T17:17:39Z",
-        "description": "Several Kafka deserialization paths read a size or count field from input data and use it directly to allocate an array, collection, or byte buffer, with no check against the bytes actually available. A small crafted input can therefore declare a very large size and force a multi-gigabyte allocation",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111551",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-110985",
-        "published": "2026-10-28T17:17:38Z",
-        "description": "A Kafka broker using SASL/OAUTHBEARER with the default validator (sasl.oauthbearer.jwt.validator.class=DefaultJwtValidator) selects its implementation from configuration. When sasl.oauthbearer.jwks.endpoint.url is set, the validator verifies the JWT signature. When that URL is unset (the default) an",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110985",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-111073",
-        "published": "2026-10-28T17:17:38Z",
-        "description": "The broker-side PushTelemetry API (KIP-714) validates only the compressed size of a client's metrics payload against telemetry.max.bytes (default 1 MB) before decompressing it. ClientTelemetryUtils.decompress() then decompresses the payload with no limit on the decompressed output size, growing a he",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111073",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-111108",
-        "published": "2026-10-28T17:17:38Z",
-        "description": "Apache Kafka's code-generated protocol readers pre-size an array's collection from the element count declared by the sender. That count is checked only against the bytes remaining in the request buffer, which assumes about one byte per element; because most elements need several bytes, a request can",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111108",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-111115",
-        "published": "2026-10-28T17:17:38Z",
-        "description": "Apache Kafka's code-generated readers for flexible protocol versions read a tagged-field count declared by the sender and retain a RawTaggedField object for each unknown field. That count was bounded only by the outer request frame size (socket.request.max.bytes); it was not checked against the rema",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111115",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-110952",
-        "published": "2026-10-28T17:17:37Z",
-        "description": "A Kafka broker that authenticates clients with SASL/OAUTHBEARER using the bundled JWKS-backed validator always verifies the JWT signature, but two further checks are only performed when explicitly configured:\n\n- The issuer (iss) claim is verified only when sasl.oauthbearer.expected.issuer is set. Wh",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110952",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-106079",
-        "published": "2026-10-28T17:17:32Z",
-        "description": "An Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability in AccessManager in Juniper Networks Session Smart Router and Session Smart Conductor allows an attacker with config-write privileges to achieve arbitrary command execution as root in the YANG",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-106079",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-103410",
-        "published": "2026-10-28T17:17:28Z",
-        "description": "An Integer Overflow vulnerability in the DPI certificate scanner in Juniper Networks Session Smart Router allows an unauthenticated remote attacker to cause a denial of service via a specially crafted TLS server certificate.",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103410",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-103411",
-        "published": "2026-10-28T17:17:28Z",
-        "description": "An Integer Underflow vulnerability in DhcpMessageDecoder in Juniper Networks Session Smart Router allows an attacker with local network access to cause information disclosure and a denial of service via a malicious DHCP reply.",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103411",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-103506",
-        "published": "2026-10-28T17:17:28Z",
-        "description": "An authenticated user in Grafana can read SSO client secrets and modify instance-wide SSO settings without the required permissions (missing authorization). This affects Grafana OSS and Enterprise 13.2 installations with the experimental kubernetesSsoSettingsApi feature toggle enabled, which is disa",
-        "severity": "HIGH",
-        "score": 8.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103506",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-103409",
-        "published": "2026-10-28T17:17:27Z",
-        "description": "A Missing authentication for critical function vulnerability in Juniper Networks Session Smart Router allows an unauthenticated network-based attacker to obtain administrative privileges by passing crafted URL parameters to an insecure endpoint running as root.\n\nNote that this vulnerability can only",
-        "severity": "CRITICAL",
-        "score": 9.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103409",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-103407",
-        "published": "2026-10-28T17:17:26Z",
-        "description": "An Improper Limitation of a Pathname to a Restricted Directory vulnerability in ConfigDirector in Juniper Networks Session Smart Router and Session Smart Conductor allows an authenticated REST user to read, overwrite, or delete arbitrary certificate and key files on the host filesystem via the certi",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103407",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-103408",
-        "published": "2026-10-28T17:17:26Z",
-        "description": "A Stack Buffer Overflow vulnerability in the DHCP client in Juniper Networks Session Smart Router allows an unauthenticated attacker on the local network to achieve remote code execution via a malicious DHCP reply.",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103408",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-103404",
-        "published": "2026-10-28T17:17:25Z",
-        "description": "An Incorrect Permission Assignment for Critical Resource vulnerability in RoutingManager in Juniper Networks Session Smart Conductor allows a local user to access sensitive routing credentials via triggering processes that write to the /tmp directory.",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103404",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-103405",
-        "published": "2026-10-28T17:17:25Z",
-        "description": "An Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection') vulnerability in the web server in Juniper Networks Session Smart Router and Session Smart Conductor allows an attacker to inject arbitrary HTTP headers via unsanitized request body parameters.",
-        "severity": "MEDIUM",
-        "score": 5.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103405",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-103406",
-        "published": "2026-10-28T17:17:25Z",
-        "description": "An Improper Neutralization of Special Elements used in an OS Command vulnerability in the AutomatedProvisioner in Juniper Networks Session Smart Conductor allows a remote attacker to execute arbitrary commands as root via a specially crafted salt minion ID.",
-        "severity": "CRITICAL",
-        "score": 9.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103406",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-103401",
-        "published": "2026-10-28T17:17:24Z",
-        "description": "An Improper Link Resolution Before File Access ('Link Following') vulnerability in the unauthenticated web server handlers in Juniper Networks Session Smart Router and Session Smart Conductor allows a local unprivileged user to overwrite arbitrary files as root via unauthenticated API endpoints.\n\nTh",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103401",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-103402",
-        "published": "2026-10-28T17:17:24Z",
-        "description": "An Insufficient Verification of Data Authenticity vulnerability in PCLI in Juniper Networks Session Smart Router and Session Smart Conductor allows an attacker with write access to the model cache directory to execute arbitrary code and escalate privileges via the processing of unverified cache file",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103402",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-103403",
-        "published": "2026-10-28T17:17:24Z",
-        "description": "An Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability in AccessManager in Juniper Networks Session Smart Router and Session Smart Conductor allows an attacker to perform arbitrary file deletion and arbitrary command execution via the deletion of ",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103403",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-103394",
-        "published": "2026-10-28T17:17:23Z",
-        "description": "An Improper Initialization vulnerability in the SSR software in Juniper Networks Session Smart Router allows an attacker to decrypt traffic or cause a denial of service via security policy assignment.",
-        "severity": "LOW",
-        "score": 3.7,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103394",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-103400",
-        "published": "2026-10-28T17:17:23Z",
-        "description": "An Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection') vulnerability in the ember service in Juniper Networks Session Smart Router and Session Smart Conductor allows an attacker with local access to unmount arbitrary filesystems or cause a denial of ser",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103400",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-103391",
-        "published": "2026-10-28T17:17:22Z",
-        "description": "An Out-of-bounds Write vulnerability in the SSR TCP proxy/optimization path in Juniper Networks Session Smart Router allows an attacker to corrupt forwarded packet data and potentially cause a data-plane crash via a transit TCP packet with a crafted TCP option length.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103391",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-103392",
-        "published": "2026-10-28T17:17:22Z",
-        "description": "An Out-of-Bounds Write vulnerability in the TCP header processing in Juniper Networks Session Smart Router allows an attacker to corrupt TCP payload data and potentially cause session desynchronization via a transit TCP packet with an oversized SACK option length.",
-        "severity": "MEDIUM",
-        "score": 4.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103392",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-103393",
-        "published": "2026-10-28T17:17:22Z",
-        "description": "An Out-of-Bounds Read vulnerability in the VRRP implementation in Juniper Networks Session Smart Router allows an L2-adjacent attacker to read stale memory contents or cause a system fault via a specially crafted VRRPv3 advertisement.",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103393",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-100105",
-        "published": "2026-10-28T17:17:21Z",
-        "description": "A user with permission to edit contact points but not their protected fields can change protected settings, such as a contact point's destination URL, by switching an integration to a legacy schema version, which can expose stored credentials and redirect alert notifications (incorrect authorization",
-        "severity": "HIGH",
-        "score": 7.7,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100105",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-103390",
-        "published": "2026-10-28T17:17:21Z",
-        "description": "An Out-of-Bounds Read vulnerability in the HttpParser component in Juniper Networks Session Smart Router and Session Smart Conductor allows an attacker to cause a denial of service via a specially crafted HTTP request.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103390",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-93521",
-        "published": "2026-10-28T16:17:10Z",
-        "description": "A buffer overflow in RandR\nChangeProviderProperty requests in X.Org X Server before 2.1.25 and XWayland before 24.4.14 could be used by authenticated X clients to crash or execute code within the X server context.",
-        "severity": "HIGH",
-        "score": 7.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93521",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-93522",
-        "published": "2026-10-28T16:17:10Z",
-        "description": "A heap buffer overflow caused by mismatched size usage in CopyArea CPU-to-FBO path in X.Org X Server before 21.1.15 and XWayland before 24.1.14 could be used by authenticated X clients to crash or potentially execute code in the X server context.",
-        "severity": "HIGH",
-        "score": 7.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93522",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-50543",
-        "published": "2026-10-28T16:17:08Z",
-        "description": "Xibo is an open source digital signage platform with a web content management system and Windows display player software. Prior to 4.4.3, missing authorization on `POST /displaygroup/criteria/{displayGroupId}` allows an authenticated user to send criteria updates to any display via `XMR`. These crit",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-50543",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-56828",
-        "published": "2026-10-28T16:17:08Z",
-        "description": "Shopper is a Headless e-commerce Admin Panel. From 2.8.0 until 2.8.1, three Shopper Livewire admin components retain authorization gaps after the earlier team-settings authorization fix. A staff member with only `view_users` and `access_dashboard` can mutate permissions, create an administrator, or ",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-56828",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-59979",
-        "published": "2026-10-28T16:17:08Z",
-        "description": "YosemiteCrew provides organization-based service and task management. In the source-reported affected main and dev snapshots, YosemiteCrew's service and PMS task-library/template routes omit organization and permission checks. `authorizeCognito` in `apps/backend/src/middlewares/auth.ts` sets the aut",
-        "severity": "HIGH",
-        "score": 8.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59979",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-67187",
-        "published": "2026-10-28T16:17:08Z",
-        "description": "Ninja Forms plugin for WordPress before 3.15.4 contains an incomplete server-side validation vulnerability that allows unauthenticated attackers to submit arbitrary values to Checkbox List, Multi-Select List, Image List, Country, and State fields because NF_Abstracts_List falls through to a validate",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67187",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118029",
-        "published": "2026-10-28T16:17:07Z",
-        "description": "Unverified ownership of the default query result location in the Athena module in AWS SDK for pandas (awswrangler) before 3.16.1 might allow remote actors to read Athena query results and tamper with result sets returned to the caller via a pre-created S3 bucket. \n\n\n\nTo remediate this issue, users s",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118029",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-44179",
-        "published": "2026-10-28T16:17:07Z",
-        "description": "XWiki Remote Macros provides XWiki rendering macros that are useful when migrating content from Confluence. From 1.13 until 1.14.5, the `excerpt-include` macro does not properly escape the included page's title and executes `excerpt` content with the macro's rights. The title handling in `xwiki-pro-",
-        "severity": "CRITICAL",
-        "score": 9.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-44179",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-47235",
-        "published": "2026-10-28T16:17:07Z",
-        "description": "SimulationCraft is a tool to explore combat mechanics in World of Warcraft. In builds after release-820-01 and before the identified May 7, 2026 nightly, the `bcp_api.cpp` loop over the JSON `sockets` array uses `slot_data[\"sockets\"].Size()` without bounding `gem_idx` by `MAX_GEM_SLOTS`, which is fo",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-47235",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-50539",
-        "published": "2026-10-28T16:17:07Z",
-        "description": "Xibo is an open source digital signage platform with a web content management system and Windows display player software. Prior to 4.4.3, missing object-level authorization on `/notification/export/{id}` allows an authenticated user to download attachments from any notification, including notificati",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-50539",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-50542",
-        "published": "2026-10-28T16:17:07Z",
-        "description": "Xibo is an open source digital signage platform with a web content management system and Windows display player software. Prior to 4.4.3, missing access-control checks on `GET /layout/status/{id}` allow an authenticated user with any privileges to view the `status and metadata` of any layout, includ",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-50542",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116776",
-        "published": "2026-10-28T16:17:06Z",
-        "description": "USB Test is a lightweight Windows CLI utility for verifying sector integrity and detecting overreported capacity on USB flash drives. Prior to version 1.1.5, getSectorSize() in USB Test/src/driveinfo.cpp trusts DISK_GEOMETRY.BytesPerSector returned by IOCTL_DISK_GET_DRIVE_GEOMETRY without checking w",
-        "severity": "HIGH",
-        "score": 7.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116776",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116778",
-        "published": "2026-10-28T16:17:06Z",
-        "description": "FOG is a free open-source cloning/imaging/rescue suite/inventory management system. Prior to 1.5.10.2253 and 1.6.0-RC-1, an authenticated API-enabled user with uType=1 who possesses both the user's API token and the global FOG API token can use PUT /fog/storagenode/{id}/edit to modify Storage Node u",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116778",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-112356",
-        "published": "2026-10-28T16:17:01Z",
-        "description": "GFI KerioConnect (Kerio Connect) before 10.0.9 Patch 2 contains a cross-site scripting vulnerability in the Webmail component that allows a remote attacker to spoof link targets or inject HTML into a message as rendered in a victim's authenticated Webmail session by sending a crafted email whose tex",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-112356",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-112357",
-        "published": "2026-10-28T16:17:01Z",
-        "description": "GFI KerioConnect (Kerio Connect) Outlook Connector (Offline Edition), 'KOFF', before 10.0.9 Patch 2 contains a local privilege escalation vulnerability caused by weak installer permissions that leave the product directory writable by the built-in Users group. A local non-administrative attacker can ",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-112357",
         "kev": false
       }
     ]
