@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-31T13:45:05Z",
+  "updated_at": "2026-10-31T15:41:31Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,61 @@
   ],
   "recent": {
     "lookback_days": 3,
-    "total": 1587,
-    "items_available": 1587,
+    "total": 1569,
+    "items_available": 1569,
     "normalisation_failures": [],
-    "items_parsed": 1587,
+    "items_parsed": 1569,
     "items": [
+      {
+        "id": "CVE-2026-78189",
+        "published": "2026-10-31T15:16:54Z",
+        "description": "WebDyne versions from 3.007 before 3.022 for Perl execute .psp files outside the document root via path traversal in the PSGI API route fallback.\n\nWhen a request matches no file, the PSGI handler retries it as an API route through api_filename. That keeps .. segments in the request path and only che",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-78189",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-78190",
+        "published": "2026-10-31T15:16:54Z",
+        "description": "WebDyne versions from 2.014 before 3.022 for Perl reflect request parameters unescaped into form field values, allowing cross-site scripting.\n\nThe textfield, password_field and filefield tags fill their value attribute from the request parameter of the same name. WEBDYNE_CGI_AUTOESCAPE, which contro",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-78190",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-78191",
+        "published": "2026-10-31T15:16:54Z",
+        "description": "WebDyne versions from 2.031 before 3.022 for Perl execute files with .psp anywhere in the name as Perl pages.\n\nWebDyne decides whether to run a requested file as a page by matching its name against WEBDYNE_PSP_EXT_RE, which has no end anchor.\n\nAn application that accepts uploads by checking only the",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-78191",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-78192",
+        "published": "2026-10-31T15:16:54Z",
+        "description": "WebDyne versions from 2.022 before 3.022 for Perl disclose application source to unauthenticated clients via the viewer in the default index page.\n\nWebDyne's wrapper scripts, such as webdyne.psgi, enable the built-in index page by default. Its source viewer returns files under the document root name",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-78192",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-78188",
+        "published": "2026-10-31T15:16:53Z",
+        "description": "WebDyne versions from 2.014 before 3.022 for Perl issue session cookies without the Secure, HttpOnly and SameSite attributes.\n\nWebDyne::Session sets its session cookie with only a name, value and path.\n\nBrowsers then send the session ID over plain HTTP and with cross-site requests, and expose it to ",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-78188",
+        "kev": false
+      },
       {
         "id": "CVE-2026-15272",
         "published": "2026-10-31T12:16:27Z",
@@ -8346,7 +8396,7 @@
       {
         "id": "CVE-2026-119249",
         "published": "2026-10-29T19:17:21Z",
-        "description": "A malicious actor with access to the network could exploit a Binding to an Unrestricted IP Address vulnerability found in WiFiman Desktop for macOS to obtain information about the host device.",
+        "description": "A malicious actor with access to the network could exploit a Binding to an Unrestricted IP Address vulnerability found in WiFiman Desktop to obtain information about the host device.",
         "severity": "HIGH",
         "score": 7.5,
         "cvss_version": "31",
@@ -8356,7 +8406,7 @@
       {
         "id": "CVE-2026-119250",
         "published": "2026-10-29T19:17:21Z",
-        "description": "A malicious actor with local access and low privileges could exploit an External Control of File Name or Path vulnerability found in WiFiman Desktop for macOS to execute arbitrary commands with root privileges on the host device.",
+        "description": "A malicious actor with local access and low privileges could exploit an External Control of File Name or Path vulnerability found in WiFiman Desktop to execute arbitrary commands with root privileges on the host device.",
         "severity": "HIGH",
         "score": 7.8,
         "cvss_version": "31",
@@ -15651,236 +15701,6 @@
         "score": 8.5,
         "cvss_version": "40",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-112357",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-93518",
-        "published": "2026-10-28T15:17:10Z",
-        "description": "An integer truncation issue in XkbResizeKeyType() that could lead to a heap buffer overflow by authenticated X clients in X.org X server before 21.1.25 and XWayland before 24.1.14 could be exploited for crashes or potential code execution in the X server.",
-        "severity": "HIGH",
-        "score": 7.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93518",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-93519",
-        "published": "2026-10-28T15:17:10Z",
-        "description": "A buffer overflow when handling pointer barriers in the XFIXES extension in X.Org X server before 21.1.25 and XWayland before 24.1.14 could be used by authenticated X clients to crash or potentially execute code in X server context.",
-        "severity": "HIGH",
-        "score": 7.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93519",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-93520",
-        "published": "2026-10-28T15:17:10Z",
-        "description": "A heap buffer overflow caused by mismatching size calculations between XkbAllocNames and  ChangeKeycodeRange in X.org X server before 2.1.25 and XWayland before 24.1.14 could be used by authenticated X clients to crash or potentially execute code in X server context.",
-        "severity": "HIGH",
-        "score": 7.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93520",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115402",
-        "published": "2026-10-28T15:17:04Z",
-        "description": "OpenVPN ovpn-dco-win 0.6.5 through 2.8.13 allows unprivileged local users to cause a denial of service (system crash) via a race condition in the TCP connect path.",
-        "severity": "MEDIUM",
-        "score": 5.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115402",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-106971",
-        "published": "2026-10-28T15:17:02Z",
-        "description": "An integer overflow in the MessagePack\\BufferUnpacker component of rybakit/msgpack versions prior to 0.11.0 allows attackers to cause a denial of service via crafted MessagePack input when the application runs on 32-bit PHP",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-106971",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-106972",
-        "published": "2026-10-28T15:17:02Z",
-        "description": "Uncontrolled recursion in MessagePack\\BufferUnpacker::unpack() in rybakit/msgpack versions prior to 0.11.0 allows attackers to cause a denial of service through memory exhaustion when an application decodes deeply nested, attacker-controlled MessagePack input.",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-106972",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-93517",
-        "published": "2026-10-28T14:17:08Z",
-        "description": "A heap buffer overflow in handling GLX\nRenderLarge request where dataBytes exceeds cmdlen in X.org X server before 21.1.25 and XWayland before 24.1.14 that could be be triggered by an authenticated X client could cause crashes or code execution in X server context.",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93517",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-59185",
-        "published": "2026-10-28T14:17:05Z",
-        "description": "identrail is a machine identity security platform for AWS, GitHub/OIDC, and Kubernetes. Prior to 1.0.2, the default-on `POST /v1/workspaces/:workspace_id/projects/:project_id/github/connect/complete` endpoint in `internal/api/router.go` accepts `installation_id` from the request body or `X-GitHub-In",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59185",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-59959",
-        "published": "2026-10-28T14:17:05Z",
-        "description": "SAIL is a cross-platform library for loading and saving images with support for animation, metadata, and ICC profiles. Prior to version 1.0.2, the built-in WebP decoder can crash during loader initialization when processing a malformed animated WebP file with inconsistent container or `ANMF` frame m",
-        "severity": "MEDIUM",
-        "score": 4.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59959",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-52729",
-        "published": "2026-10-28T14:17:04Z",
-        "description": "Xibo is an open source digital signage platform with a web content management system and Windows display player software. Prior to 4.4.3, missing access-control checks on `PUT/DELETE /action/{id}` allow an authenticated user to modify or delete actions on any Layout. Exploitation requires the privil",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-52729",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-59164",
-        "published": "2026-10-28T14:17:04Z",
-        "description": "NORA is a self-hosted artifact registry and pull-through cache. Prior to 0.9.5, `nora-registry` authenticates the token-management UI but fails to require administrator authorization. `auth_middleware()` protects `/ui/tokens` and `/api/ui/tokens`, but state-changing requests are checked only with `r",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59164",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-59172",
-        "published": "2026-10-28T14:17:04Z",
-        "description": "Joker is a small Clojure interpreter, linter and formatter written in Go. Prior to 1.8.2, `joker --lint <file>` walks upward from the linted file to locate a `.jokerd/` directory and executes matching `linter.*` files before linting. Those files contain executable Joker/Clojure code, so linting a fi",
-        "severity": "HIGH",
-        "score": 7.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59172",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-59176",
-        "published": "2026-10-28T14:17:04Z",
-        "description": "Functype is a family of TypeScript functional programming libraries. Prior to 1.4.4, the `set_functype_version` MCP tool in `functype-mcp-server` accepts an unconstrained `version` string using only `z.string()` validation in `packages/mcp-server/src/index.ts` and interpolates it into `functype@<ver",
-        "severity": "HIGH",
-        "score": 7.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59176",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-59177",
-        "published": "2026-10-28T14:17:04Z",
-        "description": "ESPHome Device Builder Dashboard is a dashboard for the ESPHome home management software. Prior to 1.0.10, the `Home Assistant` add-on's trusted `ingress` site binds to `0.0.0.0` while intentionally skipping dashboard authentication because the supervisor is expected to authenticate requests upstrea",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59177",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-59179",
-        "published": "2026-10-28T14:17:04Z",
-        "description": "OpenHop is a tool for creating interactive data-flow diagrams. Prior to 0.3.7, `@openhop/server` passes unauthenticated flow route parameters from `GET /api/flows/:id` and `DELETE /api/flows/:id` in `packages/server/src/routes.ts` to `FlowStore.filePath()` in `packages/server/src/store.ts` without a",
-        "severity": "HIGH",
-        "score": 8.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59179",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-50541",
-        "published": "2026-10-28T14:17:03Z",
-        "description": "Xibo is an open source digital signage platform with a web content management system and Windows display player software. Prior to 4.4.3, missing access-control checks on `GET /dataset/export/csv/{id}` allow an authenticated user to export data from any dataset, including datasets created by adminis",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-50541",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115968",
-        "published": "2026-10-28T14:16:58Z",
-        "description": "Deserialization of Untrusted Data vulnerability in Ultimate Member Ultimate Member ultimate-member allows Object Injection.This issue affects Ultimate Member: from n/a through 2.13.1.",
-        "severity": "CRITICAL",
-        "score": 9.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115968",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116078",
-        "published": "2026-10-28T14:16:58Z",
-        "description": "Allocation of Resources Without Limits or Throttling vulnerability in the HTTP/2 request body reader of mtrudel bandit allows an unauthenticated remote attacker to exhaust server memory via a request body sent as many 1-byte DATA frames.\n\ndo_read_data/5 in lib/bandit/http2/stream.ex keeps every DATA",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116078",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116389",
-        "published": "2026-10-28T14:16:58Z",
-        "description": "Deserialization of Untrusted Data vulnerability in crossi72 Phoenix Media Rename phoenix-media-rename allows Object Injection.This issue affects Phoenix Media Rename: from n/a through 3.13.5.",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116389",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116390",
-        "published": "2026-10-28T14:16:58Z",
-        "description": "Deserialization of Untrusted Data vulnerability in stepasyuk Filter Everything&nbsp;— WordPress &amp; WooCommerce Filters filter-everything allows Object Injection.This issue affects Filter Everything&nbsp;— WordPress &amp; WooCommerce Filters: from n/a through 1.9.7.",
-        "severity": "HIGH",
-        "score": 7.2,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116390",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115590",
-        "published": "2026-10-28T14:16:57Z",
-        "description": "Deserialization of Untrusted Data vulnerability in weDevs Dokan dokan-lite allows Object Injection.This issue affects Dokan: from n/a through 5.3.1.",
-        "severity": "HIGH",
-        "score": 7.2,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115590",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115603",
-        "published": "2026-10-28T14:16:57Z",
-        "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Advanced Ads GmbH Advanced Ads – Tracking advanced-ads-tracking allows Blind SQL Injection.This issue affects Advanced Ads – Tracking: from n/a before 4.0.0.",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115603",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-105420",
-        "published": "2026-10-28T14:16:56Z",
-        "description": "Wing FTP Server does not verify user's base folder. An attacker with admin privileges can add user directories via scripts, allowing the added directories to escape the base folder. This allows the attacker to write files on the system and can lead to remote code execution with process owner privile",
-        "severity": "CRITICAL",
-        "score": 9.4,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105420",
         "kev": false
       }
     ]
