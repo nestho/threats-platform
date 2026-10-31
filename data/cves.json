@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-30T22:55:56Z",
+  "updated_at": "2026-10-31T00:54:56Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,221 @@
   ],
   "recent": {
     "lookback_days": 3,
-    "total": 2066,
-    "items_available": 2066,
+    "total": 2017,
+    "items_available": 2017,
     "normalisation_failures": [],
-    "items_parsed": 2066,
+    "items_parsed": 2017,
     "items": [
+      {
+        "id": "CVE-2026-117656",
+        "published": "2026-10-31T00:16:51Z",
+        "description": "Acceptance of Extraneous Untrusted Data With Trusted Data vulnerability in the Sign in with Apple strategy in pow-auth Assent allows an unauthenticated remote attacker to impersonate another user via the user parameter of the authorization callback.\n\nApple posts the user's name to the callback endpo",
+        "severity": "CRITICAL",
+        "score": 9.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117656",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-77152",
+        "published": "2026-10-31T00:16:51Z",
+        "description": "Improper Authorization vulnerability in Drupal Field Collection for Drupal 7 allows a user with the \"edit field collections\" permission to bypass access control on the parent (host) entity.\n\nThe access check for field collection items (field_collection_item_access()) granted edit and delete access t",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-77152",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-63400",
+        "published": "2026-10-30T23:17:15Z",
+        "description": "Coop is an open source review and moderation tool from ROOST. Prior to 1.0.2, `resetPasswordForToken` updates the password row without invalidating database-backed sessions. An attacker who has acquired a password and established a session retains access even after the legitimate user resets the pas",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63400",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-63401",
+        "published": "2026-10-30T23:17:15Z",
+        "description": "Coop is an open source review and moderation tool from ROOST. Prior to 1.0.2, `addAccessibleQueuesForUser` and `removeAccessibleQueuesForUser` accepted arbitrary `queueId` and `userId` values without organization scoping. An authenticated user belonging to one organization and holding MRT queue-edit",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63401",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-63402",
+        "published": "2026-10-30T23:17:15Z",
+        "description": "i18next is an internationalization framework for JavaScript. Prior to version 26.3.4, `deepExtend` in `src/utils.js` checks property existence with the in operator and recurses into inherited built-ins reached through `Object.prototype`. An application must explicitly pass attacker-controlled resour",
+        "severity": "MEDIUM",
+        "score": 5.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63402",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-63410",
+        "published": "2026-10-30T23:17:15Z",
+        "description": "secp256k1-native is a native C secp256k1 implementation for Ruby. In affected native builds, native constant-time scalar multiplication through `Point#mul` or `scalar_multiply_ct` can leak timing information about a secret scalar when compiled by a toolchain that reconstructs branchless selection in",
+        "severity": "MEDIUM",
+        "score": 5.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63410",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-63414",
+        "published": "2026-10-30T23:17:15Z",
+        "description": "Shopify App is a Rails engine for building Shopify applications. From 22.1.0 until 23.0.3, `token-exchange` authenticated controllers can expose a request-derived `shop` context instead of the identity from a verified Shopify ID token or active Shopify session. `current_shopify_domain` can resolve t",
+        "severity": "HIGH",
+        "score": 7.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63414",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-63346",
+        "published": "2026-10-30T23:17:14Z",
+        "description": "Refitter is a tool for generating a C# REST API client using the Refit library. Prior to 2.1.2, the header parameter name in `parameters[].name` with `in: header` is emitted verbatim into a Refit `[Header(\"<name>\")]` attribute string without escaping quotation marks. An attacker-influenced OpenAPI d",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63346",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-63377",
+        "published": "2026-10-30T23:17:14Z",
+        "description": "TAKO AI Agent for Okta is a local-first AI agent that helps Okta administrators query tenant data using natural language. Prior to 3.0.1-beta, `POST /api/auth/setup` in `src/api/routers/auth.py` allows an unauthenticated network attacker to create the first administrator account before the legitimat",
+        "severity": "CRITICAL",
+        "score": 9.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63377",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-63378",
+        "published": "2026-10-30T23:17:14Z",
+        "description": "TAKO AI Agent for Okta is a local-first AI agent that helps Okta administrators query tenant data using natural language. Prior to 3.0.1-beta, any authenticated user with a valid `fctr_session` cookie can submit arbitrary Python source in the `script_code` field of `POST /api/react/execute-script`, ",
+        "severity": "HIGH",
+        "score": 8.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63378",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-63393",
+        "published": "2026-10-30T23:17:14Z",
+        "description": "OpenSearch SQL supports querying OpenSearch data using SQL and Piped Processing Language. In the 2.x line from 2.8.0.0 until 2.19.6.0, and the 3.x line prior to 3.7.0.0, a remote authenticated user with basic read/search permissions can provide a crafted `cursor` parameter to the `plugins/sql` endpo",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63393",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-63396",
+        "published": "2026-10-30T23:17:14Z",
+        "description": "Coop is an open source review and moderation tool from ROOST. Prior to 1.0.0, an unauthenticated actor can query `Query.allOrgs` through `/api/v1/graphql` on a publicly accessible deployment and obtain data for all organizations, including organization IDs, names, email addresses, website URLs and o",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63396",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-63398",
+        "published": "2026-10-30T23:17:14Z",
+        "description": "Coop is an open source review and moderation tool from ROOST. Prior to 1.0.2, the SAML strategy's verify callback resolved the authenticated user by email alone using `kyselyUserFindByEmail`, without binding the lookup to the organization in `/saml/login/:orgId/callback`. An attacker who administers",
+        "severity": "HIGH",
+        "score": 7.4,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63398",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-63399",
+        "published": "2026-10-30T23:17:14Z",
+        "description": "Coop is an open source review and moderation tool from ROOST. Prior to 1.0.0, the `GraphQL` `Mutation.createOrg` operation allows an unauthenticated actor to create arbitrary organizations on a publicly accessible instance. In addition to creating noise in the logs, the lack of rate limiting could p",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63399",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-63338",
+        "published": "2026-10-30T23:17:13Z",
+        "description": "IXP Manager is a full-stack web application for managing Internet Exchange Points. Prior to version 7.3.0, an authenticated user can view and edit a resource belonging to another user without authorization. The API-key edit/update path in `ApiKeyController` selects records by identifier without chec",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63338",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-63339",
+        "published": "2026-10-30T23:17:13Z",
+        "description": "IXP Manager is a full-stack web application for managing Internet Exchange Points. Prior to version 7.3.0, an authenticated, non-administrative user can elevate their privileges to administrator status. Restricting administrative functions reduces exposure but is not a complete fix. This issue is fi",
+        "severity": "HIGH",
+        "score": 8.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63339",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-63341",
+        "published": "2026-10-30T23:17:13Z",
+        "description": "Aedes is an MQTT broker that can run on any stream server. Prior to 1.1.1, the MQTT broker does not bound topic depth or structural complexity before passing topics through `mqemitter` into `qlobber`. A `PUBLISH`, `SUBSCRIBE`, or registered `Will` message containing an excessively deep topic can rea",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63341",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-63344",
+        "published": "2026-10-30T23:17:13Z",
+        "description": "Refitter is a tool for generating a C# REST API client using the Refit library. Prior to 2.1.2, content-type keys in the content maps of `requestBody/responses` are emitted verbatim into a Refit `[Headers(\"Accept: <ct>\", \"Content-Type: <ct>\")]` attribute string without escaping quotation marks. A cr",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63344",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-63345",
+        "published": "2026-10-30T23:17:13Z",
+        "description": "Refitter is a tool for generating a C# REST API client using the Refit library. Prior to 2.1.2, OpenAPI `paths`-object keys are emitted verbatim into Refit route attributes such as `[Get(\"<path>\")]` without escaping quotation marks or restricting characters. An attacker-influenced single-line, slash",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63345",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-61725",
+        "published": "2026-10-30T23:17:11Z",
+        "description": "sevenz-rust2 is a Rust-native 7z compressor and `decompress`or. Prior to 0.21.1, extracting an attacker-supplied 7z archive can write or overwrite files outside the destination directory. In `src/util/decompress.rs`, `decompress_impl` computes each destination with `dest.join(entry.name())` without ",
+        "severity": "MEDIUM",
+        "score": 6.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-61725",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-111477",
+        "published": "2026-10-30T23:17:09Z",
+        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111477",
+        "kev": false
+      },
       {
         "id": "CVE-2026-63121",
         "published": "2026-10-30T22:16:58Z",
@@ -7617,8 +7827,8 @@
         "id": "CVE-2026-118764",
         "published": "2026-10-29T17:18:07Z",
         "description": "minimatch is a minimal matching utility for converting glob expressions into JavaScript RegExp objects. Prior to 11.0.1, src/index.ts implements firstPhasePreProcess() so that, at optimizationLevel 2 or higher, it repeatedly expands attacker-controlled **/.. pattern segments inside a fixpoint loop, ",
-        "severity": "HIGH",
-        "score": 8.7,
+        "severity": "MEDIUM",
+        "score": 6.9,
         "cvss_version": "40",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118764",
         "kev": false
@@ -19971,706 +20181,6 @@
         "score": 9.8,
         "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110879",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-104895",
-        "published": "2026-10-28T00:17:11Z",
-        "description": "The asynchronous Smile parser (NonBlockingByteArrayParser) uses a raw-binary length prefix taken from untrusted input to allocate a byte[] before the body is read, with no upper bound and no overflow check. On the raw-binary marker 0xFD, _decodeVInt() computes (value << 6) + (i & 0x3F) without the (",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-104895",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118129",
-        "published": "2026-10-28T00:17:11Z",
-        "description": "A vulnerability was found in jeremyckahn Chitchatter up to f82538633813c854a81a8b2112a2f6ba17b39cbc. The affected element is the function isConfigMessageEvent of the file src/Bootstrap.tsx of the component PostMessage Handler. Performing a manipulation of the argument parentDomain results in imprope",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118129",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-104016",
-        "published": "2026-10-28T00:17:10Z",
-        "description": "ProtobufParser parses length-prefixed protobuf string and bytes fields by checking (_inputPtr + len) <= _inputEnd and then, on the fast path, calling _finishShortText(len). Both use 32-bit signed integer arithmetic. When an attacker supplies a varint decoding to a length near Integer.MAX_VALUE, _inp",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-104016",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-58256",
-        "published": "2026-10-27T23:17:06Z",
-        "description": "GRR is a resource management and reservation application. Prior to the advisory-reported fixed version 4.5.0, an administrator can inject malicious PHP through LDAP connector configuration parameters such as `ldap_filter`, poisoning `/personnalisation/config_ldap.inc.php` and permitting remote code ",
-        "severity": "CRITICAL",
-        "score": 9.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-58256",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-58257",
-        "published": "2026-10-27T23:17:06Z",
-        "description": "GRR is a resource management and reservation application. Prior to the advisory-reported fixed version 4.5.0, the database restoration feature fails to enforce or validate file paths. A user with administrator privileges can manipulate the input to read or delete arbitrary files on the server, causi",
-        "severity": "HIGH",
-        "score": 7.2,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-58257",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-58496",
-        "published": "2026-10-27T23:17:06Z",
-        "description": "Thor Vector Graphics (ThorVG) is a production-ready vector graphics engine. Prior to 1.0.7, the `SFNT/TTF` font loader's `SfntLoader::gen` function in `tvgSfntLoader.cpp` reads `data[0] through data[3]` to identify the font type without first checking that the input buffer contains at least four byt",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-58496",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-59158",
-        "published": "2026-10-27T23:17:06Z",
-        "description": "Nuxt Ollama integrates the official Ollama JavaScript library into Nuxt applications. Prior to 1.3.1, `src/module.ts` unconditionally merges all module options, including a configured cloud `api_key`, into `runtimeConfig.public.ollama`. Nuxt serializes this public configuration into the server-rende",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59158",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118358",
-        "published": "2026-10-27T23:17:05Z",
-        "description": "Memory corruption in WebAudio in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118358",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118359",
-        "published": "2026-10-27T23:17:05Z",
-        "description": "Memory corruption in V8 in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118359",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-18326",
-        "published": "2026-10-27T23:17:05Z",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18326",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-22063",
-        "published": "2026-10-27T23:17:05Z",
-        "description": "The private keys of eight eMudhra intermediate CA certificates have been compromised. eMudhra revoked the eight affected intermediate certificates on October 18, 2026. While this is not a software vulnerability, CVE-2026-22063 has been assigned to track relevant changes in impacted NetApp products.",
-        "severity": "MEDIUM",
-        "score": 6.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-22063",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-50571",
-        "published": "2026-10-27T23:17:05Z",
-        "description": "WebSub is a W3C recommendation produced by the Social Web Working Group. In recommendation REC-websub-20180123, the intent-verification protocol requires a subscriber to echo the `hub.challenge` value, also exposed as `hub_challenge` by some frameworks, but does not require safe response media typin",
-        "severity": "MEDIUM",
-        "score": 5.7,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-50571",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-58205",
-        "published": "2026-10-27T23:17:05Z",
-        "description": "GRR is a resource management and reservation application. Prior to version 4.5.0, `maj.php` reflects the `forcemaj` parameter without adequate escaping when installation files remain accessible. Removal of these files is not automatic. An attacker can craft a URL that executes arbitrary JavaScript i",
-        "severity": "HIGH",
-        "score": 8.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-58205",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-58255",
-        "published": "2026-10-27T23:17:05Z",
-        "description": "Cronicle is a multi-server task scheduler and runner, with a web based front-end UI. Prior to 0.9.121, a non-administrator user or scoped API key with `create_events` and `run_events` privileges can inject top-level `uid` and `gid` fields through `/api/app/create_event` or `/api/app/update_event`. I",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-58255",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118350",
-        "published": "2026-10-27T23:17:04Z",
-        "description": "Use after free in Turbolev in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118350",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118351",
-        "published": "2026-10-27T23:17:04Z",
-        "description": "Memory corruption in Skia in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118351",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118352",
-        "published": "2026-10-27T23:17:04Z",
-        "description": "Memory corruption in Cache in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118352",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118353",
-        "published": "2026-10-27T23:17:04Z",
-        "description": "Use after free in Paint in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118353",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118354",
-        "published": "2026-10-27T23:17:04Z",
-        "description": "Improper input validation in Skia in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118354",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118355",
-        "published": "2026-10-27T23:17:04Z",
-        "description": "Improper input validation in Command in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code outside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "CRITICAL",
-        "score": 9.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118355",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118356",
-        "published": "2026-10-27T23:17:04Z",
-        "description": "Use after free in WTF in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118356",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118357",
-        "published": "2026-10-27T23:17:04Z",
-        "description": "Use after free in FileSystem in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118357",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118341",
-        "published": "2026-10-27T23:17:03Z",
-        "description": "Use after free in Modularization in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118341",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118342",
-        "published": "2026-10-27T23:17:03Z",
-        "description": "Out of bounds write in Editing in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code outside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "CRITICAL",
-        "score": 9.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118342",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118343",
-        "published": "2026-10-27T23:17:03Z",
-        "description": "Improper input validation in ReadingList in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118343",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118344",
-        "published": "2026-10-27T23:17:03Z",
-        "description": "Use after free in Layout in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: Critical)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118344",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118345",
-        "published": "2026-10-27T23:17:03Z",
-        "description": "Use after free in PDFium in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118345",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118346",
-        "published": "2026-10-27T23:17:03Z",
-        "description": "Use after free in Compositing in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118346",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118347",
-        "published": "2026-10-27T23:17:03Z",
-        "description": "Use after free in FileSystem in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118347",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118348",
-        "published": "2026-10-27T23:17:03Z",
-        "description": "Improper input validation in Skia in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: Critical)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118348",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118349",
-        "published": "2026-10-27T23:17:03Z",
-        "description": "Memory corruption in Payments in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118349",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118337",
-        "published": "2026-10-27T23:17:02Z",
-        "description": "Improper access control in Forms in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to bypass web origin policy via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118337",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118338",
-        "published": "2026-10-27T23:17:02Z",
-        "description": "Use after free in Animation in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: Medium)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118338",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118339",
-        "published": "2026-10-27T23:17:02Z",
-        "description": "Use after free in Animation in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118339",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118340",
-        "published": "2026-10-27T23:17:02Z",
-        "description": "Memory corruption in Skia in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code outside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "CRITICAL",
-        "score": 9.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118340",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118328",
-        "published": "2026-10-27T23:17:01Z",
-        "description": "Improper input validation in WebRTC in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118328",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118329",
-        "published": "2026-10-27T23:17:01Z",
-        "description": "Improper input validation in ANGLE in Google Chrome on on Mac prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118329",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118330",
-        "published": "2026-10-27T23:17:01Z",
-        "description": "Use after free in Browser in Google Chrome on on Windows prior to 156.0.8078.73 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118330",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118331",
-        "published": "2026-10-27T23:17:01Z",
-        "description": "Improper input validation in FileAPI in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: Critical)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118331",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118332",
-        "published": "2026-10-27T23:17:01Z",
-        "description": "Improper input validation in Compositing in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code outside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "CRITICAL",
-        "score": 9.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118332",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118333",
-        "published": "2026-10-27T23:17:01Z",
-        "description": "Missing authorization in Video in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to bypass web origin policy via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118333",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118334",
-        "published": "2026-10-27T23:17:01Z",
-        "description": "Use after free in ImageCapture in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118334",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118335",
-        "published": "2026-10-27T23:17:01Z",
-        "description": "Improper input validation in Metrics in Google Chrome on on Mac prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118335",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118336",
-        "published": "2026-10-27T23:17:01Z",
-        "description": "Improper input validation in Headless in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118336",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118315",
-        "published": "2026-10-27T23:17:00Z",
-        "description": "Improper input validation in SVG in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118315",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118316",
-        "published": "2026-10-27T23:17:00Z",
-        "description": "Improper input validation in V8 in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code outside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "CRITICAL",
-        "score": 9.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118316",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118317",
-        "published": "2026-10-27T23:17:00Z",
-        "description": "Memory corruption in HTML in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118317",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118318",
-        "published": "2026-10-27T23:17:00Z",
-        "description": "Improper access control in V8 in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to read memory via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118318",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118319",
-        "published": "2026-10-27T23:17:00Z",
-        "description": "Memory corruption in Skia in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially read memory inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118319",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118320",
-        "published": "2026-10-27T23:17:00Z",
-        "description": "Memory corruption in V8 in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118320",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118321",
-        "published": "2026-10-27T23:17:00Z",
-        "description": "Improper input validation in Core in Google Chrome on on Android prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code outside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "CRITICAL",
-        "score": 9.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118321",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118322",
-        "published": "2026-10-27T23:17:00Z",
-        "description": "Memory corruption in ANGLE in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially read memory inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118322",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118327",
-        "published": "2026-10-27T23:17:00Z",
-        "description": "Memory corruption in Media in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118327",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118306",
-        "published": "2026-10-27T23:16:59Z",
-        "description": "Memory corruption in FileSystem in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code outside the sandbox via a crafted HTML page. (Chromium security severity: Critical)",
-        "severity": "CRITICAL",
-        "score": 9.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118306",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118307",
-        "published": "2026-10-27T23:16:59Z",
-        "description": "Use after free in Paint in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118307",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118308",
-        "published": "2026-10-27T23:16:59Z",
-        "description": "Use after free in SVG in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code outside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "CRITICAL",
-        "score": 9.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118308",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118309",
-        "published": "2026-10-27T23:16:59Z",
-        "description": "Improper input validation in UI in Google Chrome on on Android prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code outside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "CRITICAL",
-        "score": 9.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118309",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118310",
-        "published": "2026-10-27T23:16:59Z",
-        "description": "Improper input validation in Views in Google Chrome on on Windows prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code outside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "CRITICAL",
-        "score": 9.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118310",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118311",
-        "published": "2026-10-27T23:16:59Z",
-        "description": "Memory corruption in Media in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118311",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118312",
-        "published": "2026-10-27T23:16:59Z",
-        "description": "Memory corruption in Paint in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code outside the sandbox via a crafted HTML page. (Chromium security severity: Medium)",
-        "severity": "CRITICAL",
-        "score": 9.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118312",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118313",
-        "published": "2026-10-27T23:16:59Z",
-        "description": "Use after free in Video in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118313",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118314",
-        "published": "2026-10-27T23:16:59Z",
-        "description": "Improper input validation in UI in Google Chrome on on Android prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118314",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118128",
-        "published": "2026-10-27T23:16:58Z",
-        "description": "A vulnerability has been found in a2aproject a2a-js up to 1.1.0. Impacted is the function ResultManager.applyStatusUpdate of the file src/server/result_manager.ts of the component Task Status Update Handler. Such manipulation leads to race condition. The attack may be launched remotely. Upgrading to",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118128",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118304",
-        "published": "2026-10-27T23:16:58Z",
-        "description": "Improper input validation in SVG in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118304",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118305",
-        "published": "2026-10-27T23:16:58Z",
-        "description": "Memory corruption in Turbolev in Google Chrome prior to 156.0.8078.73 allowed a remote attacker to potentially execute arbitrary code outside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": "CRITICAL",
-        "score": 9.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118305",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-111467",
-        "published": "2026-10-27T23:16:57Z",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111467",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-111479",
-        "published": "2026-10-27T23:16:57Z",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111479",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-111563",
-        "published": "2026-10-27T23:16:57Z",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111563",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-112155",
-        "published": "2026-10-27T23:16:57Z",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-112155",
-        "kev": false
-      },
-      {
-        "id": "CVE-2025-12534",
-        "published": "2026-10-27T23:16:56Z",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-12534",
         "kev": false
       }
     ]
