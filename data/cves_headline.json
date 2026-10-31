@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-31T13:45:05Z",
+  "updated_at": "2026-10-31T15:41:31Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,61 @@
   ],
   "note": "Bounded slice of cves.json for the homepage. Use /data/cves.json for the full window.",
   "normalisation_failures": [],
-  "recent_total": 1587,
+  "recent_total": 1569,
   "kev_total": 110,
   "kev_catalog_total": 1766,
   "total": 25,
   "items": [
+    {
+      "id": "CVE-2026-78189",
+      "published": "2026-10-31T15:16:54Z",
+      "description": "WebDyne versions from 3.007 before 3.022 for Perl execute .psp files outside the document root via path traversal in the PSGI API route fallback.\n\nWhen a request matches no file, the PSGI handler retries it as an API route through api_filename. That keeps .. segments in the request path and only che",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-78189",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-78190",
+      "published": "2026-10-31T15:16:54Z",
+      "description": "WebDyne versions from 2.014 before 3.022 for Perl reflect request parameters unescaped into form field values, allowing cross-site scripting.\n\nThe textfield, password_field and filefield tags fill their value attribute from the request parameter of the same name. WEBDYNE_CGI_AUTOESCAPE, which contro",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-78190",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-78191",
+      "published": "2026-10-31T15:16:54Z",
+      "description": "WebDyne versions from 2.031 before 3.022 for Perl execute files with .psp anywhere in the name as Perl pages.\n\nWebDyne decides whether to run a requested file as a page by matching its name against WEBDYNE_PSP_EXT_RE, which has no end anchor.\n\nAn application that accepts uploads by checking only the",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-78191",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-78192",
+      "published": "2026-10-31T15:16:54Z",
+      "description": "WebDyne versions from 2.022 before 3.022 for Perl disclose application source to unauthenticated clients via the viewer in the default index page.\n\nWebDyne's wrapper scripts, such as webdyne.psgi, enable the built-in index page by default. Its source viewer returns files under the document root name",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-78192",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-78188",
+      "published": "2026-10-31T15:16:53Z",
+      "description": "WebDyne versions from 2.014 before 3.022 for Perl issue session cookies without the Secure, HttpOnly and SameSite attributes.\n\nWebDyne::Session sets its session cookie with only a name, value and path.\n\nBrowsers then send the session ID over plain HTTP and with cross-site requests, and expose it to ",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-78188",
+      "kev": false
+    },
     {
       "id": "CVE-2026-15272",
       "published": "2026-10-31T12:16:27Z",
@@ -211,56 +261,6 @@
       "score": 7.2,
       "cvss_version": "31",
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120075",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-101325",
-      "published": "2026-10-31T09:16:32Z",
-      "description": "The Newsletters plugin for WordPress is vulnerable to time-based SQL Injection via the 'id' parameter in all versions up to, and including, 4.18.1 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for auth",
-      "severity": "MEDIUM",
-      "score": 5.3,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101325",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-103882",
-      "published": "2026-10-31T09:16:32Z",
-      "description": "The Acadlix LMS – AI Quiz Maker, Online Exam & Course Plugin for WordPress plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the post_delete_assessment_file_by_id function in all versions up to, and including, 1.1.9. This makes it possible for ",
-      "severity": "CRITICAL",
-      "score": 9.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103882",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-103915",
-      "published": "2026-10-31T09:16:32Z",
-      "description": "The Booking for Appointments and Events Calendar – Amelia plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 2.4.12 via the 'page' parameter. This makes it possible for unauthenticated attackers to extract staff personally identifiable informat",
-      "severity": "MEDIUM",
-      "score": 5.3,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103915",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-109367",
-      "published": "2026-10-31T09:16:32Z",
-      "description": "The All in One SEO – AI SEO Plugin to Boost SEO Rankings & Traffic (Schema, Local SEO, Sitemap & SEO Insights) plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 5.0.3 via the 's' parameter. This makes it possible for unauthenticated attackers ",
-      "severity": "MEDIUM",
-      "score": 5.3,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-109367",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-110530",
-      "published": "2026-10-31T09:16:32Z",
-      "description": "The FeedWordPress plugin for WordPress is vulnerable to Stored Cross-Site Scripting in versions up to, and including, 2026.0517 via syndicated RSS/Atom feed content. The plugin's SyndicatedPost::sanitize_content() function only strips the 'target' attribute (the lines that would strip 'style' and 'o",
-      "severity": "HIGH",
-      "score": 7.2,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110530",
       "kev": false
     }
   ]
