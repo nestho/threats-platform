@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-01T21:17:51Z",
+  "updated_at": "2026-11-01T23:55:20Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,211 @@
   ],
   "note": "Bounded slice of cves.json for the homepage. Use /data/cves.json for the full window.",
   "normalisation_failures": [],
-  "recent_total": 886,
+  "recent_total": 887,
   "kev_total": 110,
   "kev_catalog_total": 1766,
   "total": 25,
   "items": [
+    {
+      "id": "CVE-2026-84172",
+      "published": "2026-11-01T23:17:30Z",
+      "description": "Files accessible to external parties in Apache Wicket.\n\norg.apache.wicket.markup.html.PackageResourceGuard decides whether a file on the classpath may be streamed to a client as a package resource. HTML is on the default allow list, so the only thing that separates a static HTML file, which may be s",
+      "severity": "MEDIUM",
+      "score": 6.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-84172",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-84177",
+      "published": "2026-11-01T23:17:30Z",
+      "description": "Incorrect behavior order in Apache Wicket: a file path is validated before the framework appends the attributes that complete it.\n\norg.apache.wicket.request.resource.PackageResource asks the configured package resource guard about a path built from the scope class' package and the file name in the r",
+      "severity": "MEDIUM",
+      "score": 6.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-84177",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-84231",
+      "published": "2026-11-01T23:17:30Z",
+      "description": "Improper neutralization of input during web page generation in Apache Wicket.\n\norg.apache.wicket.markup.html.link.ExternalLink builds a JavaScript click handler and writes it into the tag's onclick attribute whenever the markup tag the component is bound to is not an a, link or area element. The URL",
+      "severity": "HIGH",
+      "score": 7.4,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-84231",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-87718",
+      "published": "2026-11-01T23:17:30Z",
+      "description": "Apache Wicket 10.10.0, 10.11.0 and 9.24.0 do not set the Content-Security-Policy headers on a page whose render request handler is wrapped in more than one IRequestHandlerDelegate. The framework unwraps only a single delegate level when deciding whether a request renders a page, so with a deeper cha",
+      "severity": "LOW",
+      "score": 2.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87718",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-95863",
+      "published": "2026-11-01T23:17:30Z",
+      "description": "Improper neutralization of input during web page generation in Apache Wicket.\n\nApache Wicket generates JavaScript that refers to the elements it renders, and\nwrites into that JavaScript two values it derives itself: a component's markup\nid, and the input name of a form component, which is built from",
+      "severity": "HIGH",
+      "score": 7.6,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-95863",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-82956",
+      "published": "2026-11-01T23:17:29Z",
+      "description": "Improper neutralization of input during web page generation in Apache Wicket.\n\norg.apache.wicket.ajax.AjaxNewWindowNotifyingBehavior notices that a page instance has been opened in a second browser window or tab. It asks the browser for the value of window.name, which reaches the server as the reque",
+      "severity": "HIGH",
+      "score": 7.6,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82956",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-83539",
+      "published": "2026-11-01T23:17:29Z",
+      "description": "Improper neutralization of input during web page generation in Apache Wicket.\n\norg.apache.wicket.extensions.markup.html.basic.SmartLinkLabel and org.apache.wicket.extensions.markup.html.basic.SmartLinkMultiLineLabel display a text value and turn any URL they find in it into a hyperlink. Both escape ",
+      "severity": "HIGH",
+      "score": 7.4,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-83539",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-83559",
+      "published": "2026-11-01T23:17:29Z",
+      "description": "Improper encoding or escaping of output in Apache Wicket.\n\norg.apache.wicket.core.util.string.JavaScriptUtils#escapeQuotes() replaces each single quote in its input with a backslash and a single quote, and each double quote with a backslash and a double quote, so that the value can be placed inside ",
+      "severity": "HIGH",
+      "score": 7.4,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-83559",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-83594",
+      "published": "2026-11-01T23:17:29Z",
+      "description": "Memory allocation with an excessive size value in Apache Wicket.\n\norg.apache.wicket.markup.html.form.upload.resource.FileUploadToResourceField uploads files to a separately mounted resource rather than through a form, and is told the outcome afterwards over its own Ajax callback. That callback reads",
+      "severity": "HIGH",
+      "score": 8.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-83594",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-84170",
+      "published": "2026-11-01T23:17:29Z",
+      "description": "Allocation of resources without limits or throttling in Apache Wicket.\n\norg.apache.wicket.markup.html.form.upload.resource.AbstractFileUploadResource is the server side of the form-less upload offered by FileUploadToResourceField, which posts the selected files to a separately mounted resource rathe",
+      "severity": "HIGH",
+      "score": 8.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-84170",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-111089",
+      "published": "2026-11-01T23:17:28Z",
+      "description": "Apache Wicket reads texts from the application's resource bundles — a localized label, a css class name — and writes some of them into the JavaScript and the markup it generates for a component. Those texts are placed inside single-quoted JavaScript string literals and inside quoted attribute values",
+      "severity": "HIGH",
+      "score": 7.6,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111089",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-120275",
+      "published": "2026-11-01T23:17:28Z",
+      "description": "A security flaw has been discovered in Shanghai Xi Yu Ji Zhi Technology Minimax Code 0.5.8. This affects an unknown part of the component Find Command Handler. The manipulation of the argument -exec results in os command injection. The attack may be performed from remote. The vendor was contacted ea",
+      "severity": "MEDIUM",
+      "score": 5.1,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120275",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-82840",
+      "published": "2026-11-01T22:17:48Z",
+      "description": "Session fixation in Apache Wicket.\n\norg.apache.wicket.authroles.authentication.AuthenticatedWebSession is the authentication base class of Wicket's role-based security module, and its signIn(String, String) method is the entry point through which an application authenticates a session. Renewing the ",
+      "severity": "HIGH",
+      "score": 7.2,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82840",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-82898",
+      "published": "2026-11-01T22:17:48Z",
+      "description": "Incorrect order of security checks in Apache Wicket.\n\norg.apache.wicket.protocol.http.ResourceIsolationRequestCycleListener obtains the page a request targets before it consults its resource isolation policies, because those policies are passed that page. Obtaining the page instantiates it, and inst",
+      "severity": "LOW",
+      "score": 2.1,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82898",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-82558",
+      "published": "2026-11-01T22:17:47Z",
+      "description": "Missing authorization in Apache Wicket.\n\norg.apache.wicket.protocol.ws.api.WebSocketBehavior, through which Wicket's native WebSocket support hands a message sent by the client to the application, calls its onMessage() callbacks without checking whether the client may invoke the component the behavi",
+      "severity": "LOW",
+      "score": 2.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82558",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-82559",
+      "published": "2026-11-01T22:17:47Z",
+      "description": "Insufficient session expiration in Apache Wicket.\n\norg.apache.wicket.protocol.ws.WebSocketSettings#newWebSocketRequest() wraps the WebSocket upgrade request in an org.apache.wicket.protocol.ws.api.ServletRequestCopy, which is kept for the life of the connection and used to build the request for ever",
+      "severity": "LOW",
+      "score": 2.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82559",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-82704",
+      "published": "2026-11-01T22:17:47Z",
+      "description": "Missing authorization in Apache Wicket.\n\norg.apache.wicket.core.request.handler.ListenerRequestHandler invokes an IRequestListener only when org.apache.wicket.Component#canCallListener() allows it, and that method is isEnabledInHierarchy() && isVisibleInHierarchy(). The visibility half reads a flag ",
+      "severity": "MEDIUM",
+      "score": 6.9,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82704",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-82705",
+      "published": "2026-11-01T22:17:47Z",
+      "description": "Missing authorization in Apache Wicket.\n\norg.apache.wicket.authorization.IAuthorizationStrategy declares isResourceAuthorized(), and that method has a single enforcement point in the framework: org.apache.wicket.request.handler.resource.ResourceRequestHandler, the handler that serves a resource reac",
+      "severity": "MEDIUM",
+      "score": 6.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82705",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-82115",
+      "published": "2026-11-01T22:17:46Z",
+      "description": "Missing authorization in Apache Wicket.\n\norg.apache.wicket.protocol.ws.api.WebSocketMessageBroadcastHandler, the request handler Wicket's native WebSocket support uses to deliver an incoming frame, resolves the shared resource named by the client's handshake parameter and calls WebSocketResource#onP",
+      "severity": "MEDIUM",
+      "score": 6.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82115",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-82557",
+      "published": "2026-11-01T22:17:46Z",
+      "description": "Missing authorization in Apache Wicket.\n\norg.apache.wicket.markup.html.form.Form resolves the component that submitted a form from the request parameters in Form#onRequest() and passes the result directly to Form#onFormSubmitted(IFormSubmitter). The check that the submitting component is visible and",
+      "severity": "MEDIUM",
+      "score": 6.9,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82557",
+      "kev": false
+    },
     {
       "id": "CVE-2026-120274",
       "published": "2026-11-01T21:17:08Z",
@@ -61,206 +261,6 @@
       "score": 2.1,
       "cvss_version": "40",
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120237",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-120238",
-      "published": "2026-11-01T18:17:13Z",
-      "description": "A vulnerability has been found in WAVLINK WN553X1-B 260403_2.0.0. This affects the function sub_4162A8 of the file /bin/ioos of the component ovpn_file Handler. Such manipulation of the argument file_id leads to os command injection. The attack can be executed remotely. The exploit has been disclose",
-      "severity": "HIGH",
-      "score": 8.6,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120238",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-120239",
-      "published": "2026-11-01T18:17:13Z",
-      "description": "A vulnerability was found in WAVLINK WN553X1-B V260403_2.0.0. This vulnerability affects the function sub_419DA8 of the file /bin/ioos of the component WireGuard CLI Handler. Performing a manipulation of the argument file_id results in os command injection. The attack is possible to be carried out r",
-      "severity": "HIGH",
-      "score": 8.6,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120239",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-74759",
-      "published": "2026-11-01T17:16:34Z",
-      "description": "Google::Auth versions 0.12 for Perl allow server side request forgery via unvalidated credential_source URLs in AWS external account credentials.\n\nAn external_account configuration with the AWS subject token type selects Google::Auth::ExternalAccountCredentials::Aws. Its retrieve_subject_token sends",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-74759",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-74760",
-      "published": "2026-11-01T17:16:34Z",
-      "description": "Google::Auth versions from 0.11 through 0.12 for Perl accept an authorization code from any local process because the gcloud-auth login callback does not check the OAuth state.\n\nThe gcloud-auth login and application-default login commands send a state parameter with the authorization request, then t",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-74760",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-120236",
-      "published": "2026-11-01T17:16:33Z",
-      "description": "A vulnerability was detected in ag-ui-protocol ag-ui up to 0.0.58. Affected by this vulnerability is an unknown functionality of the component Transport Decoder Handler. The manipulation results in improper input validation. The attack may be launched remotely. The exploit is now public and may be u",
-      "severity": "LOW",
-      "score": 2.1,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120236",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-62048",
-      "published": "2026-11-01T16:18:15Z",
-      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Liquid Web / StellarWP BookIt bookit allows SQL Injection.This issue affects BookIt: from n/a through 2.6.0.6.",
-      "severity": "CRITICAL",
-      "score": 9.3,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62048",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-66570",
-      "published": "2026-11-01T16:18:15Z",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Nickboss WordPress File Upload wp-file-upload allows Stored XSS.This issue affects WordPress File Upload: from n/a through 5.2.1.",
-      "severity": "HIGH",
-      "score": 7.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-66570",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-120233",
-      "published": "2026-11-01T16:18:14Z",
-      "description": "A security flaw has been discovered in ag-ui-protocol ag-ui up to 0.0.58. This affects an unknown function of the file sdks/typescript/packages/client/src/agent/http.ts of the component HttpAgent. Performing a manipulation results in information disclosure. The attack can be initiated remotely. The ",
-      "severity": "MEDIUM",
-      "score": 5.5,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120233",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-120234",
-      "published": "2026-11-01T16:18:14Z",
-      "description": "A weakness has been identified in ag-ui-protocol ag-ui up to 0.0.58. This impacts the function e.text of the component HTTP Transport. Executing a manipulation can lead to resource consumption. The attack can be launched remotely. The exploit has been made available to the public and could be used f",
-      "severity": "LOW",
-      "score": 2.1,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120234",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-120235",
-      "published": "2026-11-01T16:18:14Z",
-      "description": "A security vulnerability has been detected in ag-ui-protocol ag-ui up to 0.0.58. Affected is the function parseSSEStream of the file sdks/typescript/packages/client/src/transform/sse.ts of the component SSE Parser. The manipulation leads to resource consumption. The attack may be initiated remotely.",
-      "severity": "LOW",
-      "score": 2.1,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120235",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-120338",
-      "published": "2026-11-01T16:18:14Z",
-      "description": "Prefab UI's Generative UI sandbox runs caller-supplied Python inside Pyodide, Python compiled to WebAssembly, in a Deno subprocess. The feature is documented as isolation for untrusted code, including LLM-written UI. From prefab-ui 0.14.0 through 0.20.2 the launcher starts Deno with unrestricted --a",
-      "severity": "CRITICAL",
-      "score": 10.0,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120338",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-119480",
-      "published": "2026-11-01T16:18:13Z",
-      "description": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in Crocoblock JetFormBuilder jetformbuilder allows Path Traversal.This issue affects JetFormBuilder: from n/a through 3.6.7.1.",
-      "severity": "MEDIUM",
-      "score": 6.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119480",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-120231",
-      "published": "2026-11-01T15:17:23Z",
-      "description": "A vulnerability was determined in WAVLINK WN553X1-B V260403_2.0.0. The affected element is the function sub_416568 of the file /bin/ioos of the component OpenVPN CLI Handler. This manipulation of the argument file_id causes os command injection. It is possible to initiate the attack remotely. The ex",
-      "severity": "HIGH",
-      "score": 8.6,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120231",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-120232",
-      "published": "2026-11-01T15:17:23Z",
-      "description": "A vulnerability was identified in Horizon DataSys Reboot Restore Standard up to 13.2. The impacted element is the function sub_23908 in the library shield.sys of the component Kernel Driver. Such manipulation leads to memory corruption. The attack can only be performed from a local environment. The ",
-      "severity": "HIGH",
-      "score": 8.5,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120232",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-120230",
-      "published": "2026-11-01T15:17:22Z",
-      "description": "A vulnerability was found in WAVLINK WN701AE 260105. Impacted is the function del_vlan_group of the component ioos Web Backend. The manipulation of the argument vlan_name results in os command injection. The attack may be performed from remote. The exploit has been made public and could be used. The",
-      "severity": "HIGH",
-      "score": 8.6,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120230",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-120229",
-      "published": "2026-11-01T14:18:53Z",
-      "description": "A vulnerability has been found in WAVLINK WN553X1-B 260403_2.0.0. This issue affects the function sub_416B50 of the file /bin/ioos. The manipulation of the argument file_id leads to os command injection. The attack is possible to be carried out remotely. The exploit has been disclosed to the public ",
-      "severity": "HIGH",
-      "score": 8.5,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120229",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-120228",
-      "published": "2026-11-01T14:18:52Z",
-      "description": "A flaw has been found in WAVLINK WN553X1-B V260403_2.0.0. This vulnerability affects the function sub_416D88 of the file /bin/ioos of the component ioos Service. Executing a manipulation of the argument group_id/group_name can lead to os command injection. The attack can be executed remotely. The ex",
-      "severity": "HIGH",
-      "score": 8.6,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120228",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-117680",
-      "published": "2026-11-01T14:18:51Z",
-      "description": "Improper Check for Unusual or Exceptional Conditions vulnerability in the pattern and patternProperties keywords in lud jsv allows an unauthenticated remote attacker to bypass schema validation via a string that matches a schema regex only after heavy backtracking. JSV.Helpers.RegexExt.bounded_match",
-      "severity": "LOW",
-      "score": 2.1,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117680",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-120306",
-      "published": "2026-11-01T13:18:01Z",
-      "description": "Beta9 turns each shell command in a tenant image definition into a Dockerfile RUN line and executes it with Buildah on the build worker. The worker image sets BUILDAH_ISOLATION=chroot, and no buildah invocation passes --isolation, so the step only changes its filesystem root. It keeps the worker pod",
-      "severity": "CRITICAL",
-      "score": 9.9,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120306",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-120307",
-      "published": "2026-11-01T13:18:01Z",
-      "description": "The Beta9 worker serves the sandbox file API from outside the container. getHostPathFromContainerPath turns the tenant's container path into a worker path. If the unresolved path starts with a mount destination, including the default upload mount at /tmp/.beta9, the remainder is joined onto that mou",
-      "severity": "CRITICAL",
-      "score": 9.9,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120307",
       "kev": false
     }
   ]
