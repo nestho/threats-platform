@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-01T13:09:43Z",
+  "updated_at": "2026-11-01T15:27:58Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,111 @@
   ],
   "recent": {
     "lookback_days": 3,
-    "total": 1258,
-    "items_available": 1258,
+    "total": 1171,
+    "items_available": 1171,
     "normalisation_failures": [],
-    "items_parsed": 1258,
+    "items_parsed": 1171,
     "items": [
+      {
+        "id": "CVE-2026-120231",
+        "published": "2026-11-01T15:17:23Z",
+        "description": "A vulnerability was determined in WAVLINK WN553X1-B V260403_2.0.0. The affected element is the function sub_416568 of the file /bin/ioos of the component OpenVPN CLI Handler. This manipulation of the argument file_id causes os command injection. It is possible to initiate the attack remotely. The ex",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120231",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120232",
+        "published": "2026-11-01T15:17:23Z",
+        "description": "A vulnerability was identified in Horizon DataSys Reboot Restore Standard up to 13.2. The impacted element is the function sub_23908 in the library shield.sys of the component Kernel Driver. Such manipulation leads to memory corruption. The attack can only be performed from a local environment. The ",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120232",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120230",
+        "published": "2026-11-01T15:17:22Z",
+        "description": "A vulnerability was found in WAVLINK WN701AE 260105. Impacted is the function del_vlan_group of the component ioos Web Backend. The manipulation of the argument vlan_name results in os command injection. The attack may be performed from remote. The exploit has been made public and could be used. The",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120230",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120229",
+        "published": "2026-11-01T14:18:53Z",
+        "description": "A vulnerability has been found in WAVLINK WN553X1-B 260403_2.0.0. This issue affects the function sub_416B50 of the file /bin/ioos. The manipulation of the argument file_id leads to os command injection. The attack is possible to be carried out remotely. The exploit has been disclosed to the public ",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120229",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120228",
+        "published": "2026-11-01T14:18:52Z",
+        "description": "A flaw has been found in WAVLINK WN553X1-B V260403_2.0.0. This vulnerability affects the function sub_416D88 of the file /bin/ioos of the component ioos Service. Executing a manipulation of the argument group_id/group_name can lead to os command injection. The attack can be executed remotely. The ex",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120228",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-117680",
+        "published": "2026-11-01T14:18:51Z",
+        "description": "Improper Check for Unusual or Exceptional Conditions vulnerability in the pattern and patternProperties keywords in lud jsv allows an unauthenticated remote attacker to bypass schema validation via a string that matches a schema regex only after heavy backtracking. JSV.Helpers.RegexExt.bounded_match",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117680",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120306",
+        "published": "2026-11-01T13:18:01Z",
+        "description": "Beta9 turns each shell command in a tenant image definition into a Dockerfile RUN line and executes it with Buildah on the build worker. The worker image sets BUILDAH_ISOLATION=chroot, and no buildah invocation passes --isolation, so the step only changes its filesystem root. It keeps the worker pod",
+        "severity": "CRITICAL",
+        "score": 9.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120306",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120307",
+        "published": "2026-11-01T13:18:01Z",
+        "description": "The Beta9 worker serves the sandbox file API from outside the container. getHostPathFromContainerPath turns the tenant's container path into a worker path. If the unresolved path starts with a mount destination, including the default upload mount at /tmp/.beta9, the remainder is joined onto that mou",
+        "severity": "CRITICAL",
+        "score": 9.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120307",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120308",
+        "published": "2026-11-01T13:18:01Z",
+        "description": "A Beta9 tenant can attach a volume when deploying a function, endpoint, or task queue. The gateway builds the host path by joining the shared volumes root, the workspace name, and the volume identifier from the stub configuration. Nothing checks that the identifier names a volume that workspace owns",
+        "severity": "CRITICAL",
+        "score": 9.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120308",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120227",
+        "published": "2026-11-01T13:18:00Z",
+        "description": "A vulnerability was detected in WAVLINK WN701AE M01AE_V260105. This affects the function del_staticrule of the file static_route_setting.sh of the component ioos Web Backend. Performing a manipulation of the argument rule_name results in os command injection. Remote exploitation of the attack is pos",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120227",
+        "kev": false
+      },
       {
         "id": "CVE-2026-120226",
         "published": "2026-11-01T12:17:09Z",
@@ -11621,976 +11721,6 @@
         "score": 5.4,
         "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-13050",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-97073",
-        "published": "2026-10-29T15:17:25Z",
-        "description": "Missing Authorization vulnerability in myCred myCred mycred allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects myCred: from n/a through 4.0.2.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97073",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-80067",
-        "published": "2026-10-29T15:17:24Z",
-        "description": "MasterStudy LMS plugin for WordPress before 3.7.50 contains a path traversal vulnerability that allows authenticated Subscriber-level users to import arbitrary WXR XML files by supplying directory traversal sequences in the stm_lms_step parameter passed to the stm_lms_import_sample_data AJAX action,",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-80067",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-80069",
-        "published": "2026-10-29T15:17:24Z",
-        "description": "MasterStudy LMS plugin for WordPress before 3.7.50 contains a missing authorization vulnerability that allows any authenticated user, including Subscribers, to trigger the stm_lms_send_test_email_ajax AJAX action without capability or nonce validation. Attackers can invoke this handler directly or v",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-80069",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-42691",
-        "published": "2026-10-29T15:17:23Z",
-        "description": "Authorization Bypass Through User-Controlled Key vulnerability in EventPrime EventPrime eventprime-event-calendar-management allows Privilege Abuse.This issue affects EventPrime: from n/a through 4.3.6.0.",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-42691",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-48884",
-        "published": "2026-10-29T15:17:23Z",
-        "description": "Missing Authorization vulnerability in weDevs WP User Frontend wp-user-frontend allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects WP User Frontend: from n/a through 4.3.13.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-48884",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-52708",
-        "published": "2026-10-29T15:17:23Z",
-        "description": "Missing Authorization vulnerability in weDevs WP User Frontend wp-user-frontend allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects WP User Frontend: from n/a through 4.3.13.",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-52708",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-54852",
-        "published": "2026-10-29T15:17:23Z",
-        "description": "Missing Authorization vulnerability in miniOrange Page Restriction WordPress (WP) page-and-post-restriction allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Page Restriction WordPress (WP): from n/a through 1.6.1.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-54852",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-54853",
-        "published": "2026-10-29T15:17:23Z",
-        "description": "Missing Authorization vulnerability in Cozmoslabs Profile Builder profile-builder allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Profile Builder: from n/a through 4.0.5.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-54853",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-54871",
-        "published": "2026-10-29T15:17:23Z",
-        "description": "Missing Authorization vulnerability in Mamunur Rashid ShopBuilder – Elementor WooCommerce Builder Addons shopbuilder allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects ShopBuilder – Elementor WooCommerce Builder Addons: from n/a through 3.4.2.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-54871",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-25448",
-        "published": "2026-10-29T15:17:22Z",
-        "description": "Missing Authorization vulnerability in weDevs WP ERP erp allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects WP ERP: from n/a through 1.17.10.",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-25448",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-25450",
-        "published": "2026-10-29T15:17:22Z",
-        "description": "Missing Authorization vulnerability in ThemeGrill User Registration user-registration allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects User Registration: from n/a through 5.3.0.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-25450",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-27062",
-        "published": "2026-10-29T15:17:22Z",
-        "description": "Cross-Site Request Forgery (CSRF) vulnerability in WPFunnels Team WPFunnels wpfunnels allows Cross Site Request Forgery.This issue affects WPFunnels: from n/a through 3.13.5.",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-27062",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-27063",
-        "published": "2026-10-29T15:17:22Z",
-        "description": "Missing Authorization vulnerability in Kit Kit (formerly ConvertKit) convertkit allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Kit (formerly ConvertKit): from n/a through 3.4.7.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-27063",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-39737",
-        "published": "2026-10-29T15:17:22Z",
-        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Crocoblock JetElements For Elementor jet-elements allows Stored XSS.This issue affects JetElements For Elementor: from n/a through 2.9.2.6.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-39737",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-39742",
-        "published": "2026-10-29T15:17:22Z",
-        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Liquid Web / StellarWP Gutenberg Blocks by Kadence Blocks kadence-blocks allows Stored XSS.This issue affects Gutenberg Blocks by Kadence Blocks: from n/a through 3.8.0.2.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-39742",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118092",
-        "published": "2026-10-29T15:17:21Z",
-        "description": "Missing Authorization vulnerability in StylemixThemes MasterStudy LMS masterstudy-lms-learning-management-system allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects MasterStudy LMS: from n/a through 3.7.55.",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118092",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118095",
-        "published": "2026-10-29T15:17:21Z",
-        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in David Lingren Media LIbrary Assistant media-library-assistant allows DOM-Based XSS.This issue affects Media LIbrary Assistant: from n/a through 3.42.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118095",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118097",
-        "published": "2026-10-29T15:17:21Z",
-        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in bPlugins Flash & HTML5 Video html5-video-player allows Stored XSS.This issue affects Flash & HTML5 Video: from n/a through 2.14.0.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118097",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116846",
-        "published": "2026-10-29T15:17:20Z",
-        "description": "Missing Authorization vulnerability in WP User Manager WP User Manager wp-user-manager allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects WP User Manager: from n/a through 2.9.26.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116846",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116849",
-        "published": "2026-10-29T15:17:20Z",
-        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in bPlugins StreamCast streamcast allows Stored XSS.This issue affects StreamCast: from n/a through 2.4.6.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116849",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116850",
-        "published": "2026-10-29T15:17:20Z",
-        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in weDevs Happy Addons for Elementor happy-elementor-addons allows Stored XSS.This issue affects Happy Addons for Elementor: from n/a through 3.50.1.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116850",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116856",
-        "published": "2026-10-29T15:17:20Z",
-        "description": "Missing Authorization vulnerability in WP Desk Flexible Quantity – Measurement Price Calculator for WooCommerce flexible-quantity-measurement-price-calculator-for-woocommerce allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Flexible Quantity – Measurement Pr",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116856",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118088",
-        "published": "2026-10-29T15:17:20Z",
-        "description": "Missing Authorization vulnerability in WPFunnels Team WPFunnels wpfunnels allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects WPFunnels: from n/a through 3.13.5.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118088",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118091",
-        "published": "2026-10-29T15:17:20Z",
-        "description": "Missing Authorization vulnerability in WPFunnels Team WPFunnels wpfunnels allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects WPFunnels: from n/a through 3.13.5.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118091",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116387",
-        "published": "2026-10-29T15:17:19Z",
-        "description": "Missing Authorization vulnerability in Brainstorm Force SureForms sureforms allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects SureForms: from n/a through 2.12.9.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116387",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116406",
-        "published": "2026-10-29T15:17:19Z",
-        "description": "Missing Authorization vulnerability in Webba Plugins Webba Booking webba-booking-lite allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Webba Booking: from n/a through 6.5.4.",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116406",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115709",
-        "published": "2026-10-29T15:17:18Z",
-        "description": "Improper Link Resolution Before File Access ('Link Following') (CWE-59) in Elastic Cloud Enterprise (ECE) can lead to unauthorized disclosure and loss of data belonging to other deployments on the same host via Symlink Attack (CAPEC-132).",
-        "severity": "HIGH",
-        "score": 8.2,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115709",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115711",
-        "published": "2026-10-29T15:17:18Z",
-        "description": "Insertion of Sensitive Information into Externally-Accessible File or Directory (CWE-538) in Elastic Cloud Enterprise (ECE) can lead to credential disclosure via Retrieve Embedded Sensitive Data (CAPEC-37). ECE stores runtime information about platform service containers in a location that lower-pri",
-        "severity": "MEDIUM",
-        "score": 6.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115711",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115712",
-        "published": "2026-10-29T15:17:18Z",
-        "description": "Incorrect Authorization (CWE-863) in Elastic Cloud Enterprise (ECE) can lead to unauthorized modification of platform-level settings via Accessing Functionality Not Properly Constrained by ACLs (CAPEC-1). An authenticated user with read-only access to the platform can change an installation-wide acc",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115712",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115713",
-        "published": "2026-10-29T15:17:18Z",
-        "description": "Improper Link Resolution Before File Access ('Link Following') (CWE-59) in Elastic Cloud Enterprise (ECE) can lead to unauthorized read and write access to data of other deployments on the same host via Symlink Attack (CAPEC-132).",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115713",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115601",
-        "published": "2026-10-29T15:17:17Z",
-        "description": "Missing Authorization vulnerability in WP Desk Custom Price for WooCommerce custom-price-for-woocommerce allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Custom Price for WooCommerce: from n/a through 1.1.29.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115601",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115605",
-        "published": "2026-10-29T15:17:17Z",
-        "description": "Missing Authorization vulnerability in Brainstorm Force SureDash suredash allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects SureDash: from n/a through 1.12.3.",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115605",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115610",
-        "published": "2026-10-29T15:17:17Z",
-        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in PublishPress PublishPress Authors publishpress-authors allows Stored XSS.This issue affects PublishPress Authors: from n/a through 4.17.0.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115610",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115706",
-        "published": "2026-10-29T15:17:17Z",
-        "description": "Authorization Bypass Through User-Controlled Key (CWE-639) in Elastic Cloud Enterprise (ECE) can lead to privilege escalation via Privilege Abuse (CAPEC-122). An attacker who controls any host in an ECE installation can obtain credentials that are reserved for other platform roles. These credentials",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115706",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115707",
-        "published": "2026-10-29T15:17:17Z",
-        "description": "Insertion of Sensitive Information into Externally-Accessible File or Directory (CWE-538) in Elastic Cloud Enterprise (ECE) can lead to privilege escalation via Retrieve Embedded Sensitive Data (CAPEC-37). After the ECE certificate rotation procedure runs, data that it retains contains platform cred",
-        "severity": "MEDIUM",
-        "score": 6.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115707",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115708",
-        "published": "2026-10-29T15:17:17Z",
-        "description": "Improper Link Resolution Before File Access ('Link Following') (CWE-59) in Elastic Cloud Enterprise (ECE) can lead to authentication bypass and unauthorized changes to the configuration of other deployments on the same host via Symlink Attack (CAPEC-132).",
-        "severity": "HIGH",
-        "score": 7.2,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115708",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107023",
-        "published": "2026-10-29T15:17:16Z",
-        "description": "Insecure permissions in the ContentProvider component of mhss1 MyBrain v3.1.0 allows unauthorized attackers to arbitrarily read another user's private notes/tasks/diary content.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107023",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107024",
-        "published": "2026-10-29T15:17:16Z",
-        "description": "Insecure permissions in Share 2 Archive Today versionCode 61 allows unauthorized attackers to arbitrarily overwrite another user's clipboard content via supplying a crafted URL.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107024",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-110881",
-        "published": "2026-10-29T15:17:16Z",
-        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Brainstorm Force SureDash suredash allows Stored XSS.This issue affects SureDash: from n/a through 1.12.3.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110881",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-114181",
-        "published": "2026-10-29T15:17:16Z",
-        "description": "Missing Authorization vulnerability in Magepeople inc. Taxi Booking Manager for WooCommerce ecab-taxi-booking-manager allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Taxi Booking Manager for WooCommerce: from n/a through 2.1.6.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-114181",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-114706",
-        "published": "2026-10-29T15:17:16Z",
-        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in WP Chill Strong Testimonials strong-testimonials allows Stored XSS.This issue affects Strong Testimonials: from n/a through 3.3.15.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-114706",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107014",
-        "published": "2026-10-29T15:17:15Z",
-        "description": "Insecure permissions in Bander Notepad (bander.notepad) versionCode 12 allow unauthorized attackers to write and read notes in another user's' note database.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107014",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107015",
-        "published": "2026-10-29T15:17:15Z",
-        "description": "Insecure permissions in Simple Contacts Pro versionCode 107 allow unauthorized attackers to write and read notes in another user's' note database.",
-        "severity": "CRITICAL",
-        "score": 9.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107015",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107016",
-        "published": "2026-10-29T15:17:15Z",
-        "description": "Insecure permissions in Fossify v1.3.0 allows unauthorized attackers to access and read another user's stored contacts.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107016",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107017",
-        "published": "2026-10-29T15:17:15Z",
-        "description": "Insecure permissions in the ShortcutDispatchActivity component of canvoki versionCode 14 allows unauthorized attackers to arbitrarily trigger another user's configured automated actions.",
-        "severity": "CRITICAL",
-        "score": 9.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107017",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107018",
-        "published": "2026-10-29T15:17:15Z",
-        "description": "Insecure permissions in Ghost Commander File Manager versionCode 479 allows unauthorized attackers to arbitrarily read and write files inside the commander's private storage.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107018",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107019",
-        "published": "2026-10-29T15:17:15Z",
-        "description": "Insecure permissions in the feiertage.ImportActivity component of Arbeitszeiterfassung2 versionCode 159 allows unauthorized attackers to create forged holiday/work-time entries via crafted ICS imports.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107019",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107020",
-        "published": "2026-10-29T15:17:15Z",
-        "description": "An issue in the activity.LoadLinkLaterActivity component of FeedEx / Handy News Reader versionCode 116 allows attackers to force victim users into fetching a crafted URL.",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107020",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107021",
-        "published": "2026-10-29T15:17:15Z",
-        "description": "Insecure permissions in the CardProvider content provider component of helloworld1 AnyMemo versionCode 20260730 allows unauthorized attackers to arbitrarily read flashcards across the user's entire memorization database.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107021",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-93009",
-        "published": "2026-10-29T14:18:00Z",
-        "description": "A flaw was found in dnsmasq. The DHCPv6 client hostname parser can read one byte past the end of a crafted FQDN option because it checks the next label length before confirming the pointer is still inside the option. An attacker on the local network can trigger this with a single DHCPv6 packet. The ",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93009",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-93010",
-        "published": "2026-10-29T14:18:00Z",
-        "description": "A flaw was found in dnsmasq. When DHCP leasequery is enabled without listing allowed source addresses, the server does not check who sent the query. A host on the local network can request DHCP lease records and learn assigned addresses, MAC addresses, hostnames, and related lease metadata. The feat",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93010",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-79589",
-        "published": "2026-10-29T14:17:59Z",
-        "description": "The WIFI4 N300 router (Model: T1 Pro) v1.0.0 by U-speed contains an insecure access control flaw that allows an attacker to gain unauthenticated root shell. The vulnerability is caused by the exposure of the UART debugging interface having a lack of authentication, authorization and access control f",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-79589",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-48202",
-        "published": "2026-10-29T14:17:56Z",
-        "description": "Improper Neutralization of Script-Related HTML Tags in a Web Page (Basic XSS) vulnerability in Brave Brave brave-popup-builder allows Code Injection.This issue affects Brave: from n/a through 0.8.8.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-48202",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-54862",
-        "published": "2026-10-29T14:17:56Z",
-        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Codection Import and export users and customers import-users-from-csv-with-meta allows Stored XSS.This issue affects Import and export users and customers: from n/a through 2.5.9.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-54862",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-42707",
-        "published": "2026-10-29T14:17:55Z",
-        "description": "Missing Authorization vulnerability in HivePress HivePress Claim Listings hivepress-claim-listings allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects HivePress Claim Listings: from n/a through 1.1.4.",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-42707",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-48195",
-        "published": "2026-10-29T14:17:55Z",
-        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in bPlugins PDF Poster pdf-poster allows Stored XSS.This issue affects PDF Poster: from n/a through 2.6.1.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-48195",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-25467",
-        "published": "2026-10-29T14:17:54Z",
-        "description": "Improper Neutralization of Script-Related HTML Tags in a Web Page (Basic XSS) vulnerability in ThemeGrill User Registration user-registration allows Code Injection.This issue affects User Registration: from n/a through 5.3.0.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-25467",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-39736",
-        "published": "2026-10-29T14:17:54Z",
-        "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Crocoblock JetEngine jet-engine allows SQL Injection.This issue affects JetEngine: from n/a through 3.9.0.1.",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-39736",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-39782",
-        "published": "2026-10-29T14:17:54Z",
-        "description": "Missing Authorization vulnerability in Kaliforms Kali Forms kali-forms allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Kali Forms: from n/a through 2.4.27.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-39782",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-119051",
-        "published": "2026-10-29T14:17:52Z",
-        "description": "flat through 6.0.1 contains an uncontrolled resource allocation vulnerability in unflatten() that allows attackers to create huge sparse arrays via unbounded numeric keys. Attackers can supply flattened keys such as a.4294967294, causing iteration with forEach, spread or JSON.stringify to block the ",
-        "severity": "HIGH",
-        "score": 8.2,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119051",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-119052",
-        "published": "2026-10-29T14:17:52Z",
-        "description": "llama.cpp b2877 before b11935 contains an uncaught exception vulnerability in the ggml-rpc server that allows unauthenticated remote attackers to crash the rpc-server by sending oversized message lengths. After the HELLO handshake, attackers can send a command such as SET_TENSOR with a length above ",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119052",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-119053",
-        "published": "2026-10-29T14:17:52Z",
-        "description": "lwIP 2.0.0 through 2.2.1 built with the SNMP agent contains an out-of-bounds read vulnerability in snmp_pbuf_stream_writeto() that bounds copies by pbuf->len instead of remaining bytes. Remote unauthenticated attackers knowing the read community can send fragmented SNMP requests to receive adjacent ",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119053",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-119054",
-        "published": "2026-10-29T14:17:52Z",
-        "description": "Multiple Pages Generator by Themeisle before 4.2.5 contains a stored cross-site scripting vulnerability that allows Contributor-level users to inject script via the [mpg] and [mpg_match] shortcode base-url attribute. Attackers can store entity-encoded payloads that pass kses but are decoded by html_",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119054",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118425",
-        "published": "2026-10-29T14:17:51Z",
-        "description": "A flaw was found in the secure-redirect-uris-enforcer client policy of Keycloak, an identity and access management solution. The issue occurs when the policy is configured to allow loopback addresses, as Keycloak resolves hostnames via DNS during validation. An attacker can bypass domain allowlist r",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118425",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-119048",
-        "published": "2026-10-29T14:17:51Z",
-        "description": "JeeSite 5.11.0 through 5.19.1 contains an insecure direct object reference vulnerability in the AI CMS chat module that allows authenticated users to access other users' conversations due to missing and reversed ownership checks. Attackers who know or derive a victim's conversation id can call /a/cm",
-        "severity": "LOW",
-        "score": 2.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119048",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-119049",
-        "published": "2026-10-29T14:17:51Z",
-        "description": "FreeMail before 5.3.2 contains an authorization bypass vulnerability that allows authenticated users to claim another user's existing mailbox via the POST /api/create endpoint. Attackers who know a victim's address can become co-owners through assignMailboxToUser to read messages and verification co",
-        "severity": "HIGH",
-        "score": 7.2,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119049",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-119050",
-        "published": "2026-10-29T14:17:51Z",
-        "description": "Agno through 3.1.11 contains an unsafe reflection vulnerability in PandasTools that allows attackers to invoke arbitrary pandas functions by supplying model-controlled function names to getattr(). Attackers can use prompt injection to make the agent call pandas.read_pickle on attacker-controlled pat",
-        "severity": "CRITICAL",
-        "score": 9.2,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119050",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116399",
-        "published": "2026-10-29T14:17:50Z",
-        "description": "Cross-Site Request Forgery (CSRF) vulnerability in InstaWP InstaWP Connect instawp-connect allows Cross Site Request Forgery.This issue affects InstaWP Connect: from n/a through 0.1.4.2.",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116399",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116402",
-        "published": "2026-10-29T14:17:50Z",
-        "description": "Improper Neutralization of Script-Related HTML Tags in a Web Page (Basic XSS) vulnerability in Brainstorm Force SureForms sureforms allows Code Injection.This issue affects SureForms: from n/a through 2.12.9.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116402",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116857",
-        "published": "2026-10-29T14:17:50Z",
-        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Crocoblock JetSmartFilters jet-smart-filters allows Stored XSS.This issue affects JetSmartFilters: from n/a through 3.8.6.2.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116857",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-113695",
-        "published": "2026-10-29T14:17:45Z",
-        "description": "Reflected cross-site scripting in the SmartIT inline-image attachment feature of BMC IT Service Management Suite versions 25.3.01, 25.4.01, and 26.1.01 allows authenticated users to inject script content into HTML responses viewed by another user.",
-        "severity": "MEDIUM",
-        "score": 4.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113695",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-113696",
-        "published": "2026-10-29T14:17:45Z",
-        "description": "Improper authorization in the SmartIT change approval feature of BMC IT Service Management Suite versions 25.3.01, 25.4.01, and 26.1.01 allows authenticated users to make unauthorized changes to approval state and bypass intended approval restrictions.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113696",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-113697",
-        "published": "2026-10-29T14:17:45Z",
-        "description": "Reflected cross-site scripting in the agent query feature of BMC Helix Operations Management 25.4.00 allows authenticated attackers to execute script in another user's browser after that user opens a crafted link.",
-        "severity": "MEDIUM",
-        "score": 4.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113697",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-113691",
-        "published": "2026-10-29T14:17:44Z",
-        "description": "Stored cross-site scripting in the SmartIT knowledge-article feature of BMC IT Service Management Suite versions 25.3.01, 25.4.01, and 26.1.01 allows authenticated users to execute stored scripts in other users' browsers.",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113691",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-113692",
-        "published": "2026-10-29T14:17:44Z",
-        "description": "Path traversal in the SmartIT file-management feature of BMC IT Service Management Suite versions 25.3.01, 25.4.01, and 26.1.01 allows authenticated administrators to read files outside the intended directory.",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113692",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-113693",
-        "published": "2026-10-29T14:17:44Z",
-        "description": "Exposure of sensitive information in the SmartIT system-account settings of BMC IT Service Management Suite versions 25.3.01, 25.4.01, and 26.1.01 allows authenticated users to retrieve a system username and encrypted password value.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113693",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-113694",
-        "published": "2026-10-29T14:17:44Z",
-        "description": "Improper authorization in the SmartIT user attachment feature of BMC IT Service Management Suite versions 25.3.01, 25.4.01, and 26.1.01 allows authenticated users to access or modify attachment resources belonging to other users.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113694",
-        "kev": false
-      },
-      {
-        "id": "CVE-2019-25781",
-        "published": "2026-10-29T14:17:39Z",
-        "description": "Python-Markdown 3.0 through 3.11.2 contains an algorithmic complexity vulnerability in inline link parsing that allows remote attackers to exhaust CPU through unmatched brackets. Attackers can submit short Markdown containing repeated [ or ![ characters, forcing LinkInlineProcessor.getText() and get",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2019-25781",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-93008",
-        "published": "2026-10-29T13:17:16Z",
-        "description": "A flaw was found in dnsmasq. When following a CNAME in a DNS response, the resolver can cache records for the CNAME target without checking that those records belong to the responding server's authorized zone. In split-DNS deployments that send some domains to a specific upstream, an attacker who co",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93008",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-93011",
-        "published": "2026-10-29T13:17:16Z",
-        "description": "A flaw was found in dnsmasq. After a reduction of internal domain-name buffer sizes, the DNSSEC validator can write a few bytes past a name buffer when converting names to and from DNS wire format. An attacker who can cause the server to validate a crafted DNSSEC response may overwrite a small amoun",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93011",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-93006",
-        "published": "2026-10-29T13:17:15Z",
-        "description": "A flaw was found in dnsmasq. The TFTP server can serve the wrong file contents because a recently used transfer cache is not invalidated when a transfer finishes. An attacker on the local network who can request a TFTP file may cause a later client to receive previously cached data instead of the re",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93006",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-93007",
-        "published": "2026-10-29T13:17:15Z",
-        "description": "A flaw was found in dnsmasq. The TCP DNS service uses a small fixed pool of child processes and does not set a receive timeout on client connections. A remote attacker can open idle TCP connections to port 53 and occupy the entire pool, preventing new TCP DNS connections and DNSSEC validation that r",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93007",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-52709",
-        "published": "2026-10-29T13:17:13Z",
-        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in bPlugins Video Gallery Block video-gallery-block allows Stored XSS.This issue affects Video Gallery Block: from n/a through 1.6.0.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-52709",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-56056",
-        "published": "2026-10-29T13:17:13Z",
-        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Mamunur Rashid The Post Grid the-post-grid allows Stored XSS.This issue affects The Post Grid: from n/a through 7.9.7.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-56056",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-48196",
-        "published": "2026-10-29T13:17:12Z",
-        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Kaliforms Kali Forms kali-forms allows Stored XSS.This issue affects Kali Forms: from n/a through 2.4.27.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-48196",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-49142",
-        "published": "2026-10-29T13:17:12Z",
-        "description": "OpenEMR before 8.5.0 contains an authenticated SQL injection vulnerability in the Syndromic Surveillance module that allows users with Clinician-level privileges to read and modify arbitrary database contents by submitting crafted values in the form_icd_codes[] POST parameter to the syndromicsurveil",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-49142",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-39735",
-        "published": "2026-10-29T13:17:11Z",
-        "description": "Missing Authorization vulnerability in Crocoblock JetEngine jet-engine allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects JetEngine: from n/a through 3.9.0.1.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-39735",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-39741",
-        "published": "2026-10-29T13:17:11Z",
-        "description": "Missing Authorization vulnerability in RelyWP Simple Cloudflare Turnstile simple-cloudflare-turnstile allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Simple Cloudflare Turnstile: from n/a through 1.44.0.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-39741",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-42703",
-        "published": "2026-10-29T13:17:11Z",
-        "description": "Missing Authorization vulnerability in Kaliforms Kali Forms kali-forms allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Kali Forms: from n/a through 2.4.27.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-42703",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-22386",
-        "published": "2026-10-29T13:17:10Z",
-        "description": "Missing Authorization vulnerability in Ahmad WP Job Portal wp-job-portal allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects WP Job Portal: from n/a through 2.7.1.",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-22386",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-24533",
-        "published": "2026-10-29T13:17:10Z",
-        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in CozyThemes Cozy Blocks cozy-addons allows Stored XSS.This issue affects Cozy Blocks: from n/a through 2.2.27.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-24533",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118087",
-        "published": "2026-10-29T13:17:08Z",
-        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Gemini Labs Site Reviews site-reviews allows Stored XSS.This issue affects Site Reviews: from n/a through 8.3.5.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118087",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118093",
-        "published": "2026-10-29T13:17:08Z",
-        "description": "Missing Authorization vulnerability in WPFunnels Team Product Feed Manager best-woocommerce-feed allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Product Feed Manager: from n/a through 7.14.1.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118093",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118094",
-        "published": "2026-10-29T13:17:08Z",
-        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Igor Funa Ad Inserter ad-inserter allows Stored XSS.This issue affects Ad Inserter: from n/a through 2.8.18.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118094",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-113688",
-        "published": "2026-10-29T13:17:04Z",
-        "description": "Server-side request forgery in the SmartIT URL-based attachment feature of BMC IT Service Management Suite versions 25.3.01, 25.4.01, and 26.1.01 allows authenticated users to make server-side requests to internal services and observe response information.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113688",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-113689",
-        "published": "2026-10-29T13:17:04Z",
-        "description": "Stored cross-site scripting in the SmartIT work-notes feature of BMC IT Service Management Suite versions 25.3.01, 25.4.01, and 26.1.01 allows authenticated users to execute stored scripts in other users' browsers.",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113689",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-113690",
-        "published": "2026-10-29T13:17:04Z",
-        "description": "Stored cross-site scripting in the SmartIT attachment feature of BMC IT Service Management Suite versions 25.3.01, 25.4.01, and 26.1.01 allows authenticated users to execute uploaded script content in other users' browsers.",
-        "severity": "MEDIUM",
-        "score": 4.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113690",
         "kev": false
       }
     ]
