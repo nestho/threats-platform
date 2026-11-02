@@ -1,11 +1,27 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-02T17:27:02Z",
+  "updated_at": "2026-11-02T20:43:11Z",
   "source": "GitHub Security Advisories",
   "source_url": "https://api.github.com/advisories",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-j656-3hf2-fvjc",
+      "title": "DBHub: MySQL and MariaDB comment interpretation bypasses read-only SQL validation",
+      "published": "2026-11-02T17:57:51Z",
+      "ecosystem": "npm",
+      "summary": "The read-only mode can be bypassed on the MySQL and MariaDB connectors. In read-only mode a caller can still execute arbitrary write and DDL statements (for example DROP TABLE), which defeats the protection that read-only mode is meant to provide when a database is exposed to an AI agent.\n\nRoot caus",
+      "link": "https://github.com/advisories/GHSA-j656-3hf2-fvjc"
+    },
+    {
+      "id": "GHSA-f9j6-8p6x-r9j6",
+      "title": "SD JWT JS: Tampered disclosures silently dropped instead of rejected",
+      "published": "2026-11-02T17:54:39Z",
+      "ecosystem": "npm",
+      "summary": "## Summary\n\nWhen one Disclosure in an SD-JWT presentation is tampered so its digest no longer matches the Issuer-signed `_sd` array, `@sd-jwt/decode` 0.19.0 does **not** reject the presentation. It silently drops the unmatched Disclosure and returns a **reduced claim set**, reporting success. The Is",
+      "link": "https://github.com/advisories/GHSA-f9j6-8p6x-r9j6"
+    },
     {
       "id": "GHSA-8fmv-6rg5-5924",
       "title": "Kubeflow Pipelines: Pipeline archive upload allows decompression bomb to exhaust server memory",
@@ -789,22 +805,6 @@
       "ecosystem": "pip",
       "summary": "### Summary\n\nTornado's HTTP header parser takes quadratic time (O(n²)) when a header value is continued across many \"obsolete line folding\" (obs-fold) lines. An unauthenticated attacker can send a request whose header block is mostly short continuation lines. Parsing it uses a large amount of CPU on",
       "link": "https://github.com/advisories/GHSA-pcg2-g6cj-q92c"
-    },
-    {
-      "id": "GHSA-pq4g-8rxf-4g29",
-      "title": "Crass: Incorrect tokenization of bad URLs enables CSS sanitizer bypass",
-      "published": "2026-10-28T22:42:53Z",
-      "ecosystem": "rubygems",
-      "summary": "## Summary\n\nCrass's tokenizer didn't terminate a bad URL token at a `)` that followed an escaped backslash (`\\\\`). As a result, Crass consumed more input as part of the bad URL than a spec-compliant browser does. CSS sanitizers that parse untrusted CSS with Crass and re-emit it could be tricked into",
-      "link": "https://github.com/advisories/GHSA-pq4g-8rxf-4g29"
-    },
-    {
-      "id": "GHSA-3f7j-7jwc-fxfj",
-      "title": "systeminformation vulnerable to Windows command injection in services() through Unicode quotation marks",
-      "published": "2026-10-28T22:42:49Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\nOn Windows, `systeminformation@5.33.15` builds a PowerShell command using the value passed to `services()`. The default sanitizer removes ASCII quotes but keeps Unicode curly quotes, spaces, and parentheses. A crafted service name can use those characters to break out of the generated f",
-      "link": "https://github.com/advisories/GHSA-3f7j-7jwc-fxfj"
     }
   ]
 }
