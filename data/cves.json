@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-03T00:02:46Z",
+  "updated_at": "2026-11-03T02:52:19Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,71 @@
   ],
   "recent": {
     "lookback_days": 3,
-    "total": 689,
-    "items_available": 689,
+    "total": 691,
+    "items_available": 691,
     "normalisation_failures": [],
-    "items_parsed": 689,
+    "items_parsed": 691,
     "items": [
+      {
+        "id": "CVE-2026-120831",
+        "published": "2026-11-03T02:16:53Z",
+        "description": "A flaw was found in libslirp in if_output(). When moving a session from the fast queue to the batch queue, the code unlinked and reinserted an arbitrary packet via ifm->m_nextpkt instead of the session queue head, corrupting queue pointers. A guest generating burst traffic could crash the host netwo",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120831",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-76955",
+        "published": "2026-11-03T02:16:53Z",
+        "description": "A buffer overflow vulnerability in the zdp_wtp binary in Zyxel NWA110AX firmware versions through 7.12(ABTG.0)C0 could allow a LAN-based attacker to escalate privileges on an affected device.",
+        "severity": "HIGH",
+        "score": 8.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76955",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-107441",
+        "published": "2026-11-03T02:16:52Z",
+        "description": "An out-of-bounds write vulnerability in the CGI program of Zyxel GS1900-24E firmware versions through 2.90(AAHK.2)C0 could allow an unauthenticated adjacent attacker  to exploit the flaw and potentially execute OS commands via a crafted HTTP request.",
+        "severity": "HIGH",
+        "score": 8.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107441",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120833",
+        "published": "2026-11-03T01:16:52Z",
+        "description": "labbench before 0.46.1 contains a deserialization of untrusted data vulnerability in read() and read_relational() that passes any file with a .p or .pickle extension to pandas.read_pickle based on the extension alone. Attackers who supply a crafted data file or relational data archive can execute ar",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120833",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-105770",
+        "published": "2026-11-03T01:16:44Z",
+        "description": "Octo STS (github.com/octo-sts/app) before 0.11.2 returns trust policy configuration to callers whose OIDC token does not satisfy that policy. TrustPolicy.CheckToken included the policy's issuer, subject and audience values or patterns and claim_pattern names and regular expressions in its Permission",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105770",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120830",
+        "published": "2026-11-03T00:17:18Z",
+        "description": "A flaw was found in libslirp in icmp_forward_error(). When building an ICMP error response, the length of the quoted original IPv4 packet was taken from the IP header without clamping it to the actual buffer length. A truncated or malformed packet could cause an out-of-bounds heap read, leaking host",
+        "severity": "HIGH",
+        "score": 7.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120830",
+        "kev": false
+      },
       {
         "id": "CVE-2026-71450",
         "published": "2026-11-02T23:17:21Z",
@@ -2926,7 +2986,7 @@
       {
         "id": "CVE-2026-120447",
         "published": "2026-11-02T15:17:27Z",
-        "description": "HotGo through 2.15.1 contains an authentication bypass vulnerability that allows unauthenticated attackers to choose the SMS login verification code by supplying the Code field to /admin/sms/send. Attackers who know a user's mobile number can set a known code and sign in through /admin/site/mobileLo",
+        "description": "HotGo 2.8.4 through 2.15.1 contains an authentication bypass vulnerability that allows unauthenticated attackers to choose the SMS login verification code by supplying the Code field to /admin/sms/send. Attackers who know a user's mobile number can set a known code and sign in through /admin/site/mo",
         "severity": "CRITICAL",
         "score": 9.2,
         "cvss_version": "40",
@@ -6861,46 +6921,6 @@
         "score": 6.5,
         "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100155",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116755",
-        "published": "2026-10-31T02:17:33Z",
-        "description": "Improper Neutralization of Special Elements used in a Command ('Command Injection') in the Orchestrator component of SoftIron HyperCloud allows an authenticated user with access to the management plane to execute arbitrary operating system commands on hypervisor hosts as the privileged orchestration",
-        "severity": "HIGH",
-        "score": 7.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116755",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-110176",
-        "published": "2026-10-31T01:17:05Z",
-        "description": "The File Force Download module for Drupal 7 implements hook_file_download() to add a Content-Disposition header when a file URL carries the download query parameter. In Drupal 7, returning a non-empty header array from that hook is itself a grant of access to the file.\n\n\n\nIn versions 7.1.0 through 7",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110176",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-117656",
-        "published": "2026-10-31T00:16:51Z",
-        "description": "Acceptance of Extraneous Untrusted Data With Trusted Data vulnerability in the Sign in with Apple strategy in pow-auth Assent allows an unauthenticated remote attacker to impersonate another user via the user parameter of the authorization callback.\n\nApple posts the user's name to the callback endpo",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117656",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-77152",
-        "published": "2026-10-31T00:16:51Z",
-        "description": "Improper Authorization vulnerability in Drupal Field Collection for Drupal 7 allows a user with the \"edit field collections\" permission to bypass access control on the parent (host) entity.\n\nThe access check for field collection items (field_collection_item_access()) granted edit and delete access t",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-77152",
         "kev": false
       }
     ]
