@@ -1,11 +1,91 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-03T15:28:44Z",
+  "updated_at": "2026-11-03T21:16:26Z",
   "source": "GitHub Security Advisories",
   "source_url": "https://api.github.com/advisories",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-gh9r-c94j-cmp5",
+      "title": "Stanza: RCE via pickle deserialization in the lemmatizer",
+      "published": "2026-11-03T20:29:16Z",
+      "ecosystem": "pip",
+      "summary": "## TL;DR\n\nLoading an attacker-supplied lemma `.pt` runs arbitrary code as the loading user. Since 1.14.0 the lemmatizer stores `pos_dict` as a gzip-compressed pickle in the checkpoint's `dicts` field (a `bytes` value). `torch.load(weights_only=True)` treats `bytes` as a primitive and passes it throu",
+      "link": "https://github.com/advisories/GHSA-gh9r-c94j-cmp5"
+    },
+    {
+      "id": "GHSA-33r5-xmm8-v6x5",
+      "title": "Elo JavaScript emitter has sandbox escape to arbitrary Node.js / browser code execution via unfiltered `.constructor` member access",
+      "published": "2026-11-03T17:53:42Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nAn unauthenticated attacker who controls a string passed to any Elo JavaScript-emission path — `defaultFormats.elo.parse()`, the `bin/elo` CLI, or the live browser playground at `elo-lang.org/try` — can execute arbitrary code in the host JavaScript runtime. A payload built from the `.co",
+      "link": "https://github.com/advisories/GHSA-33r5-xmm8-v6x5"
+    },
+    {
+      "id": "GHSA-7w38-ggh5-v542",
+      "title": "Elo Ruby backend has Remote Code Execution via unescaped `#{...}` interpolation in emitted string literals and subtype-constraint labels",
+      "published": "2026-11-03T17:51:30Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nElo's Ruby backend emits attacker-controlled text into Ruby double-quoted strings without escaping the `#` character. Because `#` begins Ruby's interpolation sequences — `#{expr}`, `#@ivar`, `#@@cvar`, `#$gvar` — and any expression wrapped in `#{...}` may use backticks for shell executi",
+      "link": "https://github.com/advisories/GHSA-7w38-ggh5-v542"
+    },
+    {
+      "id": "GHSA-x9rp-7wh3-2rj5",
+      "title": "Elo backends have code injection via unvalidated emission of programmatic AST fields",
+      "published": "2026-11-03T17:48:09Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nElo's programmatic AST API accepts arbitrary values in many node fields without runtime type or syntax validation. Each backend's emit stage interpolates those values straight into the generated source with no escape pass. An integrator that populates the AST from JSON-deserialised inpu",
+      "link": "https://github.com/advisories/GHSA-x9rp-7wh3-2rj5"
+    },
+    {
+      "id": "GHSA-p3jp-9v83-76w9",
+      "title": "Microsoft Security Advisory CVE-2026-111497 - .NET Brotli Decoder Out-of-bounds Write Vulnerability",
+      "published": "2026-11-03T17:33:48Z",
+      "ecosystem": "nuget",
+      "summary": "## Executive summary\n\nA buffer overflow vulnerability exists in the Brotli decompression library used by .NET. This vulnerability may allow an unauthenticated attacker to read or corrupt process memory. This could lead to information disclosure, denial of service, or elevation of privilege.\n\nASP.NET",
+      "link": "https://github.com/advisories/GHSA-p3jp-9v83-76w9"
+    },
+    {
+      "id": "GHSA-48v2-6jcm-fc99",
+      "title": "praktor: Path traversal in Telegram file uploads allows writing outside the agent workspace uploads/ directory (stored instruction injection)",
+      "published": "2026-11-03T17:27:25Z",
+      "ecosystem": "go",
+      "summary": "### Impact\n\nA remote Telegram user can write files to arbitrary paths inside an agent's persistent workspace volume (`praktor-wk-<workspace>`, mounted at `/workspace/agent`), escaping the documented `uploads/` directory.\n\nThe attacker controls the Telegram document filename, which was concatenated i",
+      "link": "https://github.com/advisories/GHSA-48v2-6jcm-fc99"
+    },
+    {
+      "id": "GHSA-j97h-3f8r-mrjr",
+      "title": "Keycloak has authentication bypass via jwt algorithm confusion",
+      "published": "2026-11-03T17:24:27Z",
+      "ecosystem": "maven",
+      "summary": "### Description\nA flaw was found in Keycloak. This JWT algorithm confusion vulnerability in the JWT Authorization Grant flow allows an attacker with valid client credentials to bypass signature verification. By forging an assertion, the attacker can create unauthorized access tokens. This enables th",
+      "link": "https://github.com/advisories/GHSA-j97h-3f8r-mrjr"
+    },
+    {
+      "id": "GHSA-9ppr-wfw9-xvr2",
+      "title": "Netfoil doesn't decrement TTL",
+      "published": "2026-11-03T16:48:29Z",
+      "ecosystem": "go",
+      "summary": "### Summary\nTTL was not decremented, so stale records would continue to be served.",
+      "link": "https://github.com/advisories/GHSA-9ppr-wfw9-xvr2"
+    },
+    {
+      "id": "GHSA-h26j-4vp7-x9w2",
+      "title": "Metalama: Unsafe deserialization over Metalama's Visual Studio inter-process named pipe enables local code execution",
+      "published": "2026-11-03T16:37:44Z",
+      "ecosystem": "nuget",
+      "summary": "## Summary\n\nMetalama uses a local named-pipe channel to communicate between its Visual Studio processes — the Visual Studio UI process (`devenv`), the out-of-process Roslyn code-analysis process, and the CodeLens process. This channel deserialized messages from the pipe **without restricting which C",
+      "link": "https://github.com/advisories/GHSA-h26j-4vp7-x9w2"
+    },
+    {
+      "id": "GHSA-m3qr-fvp4-78xj",
+      "title": "Arc has unauthenticated application log disclosure via `/api/v1/logs`",
+      "published": "2026-11-03T16:29:38Z",
+      "ecosystem": "go",
+      "summary": "## Summary\n\nArc exposes `GET /api/v1/logs` without authentication even when authentication is enabled by default. The route is registered before the global Fiber authentication middleware, and the handler returns recent buffered application logs without performing its own authorization check.\n\n## De",
+      "link": "https://github.com/advisories/GHSA-m3qr-fvp4-78xj"
+    },
     {
       "id": "GHSA-j656-3hf2-fvjc",
       "title": "DBHub: MySQL and MariaDB comment interpretation bypasses read-only SQL validation",
@@ -725,86 +805,6 @@
       "ecosystem": "rubygems",
       "summary": "### Impact\n\nCrass recursively parses CSS simple blocks and functions without a depth guard. An attacker-controlled value containing many deeply nested blocks can recurse until Ruby raises `SystemStackError: stack level too deep`, or can cause excessive memory usage.\n\n### Patches\n\nThis is fixed in Cr",
       "link": "https://github.com/advisories/GHSA-6jxj-px6v-747w"
-    },
-    {
-      "id": "GHSA-c33x-vcv4-vg3g",
-      "title": "Cedar: JSON template is in scope missing slot-id validation allows link panic and decision divergence",
-      "published": "2026-10-29T16:35:04Z",
-      "ecosystem": "rust",
-      "summary": "Cedar users must be using all of the following features to be affected by this advisory: JSON format policies, policy templates, and the `is in` scope condition. This advisory only affects JSON-formatted Cedar policy templates containing `is in` scope conditions that are **malformed** according to t",
-      "link": "https://github.com/advisories/GHSA-c33x-vcv4-vg3g"
-    },
-    {
-      "id": "GHSA-q344-5v34-gm84",
-      "title": "@sylphx/pdf-reader-mcp: HTTP transport accepts unauthenticated requests despite a configured MCP_API_KEY",
-      "published": "2026-10-29T16:34:35Z",
-      "ecosystem": "npm",
-      "summary": "### Impact\n\nWhen `@sylphx/pdf-reader-mcp` is run as an HTTP server (`MCP_TRANSPORT=http`), it reads the `MCP_API_KEY` environment variable and logs `API key authentication enabled (X-API-Key header)` at startup, but it never validated the `X-API-Key` header on incoming requests. The key was read int",
-      "link": "https://github.com/advisories/GHSA-q344-5v34-gm84"
-    },
-    {
-      "id": "GHSA-26mh-57q7-jfvr",
-      "title": "PraisonAI vulnerable to Remote Code Execution via Broken AST Sandbox",
-      "published": "2026-10-29T16:34:26Z",
-      "ecosystem": "pip",
-      "summary": "### Summary\nJobWorkflowExecutor._exec_inline_python() is designed to safely execute inline Python expressions from YAML workflow script: steps using AST validation. The function claims to block dangerous operations by (a) checking all AST nodes against an allowlist, and (b) providing a __builtins__ ",
-      "link": "https://github.com/advisories/GHSA-26mh-57q7-jfvr"
-    },
-    {
-      "id": "GHSA-r899-h629-j84r",
-      "title": "Parse Server vulnerable to stored XSS via malformed Content-Type bypassing file upload extension blocklist",
-      "published": "2026-10-29T16:33:48Z",
-      "ecosystem": "npm",
-      "summary": "### Impact\n\nParse Server's file upload validation uses the `fileUpload.fileExtensions` option (enabled by default with a blocklist) to reject files that browsers may render as active content, mitigating stored cross-site scripting (XSS). When an uploaded file's extension is not recognized by the `mi",
-      "link": "https://github.com/advisories/GHSA-r899-h629-j84r"
-    },
-    {
-      "id": "GHSA-rhj7-vh3v-mcq6",
-      "title": "Daptin: ParseAcceptLanguage `_` separator bypass enables >250x CPU amplification via Accept-Language header in LanguageMiddleware",
-      "published": "2026-10-29T16:33:09Z",
-      "ecosystem": "go",
-      "summary": "### Summary\n\nDaptin's `LanguageMiddleware` (registered as a global gin middleware) calls `golang.org/x/text/language.ParseAcceptLanguage` on the raw `Accept-Language` header of every HTTP request without imposing any size or shape filter. The underlying parser has quadratic-time behaviour on long li",
-      "link": "https://github.com/advisories/GHSA-rhj7-vh3v-mcq6"
-    },
-    {
-      "id": "GHSA-pg53-p7qp-65cv",
-      "title": "PocketMine-MP has potential memory/network vulnerability from repeated ResourcePackClientResponsePacket packets",
-      "published": "2026-10-29T16:32:58Z",
-      "ecosystem": "composer",
-      "summary": "### Summary\nDuring the resource pack stage of logging in, after the server sends `ResourcePackStackPacket`, a malicious client can send a batch of multiple `ResourcePackClientResponsePacket` packets with status `ResourcePackClientResponsePacket::STATUS_COMPLETED` causing the server to repeatedly exe",
-      "link": "https://github.com/advisories/GHSA-pg53-p7qp-65cv"
-    },
-    {
-      "id": "GHSA-68wq-phq7-p2vg",
-      "title": "MultiFactor Authentication for SilverStripe can bypass MFA during password reset flow",
-      "published": "2026-10-29T16:32:39Z",
-      "ecosystem": "composer",
-      "summary": "### Impact\nIn CMS 5, the password reset flow let a user with multi-factor authentication enabled change their password and get a logged-in session before completing multi-factor authentication. Exploiting this requires access to the user's email account. CMS 6 is not affected.",
-      "link": "https://github.com/advisories/GHSA-68wq-phq7-p2vg"
-    },
-    {
-      "id": "GHSA-r4j5-9xpp-3985",
-      "title": "Tornado: Event loop blocking and excess memory use from chunked bodies with many small chunks",
-      "published": "2026-10-28T22:43:50Z",
-      "ecosystem": "pip",
-      "summary": "### Summary\n\nWhen Tornado reads an HTTP/1.1 body that uses chunked transfer encoding, it processes all chunks that have already arrived without yielding to the event loop. A client can send a body made of millions of 1-byte chunks, which blocks the event loop (and therefore every other connection se",
-      "link": "https://github.com/advisories/GHSA-r4j5-9xpp-3985"
-    },
-    {
-      "id": "GHSA-pw9p-v7r6-gx4p",
-      "title": "Tornado: Open redirect in RedirectHandler via protocol-relative URLs",
-      "published": "2026-10-28T22:43:45Z",
-      "ecosystem": "pip",
-      "summary": "### Summary\n\n`tornado.web.RedirectHandler` builds its target URL by substituting parts of the request path into a template. Depending on where those substitutions appear in the template, an attacker can craft a request that redirects to a host of their choosing. This creates an open redirect on the ",
-      "link": "https://github.com/advisories/GHSA-pw9p-v7r6-gx4p"
-    },
-    {
-      "id": "GHSA-pcg2-g6cj-q92c",
-      "title": "Tornado: Quadratic CPU usage when parsing HTTP headers with line folding",
-      "published": "2026-10-28T22:43:41Z",
-      "ecosystem": "pip",
-      "summary": "### Summary\n\nTornado's HTTP header parser takes quadratic time (O(n²)) when a header value is continued across many \"obsolete line folding\" (obs-fold) lines. An unauthenticated attacker can send a request whose header block is mostly short continuation lines. Parsing it uses a large amount of CPU on",
-      "link": "https://github.com/advisories/GHSA-pcg2-g6cj-q92c"
     }
   ]
 }
