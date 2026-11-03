@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-03T00:02:46Z",
+  "updated_at": "2026-11-03T02:52:19Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,71 @@
   ],
   "note": "Bounded slice of cves.json for the homepage. Use /data/cves.json for the full window.",
   "normalisation_failures": [],
-  "recent_total": 689,
+  "recent_total": 691,
   "kev_total": 106,
   "kev_catalog_total": 1766,
   "total": 25,
   "items": [
+    {
+      "id": "CVE-2026-120831",
+      "published": "2026-11-03T02:16:53Z",
+      "description": "A flaw was found in libslirp in if_output(). When moving a session from the fast queue to the batch queue, the code unlinked and reinserted an arbitrary packet via ifm->m_nextpkt instead of the session queue head, corrupting queue pointers. A guest generating burst traffic could crash the host netwo",
+      "severity": "MEDIUM",
+      "score": 6.5,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120831",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-76955",
+      "published": "2026-11-03T02:16:53Z",
+      "description": "A buffer overflow vulnerability in the zdp_wtp binary in Zyxel NWA110AX firmware versions through 7.12(ABTG.0)C0 could allow a LAN-based attacker to escalate privileges on an affected device.",
+      "severity": "HIGH",
+      "score": 8.8,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76955",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-107441",
+      "published": "2026-11-03T02:16:52Z",
+      "description": "An out-of-bounds write vulnerability in the CGI program of Zyxel GS1900-24E firmware versions through 2.90(AAHK.2)C0 could allow an unauthenticated adjacent attacker  to exploit the flaw and potentially execute OS commands via a crafted HTTP request.",
+      "severity": "HIGH",
+      "score": 8.8,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107441",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-120833",
+      "published": "2026-11-03T01:16:52Z",
+      "description": "labbench before 0.46.1 contains a deserialization of untrusted data vulnerability in read() and read_relational() that passes any file with a .p or .pickle extension to pandas.read_pickle based on the extension alone. Attackers who supply a crafted data file or relational data archive can execute ar",
+      "severity": "HIGH",
+      "score": 8.5,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120833",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-105770",
+      "published": "2026-11-03T01:16:44Z",
+      "description": "Octo STS (github.com/octo-sts/app) before 0.11.2 returns trust policy configuration to callers whose OIDC token does not satisfy that policy. TrustPolicy.CheckToken included the policy's issuer, subject and audience values or patterns and claim_pattern names and regular expressions in its Permission",
+      "severity": "MEDIUM",
+      "score": 5.3,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105770",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-120830",
+      "published": "2026-11-03T00:17:18Z",
+      "description": "A flaw was found in libslirp in icmp_forward_error(). When building an ICMP error response, the length of the quoted original IPv4 packet was taken from the IP header without clamping it to the actual buffer length. A truncated or malformed packet could cause an out-of-bounds heap read, leaking host",
+      "severity": "HIGH",
+      "score": 7.4,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120830",
+      "kev": false
+    },
     {
       "id": "CVE-2026-71450",
       "published": "2026-11-02T23:17:21Z",
@@ -201,66 +261,6 @@
       "score": 8.7,
       "cvss_version": "40",
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-29508",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-49903",
-      "published": "2026-11-02T21:17:31Z",
-      "description": "The `ClusterRenderingService.dump()` method, accessible to processes holding `android.permission.DUMP` and `android.permission.PACKAGE_USAGE_STATS`, acts as a confused deputy. It allows attackers to write arbitrary values to `Settings.Global.OVERLAY_DISPLAY_DEVICES`, an operation normally requiring ",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-49903",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-49906",
-      "published": "2026-11-02T21:17:31Z",
-      "description": "An unprivileged application can bypass the `android.car.permission.CAR_DISPLAY_IN_CLUSTER` permission by registering an activity with the `android.car.cluster.NAVIGATION` category and requesting navigation app focus. The privileged `ClusterHomeSample` application, acting as a confused deputy, resolv",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-49906",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-120503",
-      "published": "2026-11-02T21:17:30Z",
-      "description": "A vulnerability was detected in EchoHS GeekezBrowser up to 1.7.2/1.8.0. This affects an unknown part of the file /api/status of the component Public API. The manipulation results in information disclosure. The attack requires a local approach. The exploit is now public and may be used. Upgrading to ",
-      "severity": "LOW",
-      "score": 1.9,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120503",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-16305",
-      "published": "2026-11-02T21:17:30Z",
-      "description": "Local privilege escalation in `SmartUpdate.exe` and `SmartExecute.exe` in INFINITT Healthcare Co., Ltd. INFINITT PACS allows a local low-privileged attacker to execute arbitrary commands with administrator privileges via modification of a world-writable `execlist.txt` command manifest that is proces",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-16305",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-116767",
-      "published": "2026-11-02T21:17:25Z",
-      "description": "CVE-2026-116767 is an improper input handling vulnerability\nin Secure Access servers prior to 14.61. Authenticated attackers can cause a\npersistent denial of service.",
-      "severity": "HIGH",
-      "score": 7.1,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116767",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-116768",
-      "published": "2026-11-02T21:17:25Z",
-      "description": "CVE-2026-116768 is a missing length validation vulnerability\nin Secure Access servers prior to 14.61. Authenticated attackers can cause a\npersistent denial of service when connecting for the first time.",
-      "severity": "HIGH",
-      "score": 7.1,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116768",
       "kev": false
     }
   ]
