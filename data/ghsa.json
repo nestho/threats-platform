@@ -1,11 +1,35 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-04T14:18:25Z",
+  "updated_at": "2026-11-04T21:14:08Z",
   "source": "GitHub Security Advisories",
   "source_url": "https://api.github.com/advisories",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-93cm-2v4m-c56c",
+      "title": "Arc: DuckDB I/O aliases bypass database RBAC after CVE-2026-47735",
+      "published": "2026-11-04T17:02:37Z",
+      "ecosystem": "go",
+      "summary": "### Summary\n\nThe fix for CVE-2026-47735 (released 2026.06.1) is incomplete. It added a DuckDB sandbox (`SET GLOBAL allowed_directories=[<storage root>]; SET GLOBAL enable_external_access=false`) and an Arc SQL-layer denylist of the **literal** functions `read_parquet(` and `arc_partition_agg(`. The ",
+      "link": "https://github.com/advisories/GHSA-93cm-2v4m-c56c"
+    },
+    {
+      "id": "GHSA-mc8m-rr6c-r5qr",
+      "title": "@payloadcms/storage-vercel-blob has access control bypass of uploads in Vercel Storage adapter",
+      "published": "2026-11-04T17:00:39Z",
+      "ecosystem": "npm",
+      "summary": "### Impact\nIn affected configurations, client upload access does not consistently align with the associated collection’s access configuration.\n\nYou are affected if:\n- You use client uploads with `@payloadcms/storage-vercel-blob`.\n- Authenticated users can access the client-upload route.\n\nApplication",
+      "link": "https://github.com/advisories/GHSA-mc8m-rr6c-r5qr"
+    },
+    {
+      "id": "GHSA-3cgg-c5pp-57h6",
+      "title": "odf-kit: HTML injection leading to XSS in odtToHtml() and odsToHtml() via unescaped style attribute values",
+      "published": "2026-11-04T16:14:34Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nODF style attribute values are interpolated into `style=\"...\"` attributes without HTML-escaping in **both** of odf-kit's to-HTML renderers (`odtToHtml` and `odsToHtml`). A double-quote character inside an attacker-controlled style value breaks out of the attribute, allowing arbitrary HT",
+      "link": "https://github.com/advisories/GHSA-3cgg-c5pp-57h6"
+    },
     {
       "id": "GHSA-gh9r-c94j-cmp5",
       "title": "Stanza: RCE via pickle deserialization in the lemmatizer",
@@ -781,30 +805,6 @@
       "ecosystem": "npm",
       "summary": "## Unauthenticated Danswer API Confused Deputy Proxy in @eeacms/volto-chatbot\n\n### Summary\n\n`@eeacms/volto-chatbot` exposes an Express middleware route (`**/_v1_da/**`) that accepts unauthenticated HTTP requests from any network client and proxies them to the configured upstream Danswer API, automat",
       "link": "https://github.com/advisories/GHSA-w9x9-j56r-h98r"
-    },
-    {
-      "id": "GHSA-8vfg-2r28-hvhj",
-      "title": "Crass: Non-ASCII characters cause superlinear CPU consumption",
-      "published": "2026-10-29T16:35:29Z",
-      "ecosystem": "rubygems",
-      "summary": "### Impact\n\nWhen parsing an input containing non-ASCII characters, inefficiencies in how Crass tracks the positions of multi-byte characters result in superlinear parsing time. An attacker-controlled input consisting of many non-ASCII characters could cause excessive CPU consumption and potentially ",
-      "link": "https://github.com/advisories/GHSA-8vfg-2r28-hvhj"
-    },
-    {
-      "id": "GHSA-wwpr-jff3-395c",
-      "title": "Crass: A large number of adjacent CSS comments can trigger a SystemStackError",
-      "published": "2026-10-29T16:35:23Z",
-      "ecosystem": "rubygems",
-      "summary": "### Impact\n\nWhen the `:preserve_comments` option is not enabled (which is the default behavior), Crass discards CSS comments by recursively consuming the next token. An attacker who provides a stylesheet containing a very large number of adjacent comments can cause excessive recursion and trigger a ",
-      "link": "https://github.com/advisories/GHSA-wwpr-jff3-395c"
-    },
-    {
-      "id": "GHSA-6jxj-px6v-747w",
-      "title": "Crass: Deeply nested CSS blocks and functions can trigger a SystemStackError or excessive memory usage",
-      "published": "2026-10-29T16:35:16Z",
-      "ecosystem": "rubygems",
-      "summary": "### Impact\n\nCrass recursively parses CSS simple blocks and functions without a depth guard. An attacker-controlled value containing many deeply nested blocks can recurse until Ruby raises `SystemStackError: stack level too deep`, or can cause excessive memory usage.\n\n### Patches\n\nThis is fixed in Cr",
-      "link": "https://github.com/advisories/GHSA-6jxj-px6v-747w"
     }
   ]
 }
