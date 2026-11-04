@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-04T01:40:26Z",
+  "updated_at": "2026-11-04T06:01:12Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,181 @@
   ],
   "recent": {
     "lookback_days": 3,
-    "total": 1358,
-    "items_available": 1358,
+    "total": 1365,
+    "items_available": 1365,
     "normalisation_failures": [],
-    "items_parsed": 1358,
+    "items_parsed": 1365,
     "items": [
+      {
+        "id": "CVE-2026-105296",
+        "published": "2026-11-04T05:18:21Z",
+        "description": "Multiple Akeeba products lack the anti-CSRF check on some actions. If the user access a malicious page while logged into the product, unintended operations may be performed.",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105296",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-79405",
+        "published": "2026-11-04T04:17:37Z",
+        "description": "In Modem Firmware, there is a possible system crash due to improper input validation of dedicated PUCCH configuration. This could lead to remote denial of service with no additional execution privileges needed.",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-79405",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-80335",
+        "published": "2026-11-04T04:17:37Z",
+        "description": "In the bootloader download module, there is a possible out-of-bounds write due to a failure to reset a global offset variable during firmware update sessions. This could lead to heap memory corruption, system crash, or potential arbitrary code execution with no additional execution privileges needed",
+        "severity": "HIGH",
+        "score": 7.6,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-80335",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121803",
+        "published": "2026-11-04T04:17:33Z",
+        "description": "Rejected reason: This CVE ID is a duplicate of CVE-2026-80335 (VULN-002 dl_download_midst) and has been rejected.",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121803",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121616",
+        "published": "2026-11-04T03:17:15Z",
+        "description": "A vulnerability was identified in Linksys E5600 1.1.0.26. Affected by this vulnerability is the function strcpy of the file /cgi-bin/mesh_login.cgi of the component JSON Request Parser. The manipulation of the argument username/password/token/source/cn/action leads to out-of-bounds write. The attack",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121616",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121617",
+        "published": "2026-11-04T03:17:15Z",
+        "description": "A security flaw has been discovered in Linksys E5600 1.1.0.26. Affected by this issue is the function init_multipart of the file /cgi-bin/upload_fw.cgi of the component Header Parser. The manipulation results in out-of-bounds write. The attack may be launched remotely. The exploit has been released ",
+        "severity": "HIGH",
+        "score": 7.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121617",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121618",
+        "published": "2026-11-04T03:17:15Z",
+        "description": "A weakness has been identified in Linksys E5600 1.1.0.26. This affects an unknown part of the file /cgi-bin/fqc.cgi of the component Factory Quality Control. This manipulation causes information disclosure. Remote exploitation of the attack is possible. The exploit has been made available to the pub",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121618",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121802",
+        "published": "2026-11-04T03:17:15Z",
+        "description": "@better-auth/expo before 1.7.16 allows certain account-takeover outcomes (e.g., unauthenticated changes of any account's email address), because it signs a caller-supplied state value without checking whether that value had been issued by the server. NOTE: the application secret must be rotated afte",
+        "severity": "CRITICAL",
+        "score": 9.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121802",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121615",
+        "published": "2026-11-04T03:17:14Z",
+        "description": "A vulnerability was determined in Linksys E5600 1.1.0.26. Affected is an unknown function of the file /cgi-bin/mesh_login.cgi of the component Login Handler. Executing a manipulation can lead to improper authentication. The attack can be launched remotely. The exploit has been publicly disclosed and",
+        "severity": "CRITICAL",
+        "score": 9.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121615",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-84729",
+        "published": "2026-11-04T02:17:21Z",
+        "description": "Out-of-bounds write in certain ASUS Router firmware allow an unauthenticated nearby attacker to write data beyond the intended buffer or potentially cause a denial-of-service (DoS) via a crafted packet.\nRefer to the ' \nSecurity Update for ASUS Router Firmware  ' section on the ASUS Security Advisory",
+        "severity": "HIGH",
+        "score": 7.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-84729",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-84730",
+        "published": "2026-11-04T02:17:21Z",
+        "description": "Stack-based buffer overflow in certain ASUS Router firmware allows an unauthenticated nearby attacker to execute arbitrary commands with root privileges via a crafted device name.\nRefer to the '\nSecurity Update for ASUS Router AiCloud Feature ' section on the ASUS Security Advisory for more informat",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-84730",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121608",
+        "published": "2026-11-04T02:17:20Z",
+        "description": "A vulnerability was determined in Qihoo 360 D603-2, D600-2 and D606-6 up to 6.3.2. This vulnerability affects the function on_push_message of the file /fs2/bin/iscm of the component Timezone Push Handler. Executing a manipulation of the argument tz can lead to os command injection. The attack may be",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121608",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121609",
+        "published": "2026-11-04T02:17:20Z",
+        "description": "A vulnerability was identified in Qihoo 360 Whole Home Router M5 4.0.17.1566. This issue affects the function Home of the file /etc/init.d/mpt of the component Boot Script. The manipulation leads to hard-coded credentials. Remote exploitation of the attack is possible. The exploit is publicly availa",
+        "severity": "CRITICAL",
+        "score": 9.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121609",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121610",
+        "published": "2026-11-04T02:17:20Z",
+        "description": "A security flaw has been discovered in funadmin 7.1.0. Impacted is the function Curd::selectList of the file /frontend/ajax/index of the component Frontend List Endpoint. The manipulation of the argument selectFields results in sql injection. The attack can be executed remotely. The exploit has been",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121610",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121607",
+        "published": "2026-11-04T02:17:19Z",
+        "description": "A vulnerability was found in Qihoo 360 D603-2, D600-2, D606-6 and D706 up to 6.4.9. This affects the function testspeed_command of the file /fs2/bin/iscm. Performing a manipulation of the argument host results in os command injection. The attack may be initiated remotely. The exploit has been made p",
+        "severity": "CRITICAL",
+        "score": 9.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121607",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-110464",
+        "published": "2026-11-04T02:17:14Z",
+        "description": "Missing authorization in ASUS Armoury Crate allows a local attacker to write content into a specific file or registry location with Local System privileges, or to cause a recoverable system crash, via the service's exposed inter-process interface.\nRefer to the '\nSecurity Update for Armoury Crate App",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110464",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-112116",
+        "published": "2026-11-04T02:17:14Z",
+        "description": "An exposed IOCTL with insufficient access control in ASUS System Control Interface allows a local, low-privileged user to read and write arbitrary physical memory through crafted device control requests, ultimately resulting in a complete compromise of the affected system.\nRefer to the ' Security Up",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-112116",
+        "kev": false
+      },
       {
         "id": "CVE-2026-121598",
         "published": "2026-11-04T01:17:23Z",
@@ -13491,106 +13661,6 @@
         "score": 2.1,
         "cvss_version": "40",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120217",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-113481",
-        "published": "2026-11-01T05:18:57Z",
-        "description": "The Media Library Assistant WordPress plugin before 3.44 does not check that the requesting user is allowed to view a post before disclosing which taxonomy terms are assigned to it, allowing any authenticated user, such as a subscriber, to learn the term assignments of private attachments and posts.",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113481",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-113482",
-        "published": "2026-11-01T05:18:57Z",
-        "description": "The Media Library Assistant WordPress plugin before 3.44 does not escape one of its shortcode attributes before outputting it in an attribute of generated links, allowing users with the Contributor role and above to perform Stored Cross-Site Scripting attacks.",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113482",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118168",
-        "published": "2026-11-01T05:18:57Z",
-        "description": "The MapPress  WordPress plugin before 2.97.15 does not restrict which user's data its front-end map embed handler renders, allowing unauthenticated visitors to retrieve the email address and display name of any user on the site by enumerating user IDs.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118168",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120198",
-        "published": "2026-11-01T05:18:57Z",
-        "description": "A vulnerability has been found in WAVLINK WL-WN530BE1-A V251117. Affected is the function con_check_read_finish of the file /protocol.csp. Such manipulation of the argument group_name/IP-FROM leads to command injection. It is possible to launch the attack remotely. The exploit has been disclosed to ",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120198",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107342",
-        "published": "2026-11-01T05:18:56Z",
-        "description": "The Kali Forms — Contact Form & Drag-and-Drop Builder WordPress plugin before 2.4.30 does not perform a capability check when its test-email handler resolves and returns a user's email address, relying only on a nonce that is available to any logged-in user, allowing authenticated users with minimal",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107342",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107343",
-        "published": "2026-11-01T05:18:56Z",
-        "description": "The Kali Forms — Contact Form & Drag-and-Drop Builder WordPress plugin before 2.4.30 does not perform a capability check on its test-email handler, relying only on a nonce that is available to any logged-in user, so a low-privileged user such as a Subscriber can make the site send email to an arbitr",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107343",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120197",
-        "published": "2026-11-01T04:18:47Z",
-        "description": "A flaw has been found in WAVLINK WL-WN530HG4B M_V260724. This impacts the function port_forward of the file /cgi-bin/wapi.cgi. This manipulation of the argument Name causes os command injection. It is possible to initiate the attack remotely. The exploit has been published and may be used. The vendo",
-        "severity": "HIGH",
-        "score": 8.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120197",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120195",
-        "published": "2026-11-01T04:18:46Z",
-        "description": "A security vulnerability has been detected in WAVLINK WL-WN579A3-A 2026-03-10-94f93d4. The impacted element is the function set_wzdgwMesh of the file /cgi-bin/adm.cgi of the component Initial Setup Wizard. The manipulation of the argument wlan_ssid leads to os command injection. The attack is possib",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120195",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120196",
-        "published": "2026-11-01T04:18:46Z",
-        "description": "A vulnerability was detected in WAVLINK WN579X3-D V250402. This affects the function port_forward of the file /cgi-bin/wapi.cgi. The manipulation of the argument Name results in os command injection. The attack may be performed from remote. The exploit is now public and may be used. The vendor was c",
-        "severity": "HIGH",
-        "score": 8.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120196",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120192",
-        "published": "2026-11-01T02:16:59Z",
-        "description": "A security vulnerability has been detected in Presenton up to 0.9.11-beta. This affects an unknown part of the file /app_data of the component Desktop Authentication Middleware. Such manipulation leads to information disclosure. It is possible to launch the attack remotely. The exploit has been disc",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120192",
         "kev": false
       }
     ]
