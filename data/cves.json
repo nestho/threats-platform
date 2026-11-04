@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-04T08:02:05Z",
+  "updated_at": "2026-11-04T14:18:24Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,881 @@
   ],
   "recent": {
     "lookback_days": 3,
-    "total": 1413,
-    "items_available": 1413,
+    "total": 1471,
+    "items_available": 1471,
     "normalisation_failures": [],
-    "items_parsed": 1413,
+    "items_parsed": 1471,
     "items": [
+      {
+        "id": "CVE-2026-121993",
+        "published": "2026-11-04T14:17:39Z",
+        "description": "wePOS (Point Of Sale for WooCommerce) before 2.0.3 contains a missing authorization vulnerability in the wepos/v1/payment/process REST route that allows authenticated vendor-level users to mark arbitrary orders as paid and completed by supplying another order's ID. Attackers with only the publish_sh",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121993",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-119745",
+        "published": "2026-11-04T14:17:30Z",
+        "description": "MultiVendorX plugin for WordPress before 5.0.21 contains a missing authorization vulnerability that allows any authenticated user, including Subscribers, to access a sensitive diagnostic dump by requesting the admin_post_sender_debug_download action handled by downloadDebugFile() without any capabil",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119745",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118391",
+        "published": "2026-11-04T14:17:29Z",
+        "description": "Allocation of Resources Without Limits or Throttling vulnerability in elixir-ecto ecto allows an unauthenticated remote attacker to exhaust memory in the application and in the database server by sending requests with distinct JSON keys or list lengths where the application interpolates them into js",
+        "severity": "HIGH",
+        "score": 8.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118391",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-65555",
+        "published": "2026-11-04T13:17:30Z",
+        "description": "Incorrect Privilege Assignment vulnerability in Uncanny Owl Uncanny Toolkit for LearnDash uncanny-learndash-toolkit allows Privilege Escalation.This issue affects Uncanny Toolkit for LearnDash: from n/a through 3.8.2.",
+        "severity": "CRITICAL",
+        "score": 9.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-65555",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121944",
+        "published": "2026-11-04T13:17:29Z",
+        "description": "sngrep through 1.9.0 contains an infinite loop vulnerability in capture_packet_reasm_ip() in src/capture.c that allows attackers to cause denial of service via crafted NFLOG TLVs. Attackers can supply a pcap file with link type NFLOG containing a non-payload TLV with length under 4, making the captu",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121944",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121945",
+        "published": "2026-11-04T13:17:29Z",
+        "description": "CoopCycle coopcycle-web before 6.20.1 contains a broken access control vulnerability that allows any courier to read and modify every incident because Incident operations only check ROLE_COURIER. Attackers can enumerate sequential incident ids and use PUT /api/incidents/{id}/action to re-price, canc",
+        "severity": "HIGH",
+        "score": 7.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121945",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121946",
+        "published": "2026-11-04T13:17:29Z",
+        "description": "zbateson mail-mime-parser before 3.0.9 and 4.x before 4.0.6 contains a CRLF header injection vulnerability in message-building helpers that fail to strip CR and LF characters. Attackers supplying crafted MIME type, charset, encoding, micalg, or protocol values can inject extra header lines such as a",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121946",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121970",
+        "published": "2026-11-04T13:17:29Z",
+        "description": "Pay with Vipps and MobilePay for WooCommerce (woo-vipps) before 6.4.1 contains an improper cryptographic signature verification vulnerability in the recurring-payment webhook handler that allows unauthenticated attackers to forge webhook requests when no local webhook secret is stored, because the c",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121970",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121938",
+        "published": "2026-11-04T13:17:28Z",
+        "description": "langchain4j-aideepin before 3.31.0 contains an insecure direct object reference vulnerability that allows authenticated users to read other users' character-chat conversations by supplying their character uuid. Attackers can request GET /character/{uuid}, which CharacterService.detail resolves witho",
+        "severity": "MEDIUM",
+        "score": 6.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121938",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121939",
+        "published": "2026-11-04T13:17:28Z",
+        "description": "Databasement before 1.10.9 contains an authentication bypass vulnerability in OAuthService::findOrCreateLocalUser() that links OIDC identities to local users by email without checking email_verified. Attackers can register an identity provider account with a victim's unverified email to log in as an",
+        "severity": "CRITICAL",
+        "score": 9.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121939",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121940",
+        "published": "2026-11-04T13:17:28Z",
+        "description": "Stonewuu ai-fusion-video before 1.3.0 contains an insecure direct object reference vulnerability that allows authenticated users to access other users' projects by supplying unscoped object ids. Attackers can enumerate auto-increment ids on /api/project, /api/asset and /api/script handlers to read, ",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121940",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121941",
+        "published": "2026-11-04T13:17:28Z",
+        "description": "libmt32emu before 2.8.4 contains a heap buffer overflow vulnerability in MidiStreamParserImpl::parseSysex that allows attackers to write past a heap allocation by supplying oversized unterminated SysEx messages. Attackers can feed more than 32768 SysEx data bytes through the mt32emu_parse_stream API",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121941",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121942",
+        "published": "2026-11-04T13:17:28Z",
+        "description": "ZBar through 0.23.95 contains an out-of-bounds read vulnerability in _zbar_sq_decode() in zbar/sqcode.c that allows attackers to read heap memory outside the image buffer via crafted SQ code images. Attackers can supply an image with a skewed SQ code finder pattern near the edge, producing unchecked",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121942",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121943",
+        "published": "2026-11-04T13:17:28Z",
+        "description": "Irontec sngrep through 1.9.0 contains an out-of-bounds stack read vulnerability in sip_check_packet and sip_validate_packet caused by an off-by-one length check on 10240-byte SIP payloads. Remote attackers can send a crafted UDP or TCP SIP packet or supply a pcap file to crash sngrep or leak adjacen",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121943",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121146",
+        "published": "2026-11-04T13:17:27Z",
+        "description": "This vulnerability exists in the iRA 2.0 and iRA.ev mobile applications due to the recording of authentication tokens in application logs used for development and debugging. A local attacker with an access to logs could exploit this vulnerability by retrieving and misusing the exposed session tokens",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121146",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121147",
+        "published": "2026-11-04T13:17:27Z",
+        "description": "This vulnerability exists in the iRA 2.0 and iRA.ev mobile applications due to improper implementation of SSL certificate pinning in the network security configuration, resulting in ineffective certificate pinning controls. An attacker positioned to intercept network traffic could exploit this vulne",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121147",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121373",
+        "published": "2026-11-04T13:17:27Z",
+        "description": "The Symfony HtmlSanitizer component MetaRefreshAttributeSanitizer, introduced to fix CVE-2026-48761, sanitizes the refresh URL of content attributes of meta tags using a regular expression that is too narrow, allowing sanitization to be bypassed, and resulting in potential URL redirection to untrust",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121373",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121620",
+        "published": "2026-11-04T13:17:27Z",
+        "description": "CoopCycle coopcycle-web 5.6.0 before 6.20.0 contains a missing authentication vulnerability that allows unauthenticated attackers to forge Zelty webhook events because the x-zelty-hmac-sha256 HMAC signature is never verified. Attackers can POST forged dish, menu, option and order-status events to /a",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121620",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121936",
+        "published": "2026-11-04T13:17:27Z",
+        "description": "easyVoice before 0.0.23 contains a server-side request forgery vulnerability that allows unauthenticated attackers to make the server send POST requests by supplying openaiBaseUrl with useLLM enabled. Attackers can target loopback and internal services through /api/v1/tts endpoints, using reflected ",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121936",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121937",
+        "published": "2026-11-04T13:17:27Z",
+        "description": "loonflow before r3.2.3 contains a missing authorization vulnerability in TicketFlowHistoryView that allows any authenticated user to read other users' ticket flow history by supplying a ticket UUID. Attackers can request the ticket_flow_history endpoint, which skips ticket_view_permission_check, to ",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121937",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118516",
+        "published": "2026-11-04T13:17:26Z",
+        "description": "The Symfony Routing components CompiledUrlMatcher and UrlMatcher interpret the host and path information differently, allowing path-based authorization rules to be bypassed in Symfony versions prior to 5.4.56, 6.x prior to 6.4.50, 7.x prior to 7.4.23, and 8.x prior to 8.1.11.\n\n\n\n\nFor routes that def",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118516",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-119468",
+        "published": "2026-11-04T13:17:26Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Noptin Newsletter Team Noptin newsletter-optin-box allows Stored XSS.This issue affects Noptin: from n/a through 4.4.2.",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119468",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-119481",
+        "published": "2026-11-04T13:17:26Z",
+        "description": "Incorrect Privilege Assignment vulnerability in Crocoblock JetFormBuilder jetformbuilder allows Privilege Escalation.This issue affects JetFormBuilder: from n/a through 3.6.7.1.",
+        "severity": "CRITICAL",
+        "score": 9.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119481",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121144",
+        "published": "2026-11-04T13:17:26Z",
+        "description": "This vulnerability exists in the iRA 2.0 and iRA.ev mobile applications due to presence of hardcoded service account credentials, API Keys and authorization tokens within the application package. An unauthenticated remote attacker could exploit this vulnerability by downloading application package a",
+        "severity": "HIGH",
+        "score": 8.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121144",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121145",
+        "published": "2026-11-04T13:17:26Z",
+        "description": "This vulnerability exists in the iRA 2.0 and iRA.ev mobile applications due to insufficient validation of URLs and origins loaded within the WebView component. A remote attacker could exploit this vulnerability by sending malicious web content to the affected WebView.\n\nSuccessful exploitation of thi",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121145",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118513",
+        "published": "2026-11-04T13:17:25Z",
+        "description": "Authentication bypass by spoofing in X509Authenticator and X509AuthenticationListener of Symfony versions prior to 5.4.56, 6.x prior to 6.4.50, 7.x prior to 7.4.23, and 8.x prior to 8.1.11 allows an attacker holding a certificate from the application's trusted CA who can influence the CN to authenti",
+        "severity": "HIGH",
+        "score": 7.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118513",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-107479",
+        "published": "2026-11-04T13:17:21Z",
+        "description": "An integer truncation vulnerability in the QTextCodec conversion functions of the Qt 5 Core Compatibility APIs module impacts the Qt Framework. An application using the affected functionality could crash.",
+        "severity": "LOW",
+        "score": 1.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107479",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-97397",
+        "published": "2026-11-04T12:17:07Z",
+        "description": "The Remove Google Fonts – Disable, Block, or Replace with Bunny Fonts for GDPR Compliance plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Comment Field via Regex-Mangled Output Buffer in all versions up to, and including, 1.7 due to insufficient input sanitization and output es",
+        "severity": "HIGH",
+        "score": 7.2,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97397",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-114456",
+        "published": "2026-11-04T12:17:06Z",
+        "description": "Multiple Snowflake client drivers implementing the `authenticator=externalbrowser` single sign-on flow could have allowed an attacker to interfere with a user's login attempt through weaknesses in the local loopback callback listener used to receive the identity provider's response. The listener ref",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-114456",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121925",
+        "published": "2026-11-04T12:17:06Z",
+        "description": "A stack-based buffer overflow in libsnowflakeclient and the Snowflake PHP PDO Driver could, under specific conditions, result in memory corruption during SAML-based authentication. During a native SSO/SAML login flow, the affected drivers may have copied a value taken from the identity provider's HT",
+        "severity": "MEDIUM",
+        "score": 6.6,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121925",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-59267",
+        "published": "2026-11-04T12:17:06Z",
+        "description": "A crafted DXF document causes a heap buffer overflow in Draw in Apache OpenOffice 4.1.16 and earlier. This could cause a crash or otherwise a corruption of memory areas.\nUsers are recommended to upgrade to version 4.1.17, which fixes this issue.",
+        "severity": "MEDIUM",
+        "score": 5.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59267",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-104799",
+        "published": "2026-11-04T12:17:05Z",
+        "description": "The Mobile builder plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 1.4.2 via the `wcfmmp_profile_settings()` REST handler exposed at `POST /mobile-builder/v1/wcfm-profile-settings`. This is due to a PHP loose-comparison logic flaw in the meta key allo",
+        "severity": "HIGH",
+        "score": 8.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-104799",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-90626",
+        "published": "2026-11-04T11:17:19Z",
+        "description": "An uncontrolled memory access in the PDF import code of Apache OpenOffice versions through 4.1.16 allows a crafted PDF to cause an out-of-bounds memory write, causing program crash or memory corruption.\nUsers are recommended to upgrade to version 4.1.17, which fixes this issue.",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-90626",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-90627",
+        "published": "2026-11-04T11:17:19Z",
+        "description": "The flat file database driver in Apache Openoffice versions through 4.1.16 allows a crafted document to read the contents of any local file without asking the user.\nUsers are recommended to upgrade to version 4.1.17, which fixes this issue.",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-90627",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-90628",
+        "published": "2026-11-04T11:17:19Z",
+        "description": "An uncontrolled memory access in the PDF export code of Apache OpenOffice versions through 4.1.16 allows a crafted CFF font to cause a stack overflow problem, causing program crash or memory corruption, or even running other code.\n\nUsers are recommended to upgrade to version 4.1.17, which fixes this",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-90628",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-90629",
+        "published": "2026-11-04T11:17:19Z",
+        "description": "An uncontrolled memory access in the WMF import code of Apache OpenOffice versions through 4.1.16 allows a crafted WMF file to cause an invalid memory access, causing program crash or memory corruption.\nUsers are recommended to upgrade to version 4.1.17, which fixes this issue.",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-90629",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-90631",
+        "published": "2026-11-04T11:17:19Z",
+        "description": "Apache OpenOffice documents can contain links. A missing Authorization vulnerability in Apache OpenOffice allowed an attacker to craft a document that would cause external links \nto be loaded without prompt, possibly transferring the contents of environment variables in the process.\n\n\n\nThis issue af",
+        "severity": "LOW",
+        "score": 3.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-90631",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-90632",
+        "published": "2026-11-04T11:17:19Z",
+        "description": "Apache OpenOffice documents can include multimedia content (audio, video, etc.)\n\nA crafted document could exploit the GStreamer multimedia component of Apache OpenOffice version through 4.1.16 to load the contents of any local file, and include them when the document is saved or exported, for exampl",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-90632",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-90634",
+        "published": "2026-11-04T11:17:19Z",
+        "description": "An uncontrolled memory access in the PDF import code of Apache OpenOffice versions through 4.1.16 allows a crafted PDF to cause an out-of-bounds memory write, causing program crash or memory corruption.\nUsers are recommended to upgrade to version 4.1.17, which fixes this issue.",
+        "severity": "HIGH",
+        "score": 7.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-90634",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-90624",
+        "published": "2026-11-04T11:17:18Z",
+        "description": "An unchecked memory access in the PDF import code of Apache OpenOffice versions through 4.1.16 on allows a crafted PDF to execute an out-of-bounds memory write. This could crash the program or cause memory corruption.\nUsers are recommended to upgrade to version 4.1.17, which fixes this issue.",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-90624",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-59263",
+        "published": "2026-11-04T11:17:16Z",
+        "description": "A manipulated document opened in Apache OpenOffice 4.1.16 or earlier may allow substituted content to be displayed manipulating the user. Such documents are corrupt and should not be opened.\nUsers are recommended to upgrade to version 4.1.17, which fixes this issue.",
+        "severity": "LOW",
+        "score": 1.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59263",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-59264",
+        "published": "2026-11-04T11:17:16Z",
+        "description": "The Windows installers of Apache OpenOffice 4.1.16 and earlier allow an already manipulated system to run external code with elevated access.\nUsers are recommended to upgrade to version 4.1.17, which fixes this issue.",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59264",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-59268",
+        "published": "2026-11-04T11:17:16Z",
+        "description": "An out-of-bounds Write vulnerability in Apache OpenOffice versions through 4.1.16 could allow an attacker to craft a Microsoft Word document that would crash the program, or otherwise corrupt other memory areas.\n\nUsers are recommended to upgrade to version 4.1.17, which fixes this issue.",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59268",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-115448",
+        "published": "2026-11-04T11:17:14Z",
+        "description": "Uncontrolled recursion in Apache ZooKeeper. The server serializes its data tree to a snapshot by recursing one stack frame per znode level, with no depth bound. A client permitted to create znodes (the default root ACL is open) can build a chain of nested znodes deep enough that taking a snapshot ex",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115448",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-103582",
+        "published": "2026-11-04T11:17:13Z",
+        "description": "Unbounded memory allocation and missing frame size validation in Apache NMS ActiveMQ (the .NET OpenWire client, package Apache.NMS.ActiveMQ) before 2.3.0.\n\n\n\nThe OpenWire unmarshalling code trusted the frame size and the length and count fields read from the network. It did not enforce a maximum fra",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103582",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108500",
+        "published": "2026-11-04T11:17:13Z",
+        "description": "Input validation vulnerability in Apache ActiveMQ configured to use the LDAPAuthorizationMapPlugin allows an authenticated attacker to create or address a destination with a crafted name containing LDAP DN special characters (such as comma, plus, equals, backslash) can manipulate the LDAP search bas",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108500",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108946",
+        "published": "2026-11-04T11:17:13Z",
+        "description": "Improper input validation vulnerability in Apache ActiveMQ, Apache ActiveMQ KahaDB.\n\n\n\nThe ActiveMQ broker resolves connection, session and consumer state from ids that are user provided and in some scenarios does not validate that they ids are bound to that user. This allows an authenticated client",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108946",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100302",
+        "published": "2026-11-04T11:17:07Z",
+        "description": "Allocation of Resources Without Limits or Throttling in the multiRead request handler of Apache ZooKeeper allows a remote attacker to crash the server (denial of service) with a single small request.\n\nThe multiRead handler places no limit on the number of bundled read operations or on the cumulative",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100302",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102703",
+        "published": "2026-11-04T11:17:07Z",
+        "description": "[This CNA information record relates to multiple CVEs; the\ntext explains which aspects/vulnerabilities correspond to which CVE.]\n\nA common access pattern is a batch of Grant Copy operations acting on\nadjacent address ranges in the same source or destination page.  For\nperformance reasons, Xen caches",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102703",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102704",
+        "published": "2026-11-04T11:17:07Z",
+        "description": "[This CNA information record relates to multiple CVEs; the\ntext explains which aspects/vulnerabilities correspond to which CVE.]\n\nA common access pattern is a batch of Grant Copy operations acting on\nadjacent address ranges in the same source or destination page.  For\nperformance reasons, Xen caches",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102704",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100252",
+        "published": "2026-11-04T11:17:06Z",
+        "description": "Improper Authorization vulnerability in Apache ZooKeeper.\n\nWhen SASL authentication is enabled on the client port, the server's SASL callback handler grants every authorization identity (authzid) that a client requests, without checking it against the principal the client authenticated as. The serve",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100252",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100300",
+        "published": "2026-11-04T11:17:06Z",
+        "description": "Improper handling of exceptional conditions in the quota subsystem of Apache ZooKeeper allows an attacker able to write under the /zookeeper/quota subtree — unauthenticated on default deployments, where that subtree is world-writable — to crash the server's critical request-processing thread and ren",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100300",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-100235",
+        "published": "2026-11-04T11:17:04Z",
+        "description": "Incorrect authorization due to a time-of-check to time-of-use (TOCTOU) race condition in the setACL request handling of Apache ZooKeeper.\n\nWhen a node's ACL is changed via setACL, the pending change is not published to the server's outstanding change record for that node. Any request that is prepare",
+        "severity": "MEDIUM",
+        "score": 6.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100235",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-95649",
+        "published": "2026-11-04T10:17:27Z",
+        "description": "IRISPowerscan insufficiently restrict the use of\nuntrusted scripts. An authenticated user with access to script functionality\ncan import or modify scripts that are executed by the application, potentially\nresulting in arbitrary code execution in the security context of the Windows\nuser running IRISP",
+        "severity": "MEDIUM",
+        "score": 6.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-95649",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120422",
+        "published": "2026-11-04T10:17:26Z",
+        "description": "Sogou Input Method for Windows contains a vulnerability in the configuration retrieval mechanism of its SGTool.exe component. The application retrieves configuration data over unencrypted HTTP connections, allowing an attacker capable of manipulating network traffic to replace legitimate server resp",
+        "severity": "HIGH",
+        "score": 8.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120422",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120554",
+        "published": "2026-11-04T10:17:26Z",
+        "description": "The Import and export users and customers plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 2.5.11 This is due to a non-atomic multi-option write sequence in the `ACUI_Cron::save_settings()` function, which persists `acui_cron_activated`, `acui_cron_con",
+        "severity": "HIGH",
+        "score": 8.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120554",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-93900",
+        "published": "2026-11-04T10:17:26Z",
+        "description": "The Simple CAPTCHA with Cloudflare Turnstile plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'id' attribute of the [gravity-simple-turnstile] shortcode in versions up to, and including, 1.44.3 This is due to insufficient input sanitization and output escaping on the shortco",
+        "severity": "MEDIUM",
+        "score": 6.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93900",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-94459",
+        "published": "2026-11-04T10:17:26Z",
+        "description": "IRISPowerscan contain\ndefault user accounts with predictable credentials. An unauthenticated attacker\nwith access to an affected installation could use these credentials to\nauthenticate to the application and access functionality available to the\naffected accounts, potentially resulting in unauthori",
+        "severity": "HIGH",
+        "score": 7.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-94459",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-94460",
+        "published": "2026-11-04T10:17:26Z",
+        "description": "IRISPowerscan contain an insecure default\nconfiguration where the built-in installation account is assigned elevated\nprivileges with a predictable password, which could allow an unauthenticated\nattacker to gain unauthorised access to privileged application functionality.",
+        "severity": "HIGH",
+        "score": 7.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-94460",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-111038",
+        "published": "2026-11-04T10:17:25Z",
+        "description": "CSV formula injection vulnerability in the export functionality of the Coupa Supplier Portal SaaS platform. The vulnerability arises because certain user-controlled data, such as event names or templates within the Tenders module, are not properly validated or sanitised before being included in CSV ",
+        "severity": "HIGH",
+        "score": 7.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111038",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-111040",
+        "published": "2026-11-04T10:17:25Z",
+        "description": "The platform allows persistent HTML injection into editable fields managed by TinyMCE. An authenticated attacker with low privileges can inject unsanitised HTML content which is stored in the database and subsequently rendered in other users’ browsers, affecting the display of content within the app",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111040",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-111821",
+        "published": "2026-11-04T10:17:25Z",
+        "description": "Improper input validation vulnerability in Apache ActiveMQ, Apache ActiveMQ KahaDB.\n\n\n\nA user can create a durable subscription with a clientId and subscription name that have a combined length > 65,535 (while separately being shorter) on a broker using KahaDB which can cause the broker to shutdown ",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111821",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-111822",
+        "published": "2026-11-04T10:17:25Z",
+        "description": "Improper invalidation of cached authorizations vulnerability in Apache ActiveMQ, Apache ActiveMQ Runtime Config.\n\n\n\nAfter the runtime configuration plugin removes a principal's write grant on a destination, an authenticated connection opened before the change can keep sending to that destination, in",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111822",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-115498",
+        "published": "2026-11-04T10:17:25Z",
+        "description": "The Slim Jetpack plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'g<PAGE_ID>-website (Website contact-field)' parameter in all versions up to, and including, 2.7.0.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attac",
+        "severity": "HIGH",
+        "score": 7.2,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115498",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108949",
+        "published": "2026-11-04T10:17:24Z",
+        "description": "Denial of Service via OOM vulnerability in Apache ActiveMQ, ActiveMQ Broker.\n\n\n\nAn authenticated OpenWire client that sends a ConsumerInfo for a temporary queue/topic owned by another connection is rejected with InvalidDestinationException, but the rejected Subscription is left behind in the region'",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108949",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-110021",
+        "published": "2026-11-04T10:17:24Z",
+        "description": "PLCnext Engineer checks GSDX manifest reference digests but does not cryptographically verify the XML `SignatureValue` over canonicalized `SignedInfo`. An unauthenticated local attacker can modify signed GSDML content, update its manifest digest, retain the public certificate data, and leave an inva",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110021",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-110022",
+        "published": "2026-11-04T10:17:24Z",
+        "description": "The PFI plugin framework deploys executable assemblies (DLLs) from a signed plugin package into the local plugin repository and loads them via reflection, but the deployment routine processes archive entries that were never covered by the signature verification. An unauthenticated local attacker can",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110022",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-110935",
+        "published": "2026-11-04T10:17:24Z",
+        "description": "The PFI plugin framework deployment routine does not validate path components when extracting archive entries to the local plugin repository. Archive entries containing relative path segments such as '..' are not rejected, allowing an unauthenticated local attacker to write files outside the plugin ",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110935",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-111036",
+        "published": "2026-11-04T10:17:24Z",
+        "description": "Server-side request forgery (SSRF) vulnerability in the Coupa Supplier Portal SaaS platform, specifically in the document conversion functionality available in the ‘Contracts > Templates’ section. The vulnerability is due to insufficient validation of references to external resources processed by th",
+        "severity": "HIGH",
+        "score": 8.4,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111036",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-111037",
+        "published": "2026-11-04T10:17:24Z",
+        "description": "A reflected Cross-Site Scripting (XSS) vulnerability in the Tenders module of the Coupa Supplier Portal SaaS platform. The vulnerability arises because the `list_item_function` parameter is reflected in the server’s response without proper output encoding or sanitisation, and is directly embedded wi",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111037",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-19721",
+        "published": "2026-11-04T09:17:42Z",
+        "description": "Improper restriction of XML external entity reference vulnerability in TÜBİTAK BİLGEM Software Technologies Research Institute İmzager allows Serialized Data External Linking.\n\nThis issue affects İmzager: from 2.10.5 before 2.10.7.",
+        "severity": "LOW",
+        "score": 3.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-19721",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-19731",
+        "published": "2026-11-04T09:17:42Z",
+        "description": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in TÜBİTAK BİLGEM Software Technologies Research Institute İmzager allows Path Traversal.\n\nThis issue affects İmzager: from 2.10.5 before 2.10.7.",
+        "severity": "LOW",
+        "score": 3.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-19731",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-114421",
+        "published": "2026-11-04T09:17:41Z",
+        "description": "SEPPmail Secure Email Gateway before 15.1.1 permits password recovery for a created but unregistered GINA account whose initial password is empty without adequately verifying ownership. A remote unauthenticated attacker who identifies such an account can set a new password, authenticate as that acco",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-114421",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-114424",
+        "published": "2026-11-04T09:17:41Z",
+        "description": "SEPPmail Secure Email Gateway before 15.1.1 can evaluate attacker-influenced replacement text as Perl code in sender or recipient replacement rules. An unauthenticated remote sender can execute operating-system commands in the mail-processing worker context when an active rule uses message-derived r",
+        "severity": "CRITICAL",
+        "score": 9.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-114424",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-114425",
+        "published": "2026-11-04T09:17:41Z",
+        "description": "SEPPmail Secure Email Gateway before 15.1.1 trusts a file path supplied in externally provided Large File Transfer attachment metadata. An unauthenticated remote sender can cause the mail-processing worker to disclose, move, or delete an accessible regular file when LFT is enabled and the message re",
+        "severity": "CRITICAL",
+        "score": 9.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-114425",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-114426",
+        "published": "2026-11-04T09:17:41Z",
+        "description": "SEPPmail Secure Email Gateway before 15.1.1 processes and writes v1 file-interface upload data before authenticating the caller and without an absolute request-size limit. An unauthenticated remote attacker can occupy workers and consume temporary storage with concurrent or slow requests, causing se",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-114426",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-114420",
+        "published": "2026-11-04T09:17:40Z",
+        "description": "SEPPmail Secure Email Gateway before 15.1.1 does not neutralize LDAP metacharacters in an unauthenticated account-selection input in its GINA web interface. A remote unauthenticated attacker can enumerate email addresses.",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-114420",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-56065",
+        "published": "2026-11-04T08:17:17Z",
+        "description": "Insertion of Sensitive Information into Externally-Accessible File or Directory vulnerability in Doofinder Doofinder for WooCommerce doofinder-for-woocommerce allows Retrieve Embedded Sensitive Data.This issue affects Doofinder for WooCommerce: from n/a through 2.17.2.",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-56065",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-57639",
+        "published": "2026-11-04T08:17:17Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Roland Murg WP Booking System wp-booking-system allows Reflected XSS.This issue affects WP Booking System: from n/a through 2.1.0.6.",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57639",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-57666",
+        "published": "2026-11-04T08:17:17Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Aguila Technologies WP Customer Area customer-area allows Reflected XSS.This issue affects WP Customer Area: from n/a through 8.4.1.",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57666",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-57775",
+        "published": "2026-11-04T08:17:17Z",
+        "description": "Authentication Bypass Using an Alternate Path or Channel vulnerability in RelyWP Simple Cloudflare Turnstile simple-cloudflare-turnstile allows Authentication Abuse.This issue affects Simple Cloudflare Turnstile: from n/a through 1.44.1.",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-57775",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-62007",
+        "published": "2026-11-04T08:17:17Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Unlimited Elements Unlimited Elements For Elementor (Free Widgets, Addons, Templates) unlimited-elements-for-elementor allows Reflected XSS.This issue affects Unlimited Elements For Elementor (Free ",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62007",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-62126",
+        "published": "2026-11-04T08:17:17Z",
+        "description": "Allocation of Resources Without Limits or Throttling vulnerability in miniOrange SAML SP Single Sign On miniorange-saml-20-single-sign-on allows HTTP DoS.This issue affects SAML SP Single Sign On: from n/a through 6.1.0.",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62126",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-119366",
+        "published": "2026-11-04T08:17:16Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in AdvancedCoding wpDiscuz wpdiscuz allows Stored XSS.This issue affects wpDiscuz: from n/a through 7.6.73.",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119366",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-119477",
+        "published": "2026-11-04T08:17:16Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Jacob N. Breetvelt WP Photo Album Plus wp-photo-album-plus allows Stored XSS.This issue affects WP Photo Album Plus: from n/a through 9.3.05.003.",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119477",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-54861",
+        "published": "2026-11-04T08:17:16Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Aguila Technologies WP Customer Area customer-area allows Reflected XSS.This issue affects WP Customer Area: from n/a through 8.4.1.",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-54861",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-110944",
+        "published": "2026-11-04T08:17:15Z",
+        "description": "Resource exhaustion vulnerability in the HTTP request handling of the QHttpServer component of Qt HTTP Server.",
+        "severity": "LOW",
+        "score": 2.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110944",
+        "kev": false
+      },
       {
         "id": "CVE-2026-121817",
         "published": "2026-11-04T07:17:12Z",
@@ -2927,9 +3797,9 @@
         "id": "CVE-2026-121166",
         "published": "2026-11-03T21:17:24Z",
         "description": "Type confusion in PDFium in Google Chrome prior to 157.0.8103.38 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted PDF file. (Chromium security severity: High)",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
+        "severity": "HIGH",
+        "score": 8.8,
+        "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121166",
         "kev": false
       },
@@ -3137,9 +4007,9 @@
         "id": "CVE-2026-121131",
         "published": "2026-11-03T21:17:21Z",
         "description": "Use after free in Mobile in Google Chrome prior to 157.0.8103.38 allowed a remote attacker leveraging social engineering to execute arbitrary code outside the sandbox via a crafted Chrome extension. (Chromium security severity: High)",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
+        "severity": "CRITICAL",
+        "score": 9.6,
+        "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121131",
         "kev": false
       },
@@ -3617,9 +4487,9 @@
         "id": "CVE-2026-121080",
         "published": "2026-11-03T21:17:13Z",
         "description": "Use after free in Codecs in Google Chrome prior to 157.0.8103.38 allowed a remote attacker to read memory inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
+        "severity": "MEDIUM",
+        "score": 4.3,
+        "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121080",
         "kev": false
       },
@@ -9397,8 +10267,8 @@
         "id": "CVE-2026-58968",
         "published": "2026-11-02T20:17:53Z",
         "description": "In oapvd_vlc_metadata of oapv_vlc.c, there is a possible memory corruption due to a double free. This could lead to remote escalation of privilege with no additional execution privileges needed. User interaction is not needed for exploitation.",
-        "severity": "HIGH",
-        "score": 8.4,
+        "severity": "CRITICAL",
+        "score": 9.8,
         "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-58968",
         "kev": false
@@ -9517,9 +10387,9 @@
         "id": "CVE-2026-58961",
         "published": "2026-11-02T20:17:52Z",
         "description": "In moveTaskToFrontLocked of ActivityTaskManagerService.java, there is a possible background activity launch due to a logic error in the code. This could lead to local escalation of privilege with no additional execution privileges needed. User interaction is not needed for exploitation.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
+        "severity": "HIGH",
+        "score": 8.4,
+        "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-58961",
         "kev": false
       },
@@ -9737,9 +10607,9 @@
         "id": "CVE-2026-58936",
         "published": "2026-11-02T20:17:50Z",
         "description": "In png_set_tRNS of pngset.c, there is a possible memory corruption due to a use-after-free. This could lead to remote code execution with no additional execution privileges needed. User interaction is not needed for exploitation.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
+        "severity": "CRITICAL",
+        "score": 9.8,
+        "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-58936",
         "kev": false
       },
@@ -9817,9 +10687,9 @@
         "id": "CVE-2026-58876",
         "published": "2026-11-02T20:17:49Z",
         "description": "In multiple locations, there is a possible memory safety issue due to a use-after-free. This could lead to remote code execution with no additional execution privileges needed. User interaction is not needed for exploitation.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
+        "severity": "CRITICAL",
+        "score": 9.8,
+        "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-58876",
         "kev": false
       },
@@ -10377,9 +11247,9 @@
         "id": "CVE-2025-26433",
         "published": "2026-11-02T20:17:23Z",
         "description": "In multiple locations, there is a possible way to trick a user into accepting a permission due to a tapjacking/overlay attack. This could lead to local escalation of privilege with no additional execution privileges needed. User interaction is needed for exploitation.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
+        "severity": "HIGH",
+        "score": 8.4,
+        "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-26433",
         "kev": false
       },
@@ -13851,296 +14721,6 @@
         "score": 2.1,
         "cvss_version": "40",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117680",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120306",
-        "published": "2026-11-01T13:18:01Z",
-        "description": "Beta9 turns each shell command in a tenant image definition into a Dockerfile RUN line and executes it with Buildah on the build worker. The worker image sets BUILDAH_ISOLATION=chroot, and no buildah invocation passes --isolation, so the step only changes its filesystem root. It keeps the worker pod",
-        "severity": "CRITICAL",
-        "score": 9.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120306",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120307",
-        "published": "2026-11-01T13:18:01Z",
-        "description": "The Beta9 worker serves the sandbox file API from outside the container. getHostPathFromContainerPath turns the tenant's container path into a worker path. If the unresolved path starts with a mount destination, including the default upload mount at /tmp/.beta9, the remainder is joined onto that mou",
-        "severity": "CRITICAL",
-        "score": 9.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120307",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120308",
-        "published": "2026-11-01T13:18:01Z",
-        "description": "A Beta9 tenant can attach a volume when deploying a function, endpoint, or task queue. The gateway builds the host path by joining the shared volumes root, the workspace name, and the volume identifier from the stub configuration. Nothing checks that the identifier names a volume that workspace owns",
-        "severity": "CRITICAL",
-        "score": 9.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120308",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120227",
-        "published": "2026-11-01T13:18:00Z",
-        "description": "A vulnerability was detected in WAVLINK WN701AE M01AE_V260105. This affects the function del_staticrule of the file static_route_setting.sh of the component ioos Web Backend. Performing a manipulation of the argument rule_name results in os command injection. Remote exploitation of the attack is pos",
-        "severity": "HIGH",
-        "score": 8.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120227",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120226",
-        "published": "2026-11-01T12:17:09Z",
-        "description": "A security vulnerability has been detected in Hangzhou Xiongmai Technology P2PAPI.dll 1.3.3.32 on Windows. Affected by this issue is the function P2PAPI_Connect of the component P2P SDK. Such manipulation of the argument input as part of String leads to buffer overflow. An attack has to be approache",
-        "severity": "LOW",
-        "score": 1.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120226",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-13575",
-        "published": "2026-11-01T11:18:58Z",
-        "description": "HTTP::Session versions before 0.54 for Perl allow memcached command injection via unfiltered session ids in HTTP::Session::Store::CHI.\n\nThe session id from the client's cookie reaches the CHI cache unchanged. The sibling HTTP::Session::Store::Memcached rejects ids that contain control characters, bu",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-13575",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120224",
-        "published": "2026-11-01T11:18:57Z",
-        "description": "A security flaw has been discovered in Oray Pugongying X5 Pro up to 7.6.1. Affected is the function run_apis_by_json/run_async_task of the component API Authorization. The manipulation results in improper authorization. The attack can be launched remotely. The exploit has been released to the public",
-        "severity": "HIGH",
-        "score": 8.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120224",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120225",
-        "published": "2026-11-01T11:18:57Z",
-        "description": "A weakness has been identified in Oray Pugongying X5 Pro up to 7.6.1. Affected by this vulnerability is the function config_restore_ex of the file /etc/openwrt_release. This manipulation of the argument filename causes relative path traversal. The attack may be initiated remotely. The exploit has be",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120225",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-119627",
-        "published": "2026-11-01T10:18:37Z",
-        "description": "The web profile and RSS/Atom feed routes of users and organizations checked only whether a signed-in viewer could see a limited-visibility owner, without considering the `public-only` restriction of the personal access token used to authenticate. Any user holding a public-only token could send it ov",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119627",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120223",
-        "published": "2026-11-01T10:18:37Z",
-        "description": "A vulnerability was identified in Oray Pugongying X5 Pro up to 7.6.1. This impacts the function session_get of the file session.lua of the component Session ID Handler. The manipulation of the argument _user leads to insufficiently random values. The attack can be initiated remotely. The attack's co",
-        "severity": "LOW",
-        "score": 1.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120223",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120263",
-        "published": "2026-11-01T10:18:37Z",
-        "description": "When `[oauth2_client].ACCOUNT_LINKING` is set to `auto` (not the default) and registration is enabled, the link-account sign-up form looked up the existing account to link by the user name or email submitted in the form instead of the identity asserted by the OAuth2 provider. An attacker with an acc",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120263",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118386",
-        "published": "2026-11-01T10:18:36Z",
-        "description": "Workflows triggered by a pull request review were read from the commit named in the review's `commit_id`, while the fork restrictions were decided by the reviewed pull request, and the commit was not checked to belong to that pull request. A user with read access to a repository could place a commit",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118386",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118394",
-        "published": "2026-11-01T10:18:36Z",
-        "description": "The OAuth2 userinfo endpoint (`/login/oauth/userinfo`) decided whether to limit the `groups` claim to public organizations by re-parsing the `Authorization` header as an OAuth2 access token instead of using the scope of the credential that authenticated the request. When a public-only OAuth2 token w",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118394",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118395",
-        "published": "2026-11-01T10:18:36Z",
-        "description": "Gitea 1.27.3 stopped personal access tokens restricted to public resources (`public-only`) from creating repositories through `POST /api/v1/user/repos` and `POST /api/v1/repos/migrate`, but `POST /api/v1/org/{org}/repos`, `POST /api/v1/orgs/{org}/repos`, `POST /api/v1/orgs` and `POST /api/v1/repos/{",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118395",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118504",
-        "published": "2026-11-01T10:18:36Z",
-        "description": "The web interface blocks issue and pull request changes on archived repositories, but several issue routes of the REST API did not check whether the repository is archived. A user allowed to change issues of an archived repository could use the API to edit, close or delete issues, change labels and ",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118504",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-119441",
-        "published": "2026-11-01T10:18:36Z",
-        "description": "`DELETE /api/v1/orgs/{org}/repos` deletes all repositories of an organization, but it did not enforce the public-only restriction of access tokens: the route only checked that the organization itself was public. A public-only token of an owner of a public organization could therefore permanently del",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119441",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-119533",
-        "published": "2026-11-01T10:18:36Z",
-        "description": "Repository and organization project boards listed the pull requests that reference each issue on the board without checking whether the viewer can read them. When a private pull request mentions an issue on a board the viewer can open, the board revealed the private repository's path and the pull re",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119533",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-119625",
-        "published": "2026-11-01T10:18:36Z",
-        "description": "The `/{username}` web route accepted personal access tokens over HTTP Basic authentication without checking their scope. A token confined to an unrelated scope, such as `read:issue`, could read its owner's private activity through the user RSS/Atom feed and the profile activity tab, and other member",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119625",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116296",
-        "published": "2026-11-01T10:18:35Z",
-        "description": "The API routes for releases, release assets, milestones and repository labels did not reject changes to archived repositories. A user with write access to an archived repository, or a holder of such a user's write-scoped token, could replace or delete release assets while keeping their download URLs",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116296",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116474",
-        "published": "2026-11-01T10:18:35Z",
-        "description": "The `GITEA_TOKEN` of a Gitea Actions job authenticates as the `gitea-actions` system user, and the `/api/v1/user` email and GPG key endpoints accepted that user, so a job could register an email address and a GPG key on it; without required email confirmation (the default) the address is stored as a",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116474",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-117635",
-        "published": "2026-11-01T10:18:35Z",
-        "description": "The `/api/v1/admin` route group did not enforce the `public-only` restriction of personal access tokens. A public-only token with admin scope issued by a site administrator could therefore list private organizations and the email addresses of all users, create organizations, obtain runner registrati",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117635",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-117646",
-        "published": "2026-11-01T10:18:35Z",
-        "description": "The repositories, stars and watching tabs of user profiles and the repository list of organization home pages included private repositories for every signed-in request without checking whether the request used a personal access token restricted to public resources (`public-only`). A holder of such a",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117646",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-117649",
-        "published": "2026-11-01T10:18:35Z",
-        "description": "The issue timeline API and the web issue page hid cross-reference events that point at issues the reader cannot access, but not \"dependency added\" and \"dependency removed\" events. When a readable issue had been linked as a dependency to an issue in a repository the reader cannot access, for example ",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117649",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-117677",
-        "published": "2026-11-01T10:18:35Z",
-        "description": "When parsing an uploaded Helm chart, Gitea decompressed the archive and read every tar entry while looking for `Chart.yaml` without limiting the decompressed size, and did so before the package size quota was checked; the quota only considers the compressed upload size. A user with package write acc",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117677",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-117685",
-        "published": "2026-11-01T10:18:35Z",
-        "description": "The OCI registry's cross-repository blob mount checked the target package against the token's `public-only` restriction, but checked the source blob only against the full account permissions of the token owner. A `public-only` token with `write:package` scope, whose owner can read a private package ",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117685",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-113429",
-        "published": "2026-11-01T10:18:34Z",
-        "description": "Legacy (v1 to v3) Actions artifact uploads stored the request's `Content-Encoding` header unchecked in the column that is served as the artifact's `Content-Type` on download, and a value starting with `video/` or `audio/` also removed the sandboxing Content-Security-Policy. A user who can run an Act",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113429",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-114199",
-        "published": "2026-11-01T10:18:34Z",
-        "description": "`GET /api/v1/users/{username}/heatmap` computed the contribution heatmap with the repository access of the token owner and ignored the public-only restriction of the access token, unlike the activity feed endpoints. A holder of a user's public-only token could read contribution counts and their 15-m",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-114199",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116289",
-        "published": "2026-11-01T10:18:34Z",
-        "description": "Gitea did not reject personal access tokens restricted to public resources (`public-only`) on the organization Actions runner registration-token endpoint, and the runner registered with the resulting token was not limited to public repositories. Holding only such a token with `write:organization` th",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116289",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-112887",
-        "published": "2026-11-01T10:18:33Z",
-        "description": "Gitea Actions task tokens authenticate to the REST API as a shared system user with a negative ID, which repository, organization, project and key filters treated as having no owner restriction, and the token carried no API scope to restrict user-scoped routes. A user who can run a workflow could us",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-112887",
         "kev": false
       }
     ]
