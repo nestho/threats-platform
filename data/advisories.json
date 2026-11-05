@@ -1,17 +1,55 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-04T21:14:33Z",
+  "updated_at": "2026-11-05T18:39:52Z",
   "source": "Microsoft MSRC + Ubuntu Security Notices",
   "source_url": [
     "https://api.msrc.microsoft.com/update-guide/rss",
     "https://ubuntu.com/security/notices/rss.xml"
   ],
-  "total": 60,
+  "total": 70,
   "normalisation_failures": [],
-  "partial": [
-    "Ubuntu: GET failed after 4 attempts: https://ubuntu.com/security/notices/rss.xml"
-  ],
+  "partial": null,
   "items": [
+    {
+      "id": "USN-9001-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9001-1: ca-certificates update",
+      "published": "2026-11-05T14:46:13Z",
+      "summary": "It was discovered that the ca-certificates JKS integration was not working properly, resulting in CA certificates removed from the system bundle not being removed from the JKS keystore. This update corrects the feature and resyncs the keystore with the system CA certificates list.",
+      "link": "https://ubuntu.com/security/notices/USN-9001-1"
+    },
+    {
+      "id": "USN-8955-2",
+      "vendor": "Ubuntu",
+      "title": "USN-8955-2: nginx vulnerabilities",
+      "published": "2026-11-05T14:40:26Z",
+      "summary": "USN-8955-1 fixed vulnerabilities in nginx in Ubuntu 26.10, Ubuntu 26.04 LTS, Ubuntu 24.04 LTS, and Ubuntu 22.04 LTS. This update provides the corresponding update for Ubuntu 20.04 LTS, Ubuntu 18.04 LTS, Ubuntu 16.04 LTS, and Ubuntu 14.04 LTS. In addition, this update fixes CVE-2026-42533 for these r",
+      "link": "https://ubuntu.com/security/notices/USN-8955-2"
+    },
+    {
+      "id": "USN-7230-3",
+      "vendor": "Ubuntu",
+      "title": "USN-7230-3: FRR regression",
+      "published": "2026-11-05T13:39:13Z",
+      "summary": "USN-7230-2 fixed vulnerabilities in FRR. Unfortunately, the fix for CVE-2024-55553 introduced a regression in RPKI support, causing FRR to stop processing RPKI updates after the first one, so routes were not revalidated when RPKI data changed. In Ubuntu 20.04 LTS, the BGP daemon also failed to start",
+      "link": "https://ubuntu.com/security/notices/USN-7230-3"
+    },
+    {
+      "id": "USN-8972-2",
+      "vendor": "Ubuntu",
+      "title": "USN-8972-2: HAProxy regression",
+      "published": "2026-11-05T12:52:52Z",
+      "summary": "USN-8972-1 fixed vulnerabilities in HAProxy. On Ubuntu 22.04 LTS, the update caused a regression when processing certain chunked requests. This update fixes the problem. We apologize for the inconvenience. Original advisory details: It was discovered that HAProxy incorrectly handled truncated HTTP/2",
+      "link": "https://ubuntu.com/security/notices/USN-8972-2"
+    },
+    {
+      "id": "USN-9000-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9000-1: Twisted vulnerability",
+      "published": "2026-11-04T16:24:47Z",
+      "summary": "It was discovered that Twisted's IMAP server mishandled wildcard patterns in mailbox list commands. An authenticated remote attacker could possibly use this issue to cause Twisted to use excessive resources, leading to a denial of service.",
+      "link": "https://ubuntu.com/security/notices/USN-9000-1"
+    },
     {
       "id": "CVE-2026-119260",
       "vendor": "Microsoft",
@@ -203,6 +241,46 @@
       "published": "2026-11-04T16:00:00Z",
       "summary": "This CVE was assigned by Chrome. Microsoft Edge (Chromium-based) ingests Chromium, which addresses this vulnerability. Please see [Google Chrome Releases](https://chromereleases.googleblog.com/2026) for more information.",
       "link": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-76031"
+    },
+    {
+      "id": "USN-8999-1",
+      "vendor": "Ubuntu",
+      "title": "USN-8999-1: Pillow vulnerabilities",
+      "published": "2026-11-04T15:49:54Z",
+      "summary": "It was discovered that Pillow incorrectly handled map stride values when loading certain McIdas AREA images. An attacker could possibly use this issue to obtain sensitive information or cause a denial of service. (CVE-2026-54058) It was discovered that Pillow did not properly check for decompression",
+      "link": "https://ubuntu.com/security/notices/USN-8999-1"
+    },
+    {
+      "id": "USN-8998-1",
+      "vendor": "Ubuntu",
+      "title": "USN-8998-1: Squid vulnerability",
+      "published": "2026-11-04T15:32:22Z",
+      "summary": "It was discovered that Squid incorrectly handled certain HTTP Transfer- Encoding headers. An attacker could possibly use this issue to perform HTTP request smuggling attacks, bypass security mechanisms, or poison web caches.",
+      "link": "https://ubuntu.com/security/notices/USN-8998-1"
+    },
+    {
+      "id": "USN-8997-1",
+      "vendor": "Ubuntu",
+      "title": "USN-8997-1: Net-SNMP vulnerability",
+      "published": "2026-11-04T15:25:21Z",
+      "summary": "It was discovered that Net-SNMP incorrectly handled newly accepted connections in the SMUX module. An unauthenticated remote attacker could possibly use this issue to cause Net-SNMP to block indefinitely, resulting in a denial of service.",
+      "link": "https://ubuntu.com/security/notices/USN-8997-1"
+    },
+    {
+      "id": "USN-7530-2",
+      "vendor": "Ubuntu",
+      "title": "USN-7530-2: ADOdb vulnerability",
+      "published": "2026-11-04T15:14:52Z",
+      "summary": "USN-7530-1 fixed a vulnerability in ADOdb. This update provides the corresponding updates for Ubuntu 16.04 LTS, Ubuntu 18.04 LTS, Ubuntu 20.04 LTS, Ubuntu 22.04 LTS, and Ubuntu 24.04 LTS. Original advisory details: It was discovered that ADOdb incorrectly handled SQL input. A remote attacker could u",
+      "link": "https://ubuntu.com/security/notices/USN-7530-2"
+    },
+    {
+      "id": "USN-8996-1",
+      "vendor": "Ubuntu",
+      "title": "USN-8996-1: APT vulnerability",
+      "published": "2026-11-04T13:37:00Z",
+      "summary": "Max Justicz discovered that APT incorrectly handled hard links when encountering redirects and retrying package downloads. A remote on-path attacker could possibly use this issue to trick APT into installing an unverified package and achieve remote code execution with root privileges.",
+      "link": "https://ubuntu.com/security/notices/USN-8996-1"
     },
     {
       "id": "CVE-2026-118304",
