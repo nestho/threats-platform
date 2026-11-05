@@ -1,11 +1,43 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-04T21:14:08Z",
+  "updated_at": "2026-11-05T18:39:48Z",
   "source": "GitHub Security Advisories",
   "source_url": "https://api.github.com/advisories",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-m5ph-mmg5-6w5h",
+      "title": "filecoin-pin: Unbounded DAG pinning can exhaust server resources",
+      "published": "2026-11-05T18:07:30Z",
+      "ecosystem": "npm",
+      "summary": "## Summary\n\nThe IPFS Pinning Service API implementation accepts a caller-controlled CID through `POST /pins`, queues background processing, and then recursively fetches the full DAG with `helia.pins.add(cid)`. The route and background pinning path do not enforce a request rate limit, per-user quota,",
+      "link": "https://github.com/advisories/GHSA-m5ph-mmg5-6w5h"
+    },
+    {
+      "id": "GHSA-64vx-6h2c-rjh7",
+      "title": "Banks: Unsafe importlib.import_module of attacker-controlled Tool.import_path in CompletionExtension allows RCE",
+      "published": "2026-11-05T17:51:02Z",
+      "ecosystem": "pip",
+      "summary": "## Summary\n\n  `banks` parses `Tool` JSON objects from the rendered body of `{% completion %}` blocks and later resolves their\n  `import_path` field through `importlib.import_module(...)` + `getattr(...)` to obtain the callable that handles a tool\n   call. There is no allowlist or sanitization on `im",
+      "link": "https://github.com/advisories/GHSA-64vx-6h2c-rjh7"
+    },
+    {
+      "id": "GHSA-5q7h-w9jf-cx97",
+      "title": "kaniko can send the build's Azure (Entra ID) access token to lookalike ACR registry hosts",
+      "published": "2026-11-05T17:48:54Z",
+      "ecosystem": "go",
+      "summary": "### Summary\n\nkaniko before v1.25.20 can send a Microsoft Entra ID (Azure AD) access token for Azure Resource Manager to a registry host an attacker controls. A Dockerfile that references an image on a lookalike host, such as `FROM x.azurecr.io.attacker.com/img`, is enough. The build needs no `RUN` i",
+      "link": "https://github.com/advisories/GHSA-5q7h-w9jf-cx97"
+    },
+    {
+      "id": "GHSA-hhf9-qw4v-72xp",
+      "title": "lxd allows Cross-guest volume hijack via DevLXD device patch",
+      "published": "2026-11-05T17:40:59Z",
+      "ecosystem": "go",
+      "summary": "### Summary\n\nA guest can mount another guest's custom storage volume over `/dev/lxd` and read or write its contents without owning it. The DevLXD storage API blocks access to volumes you don't own, but the instance device-update path that attaches a volume to a container without checks ownership. An",
+      "link": "https://github.com/advisories/GHSA-hhf9-qw4v-72xp"
+    },
     {
       "id": "GHSA-93cm-2v4m-c56c",
       "title": "Arc: DuckDB I/O aliases bypass database RBAC after CVE-2026-47735",
@@ -773,38 +805,6 @@
       "ecosystem": "maven",
       "summary": "### Description\nA flaw was found in Keycloak. A realm administrator with the \"manage-realm\" role can exploit this vulnerability by submitting an arbitrary filesystem path as a keystore parameter when creating a key provider component. This allows the administrator to probe arbitrary filesystem paths",
       "link": "https://github.com/advisories/GHSA-9jrw-8xf7-xqhq"
-    },
-    {
-      "id": "GHSA-w3p3-7cjg-vgfw",
-      "title": "Keycloak allows unauthorized access to resources via uma permission ticket bypass",
-      "published": "2026-10-29T16:37:57Z",
-      "ecosystem": "maven",
-      "summary": "### Description\nA flaw was found in org.keycloak.authorization. An authenticated user with a granted User-Managed Access (UMA) permission ticket for one resource can exploit this by using a specific permission request prefix to bypass per-resource access control. This allows the user to gain unautho",
-      "link": "https://github.com/advisories/GHSA-w3p3-7cjg-vgfw"
-    },
-    {
-      "id": "GHSA-f5p5-6xmx-p252",
-      "title": "Keycloak vulnerable to authorization bypass via incorrect uri comparison",
-      "published": "2026-10-29T16:37:26Z",
-      "ecosystem": "maven",
-      "summary": "### Description\nA flaw was found in Keycloak Policy Enforcer. This vulnerability allows any authenticated user to bypass all authorization policies, including role, scope, and User-Managed Access (UMA) permission checks. By including the configured access-denied page path within a request URL, eithe",
-      "link": "https://github.com/advisories/GHSA-f5p5-6xmx-p252"
-    },
-    {
-      "id": "GHSA-r7rc-c989-86g6",
-      "title": "Keycloak: Attacker can re-enable and take over disabled clients via registration access token",
-      "published": "2026-10-29T16:36:21Z",
-      "ecosystem": "maven",
-      "summary": "### Description\nA flaw was found in Keycloak's client registration service. A remote attacker, possessing a previously issued Registration Access Token (RAT), could exploit this vulnerability to re-enable a client that an administrator had explicitly disabled. This bypasses security controls, allowi",
-      "link": "https://github.com/advisories/GHSA-r7rc-c989-86g6"
-    },
-    {
-      "id": "GHSA-w9x9-j56r-h98r",
-      "title": "@eeacms/volto-chatbot has Unauthenticated Danswer API Confused Deputy Proxy",
-      "published": "2026-10-29T16:35:48Z",
-      "ecosystem": "npm",
-      "summary": "## Unauthenticated Danswer API Confused Deputy Proxy in @eeacms/volto-chatbot\n\n### Summary\n\n`@eeacms/volto-chatbot` exposes an Express middleware route (`**/_v1_da/**`) that accepts unauthenticated HTTP requests from any network client and proxies them to the configured upstream Danswer API, automat",
-      "link": "https://github.com/advisories/GHSA-w9x9-j56r-h98r"
     }
   ]
 }
