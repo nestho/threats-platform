@@ -208,6 +208,15 @@ class PhishingTests(unittest.TestCase):
         items = phishing_feed.build_items(lines, "2026-10-27T12:00:00Z")
         self.assertEqual(len(items), phishing_feed.MAX_ITEMS)
 
+    def test_invalid_hostnames_are_skipped(self):
+        lines = "\n".join([
+            "https://_wildcard_.gwsindia.in/login",
+            "http://198.51.100.7/phish",
+            "https://valid-host.example./path",
+        ])
+        items = phishing_feed.build_items(lines, "2026-10-27T12:00:00Z")
+        self.assertEqual([item["host"] for item in items], ["valid-host.example"])
+
 
 class RansomwareTests(unittest.TestCase):
     def test_attacker_controlled_urls_are_kept_only_when_http(self):
