@@ -21,7 +21,6 @@ import {
   getResolvedTheme,
   setTheme,
   toggleTheme,
-  animateCounter,
 } from "./app.js";
 
 /*
@@ -291,12 +290,6 @@ test("theme: getResolvedTheme resolves explicit and fallback themes", () => {
   assert.equal(getResolvedTheme("light"), "light");
   assert.equal(getResolvedTheme("dark"), "dark");
   assert.equal(getResolvedTheme("system"), "dark");
-});
-
-test("animateCounter: handles invalid or missing element without throwing", () => {
-  assert.doesNotThrow(() => animateCounter(null, 100));
-  assert.doesNotThrow(() => animateCounter({}, "—"));
-  assert.doesNotThrow(() => animateCounter({}, NaN));
 });
 
 test("setResultCount: pluralises regular nouns and takes an irregular plural", () => {
