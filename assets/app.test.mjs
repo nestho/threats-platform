@@ -11,7 +11,17 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { esc, timeAgo, timeKey, recomputeHealth, setResultCount } from "./app.js";
+import {
+  esc,
+  timeAgo,
+  timeKey,
+  recomputeHealth,
+  setResultCount,
+  getSavedTheme,
+  getResolvedTheme,
+  setTheme,
+  toggleTheme,
+} from "./app.js";
 
 /*
  * These assert on the string esc() returns, not on a parsed DOM.
@@ -272,6 +282,16 @@ test("timeKey: sorts unparseable timestamps last instead of corrupting order", (
  * the same `node --test assets worker` invocation as everything else, so the
  * check is actually executed rather than merely written down.
  */
+test("theme: getSavedTheme defaults to system in headless environment", () => {
+  assert.equal(getSavedTheme(), "system");
+});
+
+test("theme: getResolvedTheme resolves explicit and fallback themes", () => {
+  assert.equal(getResolvedTheme("light"), "light");
+  assert.equal(getResolvedTheme("dark"), "dark");
+  assert.equal(getResolvedTheme("system"), "dark");
+});
+
 test("setResultCount: pluralises regular nouns and takes an irregular plural", () => {
   const element = { textContent: "" };
 

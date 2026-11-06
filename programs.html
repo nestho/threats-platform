@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+(function() {
+  try {
+    var saved = localStorage.getItem('threats-theme');
+    var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    document.documentElement.setAttribute('data-theme', theme);
+  } catch(e) {}
+})();
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07080b">
@@ -13,15 +22,21 @@
   .card {
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 14px 16px;
-    margin-bottom: 6px;
+    padding: 16px 20px;
+    margin-bottom: 8px;
     background: var(--surface);
-    transition: border-color 0.12s, background 0.12s;
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    box-shadow: var(--glass-rim), var(--elevation-1);
+    transition: all 0.18s cubic-bezier(0.2, 0, 0, 1);
   }
-  .card:hover { border-color: var(--border-hover); background: var(--surface-2); }
+  .card:hover {
+    border-color: var(--border-hover);
+    background: var(--surface-2);
+    transform: translateY(-2px);
+    box-shadow: var(--glass-rim), var(--elevation-2);
+  }
 
-  /* The card is now a real <button>, so it inherits button typography. Reset the
-     parts that would otherwise make it look like a native control. */
   button.card {
     display: block;
     width: 100%;
@@ -30,23 +45,22 @@
     color: inherit;
     cursor: pointer;
   }
-  button.card:hover { border-color: var(--border-hover); }
 
   .card-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-  .card-name { font-weight: 500; font-size: 14px; }
+  .card-name { font-weight: 600; font-size: 14.5px; color: var(--text); }
   .card-badges { display: flex; gap: 6px; align-items: center; flex-shrink: 0; }
-  .badge.count { color: var(--accent); border-color: rgba(249,115,22,0.35); }
-  .badge.manual { color: var(--link); border-color: rgba(56,189,248,0.35); }
+  .badge.count { color: var(--accent); border-color: var(--accent-line); background: var(--accent-soft); }
+  .badge.manual { color: var(--link); border-color: rgba(56,189,248,0.35); background: rgba(56,189,248,0.1); }
   .badge.none { color: var(--text-muted); }
-  .caret { color: var(--text-muted); font-size: 11px; transition: transform 0.12s; display: inline-block; }
+  .caret { color: var(--text-muted); font-size: 11px; transition: transform 0.15s ease; display: inline-block; }
   button.card[aria-expanded="true"] .caret { transform: rotate(90deg); }
 
   .card-body {
     display: none;
     margin-top: 12px;
     padding-top: 12px;
-    border-top: 1px solid var(--border);
-    font-size: 12.5px;
+    border-top: 1px solid var(--border-subtle);
+    font-size: 13px;
     line-height: 1.8;
     color: var(--text-secondary);
   }
@@ -58,51 +72,62 @@
     font-family: var(--mono);
     font-size: 12px;
     margin-right: 4px;
+    padding: 2px 6px;
+    border-radius: var(--radius-xs);
+    background: var(--surface-2);
   }
   .copy-btn {
-    background: transparent;
+    background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 4px;
-    color: var(--text-muted);
-    font-family: inherit;
+    border-radius: var(--radius-pill);
+    color: var(--text-secondary);
+    font-family: var(--mono);
     font-size: 11px;
-    padding: 3px 8px;
+    padding: 4px 12px;
     cursor: pointer;
     margin-top: 10px;
+    box-shadow: var(--glass-rim);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    transition: all 0.12s ease;
   }
-  .copy-btn:hover { color: var(--text-secondary); border-color: var(--border-hover); }
+  .copy-btn:hover { color: var(--text); border-color: var(--border-hover); background: var(--surface-2); }
 
   table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  th, td { text-align: left; padding: 10px 12px 10px 0; border-bottom: 1px solid var(--border); vertical-align: top; }
-  th { color: var(--text-muted); font-weight: 500; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+  th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { color: var(--text-muted); font-weight: 600; font-size: 10.5px; font-family: var(--mono); letter-spacing: 0.1em; text-transform: uppercase; }
   td.domains { color: var(--text-secondary); max-width: 380px; font-family: var(--mono); font-size: 12px; }
-  td.name { font-weight: 500; }
+  td.name { font-weight: 600; color: var(--text); }
   td.platform { color: var(--text-muted); }
 
   .group-title {
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 700;
     color: var(--text);
-    margin: 24px 0 8px;
-    padding-bottom: 6px;
+    margin: 28px 0 10px;
+    padding-bottom: 8px;
     border-bottom: 1px solid var(--border);
   }
   .group-title .n { color: var(--text-muted); font-weight: 400; font-size: 12px; font-family: var(--mono); margin-left: 8px; }
 
-  .pager { display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 24px; }
+  .pager { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 28px; }
   .pager button {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    color: var(--text-muted);
-    font-family: inherit;
-    font-size: 13px;
-    padding: 7px 12px;
+    border-radius: var(--radius-pill);
+    color: var(--text-secondary);
+    font-family: var(--mono);
+    font-size: 12px;
+    padding: 7px 16px;
     cursor: pointer;
+    box-shadow: var(--glass-rim);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    transition: all 0.15s ease;
   }
-  .pager button:hover:not(:disabled) { border-color: var(--border-hover); color: var(--text-secondary); }
+  .pager button:hover:not(:disabled) { border-color: var(--border-hover); color: var(--text); background: var(--surface-2); }
   .pager button:disabled { opacity: 0.35; cursor: default; }
-  .pager span { color: var(--text-muted); font-size: 12px; }
+  .pager span { color: var(--text-muted); font-size: 12px; font-family: var(--mono); }
 </style>
 </head>
 <body class="console">

@@ -235,6 +235,71 @@ export function setResultCount(element, count, noun = 'result', plural = `${noun
 }
 
 /**
+ * Theme management for Threats.
+ * Supports 'dark', 'light', or 'system', persisting to localStorage.
+ */
+export function getSavedTheme() {
+  try {
+    return (typeof localStorage !== 'undefined' && localStorage.getItem('threats-theme')) || 'system';
+  } catch {
+    return 'system';
+  }
+}
+
+export function getResolvedTheme(preference = getSavedTheme()) {
+  if (preference === 'light' || preference === 'dark') return preference;
+  if (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    return 'light';
+  }
+  return 'dark';
+}
+
+export function updateThemeToggles(theme) {
+  if (typeof document === 'undefined') return;
+  const isDark = theme === 'dark';
+  for (const btn of document.querySelectorAll('[data-theme-toggle]')) {
+    btn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    btn.setAttribute('title', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    btn.dataset.currentTheme = theme;
+    const label = btn.querySelector('.theme-label');
+    if (label && !label.classList.contains('visually-hidden')) {
+      label.textContent = isDark ? 'Dark' : 'Light';
+    }
+  }
+}
+
+export function applyTheme(preference = getSavedTheme()) {
+  const resolved = getResolvedTheme(preference);
+  if (typeof document !== 'undefined' && document.documentElement) {
+    document.documentElement.setAttribute('data-theme', resolved);
+    document.documentElement.style.colorScheme = resolved;
+  }
+  updateThemeToggles(resolved);
+  return resolved;
+}
+
+export function setTheme(preference) {
+  try {
+    if (typeof localStorage !== 'undefined') {
+      if (preference === 'system') {
+        localStorage.removeItem('threats-theme');
+      } else {
+        localStorage.setItem('threats-theme', preference);
+      }
+    }
+  } catch {
+    // Ignore restricted localStorage
+  }
+  return applyTheme(preference);
+}
+
+export function toggleTheme() {
+  const current = getResolvedTheme();
+  const next = current === 'dark' ? 'light' : 'dark';
+  return setTheme(next);
+}
+
+/**
  * Bring the console shell to life: current-page marking, UTC clock, and the
  * live source-health chip in the rail and top bar.
  *
@@ -243,6 +308,60 @@ export function setResultCount(element, count, noun = 'result', plural = `${noun
  * status page uses, so the chip cannot drift from the source of truth.
  */
 export function initConsoleShell() {
+  applyTheme();
+
+  if (typeof window !== 'undefined' && window.matchMedia) {
+    try {
+      window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', () => {
+        if (getSavedTheme() === 'system') {
+          applyTheme('system');
+        }
+      });
+    } catch {
+      // Older browsers
+    }
+  }
+
+  // Ensure topbar theme toggle is present and wired
+  if (typeof document !== 'undefined') {
+    const topbarRight = document.querySelector('.topbar-right');
+    if (topbarRight && !document.querySelector('.topbar-right [data-theme-toggle]')) {
+      const toggleBtn = document.createElement('button');
+      toggleBtn.type = 'button';
+      toggleBtn.className = 'theme-toggle-btn';
+      toggleBtn.setAttribute('data-theme-toggle', 'true');
+      toggleBtn.innerHTML = `
+        <span class="theme-icon sun" aria-hidden="true">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        </span>
+        <span class="theme-icon moon" aria-hidden="true">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        </span>
+        <span class="theme-label visually-hidden">Theme</span>
+      `;
+      topbarRight.prepend(toggleBtn);
+    }
+
+    const railFoot = document.querySelector('.rail-foot');
+    if (railFoot && !document.querySelector('.rail-foot [data-theme-toggle]')) {
+      const railToggle = document.createElement('button');
+      railToggle.type = 'button';
+      railToggle.className = 'rail-theme-btn';
+      railToggle.setAttribute('data-theme-toggle', 'true');
+      railToggle.innerHTML = `
+        <span class="theme-icon sun" aria-hidden="true">☀️</span>
+        <span class="theme-icon moon" aria-hidden="true">🌙</span>
+        <span class="theme-label">Theme</span>
+      `;
+      railFoot.appendChild(railToggle);
+    }
+
+    document.querySelectorAll('[data-theme-toggle]').forEach((btn) => {
+      btn.onclick = () => toggleTheme();
+    });
+
+    updateThemeToggles(getResolvedTheme());
+  }
   const current = document.querySelector('.rail-nav a[aria-current="page"]');
   if (!current) {
     const here = location.pathname.replace(/index\.html$/, '/');

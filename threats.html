@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+(function() {
+  try {
+    var saved = localStorage.getItem('threats-theme');
+    var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    document.documentElement.setAttribute('data-theme', theme);
+  } catch(e) {}
+})();
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07080b">
@@ -10,20 +19,25 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/app.css">
 <style>
-  /* Wiz is an analysis feed: roughly monthly, not hourly. The header says so, so
-     a two-week-old item does not read as a broken pipeline. */
   .feed-note {
-    color: var(--text-muted);
-    font-size: 12px;
-    border-left: 2px solid var(--border);
-    padding-left: 10px;
+    color: var(--text-secondary);
+    font-size: 12.5px;
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    background: var(--surface);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    box-shadow: var(--glass-rim);
+    padding: 10px 14px;
     margin-bottom: 20px;
-    line-height: 1.55;
+    line-height: 1.6;
   }
-  .badge.incident { color: var(--crit); border-color: rgba(239,68,68,0.4); }
-  .badge.campaign { color: var(--accent); border-color: rgba(249,115,22,0.4); }
-  .badge.research { color: var(--link); border-color: rgba(56,189,248,0.35); }
-  .badge.vendor { color: var(--link); border-color: rgba(56,189,248,0.35); }
+  .badge.incident { color: var(--crit); border-color: rgba(248,113,113,0.4); background: var(--crit-soft); }
+  .badge.campaign { color: var(--accent); border-color: var(--accent-line); background: var(--accent-soft); }
+  .badge.research { color: var(--link); border-color: rgba(56,189,248,0.35); background: rgba(56,189,248,0.1); }
+  .badge.vendor { color: var(--link); border-color: rgba(56,189,248,0.35); background: rgba(56,189,248,0.1); }
+  [data-theme="light"] .badge.research,
+  [data-theme="light"] .badge.vendor { border-color: rgba(2,132,199,0.35); background: rgba(2,132,199,0.08); }
 </style>
 </head>
 <body class="console">

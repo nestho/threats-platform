@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+(function() {
+  try {
+    var saved = localStorage.getItem('threats-theme');
+    var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    document.documentElement.setAttribute('data-theme', theme);
+  } catch(e) {}
+})();
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07080b">
@@ -10,8 +19,9 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/app.css">
 <style>
-  .badge.url { color: var(--accent); border-color: rgba(249,115,22,0.35); }
-  .badge.domain { color: var(--link); border-color: rgba(56,189,248,0.35); }
+  .badge.url { color: var(--accent); border-color: var(--accent-line); background: var(--accent-soft); }
+  .badge.domain { color: var(--link); border-color: rgba(56,189,248,0.35); background: rgba(56,189,248,0.1); }
+  [data-theme="light"] .badge.domain { color: var(--link); border-color: rgba(2,132,199,0.35); background: rgba(2,132,199,0.08); }
 </style>
 </head>
 <body class="console">
