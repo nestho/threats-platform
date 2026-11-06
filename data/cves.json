@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-06T00:03:52Z",
+  "updated_at": "2026-11-06T06:22:36Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,471 @@
   ],
   "recent": {
     "lookback_days": 3,
-    "total": 1836,
-    "items_available": 1836,
+    "total": 1850,
+    "items_available": 1850,
     "normalisation_failures": [],
-    "items_parsed": 1836,
+    "items_parsed": 1850,
     "items": [
+      {
+        "id": "CVE-2026-96460",
+        "published": "2026-11-06T06:16:45Z",
+        "description": "A flaw was found in the token exchange mechanism of Keycloak. When using Standard Token Exchange V2, the system issues new tokens with a fresh lifetime based on the requester clients configuration instead of limiting it to the original tokens expiration. This issue allows an authenticated requester ",
+        "severity": "MEDIUM",
+        "score": 5.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96460",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-96547",
+        "published": "2026-11-06T06:16:45Z",
+        "description": "A flaw was found in the Dynamic Client Registration component of Keycloak, an open-source identity and access management solution. The issue occurs because the system does not properly restrict which claim names can be used when setting up new clients. An attacker with valid registration credentials",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96547",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-97367",
+        "published": "2026-11-06T06:16:45Z",
+        "description": "A flaw was found in the Keycloak Account REST API where it incorrectly handles session identification. A malicious client owner can manipulate their own security tokens to point to a different user's active session. This allows the attacker to access and modify the victim's account information, pote",
+        "severity": "MEDIUM",
+        "score": 6.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97367",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-97848",
+        "published": "2026-11-06T06:16:45Z",
+        "description": "A flaw was found in the token sanitization logic of Keycloak, an open source identity and access management solution. The issue occurs when a protocol mapper is configured to emit structured claims using the JSON type. The security check designed to remove unauthorized role mappings only looks for s",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97848",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-86606",
+        "published": "2026-11-06T06:16:44Z",
+        "description": "The iubenda | All-in-one Compliance for GDPR / CCPA Cookie Consent + more WordPress plugin before 3.13.7 does not properly escape content it re-emits through its bundled HTML parser, allowing unauthenticated users to inject arbitrary web scripts in pages that will execute in the session of any visit",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-86606",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-87784",
+        "published": "2026-11-06T06:16:44Z",
+        "description": "The Cool Media Filter WordPress plugin through 1.0.1 does not perform any capability or nonce check when updating the capabilities of a role, allowing any authenticated user, such as a subscriber, to grant their own role administrator capabilities and take over the site.",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87784",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-92396",
+        "published": "2026-11-06T06:16:44Z",
+        "description": "The ShopEngine Gutenberg WooCommerce Builder Blocks Addon  WordPress plugin before 2.4.4 does not validate the user's capabilities or the ownership of the targeted post in one of its AJAX actions, and does not escape the stored value before outputting it in a JavaScript context, allowing users with ",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92396",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-92856",
+        "published": "2026-11-06T06:16:44Z",
+        "description": "A flaw was found in the SAML brokering component of Keycloak, an identity and access management solution. The issue occurs when Keycloak acts as an intermediary between an upstream identity provider and downstream services. Keycloak fails to respect specific security instructions called ProxyRestric",
+        "severity": "MEDIUM",
+        "score": 4.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92856",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-96447",
+        "published": "2026-11-06T06:16:44Z",
+        "description": "A flaw was found in the TokenManager component of Keycloak, an open-source identity and access management solution. The issue occurs during the validation of stateless access tokens when the original user ID no longer exists. Keycloak incorrectly falls back to using the username to identify the user",
+        "severity": "MEDIUM",
+        "score": 4.2,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96447",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121837",
+        "published": "2026-11-06T06:16:42Z",
+        "description": "A flaw was found in the REST Data Panache component of Quarkus. When a security constraint is applied to an entity property using the @SecureField annotation on its getter method rather than the field itself, the generated REST resource fails to enforce this constraint for filtering and sorting oper",
+        "severity": "MEDIUM",
+        "score": 4.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121837",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-123037",
+        "published": "2026-11-06T06:16:42Z",
+        "description": "A flaw was found in the ansible-core user module. When generate_ssh_key is enabled, User.ssh_key_gen() guards the key files against symlinks but checks the ~/.ssh directory only with os.path.exists(). An unprivileged user on a managed node who replaces their ~/.ssh with a symlink to an existing root",
+        "severity": "MEDIUM",
+        "score": 6.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123037",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-12967",
+        "published": "2026-11-06T06:16:42Z",
+        "description": "The WCFM Membership  WordPress plugin before 2.12.1 does not verify that payment was made before completing a paid membership, allowing any authenticated Subscriber/Customer to activate a paid vendor membership for free and gain the marketplace vendor role.",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-12967",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-19688",
+        "published": "2026-11-06T06:16:42Z",
+        "description": "A flaw was found in the Admin REST API of Keycloak, an identity and access management solution. The Admin API fails to verify the intended audience of bearer tokens during authentication. This issue allows an attacker who operates a client within a realm to capture an administrator's access token an",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-19688",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118188",
+        "published": "2026-11-06T06:16:41Z",
+        "description": "The PublishPress Revisions: Duplicate Posts, Submit, Approve and Schedule Content Changes WordPress plugin before 4.3.1 does not verify that a user is permitted to read a given post before returning its content through its revision-comparison feature, allowing any authenticated user, including a Sub",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118188",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118239",
+        "published": "2026-11-06T06:16:41Z",
+        "description": "The AutomatorWP  WordPress plugin before 6.0.7 does not check that the user completing its Zoom and AWeber integration connections is allowed to do so, allowing unauthenticated attackers to replace the stored integration credentials with their own and divert the data the site sends to those services",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118239",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118639",
+        "published": "2026-11-06T06:16:41Z",
+        "description": "The Surfer  WordPress plugin before 1.8.1.759 discloses a sensitive API credential to low-privileged users through the post editor page and relies on that same credential as the sole authorization for its privileged REST API, allowing users with contributor-level access and above to read the credent",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118639",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-119259",
+        "published": "2026-11-06T06:16:41Z",
+        "description": "The All-in-One Video Gallery  WordPress plugin before 5.1.0 does not check the type, status or ownership of the target post before writing its view count and duration meta, allowing unauthenticated visitors to create or change that meta on any post, including private and draft posts, and to inflate ",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119259",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120408",
+        "published": "2026-11-06T06:16:41Z",
+        "description": "The All-in-One Video Gallery  WordPress plugin before 5.1.0 does not escape a video's stored thumbnail URL before outputting it in the admin video list, and does not sanitise that value when it is written outside its own editor, allowing users with a role as low as Subscriber to perform Stored Cross",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120408",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113615",
+        "published": "2026-11-06T06:16:40Z",
+        "description": "The GS JWT Authentication for WP REST API WordPress plugin through 1.0.0 does not sanitize or parameterize a request value before using it in SQL queries on several unauthenticated REST routes, allowing unauthenticated attackers to perform SQL injection and obtain an administrator session.",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113615",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-114427",
+        "published": "2026-11-06T06:16:40Z",
+        "description": "The GutenKit  WordPress plugin before 2.5.5 does not properly sanitize custom CSS saved against a post before printing it inside an inline style block on the published page, allowing users with the Author role and above to break out of the style element and store JavaScript that executes in the brow",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-114427",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-115230",
+        "published": "2026-11-06T06:16:40Z",
+        "description": "The WHIZZ WordPress plugin through 1.1.8 does not validate the password-reset key before updating a user's password, relying only on a nonce that is exposed to unauthenticated visitors, allowing attackers to set an arbitrary password for any user, including administrators, and fully take over their ",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115230",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-115673",
+        "published": "2026-11-06T06:16:40Z",
+        "description": "The Anti-Spam, Spam FireWall by CleanTalk WordPress plugin before 6.91 does not escape a commenter-supplied value before outputting it on an administrative spam-review screen, allowing unauthenticated users to inject arbitrary web scripts that execute in the browser of an administrator who reviews f",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115673",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-116533",
+        "published": "2026-11-06T06:16:40Z",
+        "description": "The Static Snapshot WordPress plugin through 0.2.1 does not sanitise shell metacharacters in a user-supplied value before concatenating it into operating-system commands run by the server, allowing unauthenticated attackers to execute arbitrary commands on the host.",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116533",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118045",
+        "published": "2026-11-06T06:16:40Z",
+        "description": "The Ever Accounting  WordPress plugin before 2.3.3 does not restrict the file path supplied to its CSV import routine to an allowed directory, allowing users with its custom Accounting Manager role (which does not have administrator privileges) to delete arbitrary files on the server, such as wp-con",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118045",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118167",
+        "published": "2026-11-06T06:16:40Z",
+        "description": "The MC4WP: Mailchimp for WordPress plugin before 4.15.0 does not validate that the Mailchimp audience a sign-up form or bundled integration subscribes a visitor to matches the audience configured by the site owner, allowing unauthenticated visitors to subscribe arbitrary email addresses to any other",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118167",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118186",
+        "published": "2026-11-06T06:16:40Z",
+        "description": "The PublishPress Revisions: Duplicate Posts, Submit, Approve and Schedule Content Changes WordPress plugin before 4.3.1 does not correctly restrict who may publish content, allowing users such as Contributors who can edit but not publish to make unreviewed posts and pages publicly live, bypassing th",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118186",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118187",
+        "published": "2026-11-06T06:16:40Z",
+        "description": "The PublishPress Revisions: Duplicate Posts, Submit, Approve and Schedule Content Changes WordPress plugin before 4.3.1 does not verify that a user requesting to duplicate or revise a post has access to that specific post, only that they can edit posts of that type, allowing users with contributor-l",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118187",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-109081",
+        "published": "2026-11-06T06:16:39Z",
+        "description": "A flaw was found in Keycloak. The Dynamic Client Registration (DCR) endpoint does not properly validate authorization when processing the deprecated defaultRoles field. An authenticated attacker with client creation privileges or an Initial Access Token (IAT) can inject excessive roles into the real",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-109081",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-110525",
+        "published": "2026-11-06T06:16:39Z",
+        "description": "The MCB  WordPress plugin through 1.0.0 does not sanitise or escape request header values before storing them and later rendering them in the administrator statistics grid, allowing unauthenticated attackers to store malicious JavaScript that executes in an administrator's browser session when the s",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110525",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-110532",
+        "published": "2026-11-06T06:16:39Z",
+        "description": "The Mail Mage WordPress plugin through 0.0.25 does not properly sanitise and escape a user-supplied value before using it in a SQL statement, allowing unauthenticated attackers to perform SQL injection attacks.",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110532",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-110813",
+        "published": "2026-11-06T06:16:39Z",
+        "description": "The Advanced Custom Fields (ACF®) WordPress plugin before 6.8.11 does not properly sanitize a stored field definition that can be modified through its comment handling, allowing unauthenticated users to inject a payload that is emitted as an HTML attribute name and executed as JavaScript in the brow",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110813",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-110955",
+        "published": "2026-11-06T06:16:39Z",
+        "description": "The Wurdey WordPress plugin through 1.0.0 does not verify a request signature before logging a user in, allowing unauthenticated attackers to authenticate as an administrator knowing only the administrator's username.",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110955",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113584",
+        "published": "2026-11-06T06:16:39Z",
+        "description": "The placester WordPress plugin through 1.4.3 does not perform any capability, nonce or ownership check on an AJAX action that updates account details, allowing unauthenticated attackers to overwrite any user's email address, including an administrator's, and take over the account through the standar",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113584",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-107124",
+        "published": "2026-11-06T06:16:37Z",
+        "description": "A flaw was found in the OIDC logout endpoint of the keycloak-services component, which handles user session termination in Red Hat Build of Keycloak. The issue occurs because the system sets a session cookie based on an unvalidated token hint before completing security checks. An attacker can use th",
+        "severity": "MEDIUM",
+        "score": 6.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107124",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-114366",
+        "published": "2026-11-06T05:18:20Z",
+        "description": "An information disclosure vulnerability in the Qt Framework QWebSocket authentication handling of the Qt WebSockets module.",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-114366",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-119431",
+        "published": "2026-11-06T05:18:20Z",
+        "description": "A server-side request forgery (SSRF) vulnerability exists in Foxit Workspace's file-upload functionality. Insufficient validation of user-supplied links may allow a remote attacker to induce the server to access internal resources and return their contents, potentially resulting in sensitive informa",
+        "severity": "HIGH",
+        "score": 7.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119431",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-119432",
+        "published": "2026-11-06T05:18:20Z",
+        "description": "A stored cross-site scripting (XSS) vulnerability exists in the Foxit Workspace's file share preview functionality. An attacker could upload a crafted file and share it with a victim. When the victim opens or previews the file, the embedded script executes in the application's origin, potentially ac",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119432",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-119433",
+        "published": "2026-11-06T05:18:20Z",
+        "description": "A server-side request forgery (SSRF) vulnerability exists in an undocumented API endpoint of Foxit Workspace due to insufficient validation of user-supplied URL and network parameters. A remote attacker could exploit this issue to induce the server to send requests to arbitrary internal or external ",
+        "severity": "HIGH",
+        "score": 7.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119433",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-89142",
+        "published": "2026-11-06T04:16:35Z",
+        "description": "In the Wi-Fi NPU FW, there is a possible out-of-bounds write due to an incorrect bounds check. This could lead to local denial of service with user execution privileges needed. User interaction is not needed for exploitation.",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-89142",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-77299",
+        "published": "2026-11-06T02:17:52Z",
+        "description": "Regexp2 is a feature-rich RegExp engine for Go. Prior to version 2.3.0, when regexp2 compiles and matches a pattern containing a large fixed-count quantifier applied to a zero-width subexpression — e.g. (?:){50000000} — the match engine executes the empty loop body m-1 times, pushing two integers on",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-77299",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-63017",
+        "published": "2026-11-06T01:17:50Z",
+        "description": "Incorrect authorization in PowerSYSTEM Center allows a low-privileged, authenticated user to access resources normally limited to administrators.",
+        "severity": "CRITICAL",
+        "score": 9.4,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63017",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-63774",
+        "published": "2026-11-06T01:17:50Z",
+        "description": "Insufficient input validation in the PowerSYSTEM Center report designer allows an authenticated user to execute unauthorized SQL commands.",
+        "severity": "CRITICAL",
+        "score": 9.4,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-63774",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-107492",
+        "published": "2026-11-06T01:17:48Z",
+        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107492",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-123268",
+        "published": "2026-11-06T01:17:48Z",
+        "description": "A security vulnerability has been detected in libyal libvmdk up to 3fdd7839758e9f44ef95e1dfccde8552b860a4fc. Affected is the function libvmdk_extent_table_get_extent_data_file_path of the file libvmdk/libvmdk_extent_table.c of the component Extent Data File Handler. The manipulation leads to memory ",
+        "severity": "LOW",
+        "score": 2.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123268",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-123269",
+        "published": "2026-11-06T01:17:48Z",
+        "description": "A vulnerability was detected in libyal libvmdk. Affected by this vulnerability is the function libvmdk_descriptor_file_read_header of the file libvmdk/libvmdk_descriptor_file.c of the component Descriptor File Parser. The manipulation results in out-of-bounds read. The attack must be initiated from ",
+        "severity": "LOW",
+        "score": 1.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123269",
+        "kev": false
+      },
+      {
+        "id": "CVE-2025-71458",
+        "published": "2026-11-06T01:17:47Z",
+        "description": "FTS3 Web Monitoring (fts-monitoring) versions 3.12.0 through 3.13.2 and 3.14.0 contain an unauthenticated sql injection vulnerability in the /linkinfo endpoint handled by get_linkinfo. Remote attackers can inject SQL through the source_se and dest_se query parameters to perform blind injection and r",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-71458",
+        "kev": false
+      },
       {
         "id": "CVE-2026-92694",
         "published": "2026-11-05T23:17:02Z",
@@ -18051,326 +18511,6 @@
         "score": 4.8,
         "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-1397",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-104647",
-        "published": "2026-11-03T06:17:37Z",
-        "description": "The weMail  WordPress plugin through 2.1.6 does not correctly verify user capabilities in its REST API permission checks, treating any user whose role is in the weMail  WordPress plugin through 2.1.6's allowed-roles list (Editor and above by default) as authorised for every action, which allows such",
-        "severity": "LOW",
-        "score": 3.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-104647",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-104648",
-        "published": "2026-11-03T06:17:37Z",
-        "description": "The weMail  WordPress plugin through 2.1.6 does not restrict a site-wide third-party email-service API key to administrators, exposing it in an admin screen that users with the Editor role can reach by default, which allows them to obtain a reusable credential usable without a WordPress session to i",
-        "severity": "MEDIUM",
-        "score": 4.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-104648",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-105967",
-        "published": "2026-11-03T06:17:37Z",
-        "description": "The Gallery for Social Photo WordPress plugin through 1.0.0.41 does not validate a user-supplied URL before using it to perform a server-side request, allowing unauthenticated attackers to make the server issue requests to arbitrary internal hosts and read the responses.",
-        "severity": "MEDIUM",
-        "score": 5.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105967",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-105993",
-        "published": "2026-11-03T06:17:37Z",
-        "description": "The DT Directory Lite Addon WordPress plugin through 1.1 does not perform nonce or capability checks on its settings handlers, allowing unauthenticated attackers to modify the DT Directory Lite Addon WordPress plugin through 1.1's configuration and skin options.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105993",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-106004",
-        "published": "2026-11-03T06:17:37Z",
-        "description": "The DT LMS  WordPress plugin through 1.2 does not perform capability or nonce checks on one of its AJAX actions, allowing unauthenticated attackers to revoke any learner's course and class completion status.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-106004",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115205",
-        "published": "2026-11-03T06:17:37Z",
-        "description": "The AZEXO Store Locator WordPress plugin through 1.4 does not have a capability check or any authorization control when deleting a post, allowing any authenticated user, such as a subscriber, to delete arbitrary posts and pages.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115205",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-103379",
-        "published": "2026-11-03T06:17:35Z",
-        "description": "The WATI Chat and Notification WordPress plugin through 1.1.8 does not require a valid, non-empty secret on a public endpoint that returns its stored API token, which an unauthenticated attacker can then present to a second public endpoint to obtain the order-received URL of any WooCommerce order an",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103379",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-77799",
-        "published": "2026-11-03T05:18:52Z",
-        "description": "ManageEngine Key Manager Plus versions before 7150 are vulnerable to a Two-Factor Authentication bypass that allows attackers with valid credentials to log in without a verification code.",
-        "severity": "HIGH",
-        "score": 7.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-77799",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-77800",
-        "published": "2026-11-03T05:18:52Z",
-        "description": "ManageEngine Key Manager Plus versions before 7151 are vulnerable to a SAML authentication bypass that allows attackers to log in using SAML assertions meant for another service provider.",
-        "severity": "HIGH",
-        "score": 7.7,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-77800",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120575",
-        "published": "2026-11-03T05:18:34Z",
-        "description": "The Photo Engine (Media Organizer & Lightroom) plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'hierarchy[].name' parameter in all versions up to, and including, 6.5.7 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attac",
-        "severity": "MEDIUM",
-        "score": 6.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120575",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120577",
-        "published": "2026-11-03T05:18:34Z",
-        "description": "The FluentCart A New Era of eCommerce – Faster, Lighter, and Simpler plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the deleteFile function in all versions up to, and including, 1.6.2. This makes it possible for authenticated attackers, with",
-        "severity": "HIGH",
-        "score": 8.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120577",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120578",
-        "published": "2026-11-03T05:18:34Z",
-        "description": "The AI Alt Text Generator plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 2.7.0. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthenticated attackers to modify the alt te",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120578",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120971",
-        "published": "2026-11-03T05:18:34Z",
-        "description": "A flaw was found in RESTEasy's default exception mapper. When an unhandled exception other than a WebApplicationException is not handled by an application exception mapper, RESTEasy returns the exception's localized message in the HTTP 500 response body. A remote unauthenticated attacker who can tri",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120971",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120558",
-        "published": "2026-11-03T05:18:33Z",
-        "description": "The Advanced Shipment Tracking for WooCommerce plugin for WordPress is vulnerable to SQL Injection via the `tracking_provider` parameter of the `POST /wp-json/wc-ast/v3/orders/<order_id>/shipment-trackings` REST endpoint in all versions up to, and including, 3.9. This is due to insufficient escaping",
-        "severity": "HIGH",
-        "score": 7.2,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120558",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120559",
-        "published": "2026-11-03T05:18:33Z",
-        "description": "The Contact Form Extender for Divi Builder plugin for WordPress is vulnerable to Arbitrary File Deletion due to insufficient file path validation in the cfefd_remove_uploaded_file() function in all versions up to, and including, 1.0.6. This makes it possible for unauthenticated attackers to delete a",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120559",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120561",
-        "published": "2026-11-03T05:18:33Z",
-        "description": "The JetFormBuilder — Dynamic Blocks Form Builder plugin for WordPress is vulnerable to unauthorized modification of data due to a missing capability check on the 'do_action' function in the 'Update_Options' action class in all versions up to, and including, 3.6.2. This makes it possible for unauthen",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120561",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120563",
-        "published": "2026-11-03T05:18:33Z",
-        "description": "The WooCommerce Multilingual & Multicurrency with WPML plugin for WordPress is vulnerable to SQL Injection in all versions up to, and including, 5.5.7. This is due to insufficient input validation on the currency exchange rate parameter in the save_currency() AJAX handler, which lacks capability che",
-        "severity": "MEDIUM",
-        "score": 4.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120563",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120574",
-        "published": "2026-11-03T05:18:33Z",
-        "description": "The SureCart plugin for WordPress is vulnerable to unauthenticated account takeover in all versions up to, and including, 4.9.5. The passwordless one-time-code login REST route (VerificationCodeController::verify(), whose permission callback returns true) resolves an attacker-supplied login to any W",
-        "severity": "HIGH",
-        "score": 8.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120574",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120538",
-        "published": "2026-11-03T05:18:32Z",
-        "description": "The Easy Digital Downloads plugin for WordPress is vulnerable to authentication bypass leading to administrator account takeover in all versions up to, and including, 3.7.2. During a PayPal guest checkout, the email address entered in the guest-checkout field is trusted as proof of identity: edd_get",
-        "severity": "HIGH",
-        "score": 8.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120538",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120544",
-        "published": "2026-11-03T05:18:32Z",
-        "description": "The Academy LMS – AI Course Builder, Quizzes, Certificates & eLearning plugin for WordPress is vulnerable to Directory Traversal in all versions up to, and including, 4.0.1 via the 'id' parameter. This makes it possible for authenticated attackers, with contributor-level access and above, to read th",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120544",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120551",
-        "published": "2026-11-03T05:18:32Z",
-        "description": "The WP Compress – Instant Performance & Speed Optimization plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 7.22.01. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthentic",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120551",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120552",
-        "published": "2026-11-03T05:18:32Z",
-        "description": "The SEO Engine – Smart SEO with AI, Schema & Redirection for WordPress plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'title' parameter in all versions up to, and including, 0.9.9 due to insufficient input sanitization and output escaping. This makes it possible for authen",
-        "severity": "MEDIUM",
-        "score": 6.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120552",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120518",
-        "published": "2026-11-03T05:18:31Z",
-        "description": "The BuddyPress XProfile Image Field plugin for WordPress is vulnerable to arbitrary file deletion in all versions up to, and including, 3.1.0. This is due to bpxp_image_field_update_on_user_activation() calling unlink() on a path built from visitor-supplied signup metadata with no realpath() resolut",
-        "severity": "CRITICAL",
-        "score": 9.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120518",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120524",
-        "published": "2026-11-03T05:18:31Z",
-        "description": "The News Kit Addons For Elementor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'formData' parameter in all versions up to, and including, 1.4.8 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber",
-        "severity": "MEDIUM",
-        "score": 6.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120524",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120534",
-        "published": "2026-11-03T05:18:31Z",
-        "description": "The Advanced Custom Fields: Extended PRO plugin for WordPress is vulnerable to Limited Code Injection in all versions up to, and including, 0.9.2.6 via the render_field function. This is due to insufficient validation of form configuration parameters before merging into field settings and passing to",
-        "severity": "CRITICAL",
-        "score": 9.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120534",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-111464",
-        "published": "2026-11-03T03:16:42Z",
-        "description": "The WP Fastest Cache plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 1.5.3. The plugin caches the response of Core’s wp-activate.php without honoring its no-store/no-cache headers, the wp-activate-* cookie, or the WP_INSTALLING state, writin",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111464",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120831",
-        "published": "2026-11-03T02:16:53Z",
-        "description": "A flaw was found in libslirp in if_output(). When moving a session from the fast queue to the batch queue, the code unlinked and reinserted an arbitrary packet via ifm->m_nextpkt instead of the session queue head, corrupting queue pointers. A guest generating burst traffic could crash the host netwo",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120831",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76955",
-        "published": "2026-11-03T02:16:53Z",
-        "description": "A buffer overflow vulnerability in the zdp_wtp binary in Zyxel NWA110AX firmware versions through 7.12(ABTG.0)C0 could allow a LAN-based attacker to escalate privileges on an affected device.",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76955",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107441",
-        "published": "2026-11-03T02:16:52Z",
-        "description": "An out-of-bounds write vulnerability in the CGI program of Zyxel GS1900-24E firmware versions through 2.90(AAHK.2)C0 could allow an unauthenticated adjacent attacker  to exploit the flaw and potentially execute OS commands via a crafted HTTP request.",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107441",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120833",
-        "published": "2026-11-03T01:16:52Z",
-        "description": "labbench before 0.46.1 contains a deserialization of untrusted data vulnerability in read() and read_relational() that passes any file with a .p or .pickle extension to pandas.read_pickle based on the extension alone. Attackers who supply a crafted data file or relational data archive can execute ar",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120833",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-105770",
-        "published": "2026-11-03T01:16:44Z",
-        "description": "Octo STS (github.com/octo-sts/app) before 0.11.2 returns trust policy configuration to callers whose OIDC token does not satisfy that policy. TrustPolicy.CheckToken included the policy's issuer, subject and audience values or patterns and claim_pattern names and regular expressions in its Permission",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105770",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120830",
-        "published": "2026-11-03T00:17:18Z",
-        "description": "A flaw was found in libslirp in icmp_forward_error(). When building an ICMP error response, the length of the quoted original IPv4 packet was taken from the IP header without clamping it to the actual buffer length. A truncated or malformed packet could cause an out-of-bounds heap read, leaking host",
-        "severity": "HIGH",
-        "score": 7.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120830",
         "kev": false
       }
     ]
