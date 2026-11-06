@@ -1,11 +1,139 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-06T14:56:04Z",
+  "updated_at": "2026-11-06T20:48:28Z",
   "source": "GitHub Security Advisories",
   "source_url": "https://api.github.com/advisories",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-47w9-6r3f-938g",
+      "title": "LXD has restricted project bypass leading to arbitrary command execution",
+      "published": "2026-11-06T19:51:26Z",
+      "ecosystem": "go",
+      "summary": "Reported from https://github.com/lxc/incus/security/advisories/GHSA-48q5-w887-33wv\n\n### Summary\n\nInstance snapshots ignore the `restricted.containers.lowlevel=block` setting;\nallowing for arbitrary command execution on the Incus server by abusing\nlowlevel hooks such as `raw.lxc` and `raw.qemu`.\n\n\n##",
+      "link": "https://github.com/advisories/GHSA-47w9-6r3f-938g"
+    },
+    {
+      "id": "GHSA-7mr3-28h5-m5vx",
+      "title": "LXD has project restriction bypass for custom volume copy across projects",
+      "published": "2026-11-06T19:51:16Z",
+      "ecosystem": "go",
+      "summary": "Reported from https://github.com/lxc/incus/security/advisories/GHSA-64f3-v33m-w89f\n\n### Summary\n\nMissing authorization checks exist for custom volume copying where an attacker knowing the name of a project that they don't have access to and the name of a custom volume in that project can copy the cu",
+      "link": "https://github.com/advisories/GHSA-7mr3-28h5-m5vx"
+    },
+    {
+      "id": "GHSA-qx75-2p3r-pwm5",
+      "title": "LXD has project restriction bypass in instance copy across projects",
+      "published": "2026-11-06T19:51:00Z",
+      "ecosystem": "go",
+      "summary": "Reported from https://github.com/lxc/incus/security/advisories/GHSA-c9f5-j9c3-mhrg\n\n### Summary\nMissing authorization checks exist for instance copying where an attacker knowing the name of a project that they don't have access to and the name of an instance in that project can copy the instance to ",
+      "link": "https://github.com/advisories/GHSA-qx75-2p3r-pwm5"
+    },
+    {
+      "id": "GHSA-r4hm-p9f9-fj9v",
+      "title": "GeoNode has Stored XSS in Documents metadata abstract field",
+      "published": "2026-11-06T19:50:34Z",
+      "ecosystem": "pip",
+      "summary": "The abstract metadata of documents is not sanitised. It’s possible to store arbitrary HTML (and JS) that will be executed when visiting the page.",
+      "link": "https://github.com/advisories/GHSA-r4hm-p9f9-fj9v"
+    },
+    {
+      "id": "GHSA-fqpv-mq26-pr4j",
+      "title": "GeoNode has Unrestricted File Upload",
+      "published": "2026-11-06T19:41:23Z",
+      "ecosystem": "pip",
+      "summary": "The upload service validation can be circumvented with specially crafted requests, allowing for the storage and serving of malicious files.",
+      "link": "https://github.com/advisories/GHSA-fqpv-mq26-pr4j"
+    },
+    {
+      "id": "GHSA-9fpx-fr6j-2vh6",
+      "title": "GeoNode has OS command injection via uploaded file layer name",
+      "published": "2026-11-06T19:39:38Z",
+      "ecosystem": "pip",
+      "summary": "Arbitrary OS commands can be executed on the GeoNode by uploading a vector file with a crafted layer name.",
+      "link": "https://github.com/advisories/GHSA-9fpx-fr6j-2vh6"
+    },
+    {
+      "id": "GHSA-j93m-3j9p-m5m8",
+      "title": "LXD has CreateCustomVolumeFromBackup nil-pointer dereference on volumes[0].snapshots[*].expires_at",
+      "published": "2026-11-06T19:37:14Z",
+      "ecosystem": "go",
+      "summary": "## Summary\n\n(sibling-field variant of CVE-2026-40197 fix 05bc272)\n\n`(*lxdBackend).CreateCustomVolumeFromBackup` in [`lxd/storage/backend_lxd.go`](https://github.com/canonical/lxd/blob/05bc272/lxd/storage/backend_lxd.go) contains an unguarded `*time.Time` dereference on the `ExpiresAt` field of every",
+      "link": "https://github.com/advisories/GHSA-j93m-3j9p-m5m8"
+    },
+    {
+      "id": "GHSA-pjff-c2wc-f6jm",
+      "title": "LXD has arbitrary file write on client due to trusted image hash",
+      "published": "2026-11-06T19:36:55Z",
+      "ecosystem": "go",
+      "summary": "Reported from https://github.com/lxc/incus/security/advisories/GHSA-f6m5-xw2g-xc4x\n\n### Summary\n\nAn arbitrary file write exists in the Incus client when a malicious image\nserver returns a crafted `Incus-Image-Hash` header. This can lead to\narbitrary command execution as root on the server.\n\n\n### Det",
+      "link": "https://github.com/advisories/GHSA-pjff-c2wc-f6jm"
+    },
+    {
+      "id": "GHSA-fmc8-p6q7-75cc",
+      "title": "LXD has argument injection in backup compression algorithm leading to AFW and ACE",
+      "published": "2026-11-06T19:36:37Z",
+      "ecosystem": "go",
+      "summary": "Reported from  https://github.com/lxc/incus/security/advisories/GHSA-v6mj-8pf4-hhw4\n\n### Summary\n\nImproper validation of user-provided backup compression algorithm leads to\nargument injection in the constructed command line. This leads to an\narbitrary file write on the host, possibly leading to arbi",
+      "link": "https://github.com/advisories/GHSA-fmc8-p6q7-75cc"
+    },
+    {
+      "id": "GHSA-vghh-5rfx-xhq8",
+      "title": "LXD has arbitrary file read+write on host via rootfs/ symlink in malicious image",
+      "published": "2026-11-06T19:36:07Z",
+      "ecosystem": "go",
+      "summary": "Reported from https://github.com/lxc/incus/security/advisories/GHSA-2q3f-q5pq-g8wv\n\n### Summary\n\nA specially crafted image can be used to read or create/write arbitrary files on the host; possibly leading to arbitrary command execution.\n\n\n### Details\n\nIncus validates an image as soon as it sees a no",
+      "link": "https://github.com/advisories/GHSA-vghh-5rfx-xhq8"
+    },
+    {
+      "id": "GHSA-jpf8-86f3-wp38",
+      "title": "LXD has arbitrary file read+write on host via templates/ symlink in malicious image",
+      "published": "2026-11-06T18:53:57Z",
+      "ecosystem": "go",
+      "summary": "Reported from https://github.com/lxc/incus/security/advisories/GHSA-vxp5-584q-c479\n\n### Summary\n\nA specially crafted image can be used to read or create/write arbitrary\nfiles on the host; possibly leading to arbitrary command execution.\n\n\n### Details\n\nFor container images, `internal/server/storage/u",
+      "link": "https://github.com/advisories/GHSA-jpf8-86f3-wp38"
+    },
+    {
+      "id": "GHSA-9j25-mm2h-2f76",
+      "title": "LXD has arbitrary file write on host via `exec-output` symlink in crafted image",
+      "published": "2026-11-06T18:45:51Z",
+      "ecosystem": "go",
+      "summary": "Reported from https://github.com/lxc/incus/security/advisories/GHSA-48q5-w887-33wv\n\n### Summary\n\nThe `record-output` parameter of the `/instances/$name/exec` endpoint\nstores the output of the command in the `exec-output` directory of the\ninstance. If `exec-output` is a symlink, file named `exec_UUID",
+      "link": "https://github.com/advisories/GHSA-9j25-mm2h-2f76"
+    },
+    {
+      "id": "GHSA-3gq2-x4qg-p4g6",
+      "title": "LXD: SSRF via image import from URL allows internal network probing by authenticated users",
+      "published": "2026-11-06T18:29:18Z",
+      "ecosystem": "go",
+      "summary": "## Summary\nThe LXD image import-from-URL endpoint (`POST /1.0/images` with `source.type=url`) makes server-side HTTP requests to an attacker-supplied URL without any private-IP or loopback blocking. An authenticated user with the `can_create_images` entitlement can force the LXD daemon to connect to",
+      "link": "https://github.com/advisories/GHSA-3gq2-x4qg-p4g6"
+    },
+    {
+      "id": "GHSA-xgjr-7j9q-2h4r",
+      "title": "listmonk: SQL Injection in `/api/subscribers/export` bypasses table access control, leaking admin password hashes and SMTP credentials",
+      "published": "2026-11-06T18:15:17Z",
+      "ecosystem": "go",
+      "summary": "### Summary\n\nA SQL injection vulnerability in `GET /api/subscribers/export` allows an authenticated user with the `subscribers:sql_query` permission to bypass the table access control that exists on the regular query endpoint (`GET /api/subscribers`) and read arbitrary tables from the database — inc",
+      "link": "https://github.com/advisories/GHSA-xgjr-7j9q-2h4r"
+    },
+    {
+      "id": "GHSA-5w5g-j6hw-6p8f",
+      "title": "OSAC operator: Kubeconfig credential-plugin execution and SSRF in console proxy",
+      "published": "2026-11-06T18:12:40Z",
+      "ecosystem": "go",
+      "summary": "### Impact\n\n The console-proxy's RemoteConfigResolver parses kubeconfig data from Kubernetes Secrets using clientcmd.RESTConfigFromKubeConfig without sanitizing the resulting rest.Config. A kubeconfig containing an exec\n  plugin stanza (under users[].user.exec) is faithfully preserved. When rest.Tra",
+      "link": "https://github.com/advisories/GHSA-5w5g-j6hw-6p8f"
+    },
+    {
+      "id": "GHSA-92r3-p8c2-3fpx",
+      "title": "Eclipse hawkBit DDI has Privilege Escalation that allows Tenant-Isolated Firmware Exfiltration",
+      "published": "2026-11-06T18:09:45Z",
+      "ecosystem": "maven",
+      "summary": "## **Description**\nA privilege escalation vulnerability has been identified in the Direct Device Integration (DDI) Controller of **Eclipse hawkBit** (versions 1.0.3 and prior).\n\nThis vulnerability allows an authenticated device to escalate its permissions and bypass the strict boundaries of its assi",
+      "link": "https://github.com/advisories/GHSA-92r3-p8c2-3fpx"
+    },
     {
       "id": "GHSA-m5ph-mmg5-6w5h",
       "title": "filecoin-pin: Unbounded DAG pinning can exhaust server resources",
@@ -677,134 +805,6 @@
       "ecosystem": "composer",
       "summary": "### Summary\nAdminNeo v5.4.1 gets the latest version from GitHub API in a browser JavaScript function. Version number is then sent by POST request to `?script=version`. This endpoint lacks origin validation and accepts POST data from any source. An attacker can POST `version[]` parameter which PHP co",
       "link": "https://github.com/advisories/GHSA-jm85-8cpp-9cjc"
-    },
-    {
-      "id": "GHSA-9pg5-8c7x-5hfx",
-      "title": "joserfc: Compact JWS size guard allocates attacker-controlled segments before rejection",
-      "published": "2026-10-30T14:54:25Z",
-      "ecosystem": "pip",
-      "summary": "## Summary\n\njoserfc 1.7.4 defines compact-JWS header, payload, and signature limits, but\ncalls `value.split(b\".\")` before validating them. Python `bytes.split()` copies\nthe attacker-controlled segments, so the current guard allocates roughly one\ncomplete payload before rejecting it.\n\n## Reproduction",
-      "link": "https://github.com/advisories/GHSA-9pg5-8c7x-5hfx"
-    },
-    {
-      "id": "GHSA-jpxq-7h8p-2q76",
-      "title": "joserfc: Unbounded JWE General JSON `recipients` Array Leads to CPU Exhaustion (DoS) via Repeated RSA Private-Key Decryption",
-      "published": "2026-10-30T14:54:20Z",
-      "ecosystem": "pip",
-      "summary": "### Summary\n\n`joserfc.jwe.decrypt_json()`, the library's public parser for JWE General JSON Serialization, accepts an attacker-controlled `recipients` array of unbounded length and performs one full private-key decryption operation (`decrypt_cek`) for **every** recipient present in the input, with n",
-      "link": "https://github.com/advisories/GHSA-jpxq-7h8p-2q76"
-    },
-    {
-      "id": "GHSA-f3fj-9625-rv3m",
-      "title": "charmbracelet/soft-serve: Race in `SetPrivate` leaves a private repository readable by unauthenticated users",
-      "published": "2026-10-30T14:53:57Z",
-      "ecosystem": "go",
-      "summary": "## Summary\n\nSoft Serve cached repository records in memory with no expiry, and trusted the cached record for every access check. `SetPrivate` cleared the cached record before it saved the new visibility, and not afterwards.\n\nA request that arrived between the two read the old, public record from the",
-      "link": "https://github.com/advisories/GHSA-f3fj-9625-rv3m"
-    },
-    {
-      "id": "GHSA-fgxm-5hvv-x4vh",
-      "title": "charmbracelet/soft-serve HTTP responses disclose the existence and names of private repositories",
-      "published": "2026-10-30T14:42:35Z",
-      "ecosystem": "go",
-      "summary": "## Summary\n\nSoft Serve answers Go's `?go-get=1` requests by walking up the requested path until it finds a repository, then rendering that repository's name and clone URL into a `go-import` meta tag. The walk checked that each candidate repository existed, but never that the caller could read it.\n\nA",
-      "link": "https://github.com/advisories/GHSA-fgxm-5hvv-x4vh"
-    },
-    {
-      "id": "GHSA-qm8w-vx34-5j9j",
-      "title": "@nx/maven and @nx/gradle have OS command injection via nx.json plugin options",
-      "published": "2026-10-30T14:42:14Z",
-      "ecosystem": "npm",
-      "summary": "## Summary\n\n`@nx/maven` and `@nx/gradle` spawn their project-graph analyzers through a shell and interpolate plugin options read from `nx.json` straight into the command line. Because a shell parses the whole line, an option value containing shell syntax is executed as a command by any `nx` command ",
-      "link": "https://github.com/advisories/GHSA-qm8w-vx34-5j9j"
-    },
-    {
-      "id": "GHSA-qr28-fpjm-wq7f",
-      "title": "decode-uri-component vulnerable to denial of service via quadratic replacement of percent-encoded runs",
-      "published": "2026-10-29T16:41:28Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\n`decodeUriComponent()` takes quadratic time on malformed input that has many distinct percent-encoded runs. A single unauthenticated request of about 224 KB can block the Node.js event loop for about 20 seconds. Version 0.5.0, the release that fixed CVE-2026-45822, is affected.\n\n### Det",
-      "link": "https://github.com/advisories/GHSA-qr28-fpjm-wq7f"
-    },
-    {
-      "id": "GHSA-vpp8-g58w-m8mp",
-      "title": "Twisted: Unauthenticated Remote Denial of Service in the Twisted HTTP/2 Server via Rapid Stream Reset",
-      "published": "2026-10-29T16:41:06Z",
-      "ecosystem": "pip",
-      "summary": "## Summary\n\nAn uncontrolled-resource-consumption vulnerability (CWE-400) in the Twisted HTTP/2 server lets any unauthenticated remote client exhaust server CPU over a single connection. A client that sends a request header block with `END_STREAM` and then immediately resets the stream makes the serv",
-      "link": "https://github.com/advisories/GHSA-vpp8-g58w-m8mp"
-    },
-    {
-      "id": "GHSA-9hj8-73fh-9963",
-      "title": "zip: legacy Shrink/Reduce/Implode decoder: denial of service from attacker-controlled ZIP64 uncompressed size",
-      "published": "2026-10-29T16:40:19Z",
-      "ecosystem": "rust",
-      "summary": "### Summary\n\nA malicious 149-byte ZIP archive can cause a denial of service in applications that enable `legacy-zip` and use `ZipArchive::extract()`. An attacker-controlled ZIP64 uncompressed size triggers a `capacity overflow` panic in the Shrink decoder in optimized builds, potentially terminating",
-      "link": "https://github.com/advisories/GHSA-9hj8-73fh-9963"
-    },
-    {
-      "id": "GHSA-hjqx-j4rw-g7xv",
-      "title": "zip: Arbitrary file write outside the extraction directory, because ZipArchive::extract validates symlink targets lexically.",
-      "published": "2026-10-29T16:40:12Z",
-      "ecosystem": "rust",
-      "summary": "### Summary\n\n- **Verified version:** zip `9.0.0-pre3`\n- **Affected versions:** `7.2.0` and later\n- **Precondition:** The attacker knows (or can guess) the absolute path of the extraction destination\n\nThe validation applied to symlinks is purely lexical.\nAs a result, an attacker can write arbitrary f",
-      "link": "https://github.com/advisories/GHSA-hjqx-j4rw-g7xv"
-    },
-    {
-      "id": "GHSA-8hxf-qr8p-62x4",
-      "title": "zip: AES Entry HMAC Authentication Bypass on Premature EOF",
-      "published": "2026-10-29T16:40:07Z",
-      "ecosystem": "rust",
-      "summary": "### Summary\n\nAn AES-encrypted (AE-x) entry's authentication code is verified only when the reader's byte counter lands exactly on zero. If the bounded entry reader reaches the archive's actual EOF before the attacker-controlled, header-declared `compressed_size`, the counter remains positive, the HM",
-      "link": "https://github.com/advisories/GHSA-8hxf-qr8p-62x4"
-    },
-    {
-      "id": "GHSA-q7v9-x93c-xqv3",
-      "title": "zip: Unbounded Symlink-Target Handling Can Abort Or Exhaust Memory During Extraction",
-      "published": "2026-10-29T16:40:01Z",
-      "ecosystem": "rust",
-      "summary": "### Summary\n\nThe symbolic-link branch of `ZipArchive::extract_internal()` allocates a buffer using an attacker-declared size before reading any entry data. A 112-byte archive terminates the extracting process with `SIGABRT` through this infallible allocation.\n\n### Details\n\n```rust\n#[cfg(any(unix, wi",
-      "link": "https://github.com/advisories/GHSA-q7v9-x93c-xqv3"
-    },
-    {
-      "id": "GHSA-8g5g-mxqh-grgj",
-      "title": "Vite: `server.fs.deny` bypassed with queries",
-      "published": "2026-10-29T16:39:56Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\nThe contents of files that are specified by [`server.fs.deny`](https://vite.dev/config/server-options#server-fs-deny) can be returned to the browser. This is the same as https://github.com/vitejs/vite/security/advisories/GHSA-v2wj-q39q-566r.\n\n### Impact\n\nOnly apps that match the followi",
-      "link": "https://github.com/advisories/GHSA-8g5g-mxqh-grgj"
-    },
-    {
-      "id": "GHSA-6j52-38f8-qhxr",
-      "title": "Shopify App: Token exchange shop context confusion may allow cross-shop authorization bypass in affected apps",
-      "published": "2026-10-29T16:39:49Z",
-      "ecosystem": "rubygems",
-      "summary": "In token-exchange authenticated controllers, `shopify_app` exposes shop context through helpers such as `current_shopify_domain`. Prior to the fix, `current_shopify_domain` could resolve to the sanitized `shop` query parameter instead of the shop identity derived from the verified Shopify ID token o",
-      "link": "https://github.com/advisories/GHSA-6j52-38f8-qhxr"
-    },
-    {
-      "id": "GHSA-8rvj-mm4h-c258",
-      "title": "cert-manager: Direct ACME Challenge resources can bypass Issuer DNS01 solver policy and use ClusterIssuer DNS credentials",
-      "published": "2026-10-29T16:39:41Z",
-      "ecosystem": "go",
-      "summary": "## Summary\n\n`Challenge` resources under `acme.cert-manager.io` can be created directly by namespace users. On create, cert-manager performs no admission validation tying the Challenge to an `Order`, an owner reference, or an Issuer-selected solver. The ACME Challenge controller then reconciles the d",
-      "link": "https://github.com/advisories/GHSA-8rvj-mm4h-c258"
-    },
-    {
-      "id": "GHSA-v3f7-2p4r-mwfw",
-      "title": "Keycloak vulnerable to cross-site scripting (xss) via case-insensitive uri validation bypass",
-      "published": "2026-10-29T16:39:03Z",
-      "ecosystem": "maven",
-      "summary": "### Description\nA flaw was found in Keycloak. A remote attacker with administrative privileges, specifically those with `manage-client` permission or access to client registration endpoints, could bypass client Uniform Resource Identifier (URI) validation. This is achieved by registering a malicious",
-      "link": "https://github.com/advisories/GHSA-v3f7-2p4r-mwfw"
-    },
-    {
-      "id": "GHSA-9jrw-8xf7-xqhq",
-      "title": "Keycloak vulnerable to information disclosure through arbitrary filesystem path probing",
-      "published": "2026-10-29T16:38:31Z",
-      "ecosystem": "maven",
-      "summary": "### Description\nA flaw was found in Keycloak. A realm administrator with the \"manage-realm\" role can exploit this vulnerability by submitting an arbitrary filesystem path as a keystore parameter when creating a key provider component. This allows the administrator to probe arbitrary filesystem paths",
-      "link": "https://github.com/advisories/GHSA-9jrw-8xf7-xqhq"
     }
   ]
 }

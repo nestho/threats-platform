@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-06T14:56:07Z",
+  "updated_at": "2026-11-06T20:48:32Z",
   "source": "Microsoft MSRC + Ubuntu Security Notices",
   "source_url": [
     "https://api.msrc.microsoft.com/update-guide/rss",
@@ -10,6 +10,14 @@
   "normalisation_failures": [],
   "partial": null,
   "items": [
+    {
+      "id": "USN-8952-2",
+      "vendor": "Ubuntu",
+      "title": "USN-8952-2: Tornado regression",
+      "published": "2026-11-06T15:04:17Z",
+      "summary": "USN-8952-1 fixed vulnerabilities in Tornado. Unfortunately that update was incomplete due to an incomplete fix for CVE-2026-103263, which broke static file serving for applications that subclass Tornado's StaticFileHandler, such as Jupyter, and could introduce a regression. This update fixes the pro",
+      "link": "https://ubuntu.com/security/notices/USN-8952-2"
+    },
     {
       "id": "USN-9003-1",
       "vendor": "Ubuntu",
@@ -273,14 +281,6 @@
       "published": "2026-11-04T15:32:22Z",
       "summary": "It was discovered that Squid incorrectly handled certain HTTP Transfer- Encoding headers. An attacker could possibly use this issue to perform HTTP request smuggling attacks, bypass security mechanisms, or poison web caches.",
       "link": "https://ubuntu.com/security/notices/USN-8998-1"
-    },
-    {
-      "id": "USN-8997-1",
-      "vendor": "Ubuntu",
-      "title": "USN-8997-1: Net-SNMP vulnerability",
-      "published": "2026-11-04T15:25:21Z",
-      "summary": "It was discovered that Net-SNMP incorrectly handled newly accepted connections in the SMUX module. An unauthenticated remote attacker could possibly use this issue to cause Net-SNMP to block indefinitely, resulting in a denial of service.",
-      "link": "https://ubuntu.com/security/notices/USN-8997-1"
     },
     {
       "id": "CVE-2026-118304",
