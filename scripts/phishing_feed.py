@@ -9,6 +9,7 @@ threat feed, not a link shortener for credential harvesters.
 
 Source: https://openphish.com/feed.txt (302 -> GitHub raw)
 """
+import re
 import sys
 import urllib.error
 import urllib.request
@@ -19,6 +20,7 @@ from feed_io import DATA_DIR, defang, envelope, is_http_url, now_iso, refang, st
 FEED_URL = "https://openphish.com/feed.txt"
 OUTPUT_PATH = DATA_DIR / "phishing.json"
 MAX_ITEMS = 300
+HOSTNAME = re.compile(r"^(?=.{1,253}$)(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,63}$")
 
 
 def fetch_text(url, *, attempts=4):
@@ -46,8 +48,10 @@ def build_items(text, collected_at):
         url = line.strip()
         if not is_http_url(url) or url in seen:
             continue
+        host = (urlparse(url).hostname or "").lower().rstrip(".")
+        if not HOSTNAME.fullmatch(host):
+            continue
         seen.add(url)
-        host = (urlparse(url).hostname or "").lower()
         items.append({
             "id": stable_id("ph", url),
             "url_defanged": defang(url),
