@@ -162,7 +162,7 @@ body {
     radial-gradient(1000px 500px at 85% -10%, var(--ambient-glow-1), transparent 60%),
     radial-gradient(850px 450px at 4% 0%, var(--ambient-glow-2), transparent 55%);
   color: var(--text);
-  font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'IBM Plex Sans', system-ui, sans-serif;
   font-size: 14px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -1345,3 +1345,112 @@ tbody tr:hover { background: var(--surface-2); }
 }
 
 .skip-link:focus-visible { transform: none; }
+
+
+/* ── Apple-grade Interactive Motion & Spotlight Sheen ─────────────────── */
+
+.hero-title,
+.hero h1 {
+  background: linear-gradient(180deg, #ffffff 15%, #cbd5e1 75%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  letter-spacing: -0.04em;
+}
+
+[data-theme="light"] .hero-title,
+[data-theme="light"] .hero h1 {
+  background: linear-gradient(180deg, #0f172a 20%, #334155 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Dynamic Cursor-following Spotlight Sheen */
+.card,
+.stat-card,
+.feed-item,
+.tier-card,
+.pro-card,
+.step,
+.panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.card::after,
+.stat-card::after,
+.feed-item::after,
+.tier-card::after,
+.pro-card::after,
+.step::after,
+.panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(420px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(255, 255, 255, 0.08), transparent 50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+[data-theme="light"] .card::after,
+[data-theme="light"] .stat-card::after,
+[data-theme="light"] .feed-item::after,
+[data-theme="light"] .tier-card::after,
+[data-theme="light"] .pro-card::after,
+[data-theme="light"] .step::after,
+[data-theme="light"] .panel::after {
+  background: radial-gradient(420px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(234, 88, 12, 0.08), transparent 50%);
+}
+
+.card:hover::after,
+.stat-card:hover::after,
+.feed-item:hover::after,
+.tier-card:hover::after,
+.pro-card:hover::after,
+.step:hover::after,
+.panel:hover::after {
+  opacity: 1;
+}
+
+/* Tactile Button & Link Physics */
+.btn {
+  transition: all 0.22s var(--ease-spring);
+}
+.btn:hover {
+  transform: translateY(-2px) scale(1.015);
+  box-shadow: var(--glass-rim), 0 8px 24px -4px rgba(0, 0, 0, 0.35);
+}
+.btn:active {
+  transform: translateY(0) scale(0.965);
+}
+
+/* Interactive Copy Feedback Pill */
+[data-copied="true"] {
+  background: var(--ok-soft) !important;
+  color: var(--ok) !important;
+  border-color: rgba(52, 211, 153, 0.5) !important;
+  box-shadow: 0 0 16px rgba(52, 211, 153, 0.3) !important;
+  transform: scale(1.05) !important;
+}
+
+/* Pulsating Live Radar Wave */
+.dot.ok {
+  position: relative;
+}
+.dot.ok::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ok);
+  opacity: 0.8;
+  animation: radar-sweep 2.4s ease-out infinite;
+}
+
+@keyframes radar-sweep {
+  0% { transform: scale(0.8); opacity: 0.9; }
+  100% { transform: scale(2.6); opacity: 0; }
+}

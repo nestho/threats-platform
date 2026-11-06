@@ -419,4 +419,96 @@ export function initConsoleShell() {
   // fetchJson resolves to null instead of rejecting, but an explicit second
   // handler keeps the chain complete if that ever changes.
   fetchJson('/data/status.json').then(paintHealth, () => paintHealth(null));
+  initInteractiveMotion();
+}
+
+
+/**
+ * Apple-grade Interactive Motion & Micro-Interactions
+ *
+ * Provides dynamic cursor-tracking spotlight sheen, animated counter easing,
+ * and tactile copy button feedback across cards and widgets.
+ */
+
+export function animateCounter(element, target, duration = 650) {
+  if (!element) return;
+  const num = typeof target === "number" ? target : parseInt(String(target).replace(/[^0-9]/g, ""), 10);
+  if (isNaN(num) || num === 0) return;
+
+  const start = 0;
+  const startTime = performance.now();
+  const hasComma = String(target).includes(",");
+
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    // Apple signature cubic deceleration
+    const ease = 1 - Math.pow(1 - progress, 3);
+    const current = Math.round(start + (num - start) * ease);
+    element.textContent = hasComma ? current.toLocaleString("en-US") : String(current);
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      element.textContent = hasComma ? num.toLocaleString("en-US") : String(target);
+    }
+  }
+  requestAnimationFrame(update);
+}
+
+export function initSpotlightMotion() {
+  if (typeof document === "undefined" || typeof window === "undefined") return;
+  const isReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (isReduced) return;
+
+  const selector = ".card, .stat-card, .feed-item, .tier-card, .pro-card, .step, .panel, .browse-card, .price-card";
+  document.addEventListener("mousemove", (event) => {
+    const target = event.target.closest(selector);
+    if (!target) return;
+    const rect = target.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    target.style.setProperty("--mouse-x", `${x}px`);
+    target.style.setProperty("--mouse-y", `${y}px`);
+  }, { passive: true });
+}
+
+export function enhanceCopyFeedback() {
+  if (typeof document === "undefined") return;
+  document.addEventListener("click", (event) => {
+    const button = event.target.closest(".copy-inline, .copy-btn, #copy-json, #copy-hosts, #copy-md, [data-copy-button]");
+    if (!button) return;
+    const original = button.dataset.originalText || button.textContent;
+    button.dataset.originalText = original;
+    button.setAttribute("data-copied", "true");
+    button.textContent = "✓ Copied";
+    setTimeout(() => {
+      button.removeAttribute("data-copied");
+      button.textContent = original;
+    }, 1500);
+  }, { passive: true });
+}
+
+export function initInteractiveMotion() {
+  initSpotlightMotion();
+  enhanceCopyFeedback();
+
+  if (typeof document !== "undefined") {
+    // Animate stat numbers once on load
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const text = el.textContent.trim();
+          if (text && text !== "—" && !el.dataset.animated) {
+            el.dataset.animated = "true";
+            animateCounter(el, text);
+          }
+        }
+      }
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll(".stat-card .num, .stat .num, .num").forEach((numEl) => {
+      observer.observe(numEl);
+    });
+  }
 }
