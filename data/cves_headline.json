@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-07T18:38:43Z",
+  "updated_at": "2026-11-07T22:38:50Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,71 @@
   ],
   "note": "Bounded slice of cves.json for the homepage. Use /data/cves.json for the full window.",
   "normalisation_failures": [],
-  "recent_total": 1763,
+  "recent_total": 1640,
   "kev_total": 107,
   "kev_catalog_total": 1769,
   "total": 25,
   "items": [
+    {
+      "id": "CVE-2026-120531",
+      "published": "2026-11-07T22:16:36Z",
+      "description": "The Subscribe2 – Form, Email Subscribers & Newsletters plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘data[ip]’ parameter in all versions up to, and including, 10.47 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated att",
+      "severity": "HIGH",
+      "score": 7.2,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120531",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-124060",
+      "published": "2026-11-07T21:17:00Z",
+      "description": "A vulnerability was detected in TOTOLINK CA300-PoE 6.2c.884. Affected by this issue is the function UploadCustomModule of the file /cgi-bin/cstecgi.cgi. The manipulation of the argument File results in buffer overflow. The attack may be launched remotely. The exploit is now public and may be used.",
+      "severity": "HIGH",
+      "score": 8.5,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124060",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-99283",
+      "published": "2026-11-07T21:17:00Z",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnetfilter: conntrack: tcp: use UNACK timeout for non-closing RST packets\n\nCommit be0502a3f2e9 (\"netfilter: conntrack: tcp: only close if RST\nmatches exact sequence\") keeps an established conntrack entry in\nESTABLISHED when an in-wi",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-99283",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-99284",
+      "published": "2026-11-07T21:17:00Z",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: skbuff: propagate shared-frag marker in skb_zerocopy()\n\nskb_zerocopy() moves frag descriptors from @from into @to and takes a\nreference on each frag, but it does not copy skb_shinfo(from)->flags into\nskb_shinfo(to)->flags.  A ",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-99284",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-124058",
+      "published": "2026-11-07T19:17:28Z",
+      "description": "A weakness has been identified in TOTOLINK CA300-PoE 6.2c.884. Affected is the function setWiFiRepeaterConfig of the file /cgi-bin/cstecgi.cgi. Executing a manipulation of the argument ApCliKeyStr can lead to buffer overflow. The attack can be launched remotely. The exploit has been made available t",
+      "severity": "HIGH",
+      "score": 8.5,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124058",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-124059",
+      "published": "2026-11-07T19:17:28Z",
+      "description": "A security vulnerability has been detected in TOTOLINK CA300-PoE 6.2c.884. Affected by this vulnerability is the function setWiFiWdsAddConfig of the file /cgi-bin/cstecgi.cgi. The manipulation of the argument ApCliKeyStr leads to buffer overflow. The attack may be initiated remotely. The exploit has",
+      "severity": "HIGH",
+      "score": 8.5,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124059",
+      "kev": false
+    },
     {
       "id": "CVE-2026-123472",
       "published": "2026-11-07T18:17:21Z",
@@ -201,66 +261,6 @@
       "score": 5.8,
       "cvss_version": "40",
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124308",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-124309",
-      "published": "2026-11-07T15:17:14Z",
-      "description": "Fraunhofer HHI VVdeC before 3.2.1 contains a heap out-of-bounds read vulnerability in SEIReader::xParseSEIScalableNesting that allows attackers to read past heap allocations by casting the SEI wrapper object instead of its payload. Attackers can supply a crafted VVC bitstream with a scalable nesting",
-      "severity": "MEDIUM",
-      "score": 6.9,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124309",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-124310",
-      "published": "2026-11-07T15:17:14Z",
-      "description": "Fraunhofer HHI VVdeC before 3.2.1 contains an out-of-bounds read vulnerability that allows attackers to crash the decoder by supplying bitstreams with overlapping slice CTU coverage. Attackers can code a CTU in a second slice so a bi-predicted BDOF coding unit carries a negative reference index, cau",
-      "severity": "MEDIUM",
-      "score": 6.9,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124310",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-124311",
-      "published": "2026-11-07T15:17:14Z",
-      "description": "Fraunhofer HHI VVdeC through 3.2.1 contains a NULL pointer dereference vulnerability in InterPrediction::xPredInterBlk that allows attackers to crash the decoder by switching SPS to enable reference wrap-around. Attackers can supply a crafted VVC bitstream activating a new SPS with sps_ref_wraparoun",
-      "severity": "MEDIUM",
-      "score": 6.8,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124311",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-99277",
-      "published": "2026-11-07T14:17:03Z",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nksmbd: hold a connection reference for each session channel\n\nksmbd_session_unregister() removes a session from the global and per-\nconnection tables before dropping the table reference. A concurrent\nreference holder can keep the se",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-99277",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-99278",
-      "published": "2026-11-07T14:17:03Z",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nksmbd: limit sessions on each connection\n\nThe pending setup limit only counts InProgress sessions. A client can\ncomplete authentication repeatedly and retain an unbounded number of Valid\nsessions on one connection.\n\nReserve a conne",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-99278",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-99279",
-      "published": "2026-11-07T14:17:03Z",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nksmbd: reclaim ended sessions on logoff and expiration\n\nLOGOFF and previous-session replacement leave sessions Expired with a\nzero credential expiry. Ended sessions can retain their memory and\nconnection slots when no further setup",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-99279",
       "kev": false
     }
   ]
