@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-08T09:29:40Z",
+  "updated_at": "2026-11-08T13:43:45Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,51 @@
   ],
   "recent": {
     "lookback_days": 3,
-    "total": 1642,
-    "items_available": 1642,
+    "total": 1627,
+    "items_available": 1627,
     "normalisation_failures": [],
-    "items_parsed": 1642,
+    "items_parsed": 1627,
     "items": [
+      {
+        "id": "CVE-2026-124330",
+        "published": "2026-11-08T13:16:33Z",
+        "description": "A vulnerability was determined in FlowCI flow-core-x up to 1.23.49. This affects the function exist/save/read/remove of the file store/src/main/java/com/flowci/store/LocalFileManager.java of the component LocalFileManager. This manipulation of the argument fileName causes path traversal. It is possi",
+        "severity": "LOW",
+        "score": 1.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124330",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-124329",
+        "published": "2026-11-08T12:17:48Z",
+        "description": "A vulnerability was found in FlowCI flow-core-x up to 1.23.49. The impacted element is the function FileHelper.unzip of the file common/src/main/java/com/flowci/common/helper/FileHelper.java. The manipulation results in path traversal. The attack may be performed from remote. A high complexity level",
+        "severity": "LOW",
+        "score": 1.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124329",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-124328",
+        "published": "2026-11-08T11:16:34Z",
+        "description": "A vulnerability has been found in FlowCI flow-core-x up to 1.23.49. The affected element is the function ConditionManagerImpl.run of the file core/src/main/java/com/flowci/core/common/manager/ConditionManagerImpl.java of the component Groovy Script Evaluation. The manipulation of the argument condit",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124328",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-124326",
+        "published": "2026-11-08T10:16:51Z",
+        "description": "A flaw has been found in DataLinkDC Dinky up to 1.2.5. Impacted is the function file.getOriginalFilename of the file CatalogueController.java of the component Catalogue Upload. Executing a manipulation of the argument filename can lead to path traversal. The attack can be executed remotely. The expl",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124326",
+        "kev": false
+      },
       {
         "id": "CVE-2026-97192",
         "published": "2026-11-08T06:17:06Z",
@@ -16241,196 +16281,6 @@
         "score": null,
         "cvss_version": null,
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100228",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-95652",
-        "published": "2026-11-05T13:17:08Z",
-        "description": "Execution with unnecessary privileges vulnerability in TÜBİTAK BİLGEM Software Technologies Research Institute pardus-usb-formatter allows Privilege Abuse.\n\nThis issue affects pardus-usb-formatter: from 0.7.0 before 0.7.2.",
-        "severity": "MEDIUM",
-        "score": 6.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-95652",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-103864",
-        "published": "2026-11-05T13:17:07Z",
-        "description": "Improper output neutralization for logs in Apache Sling Engine.\n\n\n\nThis issue affects Apache Sling Engine: before 3.0.4.\n\n\n\nUsers are recommended to upgrade to version 3.0.4, which fixes the issue.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103864",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-103866",
-        "published": "2026-11-05T13:17:07Z",
-        "description": "Inconsistent interpretation of HTTP requests ('HTTP Request/Response smuggling') vulnerability in Apache Sling Engine. The engine's query/form parser accepts non-standard percent-escapes, wrong charsets, and continues request processing on such errors.\n\n\n\nThis issue affects Apache Sling Engine: befo",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103866",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-123020",
-        "published": "2026-11-05T13:17:07Z",
-        "description": "A security vulnerability has been detected in eosphoros-ai DB-GPT up to 0.8.1. The affected element is the function FileBasedSkill.get_prompt of the file packages/dbgpt-core/src/dbgpt/agent/skill/claude_skill/__init__.py of the component Jinja2 Template Handler. The manipulation leads to improper ne",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123020",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-123047",
-        "published": "2026-11-05T13:17:07Z",
-        "description": "In Eclipse BaSyx Helm Charts versions 3.0.0-rc.1 to 3.12.1 of the `basyx` chart, deployments with the bundled Keycloak enabled store the passwords of the Keycloak users that the chart creates in cleartext in a Kubernetes ConfigMap.\n\n\n\nThe template `keycloak-init-config.yaml` rendered `keycloak.initi",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123047",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-123119",
-        "published": "2026-11-05T13:17:07Z",
-        "description": "The Symfony HttpClient component NoPrivateNetworkHttpClient does not pin the checked IP address of cached hosts, allowing for DNS rebinding to bypass private network restrictions, resulting in enumeration of internal hosts and ports in Symfony versions prior to 5.4.56, 6.x prior to 6.4.50, 7.x prior",
-        "severity": "LOW",
-        "score": 2.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123119",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-103863",
-        "published": "2026-11-05T13:17:06Z",
-        "description": "Improper neutralization of input during web page generation ('cross-site scripting') vulnerability in Apache Sling Engine. Content-Type, charset, and redirect changes from an included component evade the  protectheaders / checkcontenttype  enforcement through setHeader(), repeated calls to setConten",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103863",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-73100",
-        "published": "2026-11-05T12:17:51Z",
-        "description": "Insertion of Sensitive Information into Log File vulnerability in Apache Juneau.\n\nThe default REST server call logger records request headers for requests that end in a server error, without redacting them. Any client able to cause a server error gets headers such as Authorization, Cookie, Proxy-Aut",
-        "severity": "CRITICAL",
-        "score": 10.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-73100",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-73101",
-        "published": "2026-11-05T12:17:51Z",
-        "description": "Generation of Error Message Containing Sensitive Information vulnerability in Apache Juneau.\n\nThe REST server sends the internal exception class and message to clients in a \"Thrown\" response header on every error response, and can include internal exception messages in the error body, even when stac",
-        "severity": "CRITICAL",
-        "score": 10.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-73101",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-73116",
-        "published": "2026-11-05T12:17:51Z",
-        "description": "Insufficiently Protected Credentials vulnerability in Apache Juneau.\n\nThe Apache Juneau RestClient followed HTTP redirects while keeping credential headers from the original request, so a server that redirected the client to a different host or port, or from HTTPS to HTTP, could receive headers such",
-        "severity": "CRITICAL",
-        "score": 10.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-73116",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-73117",
-        "published": "2026-11-05T12:17:51Z",
-        "description": "Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Response Splitting') vulnerability in Apache Juneau.\n\nThe Apache Juneau REST server passed response header values and redirect targets to the servlet container unchecked. An application that sets a response header or redirect target fr",
-        "severity": "CRITICAL",
-        "score": 10.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-73117",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96677",
-        "published": "2026-11-05T12:17:51Z",
-        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Apache Juneau.\n\nHTML document serialization does not HTML-encode variable substitutions in the page chrome (header, nav, aside, footer and similar fields). Applications whose chrome includes request",
-        "severity": "CRITICAL",
-        "score": 10.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96677",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-123019",
-        "published": "2026-11-05T12:17:50Z",
-        "description": "A weakness has been identified in eosphoros-ai DB-GPT up to 0.8.2. Impacted is the function exec_module of the file hf_adapter.py of the component HuggingFace Adapter. Executing a manipulation of the argument trust_remote_code can lead to inclusion of functionality from untrusted control sphere. The",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123019",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-73095",
-        "published": "2026-11-05T12:17:50Z",
-        "description": "Allocation of Resources Without Limits or Throttling vulnerability in Apache Juneau.\n\nThe MessagePack parser, which the REST server enables by default, sizes buffers from length values in the input. An unauthenticated client can send a few bytes that force a multi-gigabyte allocation and an OutOfMem",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-73095",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-73098",
-        "published": "2026-11-05T12:17:50Z",
-        "description": "Improper control of dynamically-loaded code vulnerability in Apache Juneau.\n\nWhen Apache Juneau parses a value into a property of type java.lang.Class (including parameterized forms), the default class swap loaded the named class with initialization enabled, so input naming a class on the applicatio",
-        "severity": "CRITICAL",
-        "score": 10.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-73098",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-73099",
-        "published": "2026-11-05T12:17:50Z",
-        "description": "Cross-Site Request Forgery (CSRF) vulnerability in Apache Juneau.\n\nThe REST server accepts a \"content\" query parameter that replaces the request body, and this is enabled by default on every HTTP method, including GET. A cross-site link can therefore deliver an attacker-chosen request body to an end",
-        "severity": "CRITICAL",
-        "score": 10.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-73099",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121489",
-        "published": "2026-11-05T12:17:49Z",
-        "description": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in Apache Juneau.\n\nThe microservice DirectoryResource does not keep request paths inside its configured root directory. When an application enables the resource's view, upload or delete settings (all off by ",
-        "severity": "CRITICAL",
-        "score": 10.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121489",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-123018",
-        "published": "2026-11-05T12:17:49Z",
-        "description": "A security flaw has been discovered in eosphoros-ai DB-GPT up to 0.8.2. This issue affects the function execute_code of the file code_utils.py of the component CodeAction. Performing a manipulation results in code injection. The attack can be initiated remotely. The exploit has been released to the ",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123018",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-123036",
-        "published": "2026-11-05T10:16:38Z",
-        "description": "A flaw was found in ansible-core. When a task marked `no_log: true` fails, the task result is censored before being emitted, but the `exception` field is retained because it is present in the PRESERVE allow-list in lib/ansible/_internal/_task.py, and the default stdout callback prints it through Cal",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123036",
         "kev": false
       }
     ]
