@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-08T06:23:36Z",
+  "updated_at": "2026-11-08T09:29:40Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,10 +8,10 @@
   ],
   "recent": {
     "lookback_days": 3,
-    "total": 1652,
-    "items_available": 1652,
+    "total": 1642,
+    "items_available": 1642,
     "normalisation_failures": [],
-    "items_parsed": 1652,
+    "items_parsed": 1642,
     "items": [
       {
         "id": "CVE-2026-97192",
@@ -16431,106 +16431,6 @@
         "score": 5.5,
         "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123036",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118869",
-        "published": "2026-11-05T09:17:05Z",
-        "description": "An OS command injection vulnerability exists in SHIRASAGI, which may allow an authenticated attacker to execute arbitrary OS commands on the system running the product.",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118869",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-117679",
-        "published": "2026-11-05T09:17:04Z",
-        "description": "A cross-site scripting vulnerability exists in SHIRASAGI, which may allow an authenticated attacker to execute arbitrary script in a user's web browser when the user accesses a website using the affected product.",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117679",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107776",
-        "published": "2026-11-05T08:17:03Z",
-        "description": "The Dokan WordPress plugin before 5.3.3 does not reconcile the amount credited to a vendor's reverse-withdrawal ledger against the amount actually collected for the payment order, allowing a vendor to clear their outstanding commission debt while paying less than the balance owed when a discount cou",
-        "severity": "LOW",
-        "score": 2.2,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107776",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-109408",
-        "published": "2026-11-05T08:17:03Z",
-        "description": "vault-java-driver, a Java client for HashiCorp Vault, silently disables TLS certificate and hostname verification in three states where the caller asked for verification: an SslConfig passed to VaultConfig without calling build(), an SslConfig restored by Java deserialization, and VAULT_SSL_VERIFY s",
-        "severity": "HIGH",
-        "score": 7.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-109408",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-112072",
-        "published": "2026-11-05T08:17:03Z",
-        "description": "vault-java-driver, a Java client for HashiCorp Vault, parses Vault's JSON responses with a vendored minimal-json parser that has no nesting depth limit. A deeply nested value raises a StackOverflowError, which escapes catch (Exception) handlers and kills the reading thread. A Vault token that can wr",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-112072",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-100109",
-        "published": "2026-11-05T08:17:01Z",
-        "description": "The Security For WooCommerce WordPress plugin from 1.0.10 to 1.0.16 does not perform capability checks when creating users through an action available to unauthenticated visitors, and lets the caller choose the new account's role, allowing unauthenticated attackers to create administrator accounts a",
-        "severity": "CRITICAL",
-        "score": 9.8,
-        "cvss_version": "30",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-100109",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-123029",
-        "published": "2026-11-05T07:17:26Z",
-        "description": "Wowza Streaming Engine before 4.12.2 processes XML external entities, which allows remote attackers to read local files with the privileges of the Wowza Streaming Engine process.",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123029",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-123033",
-        "published": "2026-11-05T07:17:26Z",
-        "description": "Authentication bypass in the HA heartbeat origin check in middlewared in TrueNAS SCALE before 25.10.8 (and in release trains before their respective fixes) allows an attacker on the same network segment to achieve unauthenticated full-administrator API access and execute commands as root. middleware",
-        "severity": "HIGH",
-        "score": 8.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123033",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-123025",
-        "published": "2026-11-05T07:17:25Z",
-        "description": "An OS Command Injection vulnerability was discovered in the Google Cloud DNS validation module of the OPNsense os-acme-client plugin through 4.17. The DnsGcloud::prepare() method decodes the dns_gcloud_key model field and directly interpolates the string fields gcloud_account and gcloud_project into",
-        "severity": "CRITICAL",
-        "score": 9.4,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123025",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-123017",
-        "published": "2026-11-05T07:17:24Z",
-        "description": "GodotSteam 4.17 through 4.23.2 trusts the peer value of 1 to mean that a player is the server. A grant_gold(1000000) call can be forged.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123017",
         "kev": false
       }
     ]
