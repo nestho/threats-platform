@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-08T09:29:40Z",
+  "updated_at": "2026-11-08T13:43:45Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,51 @@
   ],
   "note": "Bounded slice of cves.json for the homepage. Use /data/cves.json for the full window.",
   "normalisation_failures": [],
-  "recent_total": 1642,
+  "recent_total": 1627,
   "kev_total": 107,
   "kev_catalog_total": 1769,
   "total": 25,
   "items": [
+    {
+      "id": "CVE-2026-124330",
+      "published": "2026-11-08T13:16:33Z",
+      "description": "A vulnerability was determined in FlowCI flow-core-x up to 1.23.49. This affects the function exist/save/read/remove of the file store/src/main/java/com/flowci/store/LocalFileManager.java of the component LocalFileManager. This manipulation of the argument fileName causes path traversal. It is possi",
+      "severity": "LOW",
+      "score": 1.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124330",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-124329",
+      "published": "2026-11-08T12:17:48Z",
+      "description": "A vulnerability was found in FlowCI flow-core-x up to 1.23.49. The impacted element is the function FileHelper.unzip of the file common/src/main/java/com/flowci/common/helper/FileHelper.java. The manipulation results in path traversal. The attack may be performed from remote. A high complexity level",
+      "severity": "LOW",
+      "score": 1.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124329",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-124328",
+      "published": "2026-11-08T11:16:34Z",
+      "description": "A vulnerability has been found in FlowCI flow-core-x up to 1.23.49. The affected element is the function ConditionManagerImpl.run of the file core/src/main/java/com/flowci/core/common/manager/ConditionManagerImpl.java of the component Groovy Script Evaluation. The manipulation of the argument condit",
+      "severity": "LOW",
+      "score": 2.1,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124328",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-124326",
+      "published": "2026-11-08T10:16:51Z",
+      "description": "A flaw has been found in DataLinkDC Dinky up to 1.2.5. Impacted is the function file.getOriginalFilename of the file CatalogueController.java of the component Catalogue Upload. Executing a manipulation of the argument filename can lead to path traversal. The attack can be executed remotely. The expl",
+      "severity": "LOW",
+      "score": 2.1,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124326",
+      "kev": false
+    },
     {
       "id": "CVE-2026-97192",
       "published": "2026-11-08T06:17:06Z",
@@ -221,46 +261,6 @@
       "score": null,
       "cvss_version": null,
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-104337",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-103303",
-      "published": "2026-11-08T06:17:02Z",
-      "description": "The Turisbook Booking System WordPress plugin through 1.3.8 does not have authorisation and CSRF checks when saving its settings, and does not sanitise and escape one of them before outputting it in an admin page, allowing unauthenticated users to perform Stored Cross-Site Scripting attacks against ",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103303",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-114713",
-      "published": "2026-11-08T03:16:33Z",
-      "description": "The labeled-response module in UnrealIRCd 6.0.0 before 6.2.7.1 does not escape the IRCv3 \"label\" message tag when echoing it into replies, which allows any user on a network with two or more linked servers to inject server-to-server commands that are executed with server authority.",
-      "severity": "HIGH",
-      "score": 8.6,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-114713",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-123615",
-      "published": "2026-11-08T02:16:57Z",
-      "description": "imgproxy 3.3.0 before 4.0.17 contains an out-of-bounds heap read and write in the ICO loader's BMP header reconstruction (vips_foreign_load_ico_header in vips/icoload.c) when an ICO entry declares a tiny data size, causing unvalidated header fields to be read and written past the allocated buffer. U",
-      "severity": "HIGH",
-      "score": 8.7,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123615",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-123616",
-      "published": "2026-11-08T02:16:57Z",
-      "description": "imgproxy from 3.3.0 before 4.0.16 contains an unbounded memory allocation vulnerability in the ICO loader that fails to validate the data_size field. Attackers can supply a crafted 23-byte ICO file declaring a ~4GB data_size to trigger memory exhaustion and worker crashes without authentication.",
-      "severity": "HIGH",
-      "score": 8.7,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123616",
       "kev": false
     }
   ]
