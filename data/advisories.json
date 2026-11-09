@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-09T17:49:20Z",
+  "updated_at": "2026-11-09T22:34:20Z",
   "source": "Microsoft MSRC + Ubuntu Security Notices",
   "source_url": [
     "https://api.msrc.microsoft.com/update-guide/rss",
@@ -10,6 +10,38 @@
   "normalisation_failures": [],
   "partial": null,
   "items": [
+    {
+      "id": "USN-9013-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9013-1: Fetchmail vulnerabilities",
+      "published": "2026-11-09T17:17:55Z",
+      "summary": "Christian Herdtweck discovered that Fetchmail incorrectly handled certain long log messages. A remote attacker could possibly use this issue to cause Fetchmail to crash, resulting in a denial of service. This issue only affected Ubuntu 16.04 LTS, Ubuntu 18.04 LTS, and Ubuntu 20.04 LTS. (CVE-2021-363",
+      "link": "https://ubuntu.com/security/notices/USN-9013-1"
+    },
+    {
+      "id": "USN-9011-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9011-1: pyasn1 vulnerabilities",
+      "published": "2026-11-09T16:15:14Z",
+      "summary": "It was discovered that pyasn1 did not properly bound the size of long-form tag identifiers when parsing BER, CER, or DER encoded data. An attacker could possibly use this issue to cause applications decoding untrusted ASN.1 data to consume excessive CPU resources, resulting in a denial of service. T",
+      "link": "https://ubuntu.com/security/notices/USN-9011-1"
+    },
+    {
+      "id": "USN-9009-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9009-1: OpenJDK 8 vulnerabilities",
+      "published": "2026-11-09T16:04:44Z",
+      "summary": "It was discovered that the Security component of OpenJDK 8 did not correctly authenticate users. A remote attacker could possibly use this issue to modify sensitive data. (CVE-2026-83374) It was discovered that the JSSE component of OpenJDK 8 did not correctly authorize users. A remote attacker coul",
+      "link": "https://ubuntu.com/security/notices/USN-9009-1"
+    },
+    {
+      "id": "USN-9010-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9010-1: OpenJDK 11 vulnerabilities",
+      "published": "2026-11-09T15:35:24Z",
+      "summary": "It was discovered that the Security component of OpenJDK 11 did not correctly authenticate users. A remote attacker could possibly use this issue to modify sensitive data. (CVE-2026-83374) It was discovered that the JSSE component of OpenJDK 11 did not correctly authorize users. A remote attacker co",
+      "link": "https://ubuntu.com/security/notices/USN-9010-1"
+    },
     {
       "id": "USN-9008-1",
       "vendor": "Ubuntu",
@@ -35,6 +67,22 @@
       "link": "https://ubuntu.com/security/notices/USN-9001-2"
     },
     {
+      "id": "USN-9005-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9005-1: OpenJDK 27 vulnerabilities",
+      "published": "2026-11-09T02:27:00Z",
+      "summary": "It was discovered that the 2D component of OpenJDK 27 did not correctly authenticate users. A remote attacker could possibly use this issue to cause a denial of service or to read or modify sensitive data. (CVE-2026-91415) It was discovered that the Networking component of OpenJDK 27 did not correct",
+      "link": "https://ubuntu.com/security/notices/USN-9005-1"
+    },
+    {
+      "id": "USN-9004-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9004-1: OpenJDK 25 vulnerabilities",
+      "published": "2026-11-09T02:00:41Z",
+      "summary": "It was discovered that the 2D component of OpenJDK 25 did not correctly authenticate users. A remote attacker could possibly use this issue to cause a denial of service or to read or modify sensitive data. (CVE-2026-91415) It was discovered that the Networking component of OpenJDK 25 did not correct",
+      "link": "https://ubuntu.com/security/notices/USN-9004-1"
+    },
+    {
       "id": "CVE-2026-83844",
       "vendor": "Microsoft",
       "title": "CVE-2026-83844 Windows Paint Remote Code Execution Vulnerability",
@@ -49,54 +97,6 @@
       "published": "2026-11-06T15:04:17Z",
       "summary": "USN-8952-1 fixed vulnerabilities in Tornado. Unfortunately that update was incomplete due to an incomplete fix for CVE-2026-103263, which broke static file serving for applications that subclass Tornado's StaticFileHandler, such as Jupyter, and could introduce a regression. This update fixes the pro",
       "link": "https://ubuntu.com/security/notices/USN-8952-2"
-    },
-    {
-      "id": "USN-9003-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9003-1: Linux kernel (NVIDIA) vulnerabilities",
-      "published": "2026-11-06T11:30:38Z",
-      "summary": "It was discovered that some AMD processors did not properly perform Reverse Map Table (RMP) checks when the IOMMU accessed certain host buffers. A local attacker with hypervisor access could possibly use this to trigger an out-of-bounds condition and compromise the integrity of SEV-SNP guest memory.",
-      "link": "https://ubuntu.com/security/notices/USN-9003-1"
-    },
-    {
-      "id": "USN-9002-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9002-1: Linux kernel (NVIDIA Tegra) vulnerabilities",
-      "published": "2026-11-06T11:22:23Z",
-      "summary": "It was discovered that the io_uring subsystem in the Linux kernel did not properly handle canceled task work when processing certain wait operations, leading to the operation being performed in the wrong task context. A local attacker could possibly use this to cause a denial of service (system cras",
-      "link": "https://ubuntu.com/security/notices/USN-9002-1"
-    },
-    {
-      "id": "USN-9001-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9001-1: ca-certificates update",
-      "published": "2026-11-05T14:46:13Z",
-      "summary": "It was discovered that the ca-certificates JKS integration was not working properly, resulting in CA certificates removed from the system bundle not being removed from the JKS keystore. This update corrects the feature and resyncs the keystore with the system CA certificates list.",
-      "link": "https://ubuntu.com/security/notices/USN-9001-1"
-    },
-    {
-      "id": "USN-8955-2",
-      "vendor": "Ubuntu",
-      "title": "USN-8955-2: nginx vulnerabilities",
-      "published": "2026-11-05T14:40:26Z",
-      "summary": "USN-8955-1 fixed vulnerabilities in nginx in Ubuntu 26.10, Ubuntu 26.04 LTS, Ubuntu 24.04 LTS, and Ubuntu 22.04 LTS. This update provides the corresponding update for Ubuntu 20.04 LTS, Ubuntu 18.04 LTS, Ubuntu 16.04 LTS, and Ubuntu 14.04 LTS. In addition, this update fixes CVE-2026-42533 for these r",
-      "link": "https://ubuntu.com/security/notices/USN-8955-2"
-    },
-    {
-      "id": "USN-7230-3",
-      "vendor": "Ubuntu",
-      "title": "USN-7230-3: FRR regression",
-      "published": "2026-11-05T13:39:13Z",
-      "summary": "USN-7230-2 fixed vulnerabilities in FRR. Unfortunately, the fix for CVE-2024-55553 introduced a regression in RPKI support, causing FRR to stop processing RPKI updates after the first one, so routes were not revalidated when RPKI data changed. In Ubuntu 20.04 LTS, the BGP daemon also failed to start",
-      "link": "https://ubuntu.com/security/notices/USN-7230-3"
-    },
-    {
-      "id": "USN-8972-2",
-      "vendor": "Ubuntu",
-      "title": "USN-8972-2: HAProxy regression",
-      "published": "2026-11-05T12:52:52Z",
-      "summary": "USN-8972-1 fixed vulnerabilities in HAProxy. On Ubuntu 22.04 LTS, the update caused a regression when processing certain chunked requests. This update fixes the problem. We apologize for the inconvenience. Original advisory details: It was discovered that HAProxy incorrectly handled truncated HTTP/2",
-      "link": "https://ubuntu.com/security/notices/USN-8972-2"
     },
     {
       "id": "CVE-2026-119260",
