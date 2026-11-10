@@ -1,11 +1,107 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-10T17:18:02Z",
+  "updated_at": "2026-11-10T20:55:55Z",
   "source": "GitHub Security Advisories",
   "source_url": "https://api.github.com/advisories",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-v995-44v6-5fqm",
+      "title": "JRuby: NONET is bypassed for external DTDs and entities when the systemId uses a short-form IPv4 host",
+      "published": "2026-11-10T20:52:38Z",
+      "ecosystem": "rubygems",
+      "summary": "### Summary\n\nOn JRuby, the `NONET` parse option did not block an external DTD or entity whose system identifier used a short-form IPv4 host, such as `http://127.1/` or `http://169.254.43518/`, or was an absolute path such as `/x.dtd` in a document parsed from a network URL. An application that parse",
+      "link": "https://github.com/advisories/GHSA-v995-44v6-5fqm"
+    },
+    {
+      "id": "GHSA-3w22-6jfg-527w",
+      "title": "Nokogiri: Use-After-Free in Nokogiri when replacing an attribute value",
+      "published": "2026-11-10T20:51:19Z",
+      "ecosystem": "rubygems",
+      "summary": "### Summary\n\nNokogiri's CRuby native extension could leave a Ruby wrapper pointing to freed memory when replacing the value of an existing XML attribute via `Nokogiri::XML::Node#[]=` or `Nokogiri::XML::Node#lang=`. If Ruby code had already accessed the attribute's child nodes, replacing the value co",
+      "link": "https://github.com/advisories/GHSA-3w22-6jfg-527w"
+    },
+    {
+      "id": "GHSA-4p39-36wj-23h4",
+      "title": "Nokogiri: Mutation XSS through `noscript` content in Nokogiri's HTML5 serializer",
+      "published": "2026-11-10T20:47:36Z",
+      "ecosystem": "rubygems",
+      "summary": "### Summary\n\nNokogiri's HTML5 serializer did not escape text inside `noscript` elements, or `<` and `>` inside attribute values. When a document parsed with the default options is serialized, a browser with scripting enabled can parse the output into markup that Nokogiri's parser never produced. Thi",
+      "link": "https://github.com/advisories/GHSA-4p39-36wj-23h4"
+    },
+    {
+      "id": "GHSA-6972-9mcm-vhwj",
+      "title": "Mongoose: Prototype pollution via Schema.prototype.virtual()",
+      "published": "2026-11-10T20:46:33Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nPrototype pollution via Schema.prototype.virtual() — the 2022 fix for CVE-2022-2564 / CVE-2022-24304 protected Schema.path()/add() but never virtual(), so the same class of bug is still exploitable in all maintained release lines.\n\n### Details\n\nIn lib/schema.js, Schema.prototype.virtual",
+      "link": "https://github.com/advisories/GHSA-6972-9mcm-vhwj"
+    },
+    {
+      "id": "GHSA-gg4r-jv3p-qx3c",
+      "title": "Mongoose: Connection-level sanitizeFilter not applied",
+      "published": "2026-11-10T19:56:12Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nsanitizeFilter exists to stop query selector injection: it wraps operator objects such as `{ $ne: null }` in filter values in `$eq`, so they are matched literally. Set on a connection with `mongoose.connect()` or `createConnection(uri, { sanitizeFilter: true })`, the connection reports ",
+      "link": "https://github.com/advisories/GHSA-gg4r-jv3p-qx3c"
+    },
+    {
+      "id": "GHSA-pcrw-h46h-c93h",
+      "title": "Mongoose: sanitizeFilter not applied on countDocuments",
+      "published": "2026-11-10T19:37:32Z",
+      "ecosystem": "npm",
+      "summary": "### Impact\n\n`sanitizeFilter` is Mongoose's mechanism for protecting against query selector injection attacks. In older versions of Mongoose, `sanitizeFilter` was not applied for `countDocuments()` queries.\n\n### Patches\n\nPatches have been released for all supported Mongoose major release lines. Pleas",
+      "link": "https://github.com/advisories/GHSA-pcrw-h46h-c93h"
+    },
+    {
+      "id": "GHSA-5v64-555j-wjxm",
+      "title": "Rack: Multipart parsing allows DoS via unbounded scan buffer growth",
+      "published": "2026-11-10T19:35:49Z",
+      "ecosystem": "rubygems",
+      "summary": "## Summary\n\n`Rack::Multipart::Parser` reads the request body in chunks of `rack.multipart.buffer_size` (1 MiB by default) into an internal scan buffer. Parsed bytes are only discarded from that buffer when a chunk ends inside a part body. A request whose parts are sized so that every chunk ends insi",
+      "link": "https://github.com/advisories/GHSA-5v64-555j-wjxm"
+    },
+    {
+      "id": "GHSA-p8x9-v4hv-2w4g",
+      "title": "Rack: Multipart boundary ambiguity guard in Rack::Multipart::Parser can be bypassed with a quoted boundary value, allowing WAF bypass",
+      "published": "2026-11-10T19:26:28Z",
+      "ecosystem": "rubygems",
+      "summary": "## Summary\n\nThe guard added for CVE-2026-26961 (GHSA-vgpv-f759-9wx3), which rejects multipart requests with more than one `boundary` parameter, only inspects the part of the `Content-Type` header after the boundary it extracts. A `Content-Type` whose first `boundary` parameter is empty or begins wit",
+      "link": "https://github.com/advisories/GHSA-p8x9-v4hv-2w4g"
+    },
+    {
+      "id": "GHSA-wrr5-j383-f7h2",
+      "title": "NocoBase: @nocobase/plugin-action-custom-request allows server-side request forgery through runtime URL overrides",
+      "published": "2026-11-10T19:20:14Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nA Server-Side Request Forgery vulnerability exists in NocoBase v2.1.10 in the `@nocobase/plugin-action-custom-request` plugin.\n\nA low-privileged authenticated user can call the `customRequests:send` endpoint and override the stored request URL at runtime using `options.url`. This causes",
+      "link": "https://github.com/advisories/GHSA-wrr5-j383-f7h2"
+    },
+    {
+      "id": "GHSA-2j8w-xcrc-x985",
+      "title": "Rack: Rack::Request#host_with_port (and #base_url / #url) return the raw invalid Host header — incomplete fix of CVE-2026-34835",
+      "published": "2026-11-10T19:11:28Z",
+      "ecosystem": "rubygems",
+      "summary": "## Summary\n\n`Rack::Request#host_with_port`, and therefore `#base_url` and `#url`, return the raw authority string when it fails validation. An attacker-controlled `Host`, `X-Forwarded-Host`, or `Forwarded: host=` value containing characters that are not permitted in an authority is embedded verbatim",
+      "link": "https://github.com/advisories/GHSA-2j8w-xcrc-x985"
+    },
+    {
+      "id": "GHSA-wvg4-6p58-3gh3",
+      "title": "Rack: Rack::Static header_rules bypass via dot-segment normalization mismatch",
+      "published": "2026-11-10T18:50:07Z",
+      "ecosystem": "rubygems",
+      "summary": "## Summary\n\n`Rack::Static` normalizes the request path with `Utils.clean_path_info` when deciding which file to serve, but matches `header_rules` against a path that is only URL-decoded. A request containing dot segments, raw or percent-encoded, is served the normalized target file while the header ",
+      "link": "https://github.com/advisories/GHSA-wvg4-6p58-3gh3"
+    },
+    {
+      "id": "GHSA-r7j4-crjv-h467",
+      "title": "compose-lint: Text in a pull request can still issue CI workflow commands through compose-lint 0.31.0's output",
+      "published": "2026-11-10T18:28:35Z",
+      "ecosystem": "pip",
+      "summary": "### Impact\n\n0.31.0 fixed GHSA-6f4g-xm8v-pgv6, where text from a Compose file became GitHub Actions workflow commands in compose-lint's output. The fix escapes the command openers in everything compose-lint prints, and the 0.31.0 changelog says the report \"escapes both openers (also covering Azure Pi",
+      "link": "https://github.com/advisories/GHSA-r7j4-crjv-h467"
+    },
     {
       "id": "GHSA-xwgp-w3pj-q5h3",
       "title": "OHIF Viewers: DOM-Based Cross Site Scripting (XSS) through MIME type of document",
@@ -709,102 +805,6 @@
       "ecosystem": "pip",
       "summary": "## Summary\n\n  `banks` parses `Tool` JSON objects from the rendered body of `{% completion %}` blocks and later resolves their\n  `import_path` field through `importlib.import_module(...)` + `getattr(...)` to obtain the callable that handles a tool\n   call. There is no allowlist or sanitization on `im",
       "link": "https://github.com/advisories/GHSA-64vx-6h2c-rjh7"
-    },
-    {
-      "id": "GHSA-5q7h-w9jf-cx97",
-      "title": "kaniko can send the build's Azure (Entra ID) access token to lookalike ACR registry hosts",
-      "published": "2026-11-05T17:48:54Z",
-      "ecosystem": "go",
-      "summary": "### Summary\n\nkaniko before v1.25.20 can send a Microsoft Entra ID (Azure AD) access token for Azure Resource Manager to a registry host an attacker controls. A Dockerfile that references an image on a lookalike host, such as `FROM x.azurecr.io.attacker.com/img`, is enough. The build needs no `RUN` i",
-      "link": "https://github.com/advisories/GHSA-5q7h-w9jf-cx97"
-    },
-    {
-      "id": "GHSA-hhf9-qw4v-72xp",
-      "title": "lxd allows Cross-guest volume hijack via DevLXD device patch",
-      "published": "2026-11-05T17:40:59Z",
-      "ecosystem": "go",
-      "summary": "### Summary\n\nA guest can mount another guest's custom storage volume over `/dev/lxd` and read or write its contents without owning it. The DevLXD storage API blocks access to volumes you don't own, but the instance device-update path that attaches a volume to a container without checks ownership. An",
-      "link": "https://github.com/advisories/GHSA-hhf9-qw4v-72xp"
-    },
-    {
-      "id": "GHSA-93cm-2v4m-c56c",
-      "title": "Arc: DuckDB I/O aliases bypass database RBAC after CVE-2026-47735",
-      "published": "2026-11-04T17:02:37Z",
-      "ecosystem": "go",
-      "summary": "### Summary\n\nThe fix for CVE-2026-47735 (released 2026.06.1) is incomplete. It added a DuckDB sandbox (`SET GLOBAL allowed_directories=[<storage root>]; SET GLOBAL enable_external_access=false`) and an Arc SQL-layer denylist of the **literal** functions `read_parquet(` and `arc_partition_agg(`. The ",
-      "link": "https://github.com/advisories/GHSA-93cm-2v4m-c56c"
-    },
-    {
-      "id": "GHSA-mc8m-rr6c-r5qr",
-      "title": "@payloadcms/storage-vercel-blob has access control bypass of uploads in Vercel Storage adapter",
-      "published": "2026-11-04T17:00:39Z",
-      "ecosystem": "npm",
-      "summary": "### Impact\nIn affected configurations, client upload access does not consistently align with the associated collection’s access configuration.\n\nYou are affected if:\n- You use client uploads with `@payloadcms/storage-vercel-blob`.\n- Authenticated users can access the client-upload route.\n\nApplication",
-      "link": "https://github.com/advisories/GHSA-mc8m-rr6c-r5qr"
-    },
-    {
-      "id": "GHSA-3cgg-c5pp-57h6",
-      "title": "odf-kit: HTML injection leading to XSS in odtToHtml() and odsToHtml() via unescaped style attribute values",
-      "published": "2026-11-04T16:14:34Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\nODF style attribute values are interpolated into `style=\"...\"` attributes without HTML-escaping in **both** of odf-kit's to-HTML renderers (`odtToHtml` and `odsToHtml`). A double-quote character inside an attacker-controlled style value breaks out of the attribute, allowing arbitrary HT",
-      "link": "https://github.com/advisories/GHSA-3cgg-c5pp-57h6"
-    },
-    {
-      "id": "GHSA-gh9r-c94j-cmp5",
-      "title": "Stanza: RCE via pickle deserialization in the lemmatizer",
-      "published": "2026-11-03T20:29:16Z",
-      "ecosystem": "pip",
-      "summary": "## TL;DR\n\nLoading an attacker-supplied lemma `.pt` runs arbitrary code as the loading user. Since 1.14.0 the lemmatizer stores `pos_dict` as a gzip-compressed pickle in the checkpoint's `dicts` field (a `bytes` value). `torch.load(weights_only=True)` treats `bytes` as a primitive and passes it throu",
-      "link": "https://github.com/advisories/GHSA-gh9r-c94j-cmp5"
-    },
-    {
-      "id": "GHSA-33r5-xmm8-v6x5",
-      "title": "Elo JavaScript emitter has sandbox escape to arbitrary Node.js / browser code execution via unfiltered `.constructor` member access",
-      "published": "2026-11-03T17:53:42Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\nAn unauthenticated attacker who controls a string passed to any Elo JavaScript-emission path — `defaultFormats.elo.parse()`, the `bin/elo` CLI, or the live browser playground at `elo-lang.org/try` — can execute arbitrary code in the host JavaScript runtime. A payload built from the `.co",
-      "link": "https://github.com/advisories/GHSA-33r5-xmm8-v6x5"
-    },
-    {
-      "id": "GHSA-7w38-ggh5-v542",
-      "title": "Elo Ruby backend has Remote Code Execution via unescaped `#{...}` interpolation in emitted string literals and subtype-constraint labels",
-      "published": "2026-11-03T17:51:30Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\nElo's Ruby backend emits attacker-controlled text into Ruby double-quoted strings without escaping the `#` character. Because `#` begins Ruby's interpolation sequences — `#{expr}`, `#@ivar`, `#@@cvar`, `#$gvar` — and any expression wrapped in `#{...}` may use backticks for shell executi",
-      "link": "https://github.com/advisories/GHSA-7w38-ggh5-v542"
-    },
-    {
-      "id": "GHSA-x9rp-7wh3-2rj5",
-      "title": "Elo backends have code injection via unvalidated emission of programmatic AST fields",
-      "published": "2026-11-03T17:48:09Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\nElo's programmatic AST API accepts arbitrary values in many node fields without runtime type or syntax validation. Each backend's emit stage interpolates those values straight into the generated source with no escape pass. An integrator that populates the AST from JSON-deserialised inpu",
-      "link": "https://github.com/advisories/GHSA-x9rp-7wh3-2rj5"
-    },
-    {
-      "id": "GHSA-p3jp-9v83-76w9",
-      "title": "Microsoft Security Advisory CVE-2026-111497 - .NET Brotli Decoder Out-of-bounds Write Vulnerability",
-      "published": "2026-11-03T17:33:48Z",
-      "ecosystem": "nuget",
-      "summary": "## Executive summary\n\nA buffer overflow vulnerability exists in the Brotli decompression library used by .NET. This vulnerability may allow an unauthenticated attacker to read or corrupt process memory. This could lead to information disclosure, denial of service, or elevation of privilege.\n\nASP.NET",
-      "link": "https://github.com/advisories/GHSA-p3jp-9v83-76w9"
-    },
-    {
-      "id": "GHSA-48v2-6jcm-fc99",
-      "title": "praktor: Path traversal in Telegram file uploads allows writing outside the agent workspace uploads/ directory (stored instruction injection)",
-      "published": "2026-11-03T17:27:25Z",
-      "ecosystem": "go",
-      "summary": "### Impact\n\nA remote Telegram user can write files to arbitrary paths inside an agent's persistent workspace volume (`praktor-wk-<workspace>`, mounted at `/workspace/agent`), escaping the documented `uploads/` directory.\n\nThe attacker controls the Telegram document filename, which was concatenated i",
-      "link": "https://github.com/advisories/GHSA-48v2-6jcm-fc99"
-    },
-    {
-      "id": "GHSA-j97h-3f8r-mrjr",
-      "title": "Keycloak has authentication bypass via jwt algorithm confusion",
-      "published": "2026-11-03T17:24:27Z",
-      "ecosystem": "maven",
-      "summary": "### Description\nA flaw was found in Keycloak. This JWT algorithm confusion vulnerability in the JWT Authorization Grant flow allows an attacker with valid client credentials to bypass signature verification. By forging an assertion, the attacker can create unauthorized access tokens. This enables th",
-      "link": "https://github.com/advisories/GHSA-j97h-3f8r-mrjr"
     }
   ]
 }
