@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-09T22:34:20Z",
+  "updated_at": "2026-11-10T04:41:53Z",
   "source": "Microsoft MSRC + Ubuntu Security Notices",
   "source_url": [
     "https://api.msrc.microsoft.com/update-guide/rss",
@@ -11,12 +11,44 @@
   "partial": null,
   "items": [
     {
+      "id": "USN-8890-3",
+      "vendor": "Ubuntu",
+      "title": "USN-8890-3: libsoup regression",
+      "published": "2026-11-09T23:12:32Z",
+      "summary": "USN-8890-1 fixed vulnerabilities in libsoup. Unfortunately, that update introduced a memory leak in the cookie jar and could introduce a regression. This update fixes the problem. We apologize for the inconvenience. Original advisory details: It was discovered that libsoup incorrectly handled certai",
+      "link": "https://ubuntu.com/security/notices/USN-8890-3"
+    },
+    {
+      "id": "USN-9015-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9015-1: OpenJDK 21 vulnerabilities",
+      "published": "2026-11-09T18:01:03Z",
+      "summary": "It was discovered that the Security component of OpenJDK 21 did not correctly authenticate users. A remote attacker could possibly use this issue to modify sensitive data. (CVE-2026-83374) It was discovered that the JSSE component of OpenJDK 21 did not correctly authorize users. A remote attacker co",
+      "link": "https://ubuntu.com/security/notices/USN-9015-1"
+    },
+    {
+      "id": "USN-9014-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9014-1: OpenJDK 17 vulnerabilities",
+      "published": "2026-11-09T17:27:36Z",
+      "summary": "It was discovered that the Security component of OpenJDK 17 did not correctly authenticate users. A remote attacker could possibly use this issue to modify sensitive data. (CVE-2026-83374) It was discovered that the JSSE component of OpenJDK 17 did not correctly authorize users. A remote attacker co",
+      "link": "https://ubuntu.com/security/notices/USN-9014-1"
+    },
+    {
       "id": "USN-9013-1",
       "vendor": "Ubuntu",
       "title": "USN-9013-1: Fetchmail vulnerabilities",
       "published": "2026-11-09T17:17:55Z",
       "summary": "Christian Herdtweck discovered that Fetchmail incorrectly handled certain long log messages. A remote attacker could possibly use this issue to cause Fetchmail to crash, resulting in a denial of service. This issue only affected Ubuntu 16.04 LTS, Ubuntu 18.04 LTS, and Ubuntu 20.04 LTS. (CVE-2021-363",
       "link": "https://ubuntu.com/security/notices/USN-9013-1"
+    },
+    {
+      "id": "USN-9012-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9012-1: libheif vulnerability",
+      "published": "2026-11-09T16:44:41Z",
+      "summary": "Alex Thomas discovered that libheif incorrectly handled certain HEIF images. An attacker could possibly use this issue to execute arbitrary code if a user or automated system were tricked into opening a specially crafted file.",
+      "link": "https://ubuntu.com/security/notices/USN-9012-1"
     },
     {
       "id": "USN-9011-1",
@@ -59,44 +91,12 @@
       "link": "https://ubuntu.com/security/notices/USN-9007-1"
     },
     {
-      "id": "USN-9001-2",
-      "vendor": "Ubuntu",
-      "title": "USN-9001-2: ca-certificates update",
-      "published": "2026-11-09T12:01:46Z",
-      "summary": "USN-9001-1 fixed a vulnerability in ca-certificates, ca-certificates-java. This update provides the corresponding fix for Ubuntu 18.04 LTS and Ubuntu 20.04 LTS. Original advisory details: It was discovered that the ca-certificates JKS integration was not working properly, resulting in CA certificate",
-      "link": "https://ubuntu.com/security/notices/USN-9001-2"
-    },
-    {
-      "id": "USN-9005-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9005-1: OpenJDK 27 vulnerabilities",
-      "published": "2026-11-09T02:27:00Z",
-      "summary": "It was discovered that the 2D component of OpenJDK 27 did not correctly authenticate users. A remote attacker could possibly use this issue to cause a denial of service or to read or modify sensitive data. (CVE-2026-91415) It was discovered that the Networking component of OpenJDK 27 did not correct",
-      "link": "https://ubuntu.com/security/notices/USN-9005-1"
-    },
-    {
-      "id": "USN-9004-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9004-1: OpenJDK 25 vulnerabilities",
-      "published": "2026-11-09T02:00:41Z",
-      "summary": "It was discovered that the 2D component of OpenJDK 25 did not correctly authenticate users. A remote attacker could possibly use this issue to cause a denial of service or to read or modify sensitive data. (CVE-2026-91415) It was discovered that the Networking component of OpenJDK 25 did not correct",
-      "link": "https://ubuntu.com/security/notices/USN-9004-1"
-    },
-    {
       "id": "CVE-2026-83844",
       "vendor": "Microsoft",
       "title": "CVE-2026-83844 Windows Paint Remote Code Execution Vulnerability",
       "published": "2026-11-07T16:00:00Z",
       "summary": "Added an FAQ and updated the CVSS score. This is an informational change only.",
       "link": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83844"
-    },
-    {
-      "id": "USN-8952-2",
-      "vendor": "Ubuntu",
-      "title": "USN-8952-2: Tornado regression",
-      "published": "2026-11-06T15:04:17Z",
-      "summary": "USN-8952-1 fixed vulnerabilities in Tornado. Unfortunately that update was incomplete due to an incomplete fix for CVE-2026-103263, which broke static file serving for applications that subclass Tornado's StaticFileHandler, such as Jupyter, and could introduce a regression. This update fixes the pro",
-      "link": "https://ubuntu.com/security/notices/USN-8952-2"
     },
     {
       "id": "CVE-2026-119260",
