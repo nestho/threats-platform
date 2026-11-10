@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-10T20:55:54Z",
+  "updated_at": "2026-11-10T23:09:04Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,2011 @@
   ],
   "recent": {
     "lookback_days": 3,
-    "total": 2712,
-    "items_available": 2712,
+    "total": 2908,
+    "items_available": 2908,
     "normalisation_failures": [],
-    "items_parsed": 2712,
+    "items_parsed": 2908,
     "items": [
+      {
+        "id": "CVE-2026-96437",
+        "published": "2026-11-10T22:21:17Z",
+        "description": "The ai-azure-content-safety plugin in Kong Gateway Enterprise skips inspection of request bodies larger than the in-memory body buffer, allowing prompts to bypass input content-safety checks.",
+        "severity": "HIGH",
+        "score": 8.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96437",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-92443",
+        "published": "2026-11-10T22:21:15Z",
+        "description": "The caching plugins in Kong Gateway Enterprise and Kong AI Gateway may serve a response cached for a request carrying an Authorization or Proxy-Authorization to different callers.",
+        "severity": "HIGH",
+        "score": 8.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92443",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-92545",
+        "published": "2026-11-10T22:21:15Z",
+        "description": "The proxy-cache and proxy-cache-advanced plugins in Kong Gateway Enterprise and Kong AI Gateway omit the request hostname from the cache key which may allow a response cached for a hostname to be served for another.",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92545",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-92558",
+        "published": "2026-11-10T22:21:15Z",
+        "description": "The proxy-cache and proxy-cache-advanced plugins in Kong Gateway Enterprise and Kong AI Gateway do not escape separator characters when building the cache key, allowing a remote attacker to cause a response cached for one request to be served for a different request on the same Route.",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92558",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-89324",
+        "published": "2026-11-10T22:21:14Z",
+        "description": "The Basel Post Types plugin for WordPress is vulnerable to Authentication Bypass in all versions up to, and including, 1.18. The vulnerability exists because a missing-quotes coding error in the defined() call for SECURE_AUTH_SALT inside BASEL_Auth::get_config() causes PHP to evaluate the constant's",
+        "severity": "CRITICAL",
+        "score": 9.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-89324",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-90832",
+        "published": "2026-11-10T22:21:14Z",
+        "description": "bt_hci_le_per_adv_report_common() in subsys/bluetooth/host/scan.c handles the HCI_LE_Periodic_Advertising_Report (and _v2) event. It verified that the fixed event header was present and that the controller-declared Data_Length fits the tailroom of the periodic-sync reassembly buffer, but never check",
+        "severity": "MEDIUM",
+        "score": 4.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-90832",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-90833",
+        "published": "2026-11-10T22:21:14Z",
+        "description": "The simulated EEPROM driver validated access ranges in eeprom_range_is_valid() (drivers/eeprom/eeprom_simulator.c) with a single test, (offset + len) <= config->size. Because offset is a signed off_t and len an unsigned size_t of the same rank, the addition is evaluated in unsigned arithmetic: a neg",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-90833",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-90834",
+        "published": "2026-11-10T22:21:14Z",
+        "description": "The user-mode syscall verifiers for the 16-bit (\"wide data\") UART API in drivers/serial/uart_handlers.c validated the wrong driver operation. z_vrfy_uart_poll_out_u16(), z_vrfy_uart_tx_u16() and z_vrfy_uart_rx_enable_u16() each ran K_SYSCALL_DRIVER_UART() against the 8-bit op (poll_out, tx, rx_enabl",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-90834",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-91000",
+        "published": "2026-11-10T22:21:14Z",
+        "description": "Missing authentication for critical function vulnerability in N-able N-central allows Privilege Escalation.\n\nThis issue affects N-central: before 2026.4.1.",
+        "severity": "HIGH",
+        "score": 8.4,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-91000",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-92439",
+        "published": "2026-11-10T22:21:14Z",
+        "description": "The SAML plugin in Kong Gateway Enterprise does not enforce AudienceRestriction, allowing a valid assertion issued for another Service Provider to be replayed to authenticate to Kong.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92439",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-92441",
+        "published": "2026-11-10T22:21:14Z",
+        "description": "Kong Gateway Enterprise and Kong AI Gateway include decoded CR/LF characters from the request path in the X-Forwarded-Prefix header on regex Routes, allowing HTTP header injection and request smuggling to the upstream.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92441",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-92442",
+        "published": "2026-11-10T22:21:14Z",
+        "description": "The graphql-proxy-cache-advanced plugin in Kong Gateway Enterprise omits the caller's identity from the cache key, allowing a response cached for one caller to be served to another.",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92442",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-87042",
+        "published": "2026-11-10T22:21:12Z",
+        "description": "The IEEE 1588 (PTP) port implementation in subsys/net/lib/ptp/port.c adopted the logMessageInterval field of a received Delay_Resp message without any validation. port_delay_resp_msg_process() stored the raw wire value (a full-range int8_t) into port_ds.log_min_delay_req_interval, and that value is ",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87042",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-82391",
+        "published": "2026-11-10T22:21:05Z",
+        "description": "The HTTP/2 front-end of the Zephyr HTTP server aliased connection receive state as a scratch output. In subsys/net/lib/http/http_server_http2.c, handle_http2_static_fs_resource() passed &client->data_len as the file_size out-parameter of http_server_find_file(). client->data_len is the count of unpr",
+        "severity": "CRITICAL",
+        "score": 9.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82391",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-77685",
+        "published": "2026-11-10T22:20:53Z",
+        "description": "The RFCOMM multiplexer control-channel handler in subsys/bluetooth/host/classic/rfcomm.c computed the echo length for a BT_RFCOMM_TEST command as buf->len - 1 and passed it to rfcomm_send_test(), whose length parameter is a uint8_t. A malformed but FCS-valid UIH frame on DLCI 0 can leave buf->len ==",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-77685",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-67177",
+        "published": "2026-11-10T22:19:18Z",
+        "description": "Chargemap contains a stored cross site scripting vulnerability. A remote, unauthenticated attacker could craft a payload in the username field of the account registration page and associate the new account with a victim's email. The attacker could send a forgotten password request to the victim, and",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67177",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-67175",
+        "published": "2026-11-10T22:19:17Z",
+        "description": "Chargemap contains a stored cross-site scripting vulnerability that allows a remote, authenticated attacker to craft a malicious payload in the user profile page that executes when another user views the attacker's profile. Fixed 2026-07-17.",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67175",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-67176",
+        "published": "2026-11-10T22:19:17Z",
+        "description": "Chargemap contains an open redirect vulnerability in the authentication login endpoint. A remote, unauthenticated attacker could send a crafted URL to a victim and redirect them to an attacker controlled domain. Fixed 2026-07-17.",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67176",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-40670",
+        "published": "2026-11-10T22:18:33Z",
+        "description": "Improper check for unusual or exceptional conditions in AMD Secure Encrypted Virtualization - Secure Nested Paging (SEV-SNP) could allow a privileged attacker to potentially overlap MMIO regions with DRAM regions resulting in loss of integrity.",
+        "severity": "MEDIUM",
+        "score": 5.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-40670",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-28247",
+        "published": "2026-11-10T22:18:32Z",
+        "description": "Improper Access Control Applied to Mirrored or Aliased Memory Regions in AMD Secure Encrypted Virtualization (SEV) firmware could allow a malicious hypervisor to change the encryption bit for guest context pages potentially resulting in loss of integrity.",
+        "severity": "MEDIUM",
+        "score": 5.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-28247",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-28248",
+        "published": "2026-11-10T22:18:32Z",
+        "description": "Improper enforcement of behavioral workflow in AMD Secure Encrypted Virtualization (SEV) firmware could allow a malicious hypervisor to potentially launch a guest whose attestation report contains an ID key digest for an ID block that doesn't match the guest's measurement resulting in loss of integr",
+        "severity": "MEDIUM",
+        "score": 5.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-28248",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-28249",
+        "published": "2026-11-10T22:18:32Z",
+        "description": "Improper preservation of consistency between independent representations of shared state in AMD Secure Encrypted Virtualization (SEV) firmware could allow a malicious hypervisor to potentially affect cache coherency for guest context pages resulting in loss of integrity.",
+        "severity": "MEDIUM",
+        "score": 4.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-28249",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-40668",
+        "published": "2026-11-10T22:18:32Z",
+        "description": "Authentication bypass by spoofing in AMD Secure Encrypted Virtualization (SEV) firmware could allow a malicious hypervisor to request attestation reports for VMPL 0.",
+        "severity": "MEDIUM",
+        "score": 4.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-40668",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-40669",
+        "published": "2026-11-10T22:18:32Z",
+        "description": "An off-by-one error in AMD Secure Encrypted Virtualization (SEV) firmware could allow an attacker with hypervisor access to corrupt the Reverse Map Table (RMP) table, potentially resulting in loss of guest memory integrity.",
+        "severity": "MEDIUM",
+        "score": 4.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-40669",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-125882",
+        "published": "2026-11-10T22:18:31Z",
+        "description": "Relative path traversal vulnerability in N-able N-central allows Path Traversal.\n\nThis issue affects N-central: before 26.4.1.",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125882",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-125883",
+        "published": "2026-11-10T22:18:31Z",
+        "description": "Improper restriction of XML external entity reference vulnerability in N-able N-central allows XML Schema Poisoning.\n\nThis issue affects N-central: before 26.4.1.",
+        "severity": "CRITICAL",
+        "score": 9.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125883",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-125958",
+        "published": "2026-11-10T22:18:31Z",
+        "description": "Download of code without integrity check vulnerability in N-able N-central allows Remote Code Inclusion.\n\nThis issue affects N-central: through 24.6.1.",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125958",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126085",
+        "published": "2026-11-10T22:18:31Z",
+        "description": "Active Storage makes it simple to upload and reference files in cloud services and attach those files to Active Record objects. Prior to 8.1.4.1 and 8.0.5.2, ActiveStorage::Service::GCSService#url_for_direct_upload does not bind the declared content length into the signed direct-upload URL, and #hea",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126085",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126123",
+        "published": "2026-11-10T22:18:31Z",
+        "description": "BeeS Software Solutions ERP before 04 September 2026 allows any low-privileged user to navigate directly to the administrative dashboard endpoint and gain access to the administrative console, including unrestricted access to institutional, employee, and student data.",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126123",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126129",
+        "published": "2026-11-10T22:18:31Z",
+        "description": "The Auth0 ASP.NET Core Authentication SDK incorrectly determines a session's OIDC Back-Channel Logout status, which may result in a logged-out session being accepted for access to protected endpoints.",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126129",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126186",
+        "published": "2026-11-10T22:18:31Z",
+        "description": "Active Storage makes it simple to upload and reference files in cloud services and attach those files to Active Record objects. Prior to 8.1.4.1 and 8.0.5.2, ActiveStorage::Blob#open writes a blob to a tempfile whose name carries the extension of the uploaded filename, and hands that path to ffprobe",
+        "severity": "HIGH",
+        "score": 8.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126186",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-125297",
+        "published": "2026-11-10T22:18:30Z",
+        "description": "AsiaInfo Business Support System (BSS) 9.2.0 through 9.2.40 accepts unauthenticated requests via the management API '/bss/sysmgnt/api/'. A remote, unauthenticated attacker could provision a new account with administrative privileges or take over existing accounts, and perform other administrative ac",
+        "severity": "CRITICAL",
+        "score": 9.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125297",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-125298",
+        "published": "2026-11-10T22:18:30Z",
+        "description": "AsiaInfo Business Support System (BSS) 9.2.0 through 9.2.40 does not correctly verify cryptographic signatures for JSON Web Tokens (JWT). A remote, unauthenticated attacker could forge a well-formed JWT without a valid signature and use it to execute privileged actions. Fixed in 9.2.41.",
+        "severity": "CRITICAL",
+        "score": 9.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125298",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-125878",
+        "published": "2026-11-10T22:18:30Z",
+        "description": "Improper neutralization of input during web page generation ('cross-site scripting') vulnerability in N-able N-central allows Resource Injection.\n\nThis issue affects N-central: before 26.4.1.",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125878",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-125879",
+        "published": "2026-11-10T22:18:30Z",
+        "description": "Incorrect privilege assignment vulnerability in N-able N-central allows Privilege Escalation.\n\nThis issue affects N-central: before 26.4.1.",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125879",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-125880",
+        "published": "2026-11-10T22:18:30Z",
+        "description": "Improper neutralization of HTTP headers for scripting syntax vulnerability in N-able N-central allows Cross-Site Scripting (XSS).\n\nThis issue affects N-central: before 26.4.1.",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125880",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-125881",
+        "published": "2026-11-10T22:18:30Z",
+        "description": "Server-Side request forgery (SSRF) vulnerability in N-able N-central allows Server Side Request Forgery.\n\nThis issue affects N-central: before 26.4.1.",
+        "severity": "CRITICAL",
+        "score": 9.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125881",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-123258",
+        "published": "2026-11-10T22:18:29Z",
+        "description": "Adobe Experience Manager is affected by a DOM-based Cross-Site Scripting (XSS) vulnerability. An attacker could exploit this issue by manipulating the DOM environment to execute malicious JavaScript within the context of the victim's browser. Exploitation of this issue requires user interaction in t",
+        "severity": "MEDIUM",
+        "score": 5.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123258",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-123259",
+        "published": "2026-11-10T22:18:29Z",
+        "description": "Adobe Experience Manager is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a low-privileged attacker to inject malicious scripts into vulnerable form fields. Malicious JavaScript may be executed in a victim's browser when they browse to the page containing the ",
+        "severity": "MEDIUM",
+        "score": 5.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123259",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-123260",
+        "published": "2026-11-10T22:18:29Z",
+        "description": "CAI Content Credentials is affected by an Improper Input Validation vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerability to bypass security measures and gain unauthorized limited write access. Exploitation of this issue does not require user int",
+        "severity": "MEDIUM",
+        "score": 4.0,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123260",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-123261",
+        "published": "2026-11-10T22:18:29Z",
+        "description": "CAI Content Credentials is affected by an Improper Verification of Cryptographic Signature vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerability to bypass security measures and gain unauthorized write access. Exploit depends on conditions beyond ",
+        "severity": "MEDIUM",
+        "score": 5.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123261",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-123262",
+        "published": "2026-11-10T22:18:29Z",
+        "description": "CAI Content Credentials is affected by an Improper Verification of Cryptographic Signature vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerability to bypass security measures and gain unauthorized write access. Exploit depends on conditions beyond ",
+        "severity": "MEDIUM",
+        "score": 5.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123262",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-123267",
+        "published": "2026-11-10T22:18:29Z",
+        "description": "CAI Content Credentials is affected by an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerability to access unauthorized files or directories outside the intended restri",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123267",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-123341",
+        "published": "2026-11-10T22:18:29Z",
+        "description": "Adobe Experience Manager is affected by a reflected Cross-Site Scripting (XSS) vulnerability. If a low-privileged attacker is able to convince a victim to visit a URL referencing a vulnerable page, malicious JavaScript content may be executed within the context of the victim's browser. Scope is chan",
+        "severity": "MEDIUM",
+        "score": 5.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123341",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-122097",
+        "published": "2026-11-10T22:18:28Z",
+        "description": "CAI Content Credentials is affected by an Uncontrolled Resource Consumption vulnerability that could lead to application denial-of-service. An attacker could exploit this vulnerability to exhaust system resources, resulting in an application denial-of-service condition. Exploitation of this issue re",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-122097",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-122098",
+        "published": "2026-11-10T22:18:28Z",
+        "description": "CAI Content Credentials is affected by an Improper Certificate Validation vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerability to bypass security measures and gain unauthorized write access. Exploit depends on conditions beyond the attacker's co",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-122098",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-122099",
+        "published": "2026-11-10T22:18:28Z",
+        "description": "CAI Content Credentials is affected by an Incorrect Authorization vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerability to bypass security measures and gain unauthorized limited write access. Exploit depends on conditions beyond the attacker's co",
+        "severity": "LOW",
+        "score": 2.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-122099",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-122100",
+        "published": "2026-11-10T22:18:28Z",
+        "description": "CAI Content Credentials is affected by an Improper Verification of Cryptographic Signature vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerability to bypass security measures and gain unauthorized write access. Exploitation of this issue requires u",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-122100",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-122101",
+        "published": "2026-11-10T22:18:28Z",
+        "description": "CAI Content Credentials is affected by an Improper Input Validation vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerability to bypass security measures and gain unauthorized limited write access. Exploit depends on conditions beyond the attacker's ",
+        "severity": "LOW",
+        "score": 3.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-122101",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-122102",
+        "published": "2026-11-10T22:18:28Z",
+        "description": "Adobe Connect is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a low-privileged attacker to inject malicious scripts into vulnerable form fields. Malicious JavaScript may be executed in a victim's browser when they browse to the page containing the vulnerable ",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-122102",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-123041",
+        "published": "2026-11-10T22:18:28Z",
+        "description": "The request-callout plugin in Kong Gateway Enterprise and Kong AI Gateway omits callout headers not sent by the client from its cache key, allowing a cached callout response for a caller to be served to another.",
+        "severity": "HIGH",
+        "score": 8.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123041",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121900",
+        "published": "2026-11-10T22:18:27Z",
+        "description": "Adobe Connect is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary SQL com",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121900",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121902",
+        "published": "2026-11-10T22:18:27Z",
+        "description": "Adobe Connect is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in arbitrary code execution. An attacker could exploit this vulnerability to execute arbitrary SQL commands, potentially compromising the confidentiali",
+        "severity": "CRITICAL",
+        "score": 9.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121902",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121904",
+        "published": "2026-11-10T22:18:27Z",
+        "description": "Adobe Connect is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a low-privileged attacker to inject malicious scripts into vulnerable form fields. Malicious JavaScript may be executed in a victim's browser when they browse to the page containing the vulnerable ",
+        "severity": "CRITICAL",
+        "score": 9.6,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121904",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121906",
+        "published": "2026-11-10T22:18:27Z",
+        "description": "Adobe Connect is affected by an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability that could lead to arbitrary file system read. An attacker could exploit this vulnerability to access sensitive files and directories outside the intended access scope. Exploi",
+        "severity": "CRITICAL",
+        "score": 9.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121906",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121908",
+        "published": "2026-11-10T22:18:27Z",
+        "description": "Adobe Connect is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary code. E",
+        "severity": "CRITICAL",
+        "score": 9.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121908",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121910",
+        "published": "2026-11-10T22:18:27Z",
+        "description": "Adobe Connect is affected by a Cross-Site Scripting (XSS) vulnerability. If a low-privileged attacker is able to convince a victim to visit a URL referencing a vulnerable page, malicious JavaScript content may be executed within the context of the victim's browser. Scope is changed.",
+        "severity": "MEDIUM",
+        "score": 5.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121910",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121912",
+        "published": "2026-11-10T22:18:27Z",
+        "description": "Adobe Connect is affected by a Cross-Site Scripting (XSS) vulnerability that could be abused by a low-privileged attacker to inject malicious scripts into vulnerable form fields. Malicious JavaScript may be executed in a victim's browser when they browse to the page containing the vulnerable field. ",
+        "severity": "MEDIUM",
+        "score": 5.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121912",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121913",
+        "published": "2026-11-10T22:18:27Z",
+        "description": "Adobe Connect is affected by an Incorrect Authorization vulnerability that could result in privilege escalation. A low-privileged attacker could exploit this vulnerability to gain elevated access to sensitive information or functionality. Exploitation of this issue does not require user interaction.",
+        "severity": "HIGH",
+        "score": 8.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121913",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121887",
+        "published": "2026-11-10T22:18:26Z",
+        "description": "Adobe Connect is affected by an Improper Restriction of XML External Entity Reference ('XXE') vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary code. Exploitation of this iss",
+        "severity": "CRITICAL",
+        "score": 9.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121887",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121889",
+        "published": "2026-11-10T22:18:26Z",
+        "description": "Adobe Connect is affected by a Server-Side Request Forgery (SSRF) vulnerability that could result in privilege escalation. Exploitation of this issue does not require user interaction. Scope is changed.",
+        "severity": "CRITICAL",
+        "score": 10.0,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121889",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121890",
+        "published": "2026-11-10T22:18:26Z",
+        "description": "Adobe Connect is affected by an Improper Restriction of XML External Entity Reference ('XXE') vulnerability that could lead to arbitrary file system read. A low-privileged attacker could exploit this vulnerability to access sensitive files and directories outside the intended access scope. Exploitat",
+        "severity": "HIGH",
+        "score": 7.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121890",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121892",
+        "published": "2026-11-10T22:18:26Z",
+        "description": "Adobe Connect is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary code. Exploitation of this issue d",
+        "severity": "CRITICAL",
+        "score": 9.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121892",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121894",
+        "published": "2026-11-10T22:18:26Z",
+        "description": "Adobe Connect is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary SQL com",
+        "severity": "CRITICAL",
+        "score": 9.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121894",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121896",
+        "published": "2026-11-10T22:18:26Z",
+        "description": "Adobe Connect is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary code. E",
+        "severity": "CRITICAL",
+        "score": 9.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121896",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121898",
+        "published": "2026-11-10T22:18:26Z",
+        "description": "Adobe Connect is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary code. E",
+        "severity": "CRITICAL",
+        "score": 9.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121898",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121352",
+        "published": "2026-11-10T22:18:25Z",
+        "description": "Adobe Connect is affected by an Incorrect Authorization vulnerability that could result in privilege escalation. An attacker could exploit this vulnerability to gain unauthorized access to sensitive resources. Exploitation of this issue does not require user interaction. Scope is changed.",
+        "severity": "CRITICAL",
+        "score": 10.0,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121352",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121353",
+        "published": "2026-11-10T22:18:25Z",
+        "description": "Adobe Connect is affected by an Improper Neutralization of CRLF Sequences ('CRLF Injection') vulnerability that could result in arbitrary code execution in the context of the current user, potentially gaining elevated access or control over the victim's account or session. Exploitation of this issue",
+        "severity": "CRITICAL",
+        "score": 10.0,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121353",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121354",
+        "published": "2026-11-10T22:18:25Z",
+        "description": "Adobe Connect is affected by an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability that could lead to arbitrary file system read. An attacker could exploit this vulnerability to access sensitive files and directories outside the intended access scope. Exploi",
+        "severity": "CRITICAL",
+        "score": 9.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121354",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121355",
+        "published": "2026-11-10T22:18:25Z",
+        "description": "Adobe Connect is affected by an Incorrect Authorization vulnerability that could result in privilege escalation. An attacker could exploit this vulnerability to gain elevated access to sensitive information or functionality. Exploitation of this issue does not require user interaction.",
+        "severity": "CRITICAL",
+        "score": 9.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121355",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121356",
+        "published": "2026-11-10T22:18:25Z",
+        "description": "Adobe Connect is affected by a Server-Side Request Forgery (SSRF) vulnerability that could result in privilege escalation. Exploitation of this issue does not require user interaction. Scope is changed.",
+        "severity": "CRITICAL",
+        "score": 10.0,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121356",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118482",
+        "published": "2026-11-10T22:18:24Z",
+        "description": "Adobe Experience Manager is affected by an Improper Input Validation vulnerability that could result in a Security feature bypass. A low-privileged attacker could leverage this vulnerability to bypass security measures and gain unauthorized limited read and write access. Exploitation of this issue d",
+        "severity": "MEDIUM",
+        "score": 5.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118482",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118483",
+        "published": "2026-11-10T22:18:24Z",
+        "description": "Dimension is affected by an Improper Input Validation vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary code. Exploitation of this issue requires user interaction in that a v",
+        "severity": "HIGH",
+        "score": 8.2,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118483",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118484",
+        "published": "2026-11-10T22:18:24Z",
+        "description": "CAI Content Credentials is affected by an Improper Input Validation vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerability to bypass security measures and gain unauthorized write access. Exploitation of this issue requires user interaction in that",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118484",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-119017",
+        "published": "2026-11-10T22:18:24Z",
+        "description": "Adobe Experience Manager is affected by an Incorrect Authorization vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary code. Exploitation of this issue does not require user in",
+        "severity": "CRITICAL",
+        "score": 9.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119017",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121349",
+        "published": "2026-11-10T22:18:24Z",
+        "description": "Adobe Connect is affected by an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to gain elevated access or control",
+        "severity": "CRITICAL",
+        "score": 9.6,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121349",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121350",
+        "published": "2026-11-10T22:18:24Z",
+        "description": "Adobe Connect is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could lead to disclosure of sensitive memory. A low-privileged attacker could leverage this vulnerability to disclose sensitive information. Exploitation of this is",
+        "severity": "HIGH",
+        "score": 7.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121350",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121351",
+        "published": "2026-11-10T22:18:24Z",
+        "description": "Adobe Connect is affected by an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability that could lead to arbitrary file system read. An attacker could exploit this vulnerability to access sensitive files and directories outside the intended access scope. Exploi",
+        "severity": "CRITICAL",
+        "score": 10.0,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121351",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118197",
+        "published": "2026-11-10T22:18:23Z",
+        "description": "Adobe Experience Manager is affected by a DOM-based Cross-Site Scripting (XSS) vulnerability. An attacker could exploit this issue by manipulating the DOM environment to execute malicious JavaScript within the context of the victim's browser. Exploitation of this issue requires user interaction in t",
+        "severity": "MEDIUM",
+        "score": 5.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118197",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118478",
+        "published": "2026-11-10T22:18:23Z",
+        "description": "Adobe Experience Manager is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a low-privileged attacker to inject malicious scripts into vulnerable form fields. Malicious JavaScript may be executed in a victim's browser when they browse to the page containing the ",
+        "severity": "MEDIUM",
+        "score": 5.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118478",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118479",
+        "published": "2026-11-10T22:18:23Z",
+        "description": "Adobe Experience Manager is affected by a DOM-based Cross-Site Scripting (XSS) vulnerability. An attacker could exploit this issue by manipulating the DOM environment to execute malicious JavaScript within the context of the victim's browser. Exploitation of this issue requires user interaction in t",
+        "severity": "MEDIUM",
+        "score": 5.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118479",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118480",
+        "published": "2026-11-10T22:18:23Z",
+        "description": "Adobe Experience Manager is affected by a DOM-based Cross-Site Scripting (XSS) vulnerability. An attacker could exploit this issue by manipulating the DOM environment to execute malicious JavaScript within the context of the victim's browser. Exploitation of this issue requires user interaction in t",
+        "severity": "MEDIUM",
+        "score": 5.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118480",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118481",
+        "published": "2026-11-10T22:18:23Z",
+        "description": "Adobe Experience Manager is affected by a DOM-based Cross-Site Scripting (XSS) vulnerability. An attacker could exploit this issue by manipulating the DOM environment to execute malicious JavaScript within the context of the victim's browser. Exploitation of this issue requires user interaction in t",
+        "severity": "MEDIUM",
+        "score": 5.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118481",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113574",
+        "published": "2026-11-10T22:18:22Z",
+        "description": "CAI Content Credentials is affected by an Uncontrolled Resource Consumption vulnerability that could lead to application denial-of-service. An attacker could exploit this vulnerability and exhaust system resources, reducing application speed. Exploitation of this issue does not require user interact",
+        "severity": "MEDIUM",
+        "score": 4.0,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113574",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113579",
+        "published": "2026-11-10T22:18:22Z",
+        "description": "Adobe Experience Manager is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary code. Exploitation of t",
+        "severity": "CRITICAL",
+        "score": 9.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113579",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113580",
+        "published": "2026-11-10T22:18:22Z",
+        "description": "Adobe Experience Manager is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary code. Exploitation of t",
+        "severity": "CRITICAL",
+        "score": 9.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113580",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-114371",
+        "published": "2026-11-10T22:18:22Z",
+        "description": "Adobe Experience Manager is affected by an Incorrect Authorization vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary code. Exploitation of this issue does not require user in",
+        "severity": "CRITICAL",
+        "score": 9.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-114371",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-114372",
+        "published": "2026-11-10T22:18:22Z",
+        "description": "Adobe Experience Manager is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a low-privileged attacker to inject malicious scripts into vulnerable form fields. Malicious JavaScript may be executed in a victim's browser when they browse to the page containing the ",
+        "severity": "MEDIUM",
+        "score": 5.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-114372",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113572",
+        "published": "2026-11-10T22:18:21Z",
+        "description": "CAI Content Credentials is affected by a Use of a Broken or Risky Cryptographic Algorithm vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerability to bypass security measures and gain unauthorized write access. Exploit depends on conditions beyond t",
+        "severity": "MEDIUM",
+        "score": 5.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113572",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113573",
+        "published": "2026-11-10T22:18:21Z",
+        "description": "CAI Content Credentials is affected by an Improper Input Validation vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerability to bypass security measures and gain unauthorized write access. Exploit depends on conditions beyond the attacker's control.",
+        "severity": "MEDIUM",
+        "score": 5.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113573",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-107356",
+        "published": "2026-11-10T22:18:14Z",
+        "description": "U.S. Geological Survey Area Species Management Research Program (ARMI) accepts any uploaded file and stores the file under '/uploads/{upload-file}'. A remote, authenticated attacker could upload a crafted PHP file that executes and returns command output from the server when accessed. Fixed on 2026-",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107356",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-105150",
+        "published": "2026-11-10T22:17:55Z",
+        "description": "The Product Filter for WooCommerce by WBW plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the 'text_no_products' parameter in all versions up to, and including, 3.4.5 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attac",
+        "severity": "MEDIUM",
+        "score": 6.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105150",
+        "kev": false
+      },
+      {
+        "id": "CVE-2025-62621",
+        "published": "2026-11-10T22:17:47Z",
+        "description": "Expected behavior violation in AMD Secure Encrypted Virtualization (SEV) firmware could allow a malicious hypervisor to bypass Reverse Map Table (RMP) protections, potentially resulting in a loss of Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP) guest memory integrity.",
+        "severity": "MEDIUM",
+        "score": 5.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-62621",
+        "kev": false
+      },
+      {
+        "id": "CVE-2025-52535",
+        "published": "2026-11-10T22:17:46Z",
+        "description": "Improper resource reuse in the AMD Secure Encrypted Virtualization (SEV) firmware could allow an attacker with hypervisor access to write to the Reverse Map Table (RMP) protected memory, potentially resulting in loss of guest memory integrity.",
+        "severity": "MEDIUM",
+        "score": 5.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-52535",
+        "kev": false
+      },
+      {
+        "id": "CVE-2025-52537",
+        "published": "2026-11-10T22:17:46Z",
+        "description": "Improper access control within the AMD Secure Encrypted Virtualization (SEV) firmware could allow an attacker with administrative privileges to tamper with memory, potentially resulting in loss of guest memory integrity.",
+        "severity": "MEDIUM",
+        "score": 4.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-52537",
+        "kev": false
+      },
+      {
+        "id": "CVE-2025-54503",
+        "published": "2026-11-10T22:17:46Z",
+        "description": "Improper handling of overlap between protected memory ranges in the Secure Encrypted Virtualization (SEV) firmware could allow a privileged attacker to cause misconfigurations in the RMP potentially resulting in loss of integrity.",
+        "severity": "MEDIUM",
+        "score": 5.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-54503",
+        "kev": false
+      },
+      {
+        "id": "CVE-2025-54504",
+        "published": "2026-11-10T22:17:46Z",
+        "description": "Insufficient Granularity of Access Control in AMD Secure Encrypted Virtualization (SEV) firmware could allow an attacker with administrative privileges attacker to write to a trusted region used by AMD Secure Encrypted Virtualization-Encrypted State (SEV-ES), potentially resulting in loss of integri",
+        "severity": "MEDIUM",
+        "score": 5.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-54504",
+        "kev": false
+      },
+      {
+        "id": "CVE-2025-54506",
+        "published": "2026-11-10T22:17:46Z",
+        "description": "A time-of-check to time-of-use (TOCTOU) race condition in the AMD SEV Secure Encrypted Virtualization (SEV) firmware could allow an attacker with administrative privileges to bypass security checks on scatter lists, potentially resulting in loss of guest integrity.",
+        "severity": "MEDIUM",
+        "score": 4.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-54506",
+        "kev": false
+      },
+      {
+        "id": "CVE-2025-54508",
+        "published": "2026-11-10T22:17:46Z",
+        "description": "Improper validation of Reverse Map Table (RMP) entries in the Secure Encrypted Virtualization (SEV) firmware could allow a privileged attacker to trigger concurrent modifications to RMP entries without proper synchronization potentially resulting in loss of data integrity.",
+        "severity": "MEDIUM",
+        "score": 4.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-54508",
+        "kev": false
+      },
+      {
+        "id": "CVE-2025-62620",
+        "published": "2026-11-10T22:17:46Z",
+        "description": "Improper validation of unsafe equivalence in input could allow an attacker with high privileges to reclaim the ring buffer queue status page, potentially resulting in loss of guest memory integrity.",
+        "severity": "MEDIUM",
+        "score": 5.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-62620",
+        "kev": false
+      },
+      {
+        "id": "CVE-2025-29940",
+        "published": "2026-11-10T22:17:45Z",
+        "description": "Unverified ownership in Secure Encrypted Virtualization (SEV) firmware could allow a privileged attacker with access to a malicious hypervisor to overwrite guest memory if segmented Reverse Map Table (RMP) is enabled potentially resulting in loss of guest data integrity.",
+        "severity": "MEDIUM",
+        "score": 5.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-29940",
+        "kev": false
+      },
+      {
+        "id": "CVE-2025-0027",
+        "published": "2026-11-10T22:17:44Z",
+        "description": "Improper access control in AMD Secure Encrypted Virtualization (SEV) firmware could allow a malicious hypervisor to bypass Reverse Map Table (RMP) protections, potentially impacting the integrity of Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP) guest memory.",
+        "severity": "MEDIUM",
+        "score": 5.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-0027",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-92544",
+        "published": "2026-11-10T21:21:40Z",
+        "description": "SQL injection in the LLM usage counters of Kong Gateway Enterprise and Kong AI Gateway may allow a client to execute arbitrary SQL against the Kong database via a crafted model name.",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92544",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-82012",
+        "published": "2026-11-10T21:20:12Z",
+        "description": "Premiere Pro is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82012",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-82002",
+        "published": "2026-11-10T21:20:11Z",
+        "description": "Media Encoder is affected by an Incorrect Authorization vulnerability that could result in arbitrary code execution in the context of the current user. Exploit depends on conditions beyond the attacker's control. Exploitation of this issue requires user interaction in that a victim must open a malic",
+        "severity": "HIGH",
+        "score": 7.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82002",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-48402",
+        "published": "2026-11-10T21:19:30Z",
+        "description": "Premiere Pro is affected by an Untrusted Search Path vulnerability that could result in arbitrary code execution in the context of the current user. An attacker could exploit this vulnerability to execute arbitrary code. Exploitation of this issue requires user interaction in that a victim must open",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-48402",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126083",
+        "published": "2026-11-10T21:19:27Z",
+        "description": "Action Pack is a framework for handling and responding to web requests. From 8.1 until 8.1.4.1, Since Rails 8.1.0, ActionDispatch::RemoteIp derives request.remote_ip from Rack::Request#forwarded_for, which under Rack 3 reads the RFC 7239 Forwarded header in preference to X-Forwarded-For. When a reve",
+        "severity": "HIGH",
+        "score": 7.4,
+        "cvss_version": "30",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126083",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126084",
+        "published": "2026-11-10T21:19:27Z",
+        "description": "Active Storage makes it simple to upload and reference files in cloud services and attach those files to Active Record objects. Prior to 8.1.4.1 and 8.0.5.2, when a GCS service is configured with the cache_control option, ActiveStorage::Service::GCSService#url_for_direct_upload signs direct-upload U",
+        "severity": "MEDIUM",
+        "score": 4.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126084",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126128",
+        "published": "2026-11-10T21:19:27Z",
+        "description": "The Management API client in the Auth0 Node.js SDK improperly neutralizes path parameters, allowing a request and its attached management API token to be redirected to an unintended endpoint on the same tenant, resulting in unintended access to data or operations that the token's existing scopes alr",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126128",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126076",
+        "published": "2026-11-10T21:19:26Z",
+        "description": "Action Pack is a framework for handling and responding to web requests. Prior to 8.1.4.1 and 8.0.5.2, ActionDispatch::Session::CacheStore writes a session back to the cache at the end of each request that loaded it, without checking that the session's cache entry still exists. When a concurrent requ",
+        "severity": "MEDIUM",
+        "score": 4.2,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126076",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126077",
+        "published": "2026-11-10T21:19:26Z",
+        "description": "Action Pack is a framework for handling and responding to web requests. Prior to 8.1.4.1 and 8.0.5.2, When ActionDispatch::Cookies reads a signed or encrypted cookie that was written under a rotated secret (config.action_dispatch.cookies_rotations) or in the format that a :hybrid cookie serializer m",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126077",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126078",
+        "published": "2026-11-10T21:19:26Z",
+        "description": "Action View is a framework for handling view template lookup and rendering and provides view helpers for building HTML. Prior to 8.1.4.1 and 8.0.5.2, ActionView::Helpers::TextHelper#highlight substitutes each matched phrase into the :highlighter string without escaping it and returns the result mark",
+        "severity": "MEDIUM",
+        "score": 6.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126078",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126079",
+        "published": "2026-11-10T21:19:26Z",
+        "description": "Action View is a framework for handling view template lookup and rendering and provides view helpers for building HTML. Prior to 8.1.4.1 and 8.0.5.2, with the HTML5 sanitizer (Rails::HTML5::Sanitizer, the default vendor on CRuby for applications using load_defaults 7.1 or later), Nokogiri before 1.1",
+        "severity": "MEDIUM",
+        "score": 6.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126079",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126080",
+        "published": "2026-11-10T21:19:26Z",
+        "description": "Active Support is a collection of utility classes and standard library extensions used by Rails and other Ruby projects. Prior to 8.1.4.1 and 8.0.5.2, when constant lookup raises LoadError, ActiveSupport::Inflector#safe_constantize (and String#safe_constantize) builds a regular expression from the r",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126080",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126081",
+        "published": "2026-11-10T21:19:26Z",
+        "description": "Action Pack is a framework for handling and responding to web requests. Prior to 8.1.4.1 and 8.0.5.2, ActionController::Parameters#each_key delegates to the internal ActiveSupport::HashWithIndifferentAccess that holds the request parameters, so when called with a block it returns that hash instead o",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126081",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126082",
+        "published": "2026-11-10T21:19:26Z",
+        "description": "Active Storage makes it simple to upload and reference files in cloud services and attach those files to Active Record objects. Prior to 8.1.4.1 and 8.0.5.2, a Rails application that processes attachments with ImageMagick may allow an unauthenticated attacker to write arbitrary files on the server a",
+        "severity": "CRITICAL",
+        "score": 9.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126082",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126070",
+        "published": "2026-11-10T21:19:25Z",
+        "description": "Action View is a framework for handling view template lookup and rendering and provides view helpers for building HTML. Prior to 8.1.4.1 and 8.0.5.2, strip_tags in Action View returns its sanitized output marked html_safe, but the underlying sanitizer encodes only &, < and >, leaving \" and ' unencod",
+        "severity": "MEDIUM",
+        "score": 6.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126070",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126071",
+        "published": "2026-11-10T21:19:25Z",
+        "description": "Active Storage makes it simple to upload and reference files in cloud services and attach those files to Active Record objects. From 8.0 until 8.0.5.2 and 8.1.4.1, when Active Storage serves a file through its proxy controllers, ActiveStorage::Streaming#send_blob_stream handles an error from the sto",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126071",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126072",
+        "published": "2026-11-10T21:19:25Z",
+        "description": "Action Pack is a framework for handling and responding to web requests. Prior to 8.1.4.1 and 8.0.5.2, ActionController::Live::Buffer#close pushes its end-of-stream marker onto the response's bounded queue while it holds the buffer's monitor. When the client has stopped reading and the queue is full,",
+        "severity": "MEDIUM",
+        "score": 5.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126072",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126073",
+        "published": "2026-11-10T21:19:25Z",
+        "description": "Action Pack is a framework for handling and responding to web requests. Prior to 8.1.4.1 and 8.0.5.2, Action Pack negotiates the format of a rendered response from the Accept, X-Requested-With and, for XHR requests without Accept, Content-Type request headers, but ActionController::Rendering#_set_va",
+        "severity": "MEDIUM",
+        "score": 4.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126073",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126074",
+        "published": "2026-11-10T21:19:25Z",
+        "description": "Active Storage makes it simple to upload and reference files in cloud services and attach those files to Active Record objects. Prior to 8.1.4.1 and 8.0.5.2, ActiveStorage::Filename#base and #extension_with_delimiter, and therefore #extension, pass the stored filename unmodified to File.basename and",
+        "severity": "MEDIUM",
+        "score": 4.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126074",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126075",
+        "published": "2026-11-10T21:19:25Z",
+        "description": "Active Support is a collection of utility classes and standard library extensions used by Rails and other Ruby projects. From 8.1 until 8.1.4.1, ActiveSupport::MessagePack serializes an ActiveSupport::SafeBuffer as its bytes alone and deserializes it as a new SafeBuffer, so a buffer that is no longe",
+        "severity": "MEDIUM",
+        "score": 4.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126075",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126064",
+        "published": "2026-11-10T21:19:24Z",
+        "description": "Nokogiri is an open source XML and HTML library for the Ruby programming language. Prior to 1.19.5, the CRuby native extension can leave Ruby wrappers pointing to freed memory when Nokogiri::XML::Node#[]= or Nokogiri::XML::Node#lang= replaces an existing attribute value after code has accessed the a",
+        "severity": "LOW",
+        "score": 2.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126064",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126065",
+        "published": "2026-11-10T21:19:24Z",
+        "description": "OpenObserve is a cloud-native observability platform. Prior to 1.1.0, the shared authentication validator in src/api/common/src/auth/validator.rs accepts an empty or whitespace-only HTTP Basic password for an account whose password_ext value is missing or empty. SSO-provisioned and migration-created",
+        "severity": "CRITICAL",
+        "score": 9.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126065",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126066",
+        "published": "2026-11-10T21:19:24Z",
+        "description": "fast-xml-parser allows users to process XML from JS object without C/C++ based libraries or callbacks. Prior to 5.12.0, when the non-default stopNodes option is enabled, readStopNodeData() in OrderedObjParser.js calls readTagExp() for each less-than character in an unterminated stop-node body and re",
+        "severity": "LOW",
+        "score": 3.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126066",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126067",
+        "published": "2026-11-10T21:19:24Z",
+        "description": "Action Pack is a framework for handling and responding to web requests. Prior to 8.1.4.1 and 8.0.5.2, Action Pack session stores other than ActionDispatch::Session::CookieStore (CacheStore, MemCacheStore, and third-party stores built on AbstractStore, AbstractSecureStore or the session mixins) write",
+        "severity": "LOW",
+        "score": 3.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126067",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126068",
+        "published": "2026-11-10T21:19:24Z",
+        "description": "Action Mailbox routes incoming emails to controller-like mailboxes for processing in Rails. Prior to 8.1.4.1 and 8.0.5.2, the Action Mailbox Mailgun ingress authenticates a request with an HMAC of the timestamp and token parameters concatenated without a separator, and ActionMailbox::Ingresses::Mail",
+        "severity": "LOW",
+        "score": 3.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126068",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126069",
+        "published": "2026-11-10T21:19:24Z",
+        "description": "Action View is a framework for handling view template lookup and rendering and provides view helpers for building HTML. Prior to 8.1.4.1 and 8.0.5.2, the fix for CVE-2026-33168 skips blank HTML attribute names in Action View tag helpers, but it tests the name before converting it to a string. A Symb",
+        "severity": "MEDIUM",
+        "score": 4.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126069",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126063",
+        "published": "2026-11-10T21:19:23Z",
+        "description": "Nokogiri is an open source XML and HTML library for the Ruby programming language. From 1.12.0 until 1.19.5, the C extension on CRuby and TruffleRuby has a Nokogiri::HTML5 serializer that does not escape text inside noscript elements or angle brackets inside attribute values. When an application san",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126063",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-123263",
+        "published": "2026-11-10T21:19:04Z",
+        "description": "After Effects is affected by a Heap-based Buffer Overflow vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123263",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120824",
+        "published": "2026-11-10T21:19:02Z",
+        "description": "A use-after-free in the time-series collection component of MongoDB Server can occur when the server validates a time-series bucket document during a write. The condition can be caused by an authenticated user with privileges to write bucket documents directly, and may result in the server terminati",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120824",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120825",
+        "published": "2026-11-10T21:19:02Z",
+        "description": "An authorization weakness in the aggregation framework of MongoDB Server may allow an authenticated user holding only basic database privileges to read the contents of collections in a database for which they have not been granted read access. The privilege evaluation performed while a view definiti",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120825",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120826",
+        "published": "2026-11-10T21:19:02Z",
+        "description": "An authorization flaw in the aggregation and view-definition handling of sharded deployments may allow a user holding only basic read-write privileges on a single database to define a view whose underlying processing is not fully subjected to privilege checking. Reading that view may result in unint",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120826",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120828",
+        "published": "2026-11-10T21:19:02Z",
+        "description": "A replica-set database server node does not limit or reclaim internal wait records created while handling a client-supplied read option that names a point in time the node will never reach. A party with network access and no credentials can cause these records to accumulate without bound and persist",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120828",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120821",
+        "published": "2026-11-10T21:19:01Z",
+        "description": "A use-after-free in the aggregation framework of MongoDB Server can occur when certain expressions are evaluated in an aggregation sub-pipeline. The condition can be caused by an authenticated user with read privileges, and may result in the server terminating unexpectedly.",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120821",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120822",
+        "published": "2026-11-10T21:19:01Z",
+        "description": "MongoDB Server may omit an authorization check on the resource that a replication-related administrative command actually targets, because that check is conditioned on a value taken from the client's own request. A user holding backup and restore privileges may therefore read and relocate collection",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120822",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120823",
+        "published": "2026-11-10T21:19:01Z",
+        "description": "A missing authorization check in the aggregation framework of MongoDB Server may allow a user holding any valid credentials, including an account with no assigned roles, to read deployment-wide query configuration data that is otherwise restricted to a cluster-level privilege. This may result in uni",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120823",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120817",
+        "published": "2026-11-10T21:19:00Z",
+        "description": "A race condition in the schema validation component of MongoDB Server can occur when concurrent writes are checked against a collection validator that uses geospatial query operators. The condition can be caused by an authenticated user with write privileges, and may result in the server terminating",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120817",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120818",
+        "published": "2026-11-10T21:19:00Z",
+        "description": "A use-after-free weakness in MongoDB Server's server-side JavaScript support for aggregation may allow a stale reference to previously freed process memory to be read and returned. An authenticated user with minimal or no assigned roles can trigger this condition over the normal network protocol by ",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120818",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120819",
+        "published": "2026-11-10T21:19:00Z",
+        "description": "A memory-management flaw in the server-side JavaScript execution component of MongoDB Server can allow an authenticated user holding only read privileges to cause the server to access memory that has already been released. By submitting a specially crafted database command that runs user-supplied Ja",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120819",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120820",
+        "published": "2026-11-10T21:19:00Z",
+        "description": "MongoDB Server maintains an in-memory table of per-namespace statistics for operations that carry encrypted-field information. Entries are created for any namespace supplied in a request, with no limit on the number of entries and no way to remove entries that never corresponded to a real collection",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120820",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120816",
+        "published": "2026-11-10T21:18:59Z",
+        "description": "A user with basic read-tier database privileges can use an option on a server-side data-change notification feature to receive the contents of certain restricted internal collections that the same user is refused on a direct read. The privilege check for the notification feature is derived only from",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120816",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118198",
+        "published": "2026-11-10T21:18:58Z",
+        "description": "Photoshop Desktop is affected by a NULL Pointer Dereference vulnerability that could result in an application denial-of-service. An attacker could exploit this vulnerability to crash the application, leading to a denial-of-service condition. Exploitation of this issue requires user interaction in th",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118198",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118199",
+        "published": "2026-11-10T21:18:58Z",
+        "description": "Photoshop Desktop is affected by an out-of-bounds read vulnerability that could lead to disclosure of sensitive memory. An attacker could leverage this vulnerability to disclose sensitive information. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118199",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118200",
+        "published": "2026-11-10T21:18:58Z",
+        "description": "Photoshop Desktop is affected by an out-of-bounds read vulnerability that could lead to disclosure of sensitive memory. An attacker could leverage this vulnerability to disclose sensitive information. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118200",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118383",
+        "published": "2026-11-10T21:18:58Z",
+        "description": "A use-after-free in the replication component of MongoDB Server can occur when a newly elected replica set primary completes catch-up. The condition can be caused by requests that do not require authentication, and may result in the server terminating unexpectedly or, under certain conditions, arbit",
+        "severity": "CRITICAL",
+        "score": 9.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118383",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-116480",
+        "published": "2026-11-10T21:18:57Z",
+        "description": "Photoshop Desktop is affected by a Heap-based Buffer Overflow vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116480",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-117546",
+        "published": "2026-11-10T21:18:57Z",
+        "description": "Photoshop Desktop is affected by a Use After Free vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117546",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-117547",
+        "published": "2026-11-10T21:18:57Z",
+        "description": "Photoshop Desktop is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117547",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-114373",
+        "published": "2026-11-10T21:18:56Z",
+        "description": "Photoshop Desktop is affected by a Divide By Zero vulnerability that could result in an application denial-of-service. An attacker could exploit this vulnerability to crash the application, leading to a denial-of-service condition. Exploitation of this issue requires user interaction in that a victi",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-114373",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-115345",
+        "published": "2026-11-10T21:18:56Z",
+        "description": "Photoshop Desktop is affected by an out-of-bounds read vulnerability that could lead to disclosure of sensitive memory. An attacker could leverage this vulnerability to disclose sensitive information. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115345",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-116003",
+        "published": "2026-11-10T21:18:56Z",
+        "description": "Photoshop Desktop is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116003",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113575",
+        "published": "2026-11-10T21:18:51Z",
+        "description": "Photoshop Desktop is affected by a Heap-based Buffer Overflow vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113575",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113577",
+        "published": "2026-11-10T21:18:51Z",
+        "description": "Premiere Pro is affected by a NULL Pointer Dereference vulnerability that could result in an application denial-of-service. An attacker could exploit this vulnerability to crash the application, leading to a denial-of-service condition. Exploitation of this issue requires user interaction in that a ",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113577",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113578",
+        "published": "2026-11-10T21:18:51Z",
+        "description": "Photoshop Desktop is affected by an Uncontrolled Recursion vulnerability that could result in an application denial-of-service. An attacker could exploit this vulnerability to crash the application, leading to a denial-of-service condition. Exploitation of this issue requires user interaction in tha",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113578",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113563",
+        "published": "2026-11-10T21:18:50Z",
+        "description": "Audition is affected by a Violation of Secure Design Principles vulnerability that could result in arbitrary code execution in the context of the current user. An attacker could exploit this vulnerability to execute arbitrary code. Exploitation of this issue requires user interaction in that a victi",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113563",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113565",
+        "published": "2026-11-10T21:18:50Z",
+        "description": "Audition is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113565",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113567",
+        "published": "2026-11-10T21:18:50Z",
+        "description": "Audition is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113567",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113569",
+        "published": "2026-11-10T21:18:50Z",
+        "description": "Photoshop Desktop is affected by a NULL Pointer Dereference vulnerability that could result in an application denial-of-service. An attacker could exploit this vulnerability to crash the application, leading to a denial-of-service condition. Exploitation of this issue requires user interaction in th",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113569",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113571",
+        "published": "2026-11-10T21:18:50Z",
+        "description": "Photoshop Desktop is affected by a NULL Pointer Dereference vulnerability that could result in an application denial-of-service. An attacker could exploit this vulnerability to crash the application, leading to a denial-of-service condition. Exploitation of this issue requires user interaction in th",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113571",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113553",
+        "published": "2026-11-10T21:18:49Z",
+        "description": "Audition is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113553",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113555",
+        "published": "2026-11-10T21:18:49Z",
+        "description": "Audition is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113555",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113557",
+        "published": "2026-11-10T21:18:49Z",
+        "description": "Audition is affected by an Improper Input Validation vulnerability that could result in arbitrary code execution in the context of the current user. An attacker could exploit this vulnerability to execute arbitrary code. Exploitation of this issue requires user interaction in that a victim must open",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113557",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113558",
+        "published": "2026-11-10T21:18:49Z",
+        "description": "Audition is affected by an Improper Input Validation vulnerability that could result in arbitrary code execution in the context of the current user. An attacker could exploit this vulnerability to execute arbitrary code. Exploitation of this issue requires user interaction in that a victim must open",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113558",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113560",
+        "published": "2026-11-10T21:18:49Z",
+        "description": "Audition is affected by an Incorrect Authorization vulnerability that could result in arbitrary code execution in the context of the current user. An attacker could exploit this vulnerability to execute arbitrary code. Exploit depends on conditions beyond the attacker's control. Exploitation of this",
+        "severity": "HIGH",
+        "score": 7.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113560",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113562",
+        "published": "2026-11-10T21:18:49Z",
+        "description": "Audition is affected by an Improper Input Validation vulnerability that could result in arbitrary code execution in the context of the current user. An attacker could exploit this vulnerability to execute arbitrary code. Exploit depends on conditions beyond the attacker's control. Exploitation of th",
+        "severity": "HIGH",
+        "score": 7.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113562",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113545",
+        "published": "2026-11-10T21:18:48Z",
+        "description": "Media Encoder is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113545",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113547",
+        "published": "2026-11-10T21:18:48Z",
+        "description": "Media Encoder is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113547",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113549",
+        "published": "2026-11-10T21:18:48Z",
+        "description": "Audition is affected by a NULL Pointer Dereference vulnerability that could result in an application denial-of-service. An attacker could exploit this vulnerability to crash the application, leading to a denial-of-service condition. Exploitation of this issue requires user interaction in that a vict",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113549",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113551",
+        "published": "2026-11-10T21:18:48Z",
+        "description": "Audition is affected by a Violation of Secure Design Principles vulnerability that could result in privilege escalation. A low-privileged attacker could leverage this vulnerability to gain elevated access. Exploitation of this issue does not require user interaction. Scope is changed.",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113551",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113541",
+        "published": "2026-11-10T21:18:47Z",
+        "description": "Media Encoder is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113541",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113543",
+        "published": "2026-11-10T21:18:47Z",
+        "description": "Media Encoder is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113543",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113536",
+        "published": "2026-11-10T21:18:46Z",
+        "description": "After Effects is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113536",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113538",
+        "published": "2026-11-10T21:18:46Z",
+        "description": "After Effects is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113538",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113539",
+        "published": "2026-11-10T21:18:46Z",
+        "description": "Media Encoder is affected by a NULL Pointer Dereference vulnerability that could result in an application denial-of-service. An attacker could exploit this vulnerability to crash the application, leading to a denial-of-service condition. Exploitation of this issue requires user interaction in that a",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113539",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113532",
+        "published": "2026-11-10T21:18:45Z",
+        "description": "After Effects is affected by an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability that could lead to arbitrary file system read. An attacker could exploit this vulnerability to access sensitive files and directories outside the intended access scope. Exploi",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113532",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113534",
+        "published": "2026-11-10T21:18:45Z",
+        "description": "After Effects is affected by an Improper Input Validation vulnerability that could result in arbitrary code execution in the context of the current user. An attacker could exploit this vulnerability to execute arbitrary code. Exploitation of this issue requires user interaction in that a victim must",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113534",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113526",
+        "published": "2026-11-10T21:18:44Z",
+        "description": "After Effects is affected by a Violation of Secure Design Principles vulnerability that could result in arbitrary code execution in the context of the current user. An attacker could exploit this vulnerability to execute arbitrary code. Exploitation of this issue requires user interaction in that a ",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113526",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113528",
+        "published": "2026-11-10T21:18:44Z",
+        "description": "After Effects is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113528",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113530",
+        "published": "2026-11-10T21:18:44Z",
+        "description": "After Effects is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113530",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113516",
+        "published": "2026-11-10T21:18:43Z",
+        "description": "After Effects is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113516",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113517",
+        "published": "2026-11-10T21:18:43Z",
+        "description": "After Effects is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113517",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113519",
+        "published": "2026-11-10T21:18:43Z",
+        "description": "After Effects is affected by an out-of-bounds read vulnerability that could lead to disclosure of sensitive memory. An attacker could leverage this vulnerability to disclose sensitive information. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113519",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113521",
+        "published": "2026-11-10T21:18:43Z",
+        "description": "After Effects is affected by a NULL Pointer Dereference vulnerability that could result in an application denial-of-service. An attacker could exploit this vulnerability to crash the application, leading to a denial-of-service condition. Exploitation of this issue requires user interaction in that a",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113521",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113523",
+        "published": "2026-11-10T21:18:43Z",
+        "description": "After Effects is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113523",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113525",
+        "published": "2026-11-10T21:18:43Z",
+        "description": "After Effects is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113525",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113512",
+        "published": "2026-11-10T21:18:42Z",
+        "description": "After Effects is affected by a Stack-based Buffer Overflow vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113512",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113514",
+        "published": "2026-11-10T21:18:42Z",
+        "description": "After Effects is affected by an out-of-bounds read vulnerability that could lead to disclosure of sensitive memory. An attacker could leverage this vulnerability to disclose sensitive information. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113514",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-110089",
+        "published": "2026-11-10T21:18:20Z",
+        "description": "Premiere Pro is affected by a Buffer Underwrite ('Buffer Underflow') vulnerability that could result in arbitrary code execution in the context of the current user. An attacker could exploit this vulnerability to execute arbitrary code. Exploitation of this issue requires user interaction in that a ",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110089",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-110090",
+        "published": "2026-11-10T21:18:20Z",
+        "description": "Premiere Pro is affected by an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability that could lead to arbitrary file system read. An attacker could exploit this vulnerability to access sensitive files and directories outside the intended access scope. Exploit",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110090",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-110091",
+        "published": "2026-11-10T21:18:20Z",
+        "description": "Premiere Pro is affected by a Missing Authentication for Critical Function vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerability to bypass security measures and gain unauthorized write access. Exploitation of this issue does not require user inte",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110091",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-110093",
+        "published": "2026-11-10T21:18:20Z",
+        "description": "After Effects is affected by an out-of-bounds read vulnerability that could result in an application denial-of-service. An attacker could exploit this vulnerability to crash the application, leading to a denial-of-service condition. Exploitation of this issue requires user interaction in that a vict",
+        "severity": "LOW",
+        "score": 3.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110093",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-110085",
+        "published": "2026-11-10T21:18:19Z",
+        "description": "Premiere Pro is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110085",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-110086",
+        "published": "2026-11-10T21:18:19Z",
+        "description": "Premiere Pro is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110086",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-110087",
+        "published": "2026-11-10T21:18:19Z",
+        "description": "Premiere Pro is affected by a Buffer Overflow vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary code. Exploit depends on conditions beyond the attacker's control. Exploitatio",
+        "severity": "MEDIUM",
+        "score": 6.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110087",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-110088",
+        "published": "2026-11-10T21:18:19Z",
+        "description": "Premiere Pro is affected by a Buffer Overflow vulnerability that could result in arbitrary code execution in the context of the current user. An attacker could exploit this vulnerability to execute arbitrary code. Exploitation of this issue requires user interaction in that a victim must open a mali",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110088",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108167",
+        "published": "2026-11-10T21:17:53Z",
+        "description": "The auth0-ai-python FGA retriever does not distinguish between authorization checks under different users, relations, or conditions when filtering documents during retrieval-augmented generation, resulting in documents denied by Auth0 FGA being included in the model context and used in the generated",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108167",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-105986",
+        "published": "2026-11-10T21:17:52Z",
+        "description": "Incorrect authorization in the Admin API RBAC of Kong Gateway Enterprise allows a delegated administrator to elevate  privileges via a percent-encoded role name or a self-assigned role.",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105986",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-107372",
+        "published": "2026-11-10T21:17:52Z",
+        "description": "The auth0-ai-js FGA retriever does not distinguish between authorization checks under different conditions when filtering documents during retrieval-augmented generation, resulting in documents denied by Auth0 FGA being included in the model context and used in the generated response.",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107372",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-104352",
+        "published": "2026-11-10T21:17:39Z",
+        "description": "Premiere Pro is affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-104352",
+        "kev": false
+      },
       {
         "id": "CVE-2026-95782",
         "published": "2026-11-10T20:19:49Z",
@@ -267,9 +2267,9 @@
         "id": "CVE-2026-59632",
         "published": "2026-11-10T20:19:32Z",
         "description": "In RespondReceivedMessage of MtsMessageController.cpp, there is a possible way to trigger memory exhaustion via an undrained message queue due to a type confusion. This could lead to remote denial of service with no additional execution privileges needed. User interaction is not needed for exploitat",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59632",
         "kev": false
       },
@@ -517,9 +2517,9 @@
         "id": "CVE-2026-59585",
         "published": "2026-11-10T20:19:29Z",
         "description": "In SetDisplayName of RegInfoContact.cpp, there is a possible denial of service due to a missing null check. This could lead to remote denial of service with no additional execution privileges needed. User interaction is not needed for exploitation.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59585",
         "kev": false
       },
@@ -757,9 +2757,9 @@
         "id": "CVE-2026-58789",
         "published": "2026-11-10T20:19:26Z",
         "description": "In s_gen_tile_param of multiple files, there is a possible way to trigger an out of bounds write in tile parameter arrays due to an incorrect bounds check. This could lead to remote denial of service with no additional execution privileges needed. User interaction is not needed for exploitation.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-58789",
         "kev": false
       },
@@ -14257,9 +16257,9 @@
         "id": "CVE-2026-125343",
         "published": "2026-11-10T18:17:34Z",
         "description": "Buffer overflow in Compositing in Google Chrome prior to 157.0.8103.50 allowed a remote attacker who had compromised the renderer process to execute arbitrary code outside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125343",
         "kev": false
       },
@@ -14267,9 +16267,9 @@
         "id": "CVE-2026-125344",
         "published": "2026-11-10T18:17:34Z",
         "description": "Type confusion in V8 in Google Chrome prior to 157.0.8103.50 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
+        "severity": "HIGH",
+        "score": 8.8,
+        "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125344",
         "kev": false
       },
@@ -14277,9 +16277,9 @@
         "id": "CVE-2026-125345",
         "published": "2026-11-10T18:17:34Z",
         "description": "Uninitialized resource in WebGL in Google Chrome prior to 157.0.8103.50 allowed a remote attacker to read memory outside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
+        "severity": "MEDIUM",
+        "score": 4.7,
+        "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125345",
         "kev": false
       },
@@ -14297,9 +16297,9 @@
         "id": "CVE-2026-125347",
         "published": "2026-11-10T18:17:34Z",
         "description": "Incorrect authorization in FileSystem in Google Chrome prior to 157.0.8103.50 allowed a remote attacker leveraging social engineering to execute arbitrary code outside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
+        "severity": "CRITICAL",
+        "score": 9.6,
+        "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125347",
         "kev": false
       },
@@ -14307,9 +16307,9 @@
         "id": "CVE-2026-125348",
         "published": "2026-11-10T18:17:34Z",
         "description": "Out of bounds write in GPU in Google Chrome prior to 157.0.8103.50 allowed a remote attacker to potentially execute arbitrary code outside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
+        "severity": "HIGH",
+        "score": 8.8,
+        "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125348",
         "kev": false
       },
@@ -15886,7 +17886,7 @@
       {
         "id": "CVE-2026-124948",
         "published": "2026-11-10T14:17:29Z",
-        "description": "Incorrect boundary conditions, use-after-free in the Graphics component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Incorrect boundary conditions, use-after-free in the Graphics component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -15916,7 +17916,7 @@
       {
         "id": "CVE-2026-124951",
         "published": "2026-11-10T14:17:29Z",
-        "description": "Privilege escalation in the Nimbus Desktop Client component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Privilege escalation in the Nimbus Desktop Client component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": null,
         "score": null,
         "cvss_version": null,
@@ -15946,7 +17946,7 @@
       {
         "id": "CVE-2026-124938",
         "published": "2026-11-10T14:17:28Z",
-        "description": "Mitigation bypass in the Add-ons Manager component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Mitigation bypass in the Add-ons Manager component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": null,
         "score": null,
         "cvss_version": null,
@@ -15956,7 +17956,7 @@
       {
         "id": "CVE-2026-124939",
         "published": "2026-11-10T14:17:28Z",
-        "description": "JIT miscompilation in the JavaScript Engine: JIT component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "JIT miscompilation in the JavaScript Engine: JIT component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": null,
         "score": null,
         "cvss_version": null,
@@ -15966,7 +17966,7 @@
       {
         "id": "CVE-2026-124940",
         "published": "2026-11-10T14:17:28Z",
-        "description": "Mitigation bypass in the File Handling component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Mitigation bypass in the File Handling component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": null,
         "score": null,
         "cvss_version": null,
@@ -15976,7 +17976,7 @@
       {
         "id": "CVE-2026-124941",
         "published": "2026-11-10T14:17:28Z",
-        "description": "Information disclosure in the Security: RLBox component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Information disclosure in the Security: RLBox component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "MEDIUM",
         "score": 4.3,
         "cvss_version": "31",
@@ -15986,7 +17986,7 @@
       {
         "id": "CVE-2026-124942",
         "published": "2026-11-10T14:17:28Z",
-        "description": "Invalid pointer in the DOM: Streams component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Invalid pointer in the DOM: Streams component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": null,
         "score": null,
         "cvss_version": null,
@@ -16036,7 +18036,7 @@
       {
         "id": "CVE-2026-124930",
         "published": "2026-11-10T14:17:27Z",
-        "description": "Information disclosure in the Address Bar component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Information disclosure in the Address Bar component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "MEDIUM",
         "score": 4.3,
         "cvss_version": "31",
@@ -16046,7 +18046,7 @@
       {
         "id": "CVE-2026-124931",
         "published": "2026-11-10T14:17:27Z",
-        "description": "Same-origin policy bypass in the DOM: Core & HTML component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Same-origin policy bypass in the DOM: Core & HTML component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": null,
         "score": null,
         "cvss_version": null,
@@ -16056,7 +18056,7 @@
       {
         "id": "CVE-2026-124932",
         "published": "2026-11-10T14:17:27Z",
-        "description": "Use-after-free in the Graphics component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the Graphics component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16066,7 +18066,7 @@
       {
         "id": "CVE-2026-124933",
         "published": "2026-11-10T14:17:27Z",
-        "description": "Sandbox escape in the Console component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Sandbox escape in the Console component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": null,
         "score": null,
         "cvss_version": null,
@@ -16076,7 +18076,7 @@
       {
         "id": "CVE-2026-124934",
         "published": "2026-11-10T14:17:27Z",
-        "description": "Spoofing issue in the Security component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Spoofing issue in the Security component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": null,
         "score": null,
         "cvss_version": null,
@@ -16086,7 +18086,7 @@
       {
         "id": "CVE-2026-124935",
         "published": "2026-11-10T14:17:27Z",
-        "description": "Undefined behavior in the WebRTC: Networking component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Undefined behavior in the WebRTC: Networking component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": null,
         "score": null,
         "cvss_version": null,
@@ -16116,7 +18116,7 @@
       {
         "id": "CVE-2026-124922",
         "published": "2026-11-10T14:17:26Z",
-        "description": "Use-after-free in the CSS Transitions and Animations component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the CSS Transitions and Animations component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16136,7 +18136,7 @@
       {
         "id": "CVE-2026-124924",
         "published": "2026-11-10T14:17:26Z",
-        "description": "Incorrect boundary conditions in the Graphics: WebRender component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Incorrect boundary conditions in the Graphics: WebRender component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16156,7 +18156,7 @@
       {
         "id": "CVE-2026-124926",
         "published": "2026-11-10T14:17:26Z",
-        "description": "Incorrect boundary conditions in the WebRTC component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Incorrect boundary conditions in the WebRTC component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16166,7 +18166,7 @@
       {
         "id": "CVE-2026-124927",
         "published": "2026-11-10T14:17:26Z",
-        "description": "Site isolation issue in the Graphics: WebRender component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Site isolation issue in the Graphics: WebRender component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": null,
         "score": null,
         "cvss_version": null,
@@ -16186,7 +18186,7 @@
       {
         "id": "CVE-2026-124929",
         "published": "2026-11-10T14:17:26Z",
-        "description": "Information disclosure in the Layout: Form Controls component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Information disclosure in the Layout: Form Controls component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "MEDIUM",
         "score": 4.3,
         "cvss_version": "31",
@@ -16196,7 +18196,7 @@
       {
         "id": "CVE-2026-124912",
         "published": "2026-11-10T14:17:25Z",
-        "description": "Spoofing issue in the DOM: Security component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Spoofing issue in the DOM: Security component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": null,
         "score": null,
         "cvss_version": null,
@@ -16206,7 +18206,7 @@
       {
         "id": "CVE-2026-124913",
         "published": "2026-11-10T14:17:25Z",
-        "description": "Site isolation issue in the Networking component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Site isolation issue in the Networking component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": null,
         "score": null,
         "cvss_version": null,
@@ -16216,7 +18216,7 @@
       {
         "id": "CVE-2026-124914",
         "published": "2026-11-10T14:17:25Z",
-        "description": "Site isolation issue in the DOM: Navigation component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Site isolation issue in the DOM: Navigation component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": null,
         "score": null,
         "cvss_version": null,
@@ -16226,7 +18226,7 @@
       {
         "id": "CVE-2026-124915",
         "published": "2026-11-10T14:17:25Z",
-        "description": "Incorrect boundary conditions in the Graphics: WebGPU component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Incorrect boundary conditions in the Graphics: WebGPU component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16236,7 +18236,7 @@
       {
         "id": "CVE-2026-124917",
         "published": "2026-11-10T14:17:25Z",
-        "description": "Sandbox escape due to use-after-free in the Widget: Gtk component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Sandbox escape due to use-after-free in the Widget: Gtk component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "CRITICAL",
         "score": 9.6,
         "cvss_version": "31",
@@ -16246,7 +18246,7 @@
       {
         "id": "CVE-2026-124918",
         "published": "2026-11-10T14:17:25Z",
-        "description": "Privilege escalation due to incorrect boundary conditions in the Graphics: WebRender component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Privilege escalation due to incorrect boundary conditions in the Graphics: WebRender component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16256,7 +18256,7 @@
       {
         "id": "CVE-2026-124919",
         "published": "2026-11-10T14:17:25Z",
-        "description": "Privilege escalation due to use-after-free in the WebRTC: Networking component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Privilege escalation due to use-after-free in the WebRTC: Networking component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16296,7 +18296,7 @@
       {
         "id": "CVE-2026-124905",
         "published": "2026-11-10T14:17:24Z",
-        "description": "Sandbox escape in the DOM: Navigation component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Sandbox escape in the DOM: Navigation component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": null,
         "score": null,
         "cvss_version": null,
@@ -16306,7 +18306,7 @@
       {
         "id": "CVE-2026-124906",
         "published": "2026-11-10T14:17:24Z",
-        "description": "Use-after-free in the Graphics: WebRender component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the Graphics: WebRender component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16316,7 +18316,7 @@
       {
         "id": "CVE-2026-124907",
         "published": "2026-11-10T14:17:24Z",
-        "description": "Privilege escalation, sandbox escape due to use-after-free in the Graphics: CanvasWebGL component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Privilege escalation, sandbox escape due to use-after-free in the Graphics: CanvasWebGL component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16336,7 +18336,7 @@
       {
         "id": "CVE-2026-124909",
         "published": "2026-11-10T14:17:24Z",
-        "description": "Information disclosure in the Private Browsing component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Information disclosure in the Private Browsing component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "MEDIUM",
         "score": 4.3,
         "cvss_version": "31",
@@ -16346,7 +18346,7 @@
       {
         "id": "CVE-2026-124910",
         "published": "2026-11-10T14:17:24Z",
-        "description": "Mitigation bypass in the WebExtensions component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Mitigation bypass in the WebExtensions component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": null,
         "score": null,
         "cvss_version": null,
@@ -16366,7 +18366,7 @@
       {
         "id": "CVE-2026-124895",
         "published": "2026-11-10T14:17:23Z",
-        "description": "Use-after-free in the Storage: localStorage & sessionStorage component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the Storage: localStorage & sessionStorage component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16376,7 +18376,7 @@
       {
         "id": "CVE-2026-124896",
         "published": "2026-11-10T14:17:23Z",
-        "description": "Invalid pointer in the Layout: Text and Fonts component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Invalid pointer in the Layout: Text and Fonts component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": null,
         "score": null,
         "cvss_version": null,
@@ -16386,7 +18386,7 @@
       {
         "id": "CVE-2026-124897",
         "published": "2026-11-10T14:17:23Z",
-        "description": "Use-after-free in the JavaScript: GC component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the JavaScript: GC component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16396,7 +18396,7 @@
       {
         "id": "CVE-2026-124898",
         "published": "2026-11-10T14:17:23Z",
-        "description": "Use-after-free in the DOM: Editor component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the DOM: Editor component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16406,7 +18406,7 @@
       {
         "id": "CVE-2026-124899",
         "published": "2026-11-10T14:17:23Z",
-        "description": "Use-after-free in the Layout: Text and Fonts component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the Layout: Text and Fonts component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16426,7 +18426,7 @@
       {
         "id": "CVE-2026-124901",
         "published": "2026-11-10T14:17:23Z",
-        "description": "Other issue in the Networking: JAR component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Other issue in the Networking: JAR component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": null,
         "score": null,
         "cvss_version": null,
@@ -16436,7 +18436,7 @@
       {
         "id": "CVE-2026-124902",
         "published": "2026-11-10T14:17:23Z",
-        "description": "Same-origin policy bypass due to race condition in the Audio/Video component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Same-origin policy bypass due to race condition in the Audio/Video component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": null,
         "score": null,
         "cvss_version": null,
@@ -16446,7 +18446,7 @@
       {
         "id": "CVE-2026-124903",
         "published": "2026-11-10T14:17:23Z",
-        "description": "Sandbox escape due to use-after-free in the IPC component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Sandbox escape due to use-after-free in the IPC component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "CRITICAL",
         "score": 9.6,
         "cvss_version": "31",
@@ -16456,7 +18456,7 @@
       {
         "id": "CVE-2026-124887",
         "published": "2026-11-10T14:17:22Z",
-        "description": "Incorrect boundary conditions in the Layout: Text and Fonts component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Incorrect boundary conditions in the Layout: Text and Fonts component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16466,7 +18466,7 @@
       {
         "id": "CVE-2026-124888",
         "published": "2026-11-10T14:17:22Z",
-        "description": "Incorrect boundary conditions in the Layout: Text and Fonts component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Incorrect boundary conditions in the Layout: Text and Fonts component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16476,7 +18476,7 @@
       {
         "id": "CVE-2026-124889",
         "published": "2026-11-10T14:17:22Z",
-        "description": "Use-after-free in the CSS Parsing and Computation component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the CSS Parsing and Computation component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16486,7 +18486,7 @@
       {
         "id": "CVE-2026-124890",
         "published": "2026-11-10T14:17:22Z",
-        "description": "Use-after-free in the DOM: Core & HTML component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the DOM: Core & HTML component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16496,7 +18496,7 @@
       {
         "id": "CVE-2026-124891",
         "published": "2026-11-10T14:17:22Z",
-        "description": "Incorrect boundary conditions in the DOM: Selection component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Incorrect boundary conditions in the DOM: Selection component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16506,7 +18506,7 @@
       {
         "id": "CVE-2026-124892",
         "published": "2026-11-10T14:17:22Z",
-        "description": "Use-after-free in the JavaScript: GC component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the JavaScript: GC component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16516,7 +18516,7 @@
       {
         "id": "CVE-2026-124893",
         "published": "2026-11-10T14:17:22Z",
-        "description": "Use-after-free in the DOM: Workers component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the DOM: Workers component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16526,7 +18526,7 @@
       {
         "id": "CVE-2026-124894",
         "published": "2026-11-10T14:17:22Z",
-        "description": "Use-after-free in the Networking: Cookies component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the Networking: Cookies component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16536,7 +18536,7 @@
       {
         "id": "CVE-2026-124881",
         "published": "2026-11-10T14:17:21Z",
-        "description": "Use-after-free in the CSS Parsing and Computation component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the CSS Parsing and Computation component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16546,7 +18546,7 @@
       {
         "id": "CVE-2026-124882",
         "published": "2026-11-10T14:17:21Z",
-        "description": "Use-after-free in the CSS Parsing and Computation component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the CSS Parsing and Computation component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16556,7 +18556,7 @@
       {
         "id": "CVE-2026-124883",
         "published": "2026-11-10T14:17:21Z",
-        "description": "Use-after-free in the DOM: Core & HTML component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the DOM: Core & HTML component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16566,7 +18566,7 @@
       {
         "id": "CVE-2026-124884",
         "published": "2026-11-10T14:17:21Z",
-        "description": "Use-after-free in the JavaScript: GC component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the JavaScript: GC component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16576,7 +18576,7 @@
       {
         "id": "CVE-2026-124885",
         "published": "2026-11-10T14:17:21Z",
-        "description": "Use-after-free in the Graphics: Text component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the Graphics: Text component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16586,7 +18586,7 @@
       {
         "id": "CVE-2026-124886",
         "published": "2026-11-10T14:17:21Z",
-        "description": "Invalid pointer in the Layout: Text and Fonts component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Invalid pointer in the Layout: Text and Fonts component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": null,
         "score": null,
         "cvss_version": null,
@@ -16596,7 +18596,7 @@
       {
         "id": "CVE-2026-124874",
         "published": "2026-11-10T14:17:20Z",
-        "description": "Same-origin policy bypass in the Networking: HTTP component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Same-origin policy bypass in the Networking: HTTP component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": null,
         "score": null,
         "cvss_version": null,
@@ -16606,7 +18606,7 @@
       {
         "id": "CVE-2026-124875",
         "published": "2026-11-10T14:17:20Z",
-        "description": "Incorrect boundary conditions in the DOM: CSS Object Model component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Incorrect boundary conditions in the DOM: CSS Object Model component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16616,7 +18616,7 @@
       {
         "id": "CVE-2026-124876",
         "published": "2026-11-10T14:17:20Z",
-        "description": "Use-after-free in the CSS Parsing and Computation component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the CSS Parsing and Computation component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16626,7 +18626,7 @@
       {
         "id": "CVE-2026-124877",
         "published": "2026-11-10T14:17:20Z",
-        "description": "Use-after-free in the Layout: Positioned component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the Layout: Positioned component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16646,7 +18646,7 @@
       {
         "id": "CVE-2026-124879",
         "published": "2026-11-10T14:17:20Z",
-        "description": "Invalid pointer in the Networking: Cache component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Invalid pointer in the Networking: Cache component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": null,
         "score": null,
         "cvss_version": null,
@@ -16656,7 +18656,7 @@
       {
         "id": "CVE-2026-124880",
         "published": "2026-11-10T14:17:20Z",
-        "description": "Use-after-free in the DOM: Core & HTML component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the DOM: Core & HTML component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16666,7 +18666,7 @@
       {
         "id": "CVE-2026-124866",
         "published": "2026-11-10T14:17:19Z",
-        "description": "Use-after-free in the Layout component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the Layout component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16686,7 +18686,7 @@
       {
         "id": "CVE-2026-124868",
         "published": "2026-11-10T14:17:19Z",
-        "description": "Incorrect boundary conditions in the DOM: Core & HTML component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Incorrect boundary conditions in the DOM: Core & HTML component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16696,7 +18696,7 @@
       {
         "id": "CVE-2026-124869",
         "published": "2026-11-10T14:17:19Z",
-        "description": "Use-after-free in the DOM: Core & HTML component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the DOM: Core & HTML component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16706,7 +18706,7 @@
       {
         "id": "CVE-2026-124870",
         "published": "2026-11-10T14:17:19Z",
-        "description": "Incorrect boundary conditions in the JavaScript: GC component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Incorrect boundary conditions in the JavaScript: GC component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16726,7 +18726,7 @@
       {
         "id": "CVE-2026-124872",
         "published": "2026-11-10T14:17:19Z",
-        "description": "Use-after-free in the Cycle Collector component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the Cycle Collector component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16736,7 +18736,7 @@
       {
         "id": "CVE-2026-124873",
         "published": "2026-11-10T14:17:19Z",
-        "description": "Invalid pointer in the DOM: Editor component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Invalid pointer in the DOM: Editor component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": null,
         "score": null,
         "cvss_version": null,
@@ -16746,7 +18746,7 @@
       {
         "id": "CVE-2026-124858",
         "published": "2026-11-10T14:17:18Z",
-        "description": "Use-after-free in the DOM: HTML Parser component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the DOM: HTML Parser component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16756,7 +18756,7 @@
       {
         "id": "CVE-2026-124859",
         "published": "2026-11-10T14:17:18Z",
-        "description": "Sandbox escape due to incorrect boundary conditions in the Storage: Cache API component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Sandbox escape due to incorrect boundary conditions in the Storage: Cache API component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "CRITICAL",
         "score": 9.6,
         "cvss_version": "31",
@@ -16766,7 +18766,7 @@
       {
         "id": "CVE-2026-124860",
         "published": "2026-11-10T14:17:18Z",
-        "description": "Use-after-free in the Audio/Video component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the Audio/Video component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16776,7 +18776,7 @@
       {
         "id": "CVE-2026-124861",
         "published": "2026-11-10T14:17:18Z",
-        "description": "Sandbox escape due to use-after-free in the Audio/Video: cubeb component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Sandbox escape due to use-after-free in the Audio/Video: cubeb component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "CRITICAL",
         "score": 9.6,
         "cvss_version": "31",
@@ -16786,7 +18786,7 @@
       {
         "id": "CVE-2026-124862",
         "published": "2026-11-10T14:17:18Z",
-        "description": "Use-after-free in the DOM: Core & HTML component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the DOM: Core & HTML component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16796,7 +18796,7 @@
       {
         "id": "CVE-2026-124863",
         "published": "2026-11-10T14:17:18Z",
-        "description": "Use-after-free in the DOM: HTML Parser component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the DOM: HTML Parser component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16806,7 +18806,7 @@
       {
         "id": "CVE-2026-124864",
         "published": "2026-11-10T14:17:18Z",
-        "description": "Sandbox escape due to use-after-free in the DOM: Service Workers component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Sandbox escape due to use-after-free in the DOM: Service Workers component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "CRITICAL",
         "score": 9.6,
         "cvss_version": "31",
@@ -16816,7 +18816,7 @@
       {
         "id": "CVE-2026-124865",
         "published": "2026-11-10T14:17:18Z",
-        "description": "Use-after-free in the Audio/Video component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the Audio/Video component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16826,7 +18826,7 @@
       {
         "id": "CVE-2026-124853",
         "published": "2026-11-10T14:17:17Z",
-        "description": "Sandbox escape due to incorrect boundary conditions in the Graphics: Text component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Sandbox escape due to incorrect boundary conditions in the Graphics: Text component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "CRITICAL",
         "score": 9.6,
         "cvss_version": "31",
@@ -16836,7 +18836,7 @@
       {
         "id": "CVE-2026-124854",
         "published": "2026-11-10T14:17:17Z",
-        "description": "Privilege escalation in the DOM: Navigation component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Privilege escalation in the DOM: Navigation component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": null,
         "score": null,
         "cvss_version": null,
@@ -16846,7 +18846,7 @@
       {
         "id": "CVE-2026-124855",
         "published": "2026-11-10T14:17:17Z",
-        "description": "Sandbox escape in the DOM: Navigation component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Sandbox escape in the DOM: Navigation component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": null,
         "score": null,
         "cvss_version": null,
@@ -16856,7 +18856,7 @@
       {
         "id": "CVE-2026-124856",
         "published": "2026-11-10T14:17:17Z",
-        "description": "Incorrect boundary conditions in the Networking: HTTP component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Incorrect boundary conditions in the Networking: HTTP component. This vulnerability was fixed in Firefox 160, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -16866,7 +18866,7 @@
       {
         "id": "CVE-2026-124857",
         "published": "2026-11-10T14:17:17Z",
-        "description": "Use-after-free in the Graphics: Canvas2D component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, and Thunderbird 160.",
+        "description": "Use-after-free in the Graphics: Canvas2D component. This vulnerability was fixed in Firefox 160, Firefox ESR 115.45, Firefox ESR 153.7, Thunderbird 160, and Thunderbird 153.7.",
         "severity": "HIGH",
         "score": 8.8,
         "cvss_version": "31",
@@ -27091,46 +29091,6 @@
         "score": 4.8,
         "cvss_version": "40",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123496",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120531",
-        "published": "2026-11-07T22:16:36Z",
-        "description": "The Subscribe2 – Form, Email Subscribers & Newsletters plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘data[ip]’ parameter in all versions up to, and including, 10.47 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated att",
-        "severity": "HIGH",
-        "score": 7.2,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120531",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-124060",
-        "published": "2026-11-07T21:17:00Z",
-        "description": "A vulnerability was detected in TOTOLINK CA300-PoE 6.2c.884. Affected by this issue is the function UploadCustomModule of the file /cgi-bin/cstecgi.cgi. The manipulation of the argument File results in buffer overflow. The attack may be launched remotely. The exploit is now public and may be used.",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124060",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-99283",
-        "published": "2026-11-07T21:17:00Z",
-        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnetfilter: conntrack: tcp: use UNACK timeout for non-closing RST packets\n\nCommit be0502a3f2e9 (\"netfilter: conntrack: tcp: only close if RST\nmatches exact sequence\") keeps an established conntrack entry in\nESTABLISHED when an in-wi",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-99283",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-99284",
-        "published": "2026-11-07T21:17:00Z",
-        "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: skbuff: propagate shared-frag marker in skb_zerocopy()\n\nskb_zerocopy() moves frag descriptors from @from into @to and takes a\nreference on each frag, but it does not copy skb_shinfo(from)->flags into\nskb_shinfo(to)->flags.  A ",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-99284",
         "kev": false
       }
     ]
