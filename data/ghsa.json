@@ -1,11 +1,83 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-09T22:34:17Z",
+  "updated_at": "2026-11-10T01:46:45Z",
   "source": "GitHub Security Advisories",
   "source_url": "https://api.github.com/advisories",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-g3qx-frcg-j979",
+      "title": "Kubeflow Pipelines: Reflected XSS in the frontend pod information and events error responses",
+      "published": "2026-11-09T23:25:58Z",
+      "ecosystem": "go",
+      "summary": "## Summary\n\nThe Kubeflow Pipelines frontend reflected untrusted pod names and namespaces into HTML error responses from the pod-information and pod-events routes. An attacker could craft a link that causes JavaScript to execute in the frontend's origin when a user follows it and reaches an affected ",
+      "link": "https://github.com/advisories/GHSA-g3qx-frcg-j979"
+    },
+    {
+      "id": "GHSA-r4mx-2gr2-8277",
+      "title": "Kubeflow Pipelines: SQL injection through unvalidated pagination tokens in Kubeflow Pipelines API server",
+      "published": "2026-11-09T23:25:00Z",
+      "ecosystem": "go",
+      "summary": "## Summary\n\nKubeflow Pipelines API server does not sufficiently validate SQL identifier fields decoded from the `page_token` pagination parameter. Client-controlled fields can reach SQL query construction, allowing SQL injection through list APIs.\n\nThis advisory consolidates the original pipeline-li",
+      "link": "https://github.com/advisories/GHSA-r4mx-2gr2-8277"
+    },
+    {
+      "id": "GHSA-gcwf-c25f-p9rv",
+      "title": "Kiwi TCMS account confirmation open redirect through protocol-relative URLs",
+      "published": "2026-11-09T23:24:14Z",
+      "ecosystem": "pip",
+      "summary": "## Summary\n\nIn Kiwi TCMS version 16.1, the fix for CVE-2026-54724 (open redirect via unvalidated `next` parameter) in the account confirmation endpoint is incomplete. The validation uses `startswith(\"/\")` to check if the redirect URL is local, but this is bypassed by protocol-relative URLs like `//e",
+      "link": "https://github.com/advisories/GHSA-gcwf-c25f-p9rv"
+    },
+    {
+      "id": "GHSA-ghgh-57qv-h687",
+      "title": "Kubeflow Pipelines: RBAC bypass on shared pipelines allows any authenticated user to delete or modify global pipelines",
+      "published": "2026-11-09T22:48:03Z",
+      "ecosystem": "go",
+      "summary": "## Summary\n\nIn multi-user mode, the Kubeflow Pipelines API server skipped authorization checks for shared/global pipelines with an empty namespace. This exception applied to write and delete operations as well as reads, allowing an authenticated user to modify or delete shared pipelines without the ",
+      "link": "https://github.com/advisories/GHSA-ghgh-57qv-h687"
+    },
+    {
+      "id": "GHSA-f7vj-6669-qvv4",
+      "title": "Kubeflow Pipelines — API server fetches a caller-supplied pipelineURL without host validation",
+      "published": "2026-11-09T22:44:17Z",
+      "ecosystem": "go",
+      "summary": "## Summary\n\nThe Kubeflow Pipelines API server fetched caller-supplied pipeline package URLs without restricting the destination. A caller authorized to create a pipeline or pipeline version could cause requests to originate from the API server's network position, including to internal services that ",
+      "link": "https://github.com/advisories/GHSA-f7vj-6669-qvv4"
+    },
+    {
+      "id": "GHSA-2xwh-426q-42c5",
+      "title": "Kubeflow Pipelines: Cross-tenant execution-cache poisoning / output substitution via a namespace-blind cache key in the cache webhook (multi-user)",
+      "published": "2026-11-09T22:43:33Z",
+      "ecosystem": "go",
+      "summary": "## Summary\n\nThe legacy Kubeflow Pipelines V1/raw-Argo execution cache does not separate cached results by Kubernetes namespace. In multi-user deployments where tenants share the cache service, a tenant can receive another tenant's cached outputs or seed outputs that are subsequently substituted into",
+      "link": "https://github.com/advisories/GHSA-2xwh-426q-42c5"
+    },
+    {
+      "id": "GHSA-5xjx-9qx6-jcrv",
+      "title": "Claude Code: TOCTOU Race in Edit Tool Allows File Writes Outside the Workspace",
+      "published": "2026-11-09T22:42:03Z",
+      "ecosystem": "npm",
+      "summary": "Claude Code validated Edit tool targets using point-in-time pathname and symlink resolution that was not bound to the underlying directory inodes or file descriptors. On macOS, a process running inside Claude Code's Bash sandbox could exploit the resulting time-of-check to time-of-use window by atom",
+      "link": "https://github.com/advisories/GHSA-5xjx-9qx6-jcrv"
+    },
+    {
+      "id": "GHSA-x89h-7h96-v88f",
+      "title": "croc: Overwrite-confirmation bypass via a crafted \"croc-stdin-\" filename on receive",
+      "published": "2026-11-09T22:40:12Z",
+      "ecosystem": "go",
+      "summary": "## Summary\n\ncroc is an end-to-end encrypted peer-to-peer file transfer tool. On the receiving side, the confirmation that normally protects an existing file from being overwritten or resumed is skipped whenever the received file's name starts with `croc-stdin-`, regardless of whether the incoming tr",
+      "link": "https://github.com/advisories/GHSA-x89h-7h96-v88f"
+    },
+    {
+      "id": "GHSA-9hq4-hm3j-jmph",
+      "title": "DDEV incomplete tar symlink traversal fix allows host file overwrite - Incomplete fix of CVE-2026-32885",
+      "published": "2026-11-09T22:37:58Z",
+      "ecosystem": "go",
+      "summary": "## Summary\n\nThe CVE-2026-32885 ZipSlip fix added a symlink-target escape check to Untar, but the check rebases an ABSOLUTE symlink target into dest before validating (filepath.Join(dest, \"/etc\") stays lexically inside dest and passes), while the symlink is then created with the RAW absolute target v",
+      "link": "https://github.com/advisories/GHSA-9hq4-hm3j-jmph"
+    },
     {
       "id": "GHSA-h89v-g948-47vp",
       "title": "Moleculer: Unauthenticated Denial of Service via negative length field in the TCP transporter packet parser",
@@ -733,78 +805,6 @@
       "ecosystem": "npm",
       "summary": "### Summary\nThe `forge.http` client stored cookies from `Set-Cookie` response headers in a plain object keyed by cookie name and path. A malicious server could use the cookie name `__proto__` to add properties to `Object.prototype`, use inherited names such as `constructor` to add properties to `Obj",
       "link": "https://github.com/advisories/GHSA-6wvx-3r32-xmcg"
-    },
-    {
-      "id": "GHSA-525v-9gp9-w22h",
-      "title": "Forge: TLS client crash when the server sends no certificate",
-      "published": "2026-10-30T23:02:30Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\nThe forge TLS client's check for a missing server certificate read the wrong property and never ran. A malicious TLS server, or an on-path attacker who removes the server's Certificate message, can make `connection.process()` throw a `TypeError`, which crashes applications that use the f",
-      "link": "https://github.com/advisories/GHSA-525v-9gp9-w22h"
-    },
-    {
-      "id": "GHSA-7wch-p9px-956x",
-      "title": "Forge: Regular expression denial of service in PEM decoding (pem.decode)",
-      "published": "2026-10-30T23:02:25Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n`pem.decode()`, which every node-forge API that parses PEM input uses, split messages with a regular expression that takes polynomial time on input without a matching END line, and parsed encapsulated headers with regular expressions that take quadratic time on long header lines. A remot",
-      "link": "https://github.com/advisories/GHSA-7wch-p9px-956x"
-    },
-    {
-      "id": "GHSA-h6cr-wjv9-3cpp",
-      "title": "Forge: Denial of Service via infinite loop in BigInteger.modInverse() with negative input (incomplete fix of CVE-2026-33891)",
-      "published": "2026-10-30T23:02:20Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\n`BigInteger.prototype.modInverse()` in node-forge's bundled jsbn library enters an infinite loop when the value or the modulus is negative, for example when a negative public exponent is passed to `forge.pki.rsa.generateKeyPair()`. This is an incomplete fix of CVE-2026-33891 (GHSA-5m6q-",
-      "link": "https://github.com/advisories/GHSA-h6cr-wjv9-3cpp"
-    },
-    {
-      "id": "GHSA-4487-j8r4-4g2f",
-      "title": "Forge: verifyCertificateChain() removes trusted CA certificates with the same subject from the CA store",
-      "published": "2026-10-30T23:02:14Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\nWhen a CA store created by `pki.createCaStore()` holds two or more certificates with the same subject name, `pki.verifyCertificateChain()` permanently removes those certificates from the store while trying each one as the issuer. A peer can send any certificate that names that subject a",
-      "link": "https://github.com/advisories/GHSA-4487-j8r4-4g2f"
-    },
-    {
-      "id": "GHSA-5cwg-6vw7-rj6p",
-      "title": "Forge: AES-GCM authentication bypass via unvalidated tagLength option",
-      "published": "2026-10-30T23:02:09Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\nThe AES-GCM mode in forge.cipher does not validate the tagLength option passed to start(). With a tagLength of 0 or a value that converts to 0 (such as null, false, '' or '0'), the authentication tag is empty, and decipher.finish() returns true for any ciphertext and additional data whe",
-      "link": "https://github.com/advisories/GHSA-5cwg-6vw7-rj6p"
-    },
-    {
-      "id": "GHSA-jc66-7q78-782g",
-      "title": "Forge: PKCS#12 MAC forgery and constant-key PBE via zero iteration count",
-      "published": "2026-10-30T23:02:05Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\nforge.pkcs12.pkcs12FromAsn1() accepts a PKCS#12 MAC iteration count of zero (or less) from the input, and the PKCS#12 key derivation function then returns a constant key that does not depend on the password or salt. An attacker who does not know the password can modify a PKCS#12/PFX fil",
-      "link": "https://github.com/advisories/GHSA-jc66-7q78-782g"
-    },
-    {
-      "id": "GHSA-8hrf-8g6f-7xwp",
-      "title": "Forge: Denial of service in TLS record processing via a record interleaved with a fragmented handshake message",
-      "published": "2026-10-30T23:02:00Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\nA connection created with `forge.tls.createConnection()` throws an uncaught `TypeError` from `process()` when it receives a record of another content type while waiting for the rest of a handshake message that was split across records. A peer can trigger this with 18 bytes before the ha",
-      "link": "https://github.com/advisories/GHSA-8hrf-8g6f-7xwp"
-    },
-    {
-      "id": "GHSA-hqq3-7jhf-c5jx",
-      "title": "Forge: Denial of service in TLS record processing via call stack exhaustion",
-      "published": "2026-10-30T23:01:54Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\nConnections created with `forge.tls.createConnection()` processed received TLS records recursively, one stack level per record. A peer can send one chunk of thousands of small records, such as heartbeat records, which are accepted before the handshake, and `process()` throws `RangeError",
-      "link": "https://github.com/advisories/GHSA-hqq3-7jhf-c5jx"
-    },
-    {
-      "id": "GHSA-5x38-2vff-x55p",
-      "title": "Forge: X.509 basicConstraints bypass in verifyCertificateChain() via deprecated extension OIDs 2.5.29.10 and 2.5.29.13",
-      "published": "2026-10-30T23:01:46Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\nnode-forge parses certificate extensions with the deprecated OIDs `2.5.29.10` and `2.5.29.13` as `basicConstraints`, and `forge.pki.verifyCertificateChain()` used the first extension with that name. A certificate with a forged deprecated-OID extension (`cA` TRUE) before its genuine `basi",
-      "link": "https://github.com/advisories/GHSA-5x38-2vff-x55p"
     }
   ]
 }
