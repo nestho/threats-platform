@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-11T05:55:22Z",
+  "updated_at": "2026-11-11T09:51:31Z",
   "source": "Microsoft MSRC + Ubuntu Security Notices",
   "source_url": [
     "https://api.msrc.microsoft.com/update-guide/rss",
@@ -10,6 +10,30 @@
   "normalisation_failures": [],
   "partial": null,
   "items": [
+    {
+      "id": "USN-9040-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9040-1: Linux kernel (Low Latency NVIDIA) vulnerabilities",
+      "published": "2026-11-11T08:27:44Z",
+      "summary": "It was discovered that some AMD processors did not properly perform Reverse Map Table (RMP) checks when the IOMMU accessed certain host buffers. A local attacker with hypervisor access could possibly use this to trigger an out-of-bounds condition and compromise the integrity of SEV-SNP guest memory.",
+      "link": "https://ubuntu.com/security/notices/USN-9040-1"
+    },
+    {
+      "id": "USN-8952-3",
+      "vendor": "Ubuntu",
+      "title": "USN-8952-3: Tornado regression",
+      "published": "2026-11-11T08:15:26Z",
+      "summary": "USN-8952-2 fixed a regression in Tornado that broke static file serving for applications that subclass Tornado's StaticFileHandler, such as Jupyter. Unfortunately, that update's incomplete fix could introduce a regression by rejecting symlinks into system directories like /usr/share, which distribut",
+      "link": "https://ubuntu.com/security/notices/USN-8952-3"
+    },
+    {
+      "id": "USN-9039-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9039-1: Linux kernel (Azure CVM) vulnerabilities",
+      "published": "2026-11-11T08:12:23Z",
+      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - USB Gadget drivers; - Memory management; - Network file systems library; - Networking core; - Stream parser; - ARM32 a",
+      "link": "https://ubuntu.com/security/notices/USN-9039-1"
+    },
     {
       "id": "USN-9037-1",
       "vendor": "Ubuntu",
@@ -545,30 +569,6 @@
       "published": "2026-11-10T08:47:02Z",
       "summary": "It was discovered that some AMD processors did not properly perform Reverse Map Table (RMP) checks when the IOMMU accessed certain host buffers. A local attacker with hypervisor access could possibly use this to trigger an out-of-bounds condition and compromise the integrity of SEV-SNP guest memory.",
       "link": "https://ubuntu.com/security/notices/USN-9025-1"
-    },
-    {
-      "id": "USN-9026-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9026-1: Linux kernel (Azure) vulnerabilities",
-      "published": "2026-11-10T08:46:54Z",
-      "summary": "It was discovered that some AMD processors did not properly perform Reverse Map Table (RMP) checks when the IOMMU accessed certain host buffers. A local attacker with hypervisor access could possibly use this to trigger an out-of-bounds condition and compromise the integrity of SEV-SNP guest memory.",
-      "link": "https://ubuntu.com/security/notices/USN-9026-1"
-    },
-    {
-      "id": "USN-9035-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9035-1: Linux kernel vulnerabilities",
-      "published": "2026-11-10T08:46:39Z",
-      "summary": "Pengfei Wang discovered that the Turtle Beach MultiSound audio device driver in the Linux kernel contained race conditions when fetching from the ring-buffer, leading to an out-of-bounds access. A local attacker could use this to cause a denial of service (system crash) or possibly execute arbitrary",
-      "link": "https://ubuntu.com/security/notices/USN-9035-1"
-    },
-    {
-      "id": "USN-9029-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9029-1: Linux kernel (Raspberry Pi) vulnerabilities",
-      "published": "2026-11-10T08:46:37Z",
-      "summary": "Duoming Zhou discovered race conditions in the AX.25 amateur radio protocol implementation in the Linux kernel, leading to use-after-free vulnerabilities. A local attacker could possibly use this to cause a denial of service (system crash). (CVE-2022-1205) It was discovered that the i.MX clock drive",
-      "link": "https://ubuntu.com/security/notices/USN-9029-1"
     }
   ]
 }
