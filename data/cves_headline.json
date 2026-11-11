@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-10T23:09:04Z",
+  "updated_at": "2026-11-11T01:19:52Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,259 +8,259 @@
   ],
   "note": "Bounded slice of cves.json for the homepage. Use /data/cves.json for the full window.",
   "normalisation_failures": [],
-  "recent_total": 2908,
+  "recent_total": 2933,
   "kev_total": 114,
   "kev_catalog_total": 1779,
   "total": 25,
   "items": [
     {
-      "id": "CVE-2026-96437",
-      "published": "2026-11-10T22:21:17Z",
-      "description": "The ai-azure-content-safety plugin in Kong Gateway Enterprise skips inspection of request bodies larger than the in-memory body buffer, allowing prompts to bypass input content-safety checks.",
-      "severity": "HIGH",
-      "score": 8.2,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96437",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-92443",
-      "published": "2026-11-10T22:21:15Z",
-      "description": "The caching plugins in Kong Gateway Enterprise and Kong AI Gateway may serve a response cached for a request carrying an Authorization or Proxy-Authorization to different callers.",
-      "severity": "HIGH",
-      "score": 8.2,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92443",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-92545",
-      "published": "2026-11-10T22:21:15Z",
-      "description": "The proxy-cache and proxy-cache-advanced plugins in Kong Gateway Enterprise and Kong AI Gateway omit the request hostname from the cache key which may allow a response cached for a hostname to be served for another.",
-      "severity": "HIGH",
-      "score": 8.7,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92545",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-92558",
-      "published": "2026-11-10T22:21:15Z",
-      "description": "The proxy-cache and proxy-cache-advanced plugins in Kong Gateway Enterprise and Kong AI Gateway do not escape separator characters when building the cache key, allowing a remote attacker to cause a response cached for one request to be served for a different request on the same Route.",
+      "id": "CVE-2026-126545",
+      "published": "2026-11-11T01:17:16Z",
+      "description": "WWBN AVideo through 29.7.1 contains a missing authorization vulnerability in API::get_api_tags() in plugin/API/API.php that allows registered users to access restricted video data by querying the tags API. Attackers can subscribe to a tag and query APIName=tags to obtain filenames, titles and stored",
       "severity": "MEDIUM",
-      "score": 6.3,
+      "score": 5.3,
       "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92558",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126545",
       "kev": false
     },
     {
-      "id": "CVE-2026-89324",
-      "published": "2026-11-10T22:21:14Z",
-      "description": "The Basel Post Types plugin for WordPress is vulnerable to Authentication Bypass in all versions up to, and including, 1.18. The vulnerability exists because a missing-quotes coding error in the defined() call for SECURE_AUTH_SALT inside BASEL_Auth::get_config() causes PHP to evaluate the constant's",
+      "id": "CVE-2026-126546",
+      "published": "2026-11-11T01:17:16Z",
+      "description": "Viber for iOS through 29.4.0.24 fails to validate the logical screen width and height in received GIF headers, allowing attackers to crash the app. Attackers can send a crafted GIF with zero dimensions that triggers an uncaught NSInternalInconsistencyException, aborting the app with SIGABRT when ope",
+      "severity": "MEDIUM",
+      "score": 5.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126546",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-126539",
+      "published": "2026-11-11T01:17:15Z",
+      "description": "Directus before 12.1.0 contains an authorization bypass vulnerability that allows unauthenticated attackers to skip permission checks by sending a failed auth message on public-mode WebSocket connections. Attackers can send an invalid token so handleAuthRequest sets accountability to null, then read",
       "severity": "CRITICAL",
-      "score": 9.8,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-89324",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-90832",
-      "published": "2026-11-10T22:21:14Z",
-      "description": "bt_hci_le_per_adv_report_common() in subsys/bluetooth/host/scan.c handles the HCI_LE_Periodic_Advertising_Report (and _v2) event. It verified that the fixed event header was present and that the controller-declared Data_Length fits the tailroom of the periodic-sync reassembly buffer, but never check",
-      "severity": "MEDIUM",
-      "score": 4.3,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-90832",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-90833",
-      "published": "2026-11-10T22:21:14Z",
-      "description": "The simulated EEPROM driver validated access ranges in eeprom_range_is_valid() (drivers/eeprom/eeprom_simulator.c) with a single test, (offset + len) <= config->size. Because offset is a signed off_t and len an unsigned size_t of the same rank, the addition is evaluated in unsigned arithmetic: a neg",
-      "severity": "HIGH",
-      "score": 7.8,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-90833",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-90834",
-      "published": "2026-11-10T22:21:14Z",
-      "description": "The user-mode syscall verifiers for the 16-bit (\"wide data\") UART API in drivers/serial/uart_handlers.c validated the wrong driver operation. z_vrfy_uart_poll_out_u16(), z_vrfy_uart_tx_u16() and z_vrfy_uart_rx_enable_u16() each ran K_SYSCALL_DRIVER_UART() against the 8-bit op (poll_out, tx, rx_enabl",
-      "severity": "MEDIUM",
-      "score": 5.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-90834",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-91000",
-      "published": "2026-11-10T22:21:14Z",
-      "description": "Missing authentication for critical function vulnerability in N-able N-central allows Privilege Escalation.\n\nThis issue affects N-central: before 2026.4.1.",
-      "severity": "HIGH",
-      "score": 8.4,
+      "score": 9.2,
       "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-91000",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126539",
       "kev": false
     },
     {
-      "id": "CVE-2026-92439",
-      "published": "2026-11-10T22:21:14Z",
-      "description": "The SAML plugin in Kong Gateway Enterprise does not enforce AudienceRestriction, allowing a valid assertion issued for another Service Provider to be replayed to authenticate to Kong.",
-      "severity": "HIGH",
-      "score": 7.8,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92439",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-92441",
-      "published": "2026-11-10T22:21:14Z",
-      "description": "Kong Gateway Enterprise and Kong AI Gateway include decoded CR/LF characters from the request path in the X-Forwarded-Prefix header on regex Routes, allowing HTTP header injection and request smuggling to the upstream.",
-      "severity": "HIGH",
-      "score": 7.8,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92441",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-92442",
-      "published": "2026-11-10T22:21:14Z",
-      "description": "The graphql-proxy-cache-advanced plugin in Kong Gateway Enterprise omits the caller's identity from the cache key, allowing a response cached for one caller to be served to another.",
-      "severity": "HIGH",
-      "score": 8.3,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92442",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-87042",
-      "published": "2026-11-10T22:21:12Z",
-      "description": "The IEEE 1588 (PTP) port implementation in subsys/net/lib/ptp/port.c adopted the logMessageInterval field of a received Delay_Resp message without any validation. port_delay_resp_msg_process() stored the raw wire value (a full-range int8_t) into port_ds.log_min_delay_req_interval, and that value is ",
-      "severity": "MEDIUM",
-      "score": 6.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87042",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-82391",
-      "published": "2026-11-10T22:21:05Z",
-      "description": "The HTTP/2 front-end of the Zephyr HTTP server aliased connection receive state as a scratch output. In subsys/net/lib/http/http_server_http2.c, handle_http2_static_fs_resource() passed &client->data_len as the file_size out-parameter of http_server_find_file(). client->data_len is the count of unpr",
-      "severity": "CRITICAL",
-      "score": 9.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82391",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-77685",
-      "published": "2026-11-10T22:20:53Z",
-      "description": "The RFCOMM multiplexer control-channel handler in subsys/bluetooth/host/classic/rfcomm.c computed the echo length for a BT_RFCOMM_TEST command as buf->len - 1 and passed it to rfcomm_send_test(), whose length parameter is a uint8_t. A malformed but FCS-valid UIH frame on DLCI 0 can leave buf->len ==",
-      "severity": "HIGH",
-      "score": 8.3,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-77685",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-67177",
-      "published": "2026-11-10T22:19:18Z",
-      "description": "Chargemap contains a stored cross site scripting vulnerability. A remote, unauthenticated attacker could craft a payload in the username field of the account registration page and associate the new account with a victim's email. The attacker could send a forgotten password request to the victim, and",
-      "severity": "MEDIUM",
-      "score": 5.1,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67177",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-67175",
-      "published": "2026-11-10T22:19:17Z",
-      "description": "Chargemap contains a stored cross-site scripting vulnerability that allows a remote, authenticated attacker to craft a malicious payload in the user profile page that executes when another user views the attacker's profile. Fixed 2026-07-17.",
-      "severity": "MEDIUM",
-      "score": 5.1,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67175",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-67176",
-      "published": "2026-11-10T22:19:17Z",
-      "description": "Chargemap contains an open redirect vulnerability in the authentication login endpoint. A remote, unauthenticated attacker could send a crafted URL to a victim and redirect them to an attacker controlled domain. Fixed 2026-07-17.",
-      "severity": "MEDIUM",
-      "score": 5.1,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67176",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-40670",
-      "published": "2026-11-10T22:18:33Z",
-      "description": "Improper check for unusual or exceptional conditions in AMD Secure Encrypted Virtualization - Secure Nested Paging (SEV-SNP) could allow a privileged attacker to potentially overlap MMIO regions with DRAM regions resulting in loss of integrity.",
-      "severity": "MEDIUM",
-      "score": 5.9,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-40670",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-28247",
-      "published": "2026-11-10T22:18:32Z",
-      "description": "Improper Access Control Applied to Mirrored or Aliased Memory Regions in AMD Secure Encrypted Virtualization (SEV) firmware could allow a malicious hypervisor to change the encryption bit for guest context pages potentially resulting in loss of integrity.",
-      "severity": "MEDIUM",
-      "score": 5.9,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-28247",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-28248",
-      "published": "2026-11-10T22:18:32Z",
-      "description": "Improper enforcement of behavioral workflow in AMD Secure Encrypted Virtualization (SEV) firmware could allow a malicious hypervisor to potentially launch a guest whose attestation report contains an ID key digest for an ID block that doesn't match the guest's measurement resulting in loss of integr",
-      "severity": "MEDIUM",
-      "score": 5.9,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-28248",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-28249",
-      "published": "2026-11-10T22:18:32Z",
-      "description": "Improper preservation of consistency between independent representations of shared state in AMD Secure Encrypted Virtualization (SEV) firmware could allow a malicious hypervisor to potentially affect cache coherency for guest context pages resulting in loss of integrity.",
-      "severity": "MEDIUM",
-      "score": 4.6,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-28249",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-40668",
-      "published": "2026-11-10T22:18:32Z",
-      "description": "Authentication bypass by spoofing in AMD Secure Encrypted Virtualization (SEV) firmware could allow a malicious hypervisor to request attestation reports for VMPL 0.",
-      "severity": "MEDIUM",
-      "score": 4.6,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-40668",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-40669",
-      "published": "2026-11-10T22:18:32Z",
-      "description": "An off-by-one error in AMD Secure Encrypted Virtualization (SEV) firmware could allow an attacker with hypervisor access to corrupt the Reverse Map Table (RMP) table, potentially resulting in loss of guest memory integrity.",
-      "severity": "MEDIUM",
-      "score": 4.0,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-40669",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-125882",
-      "published": "2026-11-10T22:18:31Z",
-      "description": "Relative path traversal vulnerability in N-able N-central allows Path Traversal.\n\nThis issue affects N-central: before 26.4.1.",
+      "id": "CVE-2026-126541",
+      "published": "2026-11-11T01:17:15Z",
+      "description": "WWBN AVideo through 29.7.1 contains a missing authorization vulnerability in Live plugin restream endpoints that allows authenticated streamers to obtain other users' stream keys by supplying arbitrary live_transmitions_history_id values. Attackers can redeem the issued action tokens at verifyTokenF",
       "severity": "HIGH",
       "score": 8.6,
       "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125882",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126541",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-126542",
+      "published": "2026-11-11T01:17:15Z",
+      "description": "WWBN AVideo 6.5 through 29.7.1 contains an authentication bypass vulnerability that allows unauthenticated attackers to log in as any user via Hybridauth social login display names. Attackers can set their X, Facebook, Yahoo or LinkedIn display name to a victim's username and withhold email, causing",
+      "severity": "CRITICAL",
+      "score": 9.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126542",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-126543",
+      "published": "2026-11-11T01:17:15Z",
+      "description": "WWBN AVideo through 29.7.1 contains an improper payment verification vulnerability in plugin/PayPalYPT/ipnV2.php that credits wallets from PayPal IPNs not bound to the site's merchant account. Unauthenticated attackers can forward genuine VERIFIED recurring-payment IPNs from their own PayPal account",
+      "severity": "HIGH",
+      "score": 8.7,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126543",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-126544",
+      "published": "2026-11-11T01:17:15Z",
+      "description": "WWBN AVideo 6.5 through 29.7.1 contains an email verification bypass vulnerability in User::verifyCode() in objects/user.php caused by PHP loose comparison of the recoverPass token. Registered users can reuse the installation-wide salt from their own verification link and craft a code with arbitrary",
+      "severity": "MEDIUM",
+      "score": 5.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126544",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-126495",
+      "published": "2026-11-11T01:17:14Z",
+      "description": "MQTTX desktop through 1.13.3 contains a stored cross-site scripting vulnerability that allows attackers to inject script by publishing malicious MQTT topic names or payloads rendered unescaped in tooltips. Attackers controlling a broker or publishing to subscribed topics can execute script in the El",
+      "severity": "MEDIUM",
+      "score": 5.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126495",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-126496",
+      "published": "2026-11-11T01:17:14Z",
+      "description": "1Panel-dev CordysCRM before 1.9.6 contains an authorization bypass vulnerability in CustomerContactController.get that allows authenticated users to read other users' contacts because no organization, owner or data-scope check is applied. Attackers holding ordinary contact or customer read permissio",
+      "severity": "MEDIUM",
+      "score": 5.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126496",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-126497",
+      "published": "2026-11-11T01:17:14Z",
+      "description": "LibreCAD through 2.2.1.6 contains a heap-based out-of-bounds write vulnerability in the bundled libdxfrw dwgReader18::parseDataPage() function due to unchecked buffer size and page offsets. Attackers can craft an AC1018 (R2004) DWG file with malicious startOffset values that cause decompress18 to wr",
+      "severity": "HIGH",
+      "score": 8.5,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126497",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-126498",
+      "published": "2026-11-11T01:17:14Z",
+      "description": "WriteFreely before 0.17.3 contains a stored cross-site scripting vulnerability that allows authenticated authors to inject HTML by supplying a malicious post slug via the CreatePost API. The raw slug is concatenated into an anchor by augmentReadingDestination() for paid-shortcode posts, executing sc",
+      "severity": "MEDIUM",
+      "score": 5.1,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126498",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-126499",
+      "published": "2026-11-11T01:17:14Z",
+      "description": "Jellyfin before 12.0 contains a path traversal vulnerability in the DELETE /Library/VirtualFolders and POST /Library/VirtualFolders/Name endpoints that allows attackers to delete or move directories via unvalidated library names. Unauthenticated attackers can supply names like .. or absolute paths b",
+      "severity": "HIGH",
+      "score": 8.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126499",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-126188",
+      "published": "2026-11-11T00:18:47Z",
+      "description": "Active Storage makes it simple to upload and reference files in cloud services and attach those files to Active Record objects. Prior to 8.0.5.2 and from 8.1 until 8.1.4.1, Active Storage's ActiveStorage::Previewer::VideoPreviewer, ActiveStorage::Analyzer::VideoAnalyzer, and ActiveStorage::Analyzer:",
+      "severity": "LOW",
+      "score": 3.7,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126188",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-20183",
+      "published": "2026-11-10T23:17:21Z",
+      "description": "A vulnerability in the web-based management interface of Cisco Identity Services Engine (ISE) could allow an authenticated, remote attacker to modify parts of the configuration on an affected device.\r\n\r\nThis vulnerability is due to the lack of server-side validation of&nbsp;Administrator&nbsp;permis",
+      "severity": "MEDIUM",
+      "score": 4.3,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-20183",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-126187",
+      "published": "2026-11-10T23:17:20Z",
+      "description": "React is a JavaScript library for building user interfaces. From 19.0.0 until 19.0.9, 19.1.10, 19.2.9, and 19.3.1, the react-server-dom-webpack, react-server-dom-parcel, and react-server-dom-turbopack packages are vulnerable to unauthenticated remote code execution through crafted payloads targeting",
+      "severity": "CRITICAL",
+      "score": 9.5,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126187",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-126261",
+      "published": "2026-11-10T23:17:20Z",
+      "description": "A improper authorization vulnerability in Fortinet FortiManager 8.0.0, FortiManager 7.6.0 through 7.6.7, FortiManager 7.4.0 through 7.4.5, FortiManager 7.2.0 through 7.2.8 may allow an unauthenticated attacker that can reach the FGFM port to execute code or commands via crafted FGFM packets.",
+      "severity": "CRITICAL",
+      "score": 9.8,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126261",
+      "kev": false
+    },
+    {
+      "id": "CVE-2025-48504",
+      "published": "2026-11-10T23:17:19Z",
+      "description": "Operation on a resource after expiration or release in the Secure Encrypted Virtualization (SEV) firmware could allow a malicious hypervisor to manipulate metadata pages potentially resulting in the loss of confidentiality and integrity of guest memory.",
+      "severity": "MEDIUM",
+      "score": 6.8,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-48504",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-0003",
+      "published": "2026-11-10T23:17:19Z",
+      "description": "Use of a per-part static key in the ASP Bootloader could allow an attacker to downgrade the Secure Encrypted Virtualization (SEV) firmware and exploit known vulnerabilities to decrypt memory potentially resulting in loss of confidentiality.",
+      "severity": "MEDIUM",
+      "score": 5.9,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-0003",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-0435",
+      "published": "2026-11-10T23:17:19Z",
+      "description": "Operation on a resource after expiration or release in the AMD Secure Encrypted Virtualization (SEV) firmware could allow an attacker with administrative privileges to swap out a guest device without the guest's knowledge, potentially resulting in a loss of confidentiality and integrity.",
+      "severity": "MEDIUM",
+      "score": 6.0,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-0435",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-0454",
+      "published": "2026-11-10T23:17:19Z",
+      "description": "An out-of-bounds write in the AMD Secure Encrypted Virtualization (SEV) firmware could allow a malicious hypervisor to corrupt global firmware variables, potentially resulting in loss of integrity.",
+      "severity": "MEDIUM",
+      "score": 4.6,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-0454",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-0480",
+      "published": "2026-11-10T23:17:19Z",
+      "description": "Missing Authentication for Critical Function in AMD Secure Encrypted Virtualization (SEV) firmware could allow a malicious hypervisor to forge SEV-TIO guest request messages potentially compromising SEV-SNP guest memory integrity and confidentiality.",
+      "severity": "MEDIUM",
+      "score": 6.0,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-0480",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-123084",
+      "published": "2026-11-10T23:17:19Z",
+      "description": "An **expression language injection** has been found in the HeaderContentGuard.permit function in publication.py of the content guard in the **Pulpcore** package. The guard is supposed to check a value in a request header. It saves a jq filter and runs that filter against the header when a client ask",
+      "severity": "MEDIUM",
+      "score": 6.5,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123084",
+      "kev": false
+    },
+    {
+      "id": "CVE-2024-36309",
+      "published": "2026-11-10T23:17:18Z",
+      "description": "Missing Lock Bit Protection in the Northbridge IO (NBIO) could allow a privileged attacker to use an intentionally disabled device as part of a remapping attack potentially impacting data confidentiality, integrity, or availability.",
+      "severity": "MEDIUM",
+      "score": 4.6,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2024-36309",
+      "kev": false
+    },
+    {
+      "id": "CVE-2025-0008",
+      "published": "2026-11-10T23:17:18Z",
+      "description": "Insufficient verification of data authenticity may allow a local attacker to bypass Secure Debug Unlock (SDU), potentially resulting in unauthorized debug access.",
+      "severity": "HIGH",
+      "score": 8.4,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-0008",
+      "kev": false
+    },
+    {
+      "id": "CVE-2025-29941",
+      "published": "2026-11-10T23:17:18Z",
+      "description": "Incorrect usage of seeds in pseudo-random number generator in the Secure Encrypted Virtualization (SEV) firmware could allow a malicious hypervisor or migration agent to import a forged guest context potentially resulting in loss of confidentiality for derived guest keys.",
+      "severity": "MEDIUM",
+      "score": 6.0,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-29941",
       "kev": false
     }
   ]
