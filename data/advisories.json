@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-11T22:53:52Z",
+  "updated_at": "2026-11-12T02:50:03Z",
   "source": "Microsoft MSRC + Ubuntu Security Notices",
   "source_url": [
     "https://api.msrc.microsoft.com/update-guide/rss",
@@ -11,12 +11,84 @@
   "partial": null,
   "items": [
     {
-      "id": "USN-9046-1",
+      "id": "USN-9063-1",
       "vendor": "Ubuntu",
-      "title": "USN-9046-1: MySQL vulnerabilities",
-      "published": "2026-11-11T17:42:27Z",
-      "summary": "Multiple security issues were discovered in MySQL. MySQL has been updated to 8.4.13 in Ubuntu 26.04 LTS. Ubuntu 26.10 has been updated to MySQL 9.7.4. Ubuntu 22.04 LTS and Ubuntu 24.04 LTS packages have been updated with backported patches. In addition to security fixes, the updated packages contain",
-      "link": "https://ubuntu.com/security/notices/USN-9046-1"
+      "title": "USN-9063-1: Yodl vulnerability",
+      "published": "2026-11-11T18:33:50Z",
+      "summary": "It was discovered that Yodl incorrectly handled certain input, leading to a buffer over-read. An attacker could possibly use this issue to cause Yodl to crash, resulting in a denial of service.",
+      "link": "https://ubuntu.com/security/notices/USN-9063-1"
+    },
+    {
+      "id": "USN-9062-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9062-1: SNMPTT vulnerability",
+      "published": "2026-11-11T18:33:46Z",
+      "summary": "It was discovered that SNMPTT did not properly sanitize trap data passed to commands run through the EXEC, PREEXEC, and unknown_trap_exec options. A remote attacker could possibly use this issue to execute arbitrary shell commands.",
+      "link": "https://ubuntu.com/security/notices/USN-9062-1"
+    },
+    {
+      "id": "USN-9060-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9060-1: kramdown vulnerability",
+      "published": "2026-11-11T18:33:31Z",
+      "summary": "It was discovered that kramdown processed the template option in documents by default. An attacker could possibly use this issue to read arbitrary files or execute arbitrary code.",
+      "link": "https://ubuntu.com/security/notices/USN-9060-1"
+    },
+    {
+      "id": "USN-9059-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9059-1: ruby-jwt vulnerability",
+      "published": "2026-11-11T18:33:24Z",
+      "summary": "It was discovered that ruby-jwt incorrectly verified HMAC signatures when the verification key was empty or missing. A remote attacker could possibly use this issue to forge tokens and bypass authentication.",
+      "link": "https://ubuntu.com/security/notices/USN-9059-1"
+    },
+    {
+      "id": "USN-9058-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9058-1: Action Pack Page Caching vulnerability",
+      "published": "2026-11-11T18:33:04Z",
+      "summary": "It was discovered that Action Pack Page Caching incorrectly handled certain request paths when writing cached pages. A remote attacker could possibly use this issue to write arbitrary files to the web server, and possibly execute arbitrary code.",
+      "link": "https://ubuntu.com/security/notices/USN-9058-1"
+    },
+    {
+      "id": "USN-9057-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9057-1: rkhunter vulnerability",
+      "published": "2026-11-11T18:32:52Z",
+      "summary": "It was discovered that rkhunter downloaded mirror updates over an insecure channel. A remote attacker could possibly use this issue to execute arbitrary code.",
+      "link": "https://ubuntu.com/security/notices/USN-9057-1"
+    },
+    {
+      "id": "USN-9056-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9056-1: Prosody Community Modules vulnerability",
+      "published": "2026-11-11T18:32:46Z",
+      "summary": "It was discovered that the LDAP authentication modules in Prosody Community Modules did not fully verify XMPP addresses when checking for administrator privileges. A remote attacker could possibly use this issue to gain administrator privileges.",
+      "link": "https://ubuntu.com/security/notices/USN-9056-1"
+    },
+    {
+      "id": "USN-9055-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9055-1: pecl_http vulnerability",
+      "published": "2026-11-11T18:32:38Z",
+      "summary": "It was discovered that pecl_http incorrectly handled certain HTTP request parameters, leading to a type confusion. A remote attacker could possibly use this issue to cause PHP to crash, resulting in a denial of service, or execute arbitrary code.",
+      "link": "https://ubuntu.com/security/notices/USN-9055-1"
+    },
+    {
+      "id": "USN-9054-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9054-1: Babel vulnerability",
+      "published": "2026-11-11T18:32:25Z",
+      "summary": "It was discovered that Babel incorrectly evaluated certain code during compilation when used with certain plugins. If a user or an automated system were tricked into compiling specially crafted code, an attacker could possibly use this issue to execute arbitrary code.",
+      "link": "https://ubuntu.com/security/notices/USN-9054-1"
+    },
+    {
+      "id": "USN-9053-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9053-1: NetworkManager-ssh vulnerability",
+      "published": "2026-11-11T18:32:05Z",
+      "summary": "It was discovered that NetworkManager-ssh did not properly validate extra options in VPN connection settings. A local attacker could possibly use this issue to escalate privileges.",
+      "link": "https://ubuntu.com/security/notices/USN-9053-1"
     },
     {
       "id": "CVE-2026-105544",
@@ -249,78 +321,6 @@
       "published": "2026-11-11T16:00:00Z",
       "summary": "Changes made to the security updates links and information. This is an informational change only.",
       "link": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-118741"
-    },
-    {
-      "id": "USN-9041-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9041-1: uutils coreutils vulnerabilities",
-      "published": "2026-11-11T10:45:28Z",
-      "summary": "It was discovered that uutils coreutils mkfifo incorrectly continued processing when a target file already existed, applying default permissions to the existing file. A local attacker could possibly use this issue to obtain sensitive information or modify file permissions unexpectedly. (CVE-2026-353",
-      "link": "https://ubuntu.com/security/notices/USN-9041-1"
-    },
-    {
-      "id": "USN-9043-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9043-1: Linux kernel (NVIDIA) vulnerabilities",
-      "published": "2026-11-11T10:40:18Z",
-      "summary": "It was discovered that some AMD processors did not properly perform Reverse Map Table (RMP) checks when the IOMMU accessed certain host buffers. A local attacker with hypervisor access could possibly use this to trigger an out-of-bounds condition and compromise the integrity of SEV-SNP guest memory.",
-      "link": "https://ubuntu.com/security/notices/USN-9043-1"
-    },
-    {
-      "id": "USN-9045-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9045-1: Linux kernel (NVIDIA) vulnerability",
-      "published": "2026-11-11T10:40:10Z",
-      "summary": "A security issue was discovered in the Linux kernel. An attacker could possibly use this to compromise the system. This update corrects flaws in the following subsystems: - IPv4 networking;",
-      "link": "https://ubuntu.com/security/notices/USN-9045-1"
-    },
-    {
-      "id": "USN-9044-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9044-1: Linux kernel (NVIDIA BaseOS) vulnerabilities",
-      "published": "2026-11-11T10:40:04Z",
-      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Network drivers; - IPv4 networking; (CVE-2026-98239, CVE-2026-98432)",
-      "link": "https://ubuntu.com/security/notices/USN-9044-1"
-    },
-    {
-      "id": "USN-9040-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9040-1: Linux kernel (Low Latency NVIDIA) vulnerabilities",
-      "published": "2026-11-11T08:27:44Z",
-      "summary": "It was discovered that some AMD processors did not properly perform Reverse Map Table (RMP) checks when the IOMMU accessed certain host buffers. A local attacker with hypervisor access could possibly use this to trigger an out-of-bounds condition and compromise the integrity of SEV-SNP guest memory.",
-      "link": "https://ubuntu.com/security/notices/USN-9040-1"
-    },
-    {
-      "id": "USN-8952-3",
-      "vendor": "Ubuntu",
-      "title": "USN-8952-3: Tornado regression",
-      "published": "2026-11-11T08:15:26Z",
-      "summary": "USN-8952-2 fixed a regression in Tornado that broke static file serving for applications that subclass Tornado's StaticFileHandler, such as Jupyter. Unfortunately, that update's incomplete fix could introduce a regression by rejecting symlinks into system directories like /usr/share, which distribut",
-      "link": "https://ubuntu.com/security/notices/USN-8952-3"
-    },
-    {
-      "id": "USN-9039-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9039-1: Linux kernel (Azure CVM) vulnerabilities",
-      "published": "2026-11-11T08:12:23Z",
-      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - USB Gadget drivers; - Memory management; - Network file systems library; - Networking core; - Stream parser; - ARM32 a",
-      "link": "https://ubuntu.com/security/notices/USN-9039-1"
-    },
-    {
-      "id": "USN-9037-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9037-1: HPLIP vulnerabilities",
-      "published": "2026-11-10T19:50:31Z",
-      "summary": "It was discovered that HPLIP did not properly handle certain data, which could result in an out-of-bounds write. An attacker could possibly use this issue to cause a denial of service, expose sensitive information or execute arbitrary code. (CVE-2026-91097) It was discovered that HPLIP did not prope",
-      "link": "https://ubuntu.com/security/notices/USN-9037-1"
-    },
-    {
-      "id": "USN-9038-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9038-1: GStreamer Good Plugins, GStreamer Base Plugins vulnerabilities",
-      "published": "2026-11-10T18:38:56Z",
-      "summary": "It was discovered that GStreamer Good Plugins did not properly handle certain network streams. A remote attacker could possibly use this issue to cause an application crash or execute arbitrary code. This issue only affected Ubuntu 16.04 LTS, Ubuntu 18.04 LTS, and Ubuntu 20.04 LTS. (CVE-2026-3083, C",
-      "link": "https://ubuntu.com/security/notices/USN-9038-1"
     },
     {
       "id": "CVE-2026-102868",
