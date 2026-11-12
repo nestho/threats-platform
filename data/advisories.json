@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-12T17:44:58Z",
+  "updated_at": "2026-11-12T22:52:33Z",
   "source": "Microsoft MSRC + Ubuntu Security Notices",
   "source_url": [
     "https://api.msrc.microsoft.com/update-guide/rss",
@@ -10,6 +10,22 @@
   "normalisation_failures": [],
   "partial": null,
   "items": [
+    {
+      "id": "USN-9090-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9090-1: Apache HTTP Server vulnerabilities",
+      "published": "2026-11-12T21:25:57Z",
+      "summary": "Zhenpeng Lin discovered that Apache HTTP Server's mod_dav module incorrectly calculated memory sizes when handling WebDAV locks. An attacker with permission to create WebDAV locks could possibly use this issue to cause Apache HTTP Server to crash, resulting in a denial of service. (CVE-2026-42528) I",
+      "link": "https://ubuntu.com/security/notices/USN-9090-1"
+    },
+    {
+      "id": "USN-8895-2",
+      "vendor": "Ubuntu",
+      "title": "USN-8895-2: Sudo vulnerability",
+      "published": "2026-11-12T20:06:18Z",
+      "summary": "USN-8895-1 fixed a vulnerability in Sudo. This update provides the corresponding updates for Ubuntu 18.04 LTS and Ubuntu 20.04 LTS. Original advisory details: It was discovered that Sudo did not properly handle time-based access restrictions when sudoers rules used NOTBEFORE or NOTAFTER with timesta",
+      "link": "https://ubuntu.com/security/notices/USN-8895-2"
+    },
     {
       "id": "USN-9066-1",
       "vendor": "Ubuntu",
@@ -33,6 +49,22 @@
       "published": "2026-11-12T16:00:00Z",
       "summary": "Updated the Security Updates table to include affected Windows versions and the applicable November 2026 security updates. Microsoft recommends that customers install the applicable updates to be protected from this vulnerability.",
       "link": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-111497"
+    },
+    {
+      "id": "USN-9064-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9064-1: Pillow vulnerabilities",
+      "published": "2026-11-12T15:55:24Z",
+      "summary": "It was discovered that Pillow could enter an infinite loop while determining the frame count of a MIC image. An attacker could possibly use this issue to cause a denial of service. This issue only affected Ubuntu 26.10, Ubuntu 26.04 LTS, Ubuntu 24.04 LTS, and Ubuntu 22.04 LTS. (CVE-2026-112390) It w",
+      "link": "https://ubuntu.com/security/notices/USN-9064-1"
+    },
+    {
+      "id": "USN-9065-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9065-1: GNU C Library vulnerabilities",
+      "published": "2026-11-12T14:08:35Z",
+      "summary": "It was discovered that the GNU C Library incorrectly handled the ccs= option in the fopen function. An attacker could possibly use this issue to cause GNU C Library to crash or execute arbitrary code. (CVE-2026-18374) It was discovered that the GNU C Library incorrectly handled long domain names in ",
+      "link": "https://ubuntu.com/security/notices/USN-9065-1"
     },
     {
       "id": "USN-9063-1",
@@ -65,38 +97,6 @@
       "published": "2026-11-11T18:33:24Z",
       "summary": "It was discovered that ruby-jwt incorrectly verified HMAC signatures when the verification key was empty or missing. A remote attacker could possibly use this issue to forge tokens and bypass authentication.",
       "link": "https://ubuntu.com/security/notices/USN-9059-1"
-    },
-    {
-      "id": "USN-9058-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9058-1: Action Pack Page Caching vulnerability",
-      "published": "2026-11-11T18:33:04Z",
-      "summary": "It was discovered that Action Pack Page Caching incorrectly handled certain request paths when writing cached pages. A remote attacker could possibly use this issue to write arbitrary files to the web server, and possibly execute arbitrary code.",
-      "link": "https://ubuntu.com/security/notices/USN-9058-1"
-    },
-    {
-      "id": "USN-9057-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9057-1: rkhunter vulnerability",
-      "published": "2026-11-11T18:32:52Z",
-      "summary": "It was discovered that rkhunter downloaded mirror updates over an insecure channel. A remote attacker could possibly use this issue to execute arbitrary code.",
-      "link": "https://ubuntu.com/security/notices/USN-9057-1"
-    },
-    {
-      "id": "USN-9056-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9056-1: Prosody Community Modules vulnerability",
-      "published": "2026-11-11T18:32:46Z",
-      "summary": "It was discovered that the LDAP authentication modules in Prosody Community Modules did not fully verify XMPP addresses when checking for administrator privileges. A remote attacker could possibly use this issue to gain administrator privileges.",
-      "link": "https://ubuntu.com/security/notices/USN-9056-1"
-    },
-    {
-      "id": "USN-9055-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9055-1: pecl_http vulnerability",
-      "published": "2026-11-11T18:32:38Z",
-      "summary": "It was discovered that pecl_http incorrectly handled certain HTTP request parameters, leading to a type confusion. A remote attacker could possibly use this issue to cause PHP to crash, resulting in a denial of service, or execute arbitrary code.",
-      "link": "https://ubuntu.com/security/notices/USN-9055-1"
     },
     {
       "id": "CVE-2026-105544",
