@@ -1,11 +1,19 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-12T13:00:24Z",
+  "updated_at": "2026-11-12T17:44:54Z",
   "source": "GitHub Security Advisories",
   "source_url": "https://api.github.com/advisories",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-4g86-54fm-h9h8",
+      "title": "Microsoft Security Advisory CVE-2026-118740 - Aspire Security Feature Bypass Vulnerability",
+      "published": "2026-11-12T17:17:48Z",
+      "ecosystem": "nuget",
+      "summary": "## Executive summary\n\nMicrosoft is releasing this security advisory to provide information about a vulnerability in Aspire. This advisory provides guidance on updating affected applications and components.\n\nAspire Dashboard's unauthenticated NotFound route can permit telemetry deletion in both stand",
+      "link": "https://github.com/advisories/GHSA-4g86-54fm-h9h8"
+    },
     {
       "id": "GHSA-x8x8-p968-x646",
       "title": "Microsoft Security Advisory CVE-2026-118745 - Visual Studio Remote Code Execution Vulnerability",
@@ -309,6 +317,14 @@
       "ecosystem": "nuget",
       "summary": "## Duplicate Advisory\n\nThis advisory has been withdrawn because it is a duplicate of GHSA-x8x8-p968-x646. This link is maintained to preserve external references.\n\n## Original Description\nHeap-based buffer overflow in Visual Studio allows an unauthorized attacker to execute code over a network.",
       "link": "https://github.com/advisories/GHSA-cfv6-4v53-fff6"
+    },
+    {
+      "id": "GHSA-2f3w-v7f5-vpgx",
+      "title": "Duplicate Advisory: Microsoft Security Advisory CVE-2026-118740 - Aspire Security Feature Bypass Vulnerability",
+      "published": "2026-11-10T21:33:09Z",
+      "ecosystem": "nuget",
+      "summary": "## Duplicate Advisory\n\nThis advisory has been withdrawn because it is a duplicate of GHSA-4g86-54fm-h9h8. This link is maintained to preserve external references.\n\n## Original Description\nMissing authorization in Aspire allows an unauthorized attacker to bypass a security feature over a network.",
+      "link": "https://github.com/advisories/GHSA-2f3w-v7f5-vpgx"
     },
     {
       "id": "GHSA-95x6-7hq8-2c37",
@@ -789,22 +805,6 @@
       "ecosystem": "go",
       "summary": "## Summary\n\ngopacket decodes SCTP (IP protocol 132) by walking the chunk chain through per-chunk-type decoder functions (`decodeSCTPInit`, `decodeSCTPShutdown`, `decodeSCTPError`, `decodeSCTPSack`, in `layers/sctp.go`). Each of these reads fixed-size header fields and runs count-driven loops **witho",
       "link": "https://github.com/advisories/GHSA-358w-w75h-x6rx"
-    },
-    {
-      "id": "GHSA-5m6c-38r8-5w76",
-      "title": "Dagu MCP DAG specification read bypasses path containment and workspace isolation",
-      "published": "2026-11-10T15:56:49Z",
-      "ecosystem": "go",
-      "summary": "## Summary\n\nThe traversal fix for CVE-2026-33344 was implemented as HTTP middleware installed only in the chi handler chain, but the MCP service calls the same API method in process, so arbitrary YAML file read is reachable again through the MCP tool surface with a viewer-role key. Read-only, limite",
-      "link": "https://github.com/advisories/GHSA-5m6c-38r8-5w76"
-    },
-    {
-      "id": "GHSA-g3qx-frcg-j979",
-      "title": "Kubeflow Pipelines: Reflected XSS in the frontend pod information and events error responses",
-      "published": "2026-11-09T23:25:58Z",
-      "ecosystem": "go",
-      "summary": "## Summary\n\nThe Kubeflow Pipelines frontend reflected untrusted pod names and namespaces into HTML error responses from the pod-information and pod-events routes. An attacker could craft a link that causes JavaScript to execute in the frontend's origin when a user follows it and reaches an affected ",
-      "link": "https://github.com/advisories/GHSA-g3qx-frcg-j979"
     }
   ]
 }
