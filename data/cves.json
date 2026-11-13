@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-13T21:54:45Z",
+  "updated_at": "2026-11-13T23:56:13Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,411 @@
   ],
   "recent": {
     "lookback_days": 3,
-    "total": 1899,
-    "items_available": 1899,
+    "total": 1825,
+    "items_available": 1825,
     "normalisation_failures": [],
-    "items_parsed": 1899,
+    "items_parsed": 1825,
     "items": [
+      {
+        "id": "CVE-2026-129180",
+        "published": "2026-11-13T23:17:19Z",
+        "description": "A flaw has been found in projectworlds Visitor Management System 1.0. This vulnerability affects the function mysqli_query of the file actionpage.php. This manipulation of the argument purpose causes sql injection. It is possible to initiate the attack remotely. The exploit has been published and ma",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129180",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-71519",
+        "published": "2026-11-13T23:17:19Z",
+        "description": "PrestaShop before 8.2.9 and 9.2.1 contains a broken access control vulnerability that allows an authenticated Webservice API key holder to read and modify customer records belonging to any shop in a multi-shop installation. Attackers can exploit the missing record-level shop ownership check in shopH",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-71519",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-71531",
+        "published": "2026-11-13T23:17:19Z",
+        "description": "PrestaShop before 8.2.9 and 9.2.1 contains an authorization flaw in the Webservice API that allows an attacker holding a key restricted to one shop to act on data of every shop by submitting requests with id_shop=all or id_shop_group=N, which expand the shop context without validating the key's actu",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-71531",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129173",
+        "published": "2026-11-13T23:17:18Z",
+        "description": "A security flaw has been discovered in Stirling-Tools Stirling-PDF up to 3.3.0. Affected is the function WorkflowParticipantController.getParticipantDetails of the file app/proprietary/src/main/java/stirling/software/proprietary/workflow/controller/WorkflowParticipantController.java of the component",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129173",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-128134",
+        "published": "2026-11-13T23:17:17Z",
+        "description": "NLTK (Natural Language Toolkit) is a suite of open source Python modules, data sets, and tutorials supporting research and development in Natural Language Processing. Prior to 3.10.4, nltk.parse.dependencygraph.dot2img resolves the Graphviz dot executable through PATH but invokes the resulting absol",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-128134",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-94407",
+        "published": "2026-11-13T22:17:27Z",
+        "description": "IBM ContextForge MCP Gateway 1.0.0 through 1.0.11 is potentially vulnerable to denial of service due to uncontrolled regular expression complexity (CWE-400 / ReDoS). An authenticated user with tool-registration privileges can embed catastrophically backtracking regex patterns in a tool's JSON Schema",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-94407",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-97683",
+        "published": "2026-11-13T22:17:27Z",
+        "description": "IBM Cyber Fraud 1.0.0 through 1.1.0 could allow a local attacker to bypass security restrictions due to a missing or misconfigured security context.",
+        "severity": "LOW",
+        "score": 2.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97683",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-9661",
+        "published": "2026-11-13T22:17:27Z",
+        "description": "Poste Italiane Postecert FIRMAOK! 1.6.29 on Windows contains a local privilege escalation vulnerability caused by an uncontrolled OpenSSL search path, where launcher.exe and dependent executables such as updater.exe and tslupdater.exe load OpenSSL configuration and library files from a hardcoded, us",
+        "severity": "HIGH",
+        "score": 7.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-9661",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-9821",
+        "published": "2026-11-13T22:17:27Z",
+        "description": "IBM Cyber Fraud 1.0.0 through 1.1.0 could allow an unauthorized user to inject data into log messages due to improper neutralization of special elements when written to log files.",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-9821",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-9870",
+        "published": "2026-11-13T22:17:27Z",
+        "description": "IBM Cyber Fraud 1.0.0 through 1.1.0 is vulnerable to cross-site scripting. This vulnerability allows an unauthenticated attacker to embed arbitrary JavaScript code in the Web UI thus altering the intended functionality potentially leading to credentials disclosure within a trusted session.",
+        "severity": "MEDIUM",
+        "score": 6.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-9870",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-82102",
+        "published": "2026-11-13T22:17:26Z",
+        "description": "IBM DataStage on Cloud Pak for Data 5.4.0.0 could allow a remote authenticated attacker to obtain sensitive information due to a server-side request forgery vulnerability.",
+        "severity": "MEDIUM",
+        "score": 6.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82102",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-91868",
+        "published": "2026-11-13T22:17:26Z",
+        "description": "IBM Security QRadar EDR 3.12 through 3.12.26 could allow a remote authenticated attacker to obtain sensitive information due to improper access control.",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-91868",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-91869",
+        "published": "2026-11-13T22:17:26Z",
+        "description": "IBM Security QRadar EDR 3.12 through 3.12.26 could allow a remote authenticated attacker to bypass security restrictions due to improper rate limiting on TOTP verification.",
+        "severity": "HIGH",
+        "score": 8.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-91869",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-19194",
+        "published": "2026-11-13T22:17:25Z",
+        "description": "The HashiCorp cap JWT validation library before version 0.14.0 is vulnerable to a claims validation bypass that may cause downstream applications to make authorization decisions using claim values different from those validated. Exploitation requires attacker-controlled claims in a JWT signed by a k",
+        "severity": "MEDIUM",
+        "score": 5.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-19194",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-5514",
+        "published": "2026-11-13T22:17:25Z",
+        "description": "IBM Bob 2.0.3 allows unauthorized extensions to retrieve session tokens via the authentication provider API. The token is exposed in the account identifier field during account enumeration, without requiring explicit user consent. This may allow malicious extensions to access sensitive session infor",
+        "severity": "LOW",
+        "score": 3.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-5514",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129137",
+        "published": "2026-11-13T22:17:24Z",
+        "description": "Incorrect default permissions in the agent configuration folder in Devolutions PowerShell Universal 2026.3.4 and earlier allows a local unprivileged user to execute arbitrary code as SYSTEM via a crafted agent configuration file that points the agent to an attacker-controlled server.",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129137",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-128886",
+        "published": "2026-11-13T22:17:23Z",
+        "description": "A flaw was found in dbus when configured with the nonce-tcp transport. An unauthenticated attacker able to connect to an exposed listener can cause a Denial of Service (DoS) by opening a connection and withholding the expected authentication token. Because the server processes this verification with",
+        "severity": "MEDIUM",
+        "score": 6.2,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-128886",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-124020",
+        "published": "2026-11-13T22:17:22Z",
+        "description": "Control Web Panel (CWP) before webpanel_version 1.30.6 contains a host header injection vulnerability that allows unauthenticated attackers to manipulate the password-recovery reset URL by injecting the HTTP Host header into the /v1/lostpass/ route's token generation process. Attackers can lure an a",
+        "severity": "CRITICAL",
+        "score": 9.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124020",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-124021",
+        "published": "2026-11-13T22:17:22Z",
+        "description": "Control Web Panel (CWP) before webpanel_version 1.30.6 contains an authorization bypass vulnerability in the validate() function of api/v1/index.php that allows attackers holding a password-recovery token and a predictable legacy signature to obtain valid remote-API authorization without a proper AP",
+        "severity": "CRITICAL",
+        "score": 9.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124021",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-110279",
+        "published": "2026-11-13T22:17:21Z",
+        "description": "IBM ContextForge MCP Gateway 1.0.0 through 1.1.0 is vulnerable to improper credential handling because the X-Upstream-Authorization request header can override the gateway-managed upstream credential for OAuth (authorization_code and client_credentials), bearer and basic authenticated gateways, whic",
+        "severity": "HIGH",
+        "score": 8.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110279",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-110330",
+        "published": "2026-11-13T22:17:21Z",
+        "description": "A flaw was found in abrt. abrt-server trusts a client-supplied PID when creating problem dumps over abrt.socket and, running as root, copies that process's /proc data (including environ) into a dump directory owned by the connecting unprivileged user. This allows a local attacker to read environment",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110330",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-110331",
+        "published": "2026-11-13T22:17:21Z",
+        "description": "A flaw was found in abrt. The completeness check introduced to mitigate CVE-2026-54228 and CVE-2026-54229 only verifies that a dump directory contains a \"count\" element, which an unprivileged user can create. This allows a local attacker to bypass the guard and again poison elements in, or seize own",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110331",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-114468",
+        "published": "2026-11-13T22:17:21Z",
+        "description": "IBM App Connect Operator and App Connect Enterprise Certified Containers Operands could allow an attacker with the ability to run HTTP calls within the running container to can make administrative calls to a running IntegrationRuntime.",
+        "severity": "MEDIUM",
+        "score": 6.0,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-114468",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-115501",
+        "published": "2026-11-13T22:17:21Z",
+        "description": "IBM i 7.3 7.4, 7.5, and 7.6 is vulnerable to a stack buffer overflow, caused by improper bounds checking in the QFileSvr.400 file system. By sending a command in the QFileSvr.400 file system, a local authenticated attacker could cause undefined behavior.",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115501",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-115788",
+        "published": "2026-11-13T22:17:21Z",
+        "description": "IBM App Connect Operator and IBM App Connect Enterprise Certified Containers Operands is vulnerable to Log Forging on a request to create a resource.",
+        "severity": "HIGH",
+        "score": 8.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115788",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-123628",
+        "published": "2026-11-13T22:17:21Z",
+        "description": "IBM webMethods Integration Server 10.15 and 11.1 could allow a remote attacker to obtain sensitive information due to an exposure of sensitive server-side environment variables and Java runtime details.",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123628",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-109158",
+        "published": "2026-11-13T22:17:20Z",
+        "description": "IBM App Connect Operator and IBM App Connect Enterprise Certified Containers Operands may allow the AI Agent to log sensitive information about the deployed environment within error messages.",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-109158",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-110178",
+        "published": "2026-11-13T22:17:20Z",
+        "description": "IBM ContextForge MCP Gateway 1.0.0 through 1.0.11 is vulnerable to improper access control in the bulk import path. A remote authenticated attacker holding a team-scoped `admin.import` permission can overwrite the endpoint URL, request headers, and authentication credentials of public tools, resourc",
+        "severity": "MEDIUM",
+        "score": 4.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110178",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-110189",
+        "published": "2026-11-13T22:17:20Z",
+        "description": "IBM ContextForge MCP Gateway 1.0.8 through 1.0.11, and v1.1.0  is vulnerable to denial of service due to an incomplete denylist in the jq filter guard module (CWE-184). An authenticated remote attacker can supply a crafted `jsonpath_filter` value containing `halt`, `halt_error`, or unbounded-loop bu",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110189",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-110194",
+        "published": "2026-11-13T22:17:20Z",
+        "description": "IBM ContextForge MCP Gateway 1.0.0 through 1.0.11 is vulnerable to server-side request forgery (SSRF). This may allow an authenticated attacker to send unauthorized requests from the system, potentially leading to network enumeration or facilitating other attacks.",
+        "severity": "MEDIUM",
+        "score": 5.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110194",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-110195",
+        "published": "2026-11-13T22:17:20Z",
+        "description": "IBM ContextForge MCP Gateway 1.0.0 through 1.0.11 could allow an authenticated caller to bypass upstream credential-level authorization policies due to an insufficiently specific cache key in the RFC 8693 token exchange cache, enabling reuse of cached upstream bearer tokens across different credenti",
+        "severity": "MEDIUM",
+        "score": 5.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110195",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-110199",
+        "published": "2026-11-13T22:17:20Z",
+        "description": "IBM ContextForge MCP Gateway 1.0.0 through 1.0.11 is vulnerable to cross-site scripting. This vulnerability allows a privileged user to embed arbitrary JavaScript code in the Web UI thus altering the intended functionality potentially leading to credentials disclosure within a trusted session.",
+        "severity": "MEDIUM",
+        "score": 4.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110199",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-110278",
+        "published": "2026-11-13T22:17:20Z",
+        "description": "IBM ContextForge MCP Gateway 1.0.0 through 1.1.0 could allow an attacker to replay identity propagation claims signatures or expose sensitive user identity information to third-party MCP servers due to static signature payloads and missing per-gateway configuration checks during tool invocation.",
+        "severity": "HIGH",
+        "score": 7.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110278",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102632",
+        "published": "2026-11-13T22:17:19Z",
+        "description": "Incorrect privilege assignment in the app token management component in Devolutions PowerShell Universal 2026.3.4 and earlier allows an authenticated user with token creation or update permissions to escalate privileges to administrator, and allows a revoked app token to be reinstated in multi-node ",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102632",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108290",
+        "published": "2026-11-13T22:17:19Z",
+        "description": "IBM Cyber Fraud 1.0.0 through 1.1.0 could allow an attacker with local access to a container to extract sensitive information due to unrestrictive network policies.",
+        "severity": "MEDIUM",
+        "score": 4.0,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108290",
+        "kev": false
+      },
+      {
+        "id": "CVE-2025-43874",
+        "published": "2026-11-13T22:17:18Z",
+        "description": ": Improper Neutralization of Special Elements used in an OS Command vulnerability in Johnson Controls iSTAR Ultra, Johnson Controls iSTAR Ultra SE, Johnson Controls iSTAR Ultra G2, Johnson Controls iSTAR Ultra G2 SE, and Johnson Controls iSTAR Edge G2 allows : OS Command Injection.\n\nThis issue affec",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-43874",
+        "kev": false
+      },
+      {
+        "id": "CVE-2025-53697",
+        "published": "2026-11-13T22:17:18Z",
+        "description": "Use of default credentials vulnerability in Johnson Controls iSTAR Ultra, Johnson Controls iSTAR Ultra SE, Johnson Controls iSTAR Ultra G2, Johnson Controls iSTAR Ultra G2 SE, and Johnson Controls iSTAR Edge G2 allows CAPEC‑560: Use of Default Credentials.\n\nThis issue affects iSTAR Ultra: before 2.9",
+        "severity": "HIGH",
+        "score": 8.4,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-53697",
+        "kev": false
+      },
+      {
+        "id": "CVE-2025-53698",
+        "published": "2026-11-13T22:17:18Z",
+        "description": "Missing protection mechanism for alternate hardware interface vulnerability in Johnson Controls iSTAR Ultra and Johnson Controls iSTAR Ultra SE allows CAPEC‑554: Functionality Bypass.\n\nThis issue affects iSTAR Ultra: before 6.9.2.CU02; iSTAR Ultra SE: before 6.9.2.CU02.",
+        "severity": "HIGH",
+        "score": 7.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-53698",
+        "kev": false
+      },
+      {
+        "id": "CVE-2025-53699",
+        "published": "2026-11-13T22:17:18Z",
+        "description": "Missing protection mechanism for alternate hardware interface vulnerability in Johnson Controls iSTAR Ultra, Johnson Controls iSTAR Ultra SE, Johnson Controls iSTAR Ultra G2, Johnson Controls iSTAR Ultra G2 SE, and Johnson Controls iSTAR Edge G2 allows CAPEC‑554: Functionality Bypass.\n\nThis issue af",
+        "severity": "HIGH",
+        "score": 7.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-53699",
+        "kev": false
+      },
+      {
+        "id": "CVE-2025-53700",
+        "published": "2026-11-13T22:17:18Z",
+        "description": "CWE‑922 Insecure Storage of Sensitive Information vulnerability in Johnson Controls iSTAR Ultra, Johnson Controls iSTAR Ultra SE, Johnson Controls iSTAR Ultra G2, Johnson Controls iSTAR Ultra G2 SE, and Johnson Controls iSTAR Edge G2 allows CAPEC‑15 File Manipulation.\n\nThis issue affects iSTAR Ultra",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-53700",
+        "kev": false
+      },
       {
         "id": "CVE-2026-82504",
         "published": "2026-11-13T21:17:48Z",
@@ -17861,1146 +18261,6 @@
         "score": 3.7,
         "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126188",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-20183",
-        "published": "2026-11-10T23:17:21Z",
-        "description": "A vulnerability in the web-based management interface of Cisco Identity Services Engine (ISE) could allow an authenticated, remote attacker to modify parts of the configuration on an affected device.\r\n\r\nThis vulnerability is due to the lack of server-side validation of&nbsp;Administrator&nbsp;permis",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-20183",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-126187",
-        "published": "2026-11-10T23:17:20Z",
-        "description": "React is a JavaScript library for building user interfaces. From 19.0.0 until 19.0.9, 19.1.10, 19.2.9, and 19.3.1, the react-server-dom-webpack, react-server-dom-parcel, and react-server-dom-turbopack packages are vulnerable to unauthenticated remote code execution through crafted payloads targeting",
-        "severity": "CRITICAL",
-        "score": 9.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126187",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-126261",
-        "published": "2026-11-10T23:17:20Z",
-        "description": "A improper authorization vulnerability in Fortinet FortiManager 8.0.0, FortiManager 7.6.0 through 7.6.7, FortiManager 7.4.0 through 7.4.5, FortiManager 7.2.0 through 7.2.8 may allow an unauthenticated attacker that can reach the FGFM port to execute code or commands via crafted FGFM packets.",
-        "severity": "CRITICAL",
-        "score": 9.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126261",
-        "kev": false
-      },
-      {
-        "id": "CVE-2025-48504",
-        "published": "2026-11-10T23:17:19Z",
-        "description": "Operation on a resource after expiration or release in the Secure Encrypted Virtualization (SEV) firmware could allow a malicious hypervisor to manipulate metadata pages potentially resulting in the loss of confidentiality and integrity of guest memory.",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-48504",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-0003",
-        "published": "2026-11-10T23:17:19Z",
-        "description": "Use of a per-part static key in the ASP Bootloader could allow an attacker to downgrade the Secure Encrypted Virtualization (SEV) firmware and exploit known vulnerabilities to decrypt memory potentially resulting in loss of confidentiality.",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-0003",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-0435",
-        "published": "2026-11-10T23:17:19Z",
-        "description": "Operation on a resource after expiration or release in the AMD Secure Encrypted Virtualization (SEV) firmware could allow an attacker with administrative privileges to swap out a guest device without the guest's knowledge, potentially resulting in a loss of confidentiality and integrity.",
-        "severity": "MEDIUM",
-        "score": 6.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-0435",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-0454",
-        "published": "2026-11-10T23:17:19Z",
-        "description": "An out-of-bounds write in the AMD Secure Encrypted Virtualization (SEV) firmware could allow a malicious hypervisor to corrupt global firmware variables, potentially resulting in loss of integrity.",
-        "severity": "MEDIUM",
-        "score": 4.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-0454",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-0480",
-        "published": "2026-11-10T23:17:19Z",
-        "description": "Missing Authentication for Critical Function in AMD Secure Encrypted Virtualization (SEV) firmware could allow a malicious hypervisor to forge SEV-TIO guest request messages potentially compromising SEV-SNP guest memory integrity and confidentiality.",
-        "severity": "MEDIUM",
-        "score": 6.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-0480",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-123084",
-        "published": "2026-11-10T23:17:19Z",
-        "description": "An **expression language injection** has been found in the HeaderContentGuard.permit function in publication.py of the content guard in the **Pulpcore** package. The guard is supposed to check a value in a request header. It saves a jq filter and runs that filter against the header when a client ask",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123084",
-        "kev": false
-      },
-      {
-        "id": "CVE-2024-36309",
-        "published": "2026-11-10T23:17:18Z",
-        "description": "Missing Lock Bit Protection in the Northbridge IO (NBIO) could allow a privileged attacker to use an intentionally disabled device as part of a remapping attack potentially impacting data confidentiality, integrity, or availability.",
-        "severity": "MEDIUM",
-        "score": 4.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2024-36309",
-        "kev": false
-      },
-      {
-        "id": "CVE-2025-0008",
-        "published": "2026-11-10T23:17:18Z",
-        "description": "Insufficient verification of data authenticity may allow a local attacker to bypass Secure Debug Unlock (SDU), potentially resulting in unauthorized debug access.",
-        "severity": "HIGH",
-        "score": 8.4,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-0008",
-        "kev": false
-      },
-      {
-        "id": "CVE-2025-29941",
-        "published": "2026-11-10T23:17:18Z",
-        "description": "Incorrect usage of seeds in pseudo-random number generator in the Secure Encrypted Virtualization (SEV) firmware could allow a malicious hypervisor or migration agent to import a forged guest context potentially resulting in loss of confidentiality for derived guest keys.",
-        "severity": "MEDIUM",
-        "score": 6.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-29941",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-96437",
-        "published": "2026-11-10T22:21:17Z",
-        "description": "The ai-azure-content-safety plugin in Kong Gateway Enterprise skips inspection of request bodies larger than the in-memory body buffer, allowing prompts to bypass input content-safety checks.",
-        "severity": "HIGH",
-        "score": 8.2,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-96437",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-92443",
-        "published": "2026-11-10T22:21:15Z",
-        "description": "The caching plugins in Kong Gateway Enterprise and Kong AI Gateway may serve a response cached for a request carrying an Authorization or Proxy-Authorization to different callers.",
-        "severity": "HIGH",
-        "score": 8.2,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92443",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-92545",
-        "published": "2026-11-10T22:21:15Z",
-        "description": "The proxy-cache and proxy-cache-advanced plugins in Kong Gateway Enterprise and Kong AI Gateway omit the request hostname from the cache key which may allow a response cached for a hostname to be served for another.",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92545",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-92558",
-        "published": "2026-11-10T22:21:15Z",
-        "description": "The proxy-cache and proxy-cache-advanced plugins in Kong Gateway Enterprise and Kong AI Gateway do not escape separator characters when building the cache key, allowing a remote attacker to cause a response cached for one request to be served for a different request on the same Route.",
-        "severity": "MEDIUM",
-        "score": 6.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92558",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-89324",
-        "published": "2026-11-10T22:21:14Z",
-        "description": "The Basel Post Types plugin for WordPress is vulnerable to Authentication Bypass in all versions up to, and including, 1.18. The vulnerability exists because a missing-quotes coding error in the defined() call for SECURE_AUTH_SALT inside BASEL_Auth::get_config() causes PHP to evaluate the constant's",
-        "severity": "CRITICAL",
-        "score": 9.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-89324",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-90832",
-        "published": "2026-11-10T22:21:14Z",
-        "description": "bt_hci_le_per_adv_report_common() in subsys/bluetooth/host/scan.c handles the HCI_LE_Periodic_Advertising_Report (and _v2) event. It verified that the fixed event header was present and that the controller-declared Data_Length fits the tailroom of the periodic-sync reassembly buffer, but never check",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-90832",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-90833",
-        "published": "2026-11-10T22:21:14Z",
-        "description": "The simulated EEPROM driver validated access ranges in eeprom_range_is_valid() (drivers/eeprom/eeprom_simulator.c) with a single test, (offset + len) <= config->size. Because offset is a signed off_t and len an unsigned size_t of the same rank, the addition is evaluated in unsigned arithmetic: a neg",
-        "severity": "HIGH",
-        "score": 7.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-90833",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-90834",
-        "published": "2026-11-10T22:21:14Z",
-        "description": "The user-mode syscall verifiers for the 16-bit (\"wide data\") UART API in drivers/serial/uart_handlers.c validated the wrong driver operation. z_vrfy_uart_poll_out_u16(), z_vrfy_uart_tx_u16() and z_vrfy_uart_rx_enable_u16() each ran K_SYSCALL_DRIVER_UART() against the 8-bit op (poll_out, tx, rx_enabl",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-90834",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-91000",
-        "published": "2026-11-10T22:21:14Z",
-        "description": "Missing authentication for critical function vulnerability in N-able N-central allows Privilege Escalation.\n\nThis issue affects N-central: before 2026.4.1.",
-        "severity": "HIGH",
-        "score": 8.4,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-91000",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-92439",
-        "published": "2026-11-10T22:21:14Z",
-        "description": "The SAML plugin in Kong Gateway Enterprise does not enforce AudienceRestriction, allowing a valid assertion issued for another Service Provider to be replayed to authenticate to Kong.",
-        "severity": "HIGH",
-        "score": 7.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92439",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-92441",
-        "published": "2026-11-10T22:21:14Z",
-        "description": "Kong Gateway Enterprise and Kong AI Gateway include decoded CR/LF characters from the request path in the X-Forwarded-Prefix header on regex Routes, allowing HTTP header injection and request smuggling to the upstream.",
-        "severity": "HIGH",
-        "score": 7.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92441",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-92442",
-        "published": "2026-11-10T22:21:14Z",
-        "description": "The graphql-proxy-cache-advanced plugin in Kong Gateway Enterprise omits the caller's identity from the cache key, allowing a response cached for one caller to be served to another.",
-        "severity": "HIGH",
-        "score": 8.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-92442",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-87042",
-        "published": "2026-11-10T22:21:12Z",
-        "description": "The IEEE 1588 (PTP) port implementation in subsys/net/lib/ptp/port.c adopted the logMessageInterval field of a received Delay_Resp message without any validation. port_delay_resp_msg_process() stored the raw wire value (a full-range int8_t) into port_ds.log_min_delay_req_interval, and that value is ",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-87042",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-82391",
-        "published": "2026-11-10T22:21:05Z",
-        "description": "The HTTP/2 front-end of the Zephyr HTTP server aliased connection receive state as a scratch output. In subsys/net/lib/http/http_server_http2.c, handle_http2_static_fs_resource() passed &client->data_len as the file_size out-parameter of http_server_find_file(). client->data_len is the count of unpr",
-        "severity": "CRITICAL",
-        "score": 9.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82391",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-77685",
-        "published": "2026-11-10T22:20:53Z",
-        "description": "The RFCOMM multiplexer control-channel handler in subsys/bluetooth/host/classic/rfcomm.c computed the echo length for a BT_RFCOMM_TEST command as buf->len - 1 and passed it to rfcomm_send_test(), whose length parameter is a uint8_t. A malformed but FCS-valid UIH frame on DLCI 0 can leave buf->len ==",
-        "severity": "HIGH",
-        "score": 8.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-77685",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-67177",
-        "published": "2026-11-10T22:19:18Z",
-        "description": "Chargemap contains a stored cross site scripting vulnerability. A remote, unauthenticated attacker could craft a payload in the username field of the account registration page and associate the new account with a victim's email. The attacker could send a forgotten password request to the victim, and",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67177",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-67175",
-        "published": "2026-11-10T22:19:17Z",
-        "description": "Chargemap contains a stored cross-site scripting vulnerability that allows a remote, authenticated attacker to craft a malicious payload in the user profile page that executes when another user views the attacker's profile. Fixed 2026-07-17.",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67175",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-67176",
-        "published": "2026-11-10T22:19:17Z",
-        "description": "Chargemap contains an open redirect vulnerability in the authentication login endpoint. A remote, unauthenticated attacker could send a crafted URL to a victim and redirect them to an attacker controlled domain. Fixed 2026-07-17.",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-67176",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-40670",
-        "published": "2026-11-10T22:18:33Z",
-        "description": "Improper check for unusual or exceptional conditions in AMD Secure Encrypted Virtualization - Secure Nested Paging (SEV-SNP) could allow a privileged attacker to potentially overlap MMIO regions with DRAM regions resulting in loss of integrity.",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-40670",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-28247",
-        "published": "2026-11-10T22:18:32Z",
-        "description": "Improper Access Control Applied to Mirrored or Aliased Memory Regions in AMD Secure Encrypted Virtualization (SEV) firmware could allow a malicious hypervisor to change the encryption bit for guest context pages potentially resulting in loss of integrity.",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-28247",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-28248",
-        "published": "2026-11-10T22:18:32Z",
-        "description": "Improper enforcement of behavioral workflow in AMD Secure Encrypted Virtualization (SEV) firmware could allow a malicious hypervisor to potentially launch a guest whose attestation report contains an ID key digest for an ID block that doesn't match the guest's measurement resulting in loss of integr",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-28248",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-28249",
-        "published": "2026-11-10T22:18:32Z",
-        "description": "Improper preservation of consistency between independent representations of shared state in AMD Secure Encrypted Virtualization (SEV) firmware could allow a malicious hypervisor to potentially affect cache coherency for guest context pages resulting in loss of integrity.",
-        "severity": "MEDIUM",
-        "score": 4.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-28249",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-40668",
-        "published": "2026-11-10T22:18:32Z",
-        "description": "Authentication bypass by spoofing in AMD Secure Encrypted Virtualization (SEV) firmware could allow a malicious hypervisor to request attestation reports for VMPL 0.",
-        "severity": "MEDIUM",
-        "score": 4.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-40668",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-40669",
-        "published": "2026-11-10T22:18:32Z",
-        "description": "An off-by-one error in AMD Secure Encrypted Virtualization (SEV) firmware could allow an attacker with hypervisor access to corrupt the Reverse Map Table (RMP) table, potentially resulting in loss of guest memory integrity.",
-        "severity": "MEDIUM",
-        "score": 4.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-40669",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-125882",
-        "published": "2026-11-10T22:18:31Z",
-        "description": "Relative path traversal vulnerability in N-able N-central allows Path Traversal.\n\nThis issue affects N-central: before 26.4.1.",
-        "severity": "HIGH",
-        "score": 8.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125882",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-125883",
-        "published": "2026-11-10T22:18:31Z",
-        "description": "Improper restriction of XML external entity reference vulnerability in N-able N-central allows XML Schema Poisoning.\n\nThis issue affects N-central: before 26.4.1.",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125883",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-125958",
-        "published": "2026-11-10T22:18:31Z",
-        "description": "Download of code without integrity check vulnerability in N-able N-central allows Remote Code Inclusion.\n\nThis issue affects N-central: through 24.6.1.",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125958",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-126085",
-        "published": "2026-11-10T22:18:31Z",
-        "description": "Active Storage makes it simple to upload and reference files in cloud services and attach those files to Active Record objects. Prior to 8.1.4.1 and 8.0.5.2, ActiveStorage::Service::GCSService#url_for_direct_upload does not bind the declared content length into the signed direct-upload URL, and #hea",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126085",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-126123",
-        "published": "2026-11-10T22:18:31Z",
-        "description": "BeeS Software Solutions ERP before 04 September 2026 allows any low-privileged user to navigate directly to the administrative dashboard endpoint and gain access to the administrative console, including unrestricted access to institutional, employee, and student data.",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126123",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-126129",
-        "published": "2026-11-10T22:18:31Z",
-        "description": "The Auth0 ASP.NET Core Authentication SDK incorrectly determines a session's OIDC Back-Channel Logout status, which may result in a logged-out session being accepted for access to protected endpoints.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126129",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-126186",
-        "published": "2026-11-10T22:18:31Z",
-        "description": "Active Storage makes it simple to upload and reference files in cloud services and attach those files to Active Record objects. Prior to 8.1.4.1 and 8.0.5.2, ActiveStorage::Blob#open writes a blob to a tempfile whose name carries the extension of the uploaded filename, and hands that path to ffprobe",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126186",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-125297",
-        "published": "2026-11-10T22:18:30Z",
-        "description": "AsiaInfo Business Support System (BSS) 9.2.0 through 9.2.40 accepts unauthenticated requests via the management API '/bss/sysmgnt/api/'. A remote, unauthenticated attacker could provision a new account with administrative privileges or take over existing accounts, and perform other administrative ac",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125297",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-125298",
-        "published": "2026-11-10T22:18:30Z",
-        "description": "AsiaInfo Business Support System (BSS) 9.2.0 through 9.2.40 does not correctly verify cryptographic signatures for JSON Web Tokens (JWT). A remote, unauthenticated attacker could forge a well-formed JWT without a valid signature and use it to execute privileged actions. Fixed in 9.2.41.",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125298",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-125878",
-        "published": "2026-11-10T22:18:30Z",
-        "description": "Improper neutralization of input during web page generation ('cross-site scripting') vulnerability in N-able N-central allows Resource Injection.\n\nThis issue affects N-central: before 26.4.1.",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125878",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-125879",
-        "published": "2026-11-10T22:18:30Z",
-        "description": "Incorrect privilege assignment vulnerability in N-able N-central allows Privilege Escalation.\n\nThis issue affects N-central: before 26.4.1.",
-        "severity": "HIGH",
-        "score": 8.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125879",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-125880",
-        "published": "2026-11-10T22:18:30Z",
-        "description": "Improper neutralization of HTTP headers for scripting syntax vulnerability in N-able N-central allows Cross-Site Scripting (XSS).\n\nThis issue affects N-central: before 26.4.1.",
-        "severity": "HIGH",
-        "score": 8.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125880",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-125881",
-        "published": "2026-11-10T22:18:30Z",
-        "description": "Server-Side request forgery (SSRF) vulnerability in N-able N-central allows Server Side Request Forgery.\n\nThis issue affects N-central: before 26.4.1.",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125881",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-123258",
-        "published": "2026-11-10T22:18:29Z",
-        "description": "Adobe Experience Manager is affected by a DOM-based Cross-Site Scripting (XSS) vulnerability. An attacker could exploit this issue by manipulating the DOM environment to execute malicious JavaScript within the context of the victim's browser. Exploitation of this issue requires user interaction in t",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123258",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-123259",
-        "published": "2026-11-10T22:18:29Z",
-        "description": "Adobe Experience Manager is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a low-privileged attacker to inject malicious scripts into vulnerable form fields. Malicious JavaScript may be executed in a victim's browser when they browse to the page containing the ",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123259",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-123260",
-        "published": "2026-11-10T22:18:29Z",
-        "description": "CAI Content Credentials is affected by an Improper Input Validation vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerability to bypass security measures and gain unauthorized limited write access. Exploitation of this issue does not require user int",
-        "severity": "MEDIUM",
-        "score": 4.0,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123260",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-123261",
-        "published": "2026-11-10T22:18:29Z",
-        "description": "CAI Content Credentials is affected by an Improper Verification of Cryptographic Signature vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerability to bypass security measures and gain unauthorized write access. Exploit depends on conditions beyond ",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123261",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-123262",
-        "published": "2026-11-10T22:18:29Z",
-        "description": "CAI Content Credentials is affected by an Improper Verification of Cryptographic Signature vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerability to bypass security measures and gain unauthorized write access. Exploit depends on conditions beyond ",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123262",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-123267",
-        "published": "2026-11-10T22:18:29Z",
-        "description": "CAI Content Credentials is affected by an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerability to access unauthorized files or directories outside the intended restri",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123267",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-123341",
-        "published": "2026-11-10T22:18:29Z",
-        "description": "Adobe Experience Manager is affected by a reflected Cross-Site Scripting (XSS) vulnerability. If a low-privileged attacker is able to convince a victim to visit a URL referencing a vulnerable page, malicious JavaScript content may be executed within the context of the victim's browser. Scope is chan",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123341",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-122097",
-        "published": "2026-11-10T22:18:28Z",
-        "description": "CAI Content Credentials is affected by an Uncontrolled Resource Consumption vulnerability that could lead to application denial-of-service. An attacker could exploit this vulnerability to exhaust system resources, resulting in an application denial-of-service condition. Exploitation of this issue re",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-122097",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-122098",
-        "published": "2026-11-10T22:18:28Z",
-        "description": "CAI Content Credentials is affected by an Improper Certificate Validation vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerability to bypass security measures and gain unauthorized write access. Exploit depends on conditions beyond the attacker's co",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-122098",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-122099",
-        "published": "2026-11-10T22:18:28Z",
-        "description": "CAI Content Credentials is affected by an Incorrect Authorization vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerability to bypass security measures and gain unauthorized limited write access. Exploit depends on conditions beyond the attacker's co",
-        "severity": "LOW",
-        "score": 2.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-122099",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-122100",
-        "published": "2026-11-10T22:18:28Z",
-        "description": "CAI Content Credentials is affected by an Improper Verification of Cryptographic Signature vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerability to bypass security measures and gain unauthorized write access. Exploitation of this issue requires u",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-122100",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-122101",
-        "published": "2026-11-10T22:18:28Z",
-        "description": "CAI Content Credentials is affected by an Improper Input Validation vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerability to bypass security measures and gain unauthorized limited write access. Exploit depends on conditions beyond the attacker's ",
-        "severity": "LOW",
-        "score": 3.7,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-122101",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-122102",
-        "published": "2026-11-10T22:18:28Z",
-        "description": "Adobe Connect is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a low-privileged attacker to inject malicious scripts into vulnerable form fields. Malicious JavaScript may be executed in a victim's browser when they browse to the page containing the vulnerable ",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-122102",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-123041",
-        "published": "2026-11-10T22:18:28Z",
-        "description": "The request-callout plugin in Kong Gateway Enterprise and Kong AI Gateway omits callout headers not sent by the client from its cache key, allowing a cached callout response for a caller to be served to another.",
-        "severity": "HIGH",
-        "score": 8.2,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123041",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121900",
-        "published": "2026-11-10T22:18:27Z",
-        "description": "Adobe Connect is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary SQL com",
-        "severity": "HIGH",
-        "score": 8.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121900",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121902",
-        "published": "2026-11-10T22:18:27Z",
-        "description": "Adobe Connect is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in arbitrary code execution. An attacker could exploit this vulnerability to execute arbitrary SQL commands, potentially compromising the confidentiali",
-        "severity": "CRITICAL",
-        "score": 9.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121902",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121904",
-        "published": "2026-11-10T22:18:27Z",
-        "description": "Adobe Connect is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a low-privileged attacker to inject malicious scripts into vulnerable form fields. Malicious JavaScript may be executed in a victim's browser when they browse to the page containing the vulnerable ",
-        "severity": "CRITICAL",
-        "score": 9.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121904",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121906",
-        "published": "2026-11-10T22:18:27Z",
-        "description": "Adobe Connect is affected by an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability that could lead to arbitrary file system read. An attacker could exploit this vulnerability to access sensitive files and directories outside the intended access scope. Exploi",
-        "severity": "CRITICAL",
-        "score": 9.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121906",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121908",
-        "published": "2026-11-10T22:18:27Z",
-        "description": "Adobe Connect is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary code. E",
-        "severity": "CRITICAL",
-        "score": 9.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121908",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121910",
-        "published": "2026-11-10T22:18:27Z",
-        "description": "Adobe Connect is affected by a Cross-Site Scripting (XSS) vulnerability. If a low-privileged attacker is able to convince a victim to visit a URL referencing a vulnerable page, malicious JavaScript content may be executed within the context of the victim's browser. Scope is changed.",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121910",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121912",
-        "published": "2026-11-10T22:18:27Z",
-        "description": "Adobe Connect is affected by a Cross-Site Scripting (XSS) vulnerability that could be abused by a low-privileged attacker to inject malicious scripts into vulnerable form fields. Malicious JavaScript may be executed in a victim's browser when they browse to the page containing the vulnerable field. ",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121912",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121913",
-        "published": "2026-11-10T22:18:27Z",
-        "description": "Adobe Connect is affected by an Incorrect Authorization vulnerability that could result in privilege escalation. A low-privileged attacker could exploit this vulnerability to gain elevated access to sensitive information or functionality. Exploitation of this issue does not require user interaction.",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121913",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121887",
-        "published": "2026-11-10T22:18:26Z",
-        "description": "Adobe Connect is affected by an Improper Restriction of XML External Entity Reference ('XXE') vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary code. Exploitation of this iss",
-        "severity": "CRITICAL",
-        "score": 9.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121887",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121889",
-        "published": "2026-11-10T22:18:26Z",
-        "description": "Adobe Connect is affected by a Server-Side Request Forgery (SSRF) vulnerability that could result in privilege escalation. Exploitation of this issue does not require user interaction. Scope is changed.",
-        "severity": "CRITICAL",
-        "score": 10.0,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121889",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121890",
-        "published": "2026-11-10T22:18:26Z",
-        "description": "Adobe Connect is affected by an Improper Restriction of XML External Entity Reference ('XXE') vulnerability that could lead to arbitrary file system read. A low-privileged attacker could exploit this vulnerability to access sensitive files and directories outside the intended access scope. Exploitat",
-        "severity": "HIGH",
-        "score": 7.7,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121890",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121892",
-        "published": "2026-11-10T22:18:26Z",
-        "description": "Adobe Connect is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary code. Exploitation of this issue d",
-        "severity": "CRITICAL",
-        "score": 9.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121892",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121894",
-        "published": "2026-11-10T22:18:26Z",
-        "description": "Adobe Connect is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary SQL com",
-        "severity": "CRITICAL",
-        "score": 9.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121894",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121896",
-        "published": "2026-11-10T22:18:26Z",
-        "description": "Adobe Connect is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary code. E",
-        "severity": "CRITICAL",
-        "score": 9.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121896",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121898",
-        "published": "2026-11-10T22:18:26Z",
-        "description": "Adobe Connect is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary code. E",
-        "severity": "CRITICAL",
-        "score": 9.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121898",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121352",
-        "published": "2026-11-10T22:18:25Z",
-        "description": "Adobe Connect is affected by an Incorrect Authorization vulnerability that could result in privilege escalation. An attacker could exploit this vulnerability to gain unauthorized access to sensitive resources. Exploitation of this issue does not require user interaction. Scope is changed.",
-        "severity": "CRITICAL",
-        "score": 10.0,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121352",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121353",
-        "published": "2026-11-10T22:18:25Z",
-        "description": "Adobe Connect is affected by an Improper Neutralization of CRLF Sequences ('CRLF Injection') vulnerability that could result in arbitrary code execution in the context of the current user, potentially gaining elevated access or control over the victim's account or session. Exploitation of this issue",
-        "severity": "CRITICAL",
-        "score": 10.0,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121353",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121354",
-        "published": "2026-11-10T22:18:25Z",
-        "description": "Adobe Connect is affected by an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability that could lead to arbitrary file system read. An attacker could exploit this vulnerability to access sensitive files and directories outside the intended access scope. Exploi",
-        "severity": "CRITICAL",
-        "score": 9.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121354",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121355",
-        "published": "2026-11-10T22:18:25Z",
-        "description": "Adobe Connect is affected by an Incorrect Authorization vulnerability that could result in privilege escalation. An attacker could exploit this vulnerability to gain elevated access to sensitive information or functionality. Exploitation of this issue does not require user interaction.",
-        "severity": "CRITICAL",
-        "score": 9.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121355",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121356",
-        "published": "2026-11-10T22:18:25Z",
-        "description": "Adobe Connect is affected by a Server-Side Request Forgery (SSRF) vulnerability that could result in privilege escalation. Exploitation of this issue does not require user interaction. Scope is changed.",
-        "severity": "CRITICAL",
-        "score": 10.0,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121356",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118482",
-        "published": "2026-11-10T22:18:24Z",
-        "description": "Adobe Experience Manager is affected by an Improper Input Validation vulnerability that could result in a Security feature bypass. A low-privileged attacker could leverage this vulnerability to bypass security measures and gain unauthorized limited read and write access. Exploitation of this issue d",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118482",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118483",
-        "published": "2026-11-10T22:18:24Z",
-        "description": "Dimension is affected by an Improper Input Validation vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary code. Exploitation of this issue requires user interaction in that a v",
-        "severity": "HIGH",
-        "score": 8.2,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118483",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118484",
-        "published": "2026-11-10T22:18:24Z",
-        "description": "CAI Content Credentials is affected by an Improper Input Validation vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerability to bypass security measures and gain unauthorized write access. Exploitation of this issue requires user interaction in that",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118484",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-119017",
-        "published": "2026-11-10T22:18:24Z",
-        "description": "Adobe Experience Manager is affected by an Incorrect Authorization vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary code. Exploitation of this issue does not require user in",
-        "severity": "CRITICAL",
-        "score": 9.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119017",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121349",
-        "published": "2026-11-10T22:18:24Z",
-        "description": "Adobe Connect is affected by an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to gain elevated access or control",
-        "severity": "CRITICAL",
-        "score": 9.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121349",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121350",
-        "published": "2026-11-10T22:18:24Z",
-        "description": "Adobe Connect is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could lead to disclosure of sensitive memory. A low-privileged attacker could leverage this vulnerability to disclose sensitive information. Exploitation of this is",
-        "severity": "HIGH",
-        "score": 7.7,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121350",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121351",
-        "published": "2026-11-10T22:18:24Z",
-        "description": "Adobe Connect is affected by an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability that could lead to arbitrary file system read. An attacker could exploit this vulnerability to access sensitive files and directories outside the intended access scope. Exploi",
-        "severity": "CRITICAL",
-        "score": 10.0,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121351",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118197",
-        "published": "2026-11-10T22:18:23Z",
-        "description": "Adobe Experience Manager is affected by a DOM-based Cross-Site Scripting (XSS) vulnerability. An attacker could exploit this issue by manipulating the DOM environment to execute malicious JavaScript within the context of the victim's browser. Exploitation of this issue requires user interaction in t",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118197",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118478",
-        "published": "2026-11-10T22:18:23Z",
-        "description": "Adobe Experience Manager is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a low-privileged attacker to inject malicious scripts into vulnerable form fields. Malicious JavaScript may be executed in a victim's browser when they browse to the page containing the ",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118478",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118479",
-        "published": "2026-11-10T22:18:23Z",
-        "description": "Adobe Experience Manager is affected by a DOM-based Cross-Site Scripting (XSS) vulnerability. An attacker could exploit this issue by manipulating the DOM environment to execute malicious JavaScript within the context of the victim's browser. Exploitation of this issue requires user interaction in t",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118479",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118480",
-        "published": "2026-11-10T22:18:23Z",
-        "description": "Adobe Experience Manager is affected by a DOM-based Cross-Site Scripting (XSS) vulnerability. An attacker could exploit this issue by manipulating the DOM environment to execute malicious JavaScript within the context of the victim's browser. Exploitation of this issue requires user interaction in t",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118480",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118481",
-        "published": "2026-11-10T22:18:23Z",
-        "description": "Adobe Experience Manager is affected by a DOM-based Cross-Site Scripting (XSS) vulnerability. An attacker could exploit this issue by manipulating the DOM environment to execute malicious JavaScript within the context of the victim's browser. Exploitation of this issue requires user interaction in t",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118481",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-113574",
-        "published": "2026-11-10T22:18:22Z",
-        "description": "CAI Content Credentials is affected by an Uncontrolled Resource Consumption vulnerability that could lead to application denial-of-service. An attacker could exploit this vulnerability and exhaust system resources, reducing application speed. Exploitation of this issue does not require user interact",
-        "severity": "MEDIUM",
-        "score": 4.0,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113574",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-113579",
-        "published": "2026-11-10T22:18:22Z",
-        "description": "Adobe Experience Manager is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary code. Exploitation of t",
-        "severity": "CRITICAL",
-        "score": 9.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113579",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-113580",
-        "published": "2026-11-10T22:18:22Z",
-        "description": "Adobe Experience Manager is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary code. Exploitation of t",
-        "severity": "CRITICAL",
-        "score": 9.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113580",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-114371",
-        "published": "2026-11-10T22:18:22Z",
-        "description": "Adobe Experience Manager is affected by an Incorrect Authorization vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary code. Exploitation of this issue does not require user in",
-        "severity": "CRITICAL",
-        "score": 9.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-114371",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-114372",
-        "published": "2026-11-10T22:18:22Z",
-        "description": "Adobe Experience Manager is affected by a stored Cross-Site Scripting (XSS) vulnerability that could be abused by a low-privileged attacker to inject malicious scripts into vulnerable form fields. Malicious JavaScript may be executed in a victim's browser when they browse to the page containing the ",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-114372",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-113572",
-        "published": "2026-11-10T22:18:21Z",
-        "description": "CAI Content Credentials is affected by a Use of a Broken or Risky Cryptographic Algorithm vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerability to bypass security measures and gain unauthorized write access. Exploit depends on conditions beyond t",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113572",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-113573",
-        "published": "2026-11-10T22:18:21Z",
-        "description": "CAI Content Credentials is affected by an Improper Input Validation vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerability to bypass security measures and gain unauthorized write access. Exploit depends on conditions beyond the attacker's control.",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113573",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107356",
-        "published": "2026-11-10T22:18:14Z",
-        "description": "U.S. Geological Survey Area Species Management Research Program (ARMI) accepts any uploaded file and stores the file under '/uploads/{upload-file}'. A remote, authenticated attacker could upload a crafted PHP file that executes and returns command output from the server when accessed. Fixed on 2026-",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107356",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-105150",
-        "published": "2026-11-10T22:17:55Z",
-        "description": "The Product Filter for WooCommerce by WBW plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the 'text_no_products' parameter in all versions up to, and including, 3.4.5 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attac",
-        "severity": "MEDIUM",
-        "score": 6.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105150",
-        "kev": false
-      },
-      {
-        "id": "CVE-2025-62621",
-        "published": "2026-11-10T22:17:47Z",
-        "description": "Expected behavior violation in AMD Secure Encrypted Virtualization (SEV) firmware could allow a malicious hypervisor to bypass Reverse Map Table (RMP) protections, potentially resulting in a loss of Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP) guest memory integrity.",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-62621",
-        "kev": false
-      },
-      {
-        "id": "CVE-2025-52535",
-        "published": "2026-11-10T22:17:46Z",
-        "description": "Improper resource reuse in the AMD Secure Encrypted Virtualization (SEV) firmware could allow an attacker with hypervisor access to write to the Reverse Map Table (RMP) protected memory, potentially resulting in loss of guest memory integrity.",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-52535",
-        "kev": false
-      },
-      {
-        "id": "CVE-2025-52537",
-        "published": "2026-11-10T22:17:46Z",
-        "description": "Improper access control within the AMD Secure Encrypted Virtualization (SEV) firmware could allow an attacker with administrative privileges to tamper with memory, potentially resulting in loss of guest memory integrity.",
-        "severity": "MEDIUM",
-        "score": 4.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-52537",
-        "kev": false
-      },
-      {
-        "id": "CVE-2025-54503",
-        "published": "2026-11-10T22:17:46Z",
-        "description": "Improper handling of overlap between protected memory ranges in the Secure Encrypted Virtualization (SEV) firmware could allow a privileged attacker to cause misconfigurations in the RMP potentially resulting in loss of integrity.",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-54503",
-        "kev": false
-      },
-      {
-        "id": "CVE-2025-54504",
-        "published": "2026-11-10T22:17:46Z",
-        "description": "Insufficient Granularity of Access Control in AMD Secure Encrypted Virtualization (SEV) firmware could allow an attacker with administrative privileges attacker to write to a trusted region used by AMD Secure Encrypted Virtualization-Encrypted State (SEV-ES), potentially resulting in loss of integri",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-54504",
-        "kev": false
-      },
-      {
-        "id": "CVE-2025-54506",
-        "published": "2026-11-10T22:17:46Z",
-        "description": "A time-of-check to time-of-use (TOCTOU) race condition in the AMD SEV Secure Encrypted Virtualization (SEV) firmware could allow an attacker with administrative privileges to bypass security checks on scatter lists, potentially resulting in loss of guest integrity.",
-        "severity": "MEDIUM",
-        "score": 4.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-54506",
-        "kev": false
-      },
-      {
-        "id": "CVE-2025-54508",
-        "published": "2026-11-10T22:17:46Z",
-        "description": "Improper validation of Reverse Map Table (RMP) entries in the Secure Encrypted Virtualization (SEV) firmware could allow a privileged attacker to trigger concurrent modifications to RMP entries without proper synchronization potentially resulting in loss of data integrity.",
-        "severity": "MEDIUM",
-        "score": 4.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-54508",
-        "kev": false
-      },
-      {
-        "id": "CVE-2025-62620",
-        "published": "2026-11-10T22:17:46Z",
-        "description": "Improper validation of unsafe equivalence in input could allow an attacker with high privileges to reclaim the ring buffer queue status page, potentially resulting in loss of guest memory integrity.",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-62620",
-        "kev": false
-      },
-      {
-        "id": "CVE-2025-29940",
-        "published": "2026-11-10T22:17:45Z",
-        "description": "Unverified ownership in Secure Encrypted Virtualization (SEV) firmware could allow a privileged attacker with access to a malicious hypervisor to overwrite guest memory if segmented Reverse Map Table (RMP) is enabled potentially resulting in loss of guest data integrity.",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-29940",
-        "kev": false
-      },
-      {
-        "id": "CVE-2025-0027",
-        "published": "2026-11-10T22:17:44Z",
-        "description": "Improper access control in AMD Secure Encrypted Virtualization (SEV) firmware could allow a malicious hypervisor to bypass Reverse Map Table (RMP) protections, potentially impacting the integrity of Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP) guest memory.",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-0027",
         "kev": false
       }
     ]
