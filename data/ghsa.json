@@ -1,11 +1,83 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-13T15:17:19Z",
+  "updated_at": "2026-11-13T18:47:09Z",
   "source": "GitHub Security Advisories",
   "source_url": "https://api.github.com/advisories",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-mh32-jxcr-mh9f",
+      "title": "Astro: XSS via attribute injection in dynamic tag names",
+      "published": "2026-11-13T18:39:54Z",
+      "ecosystem": "npm",
+      "summary": "## Summary\n\nWhen a dynamic tag (`const Tag = ...; <Tag />`) resolves to a string, Astro renders it as a raw HTML element name. The name was filtered to remove characters that could inject attributes, but the filter did not handle `/`. Because HTML parsers treat `/` inside a tag as an attribute separ",
+      "link": "https://github.com/advisories/GHSA-mh32-jxcr-mh9f"
+    },
+    {
+      "id": "GHSA-r3h5-4585-7x3w",
+      "title": "Astro: Image endpoint in @astrojs/node can read files from a case-variant sibling of the output directory on case-sensitive filesystems",
+      "published": "2026-11-13T18:35:59Z",
+      "ecosystem": "npm",
+      "summary": "## Summary\n\nThe `/_image` endpoint used by the `@astrojs/node` adapter checks that a requested local image is inside the build output directory before reading it from disk. That check compared paths case-insensitively. On case-sensitive filesystems (such as Linux), a directory whose path differs fro",
+      "link": "https://github.com/advisories/GHSA-r3h5-4585-7x3w"
+    },
+    {
+      "id": "GHSA-mjrq-cffv-q4qc",
+      "title": "Nuxt dev server serves files from a parent directory with a stray lockfile or workspace file",
+      "published": "2026-11-13T18:11:49Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nNuxt can pick a parent directory that does not declare a workspace as its default `workspaceDir`: the farthest directory with a lockfile when the project is not inside a git repository, or the farthest directory with a `pnpm-workspace.yaml` or `deno.json` file, even one that only holds ",
+      "link": "https://github.com/advisories/GHSA-mjrq-cffv-q4qc"
+    },
+    {
+      "id": "GHSA-h7wh-q2qr-458c",
+      "title": "rails-html-sanitizer: Possible XSS via shared scrubber state in concurrent calls",
+      "published": "2026-11-13T18:09:16Z",
+      "ecosystem": "rubygems",
+      "summary": "## Summary\n\n`Rails::HTML::SafeListSanitizer` (both the HTML4 and HTML5 variants) shares one `Rails::HTML::PermitScrubber` across every `sanitize` call on the same instance, assigning its `tags` and `attributes` on each call without synchronization. Two concurrent `sanitize` calls with different `tag",
+      "link": "https://github.com/advisories/GHSA-h7wh-q2qr-458c"
+    },
+    {
+      "id": "GHSA-jv6m-48w5-5rpr",
+      "title": "envd: Host file disclosure through requirements path traversal and TOCTOU",
+      "published": "2026-11-13T18:05:15Z",
+      "ecosystem": "pip",
+      "summary": "### Summary\n\nenvd’s `install.python_packages(requirements=...)` could read files outside the build context on the host. Content interpreted as dependency entries could appear in build logs and build-step metadata.\n\nCommit f576c92, released in v1.3.5, added path containment validation but left a time",
+      "link": "https://github.com/advisories/GHSA-jv6m-48w5-5rpr"
+    },
+    {
+      "id": "GHSA-cpgf-5mjf-73p7",
+      "title": "rails-html-sanitizer: Possible regular expression denial of service with certain configurations",
+      "published": "2026-11-13T17:54:38Z",
+      "ecosystem": "rubygems",
+      "summary": "## Summary\n\n`Rails::HTML::PermitScrubber` restricts the `href` and `xlink:href` attributes of SVG reference elements to local references. That check matched the attribute value against `/^\\s*[^#\\s].*/m`. In Ruby `^` anchors to every line start and `\\s` matches newlines, so an all-whitespace value ma",
+      "link": "https://github.com/advisories/GHSA-cpgf-5mjf-73p7"
+    },
+    {
+      "id": "GHSA-mf5v-w3w3-f6cg",
+      "title": "OpenTelemetry Python API: Denial of service through quadratic-time traceparent parsing",
+      "published": "2026-11-13T16:43:18Z",
+      "ecosystem": "pip",
+      "summary": "## Summary\n\n`TraceContextTextMapPropagator.extract()` in `opentelemetry-api` is vulnerable to regular expression denial of service (ReDoS) when processing a specially crafted `traceparent` value.\n\nA malformed value containing a trace-context prefix followed by a long whitespace sequence and an embed",
+      "link": "https://github.com/advisories/GHSA-mf5v-w3w3-f6cg"
+    },
+    {
+      "id": "GHSA-6655-6qjp-jx7x",
+      "title": "Soup Sieve: Exponential ReDoS in selector compilation via \\9-run in CSS_ESCAPES/IDENTIFIER",
+      "published": "2026-11-13T16:39:43Z",
+      "ecosystem": "pip",
+      "summary": "### Summary\nThe IDENTIFIER/CSS_ESCAPES regex (css_parser.py:119-124) exhibits exponential backtracking on a run of ambiguous digit-escapes (`\\9`) in an attribute-name or tag position of an otherwise well-formed selector. It fires at compile time (before the SELECTOR_LIMIT guard) via the public `soup",
+      "link": "https://github.com/advisories/GHSA-6655-6qjp-jx7x"
+    },
+    {
+      "id": "GHSA-7g44-g9rc-x53w",
+      "title": "Soup Sieve: Uncontrolled recursion in CSS parser lets nested pseudo-class selectors exhaust the Python call stack",
+      "published": "2026-11-13T16:34:59Z",
+      "ecosystem": "pip",
+      "summary": "## Summary\n\nThe Soup Sieve CSS selector parser recurses once per level of nested pseudo-class selector (`:is()`, `:not()`, `:where()`, `:has()`) without any limit on nesting depth. An unauthenticated attacker who can supply a CSS selector string to `soupsieve.compile()`, `soupsieve.select()`, or Bea",
+      "link": "https://github.com/advisories/GHSA-7g44-g9rc-x53w"
+    },
     {
       "id": "GHSA-x585-4vv8-2mh2",
       "title": "Rucio: Unauthenticated administrator impersonation through SSH challenge tokens",
@@ -733,78 +805,6 @@
       "ecosystem": "nuget",
       "summary": "## Duplicate Advisory\n\nThis advisory has been withdrawn because it is a duplicate of GHSA-r8h3-p8p6-ggp7. This link is maintained to preserve external references.\n\n## Original Description\nHeap-based buffer overflow in Visual Studio allows an unauthorized attacker to execute code over a network.",
       "link": "https://github.com/advisories/GHSA-cjjx-gv54-83qh"
-    },
-    {
-      "id": "GHSA-c827-j3xf-67v6",
-      "title": "Duplicate Advisory: Microsoft Security Advisory CVE-2026-114156 - ASP.NET Core Security Feature Bypass Vulnerability",
-      "published": "2026-11-10T21:32:51Z",
-      "ecosystem": "nuget",
-      "summary": "## Duplicate Advisory\n\nThis advisory has been withdrawn because it is a duplicate of GHSA-8w29-6cjc-h6w4. This link is maintained to preserve external references.\n\n## Original Description\nImproper input validation in ASP.NET Core allows an unauthorized attacker to bypass a security feature over a ne",
-      "link": "https://github.com/advisories/GHSA-c827-j3xf-67v6"
-    },
-    {
-      "id": "GHSA-6rff-vv3p-7mrw",
-      "title": "Duplicate Advisory: Microsoft Security Advisory CVE-2026-114159 - Visual Studio Remote Code Execution Vulnerability",
-      "published": "2026-11-10T21:32:51Z",
-      "ecosystem": "nuget",
-      "summary": "## Duplicate Advisory\n\nThis advisory has been withdrawn because it is a duplicate of GHSA-3cgx-w6gm-fqrx. This link is maintained to preserve external references.\n\n## Original Description\nHeap-based buffer overflow in Visual Studio allows an unauthorized attacker to execute code over a network.",
-      "link": "https://github.com/advisories/GHSA-6rff-vv3p-7mrw"
-    },
-    {
-      "id": "GHSA-49q5-vjx7-5gwr",
-      "title": "Duplicate Advisory: Microsoft Security Advisory CVE-2026-114154 - ASP.NET Core Denial of Service Vulnerability",
-      "published": "2026-11-10T21:32:51Z",
-      "ecosystem": "nuget",
-      "summary": "## Duplicate Advisory\n\nThis advisory has been withdrawn because it is a duplicate of GHSA-3893-7fxc-qvff. This link is maintained to preserve external references.\n\n## Original Description\nUncontrolled resource consumption in ASP.NET Core allows an unauthorized attacker to deny service over a network",
-      "link": "https://github.com/advisories/GHSA-49q5-vjx7-5gwr"
-    },
-    {
-      "id": "GHSA-mqcg-252r-5fj7",
-      "title": "Duplicate Advisory: Microsoft Security Advisory CVE-2026-114151 - Visual Studio Remote Code Execution Vulnerability",
-      "published": "2026-11-10T21:32:51Z",
-      "ecosystem": "nuget",
-      "summary": "## Duplicate Advisory\n\nThis advisory has been withdrawn because it is a duplicate of GHSA-fpxj-5c99-g7vj. This link is maintained to preserve external references.\n\n## Original Description\nDeserialization of untrusted data in Visual Studio allows an unauthorized attacker to execute code over a networ",
-      "link": "https://github.com/advisories/GHSA-mqcg-252r-5fj7"
-    },
-    {
-      "id": "GHSA-hm4p-mv9w-4w8f",
-      "title": "Duplicate Advisory: Microsoft Security Advisory CVE-2026-114152 - Visual Studio Remote Code Execution Vulnerability",
-      "published": "2026-11-10T21:32:51Z",
-      "ecosystem": "nuget",
-      "summary": "## Duplicate Advisory\n\nThis advisory has been withdrawn because it is a duplicate of GHSA-xf35-v9jh-g65w. This link is maintained to preserve external references.\n\n## Original Description\nStack-based buffer overflow in Visual Studio allows an unauthorized attacker to execute code over a network.",
-      "link": "https://github.com/advisories/GHSA-hm4p-mv9w-4w8f"
-    },
-    {
-      "id": "GHSA-gxg8-5rwf-cg43",
-      "title": "Duplicate Advisory: Microsoft Security Advisory CVE-2026-114147 - ASP.NET Core Denial of Service Vulnerability",
-      "published": "2026-11-10T21:32:51Z",
-      "ecosystem": "nuget",
-      "summary": "## Duplicate Advisory\n\nThis advisory has been withdrawn because it is a duplicate of GHSA-wr8v-9x5q-ggcm. This link is maintained to preserve external references.\n\n## Original Description\nMissing release of memory after effective lifetime in ASP.NET Core allows an unauthorized attacker to deny servi",
-      "link": "https://github.com/advisories/GHSA-gxg8-5rwf-cg43"
-    },
-    {
-      "id": "GHSA-wrm2-c2h2-4w82",
-      "title": "Duplicate Advisory: Microsoft Security Advisory CVE-2026-109478 - ASP.NET Core Denial of Service Vulnerability",
-      "published": "2026-11-10T21:32:29Z",
-      "ecosystem": "nuget",
-      "summary": "## Duplicate Advisory\n\nThis advisory has been withdrawn because it is a duplicate of GHSA-r3qf-p3jm-8h4p. This link is maintained to preserve external references.\n\n## Original Description\nInefficient algorithmic complexity in ASP.NET Core allows an unauthorized attacker to deny service over a networ",
-      "link": "https://github.com/advisories/GHSA-wrm2-c2h2-4w82"
-    },
-    {
-      "id": "GHSA-r33q-3g5w-gqx6",
-      "title": "Duplicate Advisory: Microsoft Security Advisory CVE-2026-105544 - .NET Elevation of Privilege Vulnerability",
-      "published": "2026-11-10T21:32:22Z",
-      "ecosystem": "nuget",
-      "summary": "## Duplicate Advisory\n\nThis advisory has been withdrawn because it is a duplicate of GHSA-6856-87hx-p5x7. This link is maintained to preserve external references.\n\n## Original Description\nImproper access control in .NET allows an authorized attacker to elevate privileges locally.",
-      "link": "https://github.com/advisories/GHSA-r33q-3g5w-gqx6"
-    },
-    {
-      "id": "GHSA-5957-c7qm-m469",
-      "title": "Action Mailbox: Possible signature replay in Action Mailbox Mailgun ingress",
-      "published": "2026-11-10T21:28:16Z",
-      "ecosystem": "rubygems",
-      "summary": "### Impact\nThe Action Mailbox Mailgun ingress authenticates a request with an HMAC of the `timestamp` and `token` parameters concatenated without a separator, and `ActionMailbox::Ingresses::Mailgun::InboundEmailsController::Authenticator#recent?` rejects only timestamps more than 2 minutes in the pa",
-      "link": "https://github.com/advisories/GHSA-5957-c7qm-m469"
     }
   ]
 }
