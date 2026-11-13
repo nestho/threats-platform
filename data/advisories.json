@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-13T09:47:39Z",
+  "updated_at": "2026-11-13T15:17:23Z",
   "source": "Microsoft MSRC + Ubuntu Security Notices",
   "source_url": [
     "https://api.msrc.microsoft.com/update-guide/rss",
@@ -10,6 +10,22 @@
   "normalisation_failures": [],
   "partial": null,
   "items": [
+    {
+      "id": "USN-9027-2",
+      "vendor": "Ubuntu",
+      "title": "USN-9027-2: Linux kernel (FIPS) vulnerabilities",
+      "published": "2026-11-13T10:30:15Z",
+      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - x86 architecture; - Hardware monitoring drivers; - OCFS2 file system; - IPv4 networking; - Ethernet bridge; - Netfilte",
+      "link": "https://ubuntu.com/security/notices/USN-9027-2"
+    },
+    {
+      "id": "USN-9091-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9091-1: Linux kernel (NVIDIA Tegra) vulnerabilities",
+      "published": "2026-11-13T10:18:40Z",
+      "summary": "It was discovered that some AMD processors did not properly perform Reverse Map Table (RMP) checks when the IOMMU accessed certain host buffers. A local attacker with hypervisor access could possibly use this to trigger an out-of-bounds condition and compromise the integrity of SEV-SNP guest memory.",
+      "link": "https://ubuntu.com/security/notices/USN-9091-1"
+    },
     {
       "id": "USN-9090-1",
       "vendor": "Ubuntu",
@@ -73,22 +89,6 @@
       "published": "2026-11-12T20:54:41Z",
       "summary": "It was discovered that Radicale did not delay failed authentication attempts when using htpasswd authentication. A remote attacker could possibly use this issue to obtain user passwords through timing or brute-force attacks.",
       "link": "https://ubuntu.com/security/notices/USN-9084-1"
-    },
-    {
-      "id": "USN-9083-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9083-1: gevent vulnerability",
-      "published": "2026-11-12T20:54:27Z",
-      "summary": "It was discovered that the gevent WSGI server incorrectly validated chunked transfer encoding trailers in HTTP requests. A remote attacker could possibly use this issue to perform HTTP request smuggling attacks, leading to privilege escalation.",
-      "link": "https://ubuntu.com/security/notices/USN-9083-1"
-    },
-    {
-      "id": "USN-9082-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9082-1: pngquant vulnerability",
-      "published": "2026-11-12T20:53:59Z",
-      "summary": "Choi Jaeseung discovered that pngquant incorrectly handled certain PNG images, leading to a buffer overflow. An attacker could possibly use this issue to cause pngquant to crash or execute arbitrary code.",
-      "link": "https://ubuntu.com/security/notices/USN-9082-1"
     },
     {
       "id": "CVE-2026-111497",
