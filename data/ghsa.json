@@ -1,11 +1,35 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-13T00:06:41Z",
+  "updated_at": "2026-11-13T03:36:52Z",
   "source": "GitHub Security Advisories",
   "source_url": "https://api.github.com/advisories",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-x585-4vv8-2mh2",
+      "title": "Rucio: Unauthenticated administrator impersonation through SSH challenge tokens",
+      "published": "2026-11-13T01:09:54Z",
+      "ecosystem": "pip",
+      "summary": "## Summary\n\nSSH challenge tokens are mistakenly accepted as valid credentials during the authentication token validation process.\n\nWhile an SSH challenge token is intended as a short-lived nonce for use in a subsequent SSH key exchange, the function to validate authentication tokens does not differe",
+      "link": "https://github.com/advisories/GHSA-x585-4vv8-2mh2"
+    },
+    {
+      "id": "GHSA-mmhr-3c5m-f64f",
+      "title": "Soup Sieve: Polynomial-time denial of service in the descendant combinator",
+      "published": "2026-11-13T00:49:46Z",
+      "ecosystem": "pip",
+      "summary": "## Summary\n\nMatching a selector that uses the descendant combinator (`a b`) takes time that grows polynomially with how deeply the document is nested, and each extra descendant combinator in the selector raises the degree by one. A selector with `k` descendant combinators takes `O(n^(k+1))` time on ",
+      "link": "https://github.com/advisories/GHSA-mmhr-3c5m-f64f"
+    },
+    {
+      "id": "GHSA-4j63-6c4x-wfg4",
+      "title": "Soup Sieve: General sibling combinator inside :has() matches untrusted HTML in quadratic time",
+      "published": "2026-11-13T00:45:18Z",
+      "ecosystem": "pip",
+      "summary": "## Summary\n\nMatching a selector that puts a general-sibling combinator inside `:has()`, such as `div:has(a ~ b)`, against untrusted HTML runs in O(n²) time in the number of sibling elements. A single small document with a few thousand siblings ties the process up for a minute of CPU, so an applicati",
+      "link": "https://github.com/advisories/GHSA-4j63-6c4x-wfg4"
+    },
     {
       "id": "GHSA-f3w6-w445-fwh9",
       "title": "Active Storage: Possible arbitrary file write and read in image analysis",
@@ -781,30 +805,6 @@
       "ecosystem": "rubygems",
       "summary": "### Impact\nThe Action Mailbox Mailgun ingress authenticates a request with an HMAC of the `timestamp` and `token` parameters concatenated without a separator, and `ActionMailbox::Ingresses::Mailgun::InboundEmailsController::Authenticator#recent?` rejects only timestamps more than 2 minutes in the pa",
       "link": "https://github.com/advisories/GHSA-5957-c7qm-m469"
-    },
-    {
-      "id": "GHSA-2w9f-fxwj-w2qf",
-      "title": "Active Support: Possible XSS vulnerability in Active Support MessagePack serializer",
-      "published": "2026-11-10T21:27:12Z",
-      "ecosystem": "rubygems",
-      "summary": "### Impact\n`ActiveSupport::MessagePack` serializes an `ActiveSupport::SafeBuffer` as its bytes alone and deserializes it as a new `SafeBuffer`, so a buffer that is no longer `html_safe?` (for example, one mutated in place with `gsub!`) is restored as `html_safe`. If such a buffer holds untrusted inp",
-      "link": "https://github.com/advisories/GHSA-2w9f-fxwj-w2qf"
-    },
-    {
-      "id": "GHSA-r9jg-fmfx-2gv6",
-      "title": "Action Pack: Possible cache poisoning in Action Pack content negotiation",
-      "published": "2026-11-10T21:26:12Z",
-      "ecosystem": "rubygems",
-      "summary": "### Impact\nAction Pack negotiates the format of a rendered response from the `Accept`, `X-Requested-With` and, for XHR requests without `Accept`, `Content-Type` request headers, but `ActionController::Rendering#_set_vary_header` adds `Vary: Accept` only when the request carries a usable `Accept` hea",
-      "link": "https://github.com/advisories/GHSA-r9jg-fmfx-2gv6"
-    },
-    {
-      "id": "GHSA-gmj8-hvj3-49mw",
-      "title": "Action Pack: Missing SameSite attribute on session cookies from Action Pack session stores",
-      "published": "2026-11-10T21:25:18Z",
-      "ecosystem": "rubygems",
-      "summary": "### Impact\nAction Pack session stores other than `ActionDispatch::Session::CookieStore` (`CacheStore`, `MemCacheStore`, and third-party stores built on `AbstractStore`, `AbstractSecureStore` or the session mixins) write the session cookie without a `SameSite` attribute, regardless of `config.action_",
-      "link": "https://github.com/advisories/GHSA-gmj8-hvj3-49mw"
     }
   ]
 }

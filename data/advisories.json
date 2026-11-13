@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-12T22:52:33Z",
+  "updated_at": "2026-11-13T03:36:56Z",
   "source": "Microsoft MSRC + Ubuntu Security Notices",
   "source_url": [
     "https://api.msrc.microsoft.com/update-guide/rss",
@@ -19,28 +19,76 @@
       "link": "https://ubuntu.com/security/notices/USN-9090-1"
     },
     {
-      "id": "USN-8895-2",
+      "id": "USN-9068-1",
       "vendor": "Ubuntu",
-      "title": "USN-8895-2: Sudo vulnerability",
-      "published": "2026-11-12T20:06:18Z",
-      "summary": "USN-8895-1 fixed a vulnerability in Sudo. This update provides the corresponding updates for Ubuntu 18.04 LTS and Ubuntu 20.04 LTS. Original advisory details: It was discovered that Sudo did not properly handle time-based access restrictions when sudoers rules used NOTBEFORE or NOTAFTER with timesta",
-      "link": "https://ubuntu.com/security/notices/USN-8895-2"
+      "title": "USN-9068-1: Debian-LAN vulnerability",
+      "published": "2026-11-12T21:02:18Z",
+      "summary": "Wolfgang Schweer discovered that Debian-LAN configured overly permissive ACLs for the Kerberos admin server. An authenticated user could possibly use this issue to change the credentials of other users, leading to privilege escalation.",
+      "link": "https://ubuntu.com/security/notices/USN-9068-1"
     },
     {
-      "id": "USN-9066-1",
+      "id": "USN-9089-1",
       "vendor": "Ubuntu",
-      "title": "USN-9066-1: Linux kernel (HWE) vulnerabilities",
-      "published": "2026-11-12T16:34:04Z",
-      "summary": "It was discovered that some AMD processors did not properly perform Reverse Map Table (RMP) checks when the IOMMU accessed certain host buffers. A local attacker with hypervisor access could possibly use this to trigger an out-of-bounds condition and compromise the integrity of SEV-SNP guest memory.",
-      "link": "https://ubuntu.com/security/notices/USN-9066-1"
+      "title": "USN-9089-1: x11vnc vulnerability",
+      "published": "2026-11-12T20:55:34Z",
+      "summary": "It was discovered that x11vnc created shared memory segments with insecure permissions. A local attacker could possibly use this issue to obtain sensitive information or modify screen contents.",
+      "link": "https://ubuntu.com/security/notices/USN-9089-1"
     },
     {
-      "id": "USN-9018-2",
+      "id": "USN-9088-1",
       "vendor": "Ubuntu",
-      "title": "USN-9018-2: Linux kernel (HWE) vulnerabilities",
-      "published": "2026-11-12T16:32:50Z",
-      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Network file systems library; - Stream parser; - ARM64 architecture; - PowerPC architecture; - RISC-V architecture; - ",
-      "link": "https://ubuntu.com/security/notices/USN-9018-2"
+      "title": "USN-9088-1: TigerVNC vulnerability",
+      "published": "2026-11-12T20:55:23Z",
+      "summary": "It was discovered that the TigerVNC viewer stored TLS certificate exceptions as trusted certificate authorities. A remote attacker could possibly use this issue to impersonate any VNC server after a user had added a certificate exception for the attacker's server.",
+      "link": "https://ubuntu.com/security/notices/USN-9088-1"
+    },
+    {
+      "id": "USN-9087-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9087-1: signing-party vulnerability",
+      "published": "2026-11-12T20:55:13Z",
+      "summary": "It was discovered that the gpg-key2ps tool in signing-party did not properly sanitize user IDs before passing them to a shell. If a user were tricked into processing a specially crafted OpenPGP key, an attacker could possibly use this issue to execute arbitrary commands.",
+      "link": "https://ubuntu.com/security/notices/USN-9087-1"
+    },
+    {
+      "id": "USN-9086-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9086-1: SA-Exim vulnerability",
+      "published": "2026-11-12T20:54:57Z",
+      "summary": "It was discovered that SA-Exim unsafely evaluated the parameters of its greylisting SpamAssassin rule. An attacker able to write SpamAssassin configuration files or rules could possibly use this issue to execute arbitrary code.",
+      "link": "https://ubuntu.com/security/notices/USN-9086-1"
+    },
+    {
+      "id": "USN-9085-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9085-1: Ruby OpenID vulnerability",
+      "published": "2026-11-12T20:54:47Z",
+      "summary": "It was discovered that Ruby OpenID sent a request to the claimed identifier URL before verifying the signature of an OpenID response. A remote attacker could possibly use this issue to perform server-side request forgery attacks.",
+      "link": "https://ubuntu.com/security/notices/USN-9085-1"
+    },
+    {
+      "id": "USN-9084-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9084-1: Radicale vulnerability",
+      "published": "2026-11-12T20:54:41Z",
+      "summary": "It was discovered that Radicale did not delay failed authentication attempts when using htpasswd authentication. A remote attacker could possibly use this issue to obtain user passwords through timing or brute-force attacks.",
+      "link": "https://ubuntu.com/security/notices/USN-9084-1"
+    },
+    {
+      "id": "USN-9083-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9083-1: gevent vulnerability",
+      "published": "2026-11-12T20:54:27Z",
+      "summary": "It was discovered that the gevent WSGI server incorrectly validated chunked transfer encoding trailers in HTTP requests. A remote attacker could possibly use this issue to perform HTTP request smuggling attacks, leading to privilege escalation.",
+      "link": "https://ubuntu.com/security/notices/USN-9083-1"
+    },
+    {
+      "id": "USN-9082-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9082-1: pngquant vulnerability",
+      "published": "2026-11-12T20:53:59Z",
+      "summary": "Choi Jaeseung discovered that pngquant incorrectly handled certain PNG images, leading to a buffer overflow. An attacker could possibly use this issue to cause pngquant to crash or execute arbitrary code.",
+      "link": "https://ubuntu.com/security/notices/USN-9082-1"
     },
     {
       "id": "CVE-2026-111497",
@@ -49,54 +97,6 @@
       "published": "2026-11-12T16:00:00Z",
       "summary": "Updated the Security Updates table to include affected Windows versions and the applicable November 2026 security updates. Microsoft recommends that customers install the applicable updates to be protected from this vulnerability.",
       "link": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-111497"
-    },
-    {
-      "id": "USN-9064-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9064-1: Pillow vulnerabilities",
-      "published": "2026-11-12T15:55:24Z",
-      "summary": "It was discovered that Pillow could enter an infinite loop while determining the frame count of a MIC image. An attacker could possibly use this issue to cause a denial of service. This issue only affected Ubuntu 26.10, Ubuntu 26.04 LTS, Ubuntu 24.04 LTS, and Ubuntu 22.04 LTS. (CVE-2026-112390) It w",
-      "link": "https://ubuntu.com/security/notices/USN-9064-1"
-    },
-    {
-      "id": "USN-9065-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9065-1: GNU C Library vulnerabilities",
-      "published": "2026-11-12T14:08:35Z",
-      "summary": "It was discovered that the GNU C Library incorrectly handled the ccs= option in the fopen function. An attacker could possibly use this issue to cause GNU C Library to crash or execute arbitrary code. (CVE-2026-18374) It was discovered that the GNU C Library incorrectly handled long domain names in ",
-      "link": "https://ubuntu.com/security/notices/USN-9065-1"
-    },
-    {
-      "id": "USN-9063-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9063-1: Yodl vulnerability",
-      "published": "2026-11-11T18:33:50Z",
-      "summary": "It was discovered that Yodl incorrectly handled certain input, leading to a buffer over-read. An attacker could possibly use this issue to cause Yodl to crash, resulting in a denial of service.",
-      "link": "https://ubuntu.com/security/notices/USN-9063-1"
-    },
-    {
-      "id": "USN-9062-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9062-1: SNMPTT vulnerability",
-      "published": "2026-11-11T18:33:46Z",
-      "summary": "It was discovered that SNMPTT did not properly sanitize trap data passed to commands run through the EXEC, PREEXEC, and unknown_trap_exec options. A remote attacker could possibly use this issue to execute arbitrary shell commands.",
-      "link": "https://ubuntu.com/security/notices/USN-9062-1"
-    },
-    {
-      "id": "USN-9060-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9060-1: kramdown vulnerability",
-      "published": "2026-11-11T18:33:31Z",
-      "summary": "It was discovered that kramdown processed the template option in documents by default. An attacker could possibly use this issue to read arbitrary files or execute arbitrary code.",
-      "link": "https://ubuntu.com/security/notices/USN-9060-1"
-    },
-    {
-      "id": "USN-9059-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9059-1: ruby-jwt vulnerability",
-      "published": "2026-11-11T18:33:24Z",
-      "summary": "It was discovered that ruby-jwt incorrectly verified HMAC signatures when the verification key was empty or missing. A remote attacker could possibly use this issue to forge tokens and bypass authentication.",
-      "link": "https://ubuntu.com/security/notices/USN-9059-1"
     },
     {
       "id": "CVE-2026-105544",
