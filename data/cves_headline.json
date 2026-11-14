@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-14T06:48:33Z",
+  "updated_at": "2026-11-14T10:05:37Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,211 @@
   ],
   "note": "Bounded slice of cves.json for the homepage. Use /data/cves.json for the full window.",
   "normalisation_failures": [],
-  "recent_total": 1712,
+  "recent_total": 1694,
   "kev_total": 116,
   "kev_catalog_total": 1781,
   "total": 25,
   "items": [
+    {
+      "id": "CVE-2026-18742",
+      "published": "2026-11-14T09:16:47Z",
+      "description": "The Flatsome theme for WordPress is vulnerable to Stored Cross-Site Scripting via 'data-text-sec', 'data-title', and 'title' Attributes via Custom HTML Block in all versions up to, and including, 3.20.12 due to insufficient input sanitization and output escaping. This makes it possible for authentic",
+      "severity": "MEDIUM",
+      "score": 6.4,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18742",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-129181",
+      "published": "2026-11-14T08:17:18Z",
+      "description": "A vulnerability has been found in projectworlds Visitor Management System 1.0. This issue affects the function mysqli_query of the file /img/user%20page.php of the component Login Endpoint. Such manipulation of the argument Username leads to sql injection. It is possible to launch the attack remotel",
+      "severity": "MEDIUM",
+      "score": 5.5,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129181",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-126697",
+      "published": "2026-11-14T07:17:21Z",
+      "description": "The Quick Page/Post Redirect Plugin WordPress plugin before 5.2.4 was distributed with a hidden update mechanism that fetched Quick Page/Post Redirect Plugin WordPress plugin before 5.2.4 updates from its author's own server instead of WordPress.org, which was used to push a backdoored build to site",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126697",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-129319",
+      "published": "2026-11-14T07:17:21Z",
+      "description": "create-ecdh is a browserifiable implementation of Node.js crypto.createECDH. In versions 4.0.4 and below, the JavaScript implementation (browser.js, used by browser bundlers and on Node.js versions without a working native crypto.createECDH) did not validate peer public keys in ECDH.prototype.comput",
+      "severity": "HIGH",
+      "score": 8.2,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129319",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-126639",
+      "published": "2026-11-14T07:17:20Z",
+      "description": "The WP Ultimate CSV Importer  WordPress plugin before 9.2, WP Ultimate CSV Importer Pro WordPress plugin before 9.0.7 do not protect the files created by their single post export feature, writing them to a publicly accessible location under a predictable name, allowing unauthenticated attackers to d",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126639",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-126640",
+      "published": "2026-11-14T07:17:20Z",
+      "description": "The WP Ultimate CSV Importer  WordPress plugin before 9.3 does not escape values from imported files before using them in SQL queries when importing LifterLMS content, allowing high privilege users such as admin, including the administrator of a single site on a multisite network, to perform SQL inj",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126640",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-119258",
+      "published": "2026-11-14T07:17:19Z",
+      "description": "The Swipe WordPress plugin through 1.4 does not properly authenticate a login request before issuing a WordPress session cookie, allowing unauthenticated attackers to log in as an existing user, including an administrator, when that user has an active app session.",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119258",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-123046",
+      "published": "2026-11-14T07:17:19Z",
+      "description": "The SEOJuice WordPress plugin before 2.12.0 does not correctly restrict a REST API authentication filter, disabling WordPress's REST nonce protection for the whole site and allowing unauthenticated attackers to perform any cookie-authenticated REST action, including creating a new administrator acco",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123046",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-123122",
+      "published": "2026-11-14T07:17:19Z",
+      "description": "The Checkout Files Upload for WooCommerce WordPress plugin before 2.4.1 does not verify that a file uploaded at checkout is really one of its allowed image types, and serves stored uploads inline using their detected content type, allowing unauthenticated users to upload an HTML file disguised as an",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123122",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-124649",
+      "published": "2026-11-14T07:17:19Z",
+      "description": "The Lightbox with PhotoSwipe WordPress plugin before 5.19.0 does not properly sanitise link titles and other caption sources before inserting them as HTML into the image lightbox caption, allowing unauthenticated users to perform Stored Cross-Site Scripting attacks via comments.",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124649",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-117490",
+      "published": "2026-11-14T07:17:18Z",
+      "description": "The Flatsome WordPress theme before 3.20.13 does not enforce the acting user's publish and post-type restrictions on an AJAX save action, allowing users with a role as low as Contributor to publish their own content and change its post type (for example to a product) without holding the required cap",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117490",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-118181",
+      "published": "2026-11-14T07:17:18Z",
+      "description": "The Duplicate Post WordPress plugin before 1.5.8 does not perform a capability check when saving its global settings, relying only on its own role-access list, which allows users of any role an administrator has given Duplicate Post WordPress plugin before 1.5.8 access to, as low as Subscriber, to o",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118181",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-118182",
+      "published": "2026-11-14T07:17:18Z",
+      "description": "The Duplicate Post WordPress plugin before 1.5.8 does not check that a user duplicating a post is allowed to edit it, which, when the slug takeover option is enabled, allows users of a role an administrator has given Duplicate Post WordPress plugin before 1.5.8 access to, such as Contributor, to mov",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118182",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-118183",
+      "published": "2026-11-14T07:17:18Z",
+      "description": "The Duplicate Post WordPress plugin before 1.5.8 does not check whether a user may publish posts when duplicating one, allowing users of a role an administrator has given Duplicate Post WordPress plugin before 1.5.8 access to, such as Contributors, to create published posts, including posts attribut",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118183",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-111034",
+      "published": "2026-11-14T07:17:17Z",
+      "description": "The Countdown, Coming Soon, Maintenance  WordPress plugin through 3.0.8 does not check that the user is allowed to browse content before returning post titles from one of its AJAX actions, allowing any authenticated user, such as a subscriber, to list the titles of published entries of any post type",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111034",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-116528",
+      "published": "2026-11-14T07:17:17Z",
+      "description": "The Chargely Free Subscriptions For Woocommernce WordPress plugin through 1.0 does not perform any authorization check on a REST API route that returns its stored configuration, allowing unauthenticated attackers to retrieve the live WooCommerce REST API consumer key and secret it holds, which grant",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116528",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-117487",
+      "published": "2026-11-14T07:17:17Z",
+      "description": "The Flatsome WordPress theme before 3.20.13 does not perform a capability or nonce check on an AJAX action available to unauthenticated users, and does not restrict the status of the posts it returns by ID, allowing unauthenticated users to disclose the content of unpublished (draft and pending) pos",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117487",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-105984",
+      "published": "2026-11-14T07:17:16Z",
+      "description": "The Email Marketing 4Dem WordPress plugin through 2.0.5 does not perform authorization or capability checks on several of its AJAX actions, allowing unauthenticated users to destroy its stored configuration and delete its records.",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105984",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-111033",
+      "published": "2026-11-14T07:17:16Z",
+      "description": "The Countdown, Coming Soon, Maintenance  WordPress plugin through 3.0.8 does not perform authorization or nonce checks when saving countdown data on post save, and its output-sanitization allowlist permits script tags, allowing users with Author-level access and above to store arbitrary web scripts ",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111033",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-105983",
+      "published": "2026-11-14T07:17:12Z",
+      "description": "The Email Marketing 4Dem WordPress plugin through 2.0.5 does not perform authorization or capability checks on several of its AJAX actions and REST routes, allowing unauthenticated users to disclose the Email Marketing 4Dem WordPress plugin through 2.0.5's stored configuration and data and to modify",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105983",
+      "kev": false
+    },
     {
       "id": "CVE-2026-126173",
       "published": "2026-11-14T05:18:37Z",
@@ -61,206 +261,6 @@
       "score": 8.6,
       "cvss_version": "40",
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-71531",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-129173",
-      "published": "2026-11-13T23:17:18Z",
-      "description": "A security flaw has been discovered in Stirling-Tools Stirling-PDF up to 3.3.0. Affected is the function WorkflowParticipantController.getParticipantDetails of the file app/proprietary/src/main/java/stirling/software/proprietary/workflow/controller/WorkflowParticipantController.java of the component",
-      "severity": "MEDIUM",
-      "score": 6.9,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129173",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-128134",
-      "published": "2026-11-13T23:17:17Z",
-      "description": "NLTK (Natural Language Toolkit) is a suite of open source Python modules, data sets, and tutorials supporting research and development in Natural Language Processing. Prior to 3.10.4, nltk.parse.dependencygraph.dot2img resolves the Graphviz dot executable through PATH but invokes the resulting absol",
-      "severity": "HIGH",
-      "score": 7.8,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-128134",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-94407",
-      "published": "2026-11-13T22:17:27Z",
-      "description": "IBM ContextForge MCP Gateway 1.0.0 through 1.0.11 is potentially vulnerable to denial of service due to uncontrolled regular expression complexity (CWE-400 / ReDoS). An authenticated user with tool-registration privileges can embed catastrophically backtracking regex patterns in a tool's JSON Schema",
-      "severity": "MEDIUM",
-      "score": 6.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-94407",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-97683",
-      "published": "2026-11-13T22:17:27Z",
-      "description": "IBM Cyber Fraud 1.0.0 through 1.1.0 could allow a local attacker to bypass security restrictions due to a missing or misconfigured security context.",
-      "severity": "LOW",
-      "score": 2.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97683",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-9661",
-      "published": "2026-11-13T22:17:27Z",
-      "description": "Poste Italiane Postecert FIRMAOK! 1.6.29 on Windows contains a local privilege escalation vulnerability caused by an uncontrolled OpenSSL search path, where launcher.exe and dependent executables such as updater.exe and tslupdater.exe load OpenSSL configuration and library files from a hardcoded, us",
-      "severity": "HIGH",
-      "score": 7.3,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-9661",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-9821",
-      "published": "2026-11-13T22:17:27Z",
-      "description": "IBM Cyber Fraud 1.0.0 through 1.1.0 could allow an unauthorized user to inject data into log messages due to improper neutralization of special elements when written to log files.",
-      "severity": "MEDIUM",
-      "score": 5.3,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-9821",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-9870",
-      "published": "2026-11-13T22:17:27Z",
-      "description": "IBM Cyber Fraud 1.0.0 through 1.1.0 is vulnerable to cross-site scripting. This vulnerability allows an unauthenticated attacker to embed arbitrary JavaScript code in the Web UI thus altering the intended functionality potentially leading to credentials disclosure within a trusted session.",
-      "severity": "MEDIUM",
-      "score": 6.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-9870",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-82102",
-      "published": "2026-11-13T22:17:26Z",
-      "description": "IBM DataStage on Cloud Pak for Data 5.4.0.0 could allow a remote authenticated attacker to obtain sensitive information due to a server-side request forgery vulnerability.",
-      "severity": "MEDIUM",
-      "score": 6.4,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82102",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-91868",
-      "published": "2026-11-13T22:17:26Z",
-      "description": "IBM Security QRadar EDR 3.12 through 3.12.26 could allow a remote authenticated attacker to obtain sensitive information due to improper access control.",
-      "severity": "MEDIUM",
-      "score": 6.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-91868",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-91869",
-      "published": "2026-11-13T22:17:26Z",
-      "description": "IBM Security QRadar EDR 3.12 through 3.12.26 could allow a remote authenticated attacker to bypass security restrictions due to improper rate limiting on TOTP verification.",
-      "severity": "HIGH",
-      "score": 8.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-91869",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-19194",
-      "published": "2026-11-13T22:17:25Z",
-      "description": "The HashiCorp cap JWT validation library before version 0.14.0 is vulnerable to a claims validation bypass that may cause downstream applications to make authorization decisions using claim values different from those validated. Exploitation requires attacker-controlled claims in a JWT signed by a k",
-      "severity": "MEDIUM",
-      "score": 5.9,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-19194",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-5514",
-      "published": "2026-11-13T22:17:25Z",
-      "description": "IBM Bob 2.0.3 allows unauthorized extensions to retrieve session tokens via the authentication provider API. The token is exposed in the account identifier field during account enumeration, without requiring explicit user consent. This may allow malicious extensions to access sensitive session infor",
-      "severity": "LOW",
-      "score": 3.3,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-5514",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-129137",
-      "published": "2026-11-13T22:17:24Z",
-      "description": "Incorrect default permissions in the agent configuration folder in Devolutions PowerShell Universal 2026.3.4 and earlier allows a local unprivileged user to execute arbitrary code as SYSTEM via a crafted agent configuration file that points the agent to an attacker-controlled server.",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129137",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-128886",
-      "published": "2026-11-13T22:17:23Z",
-      "description": "A flaw was found in dbus when configured with the nonce-tcp transport. An unauthenticated attacker able to connect to an exposed listener can cause a Denial of Service (DoS) by opening a connection and withholding the expected authentication token. Because the server processes this verification with",
-      "severity": "MEDIUM",
-      "score": 6.2,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-128886",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-124020",
-      "published": "2026-11-13T22:17:22Z",
-      "description": "Control Web Panel (CWP) before webpanel_version 1.30.6 contains a host header injection vulnerability that allows unauthenticated attackers to manipulate the password-recovery reset URL by injecting the HTTP Host header into the /v1/lostpass/ route's token generation process. Attackers can lure an a",
-      "severity": "CRITICAL",
-      "score": 9.2,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124020",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-124021",
-      "published": "2026-11-13T22:17:22Z",
-      "description": "Control Web Panel (CWP) before webpanel_version 1.30.6 contains an authorization bypass vulnerability in the validate() function of api/v1/index.php that allows attackers holding a password-recovery token and a predictable legacy signature to obtain valid remote-API authorization without a proper AP",
-      "severity": "CRITICAL",
-      "score": 9.2,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124021",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-110279",
-      "published": "2026-11-13T22:17:21Z",
-      "description": "IBM ContextForge MCP Gateway 1.0.0 through 1.1.0 is vulnerable to improper credential handling because the X-Upstream-Authorization request header can override the gateway-managed upstream credential for OAuth (authorization_code and client_credentials), bearer and basic authenticated gateways, whic",
-      "severity": "HIGH",
-      "score": 8.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110279",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-110330",
-      "published": "2026-11-13T22:17:21Z",
-      "description": "A flaw was found in abrt. abrt-server trusts a client-supplied PID when creating problem dumps over abrt.socket and, running as root, copies that process's /proc data (including environ) into a dump directory owned by the connecting unprivileged user. This allows a local attacker to read environment",
-      "severity": "MEDIUM",
-      "score": 5.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110330",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-110331",
-      "published": "2026-11-13T22:17:21Z",
-      "description": "A flaw was found in abrt. The completeness check introduced to mitigate CVE-2026-54228 and CVE-2026-54229 only verifies that a dump directory contains a \"count\" element, which an unprivileged user can create. This allows a local attacker to bypass the guard and again poison elements in, or seize own",
-      "severity": "HIGH",
-      "score": 7.8,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110331",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-114468",
-      "published": "2026-11-13T22:17:21Z",
-      "description": "IBM App Connect Operator and App Connect Enterprise Certified Containers Operands could allow an attacker with the ability to run HTTP calls within the running container to can make administrative calls to a running IntegrationRuntime.",
-      "severity": "MEDIUM",
-      "score": 6.0,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-114468",
       "kev": false
     }
   ]
