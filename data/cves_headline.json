@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-14T19:18:26Z",
+  "updated_at": "2026-11-14T23:11:50Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,31 @@
   ],
   "note": "Bounded slice of cves.json for the homepage. Use /data/cves.json for the full window.",
   "normalisation_failures": [],
-  "recent_total": 1472,
+  "recent_total": 1314,
   "kev_total": 116,
   "kev_catalog_total": 1781,
   "total": 25,
   "items": [
+    {
+      "id": "CVE-2026-129456",
+      "published": "2026-11-14T20:17:40Z",
+      "description": "In FRRouting, bgpd accepts a Tunnel Encapsulation attribute (type 23) whose outer TLV length does not match the length of the attribute: the mismatch is only logged and the attribute is processed anyway. A BGP neighbor can send UPDATE messages carrying such an attribute that put the reference count ",
+      "severity": "HIGH",
+      "score": 7.7,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129456",
+      "kev": false
+    },
+    {
+      "id": "CVE-2015-10149",
+      "published": "2026-11-14T20:17:39Z",
+      "description": "Dancer versions before 1.3400 for Perl pass unvalidated session ids from the session cookie to the session engine.\n\nread_session_id returns the cookie value as the session id without checking its characters, and Dancer hands it to the session engine to load the session.\n\nA remote attacker may cause ",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2015-10149",
+      "kev": false
+    },
     {
       "id": "CVE-2026-129447",
       "published": "2026-11-14T18:17:21Z",
@@ -241,26 +261,6 @@
       "score": 9.3,
       "cvss_version": "40",
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129255",
-      "kev": false
-    },
-    {
-      "id": "CVE-2025-71465",
-      "published": "2026-11-14T13:17:20Z",
-      "description": "@kolkov/angular-editor before 3.0.3 contains a cross-site scripting vulnerability in refreshView() that writes HTML from ngModel or reactive form controls to innerHTML without DomSanitizer, bypassing the default sanitize option. Attackers can store HTML with event-handler attributes in content later",
-      "severity": "MEDIUM",
-      "score": 5.3,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-71465",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-120522",
-      "published": "2026-11-14T13:17:20Z",
-      "description": "The Cloud Storage Manager for Fluent Forms – Google Drive, Dropbox, OneDrive, S3 Uploads plugin for WordPress is vulnerable to Arbitrary File Write in all versions up to, and including, 1.2.0. This is due to missing authorization checks on the `connection/{driver}/save` and `/download/single-file` R",
-      "severity": "CRITICAL",
-      "score": 9.8,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120522",
       "kev": false
     }
   ]
