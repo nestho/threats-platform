@@ -16,6 +16,7 @@ import {
   stixDownload,
 } from "./public.mjs";
 import { createRepo } from "./repo.mjs";
+import { ingestCowrie, listSensorEvents } from "./sensors.mjs";
 
 const ROUTES = [
   ["GET", /^\/api\/health$/, health],
@@ -24,6 +25,8 @@ const ROUTES = [
   ["POST", /^\/api\/orders\/lookup$/, lookupOrder],
   ["GET", /^\/api\/pro\/me$/, proMe],
   ["GET", /^\/api\/stix$/, stixDownload],
+  ["GET", /^\/api\/sensors\/events$/, listSensorEvents],
+  ["POST", /^\/api\/sensors\/cowrie\/events$/, ingestCowrie],
   ["POST", /^\/api\/admin\/login$/, admin.login],
   ["POST", /^\/api\/admin\/logout$/, admin.logout],
   ["GET", /^\/api\/admin\/session$/, admin.sessionInfo],
@@ -103,6 +106,7 @@ export async function pruneRoutine(env, nowMs = Date.now()) {
     ordersBefore: iso(nowMs - retentionDays * 86_400_000),
     attemptsBefore: iso(nowMs - 30 * 86_400_000),
     windowsBefore: Math.floor((nowMs - 86_400_000) / 1000),
+    sensorEventsBefore: iso(nowMs - 30 * 86_400_000),
   });
 }
 

@@ -14,9 +14,10 @@ sale or licence-clean. This feed is honest about its inputs:
                 country that IP is registered in.
 
 There are no source -> destination arcs, because no upstream we may publish
-records an attacker's origin. Both kinds carry the timestamp of observation, so
-the map can replay the last 72 hours and show that claims arrive in bursts
-rather than pretending a quiet hour was a quiet attack.
+records a source-to-target attack. Claims carry publication timestamps and can
+be replayed over 72 hours. Phishing hosts are a current inventory snapshot;
+their collection timestamp is not an individual sighting time and they are
+never replayed as a time series.
 
 Records that cannot be placed -- no ISO country, no resolvable host, no
 country database -- are counted in `coverage`, not guessed.
@@ -271,7 +272,7 @@ def main():
 
     coverage = document["coverage"]
     print(
-        f"Wrote {len(document['events'])} live events "
+        f"Wrote {len(document['events'])} source records "
         f"({coverage['claims_mapped']}/{coverage['claims_total']} claims, "
         f"{coverage['hosts_mapped']}/{coverage['hosts_resolved']} resolved hosts "
         f"of {coverage['hosts_total']})."

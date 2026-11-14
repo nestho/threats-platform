@@ -37,6 +37,8 @@ export function createFakeRepo(seed = {}) {
     audit: [],
     logins: [],
     windows: new Map(),
+    sensorEvents: new Map(),
+    sensorStatus: new Map(),
     auditSeq: 0,
   };
 
@@ -283,16 +285,45 @@ export function createFakeRepo(seed = {}) {
       return state.logins.filter((row) => row.ip_hash === ipHash && row.ok === 0 && row.at >= sinceIso).length;
     },
 
-    async prune({ ordersBefore, attemptsBefore, windowsBefore }) {
+    async upsertSensorEvents(events, ingestedAt) {
+      for (const event of events) {
+        state.sensorEvents.set(`${event.sensor}:${event.minute}:${event.country}`, {
+          ...event,
+          ingested_at: ingestedAt,
+        });
+      }
+    },
+
+    async listSensorEvents({ since, limit = 10_000 }) {
+      return clone(
+        [...state.sensorEvents.values()]
+          .filter((row) => row.minute >= since)
+          .sort((a, b) => b.minute.localeCompare(a.minute) || a.country.localeCompare(b.country))
+          .slice(0, limit),
+      );
+    },
+
+    async touchSensor(sensor, lastSeen) {
+      state.sensorStatus.set(sensor, { sensor, last_seen: lastSeen });
+    },
+
+    async getSensorStatus(sensor) {
+      return clone(state.sensorStatus.get(sensor) ?? null);
+    },
+
+    async prune({ ordersBefore, attemptsBefore, windowsBefore, sensorEventsBefore }) {
       state.orders = state.orders.filter(
         (row) => !(row.status === "pending" && row.created_at < ordersBefore),
       );
       state.logins = state.logins.filter((row) => row.at >= attemptsBefore);
+      for (const [key, event] of state.sensorEvents) {
+        if (event.minute < sensorEventsBefore) state.sensorEvents.delete(key);
+      }
       for (const windowKey of [...state.windows.keys()]) {
         const windowStart = Number(windowKey.slice(windowKey.lastIndexOf(":") + 1));
         if (windowStart < windowsBefore) state.windows.delete(windowKey);
       }
-      return { orders: 0, logins: 0, windows: 0 };
+      return { orders: 0, logins: 0, windows: 0, sensorEvents: 0 };
     },
   };
 

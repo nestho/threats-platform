@@ -1,5 +1,5 @@
 #:schema node_modules/wrangler/config-schema.json
-# Pro subscriptions API for threats.top.
+# API for threats.top: Pro subscriptions and privacy-reduced sensor telemetry.
 #
 # Serves orders, admin review, licence checks and the STIX export on a dedicated
 # API hostname. The static site stays on GitHub Pages and reaches this Worker
@@ -11,6 +11,7 @@
 #   npx wrangler secret put SESSION_SECRET
 #   npx wrangler secret put LICENSE_SALT
 #   npx wrangler secret put IP_HASH_SALT
+#   npx wrangler secret put SENSOR_INGEST_TOKEN  # Cowrie sensor ingestion
 #   npx wrangler secret put ADMIN_PASSWORD_HASH   # node ../scripts/admin-credentials.mjs
 #   npx wrangler secret put TOTP_SECRET           # same script
 #   npx wrangler deploy

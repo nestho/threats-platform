@@ -10,7 +10,7 @@ This document describes what is deployed and why. When a script, page, feed, wor
 
 A static threat-intelligence publication plus one small transactional API. Free, official, no-key sources are collected by scheduled GitHub Actions, normalised into committed JSON, validated before publication, and served by GitHub Pages at `threats.top`.
 
-The public site has no database server, no long-running backend, and no runtime dependency. The only network-facing service beyond GitHub Pages is the Cloudflare Worker `threats-platform-api` on `api.threats.top`. It sells and administers Pro: orders, subscriptions, licences, admin sessions, and the STIX export. It stores operational data in D1, never writes to git, and never serves or alters the public feeds. A second Worker, `threats-scheduler`, only dispatches collection.
+The public site has no database server, no long-running backend, and no runtime dependency. The Cloudflare Worker `threats-platform-api` on `api.threats.top` handles Pro operations and accepts authenticated, privacy-reduced telemetry from an optional, separately isolated Cowrie honeypot. D1 stores operational records and minute/country sensor aggregates; the Worker never writes to git or serves or alters the static feeds. A second Worker, `threats-scheduler`, only dispatches collection.
 
 Three properties are non-negotiable:
 
@@ -70,6 +70,13 @@ flowchart TB
         API --> D1
     end
 
+    subgraph Sensor["Optional, isolated live sensor"]
+        COWRIE[Cowrie SSH honeypot]
+        FORWARDER[Forwarder<br/>IP to country, aggregate by minute]
+        COWRIE --> FORWARDER
+        FORWARDER -->|authenticated country counts| API
+    end
+
     DATA[(data/*.json<br/>committed)]
 
     NVD & KEV --> CVE
@@ -93,6 +100,7 @@ flowchart TB
     RULE --> DATA
     DATA --> PAGES
     PAGES -. checkout, Pro console, admin .-> API
+    PAGES -. public minute/country sensor feed .-> API
     PAGES -. STIX reads cves.json and iocs.json .-> API
 ```
 
@@ -114,7 +122,7 @@ assets/
   app.css                 shared design system
   app.js                  esc(), time helpers, tabs, fetch helpers
   app.test.mjs            XSS and time-helper tests
-  live-map.js             pure model helpers for the live map
+  live-map.js             pure map helpers for claims, snapshots and sensor counts
   live-map.test.mjs       window, replay, aggregation and ingest-state tests
   checkout.js             subscribe page helpers and wiring
   admin.js                owner console helpers and wiring
@@ -133,7 +141,7 @@ data/                     committed JSON; this is the database
   advisories.json         Microsoft and Ubuntu notices
   epss.json               EPSS scores for the CVE window
   iocs.json               derived phishing + ransomware indicators
-  live.json               geo-placed claims and phishing hosts for the live map
+  live.json               geo-placed claims and phishing-host snapshot
   status.json             per-source freshness and health
 scripts/
   run_collectors.py       cadence selection, subprocess isolation, status
@@ -142,6 +150,7 @@ scripts/
   normalize.py            timestamp normalisation and self-check
   validate_feeds.py       the gate and the contract source of truth
   dev.py                  local test/validate/sync/serve CLI
+  cowrie_forwarder.py     privacy-reduced project sensor ingestion
   setup-ruleset.sh        idempotent repository protection
   admin-credentials.mjs   owner-run password hash + TOTP enrolment URI generator
   *_feed.py               one collector per source
@@ -151,12 +160,14 @@ admin/
 worker/
   wrangler.toml           Worker name, api.threats.top, D1 binding, daily cron
   migrations/0001_init.sql  settings, customers, orders, subscriptions, licenses, audit
+  migrations/0002_sensor_events.sql minute/country SSH observation counts
   src/index.mjs           router, CORS, error mapping, scheduled prune
   src/public.mjs          config, orders, lookup, Pro status, STIX download
   src/admin.mjs           session, orders, subscriptions, customers, audit, CSV
   src/auth.mjs            PBKDF2, TOTP, session HMAC, cookie parsing
   src/repo.mjs            the only SQL; an in-memory fake mirrors it in tests
   src/stix.mjs            STIX 2.1 bundle construction and feed fetch cache
+  src/sensors.mjs         authenticated Cowrie ingestion and public sensor feed
   src/validation.mjs      order, lookup, months, and email rules
   src/codes.mjs           order codes and licence keys
   src/settings.mjs        writable settings whitelist and public config
@@ -175,6 +186,11 @@ The API's SQL is confined to `worker/src/repo.mjs`, so every handler is tested
 against an in-memory implementation of the same interface. The schema test
 applies the real migration to SQLite; `wrangler dev --local` exercises the same
 statements against D1 before deployment.
+
+The map polls the project-owned Cowrie API separately from static snapshots.
+The sensor feed contains only minute/country counts; it does not publish source
+IPs or credentials and does not infer a victim destination. See
+`docs/LIVE-SENSOR.md` for the separate-VPS deployment prerequisites.
 
 ---
 
@@ -293,7 +309,7 @@ Each page is static HTML with an inline module that fetches its JSON from `/data
 | `programs.html` | `domains.json` |
 | `iocs.html` | `iocs.json` |
 | `ransomware.html` | `ransomware.json` |
-| `map.html` | `live.json` |
+| `map.html` | `live.json` and the separate sensor API; claims and sensor counts are replayed, while phishing hosts remain a latest-snapshot inventory |
 | `phishing.html` | `phishing.json` |
 | `threats.html` | `wiz.json`, `advisories.json` |
 | `status.html` | `status.json` |
@@ -315,11 +331,12 @@ The old `worker/admin.js` authenticated an admin password or an HMAC key and com
 The replacement is `threats-platform-api`, a single Worker on `api.threats.top` with a D1 database named `threats-platform`:
 
 - **Public routes** — `GET /api/health`, `GET /api/config`, `POST /api/orders`, `POST /api/orders/lookup`. Order creation is rate-limited to five per hour per hashed IP, uses a honeypot, and refuses a duplicate `(method, transaction reference)` pair.
+- **Sensor routes** — `POST /api/sensors/cowrie/events` accepts authenticated minute/country counts; `GET /api/sensors/events` publishes aggregates and heartbeat status without source IPs or credentials. The feed stays unavailable until a dedicated sensor and Worker secret are configured.
 - **Licence routes** — `GET /api/pro/me` and `GET /api/stix`. The licence key is a Bearer credential; only a salted hash and an 8-character prefix are stored. STIX is rate-limited per licence and returns a STIX 2.1 bundle built from the published `cves.json` and `iocs.json`, cached for five minutes at the edge.
 - **Admin routes** — sign-in with password and TOTP, orders, subscriptions, customers, audit, stats, settings, and CSV export. Reads need an HMAC-signed 8-hour session cookie; mutations also need the CSRF token issued with that session and a matching `Origin`.
-- **Scheduled** — a daily cron deletes unpaid pending orders past the retention window, prunes login attempts and rate-limit windows, and leaves paid history intact.
+- **Scheduled** — a daily cron deletes unpaid pending orders past the retention window, prunes login attempts and rate-limit windows, removes sensor aggregates older than 30 days, and leaves paid history intact.
 
-Tables: `settings`, `customers`, `orders`, `subscriptions`, `licenses`, `audit_log`, `login_attempts`, `rate_limit`. All SQL lives in `worker/src/repo.mjs`. Orders store hashed IP and user agent, never raw values; no PII is written to logs.
+Tables: `settings`, `customers`, `orders`, `subscriptions`, `licenses`, `audit_log`, `login_attempts`, `rate_limit`, `sensor_events`, `sensor_status`. All SQL lives in `worker/src/repo.mjs`. Orders store hashed IP and user agent, never raw values; sensor rows contain country/minute aggregates only; no PII is written to logs.
 
 The two wallets, price, STIX limit, support address, and retention window are D1 settings, editable in the admin panel and audited. Secrets (`ADMIN_PASSWORD_HASH`, `TOTP_SECRET`, `SESSION_SECRET`, `LICENSE_SALT`, `IP_HASH_SALT`) are Worker secrets only. The retired `threats-admin` Worker is still parked at 410 until its secrets are deleted with the owner's approval; it is not part of this codebase's deploy path.
 
