@@ -131,7 +131,7 @@ SOURCES = {
     # database it needs is an input, not a source: live_feed.py downloads it and
     # publishes claims only if that download fails.
     "live": {
-        "label": "Live map (claims + phishing hosting)",
+        "label": "Threat map (ransomware claims + phishing-host snapshot)",
         "url": ["https://api.ransomware.live/v2/recentvictims", "https://openphish.com/feed.txt"],
         "cadence_minutes": 60,
         "critical": False,

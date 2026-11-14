@@ -1,13 +1,10 @@
 /**
  * Model helpers for the live threat map.
  *
- * The page animates claims and phishing hosts from data/live.json. That feed is
- * a rolling snapshot refreshed by the collectors, not a socket: "live" here
- * means "the last collection is recent and events are landing in it", and the
- * page says so with an explicit LIVE / DELAYED / STALE / OFFLINE banner rather
- * than implying a permanent stream.
+ * The static feed contains ransomware claims and a phishing-host snapshot.
+ * Project-owned sensor events arrive separately and carry minute-level counts.
  *
- * Everything here is pure so the arithmetic -- 72-hour window, hourly buckets,
+ * Everything here is pure so the arithmetic -- claim windows, hourly buckets,
  * replay head, pulse sizing -- is testable without a DOM.
  */
 
@@ -31,21 +28,27 @@ export function eventTime(event) {
 }
 
 /**
- * Events inside the window that ends at `end`.
+ * Timestamped claims and sensor events inside the window that ends at `end`,
+ * plus phishing hosts from the current snapshot.
  *
  * `end` is the right edge of the feed window (effectively "now"), and `head` is
  * the replay head the map is showing. The timeline moves `head` backwards
- * through the window to replay it, so the window itself never shifts and the
- * sparkline keeps its full 72-hour reference.
+ * through the window to replay timestamped events. Hosts are an inventory
+ * snapshot, not timestamped sightings, so they remain visible at every replay position.
  *
- * The start is exclusive, so an event exactly 72 hours old belongs to the
- * previous window rather than to both.
+ * For claims, the start is exclusive, so a record exactly 72 hours old belongs
+ * to the previous window rather than to both.
  */
 export function eventsInWindow(events, { end = Date.now(), head = end, hours = WINDOW_HOURS } = {}) {
   const start = end - hours * HOUR_MS;
   const limit = Math.min(head, end);
   const kept = [];
   for (const event of Array.isArray(events) ? events : []) {
+    if (event?.kind === 'host') {
+      kept.push(event);
+      continue;
+    }
+    if (event?.kind === 'sensor' && (!Number.isSafeInteger(event.count) || event.count < 1)) continue;
     const time = eventTime(event);
     if (time === null || time > limit || time <= start) continue;
     kept.push(event);
@@ -53,22 +56,28 @@ export function eventsInWindow(events, { end = Date.now(), head = end, hours = W
   return kept;
 }
 
-/** One bucket per hour, oldest first, for the timeline and its sparkline. */
+/** One bucket per hour, oldest first, for timestamped claims and sensor counts. */
 export function hourlyBuckets(events, { end = Date.now(), hours = WINDOW_HOURS } = {}) {
   const buckets = Array.from({ length: hours }, (_, index) => ({
     start: end - (hours - index) * HOUR_MS,
     claims: 0,
     hosts: 0,
+    sensors: 0,
     total: 0,
   }));
 
   for (const event of eventsInWindow(events, { end, hours })) {
+    if (event.kind === 'host') continue;
     const offset = Math.floor((end - eventTime(event)) / HOUR_MS);
     if (offset < 0 || offset >= hours) continue;
     const bucket = buckets[hours - 1 - offset];
-    if (event.kind === 'host') bucket.hosts += 1;
-    else bucket.claims += 1;
-    bucket.total += 1;
+    if (event.kind === 'sensor') {
+      bucket.sensors += event.count;
+      bucket.total += event.count;
+    } else {
+      bucket.claims += 1;
+      bucket.total += 1;
+    }
   }
   return buckets;
 }
@@ -85,12 +94,16 @@ export function aggregateEvents(events, { end = Date.now(), head = end, hours = 
   let total = 0;
   let claims = 0;
   let hosts = 0;
+  let sensors = 0;
   let unmapped = 0;
 
   for (const event of eventsInWindow(events, { end, head, hours })) {
-    total += 1;
+    const isSensor = event.kind === 'sensor';
     const isHost = event.kind === 'host';
-    if (isHost) hosts += 1;
+    const count = isSensor ? event.count : 1;
+    total += count;
+    if (isSensor) sensors += count;
+    else if (isHost) hosts += 1;
     else claims += 1;
 
     const code = String(event.country ?? '').trim().toUpperCase();
@@ -105,15 +118,25 @@ export function aggregateEvents(events, { end = Date.now(), head = end, hours = 
         code,
         claims: 0,
         hosts: 0,
+        sensors: 0,
         total: 0,
-        latest: null,
-        latestTime: -Infinity,
+        latestClaim: null,
+        latestClaimTime: -Infinity,
+        latestSensor: null,
+        latestSensorTime: -Infinity,
         groups: new Map(),
       };
       byCode.set(code, entry);
     }
-    entry.total += 1;
-    if (isHost) {
+    entry.total += count;
+    if (isSensor) {
+      entry.sensors += count;
+      const time = eventTime(event);
+      if (time !== null && time > entry.latestSensorTime) {
+        entry.latestSensorTime = time;
+        entry.latestSensor = event.ts;
+      }
+    } else if (isHost) {
       entry.hosts += 1;
     } else {
       entry.claims += 1;
@@ -121,10 +144,12 @@ export function aggregateEvents(events, { end = Date.now(), head = end, hours = 
       entry.groups.set(group, (entry.groups.get(group) || 0) + 1);
     }
 
-    const time = eventTime(event);
-    if (time !== null && time > entry.latestTime) {
-      entry.latestTime = time;
-      entry.latest = event.ts;
+    if (!isHost) {
+      const time = eventTime(event);
+      if (time !== null && time > entry.latestClaimTime) {
+        entry.latestClaimTime = time;
+        entry.latestClaim = event.ts;
+      }
     }
   }
 
@@ -133,8 +158,10 @@ export function aggregateEvents(events, { end = Date.now(), head = end, hours = 
       code: entry.code,
       claims: entry.claims,
       hosts: entry.hosts,
+      sensors: entry.sensors,
       total: entry.total,
-      latest: entry.latest,
+      latestClaim: entry.latestClaim,
+      latestSensor: entry.latestSensor,
       groups: [...entry.groups]
         .map(([name, count]) => ({ name, count }))
         .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name)),
@@ -145,6 +172,7 @@ export function aggregateEvents(events, { end = Date.now(), head = end, hours = 
     total,
     claims,
     hosts,
+    sensors,
     unmapped,
     max: countries.length ? countries[0].total : 0,
     countries,
@@ -213,6 +241,10 @@ export function pulseCount(count, max, { maxPulses = 4 } = {}) {
 /** One line of text for the ticker, in the feed's own vocabulary. */
 export function eventLabel(event) {
   if (!event) return '';
+  if (event.kind === 'sensor') {
+    const count = Number.isSafeInteger(event.count) && event.count > 0 ? event.count : 0;
+    return `Project honeypot observed ${count} SSH ${count === 1 ? 'connection' : 'connections'}`;
+  }
   if (event.kind === 'host') {
     return event.host ? `Phishing host · ${event.host}` : 'Phishing host';
   }

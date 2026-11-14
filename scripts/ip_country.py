@@ -29,7 +29,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-CACHE_DIR = ROOT / ".cache" / "dbip"
+CACHE_DIR = Path(os.environ.get("DBIP_CACHE_DIR", ROOT / ".cache" / "dbip"))
 
 DB_ATTRIBUTION = "IP Geolocation by DB-IP (https://db-ip.com), CC BY 4.0"
 DB_LICENSE_URL = "https://creativecommons.org/licenses/by/4.0/"

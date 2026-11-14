@@ -407,14 +407,52 @@ export function createRepo(db) {
       return row?.total ?? 0;
     },
 
-    async prune({ ordersBefore, attemptsBefore, windowsBefore }) {
+    async upsertSensorEvents(events, ingestedAt) {
+      const statements = events.map((event) =>
+        db.prepare(
+          `INSERT INTO sensor_events (sensor, minute, country, count, ingested_at)
+           VALUES (?, ?, ?, ?, ?)
+           ON CONFLICT(sensor, minute, country) DO UPDATE SET
+             count = excluded.count,
+             ingested_at = excluded.ingested_at`,
+        ).bind(event.sensor, event.minute, event.country, event.count, ingestedAt),
+      );
+      if (statements.length) await db.batch(statements);
+    },
+
+    async listSensorEvents({ since, limit = 10_000 }) {
+      return all(
+        `SELECT sensor, minute, country, count, ingested_at
+         FROM sensor_events WHERE minute >= ?
+         ORDER BY minute DESC, country ASC LIMIT ?`,
+        since,
+        limit,
+      );
+    },
+
+    async touchSensor(sensor, lastSeen) {
+      await run(
+        `INSERT INTO sensor_status (sensor, last_seen) VALUES (?, ?)
+         ON CONFLICT(sensor) DO UPDATE SET last_seen = excluded.last_seen`,
+        sensor,
+        lastSeen,
+      );
+    },
+
+    async getSensorStatus(sensor) {
+      return first("SELECT sensor, last_seen FROM sensor_status WHERE sensor = ?", sensor);
+    },
+
+    async prune({ ordersBefore, attemptsBefore, windowsBefore, sensorEventsBefore }) {
       const orders = await run("DELETE FROM orders WHERE status = 'pending' AND created_at < ?", ordersBefore);
       const logins = await run("DELETE FROM login_attempts WHERE at < ?", attemptsBefore);
       const windows = await run("DELETE FROM rate_limit WHERE window_start < ?", windowsBefore);
+      const sensorEvents = await run("DELETE FROM sensor_events WHERE minute < ?", sensorEventsBefore);
       return {
         orders: orders.changes ?? 0,
         logins: logins.changes ?? 0,
         windows: windows.changes ?? 0,
+        sensorEvents: sensorEvents.changes ?? 0,
       };
     },
   };

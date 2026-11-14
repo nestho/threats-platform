@@ -13,8 +13,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07080b">
-<title>Live threat map — Threats</title>
-<meta name="description" content="Ransomware victim claims and phishing hosting plotted from live feeds, with a 72-hour replay and an explicit freshness banner.">
+<title>Threat activity map — Threats</title>
+<meta name="description" content="Ransomware claims, phishing-host snapshots, and project-owned SSH honeypot observations by country, with source freshness.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/app.css">
@@ -23,6 +23,8 @@
   .sub, #coverage-note { max-width: 64ch; }
 
   .map-panel {
+    --map-rgb: 249, 115, 22;
+    --map-strong: var(--accent);
     padding: 20px;
     margin-bottom: 20px;
     position: relative;
@@ -34,6 +36,10 @@
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
   }
+
+  .map-panel[data-layer="hosts"] { --map-rgb: 56, 189, 248; --map-strong: #38bdf8; }
+  .map-panel[data-layer="sensors"] { --map-rgb: 239, 68, 68; --map-strong: #ef4444; }
+  .map-panel[data-layer="both"] { --map-rgb: 167, 139, 250; --map-strong: #a78bfa; }
 
   .map-head {
     display: flex;
@@ -279,6 +285,7 @@
 
   .kind.claim { color: var(--accent); border-color: var(--accent-line); background: var(--accent-soft); }
   .kind.host { color: var(--link); border-color: rgba(56, 189, 248, 0.35); background: rgba(56, 189, 248, 0.1); }
+  .kind.sensor { color: #ef4444; border-color: rgba(239, 68, 68, 0.35); background: rgba(239, 68, 68, 0.1); }
 
   .ticker-label { color: var(--text-secondary); overflow-wrap: anywhere; }
 
@@ -369,7 +376,7 @@
 <div class="wrap" id="main" role="main">
 
   <header class="topbar">
-    <div class="crumb"><a href="/">Threats</a><span class="sep">/</span><span class="here">Live map</span></div>
+    <div class="crumb"><a href="/">Threats</a><span class="sep">/</span><span class="here">Threat map</span></div>
     <div class="topbar-right">
       <a class="live-chip" id="live-chip" href="/status.html">
         <span class="dot" id="live-dot" aria-hidden="true"></span>
@@ -379,17 +386,19 @@
     </div>
   </header>
 
-  <h1>Live threat map</h1>
-  <p class="sub">Ransomware victim claims and phishing hosting, plotted from the feeds as the collectors publish them. Every ring is a record with a timestamp: a quiet hour is a quiet feed, not a quiet internet.</p>
+  <h1>Threat activity map</h1>
+  <p class="sub">Explore ransomware claims by their reported country, phishing-host locations from the latest snapshot, and SSH connections observed by a project-owned honeypot. Snapshots refresh about hourly; the page checks both feeds every minute. Sensor locations are based on source-IP geolocation, not a person's physical location. The map does not measure all global attacks or invent destination paths.</p>
 
   <div class="stat-grid">
-    <div class="stat-card"><div class="num" id="stat-claims">—</div><div class="lbl">claims</div></div>
-    <div class="stat-card"><div class="num" id="stat-hosts">—</div><div class="lbl">phishing hosts</div></div>
-    <div class="stat-card"><div class="num" id="stat-countries">—</div><div class="lbl">countries</div></div>
-    <div class="stat-card"><div class="num" id="stat-latest">—</div><div class="lbl">newest event</div></div>
+    <div class="stat-card"><div class="num" id="stat-claims">—</div><div class="lbl">ransomware claims</div></div>
+    <div class="stat-card"><div class="num" id="stat-hosts">—</div><div class="lbl">hosts in snapshot</div></div>
+    <div class="stat-card"><div class="num" id="stat-sensors">—</div><div class="lbl">observed SSH connections</div></div>
+    <div class="stat-card"><div class="num" id="stat-countries">—</div><div class="lbl">countries in view</div></div>
+    <div class="stat-card"><div class="num" id="stat-latest">—</div><div class="lbl">latest claim</div></div>
   </div>
 
-  <p class="note" id="coverage-note">Loading the live feed…</p>
+  <p class="note" id="coverage-note">Loading the source snapshots…</p>
+  <p class="note" id="sensor-status">Project sensor: checking availability…</p>
   <div class="note" id="freshness-note" hidden></div>
 
   <div class="controls">
@@ -398,7 +407,7 @@
     <label for="group-filter" class="section-label" style="margin:0;">Group</label>
     <select id="group-filter"><option value="">All groups</option></select>
     <button id="pause-feed" type="button" aria-pressed="false">Pause updates</button>
-    <button id="copy-json" type="button">Copy JSON endpoint</button>
+    <button id="copy-json" type="button">Copy snapshot JSON</button>
   </div>
 
   <div class="meta-bar">
@@ -409,37 +418,39 @@
     </span>
   </div>
 
-  <div class="panel map-panel">
+  <div class="panel map-panel" id="map-panel" data-layer="claims">
     <div class="map-head">
       <div class="seg-group" role="group" aria-label="Map layer">
         <button type="button" class="seg" data-layer="claims" aria-pressed="true">Victim claims</button>
         <button type="button" class="seg" data-layer="hosts" aria-pressed="false">Phishing hosting</button>
+        <button type="button" class="seg" data-layer="sensors" aria-pressed="false">Honeypot SSH</button>
         <button type="button" class="seg" data-layer="both" aria-pressed="false">Combined</button>
       </div>
       <div class="ingest offline" id="ingest">
         <span class="dot" aria-hidden="true"></span>
-        <span id="ingest-text">Feed: checking…</span>
+        <span id="ingest-text">Snapshots: checking…</span>
       </div>
     </div>
     <div class="map-scroll">
       <svg id="world" class="world" role="img" aria-labelledby="world-title world-desc" preserveAspectRatio="xMidYMid meet">
-        <title id="world-title">World map of live threat events by country</title>
-        <desc id="world-desc">Countries are shaded by how many recent claims or phishing hosts are placed there.</desc>
+        <title id="world-title">World map of reported claims, phishing hosts, and honeypot-observed SSH connections</title>
+        <desc id="world-desc">Countries are shaded by source records. Claims and honeypot connections are timestamped; phishing hosts are a current snapshot.</desc>
       </svg>
     </div>
     <div class="map-legend" aria-hidden="true">
-      <span id="legend-title">Claims vs busiest country</span>
+      <span id="legend-title">Claims · relative to busiest country</span>
       <span><i class="swatch lvl-0"></i>none</span>
       <span><i class="swatch lvl-1"></i>&lt;8%</span>
       <span><i class="swatch lvl-2"></i>8–20%</span>
       <span><i class="swatch lvl-3"></i>20–50%</span>
       <span><i class="swatch lvl-4"></i>≥50%</span>
-      <span id="legend-pulse"><i class="pulse-key"></i>new claim</span>
+      <span id="legend-pulse"><i class="pulse-key"></i>new observation</span>
     </div>
     <p class="note" id="map-gaps" hidden></p>
   </div>
 
   <div class="panel timeline">
+    <p class="note" id="timeline-note">Replay timestamped ransomware claims and honeypot observations · phishing hosts stay on the latest snapshot.</p>
     <div class="spark" id="spark" aria-hidden="true"></div>
     <div class="timeline-row">
       <label for="head" class="visually-hidden">Replay position over the last 72 hours</label>
@@ -454,15 +465,17 @@
 
   <div class="live-grid">
     <section class="panel ticker-panel" aria-labelledby="ticker-title">
-      <h2 class="section-label" id="ticker-title" style="margin:0;">Recent events</h2>
+      <h2 class="section-label" id="ticker-title" style="margin:0;">Recent source records and current host snapshot</h2>
       <ol class="ticker" id="ticker"></ol>
     </section>
     <section class="panel source-panel" aria-labelledby="layers-title">
       <h2 class="section-label" id="layers-title" style="margin:0;">What the layers are</h2>
       <ul class="provenance">
-        <li><strong>Victim claims</strong> — ransomware leak-site victims published in the last 72 hours, shown in the country the claim names (ransomware.live).</li>
-        <li><strong>Phishing hosting</strong> — hostnames in the current OpenPhish snapshot, resolved at collection time; the country is where the IP is registered, not where the attacker sits.</li>
-        <li><strong>No source-to-destination arcs.</strong> No publishable feed records attacker origin, so the map shows where events are recorded rather than inventing a path.</li>
+        <li><strong>Victim claims</strong> — ransomware leak-site victims published in the last 72 hours, shown in the country the claim names (ransomware.live). These are claims, not independently verified incidents.</li>
+        <li><strong>Phishing hosting</strong> — hostnames in the latest OpenPhish snapshot, resolved at collection time; the country is where the IP is registered, not where the attacker sits. This inventory is not replayed as a time series.</li>
+        <li><strong>Honeypot SSH</strong> — connection attempts received by this project's Cowrie sensor, grouped by minute and source-IP country (DB-IP). The public feed contains no source IPs or credentials; geolocation is approximate and does not identify a person's location.</li>
+        <li><strong>No source-to-destination arcs.</strong> The honeypot observes inbound connections only; the destination is this sensor, not a global victim network.</li>
+        <li>Public sensor feed: <a href="https://api.threats.top/api/sensors/events?hours=72" target="_blank" rel="noopener">minute/country SSH aggregates</a>; source IPs are not published.</li>
         <li>IP geolocation: <a href="https://db-ip.com" target="_blank" rel="noopener">IP Geolocation by DB-IP</a>, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>. Phishing hosts: OpenPhish.</li>
       </ul>
     </section>
@@ -470,15 +483,16 @@
 
   <div class="table-wrap">
     <table>
-      <caption class="visually-hidden">Countries by live threat events in the selected window</caption>
+      <caption class="visually-hidden">Countries by ransomware claims, honeypot SSH connections, and phishing hosts in the latest snapshot</caption>
       <thead>
         <tr>
           <th scope="col">Country</th>
           <th scope="col">Claims</th>
           <th scope="col">Phishing hosts</th>
+          <th scope="col">SSH connections</th>
           <th scope="col">Total</th>
           <th scope="col">Top group</th>
-          <th scope="col">Latest event</th>
+          <th scope="col">Latest claim / sensor / snapshot</th>
         </tr>
       </thead>
       <tbody id="countries"></tbody>
@@ -510,6 +524,7 @@ initConsoleShell();
 
 const HOUR = 3_600_000;
 const SVG_NS = 'http://www.w3.org/2000/svg';
+const SENSOR_API = 'https://api.threats.top/api/sensors/events?hours=72';
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const svg = document.getElementById('world');
@@ -529,7 +544,13 @@ pulseLayer.setAttribute('aria-hidden', 'true');
 svg.append(pulseLayer);
 
 let live = null;
+let baseEvents = [];
+let sensorEvents = [];
 let events = [];
+let sensorConfigured = false;
+let sensorLastSeen = null;
+let sensorError = null;
+let sensorInitialized = false;
 let seenIds = new Set();
 let now = Date.now();
 let hoursBack = 0;
@@ -548,8 +569,13 @@ function currentEvents() {
   return group ? events.filter((event) => event.kind === 'claim' && event.group === group) : events;
 }
 
+function hasSensorMetrics() {
+  return sensorConfigured && sensorLastSeen !== null;
+}
+
 function metric(country) {
   if (layer === 'hosts') return country.hosts;
+  if (layer === 'sensors') return country.sensors;
   if (layer === 'both') return country.total;
   return country.claims;
 }
@@ -565,7 +591,8 @@ function paintMap(aggregate, countries) {
   const max = aggregate.countries.reduce((peak, country) => Math.max(peak, metric(country)), 0);
   const describe = (code, country) =>
     `${countryName(code)} · ${country.claims} ${country.claims === 1 ? 'claim' : 'claims'}, `
-    + `${country.hosts} ${country.hosts === 1 ? 'phishing host' : 'phishing hosts'}`;
+    + `${country.hosts} ${country.hosts === 1 ? 'phishing host' : 'phishing hosts'}, `
+    + `${hasSensorMetrics() ? `${country.sensors} observed SSH connections` : 'SSH sensor data unavailable'}`;
   const { shown } = world.paint(painted, { max, selected, label: describe });
   document.getElementById('world-desc').textContent = shown
     ? `Events are placed in ${shown} ${shown === 1 ? 'country' : 'countries'}; ${aggregate.total} events are visible at the selected time.`
@@ -597,11 +624,12 @@ function spawnPulse(code, count, peak) {
   }, 2600);
 }
 
-function pulseClaims(list) {
+function pulseEvents(list) {
   const perCountry = new Map();
   for (const event of list) {
-    if (event.kind !== 'claim') continue;
-    perCountry.set(event.country, (perCountry.get(event.country) || 0) + 1);
+    if (event.kind !== 'claim' && event.kind !== 'sensor') continue;
+    const count = event.kind === 'sensor' ? event.count : 1;
+    perCountry.set(event.country, (perCountry.get(event.country) || 0) + count);
   }
   const peak = Math.max(1, ...perCountry.values());
   for (const [code, count] of perCountry) spawnPulse(code, count, peak);
@@ -624,10 +652,8 @@ function renderSpark() {
   spark.innerHTML = buckets
     .map((bucket) => {
       const total = Math.max(2, Math.round((bucket.total / peak) * 42));
-      const claims = bucket.total ? Math.round((bucket.claims / bucket.total) * total) : 0;
-      const hosts = bucket.total ? total - claims : 0;
-      return `<span class="bar">${hosts ? `<i class="hosts" style="height:${hosts}px"></i>` : ''}`
-        + `${claims ? `<i class="claims" style="height:${claims}px"></i>` : ''}</span>`;
+      const claims = bucket.total ? Math.max(1, total) : 0;
+      return `<span class="bar">${claims ? `<i class="claims" style="height:${claims}px"></i>` : ''}</span>`;
     })
     .join('');
   const marker = document.createElement('span');
@@ -638,36 +664,57 @@ function renderSpark() {
 
 function renderHead() {
   document.getElementById('spark-head').style.left = `${((WINDOW_HOURS - hoursBack) / WINDOW_HOURS) * 100}%`;
-  document.getElementById('head-label').textContent = hoursBack === 0
+  const label = hoursBack === 0
     ? 'now'
     : `${hoursBack}h ago · ${new Date(head).toISOString().slice(0, 16).replace('T', ' ')}Z`;
-  const atHead = eventsInWindow(currentEvents(), { end: now, head }).length;
-  const total = eventsInWindow(currentEvents(), { end: now }).length;
+  document.getElementById('head-label').textContent = label;
+  const filtered = currentEvents();
+  const visibleAtHead = eventsInWindow(filtered, { end: now, head });
+  const claimsAtHead = visibleAtHead
+    .filter((event) => event.kind === 'claim').length;
+  const sensorsAtHead = visibleAtHead
+    .filter((event) => event.kind === 'sensor')
+    .reduce((sum, event) => sum + event.count, 0);
+  const claimsInWindow = eventsInWindow(filtered, { end: now })
+    .filter((event) => event.kind === 'claim').length;
+  const hostsInSnapshot = filtered.filter((event) => event.kind === 'host').length;
+  const sensorCountText = hasSensorMetrics()
+    ? `${sensorsAtHead.toLocaleString('en-US')} SSH connections`
+    : 'SSH count unavailable';
   document.getElementById('head-count').textContent = hoursBack === 0
-    ? `${atHead.toLocaleString('en-US')} events in the window`
-    : `${atHead.toLocaleString('en-US')} of ${total.toLocaleString('en-US')} events shown`;
+    ? `${claimsAtHead.toLocaleString('en-US')} claims · ${sensorCountText} · ${hostsInSnapshot.toLocaleString('en-US')} hosts in latest snapshot`
+    : `${claimsAtHead.toLocaleString('en-US')} of ${claimsInWindow.toLocaleString('en-US')} claims · ${sensorCountText} · ${hostsInSnapshot.toLocaleString('en-US')} hosts`;
+  slider.setAttribute('aria-valuetext', `${label}; ${claimsAtHead} ransomware claims, ${hasSensorMetrics() ? `${sensorsAtHead} observed SSH connections` : 'SSH sensor data unavailable'}, ${hostsInSnapshot} phishing hosts in latest snapshot`);
 }
 
 function row(country) {
   const top = country.groups[0];
   const topLabel = top ? `${top.name} (${top.count})` : '—';
+  const latest = [country.latestClaim, country.latestSensor]
+    .filter(Boolean)
+    .sort((a, b) => Date.parse(b) - Date.parse(a))[0];
   return `<tr${country.code === selected ? ' class="sel"' : ''}>
     <td><button type="button" class="country-button" data-code="${esc(country.code)}">${esc(countryName(country.code))}</button> <span class="code">${esc(country.code)}</span></td>
     <td class="num">${country.claims}</td>
     <td class="num">${country.hosts}</td>
+    <td class="num">${hasSensorMetrics() ? country.sensors : '—'}</td>
     <td class="num">${country.total}</td>
     <td class="top-group">${esc(topLabel)}</td>
-    <td class="top-group">${esc(timeAgo(country.latest))}</td>
+    <td class="top-group">${latest ? esc(timeAgo(latest)) : country.hosts ? 'Snapshot' : '—'}</td>
   </tr>`;
 }
 
 function renderTicker(visible) {
-  /* Every phishing host carries the collection timestamp, so a strictly
-     chronological top-7 would be nothing but hosts. Cap them so the claims
-     this page exists to show stay in the ticker; order stays newest first. */
+  /* Hosts are inventory entries, not timestamped observations. Cap their
+     representation and label them as a snapshot rather than recent events. */
   const items = [];
   let hosts = 0;
-  for (const event of visible) {
+  const ordered = [
+    ...visible.filter((event) => event.kind === 'host'),
+    ...visible.filter((event) => event.kind !== 'host')
+      .sort((a, b) => eventTime(b) - eventTime(a)),
+  ];
+  for (const event of ordered) {
     if (items.length === 7) break;
     if (event.kind === 'host') {
       if (hosts === 4) continue;
@@ -677,12 +724,12 @@ function renderTicker(visible) {
   }
   document.getElementById('ticker').innerHTML = items.length
     ? items.map((event) => `<li>
-        <time datetime="${esc(event.ts)}">${esc(timeAgo(event.ts))}</time>
-        <span class="kind ${event.kind === 'claim' ? 'claim' : 'host'}">${event.kind === 'claim' ? 'claim' : 'hosting'}</span>
+        <time datetime="${esc(event.ts)}">${event.kind === 'host' ? 'snapshot' : esc(timeAgo(event.ts))}</time>
+        <span class="kind ${event.kind === 'claim' ? 'claim' : event.kind === 'host' ? 'host' : 'sensor'}">${event.kind === 'claim' ? 'claim' : event.kind === 'host' ? 'host snapshot' : 'honeypot SSH'}</span>
         <button type="button" class="country-button" data-code="${esc(event.country)}">${esc(countryName(event.country))}</button>
         <span class="ticker-label">${esc(eventLabel(event))}</span>
       </li>`).join('')
-    : '<li><span class="ticker-label">No event in the selected window.</span></li>';
+    : '<li><span class="ticker-label">No timestamped observation in the selected window.</span></li>';
 }
 
 function render() {
@@ -704,13 +751,17 @@ function render() {
 
   document.getElementById('stat-claims').textContent = aggregate.claims.toLocaleString('en-US');
   document.getElementById('stat-hosts').textContent = aggregate.hosts.toLocaleString('en-US');
+  document.getElementById('stat-sensors').textContent = hasSensorMetrics()
+    ? aggregate.sensors.toLocaleString('en-US')
+    : '—';
   document.getElementById('stat-countries').textContent = aggregate.countries.length.toLocaleString('en-US');
-  document.getElementById('stat-latest').textContent = visible.length ? timeAgo(visible[0].ts) : '—';
+  const latestClaim = visible.find((event) => event.kind === 'claim');
+  document.getElementById('stat-latest').textContent = latestClaim ? timeAgo(latestClaim.ts) : '—';
 
   setResultCount(document.getElementById('count-label'), rows.length, 'country', 'countries');
   document.getElementById('countries').innerHTML = rows.length
     ? rows.map(row).join('')
-    : '<tr><td colspan="6" class="empty">No country has an event in this window and filter.</td></tr>';
+    : '<tr><td colspan="7" class="empty">No country has an event in this window and filter.</td></tr>';
   document.getElementById('clear-selection').hidden = !selected;
 
   const gaps = countries.filter((country) => !shapes.has(country.code));
@@ -732,7 +783,7 @@ function setHoursBack(value, { pulse = false } = {}) {
   head = now - next * HOUR;
   slider.value = String(next);
   if (pulse && head > previousHead) {
-    pulseClaims(currentEvents().filter((event) => {
+    pulseEvents(currentEvents().filter((event) => {
       const time = eventTime(event);
       return time !== null && time > previousHead && time <= head;
     }));
@@ -744,8 +795,8 @@ function updateReplayButton() {
   const label = replayState === 'playing' ? 'Pause' : replayState === 'paused' ? 'Resume' : 'Replay 72h';
   replayButton.textContent = label;
   replayButton.setAttribute('aria-label', replayState === 'playing'
-    ? 'Pause the 72-hour replay'
-    : 'Replay the last 72 hours of events');
+    ? 'Pause the 72-hour activity replay'
+    : 'Replay timestamped activity from the last 72 hours');
 }
 
 function stopReplay(state = 'idle') {
@@ -783,8 +834,12 @@ function startReplay() {
 }
 
 function renderLegend() {
-  const noun = layer === 'hosts' ? 'Hosts' : layer === 'both' ? 'Events' : 'Claims';
-  document.getElementById('legend-title').textContent = `${noun} vs busiest country`;
+  const noun = layer === 'hosts' ? 'Hosts'
+    : layer === 'sensors' ? 'SSH connections'
+      : layer === 'both' ? 'All records' : 'Claims';
+  document.getElementById('map-panel').dataset.layer = layer;
+  svg.dataset.layer = layer;
+  document.getElementById('legend-title').textContent = `${noun} · relative to busiest country`;
   document.getElementById('legend-pulse').hidden = layer === 'hosts';
 }
 
@@ -801,7 +856,7 @@ function renderIngest() {
     : ingestState({ updatedAt: live?.updated_at, now });
   const badge = document.getElementById('ingest');
   badge.className = `ingest ${state.state}`;
-  const word = { live: 'Live', delayed: 'Delayed', stale: 'Stale', offline: 'Offline' }[state.state];
+  const word = { live: 'Current', delayed: 'Delayed', stale: 'Stale', offline: 'Offline' }[state.state];
   const age = state.ageMinutes === null
     ? 'no usable timestamp'
     : state.ageMinutes < 1 ? 'updated just now' : `updated ${state.ageMinutes}m ago`;
@@ -811,7 +866,7 @@ function renderIngest() {
 function renderCoverage() {
   const note = document.getElementById('coverage-note');
   if (!live) {
-    note.textContent = 'The live feed is unavailable. The map stays blank rather than presenting old events as live.';
+    note.textContent = 'The source feed is unavailable. The map stays blank rather than presenting old records as current.';
     return;
   }
   const coverage = live.coverage || {};
@@ -823,6 +878,28 @@ function renderCoverage() {
     + (coverage.geo_available === false
       ? ' The country database was unavailable for this run, so only claims are shown.'
       : '');
+}
+
+function renderSensorStatus() {
+  const note = document.getElementById('sensor-status');
+  if (sensorError) {
+    note.textContent = `Project sensor feed unavailable (${sensorError}); new SSH observations cannot be confirmed.`;
+    return;
+  }
+  if (!sensorConfigured) {
+    note.textContent = 'Live sensor ingestion is not configured yet. No SSH telemetry is currently available.';
+    return;
+  }
+  if (!sensorLastSeen) {
+    note.textContent = 'Cowrie ingestion is configured; waiting for the sensor to check in.';
+    return;
+  }
+  const state = ingestState({ updatedAt: sensorLastSeen, now, cadenceMinutes: 2 });
+  const age = state.ageMinutes === null
+    ? 'no usable timestamp'
+    : state.ageMinutes < 1 ? 'updated just now' : `updated ${state.ageMinutes}m ago`;
+  const count = sensorEvents.reduce((sum, event) => sum + event.count, 0);
+  note.textContent = `Project Cowrie SSH sensor · ${state.state} · ${count.toLocaleString('en-US')} connections in the 72-hour window · last check-in ${age}. Countries reflect source-IP registration, not physical attacker locations.`;
 }
 
 function select(code) {
@@ -850,7 +927,8 @@ function addGroupOptions() {
 
 function applyDocument(data) {
   live = data;
-  events = Array.isArray(data.events) ? data.events : [];
+  baseEvents = Array.isArray(data.events) ? data.events : [];
+  events = [...baseEvents, ...sensorEvents];
   now = Date.now();
   /* The head is derived from "now" and the replay offset. Without this, a
      refresh while at "now" would keep an old head and hide the new events. */
@@ -863,32 +941,92 @@ function applyDocument(data) {
   renderCoverage();
   render();
   renderIngest();
+  renderSensorStatus();
   showStaleNote('freshness-note', ['live']);
+}
+
+async function refreshSensorFeed() {
+  let response;
+  try {
+    response = await fetch(SENSOR_API, {
+      headers: { accept: 'application/json' },
+      cache: 'no-store',
+    });
+  } catch {
+    sensorError = 'network error';
+    renderSensorStatus();
+    return;
+  }
+  if (!response.ok) {
+    sensorError = `HTTP ${response.status}`;
+    renderSensorStatus();
+    return;
+  }
+
+  let feed;
+  try {
+    feed = await response.json();
+  } catch {
+    sensorError = 'invalid feed';
+    renderSensorStatus();
+    return;
+  }
+  if (!Array.isArray(feed?.events)) {
+    sensorError = 'invalid feed';
+    renderSensorStatus();
+    return;
+  }
+
+  const previousCounts = new Map(sensorEvents.map((event) => [event.id, event.count]));
+  const next = feed.events.filter((event) =>
+    event?.kind === 'sensor'
+    && typeof event.id === 'string'
+    && typeof event.ts === 'string'
+    && typeof event.country === 'string'
+    && Number.isSafeInteger(event.count)
+    && event.count > 0);
+  const fresh = sensorInitialized
+    ? next.filter((event) => (previousCounts.get(event.id) ?? 0) < event.count)
+    : [];
+  sensorEvents = next;
+  sensorInitialized = true;
+  sensorConfigured = Boolean(feed.sensor_configured);
+  sensorLastSeen = typeof feed.sensor_last_seen === 'string' ? feed.sensor_last_seen : null;
+  sensorError = null;
+  now = Date.now();
+  head = now - hoursBack * HOUR;
+  events = [...baseEvents, ...sensorEvents];
+  render();
+  renderSensorStatus();
+  if (hoursBack === 0 && fresh.length) {
+    pulseEvents(fresh);
+    flashCountries(fresh);
+  }
 }
 
 async function poll() {
   if (paused || document.hidden) return;
   const data = await fetchJson('/data/live.json');
-  if (!data || !Array.isArray(data.events)) {
+  if (data && Array.isArray(data.events)) {
+    failures = 0;
+    if (!live || data.updated_at !== live.updated_at) {
+      const fresh = newEventIds(seenIds, data.events);
+      applyDocument(data);
+      for (const event of baseEvents) seenIds.add(event.id);
+
+      if (hoursBack === 0 && fresh.length) {
+        const freshEvents = baseEvents.filter((event) => fresh.includes(event.id));
+        pulseEvents(freshEvents);
+        flashCountries(freshEvents.filter((event) => event.kind === 'claim'));
+      }
+    }
+  } else {
     failures += 1;
-    renderIngest();
-    return;
   }
-  failures = 0;
-  if (live && data.updated_at === live.updated_at) {
-    renderIngest();
-    return;
-  }
-
-  const fresh = newEventIds(seenIds, data.events);
-  applyDocument(data);
-  for (const event of events) seenIds.add(event.id);
-
-  if (hoursBack === 0 && fresh.length) {
-    const freshEvents = events.filter((event) => fresh.includes(event.id));
-    pulseClaims(freshEvents);
-    flashCountries(freshEvents.filter((event) => event.kind === 'claim'));
-  }
+  now = Date.now();
+  head = now - hoursBack * HOUR;
+  renderIngest();
+  await refreshSensorFeed();
 }
 
 /* ── Wiring ─────────────────────────────────────────────────────────── */
@@ -952,7 +1090,7 @@ pauseButton.addEventListener('click', () => {
 });
 
 document.getElementById('copy-json').addEventListener('click', () => {
-  copyEndpointUrl('/data/live.json', 'Copied /data/live.json');
+  copyEndpointUrl('/data/live.json', 'Copied snapshot JSON endpoint');
 });
 
 /* ── Boot ───────────────────────────────────────────────────────────── */
@@ -960,15 +1098,7 @@ document.getElementById('copy-json').addEventListener('click', () => {
 const initial = await fetchJson('/data/live.json');
 if (initial && Array.isArray(initial.events)) {
   applyDocument(initial);
-  for (const event of events) seenIds.add(event.id);
-  /* Drop a deep link the current window knows nothing about, rather than
-     showing a selection with no matching row. */
-  if (selected && !events.some((event) => event.country === selected)) {
-    selected = null;
-    const url = new URL(location.href);
-    url.searchParams.delete('country');
-    history.replaceState(null, '', url);
-  }
+  for (const event of baseEvents) seenIds.add(event.id);
   render();
   /* Replay is opt-in: starting it automatically would show a partial window
      (and partial totals) to every first-time visitor for the first seconds. */
@@ -982,6 +1112,15 @@ if (initial && Array.isArray(initial.events)) {
   showStaleNote('freshness-note', ['live']);
 }
 
+await refreshSensorFeed();
+/* Drop a deep link the available feeds do not know about. */
+if (selected && !events.some((event) => event.country === selected)) {
+  selected = null;
+  const url = new URL(location.href);
+  url.searchParams.delete('country');
+  history.replaceState(null, '', url);
+  render();
+}
 renderLegend();
 pollTimer = setInterval(poll, 60_000);
 </script>

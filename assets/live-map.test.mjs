@@ -36,17 +36,18 @@ test('eventTime: parses the feed timestamps and rejects junk', () => {
   }
 });
 
-test('eventsInWindow: keeps events inside the window, inclusive at the head', () => {
+test('eventsInWindow: keeps timestamped events in the window and hosts as a current snapshot', () => {
   const events = [
     event({ id: 'now', ts: hoursAgo(0) }),
     event({ id: 'edge-start', ts: hoursAgo(72) }),
     event({ id: 'just-inside', ts: new Date(NOW - 72 * HOUR + 1000).toISOString() }),
     event({ id: 'outside', ts: hoursAgo(73) }),
     event({ id: 'future', ts: hoursAgo(-1) }),
+    event({ id: 'host-snapshot', kind: 'host', ts: hoursAgo(100), host: 'x.example' }),
   ];
   const kept = eventsInWindow(events, { end: NOW, hours: 72 }).map((item) => item.id);
 
-  assert.deepEqual(kept.sort(), ['just-inside', 'now']);
+  assert.deepEqual(kept.sort(), ['host-snapshot', 'just-inside', 'now']);
 });
 
 test('eventsInWindow: a replay head changes which events are visible', () => {
@@ -65,10 +66,27 @@ test('eventsInWindow: a head inside a fixed window reveals a prefix', () => {
   assert.deepEqual(replay.map((item) => item.id), ['old', 'mid']);
 });
 
-test('aggregateEvents: the head filters the aggregate but hourlyBuckets keeps the window', () => {
-  const events = [event({ id: 'a', ts: hoursAgo(10) }), event({ id: 'b', ts: hoursAgo(2) })];
-  assert.equal(aggregateEvents(events, { end: NOW, head: NOW - 5 * HOUR }).total, 1);
-  assert.equal(hourlyBuckets(events, { end: NOW }).reduce((sum, b) => sum + b.total, 0), 2);
+test('aggregateEvents: replay filters claims but retains the current host snapshot', () => {
+  const events = [
+    event({ id: 'a', ts: hoursAgo(10) }),
+    event({ id: 'b', kind: 'host', ts: hoursAgo(2), host: 'x.example' }),
+  ];
+  assert.equal(aggregateEvents(events, { end: NOW, head: NOW - 5 * HOUR }).total, 2);
+  assert.equal(hourlyBuckets(events, { end: NOW }).reduce((sum, b) => b.total + sum, 0), 1);
+});
+
+test('sensor counts are replayed and weighted in country and hourly totals', () => {
+  const events = [
+    event({ id: 'sensor-us', kind: 'sensor', ts: hoursAgo(6), country: 'US', count: 7 }),
+    event({ id: 'sensor-gb', kind: 'sensor', ts: hoursAgo(2), country: 'GB', count: 3 }),
+  ];
+  const aggregate = aggregateEvents(events, { end: NOW, head: NOW - 4 * HOUR });
+  assert.equal(aggregate.total, 7);
+  assert.equal(aggregate.sensors, 7);
+  assert.deepEqual(aggregate.countries.map(({ code, sensors, total }) => [code, sensors, total]), [['US', 7, 7]]);
+  const buckets = hourlyBuckets(events, { end: NOW });
+  assert.equal(buckets[65].sensors, 7);
+  assert.equal(buckets[65].total, 7);
 });
 
 test('eventsInWindow: tolerates a missing list', () => {
@@ -87,7 +105,7 @@ test('hourlyBuckets: one bucket per hour, oldest first', () => {
   );
 });
 
-test('hourlyBuckets: places events in the right hour and counts kinds apart', () => {
+test('hourlyBuckets: bins claims and leaves snapshot hosts out of the timeline', () => {
   const buckets = hourlyBuckets([
     event({ kind: 'claim', ts: hoursAgo(0) }),
     event({ kind: 'host', ts: hoursAgo(0) }),
@@ -96,10 +114,10 @@ test('hourlyBuckets: places events in the right hour and counts kinds apart', ()
     event({ kind: 'claim', ts: hoursAgo(80) }),
   ], { end: NOW, hours: 72 });
 
-  assert.deepEqual(buckets[71], { start: NOW - HOUR, claims: 1, hosts: 1, total: 2 });
-  assert.deepEqual(buckets[70], { start: NOW - 2 * HOUR, claims: 1, hosts: 0, total: 1 });
-  assert.deepEqual(buckets[0], { start: NOW - 72 * HOUR, claims: 1, hosts: 0, total: 1 });
-  assert.equal(buckets.reduce((sum, bucket) => sum + bucket.total, 0), 4);
+  assert.deepEqual(buckets[71], { start: NOW - HOUR, claims: 1, hosts: 0, sensors: 0, total: 1 });
+  assert.deepEqual(buckets[70], { start: NOW - 2 * HOUR, claims: 1, hosts: 0, sensors: 0, total: 1 });
+  assert.deepEqual(buckets[0], { start: NOW - 72 * HOUR, claims: 1, hosts: 0, sensors: 0, total: 1 });
+  assert.equal(buckets.reduce((sum, bucket) => sum + bucket.total, 0), 3);
 });
 
 test('aggregateEvents: reports claims and hosts per country, busiest first', () => {
@@ -115,14 +133,15 @@ test('aggregateEvents: reports claims and hosts per country, busiest first', () 
   assert.equal(aggregate.total, 6);
   assert.equal(aggregate.claims, 4);
   assert.equal(aggregate.hosts, 2);
+  assert.equal(aggregate.sensors, 0);
   assert.equal(aggregate.max, 3);
   assert.deepEqual(
-    aggregate.countries.map((entry) => [entry.code, entry.claims, entry.hosts, entry.total]),
-    [['US', 3, 0, 3], ['DE', 1, 1, 2], ['CA', 0, 1, 1]],
+    aggregate.countries.map((entry) => [entry.code, entry.claims, entry.hosts, entry.sensors, entry.total]),
+    [['US', 3, 0, 0, 3], ['DE', 1, 1, 0, 2], ['CA', 0, 1, 0, 1]],
   );
 });
 
-test('aggregateEvents: groups come from claims only, and the latest event is kept', () => {
+test('aggregateEvents: groups and latest-claim time come from claims only', () => {
   const aggregate = aggregateEvents([
     event({ id: 'a', country: 'US', group: 'LockBit', ts: hoursAgo(4) }),
     event({ id: 'b', country: 'US', group: 'LockBit', ts: hoursAgo(2) }),
@@ -131,7 +150,7 @@ test('aggregateEvents: groups come from claims only, and the latest event is kep
   ], { end: NOW });
 
   const us = aggregate.countries[0];
-  assert.equal(us.latest, hoursAgo(1));
+  assert.equal(us.latestClaim, hoursAgo(2));
   assert.deepEqual(us.groups, [{ name: 'LockBit', count: 2 }, { name: 'Qilin', count: 1 }]);
 });
 
@@ -149,7 +168,7 @@ test('aggregateEvents: an event without a usable ISO code is counted, not guesse
 
 test('aggregateEvents: degrades to an empty result', () => {
   const aggregate = aggregateEvents(undefined, { end: NOW });
-  assert.deepEqual(aggregate, { total: 0, claims: 0, hosts: 0, unmapped: 0, max: 0, countries: [] });
+  assert.deepEqual(aggregate, { total: 0, claims: 0, hosts: 0, sensors: 0, unmapped: 0, max: 0, countries: [] });
 });
 
 test('cumulative: running totals, so replay only needs a bucket index', () => {
@@ -207,4 +226,5 @@ test('eventLabel: says what the event is, in the feed\'s own terms', () => {
   assert.equal(eventLabel(event()), 'LockBit claim · Manufacturing');
   assert.equal(eventLabel(event({ sector: null })), 'LockBit claim');
   assert.equal(eventLabel(event({ kind: 'host', group: null, host: 'x.example' })), 'Phishing host · x.example');
+  assert.equal(eventLabel(event({ kind: 'sensor', count: 3 })), 'Project honeypot observed 3 SSH connections');
 });

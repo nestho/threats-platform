@@ -5,9 +5,9 @@
 [![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=nestho_threats-platform&metric=alert_status)](https://sonarcloud.io/dashboard?id=nestho_threats-platform)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 
-Open threat intelligence, built from free official sources and published as static JSON and HTML. GitHub Actions collects the data, `scripts/validate_feeds.py` gates it, GitHub Pages serves `threats.top`, and every change to production arrives through a pull request. A single Cloudflare Worker on `api.threats.top` handles the paid side only — orders, licences, admin review, and the STIX export — and never writes to git.
+Open threat intelligence, built from free official sources and published as static JSON and HTML. GitHub Actions collects the snapshots, `scripts/validate_feeds.py` gates them, GitHub Pages serves `threats.top`, and every change to production arrives through a pull request. A single Cloudflare Worker on `api.threats.top` handles Pro account operations, ingests authenticated honeypot aggregates, and serves the public country-only sensor feed; operational records stay in D1 and never write to git.
 
-Every number on the site comes from a live feed. There is no demo data, no sample tenant, and no placeholder row that could be mistaken for real intelligence.
+Every number on the site comes from a source or a derived snapshot. There is no demo data, sample tenant, or placeholder row that could be mistaken for real intelligence.
 
 ## Live pages
 
@@ -17,7 +17,7 @@ Every number on the site comes from a live feed. There is no demo data, no sampl
 | [Vulnerabilities](https://threats.top/cves.html) | NVD window, CISA KEV, EPSS, Exploit-DB, CERT-EU, GHSA |
 | [Live indicators](https://threats.top/iocs.html) | Defanged phishing URLs and ransomware victim domains |
 | [Ransomware](https://threats.top/ransomware.html) | Leak-site claims with group, sector, and country |
-| [Live map](https://threats.top/map.html) | Victim claims and phishing hosting by country, with a 72-hour replay |
+| [Threat map](https://threats.top/map.html) | Ransomware claim replay, current phishing-host locations, and project-owned SSH honeypot observations when deployed |
 | [Phishing](https://threats.top/phishing.html) | A deduplicated OpenPhish snapshot |
 | [Cloud threats](https://threats.top/threats.html) | Wiz Research incidents plus Microsoft and Ubuntu advisories |
 | [Programs](https://threats.top/programs.html) | Bug bounty scope and in-scope domains |
@@ -45,12 +45,21 @@ All public feeds are unkeyed. Each file carries `schema_version`, `source`, `sou
 | `data/advisories.json` | Microsoft MSRC + Ubuntu | 4h | Vendor security notices |
 | `data/epss.json` | FIRST EPSS | 6h | Exploit prediction scores for the CVE window |
 | `data/iocs.json` | Derived | 1h | Combined phishing and ransomware indicators |
-| `data/live.json` | Derived + DB-IP Lite | 1h | Geo-placed claims and phishing hosts for the live map |
+| `data/live.json` | Derived + DB-IP Lite | 1h | Geo-placed ransomware claims and phishing-host snapshot for the map |
 | `data/status.json` | Derived | every run | Health of every source above |
 
 Phishing host locations in `live.json` come from [DB-IP Lite](https://db-ip.com)
 under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); the attribution
 is repeated on the page and in the feed metadata.
+
+The map polls the project-owned Cowrie sensor API separately from the static
+feed. Its minute/country aggregates are genuine inbound SSH connections
+observed by that sensor, not a global attack count; see
+[`docs/LIVE-SENSOR.md`](docs/LIVE-SENSOR.md) for deployment prerequisites.
+Phishing hosts remain an inventory snapshot, not timestamped sightings. The
+Cowrie layer is real only after a dedicated VPS is provisioned; until then the
+page explicitly reports that ingestion is unconfigured or unavailable. The
+API publishes minute/country counts only.
 
 Wiz publishes analysis, not alerts (measured: 0 items in 7 days, 3 in 30), so it runs on a 30-day cadence and is labelled as analysis in the UI rather than implying hourly freshness.
 
@@ -61,8 +70,8 @@ Wiz publishes analysis, not alerts (measured: 0 items in 7 days, 3 in 30), so it
 3. If `data/` changed, the workflow commits to an `automation/data-*` branch and opens or updates one pull request. Auto-merge (squash) is enabled, so it lands as soon as the required checks pass.
 4. `validate.yml` runs on every pull request and must report three green checks:
    - **Feed data** — validates the snapshot against the base commit, so the gate answers "did this PR empty or halve a feed" rather than "is a feed empty".
-   - **Unit tests** — `node --test assets worker scheduler` (194 tests).
-   - **Python tests** — `python3 -m unittest discover -s scripts/tests -t scripts` (171 tests).
+   - **Unit tests** — `node --test assets worker scheduler` (207 tests).
+   - **Python tests** — `python3 -m unittest discover -s scripts/tests -t scripts` (176 tests).
    A fourth, advisory **Design detector** job annotates layout and accessibility findings without blocking a merge.
 5. `main` is protected by the `protect-main` ruleset with **no bypass actors**: pull requests only, linear history, squash merge only, no deletion, no force-push. Pages deploys from `main`.
 
@@ -135,7 +144,7 @@ The API Worker never writes to git and holds no feed data. The static site does 
 - **Check the API:** `curl -fsS https://api.threats.top/api/health` returns `{"status":"ok","schema":1,"time":"…"}`. The admin Overview shows pending orders, active Pro, MRR, and expiring subscriptions.
 - **Collect now:** run the *Update Threat Data* workflow with `feeds=auto`, `all`, or a comma-separated source list.
 - **Scheduling:** `scheduler/` holds the Cron Trigger. From that directory run `npx wrangler deploy`, then `npx wrangler secret put GH_TOKEN` with a fine-grained token that has only `Actions: write` on this repository. Tokens expire: a `401` in `npx wrangler tail` means rotate it, and the resulting gap surfaces as `degraded` or `outage` on `/status.html`.
-- **Deploy the API:** from `worker/`, apply migrations with `npx wrangler d1 migrations apply threats-platform --remote`, set the five secrets listed in [`docs/PAYMENTS.md`](docs/PAYMENTS.md) §2, and run `npx wrangler deploy`. `ADMIN_PASSWORD_HASH` and `TOTP_SECRET` are generated locally with `node scripts/admin-credentials.mjs` and never shared.
+- **Deploy the API:** from `worker/`, apply migrations with `npx wrangler d1 migrations apply threats-platform --remote`, set the five secrets listed in [`docs/PAYMENTS.md`](docs/PAYMENTS.md) §2, and run `npx wrangler deploy`. To enable the honeypot feed, also set `SENSOR_INGEST_TOKEN` and provision the isolated sensor described in [`docs/LIVE-SENSOR.md`](docs/LIVE-SENSOR.md). `ADMIN_PASSWORD_HASH` and `TOTP_SECRET` are generated locally with `node scripts/admin-credentials.mjs` and never shared.
 - **Review a payment:** follow [`docs/PAYMENTS.md`](docs/PAYMENTS.md) §3–§5: verify the transfer on the matching explorer, then approve or reject with a note in `admin/`.
 - **Back up D1:** `npx wrangler d1 export threats-platform --remote --output ./backup.sql`. The file contains buyer PII and is never committed; Time Travel covers the last 30 days.
 - **Change scope by hand:** edit `data/manual.json`, regenerate `domains.json`, and open a pull request. This is the only supported write path for published data.

@@ -6,14 +6,14 @@
  */
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
-import { mkdtempSync, readFileSync, rmSync } from "node:fs";
+import { mkdtempSync, readFileSync, readdirSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, dirname } from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const MIGRATION = join(HERE, "..", "migrations", "0001_init.sql");
+const MIGRATIONS_DIR = join(HERE, "..", "migrations");
 
 function sqlite(db, sql) {
   return execFileSync("sqlite3", [db], { input: sql, encoding: "utf8" });
@@ -22,7 +22,9 @@ function sqlite(db, sql) {
 function freshDatabase() {
   const dir = mkdtempSync(join(tmpdir(), "threats-schema-"));
   const db = join(dir, "test.sqlite");
-  sqlite(db, readFileSync(MIGRATION, "utf8"));
+  for (const migration of readdirSync(MIGRATIONS_DIR).filter((file) => file.endsWith(".sql")).sort()) {
+    sqlite(db, readFileSync(join(MIGRATIONS_DIR, migration), "utf8"));
+  }
   return { db, cleanup: () => rmSync(dir, { recursive: true, force: true }) };
 }
 
@@ -33,7 +35,7 @@ test("the migration creates every table and index", () => {
       .trim().split("\n");
     for (const table of [
       "audit_log", "customers", "licenses", "login_attempts",
-      "orders", "rate_limit", "settings", "subscriptions",
+      "orders", "rate_limit", "sensor_events", "sensor_status", "settings", "subscriptions",
     ]) {
       assert.ok(tables.includes(table), `missing table ${table}`);
     }
@@ -41,11 +43,31 @@ test("the migration creates every table and index", () => {
       .trim().split("\n");
     for (const index of [
       "audit_at", "licenses_subscription", "login_attempts_ip_at",
-      "orders_customer", "orders_email", "orders_status_created",
+      "orders_customer", "orders_email", "orders_status_created", "sensor_events_minute",
       "subscriptions_customer", "subscriptions_status_expires",
     ]) {
       assert.ok(indexes.includes(index), `missing index ${index}`);
     }
+  } finally {
+    cleanup();
+  }
+});
+
+test("sensor aggregates are unique by sensor, minute, and country", () => {
+  const { db, cleanup } = freshDatabase();
+  try {
+    const insert = (sensor, minute, country, count) =>
+      `INSERT INTO sensor_events (sensor, minute, country, count, ingested_at)
+       VALUES ('${sensor}', '${minute}', '${country}', ${count}, '2026-11-14T12:34:00Z');`;
+    sqlite(db, insert("cowrie-ssh", "2026-11-14T12:33:00Z", "US", 2));
+    assert.throws(
+      () => sqlite(db, insert("cowrie-ssh", "2026-11-14T12:33:00Z", "US", 3)),
+      /UNIQUE constraint failed/,
+    );
+    assert.throws(
+      () => sqlite(db, insert("cowrie-ssh", "2026-11-14T12:33:00Z", "USA", 3)),
+      /CHECK constraint failed/,
+    );
   } finally {
     cleanup();
   }
