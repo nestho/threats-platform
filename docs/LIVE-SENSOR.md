@@ -24,6 +24,21 @@ logs and set their local retention deliberately. A registered IP country is
 not a person's physical location. The map does not infer a remote victim or
 draw source-to-destination paths.
 
+## API contract
+
+The public `GET /api/sensors/events?hours=72` accepts a window from 1 to 168
+hours and returns `schema_version`, `sensor_configured`, `sensor_last_seen`,
+`updated_at`, `window_hours`, and `events`. Each event has a stable `id`, the
+literal `kind: "sensor"`, its UTC minute in `ts`, an ISO country code, and the
+aggregate `count`. Neither the endpoint nor the stored rows contain source IPs.
+
+The authenticated `POST /api/sensors/cowrie/events` accepts at most 50
+`{minute, country, count}` aggregates per request. `minute` is a UTC minute
+timestamp, `country` is an uppercase ISO alpha-2 code, and `count` is the
+cumulative count for that country and minute. Repeated submissions upsert the
+same key, so retrying does not double-count. An empty `events` array records a
+heartbeat without claiming an SSH connection.
+
 ## Prerequisites
 
 - A dedicated, isolated Ubuntu VPS with a public address. Do not install the
