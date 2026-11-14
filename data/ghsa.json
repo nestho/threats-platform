@@ -1,11 +1,59 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-13T21:54:46Z",
+  "updated_at": "2026-11-14T02:13:07Z",
   "source": "GitHub Security Advisories",
   "source_url": "https://api.github.com/advisories",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-89p3-fcch-88ph",
+      "title": "NLTK: Quadratic-time CPU denial of service in CCG lexicon parser (fromstring) on wide bracket bodies and operator chains",
+      "published": "2026-11-14T00:08:50Z",
+      "ecosystem": "pip",
+      "summary": "## Summary\n\nThe public CCG lexicon parser `nltk.ccg.lexicon.fromstring` parses caller-influenced lexicon text with two pure-Python loops whose cost is quadratic in the input width. A service that parses an untrusted CCG lexicon string can be driven into tens of seconds of single-threaded CPU by a fe",
+      "link": "https://github.com/advisories/GHSA-89p3-fcch-88ph"
+    },
+    {
+      "id": "GHSA-r53h-rw34-8h97",
+      "title": "NLTK: Quadratic-time CPU denial of service in Tree.chomsky_normal_form right-factor binarization via list.pop(0)",
+      "published": "2026-11-14T00:07:59Z",
+      "ecosystem": "pip",
+      "summary": "## Summary\n\n`Tree.chomsky_normal_form()` binarizes a parse tree and defaults to right factoring. For a node with N children the right-factor branch repeatedly removes the first element of a working list with `list.pop(0)`, which shifts all remaining elements each time, so binarizing one wide node co",
+      "link": "https://github.com/advisories/GHSA-r53h-rw34-8h97"
+    },
+    {
+      "id": "GHSA-v8f3-6phw-6mh9",
+      "title": "NLTK: Quadratic-time CPU denial of service in ConllCorpusReader SRL instance builder via nested span rescan",
+      "published": "2026-11-14T00:05:57Z",
+      "ecosystem": "pip",
+      "summary": "## Summary\n\n`ConllCorpusReader.srl_instances()` builds semantic-role-labeling instances from a CoNLL corpus block. For a sentence block with P predicates and P span columns, the instance builder rescans every span column (and every span within it) once per predicate while searching for each predicat",
+      "link": "https://github.com/advisories/GHSA-v8f3-6phw-6mh9"
+    },
+    {
+      "id": "GHSA-fg9w-wfp5-j933",
+      "title": "NLTK: BllipParser passes caller-supplied model paths to the bllipparser C extension with no pathsec check, enabling arbitrary read",
+      "published": "2026-11-13T23:20:56Z",
+      "ecosystem": "pip",
+      "summary": "## Summary\n\n`BllipParser` in `nltk/parse/bllip.py` hands caller-supplied filesystem paths to the native `bllipparser` C extension without routing them through NLTK's `pathsec` validation. The constructor parameters `parser_model`, `reranker_features`, and `reranker_weights`, and the alternative `fro",
+      "link": "https://github.com/advisories/GHSA-fg9w-wfp5-j933"
+    },
+    {
+      "id": "GHSA-qfx6-q44v-9qqw",
+      "title": "ag-psd can exhaust memory when parsing crafted PSD dimensions",
+      "published": "2026-11-13T23:19:38Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\nreadPsd() commits the image/layer buffers from the declared header geometry (width x height x channels x depth, and per-layer rectangles) before validating those values against the actual data. A tiny crafted PSD declaring huge geometry forces a multi-gigabyte allocation.\n\n### Impact\nOn ",
+      "link": "https://github.com/advisories/GHSA-qfx6-q44v-9qqw"
+    },
+    {
+      "id": "GHSA-pp88-jhwj-5qh5",
+      "title": "File Browser: Trailing-slash directory deletion leaves public shares active for recreated paths",
+      "published": "2026-11-13T23:12:06Z",
+      "ecosystem": "go",
+      "summary": "## Summary\n\nFile Browser v2.63.15 can leave a public directory share behind when the shared directory is deleted through a path with a trailing slash. The share cleanup path calls `DeleteWithPathPrefix(file.Path, userID)`, but the Bolt backend performs the database prefix query with the unnormalized",
+      "link": "https://github.com/advisories/GHSA-pp88-jhwj-5qh5"
+    },
     {
       "id": "GHSA-gpwc-27cw-rh9r",
       "title": "NLTK: Quadratic CPU exhaustion in LegalitySyllableTokenizer.tokenize via unguarded onset reversal loop",
@@ -263,12 +311,44 @@
       "link": "https://github.com/advisories/GHSA-4hvg-fv5c-9936"
     },
     {
+      "id": "GHSA-jh6r-h4rx-2j3w",
+      "title": "Duplicate Advisory: Quadratic-time CPU denial of service in NLTK CCG lexicon parser (fromstring) on wide bracket bodies and operator chains",
+      "published": "2026-11-13T12:31:16Z",
+      "ecosystem": "pip",
+      "summary": "## Duplicate Advisory\n\nThis advisory has been withdrawn because it is a duplicate of GHSA-89p3-fcch-88ph. This link is maintained to preserve external references.\n\n## Original Description\nNLTK before 3.10.4 contains a denial of service vulnerability in the CCG lexicon parser fromstring that allows r",
+      "link": "https://github.com/advisories/GHSA-jh6r-h4rx-2j3w"
+    },
+    {
       "id": "GHSA-g5wx-957h-f4wj",
       "title": "Duplicate Advisory: Path Traversal in save_maxent_params / load_maxent_params Allow Arbitrary File READ/WRITE",
       "published": "2026-11-13T12:31:16Z",
       "ecosystem": "pip",
       "summary": "## Duplicate Advisory\n\nThis advisory has been withdrawn because it is a duplicate of GHSA-59f9-gqg8-mqpj. This link is maintained to preserve external references.\n\n## Original Description\n\nNLTK before 3.10.4 contains a path traversal vulnerability in save_maxent_params() and load_maxent_params() tha",
       "link": "https://github.com/advisories/GHSA-g5wx-957h-f4wj"
+    },
+    {
+      "id": "GHSA-6665-2vj3-h76r",
+      "title": "Duplicate Advisory: Quadratic-time CPU denial of service in Tree.chomsky_normal_form right-factor binarization via list.pop(0)",
+      "published": "2026-11-13T12:31:16Z",
+      "ecosystem": "pip",
+      "summary": "## Duplicate Advisory\n\nThis advisory has been withdrawn because it is a duplicate of GHSA-r53h-rw34-8h97. This link is maintained to preserve external references.\n\n## Original Description\nNLTK before 3.10.4 contains a denial of service vulnerability in Tree.chomsky_normal_form that allows remote att",
+      "link": "https://github.com/advisories/GHSA-6665-2vj3-h76r"
+    },
+    {
+      "id": "GHSA-qvhx-rvgc-jhwf",
+      "title": "Duplicate Advisory: Quadratic-time CPU denial of service in ConllCorpusReader SRL instance builder via nested span rescan",
+      "published": "2026-11-13T12:31:16Z",
+      "ecosystem": "pip",
+      "summary": "## Duplicate Advisory\n\nThis advisory has been withdrawn because it is a duplicate of GHSA-v8f3-6phw-6mh9. This link is maintained to preserve external references.\n\n## Original Description\nNLTK before 3.10.4 contains a quadratic-time denial of service vulnerability in ConllCorpusReader._get_srl_insta",
+      "link": "https://github.com/advisories/GHSA-qvhx-rvgc-jhwf"
+    },
+    {
+      "id": "GHSA-f7j6-hf97-9v99",
+      "title": "Duplicate Advisory: BllipParser passes caller-supplied model paths to the bllipparser C extension with no pathsec check, enabling arbitrary read",
+      "published": "2026-11-13T12:31:16Z",
+      "ecosystem": "pip",
+      "summary": "## Duplicate Advisory\n\nThis advisory has been withdrawn because it is a duplicate of GHSA-fg9w-wfp5-j933. This link is maintained to preserve external references.\n\n## Original Description\n\nNLTK from 3.10.0 before 3.10.4 contains an arbitrary file read vulnerability in BllipParser that allows attacke",
+      "link": "https://github.com/advisories/GHSA-f7j6-hf97-9v99"
     },
     {
       "id": "GHSA-x585-4vv8-2mh2",
@@ -725,86 +805,6 @@
       "ecosystem": "nuget",
       "summary": "## Executive summary\n\nMicrosoft is releasing this security advisory to provide information about a vulnerability in the Aspire CLI. This advisory provides guidance on updating affected applications and components.\n\nInsecure temporary files used by Aspire CLI can allow a local attacker to obtain sens",
       "link": "https://github.com/advisories/GHSA-q6jf-24jf-m3cg"
-    },
-    {
-      "id": "GHSA-m63f-xhvm-6mv5",
-      "title": "Microsoft Security Advisory CVE-2026-120778 - Aspire Elevation of Privilege Vulnerability",
-      "published": "2026-11-11T00:30:06Z",
-      "ecosystem": "nuget",
-      "summary": "## Executive summary\n\nMicrosoft is releasing this security advisory to provide information about a vulnerability in the Aspire CLI. This advisory provides guidance on updating affected applications and components.\n\nAn insecure temporary directory used by Aspire CLI-generated builds can allow a local",
-      "link": "https://github.com/advisories/GHSA-m63f-xhvm-6mv5"
-    },
-    {
-      "id": "GHSA-3893-7fxc-qvff",
-      "title": "Microsoft Security Advisory CVE-2026-114154 - ASP.NET Core Denial of Service Vulnerability",
-      "published": "2026-11-11T00:28:01Z",
-      "ecosystem": "nuget",
-      "summary": "## Executive summary\n\nMicrosoft is releasing this security advisory to provide information about a vulnerability in ASP.NET Core. This advisory provides guidance on updating affected applications and components.\n\nMalformed chunked HttpSys requests containing conflicting content-length headers can re",
-      "link": "https://github.com/advisories/GHSA-3893-7fxc-qvff"
-    },
-    {
-      "id": "GHSA-7phj-vgxq-r67h",
-      "title": "Microsoft Security Advisory CVE-2026-114157 - ASP.NET Core Security Feature Bypass Vulnerability",
-      "published": "2026-11-11T00:25:04Z",
-      "ecosystem": "nuget",
-      "summary": "## Executive summary\n\nMicrosoft is releasing this security advisory to provide information about a vulnerability in ASP.NET Core's Kestrel Named Pipes transport. This advisory provides guidance on updating affected applications and components.\n\nA Kestrel named-pipe listener configured with `CurrentU",
-      "link": "https://github.com/advisories/GHSA-7phj-vgxq-r67h"
-    },
-    {
-      "id": "GHSA-8w29-6cjc-h6w4",
-      "title": "Microsoft Security Advisory CVE-2026-114156 - ASP.NET Core Security Feature Bypass Vulnerability",
-      "published": "2026-11-11T00:24:05Z",
-      "ecosystem": "nuget",
-      "summary": "## Executive summary\n\nMicrosoft is releasing this security advisory to provide information about a vulnerability in ASP.NET Core. This advisory provides guidance on updating affected applications and components.\n\n`PathString.StartsWithSegments` can mishandle percent-encoded backslashes and permit au",
-      "link": "https://github.com/advisories/GHSA-8w29-6cjc-h6w4"
-    },
-    {
-      "id": "GHSA-wr8v-9x5q-ggcm",
-      "title": "Microsoft Security Advisory CVE-2026-114147 - ASP.NET Core Denial of Service Vulnerability",
-      "published": "2026-11-11T00:23:32Z",
-      "ecosystem": "nuget",
-      "summary": "## Executive summary\n\nMicrosoft is releasing this security advisory to provide information about a vulnerability in ASP.NET Core. This advisory provides guidance on updating affected applications and components.\n\nSignalR Redis scale-out can mishandle case-mismatched group removal and leave subscript",
-      "link": "https://github.com/advisories/GHSA-wr8v-9x5q-ggcm"
-    },
-    {
-      "id": "GHSA-r3qf-p3jm-8h4p",
-      "title": "Microsoft Security Advisory CVE-2026-109478 - ASP.NET Core Denial of Service Vulnerability",
-      "published": "2026-11-11T00:22:43Z",
-      "ecosystem": "nuget",
-      "summary": "## Executive summary\n\nMicrosoft is releasing this security advisory to provide information about a vulnerability in ASP.NET Core. This advisory provides guidance on updating affected applications and components.\n\nProcessing comma-separated HTTP header values can cause excessive allocations and resou",
-      "link": "https://github.com/advisories/GHSA-r3qf-p3jm-8h4p"
-    },
-    {
-      "id": "GHSA-67wp-ghc2-fw2g",
-      "title": "Microsoft Security Advisory CVE-2026-114146 - ASP.NET Core Elevation of Privilege Vulnerability",
-      "published": "2026-11-11T00:21:56Z",
-      "ecosystem": "nuget",
-      "summary": "## Executive summary\n\nMicrosoft is releasing this security advisory to provide information about a vulnerability in ASP.NET Core. This advisory provides guidance on updating affected applications and components.\n\nSignalR connections are not consistently bound to the identity negotiated at connection",
-      "link": "https://github.com/advisories/GHSA-67wp-ghc2-fw2g"
-    },
-    {
-      "id": "GHSA-6vjv-7wm8-p67r",
-      "title": "Microsoft Security Advisory CVE-2026-114150 - ASP.NET Core Information Disclosure Vulnerability",
-      "published": "2026-11-11T00:20:47Z",
-      "ecosystem": "nuget",
-      "summary": "## Executive summary\n\nMicrosoft is releasing this security advisory to provide information about a vulnerability in ASP.NET Core. This advisory provides guidance on updating affected applications and components.\n\nA reused `ResponseBufferingStream` can retain pooled tail memory and expose response-bo",
-      "link": "https://github.com/advisories/GHSA-6vjv-7wm8-p67r"
-    },
-    {
-      "id": "GHSA-5h82-77p6-2wp3",
-      "title": "Microsoft Security Advisory CVE-2026-118748 - ASP.NET Core Denial of Service Vulnerability",
-      "published": "2026-11-11T00:11:03Z",
-      "ecosystem": "nuget",
-      "summary": "## Executive summary\n\nMicrosoft is releasing this security advisory to provide information about a vulnerability in ASP.NET Core. This advisory provides guidance on updating affected applications and components.\n\nBlazor static-SSR client validation retains attacker-controlled rendered field names in",
-      "link": "https://github.com/advisories/GHSA-5h82-77p6-2wp3"
-    },
-    {
-      "id": "GHSA-q7j6-px74-p2vw",
-      "title": "Microsoft Security Advisory CVE-2026-114155 - .NET Elevation of Privilege Vulnerability",
-      "published": "2026-11-11T00:09:46Z",
-      "ecosystem": "nuget",
-      "summary": "## Executive summary\n\nMicrosoft is releasing this security advisory to provide information about a vulnerability in the .NET SDK's dotnet-watch component. This advisory provides guidance on updating affected SDK installations.\n\nA local attacker who can replace or modify a temporary solution file use",
-      "link": "https://github.com/advisories/GHSA-q7j6-px74-p2vw"
     }
   ]
 }
