@@ -21,6 +21,7 @@ import {
   getResolvedTheme,
   setTheme,
   toggleTheme,
+  animateCounter,
 } from "./app.js";
 
 /*
@@ -262,6 +263,19 @@ test("timeKey: sorts unparseable timestamps last instead of corrupting order", (
   assert.deepEqual(events.map((e) => e.t), [good1, good2, bad, null]);
   for (const value of [null, undefined, "", bad, "nonsense"]) {
     assert.ok(!Number.isNaN(timeKey(value)), `timeKey(${JSON.stringify(value)}) must not be NaN`);
+  }
+});
+
+test("animateCounter skips motion when reduced motion is requested", () => {
+  const previousWindow = globalThis.window;
+  globalThis.window = { matchMedia: () => ({ matches: true }) };
+  const element = { textContent: "—" };
+  try {
+    animateCounter(element, "1,250");
+    assert.equal(element.textContent, "1,250");
+  } finally {
+    if (previousWindow === undefined) delete globalThis.window;
+    else globalThis.window = previousWindow;
   }
 });
 

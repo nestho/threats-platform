@@ -21,25 +21,47 @@
 <style>
   .hero {
     display: grid;
-    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-    gap: 40px;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.15fr);
+    gap: clamp(24px, 4vw, 48px);
+    align-items: stretch;
+    padding: clamp(22px, 4vw, 40px) 0 30px;
+    margin-bottom: 24px;
+    animation: dashboard-enter 520ms cubic-bezier(0.2, 0, 0, 1) both;
+  }
+  .hero-copy { align-self: center; }
+  .dashboard-kicker {
+    display: inline-flex;
     align-items: center;
-    padding: 24px 0 38px;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 34px;
+    gap: 9px;
+    margin-bottom: 18px;
+    color: var(--text-muted);
+    font: 600 10px/1 var(--mono);
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+  .live-pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--ok);
+    box-shadow: 0 0 0 4px var(--ok-soft);
+    animation: live-pulse 2s ease-out infinite;
   }
   .hero h1 {
-    font-size: clamp(34px, 4.6vw, 52px);
+    font-size: clamp(36px, 5vw, 62px);
     font-weight: 700;
     letter-spacing: -0.04em;
-    line-height: 1.05;
-    margin-bottom: 16px;
+    line-height: 1.02;
+    margin-bottom: 18px;
     color: var(--text);
   }
   .hero h1 .dim { color: var(--text-muted); }
-  .tagline { color: var(--text-secondary); font-size: 15px; max-width: 48ch; line-height: 1.6; }
-  .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+  .tagline { color: var(--text-secondary); font-size: 15px; max-width: 52ch; line-height: 1.7; }
+  .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 24px; }
   .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     font-family: var(--mono);
     font-size: 11px;
     letter-spacing: 0.06em;
@@ -50,7 +72,7 @@
     border-radius: var(--radius-pill);
     padding: 10px 18px;
     box-shadow: 0 4px 14px rgba(249, 115, 22, 0.35);
-    transition: all 0.15s ease;
+    transition: color 0.18s ease, background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
   }
   .hero-cta:hover {
     background: var(--accent-hover);
@@ -72,41 +94,100 @@
     background: var(--surface-2);
     transform: translateY(-1px);
   }
+  .hero-cta:active { transform: translateY(0); }
+  .dashboard-snapshot {
+    min-height: 1.5em;
+    margin-top: 16px;
+    color: var(--text-muted);
+    font: 11px/1.5 var(--mono);
+  }
+  .dashboard-snapshot strong { color: var(--text-secondary); font-weight: 500; }
+  .refresh-icon { width: 14px; height: 14px; margin-right: 7px; }
+  #refresh-dashboard:hover .refresh-icon { transform: rotate(45deg); }
 
   .stats {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: var(--border);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    align-content: center;
+  }
+  .stat-link {
+    display: block;
+    min-width: 0;
+    border-radius: var(--radius);
+    animation: dashboard-enter 520ms cubic-bezier(0.2, 0, 0, 1) both;
+  }
+  .stat-link:nth-child(2) { animation-delay: 50ms; }
+  .stat-link:nth-child(3) { animation-delay: 100ms; }
+  .stat-link:nth-child(4) { animation-delay: 150ms; }
+  .stat-link:focus-visible { outline-offset: 4px; }
+  .stat-link:hover .stat,
+  .stat-link:focus-visible .stat {
+    transform: translateY(-3px);
+    border-color: var(--border-hover);
+    box-shadow: var(--glass-rim), var(--elevation-2), var(--accent-glow);
+  }
+  .stat {
+    position: relative;
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr);
+    align-content: center;
+    align-items: center;
+    gap: 5px 12px;
+    min-height: 132px;
+    padding: 18px;
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    overflow: hidden;
+    background: var(--surface);
     box-shadow: var(--glass-rim), var(--elevation-1);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
+    transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1), background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   }
-  .stat {
-    background: var(--surface);
-    padding: 20px 22px;
-    transition: background 0.15s ease;
+  .stat::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 2px;
+    border-radius: var(--radius) var(--radius) 0 0;
+    background: linear-gradient(90deg, var(--accent), transparent 78%);
+    opacity: 0.85;
   }
-  .stat:hover { background: var(--surface-2); }
+  .stat-icon {
+    display: grid;
+    grid-row: span 2;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    color: var(--accent);
+    border: 1px solid var(--accent-line);
+    border-radius: 13px;
+    background: var(--accent-soft);
+  }
+  .stat-icon svg { width: 19px; height: 19px; }
   .stat-value {
     font-family: var(--mono);
-    font-size: 32px;
+    font-size: clamp(24px, 2.5vw, 32px);
     font-weight: 600;
     letter-spacing: -0.03em;
     color: var(--text);
     line-height: 1;
     font-variant-numeric: tabular-nums;
+    overflow-wrap: anywhere;
   }
   .stat-label {
     font-family: var(--mono);
     font-size: 10px;
-    letter-spacing: 0.11em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--text-muted);
-    margin-top: 7px;
+  }
+  .stat-hint {
+    grid-column: 2;
+    margin-top: 4px;
+    color: var(--text-secondary);
+    font-size: 11px;
+    line-height: 1.35;
   }
 
   section { margin-bottom: 52px; }
@@ -157,7 +238,7 @@
   .rank-count { font-family: var(--mono); font-size: 11.5px; text-align: right; color: var(--text); font-variant-numeric: tabular-nums; }
   .rank-empty { color: var(--text-muted); font-size: 13px; padding: 6px 0; }
 
-  .browse-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .browse-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px; }
   .browse-card {
     position: relative;
     display: block;
@@ -169,7 +250,7 @@
     box-shadow: var(--glass-rim), var(--elevation-1);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
-    transition: all 0.18s cubic-bezier(0.2, 0, 0, 1);
+    transition: transform 0.18s cubic-bezier(0.2, 0, 0, 1), border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
   }
   .browse-card:hover {
     border-color: var(--border-hover);
@@ -297,7 +378,26 @@
     background: var(--surface-3);
   }
 
-  .recent-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 12px; }
+  .recent-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; margin-bottom: 14px; }
+  .recent-title { display: grid; gap: 5px; }
+  .activity-summary { color: var(--text-muted); font: 11px/1.4 var(--mono); }
+  .activity-toolbar { display: flex; align-items: center; justify-content: flex-end; gap: 10px; min-width: 0; }
+  .activity-filters { display: flex; align-items: center; gap: 4px; padding: 3px; border: 1px solid var(--border); border-radius: var(--radius-pill); background: var(--surface); }
+  .activity-filter {
+    border: 0;
+    border-radius: var(--radius-pill);
+    padding: 7px 10px;
+    color: var(--text-muted);
+    background: transparent;
+    font: 10px/1 var(--mono);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.15s ease, background 0.15s ease;
+  }
+  .activity-filter:hover { color: var(--text); background: var(--surface-2); }
+  .activity-filter[aria-pressed="true"] { color: var(--text); background: var(--surface-3); box-shadow: var(--glass-rim); }
+  .activity-filter:focus-visible { outline-offset: 2px; }
+  .recent-item { animation: dashboard-enter 260ms ease both; }
   .recent-head a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--link); white-space: nowrap; font-weight: 600; }
   .recent-head a:hover { text-decoration: underline; }
   .recent-list {
@@ -372,19 +472,39 @@
     .hero { grid-template-columns: 1fr; gap: 28px; }
     .command-band { grid-template-columns: 1fr; }
     .side-stack { display: grid; grid-template-columns: 1fr 1fr; }
-    .browse-grid { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 720px) {
     .stats { grid-template-columns: 1fr 1fr; }
     .side-stack { grid-template-columns: 1fr; }
-    .browse-grid { grid-template-columns: 1fr 1fr; }
     .api-row { grid-template-columns: 50px 1fr; gap: 8px 12px; }
     .api-updated, .api-actions { grid-column: 2; }
     .api-actions { justify-content: flex-start; }
     .support { align-items: flex-start; }
+    .recent-head { align-items: flex-start; }
+    .activity-toolbar { width: 100%; justify-content: flex-start; overflow-x: auto; padding: 2px 2px 5px; }
+    .activity-filters { flex: 0 0 auto; }
   }
   @media (max-width: 460px) {
-    .browse-grid { grid-template-columns: 1fr; }
+    .hero-actions { align-items: stretch; }
+    .hero-cta { flex: 1 1 auto; }
+    .stat { min-height: 116px; padding: 14px 12px; grid-template-columns: 30px minmax(0, 1fr); gap: 5px 8px; }
+    .stat-icon { width: 30px; height: 30px; border-radius: 10px; }
+    .stat-icon svg { width: 16px; height: 16px; }
+    .stat-value { font-size: 23px; }
+    .stat-label { font-size: 9px; letter-spacing: 0.04em; }
+    .stat-hint { font-size: 10px; }
+    .activity-filter { padding: 7px 9px; }
+  }
+  @keyframes dashboard-enter {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes live-pulse {
+    70%, 100% { box-shadow: 0 0 0 8px transparent; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero, .stat-link, .recent-item { animation: none; }
+    .live-pulse { animation: none; }
   }
 </style>
 </head>
@@ -450,31 +570,53 @@ initConsoleShell();
 </script>
 
   <div class="hero">
-    <div>
-      <h1 class="hero-title">Signal on the<br><span class="dim">threat surface.</span></h1>
-      <p class="tagline">Structured, always-fresh intel: vulnerabilities and exploited CVEs, malware and phishing indicators, ransomware claims, cloud incidents, vendor advisories, and bug bounty scope.</p>
+    <div class="hero-copy">
+      <p class="dashboard-kicker"><span class="live-pulse" aria-hidden="true"></span>Live source monitor</p>
+      <h1 class="hero-title">Threat intelligence,<br><span class="dim">at a glance.</span></h1>
+      <p class="tagline">A clear view of the latest published intelligence: active vulnerabilities, phishing indicators, ransomware claims, vendor advisories, and global threat activity.</p>
       <div class="hero-actions">
         <a class="hero-cta" href="/cves.html">Review vulnerabilities →</a>
         <a class="hero-cta ghost" href="/status.html">Source health</a>
+        <button class="hero-cta ghost" id="refresh-dashboard" type="button" aria-label="Reload the latest published dashboard snapshot">
+          <svg class="refresh-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7v5h-5"/><path d="M4 17v-5h5"/><path d="M5.6 9a7 7 0 0 1 11.6-2L20 12M4 12l2.8 5a7 7 0 0 0 11.6-2"/></svg>
+          Refresh snapshot
+        </button>
       </div>
+      <p class="dashboard-snapshot" id="dashboard-snapshot" aria-live="off">Checking published feed snapshot…</p>
     </div>
-    <div class="stats">
-      <div class="stat">
-        <div class="stat-value" id="stat-programs">—</div>
-        <div class="stat-label">programs tracked</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value" id="stat-cves">—</div>
-        <div class="stat-label">CVEs in window</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value" id="stat-kev">—</div>
-        <div class="stat-label">exploited CVEs</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value" id="stat-ransomware">—</div>
-        <div class="stat-label">ransomware claims</div>
-      </div>
+    <div class="stats" aria-label="Threat intelligence overview">
+      <a class="stat-link" href="/programs.html">
+        <article class="stat stat-card">
+          <span class="stat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg></span>
+          <span class="stat-value" id="stat-programs">—</span>
+          <span class="stat-label">Programs tracked</span>
+          <span class="stat-hint">Public bounty scope</span>
+        </article>
+      </a>
+      <a class="stat-link" href="/cves.html">
+        <article class="stat stat-card">
+          <span class="stat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.5 3.2 7.7 7.5 9.5 4.3-1.8 7.5-5 7.5-9.5V6L12 3Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <span class="stat-value" id="stat-cves">—</span>
+          <span class="stat-label">CVEs in window</span>
+          <span class="stat-hint">NVD vulnerability feed</span>
+        </article>
+      </a>
+      <a class="stat-link" href="/cves.html">
+        <article class="stat stat-card">
+          <span class="stat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.5 3.2 7.7 7.5 9.5 4.3-1.8 7.5-5 7.5-9.5V6L12 3Z"/><path d="M12 8v4M12 16h.01"/></svg></span>
+          <span class="stat-value" id="stat-kev">—</span>
+          <span class="stat-label">Known exploited</span>
+          <span class="stat-hint">CISA KEV catalog</span>
+        </article>
+      </a>
+      <a class="stat-link" href="/ransomware.html">
+        <article class="stat stat-card">
+          <span class="stat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.5 3.2 7.7 7.5 9.5 4.3-1.8 7.5-5 7.5-9.5V6L12 3Z"/><path d="M9 12h6M10 9.5h4M10 14.5h4"/></svg></span>
+          <span class="stat-value" id="stat-ransomware">—</span>
+          <span class="stat-label">Ransomware claims</span>
+          <span class="stat-hint">Recent leak-site reports</span>
+        </article>
+      </a>
     </div>
   </div>
 
@@ -517,8 +659,20 @@ initConsoleShell();
 
   <section>
     <div class="recent-head">
-      <h2 class="section-label" style="margin:0;">Recent activity</h2>
-      <a href="/cves.html">View all →</a>
+      <div class="recent-title">
+        <h2 class="section-label" style="margin:0;">Recent activity</h2>
+        <p class="activity-summary" id="activity-summary" aria-live="polite">Latest items from published feeds</p>
+      </div>
+      <div class="activity-toolbar">
+        <div class="activity-filters" role="group" aria-label="Filter recent activity">
+          <button class="activity-filter" type="button" data-activity-filter="all" aria-pressed="true">All</button>
+          <button class="activity-filter" type="button" data-activity-filter="vulnerabilities" aria-pressed="false">Vulnerabilities</button>
+          <button class="activity-filter" type="button" data-activity-filter="ransomware" aria-pressed="false">Ransomware</button>
+          <button class="activity-filter" type="button" data-activity-filter="phishing" aria-pressed="false">Phishing</button>
+          <button class="activity-filter" type="button" data-activity-filter="advisories" aria-pressed="false">Advisories</button>
+        </div>
+        <a class="map-link" href="/cves.html">View all →</a>
+      </div>
     </div>
     <div class="recent-list" id="recent-feed" aria-live="polite">
       <div class="recent-empty">Loading…</div>
@@ -608,7 +762,8 @@ initConsoleShell();
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script type="module">
-import { esc, timeAgo, timeKey, copyEndpointUrl, fetchAll, recomputeHealth } from '/assets/app.js';
+import { animateCounter, esc, timeAgo, timeKey, copyEndpointUrl, fetchAll, recomputeHealth } from '/assets/app.js';
+import { filterActivityEvents } from '/assets/home-dashboard.js';
 
 const ENDPOINTS = [
   // Same run as cves_headline.json, which the validator requires to share an
@@ -653,24 +808,29 @@ Object.assign(cache, loaded);
 
 const number = (value) => (typeof value === 'number' ? value.toLocaleString('en-US') : '—');
 const statusSource = (id) => (cache.status?.sources || []).find((source) => source.id === id);
+const setMetric = (id, value) => {
+  const element = document.getElementById(id);
+  const text = number(value);
+  element.textContent = text;
+  if (text !== '—' && !element.dataset.animated) {
+    element.dataset.animated = 'true';
+    animateCounter(element, text);
+  }
+};
 
 // ---- stats + card metadata (each degrades independently) ----
 if (cache.domains) {
   const programs = cache.domains.total_programs ?? '—';
   const domains = cache.domains.total_unique_domains ?? '—';
-  document.getElementById('stat-programs').textContent = programs;
+  setMetric('stat-programs', programs);
   document.getElementById('prog-meta').textContent = `${programs} programs · ${domains} domains`;
 } else {
   document.getElementById('prog-meta').textContent = 'unavailable';
 }
 
-document.getElementById('stat-cves').textContent = cache.cves
-  ? number(cache.cves.recent_total ?? cache.cves.items?.length)
-  : '—';
-document.getElementById('stat-kev').textContent = cache.cves
-  ? number(cache.cves.kev_total)
-  : '—';
-document.getElementById('stat-ransomware').textContent = number(cache.ransomware?.total);
+setMetric('stat-cves', cache.cves?.recent_total ?? cache.cves?.items?.length);
+setMetric('stat-kev', cache.cves?.kev_total);
+setMetric('stat-ransomware', cache.ransomware?.total);
 document.getElementById('ransom-meta').textContent = cache.ransomware
   ? `${number(cache.ransomware.total)} claims`
   : 'unavailable';
@@ -693,33 +853,45 @@ document.getElementById('wiz-meta').textContent = cache.wiz
   : 'unavailable';
 
 // ---- source health ----
-if (cache.status) {
+function renderHealth() {
+  if (!cache.status) {
+    document.getElementById('health-dot').className = 'dot';
+    document.getElementById('health-text').textContent = 'status unavailable';
+    document.getElementById('health-meta').textContent = 'status.json unreachable';
+    return;
+  }
+
   const status = recomputeHealth(cache.status);
   const { sources, overall } = status;
   const affected = sources.filter((source) => source.stale || source.error);
-  const headings = {
-    ok: `All ${sources.length} sources current`,
-    outage: 'Critical source is stale',
-  };
+  const text = overall === 'ok'
+    ? `All ${sources.length} sources current`
+    : overall === 'outage'
+      ? 'Critical source is stale'
+      : `${affected.length} of ${sources.length} sources need attention`;
   document.getElementById('health-dot').className = `dot ${overall}`;
-  document.getElementById('health-text').textContent =
-    headings[overall] || `${affected.length} of ${sources.length} sources need attention`;
-
-  const checked = cache.status.generated_at
-    ? cache.status.generated_at.slice(11, 16) + 'Z'
-    : 'schedule unknown';
-  document.getElementById('health-meta').textContent = `${sources.length} sources · checked ${checked}`;
+  document.getElementById('health-text').textContent = text;
+  document.getElementById('health-meta').textContent =
+    `${sources.length} sources · status snapshot ${timeAgo(cache.status.generated_at)}`;
 
   const detail = document.getElementById('health-detail');
   if (affected.length) {
     detail.hidden = false;
     detail.textContent = 'Stale or failing: ' + affected.map((source) => source.label).join(', ') + '.';
+  } else {
+    detail.hidden = true;
   }
-} else {
-  document.getElementById('health-dot').className = 'dot';
-  document.getElementById('health-text').textContent = 'status unavailable';
-  document.getElementById('health-meta').textContent = 'status.json unreachable';
+
+  const railDot = document.getElementById('rail-dot');
+  const railText = document.getElementById('rail-health-text');
+  const liveChip = document.getElementById('live-chip');
+  const liveText = document.getElementById('live-text');
+  if (railDot) railDot.className = `dot ${overall}`;
+  if (railText) railText.textContent = overall === 'ok' ? 'all sources current' : overall === 'outage' ? 'critical outage' : 'degraded';
+  if (liveChip) liveChip.className = `live-chip ${overall}`;
+  if (liveText) liveText.textContent = overall === 'ok' ? 'all sources current' : overall === 'outage' ? 'critical outage' : 'degraded';
 }
+renderHealth();
 
 // ---- API catalog ----
 document.getElementById('api-list').innerHTML = ENDPOINTS.map((endpoint) => {
@@ -755,7 +927,26 @@ if (times.length) {
   const oldest = new Date(Math.min(...times)).toISOString();
   document.getElementById('footer-sync').textContent =
     'Oldest feed snapshot ' + oldest.slice(0, 10) + ' UTC';
+  document.getElementById('dashboard-snapshot').dataset.timestamp = oldest;
 }
+const updateRelativeTimes = () => {
+  const snapshot = document.getElementById('dashboard-snapshot');
+  snapshot.textContent = snapshot.dataset.timestamp
+    ? `Oldest feed snapshot ${timeAgo(snapshot.dataset.timestamp)} · each source updates on its own cadence`
+    : 'Feed snapshot time unavailable';
+  for (const element of document.querySelectorAll('.recent-time')) {
+    element.textContent = timeAgo(element.dateTime);
+  }
+  renderHealth();
+};
+updateRelativeTimes();
+setInterval(updateRelativeTimes, 60000);
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) updateRelativeTimes();
+});
+document.getElementById('refresh-dashboard').addEventListener('click', () => {
+  window.location.reload();
+});
 
 // ---- recent activity ----
 const events = [];
@@ -765,6 +956,7 @@ for (const cve of recentCves.slice(0, 3)) {
   events.push({
     time: cve.published,
     tag: cve.kev ? 'KEV' : 'CVE',
+    category: 'vulnerabilities',
     hot: Boolean(cve.kev),
     html: `<a href="${esc(cve.link)}" target="_blank" rel="noopener noreferrer">${esc(cve.id)}</a> — ${esc((cve.description || '').slice(0, 70))}${(cve.description || '').length > 70 ? '…' : ''}`,
   });
@@ -773,6 +965,7 @@ for (const claim of (cache.ransomware?.items || []).slice(0, 2)) {
   events.push({
     time: claim.published,
     tag: claim.group || 'ransom',
+    category: 'ransomware',
     hot: false,
     html: `<a href="${esc(claim.link)}" target="_blank" rel="noopener noreferrer">${esc(claim.victim)}</a> listed by ${esc(claim.group || 'an unnamed group')}`,
   });
@@ -781,6 +974,7 @@ for (const url of (cache.phishing?.items || []).slice(0, 2)) {
   events.push({
     time: url.collected_at,
     tag: 'phishing',
+    category: 'phishing',
     hot: false,
     html: `<a href="/phishing.html">${esc(url.host)}</a> <span class="mono">${esc(url.url_defanged)}</span>`,
   });
@@ -789,6 +983,7 @@ for (const advisory of (cache.advisories?.items || []).slice(0, 2)) {
   events.push({
     time: advisory.published,
     tag: advisory.vendor || 'advisory',
+    category: 'advisories',
     hot: false,
     html: `<a href="${esc(advisory.link)}" target="_blank" rel="noopener noreferrer">${esc(advisory.id)}</a> — ${esc(advisory.title)}`,
   });
@@ -797,6 +992,7 @@ for (const exploit of (cache.edb?.items || []).slice(0, 2)) {
   events.push({
     time: exploit.published,
     tag: exploit.type || 'exploit',
+    category: 'vulnerabilities',
     hot: false,
     html: `<a href="${esc(exploit.link)}" target="_blank" rel="noopener noreferrer">EDB-${esc(exploit.id)}</a> — ${esc(exploit.title)}`,
   });
@@ -805,6 +1001,7 @@ for (const item of (cache.ghsa?.items || []).slice(0, 1)) {
   events.push({
     time: item.published,
     tag: item.ecosystem || 'GHSA',
+    category: 'vulnerabilities',
     hot: false,
     html: `<a href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">${esc(item.id)}</a> — ${esc(item.title)}`,
   });
@@ -813,6 +1010,7 @@ for (const item of (cache.cert?.items || []).slice(0, 1)) {
   events.push({
     time: item.published,
     tag: 'CERT-EU',
+    category: 'advisories',
     hot: false,
     html: `<a href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">${esc(item.id)}</a> — ${esc(item.title)}`,
   });
@@ -821,6 +1019,7 @@ for (const item of (cache.wiz?.items || []).slice(0, 1)) {
   events.push({
     time: item.published,
     tag: item.type || 'cloud',
+    category: 'advisories',
     hot: false,
     html: `<a href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">${esc(item.title)}</a>`,
   });
@@ -829,14 +1028,35 @@ for (const item of (cache.wiz?.items || []).slice(0, 1)) {
 events.sort((a, b) => timeKey(b.time) - timeKey(a.time));
 const top = events.slice(0, 8);
 const feed = document.getElementById('recent-feed');
-feed.innerHTML = top.length
-  ? top.map((event) => `
-    <div class="recent-item">
-      <span class="tag${event.hot ? ' hot' : ''}">${esc(event.tag)}</span>
-      <div class="recent-body">${event.html}</div>
-      <span class="recent-time">${esc(timeAgo(event.time))}</span>
-    </div>`).join('')
-  : '<div class="recent-empty">No recent items.</div>';
+function renderRecentActivity(category = 'all') {
+  const filtered = filterActivityEvents(top, category);
+  feed.innerHTML = filtered.length
+    ? filtered.map((event) => `
+      <div class="recent-item">
+        <span class="tag${event.hot ? ' hot' : ''}">${esc(event.tag)}</span>
+        <div class="recent-body">${event.html}</div>
+        <time class="recent-time" datetime="${esc(event.time || '')}">${esc(timeAgo(event.time))}</time>
+      </div>`).join('')
+    : '<div class="recent-empty">No activity in this category.</div>';
+  const labels = {
+    vulnerabilities: filtered.length === 1 ? 'vulnerability' : 'vulnerabilities',
+    ransomware: 'ransomware',
+    phishing: 'phishing',
+    advisories: filtered.length === 1 ? 'advisory' : 'advisories',
+  };
+  document.getElementById('activity-summary').textContent = category === 'all'
+    ? `Showing ${filtered.length} latest items from published feeds`
+    : `${filtered.length} ${labels[category] || category} ${filtered.length === 1 ? 'item' : 'items'} in the latest feed snapshot`;
+}
+renderRecentActivity();
+for (const button of document.querySelectorAll('[data-activity-filter]')) {
+  button.addEventListener('click', () => {
+    for (const option of document.querySelectorAll('[data-activity-filter]')) {
+      option.setAttribute('aria-pressed', String(option === button));
+    }
+    renderRecentActivity(button.dataset.activityFilter);
+  });
+}
 
 // ---- live claim map + country ranking ----
 // The outline module is imported after the rest of the page has rendered: it is

@@ -438,6 +438,10 @@ export function animateCounter(element, target, duration = 650) {
   const start = 0;
   const startTime = performance.now();
   const hasComma = String(target).includes(",");
+  if (typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+    element.textContent = hasComma ? num.toLocaleString("en-US") : String(target);
+    return;
+  }
 
   function update(currentTime) {
     const elapsed = currentTime - startTime;
