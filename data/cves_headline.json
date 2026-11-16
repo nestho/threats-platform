@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-15T21:38:50Z",
+  "updated_at": "2026-11-16T01:50:11Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,231 @@
   ],
   "note": "Bounded slice of cves.json for the homepage. Use /data/cves.json for the full window.",
   "normalisation_failures": [],
-  "recent_total": 969,
-  "kev_total": 116,
+  "recent_total": 947,
+  "kev_total": 115,
   "kev_catalog_total": 1781,
   "total": 25,
   "items": [
+    {
+      "id": "CVE-2026-129494",
+      "published": "2026-11-16T01:17:20Z",
+      "description": "CloudPaste 1.1.0 through 1.9.1 contains an information disclosure vulnerability that allows unauthenticated attackers to obtain WebDAV storage credentials through the unauthenticated /api/proxy/link endpoint. Attackers who know a public share slug can retrieve the Basic Authorization header containi",
+      "severity": "HIGH",
+      "score": 8.7,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129494",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-129492",
+      "published": "2026-11-16T01:17:19Z",
+      "description": "Bolo (bolo-solo) 1.7 through 2.6.4 contains a stored cross-site scripting vulnerability that allows unauthenticated attackers to inject scripts via the unsanitized commentOriginalCommentName parameter. Attackers can post a comment to /article/comments with a short payload that steals non-HttpOnly se",
+      "severity": "MEDIUM",
+      "score": 5.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129492",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-129493",
+      "published": "2026-11-16T01:17:19Z",
+      "description": "Bolo (bolo-solo) 1.7 through 2.6.4 contains an information disclosure vulnerability that allows unauthenticated attackers to read article view passwords via the public GET /articles endpoint. Attackers can retrieve the plaintext articleViewPwd field returned by ArticleProcessor.getArticlesByPage and",
+      "severity": "HIGH",
+      "score": 8.7,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129493",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-129491",
+      "published": "2026-11-16T01:17:18Z",
+      "description": "Qbian61 forum-java commit 20f7e68 through commit 63152c4 contains a stored cross-site scripting vulnerability that allows authenticated users to inject script by posting unsanitized comment content rendered via jQuery .html() in the reply dialog. Attackers can post comments with img onerror payloads",
+      "severity": "MEDIUM",
+      "score": 5.1,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129491",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-127958",
+      "published": "2026-11-15T22:17:19Z",
+      "description": "A pull request review created through the API as a draft (`event` set to `PENDING` or left empty) was added to the pull request timeline and announced through notifications and activity feeds like a submitted review. Its body and line comments were therefore visible to everyone who can read the pull",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-127958",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-128359",
+      "published": "2026-11-15T22:17:19Z",
+      "description": "When Gitea acts as an OAuth2 or OpenID Connect provider, the token endpoint did not check the state of the user. After an administrator deactivated an account or prohibited its sign-in, existing refresh tokens and unused authorization codes of that user could still be exchanged for new tokens, so ap",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-128359",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-128365",
+      "published": "2026-11-15T22:17:19Z",
+      "description": "Removing a team's review request looked up a review by the negated team ID, which for the team with ID 2 is the ID of the built-in Actions user, and marked the review it found as official. In the organization that owns that team, a user who can change the review requests of a pull request could make",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-128365",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-129337",
+      "published": "2026-11-15T22:17:19Z",
+      "description": "Git over HTTP lowers the required permission for pushes to read access, so that the AGit flow works, and relies on the repository's server-side hooks to enforce write access. A repository that is still being created by a migration, fork or template generation has no hooks yet, so a user with read ac",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129337",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-129341",
+      "published": "2026-11-15T22:17:19Z",
+      "description": "The web endpoint that removes an attachment skipped the permission check when the request came from the user who had uploaded the attachment, and it was reachable with read access to issues or pull requests. A user who had uploaded a release asset could still delete it after losing write access to t",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129341",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-129525",
+      "published": "2026-11-15T22:17:19Z",
+      "description": "Several endpoints that work on both issues and pull requests did not check which of the two the addressed item is. A user who can read a repository's issues but not its pull requests could read pull request data through the issue sub-resources of the API (timeline, attachments, labels, subscriptions",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129525",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-123002",
+      "published": "2026-11-15T22:17:18Z",
+      "description": "Gitea accepted an unlimited number of wrong TOTP passcodes during sign-in, in the password reset flow and for Basic authentication with the `X-Gitea-OTP` header. An attacker who already knows an account's password could guess the six-digit passcode by trying codes at a high rate and sign in despite ",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123002",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-123009",
+      "published": "2026-11-15T22:17:18Z",
+      "description": "When a file is edited in a fork through the web editor, Gitea can first copy a branch from the base repository into the fork. That copy did not check whether the user may read the base repository's code. A user who had forked a repository and later lost access to it, for example after it was made pr",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123009",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-123065",
+      "published": "2026-11-15T22:17:18Z",
+      "description": "When a release was edited, the files of the attachments to remove were deleted by the identifiers submitted in the form rather than by the attachments verified to belong to the release. A user with write access to the releases of any repository, including their own, could submit a crafted identifier",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123065",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-123638",
+      "published": "2026-11-15T22:17:18Z",
+      "description": "The \"Protected file patterns\" setting of a branch protection rule was checked against file names as git prints them, and git quotes names that contain a double quote, a backslash or a control character. Such names never matched a pattern, so a user with write access could add or change files under a",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123638",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-123642",
+      "published": "2026-11-15T22:17:18Z",
+      "description": "The AGit flow (pushing to `refs/for/...`) did not check the pusher's access to pull requests again when it created the pull request. A user or deploy key with read access to the code only, or with write access to the wiki over SSH, could open pull requests in a repository where they have no access t",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123642",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-125617",
+      "published": "2026-11-15T22:17:18Z",
+      "description": "`GET /api/v1/users/{username}/orgs/{org}/permissions` only checked that the organization is visible to the caller and then returned the named user's role in it. Any signed-in user could learn whether another user is an owner, admin or member of a public or limited organization, including for members",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125617",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-126338",
+      "published": "2026-11-15T22:17:18Z",
+      "description": "Replying to a code review comment accepted a review ID that belongs to a different pull request, through the web form, the API and incoming mail replies. A signed-in user could reply on a pull request they can access with the ID of a review in a repository they cannot read, and the new comment was a",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126338",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-118389",
+      "published": "2026-11-15T22:17:17Z",
+      "description": "The RubyGems package registry accepted gems whose platform, dependency names or dependency version requirements contain newline characters. Because the compact index served to clients is line-based, a user who can publish a gem to an owner's registry could forge index entries, such as packages that ",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118389",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-118535",
+      "published": "2026-11-15T22:17:17Z",
+      "description": "A repository registered by its owner as a source of scoped workflows kept that registration when it was transferred to another owner. The new owner could then change the workflows in the transferred repository, and they kept running in the previous owner's repositories with access to their Actions s",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118535",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-120725",
+      "published": "2026-11-15T22:17:17Z",
+      "description": "With `REQUIRE_SIGNIN_VIEW = true`, the Git LFS endpoints still answered unauthenticated requests for repositories that are not private. An anonymous client who knows the path of such a repository and the SHA-256 of an LFS object could download the object, and could use the batch endpoint to test whe",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120725",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-120729",
+      "published": "2026-11-15T22:17:17Z",
+      "description": "The popup shown when hovering an issue reference loaded its data from the path of the hovered link and inserted part of the response as HTML. A user who can post a comment or other rendered content could add a link that is displayed as an ordinary issue reference but points to a file in a repository",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120729",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-120991",
+      "published": "2026-11-15T22:17:17Z",
+      "description": "When a container blob upload was rejected, for example because it exceeded a package size quota, the cleanup removed the blob from storage even if the same content already existed and was used by other packages. On an instance with a package quota configured, a user who can upload container images a",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120991",
+      "kev": false
+    },
     {
       "id": "CVE-2026-125423",
       "published": "2026-11-15T21:16:54Z",
@@ -41,226 +261,6 @@
       "score": 7.1,
       "cvss_version": "31",
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125822",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-125823",
-      "published": "2026-11-15T19:17:16Z",
-      "description": "Allocation of Resources Without Limits or Throttling vulnerability in Jegstudio Gutenverse gutenverse allows HTTP DoS.This issue affects Gutenverse: from n/a through 4.2.2.",
-      "severity": "HIGH",
-      "score": 7.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125823",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-125826",
-      "published": "2026-11-15T19:17:16Z",
-      "description": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in Blubrry Podcasting PowerPress Podcasting powerpress allows Path Traversal.This issue affects PowerPress Podcasting: from n/a through 11.18.3.",
-      "severity": "MEDIUM",
-      "score": 5.0,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125826",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-125830",
-      "published": "2026-11-15T19:17:16Z",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Belingo belingoGeo belingogeo allows Reflected XSS.This issue affects belingoGeo: from n/a through 1.13.3.",
-      "severity": "HIGH",
-      "score": 7.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125830",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-129091",
-      "published": "2026-11-15T19:17:16Z",
-      "description": "Improper Control of Filename for Include/Require Statement in PHP Program ('PHP Remote File Inclusion') vulnerability in Mikado-Themes GrandPrix Core grandprix-core allows PHP Local File Inclusion.This issue affects GrandPrix Core: from n/a through 1.0.",
-      "severity": "HIGH",
-      "score": 8.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129091",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-125760",
-      "published": "2026-11-15T19:17:15Z",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Bit Apps Bit Assist bit-assist allows DOM-Based XSS.This issue affects Bit Assist: from n/a through 1.8.4.",
-      "severity": "HIGH",
-      "score": 7.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125760",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-125796",
-      "published": "2026-11-15T19:17:15Z",
-      "description": "Missing Authorization vulnerability in Ahmad JS Help Desk js-support-ticket allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects JS Help Desk: from n/a through 5.0.5.",
-      "severity": "MEDIUM",
-      "score": 6.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125796",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-125798",
-      "published": "2026-11-15T19:17:15Z",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Zaytech Smart Online Order for Clover clover-online-orders allows DOM-Based XSS.This issue affects Smart Online Order for Clover: from n/a through 1.6.6.",
-      "severity": "HIGH",
-      "score": 7.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125798",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-125804",
-      "published": "2026-11-15T19:17:15Z",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Meow Apps AI Engine ai-engine allows Stored XSS.This issue affects AI Engine: from n/a through 3.9.3.",
-      "severity": "HIGH",
-      "score": 7.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125804",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-125817",
-      "published": "2026-11-15T19:17:15Z",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Themeisle Feedzy feedzy-rss-feeds allows Stored XSS.This issue affects Feedzy: from n/a through 5.2.15.",
-      "severity": "HIGH",
-      "score": 7.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125817",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-125818",
-      "published": "2026-11-15T19:17:15Z",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in AdvancedCoding wpDiscuz wpdiscuz allows Stored XSS.This issue affects wpDiscuz: from n/a through 7.6.75.",
-      "severity": "HIGH",
-      "score": 7.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125818",
-      "kev": false
-    },
-    {
-      "id": "CVE-2025-71469",
-      "published": "2026-11-15T16:16:56Z",
-      "description": "GPAC before 26.02.0 contains a type confusion vulnerability in ctxload_process() that passes non-object descriptors to ODS_SetupOD() without checking the descriptor tag. Attackers can supply a crafted XMT file with a URL-bearing descriptor that crashes MP4Box or other GPAC-based applications in gf_s",
-      "severity": "MEDIUM",
-      "score": 6.8,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-71469",
-      "kev": false
-    },
-    {
-      "id": "CVE-2025-71470",
-      "published": "2026-11-15T16:16:56Z",
-      "description": "MicroQuickJS (mquickjs) before commit 99eed3f contains an out-of-bounds read vulnerability because JS_Call() raises exceptions during frame setup without updating ctx->sp and ctx->fp. Attackers can supply JavaScript that calls a non-function value, causing build_backtrace() to walk stale frame point",
-      "severity": "MEDIUM",
-      "score": 6.8,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-71470",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-129484",
-      "published": "2026-11-15T16:16:56Z",
-      "description": "Kroki before 0.36.0 contains a reflected cross-site scripting vulnerability that allows unauthenticated attackers to inject scripts via unvalidated svg-color-dark-scheme and svg-color-light-scheme options. Attackers can craft a GET /goat/svg URL whose option value closes the SVG style element, execu",
-      "severity": "MEDIUM",
-      "score": 5.3,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129484",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-129485",
-      "published": "2026-11-15T16:16:56Z",
-      "description": "Kroki before 0.36.0 contains a server-side request forgery vulnerability in the BlockDiag family of engines that allows unauthenticated attackers to make server requests via node icon and background attributes. Attackers can send crafted diagrams to POST /blockdiag/svg or sibling endpoints to query ",
-      "severity": "MEDIUM",
-      "score": 6.9,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129485",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-129490",
-      "published": "2026-11-15T16:16:56Z",
-      "description": "littlefs through 2.11.3, when built with LFS_MIGRATE, contains a type confusion vulnerability in lfs_dir_traverse() that treats a stack lfs_diskoff struct as an lfs_attr array. Attackers can supply a crafted littlefs v1 image whose metadata is read as LFS_FROM_USERATTRS during migration, causing out",
-      "severity": "MEDIUM",
-      "score": 6.8,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129490",
-      "kev": false
-    },
-    {
-      "id": "CVE-2025-71466",
-      "published": "2026-11-15T16:16:55Z",
-      "description": "GPAC before 26.02.0 contains a NULL pointer dereference vulnerability in m2tsdmx_update_sdt() in src/filters/dmx_m2ts.c that allows attackers to crash the MPEG-2 TS demuxer. Attackers can supply a crafted .ts file with an invalid service descriptor leaving service or provider names NULL to crash MP4",
-      "severity": "MEDIUM",
-      "score": 6.8,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-71466",
-      "kev": false
-    },
-    {
-      "id": "CVE-2025-71467",
-      "published": "2026-11-15T16:16:55Z",
-      "description": "GPAC before 26.02.0 contains a NULL pointer dereference vulnerability in gf_node_get_field_by_name() in src/scenegraph/base_scenegraph.c that lets attackers crash applications. Attackers can supply a crafted XMT scene referencing a never-created node to crash MP4Box or GPAC scene loader applications",
-      "severity": "MEDIUM",
-      "score": 6.8,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-71467",
-      "kev": false
-    },
-    {
-      "id": "CVE-2025-71468",
-      "published": "2026-11-15T16:16:55Z",
-      "description": "GPAC before 26.02.0 contains a NULL pointer dereference vulnerability in gf_dash_group_get_audio_channels() in src/media_tools/dash_client.c that allows attackers to crash applications via crafted DASH manifests. Attackers can supply an MPD whose AudioChannelConfiguration element omits schemeIdUri o",
-      "severity": "MEDIUM",
-      "score": 6.8,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-71468",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-125793",
-      "published": "2026-11-15T15:16:47Z",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in flexmls Flexmls® IDX flexmls-idx allows Reflected XSS.This issue affects Flexmls® IDX: from n/a through 4.1.2.",
-      "severity": "HIGH",
-      "score": 7.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125793",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-125795",
-      "published": "2026-11-15T15:16:47Z",
-      "description": "Improper Control of Filename for Include/Require Statement in PHP Program ('PHP Remote File Inclusion') vulnerability in Estatik Estatik estatik allows PHP Local File Inclusion.This issue affects Estatik: from n/a through 4.3.6.",
-      "severity": "CRITICAL",
-      "score": 9.8,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125795",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-125799",
-      "published": "2026-11-15T15:16:47Z",
-      "description": "Insertion of Sensitive Information into Externally-Accessible File or Directory vulnerability in Looks Awesome Flow-Flow Social Stream flow-flow-social-streams allows Retrieve Embedded Sensitive Data.This issue affects Flow-Flow Social Stream: from n/a through 5.0.5.",
-      "severity": "HIGH",
-      "score": 7.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125799",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-128893",
-      "published": "2026-11-15T15:16:47Z",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Marcin Wise Chat wise-chat allows Reflected XSS.This issue affects Wise Chat: from n/a through 3.4.5.",
-      "severity": "HIGH",
-      "score": 7.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-128893",
       "kev": false
     }
   ]
