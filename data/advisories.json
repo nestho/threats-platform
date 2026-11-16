@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-16T09:25:51Z",
+  "updated_at": "2026-11-16T20:16:36Z",
   "source": "Microsoft MSRC + Ubuntu Security Notices",
   "source_url": [
     "https://api.msrc.microsoft.com/update-guide/rss",
@@ -10,6 +10,54 @@
   "normalisation_failures": [],
   "partial": null,
   "items": [
+    {
+      "id": "USN-9064-2",
+      "vendor": "Ubuntu",
+      "title": "USN-9064-2: Pillow regression",
+      "published": "2026-11-16T18:07:22Z",
+      "summary": "USN-9064-1 fixed vulnerabilities in Pillow. Unfortunately, the fix for CVE-2026-112402 introduced a regression that caused resizing images with the NEAREST filter, and resizing any \"1\" or \"P\" mode image, to fail. This update fixes the problem. We apologize for the inconvenience. Original advisory de",
+      "link": "https://ubuntu.com/security/notices/USN-9064-2"
+    },
+    {
+      "id": "CVE-2026-105544",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-105544 .NET VSTest Elevation of Privilege Vulnerability",
+      "published": "2026-11-16T16:00:00Z",
+      "summary": "Corrected the CVE description and title. This is an informational change only.",
+      "link": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-105544"
+    },
+    {
+      "id": "CVE-2026-124223",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-124223 Microsoft Office SharePoint Remote Code Execution Vulnerability",
+      "published": "2026-11-16T16:00:00Z",
+      "summary": "Information published. This CVE was addressed by updates that were released in November 2026, but the CVE was inadvertently omitted from the November 2026 Security Updates. This is an informational change only. Customers who have already installed the November 2026 updates do not need to take any fu",
+      "link": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-124223"
+    },
+    {
+      "id": "CVE-2026-124222",
+      "vendor": "Microsoft",
+      "title": "CVE-2026-124222 Microsoft Office SharePoint Elevation of Privilege Vulnerability",
+      "published": "2026-11-16T16:00:00Z",
+      "summary": "Information published. This CVE was addressed by updates that were released in November 2026, but the CVE was inadvertently omitted from the November 2026 Security Updates. This is an informational change only. Customers who have already installed the November 2026 updates do not need to take any fu",
+      "link": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-124222"
+    },
+    {
+      "id": "USN-8997-2",
+      "vendor": "Ubuntu",
+      "title": "USN-8997-2: Net-SNMP vulnerability",
+      "published": "2026-11-16T15:28:07Z",
+      "summary": "USN-8997-1 fixed a vulnerability in Net-SNMP. This update provides the corresponding fix for Net-SNMP on Ubuntu 20.04 LTS, Ubuntu 18.04 LTS, Ubuntu 16.04 LTS and Ubuntu 14.04 LTS. Original advisory details: It was discovered that Net-SNMP incorrectly handled newly accepted connections in the SMUX mo",
+      "link": "https://ubuntu.com/security/notices/USN-8997-2"
+    },
+    {
+      "id": "USN-9093-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9093-1: SoS vulnerability",
+      "published": "2026-11-16T09:50:35Z",
+      "summary": "Sandipan Roy discovered that the SoS clean utility did not properly validate symlink and hardlink targets during archive extraction. An attacker could possibly use this issue to create or overwrite arbitrary files on the system.",
+      "link": "https://ubuntu.com/security/notices/USN-9093-1"
+    },
     {
       "id": "CVE-2026-94522",
       "vendor": "Microsoft",
@@ -467,30 +515,6 @@
       "link": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-126889"
     },
     {
-      "id": "CVE-2026-126891",
-      "vendor": "Microsoft",
-      "title": "Chromium CVE-2026-126891: Use after free",
-      "published": "2026-11-13T16:00:00Z",
-      "summary": "This CVE was assigned by Chrome. Microsoft Edge (Chromium-based) ingests Chromium, which addresses this vulnerability. Please see [Google Chrome Releases](https://chromereleases.googleblog.com/2026) for more information.",
-      "link": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-126891"
-    },
-    {
-      "id": "CVE-2026-126892",
-      "vendor": "Microsoft",
-      "title": "Chromium CVE-2026-126892: Use after free",
-      "published": "2026-11-13T16:00:00Z",
-      "summary": "This CVE was assigned by Chrome. Microsoft Edge (Chromium-based) ingests Chromium, which addresses this vulnerability. Please see [Google Chrome Releases](https://chromereleases.googleblog.com/2026) for more information.",
-      "link": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-126892"
-    },
-    {
-      "id": "CVE-2026-126893",
-      "vendor": "Microsoft",
-      "title": "Chromium CVE-2026-126893: Out of bounds write",
-      "published": "2026-11-13T16:00:00Z",
-      "summary": "This CVE was assigned by Chrome. Microsoft Edge (Chromium-based) ingests Chromium, which addresses this vulnerability. Please see [Google Chrome Releases](https://chromereleases.googleblog.com/2026) for more information.",
-      "link": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-126893"
-    },
-    {
       "id": "USN-9027-2",
       "vendor": "Ubuntu",
       "title": "USN-9027-2: Linux kernel (FIPS) vulnerabilities",
@@ -545,30 +569,6 @@
       "published": "2026-11-12T20:55:13Z",
       "summary": "It was discovered that the gpg-key2ps tool in signing-party did not properly sanitize user IDs before passing them to a shell. If a user were tricked into processing a specially crafted OpenPGP key, an attacker could possibly use this issue to execute arbitrary commands.",
       "link": "https://ubuntu.com/security/notices/USN-9087-1"
-    },
-    {
-      "id": "USN-9086-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9086-1: SA-Exim vulnerability",
-      "published": "2026-11-12T20:54:57Z",
-      "summary": "It was discovered that SA-Exim unsafely evaluated the parameters of its greylisting SpamAssassin rule. An attacker able to write SpamAssassin configuration files or rules could possibly use this issue to execute arbitrary code.",
-      "link": "https://ubuntu.com/security/notices/USN-9086-1"
-    },
-    {
-      "id": "USN-9085-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9085-1: Ruby OpenID vulnerability",
-      "published": "2026-11-12T20:54:47Z",
-      "summary": "It was discovered that Ruby OpenID sent a request to the claimed identifier URL before verifying the signature of an OpenID response. A remote attacker could possibly use this issue to perform server-side request forgery attacks.",
-      "link": "https://ubuntu.com/security/notices/USN-9085-1"
-    },
-    {
-      "id": "USN-9084-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9084-1: Radicale vulnerability",
-      "published": "2026-11-12T20:54:41Z",
-      "summary": "It was discovered that Radicale did not delay failed authentication attempts when using htpasswd authentication. A remote attacker could possibly use this issue to obtain user passwords through timing or brute-force attacks.",
-      "link": "https://ubuntu.com/security/notices/USN-9084-1"
     }
   ]
 }

@@ -1,11 +1,187 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-16T09:25:46Z",
+  "updated_at": "2026-11-16T20:16:31Z",
   "source": "GitHub Security Advisories",
   "source_url": "https://api.github.com/advisories",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-mfr8-8qww-v76h",
+      "title": "Next.js: Information disclosure across root params when a 'use cache' function is called through unstable_cache()",
+      "published": "2026-11-16T18:51:22Z",
+      "ecosystem": "npm",
+      "summary": "Next.js applications with `'use cache'` can disclose cached data across root params when the same `'use cache'` function is called both directly during rendering and through `unstable_cache()`, and that function reads a root param. Root params are route parameters of the root layout, and application",
+      "link": "https://github.com/advisories/GHSA-mfr8-8qww-v76h"
+    },
+    {
+      "id": "GHSA-7mxv-7h3q-9324",
+      "title": "NLTK dot2img runs Graphviz 'dot' without the trusted-exec chokepoint, enabling local code execution via a writable PATH element",
+      "published": "2026-11-16T18:45:51Z",
+      "ecosystem": "pip",
+      "summary": "## Summary\n\n`nltk.parse.dependencygraph.dot2img` invokes the Graphviz `dot` executable without the trusted-execution guarantees that NLTK applies to its other native-tool wrappers. The function resolves `dot` by bare name and then runs the resolved absolute path with a raw `subprocess.run`, omitting",
+      "link": "https://github.com/advisories/GHSA-7mxv-7h3q-9324"
+    },
+    {
+      "id": "GHSA-hf59-9xwc-2g4p",
+      "title": "Nuxt: Colliding island props can share one `/__nuxt_island` path (incomplete fix for CVE-2026-46342)",
+      "published": "2026-11-16T15:02:22Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nThe fix for CVE-2026-46342 (GHSA-g8wj-3cr3-6w7v) binds each `/__nuxt_island/<Name>_<hash>.json` path to its props by hashing the `(name, props, context, source)` tuple. That hash was computed over `ohash`'s serialization, which does not escape quotes inside strings or delimiters inside ",
+      "link": "https://github.com/advisories/GHSA-hf59-9xwc-2g4p"
+    },
+    {
+      "id": "GHSA-96x6-fvhx-49hg",
+      "title": "Nuxt exposes the message and data of unhandled errors thrown during server rendering",
+      "published": "2026-11-16T15:01:26Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nWhen a page, plugin or route middleware throws an error that is not an HTTP error, Nuxt wraps it with `createError` before rendering the error page. The wrapped error was treated as one the app raised deliberately, so in production its `message` and `data` were sent to the client in the",
+      "link": "https://github.com/advisories/GHSA-96x6-fvhx-49hg"
+    },
+    {
+      "id": "GHSA-r9jc-w898-3fv6",
+      "title": "Nuxt payload URL generation has quadratic cost for repeated slashes in the request path",
+      "published": "2026-11-16T15:00:41Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nNuxt strips trailing slashes from the request path with a regular expression whose cost grows quadratically with the length of a run of consecutive slashes. A single unauthenticated request with a long run of slashes can occupy the server's event loop for a noticeable time, delaying eve",
+      "link": "https://github.com/advisories/GHSA-r9jc-w898-3fv6"
+    },
+    {
+      "id": "GHSA-x2wv-5868-p7v2",
+      "title": "@nuxt/webpack-builder and @nuxt/rspack-builder dev server serves built source to DNS rebinding pages",
+      "published": "2026-11-16T15:00:09Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nWhen using the webpack or rspack builder, the dev server serves built client chunks to any request whose `Host` header matches its `Origin`/`Referer`, or that carries `Sec-Fetch-Site: same-origin`. After a DNS rebinding attack both headers name the attacker's hostname, so a malicious pa",
+      "link": "https://github.com/advisories/GHSA-x2wv-5868-p7v2"
+    },
+    {
+      "id": "GHSA-f3x9-2chm-73c8",
+      "title": "Nuxt: Incomplete fix for GHSA-6gq8-jgmh-3ffp: an encoded slash (`%2F`) in the request path bypasses route rules on catch-all page routes",
+      "published": "2026-11-16T14:59:45Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nNuxt matches route rules against the request path with encoded slashes (`%2F`) left encoded, while the page router decodes them into route params. A request that spells a slash as `%2F` can therefore render a page through a catch-all route without the route rules configured for the path",
+      "link": "https://github.com/advisories/GHSA-f3x9-2chm-73c8"
+    },
+    {
+      "id": "GHSA-m9j8-jcmv-hp69",
+      "title": "SvelteKit: Build-time server-only module import guard could fail, resulting in server secrets being statically replaced in client bundle",
+      "published": "2026-11-16T14:59:00Z",
+      "ecosystem": "npm",
+      "summary": "Under certain circumstances, server-only imports, which typically cannot be included in the client bundle, could make their way into it, potentially exposing secrets. This could only occur when those server-only imports were made through `src/params.js`.",
+      "link": "https://github.com/advisories/GHSA-m9j8-jcmv-hp69"
+    },
+    {
+      "id": "GHSA-3r8g-jcqq-3p5j",
+      "title": "SvelteKit: DoS while parsing form data from a remote functions `form`",
+      "published": "2026-11-16T14:57:35Z",
+      "ecosystem": "npm",
+      "summary": "This only affects applications using the experimental remote functions flag and utilizing the `form`, `query`, or `command` remote functions. A specially-crafted request could block the event loop for extended periods of time during parsing.",
+      "link": "https://github.com/advisories/GHSA-3r8g-jcqq-3p5j"
+    },
+    {
+      "id": "GHSA-jm3w-gw2p-xjfj",
+      "title": "AIOHTTP: Event loop stall in add_domain() wildcard matching",
+      "published": "2026-11-16T14:56:35Z",
+      "ecosystem": "pip",
+      "summary": "### Summary\n\n`Application.add_domain()` compiled each `*` in a host mask to `[^:]*`. With two or more wildcards in a mask, matching a long `Host` header that does not match the mask took polynomial time on the event loop.\n\n### Impact\n\nAn attacker could stall a server that registers a domain mask wit",
+      "link": "https://github.com/advisories/GHSA-jm3w-gw2p-xjfj"
+    },
+    {
+      "id": "GHSA-5pv8-vvhc-h7jv",
+      "title": "AIOHTTP: Unbounded cookie storage in client CookieJar",
+      "published": "2026-11-16T14:55:06Z",
+      "ecosystem": "pip",
+      "summary": "### Summary\n\n`Set-Cookie` parsing created additional cookies from unrecognised `name=value` attributes, and `CookieJar` had no limit on the number of cookies stored or sent. A server could make the client store a very large number of cookies and generate very large `Cookie` headers.\n\n### Impact\n\nA m",
+      "link": "https://github.com/advisories/GHSA-5pv8-vvhc-h7jv"
+    },
+    {
+      "id": "GHSA-xgw8-8ccx-rmqh",
+      "title": "AIOHTTP: Too many URL-encoded form fields block the event loop",
+      "published": "2026-11-16T14:54:10Z",
+      "ecosystem": "pip",
+      "summary": "### Summary\n\n`Request.post()` had no limit on the number of fields in a URL-encoded form body. Inserting a large number of repeated keys into a `MultiDict` took quadratic time on the event loop.\n\n### Impact\n\nAn attacker could block the event loop with a form POST within the default `client_max_size`",
+      "link": "https://github.com/advisories/GHSA-xgw8-8ccx-rmqh"
+    },
+    {
+      "id": "GHSA-24c4-3p7v-29cm",
+      "title": "AIOHTTP: Base64 multipart parts bypass client_max_size",
+      "published": "2026-11-16T14:53:12Z",
+      "ecosystem": "pip",
+      "summary": "### Summary\n\nWhen reading a multipart part with `Content-Transfer-Encoding: base64`, `BodyPartReader.read_chunk()` kept reading until the chunk length was a multiple of 4, with no byte limit. A part with a short `Content-Length`, or a long run of whitespace, could cause the entire remaining body to ",
+      "link": "https://github.com/advisories/GHSA-24c4-3p7v-29cm"
+    },
+    {
+      "id": "GHSA-3rp8-rxj8-mvjw",
+      "title": "AIOHTTP: WebSocket max_msg_size bypass via integer overflow",
+      "published": "2026-11-16T14:52:40Z",
+      "ecosystem": "pip",
+      "summary": "### Summary\n\nThe `max_msg_size` check in the WebSocket reader added the declared frame length to the size of the partial message already buffered. In the C extension this addition is 64-bit arithmetic, so a declared length close to 2**63 overflowed and the check passed.\n\n### Impact\n\nAn attacker coul",
+      "link": "https://github.com/advisories/GHSA-3rp8-rxj8-mvjw"
+    },
+    {
+      "id": "GHSA-pw86-h8fm-j323",
+      "title": "AIOHTTP: Unbounded buffering of data received during an upgrade request",
+      "published": "2026-11-16T14:52:05Z",
+      "ecosystem": "pip",
+      "summary": "### Summary\n\nWhile a request flagged as an upgrade (e.g. a WebSocket handshake) was being handled, all further data received on the connection was buffered with no size limit or flow control until the handler completed.\n\n### Impact\n\nAn attacker could cause unbounded memory use by streaming data behi",
+      "link": "https://github.com/advisories/GHSA-pw86-h8fm-j323"
+    },
+    {
+      "id": "GHSA-28qf-cpwq-vmc2",
+      "title": "AIOHTTP: Pure-Python parser request replay and buffer growth behind a declined upgrade",
+      "published": "2026-11-16T14:51:53Z",
+      "ecosystem": "pip",
+      "summary": "### Summary\n\nWhen the pipelined request queue was full, the pure-Python parser stored the unparsed remainder internally and also returned it to the caller. After a handler declined an upgrade request, the buffered data was re-fed, so the buffer grew with each handled request and already-handled requ",
+      "link": "https://github.com/advisories/GHSA-28qf-cpwq-vmc2"
+    },
+    {
+      "id": "GHSA-h4cc-hm5h-fmm9",
+      "title": "AIOHTTP: Concatenated compressed streams cause excessive CPU use",
+      "published": "2026-11-16T14:51:27Z",
+      "ecosystem": "pip",
+      "summary": "### Summary\n\nWhen decompressing a payload made up of many concatenated compressed members (gzip, deflate or zstd), each member was decoded by passing the entire remaining input to a new decompressor, resulting in quadratic CPU time. Empty members produce no output, so `client_max_size` and output ba",
+      "link": "https://github.com/advisories/GHSA-h4cc-hm5h-fmm9"
+    },
+    {
+      "id": "GHSA-5rmc-48h2-hvcm",
+      "title": "AIOHTTP: WebSocket receive queue limits bypassed by small or compressed messages",
+      "published": "2026-11-16T14:51:01Z",
+      "ecosystem": "pip",
+      "summary": "### Summary\n\nThe WebSocket reader continued parsing frames already received after the receive queue had paused the transport, and empty messages were not counted towards the queue size. With permessage-deflate, a single read of compressed frames could add many megabytes of decompressed messages to t",
+      "link": "https://github.com/advisories/GHSA-5rmc-48h2-hvcm"
+    },
+    {
+      "id": "GHSA-6cf5-gc4q-fm3x",
+      "title": "SvelteKit: Private `query.batch` functions could collide, producing unexpected parameter / function combinations",
+      "published": "2026-11-16T14:49:03Z",
+      "ecosystem": "npm",
+      "summary": "Under certain circumstances, private (non-exported) `query.batch` functions could end up sharing a batch, resulting in the arguments from one function being passed to another. This only affects apps using the experimental remote functions flag and non-exported `query.batch` functions.",
+      "link": "https://github.com/advisories/GHSA-6cf5-gc4q-fm3x"
+    },
+    {
+      "id": "GHSA-rqp5-r3wg-vg35",
+      "title": "SvelteKit: Protocol-relative module import during server-side route resolution allows cross-origin script execution",
+      "published": "2026-11-16T14:48:54Z",
+      "ecosystem": "npm",
+      "summary": "If an attacker could, using some form of social engineering or other exploit, get a user to use client-side navigation to navigate to a specially-crafted link, the attacker could cause code from another domain to be imported and run on the user's machine. This only affected apps with `router.resolut",
+      "link": "https://github.com/advisories/GHSA-rqp5-r3wg-vg35"
+    },
+    {
+      "id": "GHSA-xmfg-f9cm-w86q",
+      "title": "NLTK: Symlink escape in chat80.sql_query bypasses the pathsec data-root sandbox to read out-of-root SQLite databases",
+      "published": "2026-11-16T14:47:23Z",
+      "ecosystem": "pip",
+      "summary": "## Summary\n\n`nltk.sem.chat80.sql_query()` opens a SQLite database by handing the result of `nltk.data.find(dbname)` straight to `sqlite3.connect()` without the path-containment check that the NLTK data sandbox (`nltk.pathsec`) is meant to enforce. `nltk.data.find()` applies only lexical checks to th",
+      "link": "https://github.com/advisories/GHSA-xmfg-f9cm-w86q"
+    },
+    {
+      "id": "GHSA-59f9-gqg8-mqpj",
+      "title": "NLTK: Path Traversal in save_maxent_params / load_maxent_params Allow Arbitrary File READ/WRITE",
+      "published": "2026-11-16T14:46:25Z",
+      "ecosystem": "pip",
+      "summary": "### Summary\nPath traversal in NLTK's save_maxent_params() and load_maxent_params() allows arbitrary file write and arbitrary file read outside the directories permitted by NLTK's pathsec security mechanism.\n\nThis vulnerability was previously reported through Huntr, accepted by the NLTK project, and ",
+      "link": "https://github.com/advisories/GHSA-59f9-gqg8-mqpj"
+    },
     {
       "id": "GHSA-89p3-fcch-88ph",
       "title": "NLTK: Quadratic-time CPU denial of service in CCG lexicon parser (fromstring) on wide bracket bodies and operator chains",
@@ -287,6 +463,14 @@
       "link": "https://github.com/advisories/GHSA-7g44-g9rc-x53w"
     },
     {
+      "id": "GHSA-w2j9-qh3j-4h63",
+      "title": "Duplicate Advisory: Symlink escape in chat80.sql_query bypasses the pathsec data-root sandbox to read out-of-root SQLite databases",
+      "published": "2026-11-13T12:31:17Z",
+      "ecosystem": "pip",
+      "summary": "## Duplicate Advisory\n\nThis advisory has been withdrawn because it is a duplicate of GHSA-xmfg-f9cm-w86q. This link is maintained to preserve external references.\n\n## Original Description\nNLTK from 3.9.4 before 3.10.4 contains a symlink following vulnerability in nltk.sem.chat80.sql_query() that byp",
+      "link": "https://github.com/advisories/GHSA-w2j9-qh3j-4h63"
+    },
+    {
       "id": "GHSA-rg32-vgf9-927c",
       "title": "Duplicate Advisory: Quadratic CPU exhaustion in TreebankWordTokenizer.span_tokenize via list.pop(0) in quote-restore loop",
       "published": "2026-11-13T12:31:17Z",
@@ -309,6 +493,14 @@
       "ecosystem": "pip",
       "summary": "## Duplicate Advisory\n\nThis advisory has been withdrawn because it is a duplicate of GHSA-8fx7-8jr8-84rv. This link is maintained to preserve external references.\n\n## Original Description\nNLTK before 3.10.4 contains an uncontrolled resource consumption vulnerability in SteppingRecursiveDescentParser",
       "link": "https://github.com/advisories/GHSA-4hvg-fv5c-9936"
+    },
+    {
+      "id": "GHSA-x4p7-2mv3-x7px",
+      "title": "Duplicate Advisory: Quadratic CPU exhaustion in LegalitySyllableTokenizer.tokenize via unguarded onset reversal loop",
+      "published": "2026-11-13T12:31:17Z",
+      "ecosystem": "pip",
+      "summary": "## Duplicate Advisory\n\nThis advisory has been withdrawn because it is a duplicate of GHSA-gpwc-27cw-rh9r. This link is maintained to preserve external references.\n\n## Original Description\nNLTK from 3.6 before 3.10.4 contains an algorithmic complexity vulnerability in LegalitySyllableTokenizer.tokeni",
+      "link": "https://github.com/advisories/GHSA-x4p7-2mv3-x7px"
     },
     {
       "id": "GHSA-jh6r-h4rx-2j3w",
@@ -613,198 +805,6 @@
       "ecosystem": "npm",
       "summary": "### Summary\n\nbasic-ftp's MLSD directory-listing parser (src/parseListMLSD.ts) looks up fact-handler functions in a plain object literal keyed directly by fact names taken from the FTP server's response, with no validation. A directory-listing line containing the fact name \"__proto__\" resolves this l",
       "link": "https://github.com/advisories/GHSA-5pm8-86m8-9m6r"
-    },
-    {
-      "id": "GHSA-qv5m-9pm6-hqp3",
-      "title": "@hono/node-server: Unhandled `ECONNRESET` on the socket during an asynchronous WebSocket upgrade crashes the process",
-      "published": "2026-11-12T21:32:48Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\nWhile `@hono/node-server` waits for the Hono application to handle a WebSocket upgrade request, the socket has no error listener. If the client resets the TCP connection during that time, the resulting `ECONNRESET` is emitted as an unhandled `'error'` event and the process terminates.\n\n",
-      "link": "https://github.com/advisories/GHSA-qv5m-9pm6-hqp3"
-    },
-    {
-      "id": "GHSA-jpvv-r467-5p4w",
-      "title": "@hono/node-server: Backslash in the request path is parsed as a path separator, bypassing path-based access control at a reverse proxy",
-      "published": "2026-11-12T21:28:02Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\n`@hono/node-server` passes the raw request-target to the WHATWG URL parser, which treats a backslash in the path as `/` and then resolves `..` segments. A request for `/admin\\secret` or `/public\\..\\admin/secret` reaches the application as `/admin/secret`. A reverse proxy that follows RF",
-      "link": "https://github.com/advisories/GHSA-jpvv-r467-5p4w"
-    },
-    {
-      "id": "GHSA-345x-3rq2-jfrm",
-      "title": "Loofah: SVG `<textPath>` and `<mpath>` bypass local-reference restriction",
-      "published": "2026-11-12T21:26:53Z",
-      "ecosystem": "rubygems",
-      "summary": "## Summary\n\nLoofah restricts `href` and `xlink:href` on certain SVG elements to same-document references. Two elements escaped the restriction:\n\n- `<textPath>`: `SVG_ALLOW_LOCAL_HREF` listed it in lowercase as `textpath`, but the HTML5 parser names the element `textPath` inside `<svg>`, so the check",
-      "link": "https://github.com/advisories/GHSA-345x-3rq2-jfrm"
-    },
-    {
-      "id": "GHSA-p9wj-w8xq-vjx6",
-      "title": "Loofah allowed_uri? treats javascript&#x3a alert(1) as safe",
-      "published": "2026-11-12T21:26:25Z",
-      "ecosystem": "rubygems",
-      "summary": "## Summary\n\n`Loofah::HTML5::Scrub.allowed_uri?` returns `true` for a `javascript:` or `vbscript:` URI whose scheme is split by a numeric character reference without a trailing semicolon, followed by a character that `allowed_uri?` strips, such as a space or tab. A browser ends the reference at that ",
-      "link": "https://github.com/advisories/GHSA-p9wj-w8xq-vjx6"
-    },
-    {
-      "id": "GHSA-m3x9-938q-5767",
-      "title": "Loofah: CSS url() sanitization bypass via escaped parentheses",
-      "published": "2026-11-12T21:05:41Z",
-      "ecosystem": "rubygems",
-      "summary": "## Summary\n\n`Loofah::HTML5::Scrub.scrub_css` rejected any property whose top-level Crass tokens included a `:url` or `:bad_url`, and left `url` out of the allowed CSS functions. Both checks ran only against the first parse of the `style` attribute. When `scrub_css` rebuilt each property it emitted i",
-      "link": "https://github.com/advisories/GHSA-m3x9-938q-5767"
-    },
-    {
-      "id": "GHSA-mf2j-8f84-cc9q",
-      "title": "Loofah: Regular expression denial of service in the SVG local-reference check",
-      "published": "2026-11-12T21:00:42Z",
-      "ecosystem": "rubygems",
-      "summary": "## Summary\n\nLoofah's HTML5 sanitizer restricts the `href` and `xlink:href` attributes of SVG reference elements to local references. That check matched the attribute value against `/^\\s*[^#\\s].*/m`. In Ruby `^` anchors to every line start and `\\s` matches newlines, so an all-whitespace value made th",
-      "link": "https://github.com/advisories/GHSA-mf2j-8f84-cc9q"
-    },
-    {
-      "id": "GHSA-jcff-cj73-4w4f",
-      "title": "Loofah allowed_uri? treats data:text&sol;html as safe text/plain",
-      "published": "2026-11-12T20:56:30Z",
-      "ecosystem": "rubygems",
-      "summary": "## Summary\n\n`Loofah::HTML5::Scrub.allowed_uri?` returns `true` for a `data:` URI whose mediatype is written with the HTML5 named character reference `&sol;` in place of the solidus. Loofah reads that mediatype as malformed and falls back to the allowed `text/plain`, while a browser decodes the refer",
-      "link": "https://github.com/advisories/GHSA-jcff-cj73-4w4f"
-    },
-    {
-      "id": "GHSA-h6v6-rg66-fqj4",
-      "title": "Loofah: Mutation XSS in the HTML5 scrubbers through unescaped attribute values",
-      "published": "2026-11-12T20:52:09Z",
-      "ecosystem": "rubygems",
-      "summary": "## Summary\n\nLoofah's HTML5 scrubbers could emit output that a browser parses into different markup, allowing mutation XSS. Nokogiri < 1.19.5 did not escape `<` and `>` in attribute values. When the output contained certain MathML, a browser treated markup inside an allowed attribute as live HTML. Th",
-      "link": "https://github.com/advisories/GHSA-h6v6-rg66-fqj4"
-    },
-    {
-      "id": "GHSA-vq9p-w6wv-cr25",
-      "title": "pgEdge Control Plane generates pg_hba.conf with trust authentication for local and loopback connections",
-      "published": "2026-11-12T20:46:03Z",
-      "ecosystem": "go",
-      "summary": "### Summary\n\nEvery `pg_hba.conf` generated by the pgEdge Control Plane begins with a hard-coded block of `trust` entries covering Unix-socket and loopback connections. Any operating-system account that can reach the Postgres socket or the loopback interface on a database host can authenticate as any",
-      "link": "https://github.com/advisories/GHSA-vq9p-w6wv-cr25"
-    },
-    {
-      "id": "GHSA-5qg5-rgp6-j5m5",
-      "title": "pgEdge RAG Server unbounded corpus read allows resource exhaustion from unauthenticated requests",
-      "published": "2026-11-12T20:37:38Z",
-      "ecosystem": "go",
-      "summary": "### Impact\n\nAn unauthenticated caller able to reach the query endpoint could exhaust database and server resources with ordinary, inexpensive requests.\n\nThe keyword-search arm read the entire corpus on every request and rebuilt an in-memory BM25 index from it, so the cost of serving a query scaled w",
-      "link": "https://github.com/advisories/GHSA-5qg5-rgp6-j5m5"
-    },
-    {
-      "id": "GHSA-68g8-gh8f-7rhg",
-      "title": "pgEdge RAG Server discloses part of the configured provider credential through API error messages",
-      "published": "2026-11-12T20:29:32Z",
-      "ecosystem": "go",
-      "summary": "### Impact\n\nAn unauthenticated remote caller could read part of the operator's configured LLM provider API key.\n\nThe query API relayed the text of a provider error straight to the caller. That text carried the upstream provider's own message, and providers characteristically quote a partially masked",
-      "link": "https://github.com/advisories/GHSA-68g8-gh8f-7rhg"
-    },
-    {
-      "id": "GHSA-w437-9mwm-j6vq",
-      "title": "pgEdge RAG Server shared keyword index leaked results between concurrent unauthenticated requests",
-      "published": "2026-11-12T19:42:07Z",
-      "ecosystem": "go",
-      "summary": "### Impact\n\nDocuments belonging to one caller could be returned to another. Where an application passes a customer or tenant identifier as a search filter, that scoping could be defeated by ordinary concurrent traffic. **No injection and no malformed input are required** — normal load is enough.\n\nTh",
-      "link": "https://github.com/advisories/GHSA-w437-9mwm-j6vq"
-    },
-    {
-      "id": "GHSA-8835-xmqj-354h",
-      "title": "pgEdge Go LLM Library discloses provider API key fragments in error messages",
-      "published": "2026-11-12T19:32:36Z",
-      "ecosystem": "go",
-      "summary": "### Impact\n\nAn unauthenticated caller could read part of the operator's configured LLM provider API key.\n\nThe library's own health handler pings every configured provider using the operator's real credential and returns the resulting error text verbatim. Providers characteristically quote a partiall",
-      "link": "https://github.com/advisories/GHSA-8835-xmqj-354h"
-    },
-    {
-      "id": "GHSA-7m8x-x364-m26j",
-      "title": "Signal K Server: Buffered logs exposed to unauthenticated WebSocket clients",
-      "published": "2026-11-12T19:14:00Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\nAn unauthenticated WebSocket client can subscribe to the log path and receive buffered server logs.\n\nWebSocket connections are intentionally permitted before authentication because login occurs over the WebSocket connection. However, the log subscription path does not enforce an authori",
-      "link": "https://github.com/advisories/GHSA-7m8x-x364-m26j"
-    },
-    {
-      "id": "GHSA-g6f8-c3x9-jv7f",
-      "title": "code16/sharp: Server-side request forgery through an unanchored autocomplete endpoint check",
-      "published": "2026-11-12T18:21:00Z",
-      "ecosystem": "composer",
-      "summary": "### Impact\nAn authenticated attacker can call the Autocomplete API with the configured endpoint as a substring to request another server-side route.\n\n### Patches\nThe problem has been patched in 9.23.0 and pre-release version 10.0.0-beta.4. The regex verifying the endpoint has been anchored to forbid",
-      "link": "https://github.com/advisories/GHSA-g6f8-c3x9-jv7f"
-    },
-    {
-      "id": "GHSA-h24v-f482-8cwf",
-      "title": "code16/sharp: Arbitrary class instantiation through the embed_key API parameter",
-      "published": "2026-11-12T18:18:44Z",
-      "ecosystem": "composer",
-      "summary": "### Impact\n\nAn authenticated attacker can instantiate any class in the PHP application by using the `embed_key` parameter across multiple API endpoints. The instantiation is performed by the Laravel container. As a result, the `__construct()` method of the class is called and all constructor depende",
-      "link": "https://github.com/advisories/GHSA-h24v-f482-8cwf"
-    },
-    {
-      "id": "GHSA-4g86-54fm-h9h8",
-      "title": "Microsoft Security Advisory CVE-2026-118740 - Aspire Security Feature Bypass Vulnerability",
-      "published": "2026-11-12T17:17:48Z",
-      "ecosystem": "nuget",
-      "summary": "## Executive summary\n\nMicrosoft is releasing this security advisory to provide information about a vulnerability in Aspire. This advisory provides guidance on updating affected applications and components.\n\nAspire Dashboard's unauthenticated NotFound route can permit telemetry deletion in both stand",
-      "link": "https://github.com/advisories/GHSA-4g86-54fm-h9h8"
-    },
-    {
-      "id": "GHSA-x8x8-p968-x646",
-      "title": "Microsoft Security Advisory CVE-2026-118745 - Visual Studio Remote Code Execution Vulnerability",
-      "published": "2026-11-11T00:47:20Z",
-      "ecosystem": "nuget",
-      "summary": "## Executive summary\n\nMicrosoft is releasing this security advisory to provide information about a vulnerability in .NET. This advisory provides guidance on updating affected applications and components.\n\nCrafted PDB line metadata can exceed the caller-provided buffer and cause a heap out-of-bounds ",
-      "link": "https://github.com/advisories/GHSA-x8x8-p968-x646"
-    },
-    {
-      "id": "GHSA-xf35-v9jh-g65w",
-      "title": "Microsoft Security Advisory CVE-2026-114152 - Visual Studio Remote Code Execution Vulnerability",
-      "published": "2026-11-11T00:46:12Z",
-      "ecosystem": "nuget",
-      "summary": "## Executive summary\n\nMicrosoft is releasing this security advisory to provide information about a vulnerability in .NET. This advisory provides guidance on updating affected applications and components.\n\nAttacker-controlled COFF relocation offsets can cause an out-of-bounds stack write in `DiaObjec",
-      "link": "https://github.com/advisories/GHSA-xf35-v9jh-g65w"
-    },
-    {
-      "id": "GHSA-6856-87hx-p5x7",
-      "title": "Microsoft Security Advisory CVE-2026-105544 - .NET Elevation of Privilege Vulnerability",
-      "published": "2026-11-11T00:39:12Z",
-      "ecosystem": "nuget",
-      "summary": "## Executive summary\n\nMicrosoft is releasing this security advisory to provide information about a vulnerability in .NET. This advisory provides guidance on updating affected applications and components.\n\nThe VSTest artifact postprocessor can consume a forged `executionComplete.json` from another lo",
-      "link": "https://github.com/advisories/GHSA-6856-87hx-p5x7"
-    },
-    {
-      "id": "GHSA-fpxj-5c99-g7vj",
-      "title": "Microsoft Security Advisory CVE-2026-114151 - Visual Studio Remote Code Execution Vulnerability",
-      "published": "2026-11-11T00:35:02Z",
-      "ecosystem": "nuget",
-      "summary": "## Executive summary\n\nMicrosoft is releasing this security advisory to provide information about a vulnerability in .NET. This advisory provides guidance on updating affected applications and components.\n\nA crafted PDB `LF_DECIMAL` payload can trigger an out-of-bounds stack write when processed by D",
-      "link": "https://github.com/advisories/GHSA-fpxj-5c99-g7vj"
-    },
-    {
-      "id": "GHSA-r8h3-p8p6-ggp7",
-      "title": "Microsoft Security Advisory CVE-2026-114158 - Visual Studio Remote Code Execution Vulnerability",
-      "published": "2026-11-11T00:34:13Z",
-      "ecosystem": "nuget",
-      "summary": "## Executive summary\n\nMicrosoft is releasing this security advisory to provide information about a vulnerability in .NET. This advisory provides guidance on updating affected applications and components.\n\nA Portable PDB `EmbeddedSource` record with parent RID 0 can trigger an out-of-bounds write.\n\n#",
-      "link": "https://github.com/advisories/GHSA-r8h3-p8p6-ggp7"
-    },
-    {
-      "id": "GHSA-3cgx-w6gm-fqrx",
-      "title": "Microsoft Security Advisory CVE-2026-114159 - Visual Studio Remote Code Execution Vulnerability",
-      "published": "2026-11-11T00:32:59Z",
-      "ecosystem": "nuget",
-      "summary": "## Executive summary\n\nMicrosoft is releasing this security advisory to provide information about a vulnerability in .NET. This advisory provides guidance on updating affected applications and components.\n\nAn oversized Portable PDB document name can be truncated during allocation and cause a heap out",
-      "link": "https://github.com/advisories/GHSA-3cgx-w6gm-fqrx"
-    },
-    {
-      "id": "GHSA-q6jf-24jf-m3cg",
-      "title": "Microsoft Security Advisory CVE-2026-120792 - Aspire Information Disclosure Vulnerability",
-      "published": "2026-11-11T00:31:23Z",
-      "ecosystem": "nuget",
-      "summary": "## Executive summary\n\nMicrosoft is releasing this security advisory to provide information about a vulnerability in the Aspire CLI. This advisory provides guidance on updating affected applications and components.\n\nInsecure temporary files used by Aspire CLI can allow a local attacker to obtain sens",
-      "link": "https://github.com/advisories/GHSA-q6jf-24jf-m3cg"
     }
   ]
 }
