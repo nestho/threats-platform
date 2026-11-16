@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-16T01:50:11Z",
+  "updated_at": "2026-11-16T09:25:45Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,161 @@
   ],
   "recent": {
     "lookback_days": 3,
-    "total": 947,
-    "items_available": 947,
+    "total": 868,
+    "items_available": 868,
     "normalisation_failures": [],
-    "items_parsed": 947,
+    "items_parsed": 868,
     "items": [
+      {
+        "id": "CVE-2026-124672",
+        "published": "2026-11-16T09:17:13Z",
+        "description": "The Burst Statistics WordPress plugin before 3.7.5 does not verify that a request is actually being routed to its own REST API before unloading every other active plugin for that request, allowing unauthenticated attackers to have requests processed with other plugins' protections (such as REST acce",
+        "severity": "HIGH",
+        "score": 7.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124672",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129703",
+        "published": "2026-11-16T09:17:13Z",
+        "description": "In the vulnerability-lookup web application, the authentication decorators for feed-key requests (auth_feedkey_func in website/decorators.py) and API-key requests (auth_func in website/web/api/v1/common.py) called Flask-Login's login_user() function. This caused the HTTP response to a request authen",
+        "severity": "HIGH",
+        "score": 7.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129703",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129706",
+        "published": "2026-11-16T09:17:13Z",
+        "description": "In the vulnerability-lookup web application, the Flask-Login session identifier was set to the bare numeric user ID (User.get_id() returned self.id). Because the session ID contained no component derived from the user's credential, it remained valid indefinitely regardless of any subsequent password",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129706",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-114453",
+        "published": "2026-11-16T09:17:12Z",
+        "description": "The Kadence Memberships WordPress plugin before 4.0.6 does not check that the membership level submitted when renewing a membership matches the level being renewed, pricing the renewal from the submitted level while activating the membership at its own level, allowing unauthenticated users to activa",
+        "severity": "LOW",
+        "score": 3.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-114453",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-105925",
+        "published": "2026-11-16T08:16:48Z",
+        "description": "A denial of service vulnerability in the Qt QXmlSimpleReader class of the Qt 5 Core Compatibility APIs module (Qt 6) and the Qt XML module (Qt 5).",
+        "severity": "HIGH",
+        "score": 8.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105925",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121787",
+        "published": "2026-11-16T06:16:49Z",
+        "description": "The Social Viral Downloader WordPress plugin through 2.0.3 does not have authorisation or nonce checks on a log deletion action available to unauthenticated users, which could allow them to delete the Social Viral Downloader WordPress plugin through 2.0.3's entire download log.",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121787",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129606",
+        "published": "2026-11-16T06:16:49Z",
+        "description": "Buffer Copy without Checking Size of Input ('Classic Buffer Overflow') vulnerability in Samsung Open Source mTower allows Overflow Buffers.",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129606",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121786",
+        "published": "2026-11-16T06:16:48Z",
+        "description": "The Social Viral Downloader WordPress plugin through 2.0.3 does not have authorisation or nonce checks on a log export action available to unauthenticated users, which could allow them to export the download log, including registered users' email addresses and IP addresses, to a publicly accessible ",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121786",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-107520",
+        "published": "2026-11-16T04:16:44Z",
+        "description": "Dell PowerStore contains a stored cross-site scripting (XSS) vulnerability. A low-privileged authenticated attacker could exploit this vulnerability, potentially leading to execution of malicious script in a higher-privileged user's session.",
+        "severity": "MEDIUM",
+        "score": 5.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107520",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-82156",
+        "published": "2026-11-16T04:16:44Z",
+        "description": "Dell PowerStore contains an authorization-bypass vulnerability. A low-privileged attacker could exploit it, potentially leading to elevation of privilege to administrator.",
+        "severity": "HIGH",
+        "score": 8.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82156",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129540",
+        "published": "2026-11-16T02:17:12Z",
+        "description": "VoAPI 1.0.0 through 1.2.0 contains a sql injection vulnerability that allows authenticated users to inject SQL by supplying crafted column names as search[...] filter keys on list endpoints such as GET /api/log. Attackers can read the HS256 JWT signing secret from the option table and forge a manage",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129540",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129541",
+        "published": "2026-11-16T02:17:12Z",
+        "description": "EdgeChat 2.5.0 through 2.21.0 contains a cross-site scripting vulnerability that allows invited users to inject HTML through unescaped usernames in the Vditor @-mention autocomplete. Attackers can register with a username containing an img onerror payload that executes when mentioned, stealing the l",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129541",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129542",
+        "published": "2026-11-16T02:17:12Z",
+        "description": "Files or directories accessible to external parties vulnerability in Samsung Open Source Starfish allows Probe System Files.",
+        "severity": "LOW",
+        "score": 3.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129542",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129543",
+        "published": "2026-11-16T02:17:12Z",
+        "description": "Access of resource using incompatible type ('type confusion') vulnerability in Samsung Open Source Starfish allows Input Data Manipulation.",
+        "severity": "MEDIUM",
+        "score": 6.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129543",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129539",
+        "published": "2026-11-16T02:17:11Z",
+        "description": "SSCMS 7.2.0 through 7.4.0 contains an arbitrary file read vulnerability that allows any registered user-center account to copy server files by supplying source paths to the layerImageUpload endpoint. Attackers can send siteId 0 with crafted filePaths entries to copy configuration files into their pu",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129539",
+        "kev": false
+      },
       {
         "id": "CVE-2026-129494",
         "published": "2026-11-16T01:17:20Z",
@@ -2806,7 +2956,7 @@
       {
         "id": "CVE-2026-97357",
         "published": "2026-11-13T18:17:49Z",
-        "description": "An Out-Of-Bounds Write due to missing input validation is possible in the autoprogramming interface of SpaceCom and Space Battery pack with WiFi which could lead to a denial of service of the affected communication device.",
+        "description": "An Out-Of-Bounds Write due to missing input validation is possible in the autoprogramming interface of SpaceCom and Space Battery pack with WiFi which could lead to a denial of service of the affected communication device",
         "severity": "MEDIUM",
         "score": 6.9,
         "cvss_version": "40",
@@ -8541,946 +8691,6 @@
         "score": 2.3,
         "cvss_version": "40",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-71460",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120864",
-        "published": "2026-11-13T09:17:34Z",
-        "description": "Memory overflow in ICA proxy can lead to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler ADC and Citrix NetScaler Gateway.",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120864",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120865",
-        "published": "2026-11-13T09:17:34Z",
-        "description": "Memory overflow in HTTP/3 (QUIC) can lead to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler ADC and Citrix NetScaler Gateway.",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120865",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120866",
-        "published": "2026-11-13T09:17:34Z",
-        "description": "Memory overflow / improper handling in BGP dynamic routing can lead to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler ADC and Citrix NetScaler Gateway.",
-        "severity": "HIGH",
-        "score": 7.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120866",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120867",
-        "published": "2026-11-13T09:17:34Z",
-        "description": "Memory overflow in SSL/TLS/DTLS can lead to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler ADC and Citrix NetScaler Gateway.",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120867",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-128824",
-        "published": "2026-11-13T09:17:34Z",
-        "description": "A flaw was found in Red Hat Quay. The v1 registry API error handler reflects the attacker-supplied image_id path segment in a response served as text/html, allowing a reflected cross-site scripting (XSS) attack. By tricking a user into visiting a specially crafted URL, a remote attacker can execute ",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-128824",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116425",
-        "published": "2026-11-13T09:17:33Z",
-        "description": "Dell PowerScale InsightIQ, Versions 6.3.0 through 6.4.0, contains unauthorized access vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Information tampering and Unauthorized access.",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116425",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116426",
-        "published": "2026-11-13T09:17:33Z",
-        "description": "Dell PowerScale InsightIQ, Versions 6.3.0 through 6.4.0, contains an Insertion of Sensitive Information into Log File vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Information exposure.",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116426",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116427",
-        "published": "2026-11-13T09:17:33Z",
-        "description": "Dell PowerScale InsightIQ, Versions 6.3.0 through 6.4.0, contains a Missing Authorization vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Elevation of privileges.",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116427",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116430",
-        "published": "2026-11-13T09:17:33Z",
-        "description": "Dell PowerScale InsightIQ, Version 6.4.0, contain an Insufficient Verification of Data Authenticity vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Information tampering.",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116430",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116431",
-        "published": "2026-11-13T09:17:33Z",
-        "description": "Dell PowerScale InsightIQ, Versions 6.3.0 through 6.4.0, contains a Cleartext Storage of Sensitive Information vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Information disclosure.",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116431",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116436",
-        "published": "2026-11-13T09:17:33Z",
-        "description": "Dell PowerScale InsightIQ, Versions 6.3.0 through 6.4.0, contains an Insertion of Sensitive Information into Log File vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Unauthorized access.",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116436",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116438",
-        "published": "2026-11-13T09:17:33Z",
-        "description": "Dell PowerScale InsightIQ, Versions 6.3.0 through 6.4.0 , contains a Missing Authorization vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Denial of service.",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116438",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116453",
-        "published": "2026-11-13T09:17:33Z",
-        "description": "Dell PowerScale InsightIQ, Versions 6.3.0 through 6.4.0, contains a Missing Authorization vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Information tampering and Unauthorized access.",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116453",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116417",
-        "published": "2026-11-13T09:17:32Z",
-        "description": "Dell PowerScale InsightIQ, versions 6.3.0 through 6.4.0, contains a Weak Password Requirements vulnerability. An unauthenticated attacker with adjacent network access could potentially exploit this vulnerability, leading to Information disclosure and Unauthorized access.",
-        "severity": "HIGH",
-        "score": 8.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116417",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116419",
-        "published": "2026-11-13T09:17:32Z",
-        "description": "Dell PowerScale InsightIQ, versions 6.3.0 through 6.4.0, containsan Insertion of Sensitive Information into Log File vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Information disclosure.",
-        "severity": "MEDIUM",
-        "score": 6.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116419",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116420",
-        "published": "2026-11-13T09:17:32Z",
-        "description": "Dell PowerScale InsightIQ, versions 6.3.0 through 6.4.0, containsan Insertion of Sensitive Information into Log File vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Information disclosure.",
-        "severity": "MEDIUM",
-        "score": 6.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116420",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116421",
-        "published": "2026-11-13T09:17:32Z",
-        "description": "Dell PowerScale InsightIQ, Versions 6.3.0 through 6.4.0, contains an Insertion of Sensitive Information into Log File vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Information disclosure.",
-        "severity": "MEDIUM",
-        "score": 6.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116421",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116422",
-        "published": "2026-11-13T09:17:32Z",
-        "description": "Dell PowerScale InsightIQ, versions 6.3.0 through 6.4.0, contains an Insertion of Sensitive Information into Log File vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Information disclosure and Information exposure.",
-        "severity": "MEDIUM",
-        "score": 6.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116422",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116423",
-        "published": "2026-11-13T09:17:32Z",
-        "description": "Dell PowerScale InsightIQ, versions 6.3.0 through 6.4.0, contains an Improper Verification of Cryptographic Signature vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Elevation of privileges and Information tampering.",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116423",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116424",
-        "published": "2026-11-13T09:17:32Z",
-        "description": "Dell PowerScale InsightIQ, versions 6.3.0 through 6.4.0, contains Unauthorized access vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Information tampering and Unauthorized access.",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116424",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-59079",
-        "published": "2026-11-13T08:17:18Z",
-        "description": "Edito CMS restricts the ability to upload files via the UI to specific file types. However, an avatar upload functionality allows an attacker to upload files of any type and extension without restriction.\nThis issue was fixed in version 5.10.2607.  Hotfixes for older versions (5.8) have also been re",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59079",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-59080",
-        "published": "2026-11-13T08:17:18Z",
-        "description": "Edito CMS sends JWT token via GET requests. This allows a local attacker with access to browser history to obtain valid JWT token and perform action on behalf of the victim. The token is valid for only short period of time; after that time, it expires and can no longer be used.\n\n\n\nThe vendor assesse",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59080",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-59081",
-        "published": "2026-11-13T08:17:18Z",
-        "description": "Edito CMS deserializes JSON data without further validation. A user (even an administrator) cannot exploit this vulnerability through the application's normal functionality. An attacker who could modify cache entries or inject them could execute code on the server.\n\n\n\n\nThis issue was fixed in versio",
-        "severity": "HIGH",
-        "score": 8.4,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59081",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120863",
-        "published": "2026-11-13T08:17:17Z",
-        "description": "Memory overflow in the management plane can lead to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler ADC and Citrix NetScaler Gateway.",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120863",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-128637",
-        "published": "2026-11-13T08:17:17Z",
-        "description": "The MISP Modules website component contains an open redirect vulnerability in its login endpoint. The /login route accepted a user-supplied next query parameter and passed it directly to Flask's redirect() function without validating the destination. An attacker could craft a URL such as https://vic",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-128637",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-59074",
-        "published": "2026-11-13T08:17:17Z",
-        "description": "Edito CMS is vulnerable to improper cryptographic signature verification in the JWT refresh logic. An authenticated low-privilege user can submit self-crafted​ ​JWT​ containing​ ​an existing user​ ​identifier and, due to the lack of signature validation,​​  obtain​ ​a ​​valid,​​ fully-signed​​ sessi",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59074",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-59075",
-        "published": "2026-11-13T08:17:17Z",
-        "description": "Edito CMS is vulnerable to Dynamic LINQ injection. Due to improper input validation, an authenticated attacker can inject conditional expressions into the sort parameter of paginated administrative endpoints. Analyzing the returned result order allows the attacker to extract value of any field chara",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59075",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-59076",
-        "published": "2026-11-13T08:17:17Z",
-        "description": "Edito CMS is vulnerable to Stored Cross-Site Scripting (XSS). Due to improper input validation, an authenticated attacker can inject malicious scripts into givenName and surname parameters via the /api/auth/profile endpoint. When an administrator visits the admin changelog logs, the injected script ",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59076",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-59077",
-        "published": "2026-11-13T08:17:17Z",
-        "description": "Edito CMS is vulnerable to Stored XSS via content parameter in Tiny editor functionality. Authenticated attacker can inject arbitrary HTML and JS into website, which will be rendered/executed when user tries to edit changed entry.\n\nThis issue was fixed in version 5.10.2607.  Hotfixes for older versi",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59077",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-59078",
-        "published": "2026-11-13T08:17:17Z",
-        "description": "Edito CMS is vulnerable to Stored XSS in avatar upload functionality. Authenticated attacker can inject arbitrary HTML and JS into website, which will be rendered/executed when visiting an URL leading to a edited avatar.\n\nThis issue was fixed in version 5.10.2607.  Hotfixes for older versions (5.8) ",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59078",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-111338",
-        "published": "2026-11-13T08:17:16Z",
-        "description": "Sensitive authentication material written to a log file in Citrix NetScaler ADC and Citrix NetScaler Gateway.",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111338",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-111339",
-        "published": "2026-11-13T08:17:16Z",
-        "description": "Memory overflow in Application Firewall data decompression/inspection can lead to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler ADC and Citrix NetScaler Gateway.",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111339",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116432",
-        "published": "2026-11-13T08:17:16Z",
-        "description": "Dell PowerScale InsightIQ, versions 6.3.0 through 6.4.0, contains an Insertion of Sensitive Information into Log File vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Information disclosure.",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116432",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120860",
-        "published": "2026-11-13T08:17:16Z",
-        "description": "Memory overflow in protocol load-balancing traffic handling (Diameter, SIP-over-TCP, MQTT, RADIUS) can lead to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler ADC and Citrix NetScaler Gateway.",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120860",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120861",
-        "published": "2026-11-13T08:17:16Z",
-        "description": "Memory overflow / improper handling in GSLB and geolocation (MEP, static-proximity, config-sync) can lead to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120861",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120862",
-        "published": "2026-11-13T08:17:16Z",
-        "description": "Memory overflow in SIP ALG (LSN) and DNS answer-section logging datapaths can lead to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120862",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-111333",
-        "published": "2026-11-13T08:17:15Z",
-        "description": "Memory overflow in an authentication request can lead to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler ADC and Citrix NetScaler Gateway.",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111333",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-111334",
-        "published": "2026-11-13T08:17:15Z",
-        "description": "Memory overflow in Endpoint Analysis (EPA/EPAS) can lead to unpredictable or erroneous behavior or a Denial of Service in Citrix NetScaler ADC and Citrix NetScaler Gateway.",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111334",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-111335",
-        "published": "2026-11-13T08:17:15Z",
-        "description": "Improper request handling can lead to a denial-of-service / reboot-loop condition in Citrix NetScaler ADC and Citrix NetScaler Gateway.",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111335",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-111336",
-        "published": "2026-11-13T08:17:15Z",
-        "description": "Memory overflow in HTTP/2 handling can lead to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler ADC and Citrix NetScaler Gateway.",
-        "severity": "HIGH",
-        "score": 8.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111336",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-111337",
-        "published": "2026-11-13T08:17:15Z",
-        "description": "Memory overflow in Base64 decoding in advanced policy expressions leading to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler ADC and Citrix NetScaler Gateway.",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111337",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-128424",
-        "published": "2026-11-13T07:17:20Z",
-        "description": "A flaw was found in Kroxylicious. The ACL authorizer's rules-file parser unquotes `matching /…/` regular-expression literals using the string unquoting rules, which strips every backslash escape. As a result, an allow rule such as `matching /orders\\.v1/` is compiled as the regex `orders.v1`, which a",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-128424",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-124833",
-        "published": "2026-11-13T06:16:54Z",
-        "description": "The Ahime Image Printer WordPress plugin through 1.0.0 does not validate the name, extension or type of uploaded files before writing them to disk, allowing unauthenticated attackers to upload arbitrary files, including PHP, and execute code on the server.",
-        "severity": "CRITICAL",
-        "score": 9.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124833",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-125711",
-        "published": "2026-11-13T06:16:54Z",
-        "description": "The Widgets for Google Reviews WordPress plugin before 14.3, WP Tripadvisor Review Widgets WordPress plugin before 14.3, Widgets for Booking.com Reviews WordPress plugin before 14.3, Widgets for Reviews & Recommendations WordPress plugin before 14.3, Widgets for Airbnb Reviews WordPress plugin befor",
-        "severity": "LOW",
-        "score": 3.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125711",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-125912",
-        "published": "2026-11-13T06:16:54Z",
-        "description": "The WP Ultimate CSV Importer  WordPress plugin before 9.2 does not restrict the destination filename and extension, nor validate the fetched content type, when importing remote media, allowing an Administrator of a Multisite subsite to write and execute arbitrary PHP in the shared WordPress context ",
-        "severity": "HIGH",
-        "score": 7.2,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125912",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-126119",
-        "published": "2026-11-13T06:16:54Z",
-        "description": "The Streamit WordPress plugin before 1.3.10 does not perform any authorization or nonce verification on one of its unauthenticated AJAX routes, which invokes an attacker-supplied PHP function with an attacker-supplied argument array, allowing unauthenticated attackers to call arbitrary functions (fo",
-        "severity": "CRITICAL",
-        "score": 9.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126119",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120407",
-        "published": "2026-11-13T06:16:53Z",
-        "description": "The Contact Form 7 WordPress plugin before 6.2.5 does not restrict which user properties a form field's default value can be populated from, allowing users with the Editor role and above to obtain the password hash and sensitive user meta (such as two-factor secrets) of higher-privileged users, incl",
-        "severity": "MEDIUM",
-        "score": 4.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120407",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121853",
-        "published": "2026-11-13T06:16:53Z",
-        "description": "The AppPresser  WordPress plugin before 5.0.0 does not restrict access to two of its REST API endpoints, allowing unauthenticated visitors to retrieve the installed versions of AppPresser, its add-ons, several third-party AppPresser  WordPress plugin before 5.0.0 and its .",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121853",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-123093",
-        "published": "2026-11-13T06:16:53Z",
-        "description": "The WP Remote Users Sync WordPress plugin before 2.2.1 does not have authorisation and CSRF checks in one of its AJAX actions, allowing any authenticated user, such as a subscriber, to delete the WP Remote Users Sync WordPress plugin before 2.2.1's entire activity log.",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123093",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-123097",
-        "published": "2026-11-13T06:16:53Z",
-        "description": "The WP Remote Users Sync WordPress plugin before 2.2.1 does not restrict which account fields a synchronised site may set when it creates or updates users, allowing a site holding the shared synchronisation keys to assign the administrator role, modify any existing account and write arbitrary user m",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123097",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-123124",
-        "published": "2026-11-13T06:16:53Z",
-        "description": "The WooCommerce Vindi Pagamento WordPress plugin through 0.8.3 does not perform any authorisation check when updating an order's shipment tracking code, and does not escape that code when displaying it on the order edit page, allowing unauthenticated attackers to perform Stored Cross-Site Scripting ",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123124",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-123670",
-        "published": "2026-11-13T06:16:53Z",
-        "description": "The Essential Real Estate WordPress plugin before 5.3.6 does not verify that the recipients it allows for its contact email action are legitimate, allowing users with the self-registered Customer role to add any address to that allowlist so that unauthenticated users can then send emails with attack",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123670",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-123711",
-        "published": "2026-11-13T06:16:53Z",
-        "description": "The WPCOM Member WordPress plugin before 1.8.3 does not limit or bind attempts to verify WeChat login codes, allowing unauthenticated attackers to brute-force a code issued to another user and log in as that user, including administrators, when WeChat official-account keyword login is enabled.",
-        "severity": "HIGH",
-        "score": 8.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123711",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-124664",
-        "published": "2026-11-13T06:16:53Z",
-        "description": "The Mine CloudVod WordPress plugin before 2.6.7 does not check whether the requester is enrolled in a course, or authorised at all, before returning the course's full curriculum together with the raw content of every published lesson, allowing unauthenticated visitors to retrieve paid lesson content",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124664",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-124763",
-        "published": "2026-11-13T06:16:53Z",
-        "description": "The Woocommerce Wishlist WordPress plugin through 1.1.0 does not have authorisation and CSRF checks in one of its unauthenticated AJAX actions, allowing unauthenticated users to overwrite any site option with the URL of an uploaded image or an empty value, breaking the site (for example by changing ",
-        "severity": "CRITICAL",
-        "score": 9.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124763",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-124822",
-        "published": "2026-11-13T06:16:53Z",
-        "description": "The Easy DragDrop File Uploader WordPress plugin before 1.1.10 does not validate a user-supplied path before deleting it, allowing unauthenticated users to delete arbitrary files and directories on the server, such as wp-config.php.",
-        "severity": "CRITICAL",
-        "score": 10.0,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124822",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116059",
-        "published": "2026-11-13T06:16:52Z",
-        "description": "The LetsRecover  WordPress plugin through 1.2.0 does not sanitize a user-supplied value that is used as a database column name in one of its unauthenticated AJAX actions, allowing unauthenticated attackers to append SQL to the query and read arbitrary data from the database, which is then returned t",
-        "severity": "HIGH",
-        "score": 8.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116059",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118063",
-        "published": "2026-11-13T06:16:52Z",
-        "description": "The Advance Guest Post WordPress plugin through 1.9 does not properly validate uploaded files, relying on a case-sensitive and incomplete extension check that unauthenticated users can trivially bypass, allowing them to upload arbitrary files, including executable PHP variants, into a web-reachable ",
-        "severity": "CRITICAL",
-        "score": 9.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118063",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118064",
-        "published": "2026-11-13T06:16:52Z",
-        "description": "The Advance Guest Post WordPress plugin through 1.9 does not properly restrict or validate file uploads, authorizing an upload action with a nonce exposed to every front-end visitor and checking only a file's leading bytes, allowing unauthenticated users to upload arbitrary PHP files and execute cod",
-        "severity": "CRITICAL",
-        "score": 9.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118064",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118065",
-        "published": "2026-11-13T06:16:52Z",
-        "description": "The Advance Guest Post WordPress plugin through 1.9 does not perform any authorization or ownership check when deleting media attachments, relying only on a nonce exposed to every site visitor, allowing unauthenticated users to permanently delete arbitrary Media Library attachments and their files.",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118065",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107415",
-        "published": "2026-11-13T04:17:36Z",
-        "description": "Memory overflow in Email OTP authentication can lead to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler ADC and Citrix NetScaler Gateway.",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107415",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-111340",
-        "published": "2026-11-13T04:17:36Z",
-        "description": "Memory overflow in KBA (knowledge-based authentication) can lead to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler ADC and Citrix NetScaler Gateway.",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111340",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-111341",
-        "published": "2026-11-13T04:17:36Z",
-        "description": "Memory overflow in client-certificate authentication can lead to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler ADC and Citrix NetScaler Gateway.",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111341",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-111342",
-        "published": "2026-11-13T04:17:36Z",
-        "description": "Memory overflow in LDAP authentication can lead to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler ADC and Citrix NetScaler Gateway.",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111342",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-127286",
-        "published": "2026-11-13T03:17:30Z",
-        "description": "A vulnerability was identified in Zackriya-Solutions Meetily up to 0.4.1. Affected is an unknown function of the file backend/app/main.py. The manipulation leads to missing authentication. The attack is possible to be carried out remotely. The exploit is publicly available and might be used. The leg",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-127286",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-49747",
-        "published": "2026-11-13T03:17:30Z",
-        "description": "Software installed and run as a non-privileged user may conduct GPU system calls to trigger an integer overflow and allow OOB writes to GPU buffers.\n\n\n\nThe integer overflow caused when mapping a GPU buffer >4GB causes corruption of array length, and can lead to kernel panics or out of bounds access.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-49747",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-74911",
-        "published": "2026-11-13T03:17:30Z",
-        "description": "Software installed and run as a non-privileged user may conduct improper GPU system calls to the execution of an error path that triggers an OOB read & write.\n\n\n\nAn error can be triggered which causes the index of the array element to be cleaned up by the error path would be outside of the array bou",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-74911",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107414",
-        "published": "2026-11-13T03:17:29Z",
-        "description": "Memory overflow in WebAuth authentication can lead to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler ADC and Citrix NetScaler Gateway.",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107414",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-127285",
-        "published": "2026-11-13T03:17:29Z",
-        "description": "A flaw has been found in Cairo-dock Glx-Dock 3.4.0. The affected element is an unknown function of the file bg_forum.php of the component href Attribute Handler. This manipulation of the argument f causes cross site scripting. The attack may be initiated remotely. The exploit has been published and ",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-127285",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107411",
-        "published": "2026-11-13T03:17:28Z",
-        "description": "Memory overflow in RTSP ALG can lead to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107411",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107412",
-        "published": "2026-11-13T03:17:28Z",
-        "description": "Multiple Memory overflow vulnerabilities can lead to unpredictable or erroneous behavior and Denial of Service in Citrix NetScaler ADC and Citrix NetScaler Gateway.",
-        "severity": "CRITICAL",
-        "score": 9.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107412",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107413",
-        "published": "2026-11-13T03:17:28Z",
-        "description": "Memory overflow in SAML authentication can lead to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler ADC and Citrix NetScaler Gateway.",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107413",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-16662",
-        "published": "2026-11-13T02:18:57Z",
-        "description": "boot_save_boot_status() in boot/bootutil/src/boot_record.c reads the image's EXPECTED_HASH_TLV into a stack buffer image_hash[IMAGE_HASH_SIZE] that is never zero-initialised. The TLV handler validates only the upper bound (len > sizeof(image_hash)) and then reads exactly len bytes, so a TLV shorter ",
-        "severity": "LOW",
-        "score": 2.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-16662",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-16664",
-        "published": "2026-11-13T02:18:57Z",
-        "description": "MCUboot's Zephyr serial-recovery upload handler bs_upload() in boot/boot_serial/src/boot_serial.c decodes the host-supplied image field of an MCUmgr image-upload request into img_num (a full 32-bit value) and latches it on the off == 0 packet without any range check. It then passes img_num straight ",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-16664",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-16671",
-        "published": "2026-11-13T02:18:57Z",
-        "description": "split_image_check() in boot/bootutil/src/loader.c declares a fixed uint8_t loader_hash[32] buffer and passes it as the out_hash out-parameter to bootutil_img_validate(). That routine copies IMAGE_HASH_SIZE bytes into out_hash (memcpy(out_hash, hash, IMAGE_HASH_SIZE) in boot/bootutil/src/image_valida",
-        "severity": "LOW",
-        "score": 2.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-16671",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-127928",
-        "published": "2026-11-13T02:18:56Z",
-        "description": "In MCUboot's serial-recovery encrypted-image support (boot/boot_serial/src/boot_serial_encryption.c), decrypt_image_inplace() and boot_image_validate_encrypted() each keep a stack-local struct boot_status. boot_enc_load() writes the plaintext per-image AES key into its enckey[] field. Neither functi",
-        "severity": "LOW",
-        "score": 2.0,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-127928",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-128091",
-        "published": "2026-11-13T02:18:56Z",
-        "description": "When MCUboot is built with the TinyCrypt crypto backend (MCUBOOT_USE_TINYCRYPT), bootutil_aes_ctr_drop() in boot/bootutil/include/bootutil/crypto/aes_ctr_tinycrypt.h was an empty stub. The AES-CTR context for this backend is the fully expanded AES-128 key schedule (struct tc_aes_key_sched_struct). G",
-        "severity": "LOW",
-        "score": 2.0,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-128091",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-128321",
-        "published": "2026-11-13T02:18:56Z",
-        "description": "Tight JPEG decoding in TightVNC and UltraVNC viewers contains a heap-based buffer overflow because an attacker-controlled framebuffer rectangle width is not validated against a fixed-size decoding buffer. A malicious VNC server can cause an out-of-bounds heap write when a user connects, resulting in",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-128321",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-15465",
-        "published": "2026-11-13T02:18:56Z",
-        "description": "Software installed and run as a non-privileged user may conduct improper GPU system calls through the DDK kernel module interface. Under unsupported use of the interface, a use-after-free condition may occur that can lead to kernel memory corruption, platform instability, or system reboot.\n\n\n\nThe we",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-15465",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-16659",
-        "published": "2026-11-13T02:18:56Z",
-        "description": "MCUboot's serial-recovery image-upload handler bs_upload() in boot/boot_serial/src/boot_serial.c declares const struct flash_area *fap = NULL and assigns it only via flash_area_open() part-way through the function. Two early validation failures (goto out_invalid_data) — a CBOR map that fails to deco",
-        "severity": "MEDIUM",
-        "score": 4.0,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-16659",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-127281",
-        "published": "2026-11-13T02:18:55Z",
-        "description": "A vulnerability was found in lanyulei ferry 1.0.0-beta.1/1.0.0. Affected is an unknown function of the file middleware/auth.go of the component JWT Validation. The manipulation results in improper authentication. The attack can be executed remotely. The exploit has been made public and could be used",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-127281",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-127282",
-        "published": "2026-11-13T02:18:55Z",
-        "description": "A vulnerability was determined in SourceCodester Smart Attendance System with QR Code Scanner 1.0. Affected by this vulnerability is an unknown functionality of the file reset_password.php. This manipulation of the argument Username causes cross site scripting. The attack is possible to be carried o",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-127282",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-127283",
-        "published": "2026-11-13T02:18:55Z",
-        "description": "A vulnerability was identified in SourceCodester Food Ordering System 1.0. Affected by this issue is some unknown functionality of the file admin/update_food.php of the component Admin Image Handler. Such manipulation of the argument cmd leads to unrestricted upload. The attack may be performed from",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-127283",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-127284",
-        "published": "2026-11-13T02:18:55Z",
-        "description": "A security flaw has been discovered in SourceCodester Food Ordering System 1.0. This affects an unknown part of the file admin/add_category.php of the component Admin Write Handler. Performing a manipulation of the argument title/description/price/current_image/featured/active/id results in sql inje",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-127284",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-127915",
-        "published": "2026-11-13T02:18:55Z",
-        "description": "The MCUboot TLV iterator bootutil_tlv_iter_next() in boot/bootutil/src/tlv.c walks image trailer TLVs with a single loop guard (it->tlv_off < it->tlv_end) and advances by sizeof(struct image_tlv) + tlv.it_len using the attacker-controlled it_len field, without validating that the entry's header or p",
-        "severity": "LOW",
-        "score": 2.0,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-127915",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-127916",
-        "published": "2026-11-13T02:18:55Z",
-        "description": "bootutil_img_hash() computes the image digest over ih_hdr_size + ih_img_size + ih_protect_tlv_size bytes, all three taken from the candidate image's header, and reads that span out of the slot without checking that it fits in the flash area. The three sizes are also summed without an overflow check.",
-        "severity": "LOW",
-        "score": 2.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-127916",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-127276",
-        "published": "2026-11-13T02:18:54Z",
-        "description": "A vulnerability was identified in Linksys EA8100 1.0.3.216940. Impacted is an unknown function of the component Web UI. Such manipulation leads to cookie without 'httponly' flag. It is possible to launch the attack remotely. This attack is characterized by high complexity. The exploitability is cons",
-        "severity": "LOW",
-        "score": 2.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-127276",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-127277",
-        "published": "2026-11-13T02:18:54Z",
-        "description": "A security flaw has been discovered in Linksys EA8100 1.0.3.216940. The affected element is an unknown function of the file etc/init.d/service_smbd.sh of the component SMB Service. Performing a manipulation of the argument ANON_ACCESS results in improper initialization. The attack can be initiated r",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-127277",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-127278",
-        "published": "2026-11-13T02:18:54Z",
-        "description": "A weakness has been identified in AIP-PUB ACPs-community up to 2.2.0. The impacted element is the function send_verification_code of the file registry-server/app/account/service_auth.py of the component verify-code Endpoint. Executing a manipulation of the argument phone can lead to improper authent",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-127278",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-127279",
-        "published": "2026-11-13T02:18:54Z",
-        "description": "A vulnerability was detected in AIP-PUB ACPs-community up to 2.2.0. This impacts an unknown function of the file discovery-server/app/main.py of the component Discovery Server. The manipulation results in missing authentication. The attack may be launched remotely. The exploit is now public and may ",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-127279",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107407",
-        "published": "2026-11-13T02:18:49Z",
-        "description": "Memory overflow in SMPP traffic can lead to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107407",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107408",
-        "published": "2026-11-13T02:18:49Z",
-        "description": "Memory corruption in DNS / DNS-over-HTTPS (DoH) can lead to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107408",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107409",
-        "published": "2026-11-13T02:18:49Z",
-        "description": "Memory corruption in DNS-over-HTTPS (DoH) can lead to unpredictable or erroneous behavior or a Denial of Service in Citrix NetScaler",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107409",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-107410",
-        "published": "2026-11-13T02:18:49Z",
-        "description": "Memory overflow in NetScaler Push can lead to unpredictable or erroneous behavior or Denial of Service in Citrix NetScaler",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107410",
         "kev": false
       }
     ]
