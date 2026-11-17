@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-17T03:40:12Z",
+  "updated_at": "2026-11-17T13:04:29Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,259 +8,259 @@
   ],
   "note": "Bounded slice of cves.json for the homepage. Use /data/cves.json for the full window.",
   "normalisation_failures": [],
-  "recent_total": 584,
+  "recent_total": 643,
   "kev_total": 111,
   "kev_catalog_total": 1781,
   "total": 25,
   "items": [
     {
-      "id": "CVE-2026-125275",
-      "published": "2026-11-17T03:17:00Z",
-      "description": "Loop with Unreachable Exit Condition ('Infinite Loop') vulnerability in device certificate verification in nerves-hub nerves_hub_web allows an unauthenticated remote attacker to cause a denial of service via a TLS client certificate whose CA is not registered. When a client certificate chains to a r",
-      "severity": "HIGH",
-      "score": 8.2,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125275",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-130380",
-      "published": "2026-11-17T02:17:22Z",
-      "description": "AdminNeo before 5.9.1 contains an authentication bypass vulnerability in the sqlsrv-based MS SQL driver that allows unauthenticated attackers to log in by submitting an empty username. Attackers can supply any non-empty password, triggering Windows integrated authentication that grants a full sessio",
-      "severity": "CRITICAL",
-      "score": 9.2,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130380",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-130381",
-      "published": "2026-11-17T02:17:22Z",
-      "description": "phpMyFAQ from 4.2.0-alpha.2 before 4.2.0-RC.2 contains an authorization bypass vulnerability that allows language-scoped editors to read other translations by checking FAQ_EDIT against the route language but loading the ?lang= UI-language row. Attackers can request the admin.faq.edit route with an a",
-      "severity": "MEDIUM",
-      "score": 5.3,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130381",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-130382",
-      "published": "2026-11-17T02:17:22Z",
-      "description": "AdminNeo before 5.9.1 contains an authentication bypass vulnerability in OtpLoginPlugin that allows attackers knowing the database password to skip TOTP verification by abusing the permanent-login cookie. Attackers can submit a login with a wrong OTP and permanent=1 to obtain a neo_permanent cookie,",
+      "id": "CVE-2026-124643",
+      "published": "2026-11-17T12:17:44Z",
+      "description": "This vulnerability exists in e-Sushrut HMIS due to insufficient authentication and session validation in the dashboard functionality. An unauthenticated remote attacker could exploit this vulnerability by sending specially crafted HTTP requests to the affected endpoint.\n\nSuccessful exploitation of t",
       "severity": "HIGH",
       "score": 8.7,
       "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130382",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124643",
       "kev": false
     },
     {
-      "id": "CVE-2026-130383",
-      "published": "2026-11-17T02:17:22Z",
-      "description": "phpMyFAQ before 4.1.12 and 4.2.0-alpha.2 before 4.2.0-RC.2 contains an authorization bypass vulnerability that allows authenticated editors to manipulate search index documents by supplying an arbitrary solutionId to the /admin/api/faq/update endpoint. On Elasticsearch or OpenSearch deployments, cat",
-      "severity": "MEDIUM",
-      "score": 5.1,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130383",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-79614",
-      "published": "2026-11-17T02:17:22Z",
-      "description": "An out-of-bounds write vulnerability in “libclinkc.so” in Zyxel DX3301-T0/EX3301-T0 firmware versions through 5.50(ABVY.8.3)C0 could allow an unauthenticated attacker to elevate privileges and potentially execute arbitrary commands by sending a crafted HTTP request. WAN access is disabled by default",
-      "severity": "CRITICAL",
-      "score": 9.8,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-79614",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-86676",
-      "published": "2026-11-17T02:17:22Z",
-      "description": "A post-authentication command injection vulnerability in the “Description” parameter of a CGI program  in Zyxel DX3300-T0 firmware versions through 5.50(ABVY.8.3)C0 could allow an authenticated attacker with administrator privileges to execute OS commands by sending a crafted HTTP request.",
-      "severity": "HIGH",
-      "score": 7.2,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-86676",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-130374",
-      "published": "2026-11-17T02:17:21Z",
-      "description": "AdminNeo before 5.9.1 contains an sql injection vulnerability that allows remote attackers to inject SQL by supplying crafted IN and NOT IN search values that process_length() passes unescaped. Attackers can send a logged-in user a cross-site GET link using a backslash-escaped apostrophe to run blin",
-      "severity": "HIGH",
-      "score": 7.7,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130374",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-130375",
-      "published": "2026-11-17T02:17:21Z",
-      "description": "AdminNeo before 5.9.1 contains a remote code execution vulnerability that allows authenticated SQLite users to bypass the check_sqlite_name() extension guard using PDO_SQLite file: URI database names. Attackers can select the PDO driver with ext=pdo and submit names like file:/webroot/x.php?x=.db to",
-      "severity": "HIGH",
-      "score": 8.6,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130375",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-130376",
-      "published": "2026-11-17T02:17:21Z",
-      "description": "AdminNeo before 5.9.1 contains a stored cross-site scripting vulnerability in FileUploadPlugin that allows database users to store script-bearing SVG files by uploading unsanitized content. Attackers can upload a malicious SVG to a *_path field, executing script in the same-origin session of any adm",
-      "severity": "LOW",
-      "score": 2.1,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130376",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-130377",
-      "published": "2026-11-17T02:17:21Z",
-      "description": "phpMyFAQ from 4.2.0-alpha.2 before 4.2.0-RC.2 contains an incorrect authorization vulnerability in DELETE /admin/api/faq/delete that lets language-scoped FAQ_DELETE admins bypass their language scope. Attackers can submit a faqId with an in-scope faqLanguage lacking a translation to wipe shared ACL,",
-      "severity": "MEDIUM",
-      "score": 5.1,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130377",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-130378",
-      "published": "2026-11-17T02:17:21Z",
-      "description": "AdminNeo before 5.9.1 contains a filter injection vulnerability in its MongoDB driver that allows attackers to affect other documents by embedding ' AND ' or ') OR (' delimiters in a string _id or searched value. Attackers who can store a crafted document can cause a victim's delete or edit to match",
-      "severity": "LOW",
-      "score": 2.1,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130378",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-130379",
-      "published": "2026-11-17T02:17:21Z",
-      "description": "AdminNeo before 5.9.1 contains a server-side request forgery vulnerability that allows unauthenticated attackers to bypass the privileged-port restriction by injecting separator characters or connection-string keywords into the login server field. Attackers can make pgsql, Mongo, Oracle and PDO driv",
+      "id": "CVE-2026-124644",
+      "published": "2026-11-17T12:17:44Z",
+      "description": "This vulnerability exists in e-Sushrut HMIS due to the exposure of internal hospital operational statistics through data structure embedded in the HTML response of the login page. An unauthenticated remote attacker could exploit this vulnerability by accessing the affected login page and extracting ",
       "severity": "MEDIUM",
       "score": 6.9,
       "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130379",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124644",
       "kev": false
     },
     {
-      "id": "CVE-2026-130369",
-      "published": "2026-11-17T02:17:20Z",
-      "description": "phpMyFAQ 4.1.9 before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains an authorization bypass vulnerability in multisite deployments that allows attackers to overwrite passkeys of accounts on other tenants via a shared PHP session store. Attackers can run WebAuthn prepare() for a login on one tena",
-      "severity": "CRITICAL",
-      "score": 9.2,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130369",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-130370",
-      "published": "2026-11-17T02:17:20Z",
-      "description": "phpMyFAQ 4.1.9 before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains a missing authentication vulnerability that allows attackers holding a hijacked session to enroll passkeys using only the session and webauthn CSRF token. Attackers can call /api/webauthn/prepare and /api/webauthn/register to re",
-      "severity": "LOW",
-      "score": 2.3,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130370",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-130371",
-      "published": "2026-11-17T02:17:20Z",
-      "description": "phpMyFAQ before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains an authentication bypass vulnerability because the web installer ignores the legacy config/database.php during 3.x upgrades. Unauthenticated attackers can reinstall the site against an attacker-controlled database and create their own",
-      "severity": "CRITICAL",
-      "score": 9.2,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130371",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-130372",
-      "published": "2026-11-17T02:17:20Z",
-      "description": "AdminNeo before 5.9.1 contains an open redirect vulnerability that allows unauthenticated attackers to redirect authenticated users by injecting an external URL through the HTTP Referer header into the hidden referer field of the edit form. Attackers can lure users from a page with an unsafe-url ref",
-      "severity": "MEDIUM",
-      "score": 5.3,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130372",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-130373",
-      "published": "2026-11-17T02:17:20Z",
-      "description": "AdminNeo before 5.9.1 contains a stored HTML injection vulnerability that allows database users to inject markup by creating FULLTEXT indexes with crafted names. Attackers with CREATE, ALTER or INDEX rights can store markup rendered unescaped in the selection search form, enabling meta refresh redir",
-      "severity": "LOW",
-      "score": 2.1,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130373",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-130363",
-      "published": "2026-11-17T02:17:19Z",
-      "description": "phpMyFAQ from 4.2.0-alpha.2 before 4.2.0-RC.2 contains an incorrect authorization vulnerability that lets scoped editors view out-of-scope draft FAQs because the dashboard and admin search ignore category/language-scoped FAQ_EDIT rights. Authenticated editors can load the unpublished FAQs widget wit",
-      "severity": "MEDIUM",
-      "score": 5.1,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130363",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-130364",
-      "published": "2026-11-17T02:17:19Z",
-      "description": "AdminNeo before 5.9.1 contains a reflected HTML injection vulnerability that allows remote attackers to inject markup by supplying crafted array keys in the where URL parameter. Attackers can trick logged-in users into opening a link whose unescaped keys land in select search form name attributes, e",
-      "severity": "LOW",
-      "score": 2.3,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130364",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-130365",
-      "published": "2026-11-17T02:17:19Z",
-      "description": "phpMyFAQ from 4.2.0-alpha before 4.2.0-RC.2 contains a stored cross-site scripting vulnerability that allows FAQ_EDIT users to bypass SvgSanitizer using namespace-prefixed elements like <x:script>. Attackers can upload malicious SVGs through the admin image upload so script runs in the site origin o",
-      "severity": "LOW",
-      "score": 2.1,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130365",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-130366",
-      "published": "2026-11-17T02:17:19Z",
-      "description": "AdminNeo before 5.9.1 contains an authentication bypass vulnerability in the ClickHouse driver that allows remote attackers to log in to passwordless accounts without the configured defaultPasswordHash password. Attackers who know the name of a ClickHouse no_password account can submit any non-empty",
-      "severity": "CRITICAL",
-      "score": 9.2,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130366",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-130367",
-      "published": "2026-11-17T02:17:19Z",
-      "description": "phpMyFAQ through 4.1.12 and from 4.2.0-alpha before 4.2.0-RC.2 contains an authorization bypass vulnerability in the admin FAQ copy and translate pages, which check only global FAQ_ADD or FAQ_TRANSLATE rights. Authenticated add-only or category-scoped editors can open any FAQ to read drafts, ACL-res",
-      "severity": "MEDIUM",
-      "score": 5.3,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130367",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-130368",
-      "published": "2026-11-17T02:17:19Z",
-      "description": "phpMyFAQ 4.1.9 before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains an improper restriction of excessive authentication attempts vulnerability in PasswordChangeController::update() that bypasses the step-up throttle. Attackers holding a hijacked admin-area session can repeatedly guess faqpasswor",
-      "severity": "LOW",
-      "score": 2.3,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130368",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-130357",
-      "published": "2026-11-17T02:17:18Z",
-      "description": "phpMyFAQ from 4.2.0-alpha.2 before 4.2.0-RC.2 contains an improper authorization vulnerability in updateUserRights that lets USER_EDIT admins drop category restrictions on group rights. Attackers can re-save rights through the user update-rights API to convert category-restricted group rights into g",
+      "id": "CVE-2026-129287",
+      "published": "2026-11-17T11:17:28Z",
+      "description": "N-able N-central before 2026.4.1 HF3 processes XML external entities in software repository files. An attacker able to supply or modify the repository files received by the server can read files accessible to the N-central service account or cause the server to make outbound requests.",
       "severity": "HIGH",
-      "score": 7.0,
+      "score": 8.3,
       "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130357",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129287",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-129448",
+      "published": "2026-11-17T11:17:28Z",
+      "description": "Deserialization of Untrusted Data in Apache Roller versions 4.0.0 through 6.1.4 allows an unauthenticated remote attacker to execute arbitrary code. The XML-RPC endpoint accepts vendor extension types and deserializes them before authenticating the requester.\n\nThis is the same vulnerability as CVE-2",
+      "severity": "CRITICAL",
+      "score": 9.8,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129448",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-129279",
+      "published": "2026-11-17T11:17:27Z",
+      "description": "The password reset function in N-able N-central before 2026.4.1 HF3 returns distinguishable responses for valid and invalid accounts. A remote, unauthenticated attacker can enumerate the email addresses of valid user accounts.",
+      "severity": "MEDIUM",
+      "score": 6.9,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129279",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-129280",
+      "published": "2026-11-17T11:17:27Z",
+      "description": "Multiple ServerUI and ServerUI2 SOAP operations in N-able N-central before 2026.4.1 HF3 do not verify the caller's session, permissions or customer scope. A remote attacker, in some cases without authentication, can read device and patch data, test passwords of user accounts, send messages to manage",
+      "severity": "CRITICAL",
+      "score": 9.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129280",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-129281",
+      "published": "2026-11-17T11:17:27Z",
+      "description": "N-able N-central before 2026.4.1 HF3 checks only a view permission for ServerII2 operations that write device execution configuration. An authenticated user with view-only access to a device can set configuration that the Windows agent on that device acts on.",
+      "severity": "HIGH",
+      "score": 8.5,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129281",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-129282",
+      "published": "2026-11-17T11:17:27Z",
+      "description": "The test email delivery function in N-able N-central before 2026.4.1 HF3 does not check permissions, lacks CSRF protection, and passes sender and recipient values to the mail program without neutralising option characters. An authenticated attacker can inject arguments into the mail command executed",
+      "severity": "HIGH",
+      "score": 8.7,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129282",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-129283",
+      "published": "2026-11-17T11:17:27Z",
+      "description": "The custom service import in N-able N-central before 2026.4.1 HF3 processes XML external entities. An authenticated attacker can upload a crafted service definition to read files accessible to the N-central service account or cause the server to make outbound requests.",
+      "severity": "HIGH",
+      "score": 7.1,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129283",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-129284",
+      "published": "2026-11-17T11:17:27Z",
+      "description": "N-able N-central before 2026.4.1 HF3 does not validate connection targets in the Report Manager and Data Export settings. An authenticated attacker can cause the server to connect to arbitrary hosts, including loopback and internal addresses, and can use the responses to probe internal network servi",
+      "severity": "MEDIUM",
+      "score": 5.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129284",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-129285",
+      "published": "2026-11-17T11:17:27Z",
+      "description": "N-able N-central before 2026.4.1 HF3 does not verify that an action response received over XMPP originates from the appliance the request was sent to. An attacker with the credentials of one appliance can forge responses on behalf of another appliance.",
+      "severity": "MEDIUM",
+      "score": 5.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129285",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-129286",
+      "published": "2026-11-17T11:17:27Z",
+      "description": "N-able N-central before 2026.4.1 HF3 does not validate version values and download locations in software update metadata. An attacker able to supply or modify the update metadata received by the server can write files outside the download directory and execute code as the N-central service account.",
+      "severity": "CRITICAL",
+      "score": 9.2,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129286",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-129272",
+      "published": "2026-11-17T11:17:26Z",
+      "description": "N-able N-central before 2026.4.1 HF3 uses a predictable credential to authenticate appliances to an agent-facing API. A remote, unauthenticated attacker who knows or guesses an appliance identifier can obtain a valid appliance token and session and impersonate that appliance.",
+      "severity": "CRITICAL",
+      "score": 9.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129272",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-129273",
+      "published": "2026-11-17T11:17:26Z",
+      "description": "N-able N-central before 2026.4.1 HF3 does not neutralise control characters in an Audit Export setting before writing it to the system logging configuration. An authenticated attacker with product administrator privileges can inject configuration and execute commands as root on the N-central server.",
+      "severity": "HIGH",
+      "score": 8.6,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129273",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-129274",
+      "published": "2026-11-17T11:17:26Z",
+      "description": "N-able N-central before 2026.4.1 HF3 does not authenticate callers of the ServerMMS2 RemoteExecutionTaskSubmit operation or verify task ownership. A remote, unauthenticated attacker can submit forged results for remote execution tasks belonging to any customer.",
+      "severity": "HIGH",
+      "score": 8.7,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129274",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-129275",
+      "published": "2026-11-17T11:17:26Z",
+      "description": "N-able N-central before 2026.4.1 HF3 allows the repositoryItemGet operation to be called without authentication. A remote, unauthenticated attacker who knows a policy identifier can download the Automation Manager policy of any customer, including embedded scripts and parameter values.",
+      "severity": "HIGH",
+      "score": 8.2,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129275",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-129276",
+      "published": "2026-11-17T11:17:26Z",
+      "description": "N-able N-central before 2026.4.1 HF3 does not authenticate callers of the ServerMMS2 AssetDiscoSimplifiedInfoSubmit operation. A remote, unauthenticated attacker can overwrite the asset data recorded for any appliance.",
+      "severity": "MEDIUM",
+      "score": 6.9,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129276",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-129277",
+      "published": "2026-11-17T11:17:26Z",
+      "description": "N-able N-central before 2026.4.1 HF3 does not authenticate callers of the MaintActionGet operation. A remote, unauthenticated attacker can read and cancel the pending maintenance actions of any appliance.",
+      "severity": "MEDIUM",
+      "score": 6.9,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129277",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-129278",
+      "published": "2026-11-17T11:17:26Z",
+      "description": "N-able N-central before 2026.4.1 HF3 does not authenticate callers of the ServerII2 remoteControlMSPAStartEndTimeSubmit operation. A remote, unauthenticated attacker can alter the recorded state and times of Take Control remote control tasks and the associated audit log entries.",
+      "severity": "MEDIUM",
+      "score": 6.9,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129278",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-125160",
+      "published": "2026-11-17T11:17:25Z",
+      "description": "Files uploaded through FileUpload or ImageUpload elements are stored in an unguessable sub-folder that remains the same for the whole form session. If storing an uploaded file failed, for example because of a file name exceeding the file system's length limit, the raw error message was shown to the ",
+      "severity": "MEDIUM",
+      "score": 6.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125160",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-125161",
+      "published": "2026-11-17T11:17:25Z",
+      "description": "The fix for TYPO3-CORE-SA-2026-009 was incomplete. GeneralUtility::sanitizeLocalUrl performed its checks on the URL-decoded value, but returned the original, URL-encoded value. URLs containing certain percent-encoded characters therefore passed the sanitization checks as local URLs, although they po",
+      "severity": "MEDIUM",
+      "score": 5.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125161",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-125162",
+      "published": "2026-11-17T11:17:25Z",
+      "description": "The cHash argument, which ensures that only URL arguments originally generated by TYPO3 create separate page cache entries, was treated inconsistently when it was passed as an array. The cHash validation treated such a value as missing, while the page cache identifier treated it as present and inclu",
+      "severity": "HIGH",
+      "score": 8.2,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125162",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-125163",
+      "published": "2026-11-17T11:17:25Z",
+      "description": "The FileUpload and ImageUpload elements of the Form Framework use the property allowedMimeTypes as an allow list of MIME types accepted for upload. An empty allowedMimeTypes list was treated as \"no restriction\". Forms containing upload elements without any configured MIME type, for example in manual",
+      "severity": "MEDIUM",
+      "score": 6.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125163",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-125164",
+      "published": "2026-11-17T11:17:25Z",
+      "description": "The file dump controller (eID=dumpFile) delivers files, file references and processed files identified by their uid, protected by a token. The token only covered the uid value, but not the type of the requested resource. A valid token issued for a file could therefore be reused to request a file ref",
+      "severity": "MEDIUM",
+      "score": 6.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125164",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-125165",
+      "published": "2026-11-17T11:17:25Z",
+      "description": "The RSS widget of the dashboard allows backend users to configure the URL of the RSS feed in the widget settings. The URL was fetched by the server without restricting the target host. Backend users with access to the dashboard could therefore make the server send HTTP requests to arbitrary hosts, i",
+      "severity": "MEDIUM",
+      "score": 5.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125165",
       "kev": false
     }
   ]
