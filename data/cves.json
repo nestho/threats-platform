@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-16T22:23:05Z",
+  "updated_at": "2026-11-17T03:40:12Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,541 @@
   ],
   "recent": {
     "lookback_days": 3,
-    "total": 536,
-    "items_available": 536,
+    "total": 584,
+    "items_available": 584,
     "normalisation_failures": [],
-    "items_parsed": 536,
+    "items_parsed": 584,
     "items": [
+      {
+        "id": "CVE-2026-125275",
+        "published": "2026-11-17T03:17:00Z",
+        "description": "Loop with Unreachable Exit Condition ('Infinite Loop') vulnerability in device certificate verification in nerves-hub nerves_hub_web allows an unauthenticated remote attacker to cause a denial of service via a TLS client certificate whose CA is not registered. When a client certificate chains to a r",
+        "severity": "HIGH",
+        "score": 8.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125275",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130380",
+        "published": "2026-11-17T02:17:22Z",
+        "description": "AdminNeo before 5.9.1 contains an authentication bypass vulnerability in the sqlsrv-based MS SQL driver that allows unauthenticated attackers to log in by submitting an empty username. Attackers can supply any non-empty password, triggering Windows integrated authentication that grants a full sessio",
+        "severity": "CRITICAL",
+        "score": 9.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130380",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130381",
+        "published": "2026-11-17T02:17:22Z",
+        "description": "phpMyFAQ from 4.2.0-alpha.2 before 4.2.0-RC.2 contains an authorization bypass vulnerability that allows language-scoped editors to read other translations by checking FAQ_EDIT against the route language but loading the ?lang= UI-language row. Attackers can request the admin.faq.edit route with an a",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130381",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130382",
+        "published": "2026-11-17T02:17:22Z",
+        "description": "AdminNeo before 5.9.1 contains an authentication bypass vulnerability in OtpLoginPlugin that allows attackers knowing the database password to skip TOTP verification by abusing the permanent-login cookie. Attackers can submit a login with a wrong OTP and permanent=1 to obtain a neo_permanent cookie,",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130382",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130383",
+        "published": "2026-11-17T02:17:22Z",
+        "description": "phpMyFAQ before 4.1.12 and 4.2.0-alpha.2 before 4.2.0-RC.2 contains an authorization bypass vulnerability that allows authenticated editors to manipulate search index documents by supplying an arbitrary solutionId to the /admin/api/faq/update endpoint. On Elasticsearch or OpenSearch deployments, cat",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130383",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-79614",
+        "published": "2026-11-17T02:17:22Z",
+        "description": "An out-of-bounds write vulnerability in “libclinkc.so” in Zyxel DX3301-T0/EX3301-T0 firmware versions through 5.50(ABVY.8.3)C0 could allow an unauthenticated attacker to elevate privileges and potentially execute arbitrary commands by sending a crafted HTTP request. WAN access is disabled by default",
+        "severity": "CRITICAL",
+        "score": 9.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-79614",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-86676",
+        "published": "2026-11-17T02:17:22Z",
+        "description": "A post-authentication command injection vulnerability in the “Description” parameter of a CGI program  in Zyxel DX3300-T0 firmware versions through 5.50(ABVY.8.3)C0 could allow an authenticated attacker with administrator privileges to execute OS commands by sending a crafted HTTP request.",
+        "severity": "HIGH",
+        "score": 7.2,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-86676",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130374",
+        "published": "2026-11-17T02:17:21Z",
+        "description": "AdminNeo before 5.9.1 contains an sql injection vulnerability that allows remote attackers to inject SQL by supplying crafted IN and NOT IN search values that process_length() passes unescaped. Attackers can send a logged-in user a cross-site GET link using a backslash-escaped apostrophe to run blin",
+        "severity": "HIGH",
+        "score": 7.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130374",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130375",
+        "published": "2026-11-17T02:17:21Z",
+        "description": "AdminNeo before 5.9.1 contains a remote code execution vulnerability that allows authenticated SQLite users to bypass the check_sqlite_name() extension guard using PDO_SQLite file: URI database names. Attackers can select the PDO driver with ext=pdo and submit names like file:/webroot/x.php?x=.db to",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130375",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130376",
+        "published": "2026-11-17T02:17:21Z",
+        "description": "AdminNeo before 5.9.1 contains a stored cross-site scripting vulnerability in FileUploadPlugin that allows database users to store script-bearing SVG files by uploading unsanitized content. Attackers can upload a malicious SVG to a *_path field, executing script in the same-origin session of any adm",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130376",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130377",
+        "published": "2026-11-17T02:17:21Z",
+        "description": "phpMyFAQ from 4.2.0-alpha.2 before 4.2.0-RC.2 contains an incorrect authorization vulnerability in DELETE /admin/api/faq/delete that lets language-scoped FAQ_DELETE admins bypass their language scope. Attackers can submit a faqId with an in-scope faqLanguage lacking a translation to wipe shared ACL,",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130377",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130378",
+        "published": "2026-11-17T02:17:21Z",
+        "description": "AdminNeo before 5.9.1 contains a filter injection vulnerability in its MongoDB driver that allows attackers to affect other documents by embedding ' AND ' or ') OR (' delimiters in a string _id or searched value. Attackers who can store a crafted document can cause a victim's delete or edit to match",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130378",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130379",
+        "published": "2026-11-17T02:17:21Z",
+        "description": "AdminNeo before 5.9.1 contains a server-side request forgery vulnerability that allows unauthenticated attackers to bypass the privileged-port restriction by injecting separator characters or connection-string keywords into the login server field. Attackers can make pgsql, Mongo, Oracle and PDO driv",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130379",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130369",
+        "published": "2026-11-17T02:17:20Z",
+        "description": "phpMyFAQ 4.1.9 before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains an authorization bypass vulnerability in multisite deployments that allows attackers to overwrite passkeys of accounts on other tenants via a shared PHP session store. Attackers can run WebAuthn prepare() for a login on one tena",
+        "severity": "CRITICAL",
+        "score": 9.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130369",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130370",
+        "published": "2026-11-17T02:17:20Z",
+        "description": "phpMyFAQ 4.1.9 before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains a missing authentication vulnerability that allows attackers holding a hijacked session to enroll passkeys using only the session and webauthn CSRF token. Attackers can call /api/webauthn/prepare and /api/webauthn/register to re",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130370",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130371",
+        "published": "2026-11-17T02:17:20Z",
+        "description": "phpMyFAQ before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains an authentication bypass vulnerability because the web installer ignores the legacy config/database.php during 3.x upgrades. Unauthenticated attackers can reinstall the site against an attacker-controlled database and create their own",
+        "severity": "CRITICAL",
+        "score": 9.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130371",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130372",
+        "published": "2026-11-17T02:17:20Z",
+        "description": "AdminNeo before 5.9.1 contains an open redirect vulnerability that allows unauthenticated attackers to redirect authenticated users by injecting an external URL through the HTTP Referer header into the hidden referer field of the edit form. Attackers can lure users from a page with an unsafe-url ref",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130372",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130373",
+        "published": "2026-11-17T02:17:20Z",
+        "description": "AdminNeo before 5.9.1 contains a stored HTML injection vulnerability that allows database users to inject markup by creating FULLTEXT indexes with crafted names. Attackers with CREATE, ALTER or INDEX rights can store markup rendered unescaped in the selection search form, enabling meta refresh redir",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130373",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130363",
+        "published": "2026-11-17T02:17:19Z",
+        "description": "phpMyFAQ from 4.2.0-alpha.2 before 4.2.0-RC.2 contains an incorrect authorization vulnerability that lets scoped editors view out-of-scope draft FAQs because the dashboard and admin search ignore category/language-scoped FAQ_EDIT rights. Authenticated editors can load the unpublished FAQs widget wit",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130363",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130364",
+        "published": "2026-11-17T02:17:19Z",
+        "description": "AdminNeo before 5.9.1 contains a reflected HTML injection vulnerability that allows remote attackers to inject markup by supplying crafted array keys in the where URL parameter. Attackers can trick logged-in users into opening a link whose unescaped keys land in select search form name attributes, e",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130364",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130365",
+        "published": "2026-11-17T02:17:19Z",
+        "description": "phpMyFAQ from 4.2.0-alpha before 4.2.0-RC.2 contains a stored cross-site scripting vulnerability that allows FAQ_EDIT users to bypass SvgSanitizer using namespace-prefixed elements like <x:script>. Attackers can upload malicious SVGs through the admin image upload so script runs in the site origin o",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130365",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130366",
+        "published": "2026-11-17T02:17:19Z",
+        "description": "AdminNeo before 5.9.1 contains an authentication bypass vulnerability in the ClickHouse driver that allows remote attackers to log in to passwordless accounts without the configured defaultPasswordHash password. Attackers who know the name of a ClickHouse no_password account can submit any non-empty",
+        "severity": "CRITICAL",
+        "score": 9.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130366",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130367",
+        "published": "2026-11-17T02:17:19Z",
+        "description": "phpMyFAQ through 4.1.12 and from 4.2.0-alpha before 4.2.0-RC.2 contains an authorization bypass vulnerability in the admin FAQ copy and translate pages, which check only global FAQ_ADD or FAQ_TRANSLATE rights. Authenticated add-only or category-scoped editors can open any FAQ to read drafts, ACL-res",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130367",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130368",
+        "published": "2026-11-17T02:17:19Z",
+        "description": "phpMyFAQ 4.1.9 before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains an improper restriction of excessive authentication attempts vulnerability in PasswordChangeController::update() that bypasses the step-up throttle. Attackers holding a hijacked admin-area session can repeatedly guess faqpasswor",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130368",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130357",
+        "published": "2026-11-17T02:17:18Z",
+        "description": "phpMyFAQ from 4.2.0-alpha.2 before 4.2.0-RC.2 contains an improper authorization vulnerability in updateUserRights that lets USER_EDIT admins drop category restrictions on group rights. Attackers can re-save rights through the user update-rights API to convert category-restricted group rights into g",
+        "severity": "HIGH",
+        "score": 7.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130357",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130358",
+        "published": "2026-11-17T02:17:18Z",
+        "description": "AdminNeo before 5.9.1 contains a missing authentication vulnerability in the ClaudeSqlPlugin, GeminiSqlPlugin, and OpenWebUiPlugin sendHeaders() handlers that run on the login page. Unauthenticated attackers can POST claude, gemini, or openwebui fields to relay arbitrary prompts using the operator's",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130358",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130359",
+        "published": "2026-11-17T02:17:18Z",
+        "description": "AdminNeo before 5.9.1 contains a stored cross-site scripting vulnerability in SlugifyEditPlugin::getFieldInput() that embeds column names unescaped in an inline initSlugField() call. Attackers with DDL privileges can create a slug column whose name contains a single quote, injecting JavaScript that ",
+        "severity": "LOW",
+        "score": 2.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130359",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130360",
+        "published": "2026-11-17T02:17:18Z",
+        "description": "AdminNeo before 5.9.1 contains a reflected cross-site scripting vulnerability in EditorNeo that allows remote attackers to execute JavaScript by injecting quote characters into the request URI. Attackers can lure authenticated users to crafted edit links whose path breaks out of the CSP-nonced whisp",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130360",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130361",
+        "published": "2026-11-17T02:17:18Z",
+        "description": "AdminNeo before 5.9.1 contains a parameter injection vulnerability in its ClickHouse driver that allows attackers to inject ClickHouse HTTP query parameters through an unencoded db GET parameter. Attackers can lure a logged-in victim into opening a crafted GET link that injects a query parameter, by",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130361",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130362",
+        "published": "2026-11-17T02:17:18Z",
+        "description": "phpMyFAQ 4.1.9 before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains an account enumeration vulnerability that allows unauthenticated attackers to identify valid logins through differing POST /api/webauthn/prepare responses. Attackers can submit wordlists of usernames, reusing one unconsumed CSRF",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130362",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130352",
+        "published": "2026-11-17T02:17:17Z",
+        "description": "phpMyFAQ before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains an information disclosure vulnerability that allows unauthenticated attackers to read editor-only Private Notes by querying the public FAQ list API. Attackers can page through GET /api/v4.0/faqs or /api/v3.1/faqs without credentials t",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130352",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130353",
+        "published": "2026-11-17T02:17:17Z",
+        "description": "phpMyFAQ before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains an information disclosure vulnerability in its public FAQ REST API that exposes author names and e-mail addresses to unauthenticated callers. Attackers can query the faq and paginated faqs endpoints to bulk-harvest e-mails and de-anon",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130353",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130354",
+        "published": "2026-11-17T02:17:17Z",
+        "description": "phpMyFAQ 4.1.0 before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains an authentication bypass vulnerability in POST /api/webauthn/prepare that creates accounts as active, bypassing manual activation and domain whitelisting. Anonymous attackers can obtain the freely issued CSRF token and register ",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130354",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130355",
+        "published": "2026-11-17T02:17:17Z",
+        "description": "phpMyFAQ from 4.2.0-alpha.2 before 4.2.0-RC.2 contains an incorrect authorization vulnerability in POST /admin/api/faq/import that lets FAQ_ADD users bypass the FAQ_PUBLISH right. Authenticated contributors can upload a CSV with column 8 set to true to publish unreviewed, optionally sticky FAQs such",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130355",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130356",
+        "published": "2026-11-17T02:17:17Z",
+        "description": "phpMyFAQ from 4.2.0-alpha.2 before 4.2.0-RC.2 contains an authorization bypass that lets category- or language-restricted editors rewrite visibility ACLs and tags of any FAQ. Attackers send faq/update requests with a target faqId and an untranslated lang to expose restricted FAQs, wipe tags, or over",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130356",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130346",
+        "published": "2026-11-17T02:17:16Z",
+        "description": "AdminNeo before 5.9.1 contains an sql injection vulnerability in the ClickHouse driver because idf_escape() doubles backticks but does not escape backslashes in identifiers. Attackers can lure a logged-in user into opening a GET link with a column name ending in a backslash in columns, where, or ord",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130346",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130347",
+        "published": "2026-11-17T02:17:16Z",
+        "description": "phpMyFAQ before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains an authentication bypass in password reset, letting external-identity accounts receive local passwords. Attackers with mailbox access can request reset tokens for OIDC, Keycloak, Entra ID, LDAP, SSO, or WebAuthn accounts and log in lo",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130347",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130348",
+        "published": "2026-11-17T02:17:16Z",
+        "description": "phpMyFAQ 4.1.0 before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains a missing authorization vulnerability that exposes restricted and inactive category metadata to unauthenticated visitors. Attackers can enumerate category IDs via /category/{id}/{slug}.html or query /api/v4.0/categories to read ",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130348",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130349",
+        "published": "2026-11-17T02:17:16Z",
+        "description": "phpMyFAQ from 4.2.0-alpha.2 before 4.2.0-RC.2 contains an incorrect authorization vulnerability that allows category- or language-restricted editors to bypass scoped rights via public REST write endpoints. Attackers with a scoped right and the shared API token can use PUT faq/update, POST faq/create",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130349",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130350",
+        "published": "2026-11-17T02:17:16Z",
+        "description": "phpMyFAQ before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains an incorrect authorization vulnerability that allows delegated group or user admins to remove rights they do not hold by submitting empty rights lists. Attackers can send an empty rightIds or userRights array to group/permissions or u",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130350",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130351",
+        "published": "2026-11-17T02:17:16Z",
+        "description": "phpMyFAQ from 4.2.0-alpha before 4.2.0-RC.2 contains an authorization bypass vulnerability in the multisite Redis configuration store that is not tenant-scoped. As a result, tenant administrators can read and overwrite the master instance's effective configuration. Attackers can save configuration t",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130351",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130340",
+        "published": "2026-11-17T02:17:15Z",
+        "description": "AdminNeo before 5.9.1 contains a stored HTML injection vulnerability that allows database users to inject markup into another user's session via column type names rendered with innerHTML. Attackers can create a PostgreSQL type or table with markup in its name to render live elements in the help popu",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130340",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130341",
+        "published": "2026-11-17T02:17:15Z",
+        "description": "phpMyFAQ before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains a stored cross-site scripting vulnerability that allows registered users to inject javascript: links via FAQ comments. When the comment editor is enabled, Utils::parseUrl() strips https:// from sanitized hrefs, turning an allowed http",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130341",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130342",
+        "published": "2026-11-17T02:17:15Z",
+        "description": "phpMyFAQ before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains an improper reference counting flaw on multisite deployments, allowing editors to delete other instances' attachment files. Because linkedRecords() counts only the local faqattachment table, deleting an attachment with shared md5 cont",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130342",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130343",
+        "published": "2026-11-17T02:17:15Z",
+        "description": "phpMyFAQ 3.2.5 before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains an authorization bypass vulnerability in the user/request-removal API endpoint that lets authenticated users file account removal requests as other users. The ownership check calls getUserById() with the attacker-supplied userId",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130343",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130344",
+        "published": "2026-11-17T02:17:15Z",
+        "description": "AdminNeo before 5.9.1 contains a stored cross-site scripting vulnerability in Admin::printTablePartitions() that allows authenticated users to inject HTML by placing markup in partition column names. Attackers with CREATE or ALTER privileges can create a partitioned table whose unescaped partition e",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130344",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130345",
+        "published": "2026-11-17T02:17:15Z",
+        "description": "phpMyFAQ 4.2.0-alpha before 4.2.0-RC.2 contains an information disclosure vulnerability that allows authenticated frontend users to receive restricted FAQ titles by subscribing to Web Push notifications. When editors publish user/group-restricted FAQs, WebPushService::sendToAll() delivers the questi",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130345",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130338",
+        "published": "2026-11-17T02:17:14Z",
+        "description": "AdminNeo before 5.9.1 contains a stored sql injection vulnerability in the MySQL driver that allows database users with table creation rights to inject SQL through unescaped geometry column names in unconvert_field(). Attackers can craft a column name containing an SQL expression that executes with ",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130338",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130339",
+        "published": "2026-11-17T02:17:14Z",
+        "description": "phpMyFAQ before 4.1.12 and 4.2.0-alpha before 4.2.0-RC.2 contains an information disclosure vulnerability that allows authenticated low-privilege users to read unpublished FAQ titles via bookmark_action. Attackers can request FAQ detail pages with bookmark_action=add across sequential ids, then view",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130339",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-12487",
+        "published": "2026-11-17T02:17:13Z",
+        "description": "An incorrect authorization vulnerability in the SNMP parameter of Zyxel EE5301-00 customized firmware version 5.63(ACLD.2)b3_D0 could allow an unauthenticated attacker to cause a denial-of-service (DoS) condition on an affected device.",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-12487",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130335",
+        "published": "2026-11-17T00:17:26Z",
+        "description": "Info-ZIP Zip 3.0 (and 3.1 beta through 3.1c) allows OS command injection by an attacker who controls the command line. The victim must use the -T option followed by a filename containing shell metacharacters, on a platform (such as Linux) where a suitable shell is run. This occurs because the system",
+        "severity": "LOW",
+        "score": 2.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130335",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130320",
+        "published": "2026-11-16T23:17:15Z",
+        "description": "In Open Object Rexx (ooRexx) before 5.2.0, RXAPI mishandles nameArg and userid bounds checking, possibly leading to arbitrary code execution via crafted messages.",
+        "severity": "CRITICAL",
+        "score": 9.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130320",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130327",
+        "published": "2026-11-16T23:17:15Z",
+        "description": "In Open Object Rexx (ooRexx) before 5.2.0, RXAPI relies on a world-writable /tmp file unless XDG_RUNTIME_DIR is set, or localhost TCP port 10010, allowing RXAPI communication by any local user, e.g., for injection of a macro that will be executed by a REXX script.",
+        "severity": "CRITICAL",
+        "score": 9.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130327",
+        "kev": false
+      },
       {
         "id": "CVE-2026-93672",
         "published": "2026-11-16T22:18:27Z",
@@ -3697,9 +4227,9 @@
         "id": "CVE-2026-118389",
         "published": "2026-11-15T22:17:17Z",
         "description": "The RubyGems package registry accepted gems whose platform, dependency names or dependency version requirements contain newline characters. Because the compact index served to clients is line-based, a user who can publish a gem to an owner's registry could forge index entries, such as packages that ",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
+        "severity": "HIGH",
+        "score": 8.8,
+        "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118389",
         "kev": false
       },
@@ -3707,9 +4237,9 @@
         "id": "CVE-2026-118535",
         "published": "2026-11-15T22:17:17Z",
         "description": "A repository registered by its owner as a source of scoped workflows kept that registration when it was transferred to another owner. The new owner could then change the workflows in the transferred repository, and they kept running in the previous owner's repositories with access to their Actions s",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118535",
         "kev": false
       },
@@ -3717,9 +4247,9 @@
         "id": "CVE-2026-120725",
         "published": "2026-11-15T22:17:17Z",
         "description": "With `REQUIRE_SIGNIN_VIEW = true`, the Git LFS endpoints still answered unauthenticated requests for repositories that are not private. An anonymous client who knows the path of such a repository and the SHA-256 of an LFS object could download the object, and could use the batch endpoint to test whe",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
+        "severity": "LOW",
+        "score": 3.7,
+        "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120725",
         "kev": false
       },
@@ -3747,9 +4277,9 @@
         "id": "CVE-2026-125423",
         "published": "2026-11-15T21:16:54Z",
         "description": "A repository created with auto-init accepted pushes before its initialization had finished, and the initial commit was built in a checkout of whatever the repository already contained. A user who is allowed to create repositories could push a crafted tree during that window so that writing the READM",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
+        "severity": "HIGH",
+        "score": 8.8,
+        "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125423",
         "kev": false
       },
@@ -3757,9 +4287,9 @@
         "id": "CVE-2026-123006",
         "published": "2026-11-15T21:16:53Z",
         "description": "The repository search used by the dashboard (`GET /repo/search`) returned the internal commit status object of each repository. Since 28.0.0 that object included the repository owner's full user record, so any signed-in user could read the password hash, salt and email address of the owner of any re",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123006",
         "kev": false
       },
@@ -5322,63 +5852,13 @@
         "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124969",
         "kev": false
-      },
-      {
-        "id": "CVE-2026-129180",
-        "published": "2026-11-13T23:17:19Z",
-        "description": "A flaw has been found in projectworlds Visitor Management System 1.0. This vulnerability affects the function mysqli_query of the file actionpage.php. This manipulation of the argument purpose causes sql injection. It is possible to initiate the attack remotely. The exploit has been published and ma",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129180",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-71519",
-        "published": "2026-11-13T23:17:19Z",
-        "description": "PrestaShop before 8.2.9 and 9.2.1 contains a broken access control vulnerability that allows an authenticated Webservice API key holder to read and modify customer records belonging to any shop in a multi-shop installation. Attackers can exploit the missing record-level shop ownership check in shopH",
-        "severity": "HIGH",
-        "score": 8.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-71519",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-71531",
-        "published": "2026-11-13T23:17:19Z",
-        "description": "PrestaShop before 8.2.9 and 9.2.1 contains an authorization flaw in the Webservice API that allows an attacker holding a key restricted to one shop to act on data of every shop by submitting requests with id_shop=all or id_shop_group=N, which expand the shop context without validating the key's actu",
-        "severity": "HIGH",
-        "score": 8.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-71531",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-129173",
-        "published": "2026-11-13T23:17:18Z",
-        "description": "A security flaw has been discovered in Stirling-Tools Stirling-PDF up to 3.3.0. Affected is the function WorkflowParticipantController.getParticipantDetails of the file app/proprietary/src/main/java/stirling/software/proprietary/workflow/controller/WorkflowParticipantController.java of the component",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129173",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-128134",
-        "published": "2026-11-13T23:17:17Z",
-        "description": "NLTK (Natural Language Toolkit) is a suite of open source Python modules, data sets, and tutorials supporting research and development in Natural Language Processing. Prior to 3.10.4, nltk.parse.dependencygraph.dot2img resolves the Graphviz dot executable through PATH but invokes the resulting absol",
-        "severity": "HIGH",
-        "score": 7.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-128134",
-        "kev": false
       }
     ]
   },
   "actively_exploited": {
     "lookback_days": 90,
     "catalog_total": 1781,
-    "total": 115,
+    "total": 111,
     "items": [
       {
         "id": "CVE-2026-114713",
@@ -6489,46 +6969,6 @@
         "ransomware_use": null,
         "description": "MLflow contains a server-side request forgery vulnerability that can allow attackers to reach internal or cloud metadata services and receive response_status and response_body.",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-64849"
-      },
-      {
-        "id": "CVE-2026-33824",
-        "vendor": "Microsoft",
-        "product": "Internet Key Exchange (IKE) Service Extensions",
-        "name": "Microsoft Internet Key Exchange (IKE) Service Extensions Double Free Vulnerability",
-        "date_added": "2026-08-18",
-        "ransomware_use": null,
-        "description": "Microsoft Internet Key Exchange (IKE) Service Extensions contains a double free vulnerability that could enable remote code execution.",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-33824"
-      },
-      {
-        "id": "CVE-2026-59310",
-        "vendor": "Broadcom",
-        "product": "VMware vCenter",
-        "name": "Broadcom VMware vCenter Path Traversal Vulnerability",
-        "date_added": "2026-08-18",
-        "ransomware_use": "Known",
-        "description": "Broadcom VMware vCenter contains a path traversal vulnerability which could allow a threat actor with network access to vCenter to execute arbitrary code.",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59310"
-      },
-      {
-        "id": "CVE-2026-55040",
-        "vendor": "Microsoft",
-        "product": "SharePoint",
-        "name": "Microsoft SharePoint Weak Authentication Vulnerability",
-        "date_added": "2026-08-18",
-        "ransomware_use": null,
-        "description": "Microsoft SharePoint contains a weak authentication vulnerability which allows an unauthorized attacker to bypass a security feature over a network.",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-55040"
-      },
-      {
-        "id": "CVE-2026-65400",
-        "vendor": "Apple",
-        "product": "macOS",
-        "name": "Apple macOS Improper Authentication Vulnerability",
-        "date_added": "2026-08-18",
-        "ransomware_use": null,
-        "description": "Apple macOS contains an improper authentication vulnerability that could allow an attacker on the network to authenticate to Screen Sharing without valid credentials.",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-65400"
       }
     ]
   }
