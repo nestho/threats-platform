@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-16T20:16:36Z",
+  "updated_at": "2026-11-17T03:40:18Z",
   "source": "Microsoft MSRC + Ubuntu Security Notices",
   "source_url": [
     "https://api.msrc.microsoft.com/update-guide/rss",
@@ -17,6 +17,14 @@
       "published": "2026-11-16T18:07:22Z",
       "summary": "USN-9064-1 fixed vulnerabilities in Pillow. Unfortunately, the fix for CVE-2026-112402 introduced a regression that caused resizing images with the NEAREST filter, and resizing any \"1\" or \"P\" mode image, to fail. This update fixes the problem. We apologize for the inconvenience. Original advisory de",
       "link": "https://ubuntu.com/security/notices/USN-9064-2"
+    },
+    {
+      "id": "USN-9094-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9094-1: GStreamer vulnerabilities",
+      "published": "2026-11-16T16:24:06Z",
+      "summary": "It was discovered that GStreamer did not properly handle certain RTSP messages. A remote attacker could possibly use this issue to cause a denial of service. This issue only affected Ubuntu 18.04 LTS, Ubuntu 20.04 LTS, Ubuntu 22.04 LTS, Ubuntu 24.04 LTS, and Ubuntu 26.04 LTS. (CVE-2026-85150) It was",
+      "link": "https://ubuntu.com/security/notices/USN-9094-1"
     },
     {
       "id": "CVE-2026-105544",
@@ -561,14 +569,6 @@
       "published": "2026-11-12T20:55:23Z",
       "summary": "It was discovered that the TigerVNC viewer stored TLS certificate exceptions as trusted certificate authorities. A remote attacker could possibly use this issue to impersonate any VNC server after a user had added a certificate exception for the attacker's server.",
       "link": "https://ubuntu.com/security/notices/USN-9088-1"
-    },
-    {
-      "id": "USN-9087-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9087-1: signing-party vulnerability",
-      "published": "2026-11-12T20:55:13Z",
-      "summary": "It was discovered that the gpg-key2ps tool in signing-party did not properly sanitize user IDs before passing them to a shell. If a user were tricked into processing a specially crafted OpenPGP key, an attacker could possibly use this issue to execute arbitrary commands.",
-      "link": "https://ubuntu.com/security/notices/USN-9087-1"
     }
   ]
 }
