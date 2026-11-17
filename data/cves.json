@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-17T03:40:12Z",
+  "updated_at": "2026-11-17T13:04:29Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,941 @@
   ],
   "recent": {
     "lookback_days": 3,
-    "total": 584,
-    "items_available": 584,
+    "total": 643,
+    "items_available": 643,
     "normalisation_failures": [],
-    "items_parsed": 584,
+    "items_parsed": 643,
     "items": [
+      {
+        "id": "CVE-2026-124643",
+        "published": "2026-11-17T12:17:44Z",
+        "description": "This vulnerability exists in e-Sushrut HMIS due to insufficient authentication and session validation in the dashboard functionality. An unauthenticated remote attacker could exploit this vulnerability by sending specially crafted HTTP requests to the affected endpoint.\n\nSuccessful exploitation of t",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124643",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-124644",
+        "published": "2026-11-17T12:17:44Z",
+        "description": "This vulnerability exists in e-Sushrut HMIS due to the exposure of internal hospital operational statistics through data structure embedded in the HTML response of the login page. An unauthenticated remote attacker could exploit this vulnerability by accessing the affected login page and extracting ",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124644",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129287",
+        "published": "2026-11-17T11:17:28Z",
+        "description": "N-able N-central before 2026.4.1 HF3 processes XML external entities in software repository files. An attacker able to supply or modify the repository files received by the server can read files accessible to the N-central service account or cause the server to make outbound requests.",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129287",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129448",
+        "published": "2026-11-17T11:17:28Z",
+        "description": "Deserialization of Untrusted Data in Apache Roller versions 4.0.0 through 6.1.4 allows an unauthenticated remote attacker to execute arbitrary code. The XML-RPC endpoint accepts vendor extension types and deserializes them before authenticating the requester.\n\nThis is the same vulnerability as CVE-2",
+        "severity": "CRITICAL",
+        "score": 9.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129448",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129279",
+        "published": "2026-11-17T11:17:27Z",
+        "description": "The password reset function in N-able N-central before 2026.4.1 HF3 returns distinguishable responses for valid and invalid accounts. A remote, unauthenticated attacker can enumerate the email addresses of valid user accounts.",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129279",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129280",
+        "published": "2026-11-17T11:17:27Z",
+        "description": "Multiple ServerUI and ServerUI2 SOAP operations in N-able N-central before 2026.4.1 HF3 do not verify the caller's session, permissions or customer scope. A remote attacker, in some cases without authentication, can read device and patch data, test passwords of user accounts, send messages to manage",
+        "severity": "CRITICAL",
+        "score": 9.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129280",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129281",
+        "published": "2026-11-17T11:17:27Z",
+        "description": "N-able N-central before 2026.4.1 HF3 checks only a view permission for ServerII2 operations that write device execution configuration. An authenticated user with view-only access to a device can set configuration that the Windows agent on that device acts on.",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129281",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129282",
+        "published": "2026-11-17T11:17:27Z",
+        "description": "The test email delivery function in N-able N-central before 2026.4.1 HF3 does not check permissions, lacks CSRF protection, and passes sender and recipient values to the mail program without neutralising option characters. An authenticated attacker can inject arguments into the mail command executed",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129282",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129283",
+        "published": "2026-11-17T11:17:27Z",
+        "description": "The custom service import in N-able N-central before 2026.4.1 HF3 processes XML external entities. An authenticated attacker can upload a crafted service definition to read files accessible to the N-central service account or cause the server to make outbound requests.",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129283",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129284",
+        "published": "2026-11-17T11:17:27Z",
+        "description": "N-able N-central before 2026.4.1 HF3 does not validate connection targets in the Report Manager and Data Export settings. An authenticated attacker can cause the server to connect to arbitrary hosts, including loopback and internal addresses, and can use the responses to probe internal network servi",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129284",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129285",
+        "published": "2026-11-17T11:17:27Z",
+        "description": "N-able N-central before 2026.4.1 HF3 does not verify that an action response received over XMPP originates from the appliance the request was sent to. An attacker with the credentials of one appliance can forge responses on behalf of another appliance.",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129285",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129286",
+        "published": "2026-11-17T11:17:27Z",
+        "description": "N-able N-central before 2026.4.1 HF3 does not validate version values and download locations in software update metadata. An attacker able to supply or modify the update metadata received by the server can write files outside the download directory and execute code as the N-central service account.",
+        "severity": "CRITICAL",
+        "score": 9.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129286",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129272",
+        "published": "2026-11-17T11:17:26Z",
+        "description": "N-able N-central before 2026.4.1 HF3 uses a predictable credential to authenticate appliances to an agent-facing API. A remote, unauthenticated attacker who knows or guesses an appliance identifier can obtain a valid appliance token and session and impersonate that appliance.",
+        "severity": "CRITICAL",
+        "score": 9.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129272",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129273",
+        "published": "2026-11-17T11:17:26Z",
+        "description": "N-able N-central before 2026.4.1 HF3 does not neutralise control characters in an Audit Export setting before writing it to the system logging configuration. An authenticated attacker with product administrator privileges can inject configuration and execute commands as root on the N-central server.",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129273",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129274",
+        "published": "2026-11-17T11:17:26Z",
+        "description": "N-able N-central before 2026.4.1 HF3 does not authenticate callers of the ServerMMS2 RemoteExecutionTaskSubmit operation or verify task ownership. A remote, unauthenticated attacker can submit forged results for remote execution tasks belonging to any customer.",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129274",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129275",
+        "published": "2026-11-17T11:17:26Z",
+        "description": "N-able N-central before 2026.4.1 HF3 allows the repositoryItemGet operation to be called without authentication. A remote, unauthenticated attacker who knows a policy identifier can download the Automation Manager policy of any customer, including embedded scripts and parameter values.",
+        "severity": "HIGH",
+        "score": 8.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129275",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129276",
+        "published": "2026-11-17T11:17:26Z",
+        "description": "N-able N-central before 2026.4.1 HF3 does not authenticate callers of the ServerMMS2 AssetDiscoSimplifiedInfoSubmit operation. A remote, unauthenticated attacker can overwrite the asset data recorded for any appliance.",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129276",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129277",
+        "published": "2026-11-17T11:17:26Z",
+        "description": "N-able N-central before 2026.4.1 HF3 does not authenticate callers of the MaintActionGet operation. A remote, unauthenticated attacker can read and cancel the pending maintenance actions of any appliance.",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129277",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129278",
+        "published": "2026-11-17T11:17:26Z",
+        "description": "N-able N-central before 2026.4.1 HF3 does not authenticate callers of the ServerII2 remoteControlMSPAStartEndTimeSubmit operation. A remote, unauthenticated attacker can alter the recorded state and times of Take Control remote control tasks and the associated audit log entries.",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129278",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-125160",
+        "published": "2026-11-17T11:17:25Z",
+        "description": "Files uploaded through FileUpload or ImageUpload elements are stored in an unguessable sub-folder that remains the same for the whole form session. If storing an uploaded file failed, for example because of a file name exceeding the file system's length limit, the raw error message was shown to the ",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125160",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-125161",
+        "published": "2026-11-17T11:17:25Z",
+        "description": "The fix for TYPO3-CORE-SA-2026-009 was incomplete. GeneralUtility::sanitizeLocalUrl performed its checks on the URL-decoded value, but returned the original, URL-encoded value. URLs containing certain percent-encoded characters therefore passed the sanitization checks as local URLs, although they po",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125161",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-125162",
+        "published": "2026-11-17T11:17:25Z",
+        "description": "The cHash argument, which ensures that only URL arguments originally generated by TYPO3 create separate page cache entries, was treated inconsistently when it was passed as an array. The cHash validation treated such a value as missing, while the page cache identifier treated it as present and inclu",
+        "severity": "HIGH",
+        "score": 8.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125162",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-125163",
+        "published": "2026-11-17T11:17:25Z",
+        "description": "The FileUpload and ImageUpload elements of the Form Framework use the property allowedMimeTypes as an allow list of MIME types accepted for upload. An empty allowedMimeTypes list was treated as \"no restriction\". Forms containing upload elements without any configured MIME type, for example in manual",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125163",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-125164",
+        "published": "2026-11-17T11:17:25Z",
+        "description": "The file dump controller (eID=dumpFile) delivers files, file references and processed files identified by their uid, protected by a token. The token only covered the uid value, but not the type of the requested resource. A valid token issued for a file could therefore be reused to request a file ref",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125164",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-125165",
+        "published": "2026-11-17T11:17:25Z",
+        "description": "The RSS widget of the dashboard allows backend users to configure the URL of the RSS feed in the widget settings. The URL was fetched by the server without restricting the target host. Backend users with access to the dashboard could therefore make the server send HTTP requests to arbitrary hosts, i",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125165",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129271",
+        "published": "2026-11-17T11:17:25Z",
+        "description": "The Patch Management Engine in N-central is vulnerable to LPE via attacker controlled metadata",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129271",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-119621",
+        "published": "2026-11-17T11:17:24Z",
+        "description": "When importing a T3D or XML file in the Import/Export module, the file hash values of imported files were taken from the import data without validation and used to build the path of a temporary file. A crafted import file could therefore write files with arbitrary content to any location writable by",
+        "severity": "HIGH",
+        "score": 7.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119621",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-119622",
+        "published": "2026-11-17T11:17:24Z",
+        "description": "The backend endpoint for adding online media (e.g. YouTube or Vimeo videos) accepted a target folder in the fallback storage (storage uid 0), which points to the public web root of the installation. File mount and permission checks are not applied to the fallback storage. As a result, any authentica",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119622",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-119623",
+        "published": "2026-11-17T11:17:24Z",
+        "description": "The installer (first installation wizard) could be re-enabled on an already configured instance by placing a file whose name starts with FIRST_INSTALL in the public web root or the project root. The installer then became accessible without authentication, allowing for example to change the database ",
+        "severity": "CRITICAL",
+        "score": 9.4,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119623",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-125159",
+        "published": "2026-11-17T11:17:24Z",
+        "description": "ImageMagick and GraphicsMagick use small modules, called \"coders\", to read each image format. When processing images, TYPO3 determined the coder from the file type detected by the file contents, as long as the detected mime-type started with image/. A file containing MVG (Magick Vector Graphics) ins",
+        "severity": "HIGH",
+        "score": 8.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125159",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-112209",
+        "published": "2026-11-17T10:17:21Z",
+        "description": "A Cross-Site Scripting (XSS) vulnerability reflected in the GET parameters `cod_primaria` and `cod_secundaria` of the Novanet Web endpoints `NNws_ShwNewDup` and `NPcd/NFG_VerNoticia`. User-provided data is reflected within a JavaScript block without proper sanitization or context-appropriate output ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-112209",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118496",
+        "published": "2026-11-17T10:17:21Z",
+        "description": "The affected products process a server-supplied URL without sufficient validation. An unauthenticated remote attacker controlling a malicious Automation Server and tricking a user to trust it or performing a man-in-the-middle attack, can exploit this vulnerability by causing the affected product to ",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118496",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118497",
+        "published": "2026-11-17T10:17:21Z",
+        "description": "The affected products do not sufficiently validate CODESYS Automation Server TLS certificates when a user starts the certificate enrollment. An unauthenticated remote attacker performing a man-in-the-middle attack can exploit this vulnerability by supplying an untrusted certificate that is accepted ",
+        "severity": "HIGH",
+        "score": 7.4,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118497",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118498",
+        "published": "2026-11-17T10:17:21Z",
+        "description": "The CODESYS Automation Server Connector uses server-supplied file names without sufficient path traversal checks. An unauthenticated remote attacker controlling a malicious Automation Server and tricking a user to trust it, or performing a man-in-the-middle attack on a trusted communication channel,",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118498",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-21609",
+        "published": "2026-11-17T10:17:21Z",
+        "description": "This High severity Improper Authorization vulnerability was introduced in versions 5.12.0, 10.3.0, and 11.3.0 of Jira Service Management Data Center.  \t \tThis Improper Authorization vulnerability, with a CVSS Score of 7.1, allows an authenticated attacker to gain unintended access and can lead to th",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-21609",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121865",
+        "published": "2026-11-17T09:17:27Z",
+        "description": "In nanobot, the WebSocket gateway allows a standard client holding a valid client token to select an existing directory outside the operator-configured workspace as the root of a new conversation. The agent can then read and expose files in that directory that are readable by the nanobot service acc",
+        "severity": "HIGH",
+        "score": 7.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121865",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-124709",
+        "published": "2026-11-17T09:17:27Z",
+        "description": "Issue summary: A QUIC server that rejects a stream opened by the peer may\nretain that stream's state for the lifetime of the connection if the peer\nresets the stream before the rejection is signalled, even though the peer's\nstream credit is returned.\n\nImpact summary: A remote client that completes a",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124709",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-35190",
+        "published": "2026-11-17T09:17:27Z",
+        "description": "Issue summary: A server configured with the Suite B certificate flag through\nSSL_CTX_set_cert_flags() and with TLS 1.3 enabled may read past the end of a\nfixed group list when it processes a ClientHello whose supported_groups and\nkey_share contain no Suite B group.\n\nImpact summary: A remote client c",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-35190",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-109138",
+        "published": "2026-11-17T09:17:26Z",
+        "description": "In the Aliro access control reference\n  applications of the Nordic Semiconductor nRF Door Lock and Access Control\n  Add-on v1.0.0 through v1.1.1, built with Credential Issuer CA\n  certificate-based issuer trust (CONFIG_DOOR_LOCK_CREDENTIAL_ISSUER_CA) and\n  the Aliro Step-up phase (CONFIG_DOOR_LOCK_S",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-109138",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-109148",
+        "published": "2026-11-17T09:17:26Z",
+        "description": "In the Aliro access control reference\n  applications of the Nordic Semiconductor nRF Door Lock and Access Control\n  Add-on v1.0.0 through v1.1.1, the stored Access Document record does not\n  retain validFrom and validUntil. The cached public key path (VerifyPublicKey())\n  and the Kpersistent fast pa",
+        "severity": "HIGH",
+        "score": 7.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-109148",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-109151",
+        "published": "2026-11-17T09:17:26Z",
+        "description": "In\nthe Matter and Aliro Door Lock Application of the Nordic Semiconductor nRF Door\nLock and Access Control Add-on v1.0.0 through v1.1.1 with\nCONFIG_DOOR_LOCK_STEP_UP_PHASE enabled, deleting a Credential Issuer passes the\n1-based Matter credential index to ClearValidityIterations(), which expects a\n0",
+        "severity": "HIGH",
+        "score": 7.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-109151",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-109154",
+        "published": "2026-11-17T09:17:26Z",
+        "description": "In the Matter door lock applications of\n  the Nordic Semiconductor nRF Door Lock and Access Control Add-on v1.0.0\n  through v1.1.1, AccessManager::ValidateCredential() checks only credential\n  occupancy and the secret bytes, and never reads the owning user's UserStatus.\n  It also returns success whe",
+        "severity": "HIGH",
+        "score": 7.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-109154",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-119643",
+        "published": "2026-11-17T09:17:26Z",
+        "description": "The MembershipWorks - Membership, Events & Directory plugin for WordPress is vulnerable to Stored Cross-Site Scripting in all versions up to, and including, 6.17. This is due to insufficient output escaping on member-supplied data retrieved from the MembershipWorks SaaS API in the sf_shortcode(), sf",
+        "severity": "HIGH",
+        "score": 7.2,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119643",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121864",
+        "published": "2026-11-17T09:17:26Z",
+        "description": "In nanobot, when sandboxed exec is enabled, the shell executable used to run commands can be selected by the caller and is launched before the sandbox is applied. An attacker who can induce the agent to create an executable in the workspace and select it as the shell can cause that executable to run",
+        "severity": "HIGH",
+        "score": 7.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121864",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-107493",
+        "published": "2026-11-17T09:17:25Z",
+        "description": "Issue summary: When an application passes a stack to\nPEM_X509_INFO_read_bio_ex() to add entries to, and reading fails,\nOpenSSL frees every entry in the stack, both the old ones and any new\nones, but leaves them in the stack.\n\nImpact summary: An application that passes an existing stack to\nPEM_X509_I",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107493",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129031",
+        "published": "2026-11-17T08:17:00Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Cool Plugins Conditional Fields for Elementor Form – Display Conditions conditional-fields-for-elementor-form allows Stored XSS.This issue affects Conditional Fields for Elementor Form – Display Con",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129031",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129008",
+        "published": "2026-11-17T08:16:59Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in WPExperts Gutena Forms – Contact Form, Survey Form, Feedback Form, Booking Form, and Custom Form Builder gutena-forms allows Stored XSS.This issue affects Gutena Forms – Contact Form, Survey Form, F",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129008",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129012",
+        "published": "2026-11-17T08:16:59Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in LeapWorx Premium Addons for Elementor premium-addons-for-elementor allows Stored XSS.This issue affects Premium Addons for Elementor: from n/a through 4.11.118.",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129012",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-128038",
+        "published": "2026-11-17T07:17:24Z",
+        "description": "The All in One SEO – AI SEO Plugin to Boost SEO Rankings & Traffic (Schema, Local SEO, Sitemap & SEO Insights) plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'name' parameter in all versions up to, and including, 5.0.5 due to insufficient input sanitization and output esca",
+        "severity": "MEDIUM",
+        "score": 6.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-128038",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-107904",
+        "published": "2026-11-17T07:17:23Z",
+        "description": "Joomla Extension - valorapps.com - Unauthenticated Remote Code Execution in Easy File Uploader < 2.9.7 - An unauthenticated remote attacker can upload a PHP-executable file to the Joomla web root with a single multipart POST request, requiring no credentials and no CSRF token.",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107904",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-111973",
+        "published": "2026-11-17T06:16:50Z",
+        "description": "The RSS Feed Retriever WordPress plugin through 1.6.10 does not validate a user-supplied URL before fetching it server-side with a bundled HTTP library that lacks WordPress's private-network protections, allowing unauthenticated users to make the site retrieve arbitrary internal or external resource",
+        "severity": "MEDIUM",
+        "score": 5.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111973",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-97187",
+        "published": "2026-11-17T05:18:39Z",
+        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 17.6 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user to read Kubernetes Secrets from other namespaces in clusters connected through the GitLab a",
+        "severity": "HIGH",
+        "score": 7.6,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97187",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-97639",
+        "published": "2026-11-17T05:18:39Z",
+        "description": "The Everest Backup – WordPress Cloud Backup, Migration, Restore & Cloning Plugin plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 2.3.14 This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it poss",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-97639",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-85778",
+        "published": "2026-11-17T05:18:38Z",
+        "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 19.1 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user to run code in protected pipelines through a scheduled pipeline execution policy after the pol",
+        "severity": "MEDIUM",
+        "score": 6.2,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-85778",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-18491",
+        "published": "2026-11-17T05:18:37Z",
+        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 19.2 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user holding a granular personal access token with limited scope to authorize Kubernetes API pro",
+        "severity": "MEDIUM",
+        "score": 4.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18491",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129252",
+        "published": "2026-11-17T05:18:36Z",
+        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user with an unconfirmed email address to be automatically granted Group Owner-level membership during a g",
+        "severity": "LOW",
+        "score": 3.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129252",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129253",
+        "published": "2026-11-17T05:18:36Z",
+        "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 19.1 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user with developer-role permissions to bypass admin-configured AI tool governance controls in a go",
+        "severity": "MEDIUM",
+        "score": 4.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129253",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129321",
+        "published": "2026-11-17T05:18:36Z",
+        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 17.8 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user with planner-role permissions to set a future merge scheduling date on merge requests they ",
+        "severity": "MEDIUM",
+        "score": 4.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129321",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-16545",
+        "published": "2026-11-17T05:18:36Z",
+        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 12.10 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an unauthenticated user to read private project metadata from packages published by other projects due to incorr",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-16545",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-16609",
+        "published": "2026-11-17T05:18:36Z",
+        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 13.2 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user with owner-role permissions to execute arbitrary JavaScript in another user's browser throu",
+        "severity": "MEDIUM",
+        "score": 5.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-16609",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-18241",
+        "published": "2026-11-17T05:18:36Z",
+        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 9.3 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user to access protected CI/CD variables and resources due to a race condition in pipeline job au",
+        "severity": "HIGH",
+        "score": 8.2,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18241",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-125920",
+        "published": "2026-11-17T05:18:35Z",
+        "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 17.4 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user to cause a denial of service affecting Duo usage analytics due to improper input validation.",
+        "severity": "MEDIUM",
+        "score": 4.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125920",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126141",
+        "published": "2026-11-17T05:18:35Z",
+        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 11.11 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user to make requests to internal network services through repository import functionality due ",
+        "severity": "LOW",
+        "score": 3.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126141",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-128849",
+        "published": "2026-11-17T05:18:35Z",
+        "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user to start a Duo Workflow session with elevated privileges beyond those declared by the foundational flow due to improper enforcement of pri",
+        "severity": "MEDIUM",
+        "score": 4.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-128849",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-122045",
+        "published": "2026-11-17T05:18:34Z",
+        "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 16.10 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user to configure GitLab Duo settings for groups without an eligible license due to missing author",
+        "severity": "MEDIUM",
+        "score": 4.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-122045",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-122226",
+        "published": "2026-11-17T05:18:34Z",
+        "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 18.8 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user to access GitLab Duo features restricted by group-based access rules due to improper handling ",
+        "severity": "LOW",
+        "score": 2.2,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-122226",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-123142",
+        "published": "2026-11-17T05:18:34Z",
+        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.4 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user holding an MCP-scoped OAuth token to perform unauthorized issuable state changes on issues ",
+        "severity": "MEDIUM",
+        "score": 4.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123142",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120387",
+        "published": "2026-11-17T05:18:33Z",
+        "description": "An improper JWT signature verification vulnerability in CIRCUTOR PowerStudio SCADA WAVE desktop version allows an unauthenticated remote attacker to bypass authentication by submitting an unsigned JWT with the algorithm set to “none”. The shared JWT validation component accepts the token without ver",
+        "severity": "CRITICAL",
+        "score": 10.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120387",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121533",
+        "published": "2026-11-17T05:18:33Z",
+        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 13.8 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an unauthenticated user to read restricted job artifact data due to missing authorization checks.",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121533",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121684",
+        "published": "2026-11-17T05:18:33Z",
+        "description": "The Soledad theme for WordPress is vulnerable to unauthenticated Remote Code Execution in versions up to, and including, 8.7.7 The public penci_more_post_ajax AJAX action feeds infeedads[ads_code] (base64+urldecoded) to penci_safe_shortcode(), whose allowlist regex inspects only the hyphen-truncated",
+        "severity": "HIGH",
+        "score": 8.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121684",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-121948",
+        "published": "2026-11-17T05:18:33Z",
+        "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 19.2 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user to change the GitLab Duo Code Review consent setting of a parent group due to incorrect author",
+        "severity": "LOW",
+        "score": 2.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121948",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-115218",
+        "published": "2026-11-17T05:18:32Z",
+        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 13.8 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user to read NuGet package metadata that should not have been accessible due to missing authoriz",
+        "severity": "MEDIUM",
+        "score": 4.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115218",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-115219",
+        "published": "2026-11-17T05:18:32Z",
+        "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 19.2 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user to enable Amazon Q automatic code reviews on a project despite an administrator lock due to im",
+        "severity": "LOW",
+        "score": 3.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115219",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-115428",
+        "published": "2026-11-17T05:18:32Z",
+        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 17.2 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user with a valid agent token to cause a denial of service in the GitLab agent server (KAS) due ",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115428",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-115736",
+        "published": "2026-11-17T05:18:32Z",
+        "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 19.1 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user to view unredacted secret values from secret detection findings they had access to through Git",
+        "severity": "MEDIUM",
+        "score": 4.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115736",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118961",
+        "published": "2026-11-17T05:18:32Z",
+        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 17.11 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an unauthenticated user to read commit comments from a private source fork through a public project's merge requ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118961",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-11768",
+        "published": "2026-11-17T05:18:32Z",
+        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 12.4 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user to read private CI/CD job artifacts belonging to other projects through GitLab Pages due to",
+        "severity": "MEDIUM",
+        "score": 5.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-11768",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-110750",
+        "published": "2026-11-17T05:18:31Z",
+        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 11.2 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user to read Git LFS objects from projects restricted by External Authorization due to missing a",
+        "severity": "LOW",
+        "score": 2.2,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110750",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-110990",
+        "published": "2026-11-17T05:18:31Z",
+        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 17.1.7 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed sensitive credential values submitted in GraphQL requests to be written to logs in plaintext due to incomplete ",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-110990",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-111747",
+        "published": "2026-11-17T05:18:31Z",
+        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 19.0 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user to hide changes from reviewers in merge request diffs due to improper handling of file name",
+        "severity": "LOW",
+        "score": 3.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111747",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-112203",
+        "published": "2026-11-17T05:18:31Z",
+        "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 18.2 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an individual controlling an upstream repository to alter cached Maven packages from other repositories in the same ",
+        "severity": "MEDIUM",
+        "score": 5.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-112203",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108150",
+        "published": "2026-11-17T05:18:30Z",
+        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 13.12 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user to read private CI/CD template files from projects they did not have access to due to miss",
+        "severity": "MEDIUM",
+        "score": 4.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108150",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108153",
+        "published": "2026-11-17T05:18:30Z",
+        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 16.1 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user to execute arbitrary JavaScript in the browser of users viewing Error Tracking pages due to",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108153",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108154",
+        "published": "2026-11-17T05:18:30Z",
+        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 8.0 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user to import Git repositories into projects despite administrator restrictions on import source",
+        "severity": "MEDIUM",
+        "score": 4.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108154",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-108155",
+        "published": "2026-11-17T05:18:30Z",
+        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 8.12 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user to read Git LFS objects from restricted projects due to incorrect authorization checks.",
+        "severity": "MEDIUM",
+        "score": 4.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-108155",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-104902",
+        "published": "2026-11-17T05:18:29Z",
+        "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 17.7 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user to read GitLab Duo seat assignments and usage data from other groups due to improper authoriza",
+        "severity": "MEDIUM",
+        "score": 4.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-104902",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-104934",
+        "published": "2026-11-17T05:18:29Z",
+        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 19.0 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an unauthenticated user to read files from a project's private repository due to missing authorization checks in ",
+        "severity": "MEDIUM",
+        "score": 4.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-104934",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-105739",
+        "published": "2026-11-17T05:18:29Z",
+        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 17.2 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user to execute arbitrary JavaScript in the browser of users viewing a wiki page due to improper",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105739",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-102907",
+        "published": "2026-11-17T05:18:28Z",
+        "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 14.0 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user to create issues with locked discussions despite lacking the required permissions due to im",
+        "severity": "MEDIUM",
+        "score": 4.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-102907",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-104717",
+        "published": "2026-11-17T05:18:28Z",
+        "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 13.4 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user to view iteration details from private groups they did not have access to due to missing autho",
+        "severity": "MEDIUM",
+        "score": 4.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-104717",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-101358",
+        "published": "2026-11-17T05:18:27Z",
+        "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 17.10 before 19.3.9, 19.4 before 19.4.8, and 19.5 before 19.5.6 that under certain conditions could have allowed an authenticated user to read CI/CD variable metadata from projects they did not have access to due to improper aut",
+        "severity": "LOW",
+        "score": 3.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101358",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-107902",
+        "published": "2026-11-17T04:17:26Z",
+        "description": "TELLUS and TELLUS Lite provided by FUJI ELECTRIC CO., LTD. contain a use after free vulnerability. Opening a specially crafted V9 file may lead to information exposure or arbitrary code execution on the affected product.",
+        "severity": "HIGH",
+        "score": 8.4,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107902",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-107901",
+        "published": "2026-11-17T04:17:25Z",
+        "description": "TELLUS and TELLUS Lite provided by FUJI ELECTRIC CO., LTD. contain an out-of-bounds read vulnerability. Opening a specially crafted V9 file may lead to information exposure or arbitrary code execution on the affected product.",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107901",
+        "kev": false
+      },
       {
         "id": "CVE-2026-125275",
         "published": "2026-11-17T03:17:00Z",
@@ -5511,346 +6441,6 @@
         "score": 5.3,
         "cvss_version": "40",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-71464",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-129114",
-        "published": "2026-11-14T12:17:44Z",
-        "description": "JSON::XS versions from 3.04 before 4.05 for Perl write one byte past a heap buffer when appending a one-byte chunk in incr_parse.\n\nThe incremental buffer grows to one and a half times the length it must hold, with no room reserved for the terminating NUL. For an empty buffer and a one-byte chunk tha",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129114",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-129115",
-        "published": "2026-11-14T12:17:44Z",
-        "description": "JSON::XS versions from 3.0 before 4.05 for Perl read freed stack memory when a FREEZE result's serialisation grows the Perl stack under allow_tags in encode_rv.\n\nWith allow_tags, an object's FREEZE method is called in list context and each returned value is encoded through a saved Perl stack pointer",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129115",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-129250",
-        "published": "2026-11-14T12:17:44Z",
-        "description": "A security vulnerability has been detected in Edimax BR6478ACV2 1.23. The impacted element is the function formPPTPSetup of the file webs. The manipulation of the argument pptpUserName leads to buffer overflow. It is possible to initiate the attack remotely. The exploit has been disclosed publicly a",
-        "severity": "HIGH",
-        "score": 8.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129250",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-129251",
-        "published": "2026-11-14T12:17:44Z",
-        "description": "A vulnerability was detected in hrshadhin CloudSchool up to 3.0.1. This affects an unknown function of the file app/Http/Controllers/Backend/EventController.php of the component Event Description Handler. The manipulation of the argument data results in cross site scripting. It is possible to launch",
-        "severity": "LOW",
-        "score": 1.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129251",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-129427",
-        "published": "2026-11-14T12:17:44Z",
-        "description": "Stored XSS via avatar upload chained with an authentication bypass in /Attachments leads to ATO\nin Cervantes version v1.3-beta could allow an attacker to execute arbitrary code in another user's browser with elevated privileges",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129427",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-124539",
-        "published": "2026-11-14T12:17:43Z",
-        "description": "JSON::XS versions before 4.05 for Perl leak the decoded key of an object rejected for a missing colon in decode_hv.\n\nUnless it is short plain ASCII, a quoted key is decoded into a new scalar. Nothing frees that scalar when the object is rejected for a missing ':' after the key.\n\nA process that keeps",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124539",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-124540",
-        "published": "2026-11-14T12:17:43Z",
-        "description": "JSON::XS versions before 4.05 for Perl allow stack exhaustion via nested tagged values under allow_tags in decode_tag.\n\nWith allow_tags, \"(\" starts a tagged value. Its tag and value are decoded recursively, and each can start another tagged value. Unlike arrays and objects, this nesting is not count",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124540",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-124541",
-        "published": "2026-11-14T12:17:43Z",
-        "description": "JSON::XS versions before 4.05 for Perl leak the decoded part of a rejected long string in decode_str.\n\nA string is decoded through a fixed-size buffer (16 KiB in 4.04), and each time the buffer fills its contents move into a new scalar. Nothing frees that scalar when the string is then rejected for ",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124541",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-129113",
-        "published": "2026-11-14T12:17:43Z",
-        "description": "JSON::XS versions from 4.0_00 before 4.05 for Perl corrupt the incremental buffer length by chopping past its end in incr_skip after a top-level number.\n\nThe incremental parser scans any run of digits, signs, dots and exponent markers as one number, but the decoder stops at the end of a valid number",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129113",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-124536",
-        "published": "2026-11-14T12:17:42Z",
-        "description": "JSON::XS versions before 4.05 for Perl allow memory exhaustion by buffering incremental input past max_size after a NUL byte in incr_parse.\n\nThe parser appends each chunk to its buffer and compares max_size with how far it has progressed, not with the buffer length. It treats a NUL byte as the end o",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124536",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-129248",
-        "published": "2026-11-14T11:17:07Z",
-        "description": "A weakness has been identified in Akaunting up to 3.3.0. The affected element is the function calculation_to_quantity of the file helpers.php of the component Invoice Item Validation. Executing a manipulation of the argument quantity can lead to numeric range comparison without minimum check. The at",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129248",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-129247",
-        "published": "2026-11-14T11:17:06Z",
-        "description": "A security flaw has been discovered in yangzongzhuan RuoYi up to 4.8.3. Impacted is the function VelocityUtils.getFileName of the file VelocityUtils.java of the component Code Generator. Performing a manipulation of the argument className results in path traversal. The attack is possible to be carri",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129247",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-18742",
-        "published": "2026-11-14T09:16:47Z",
-        "description": "The Flatsome theme for WordPress is vulnerable to Stored Cross-Site Scripting via 'data-text-sec', 'data-title', and 'title' Attributes via Custom HTML Block in all versions up to, and including, 3.20.12 due to insufficient input sanitization and output escaping. This makes it possible for authentic",
-        "severity": "MEDIUM",
-        "score": 6.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18742",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-129181",
-        "published": "2026-11-14T08:17:18Z",
-        "description": "A vulnerability has been found in projectworlds Visitor Management System 1.0. This issue affects the function mysqli_query of the file /img/user%20page.php of the component Login Endpoint. Such manipulation of the argument Username leads to sql injection. It is possible to launch the attack remotel",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129181",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-126697",
-        "published": "2026-11-14T07:17:21Z",
-        "description": "The Quick Page/Post Redirect Plugin WordPress plugin before 5.2.4 was distributed with a hidden update mechanism that fetched Quick Page/Post Redirect Plugin WordPress plugin before 5.2.4 updates from its author's own server instead of WordPress.org, which was used to push a backdoored build to site",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126697",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-129319",
-        "published": "2026-11-14T07:17:21Z",
-        "description": "create-ecdh is a browserifiable implementation of Node.js crypto.createECDH. In versions 4.0.4 and below, the JavaScript implementation (browser.js, used by browser bundlers and on Node.js versions without a working native crypto.createECDH) did not validate peer public keys in ECDH.prototype.comput",
-        "severity": "HIGH",
-        "score": 8.2,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129319",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-126639",
-        "published": "2026-11-14T07:17:20Z",
-        "description": "The WP Ultimate CSV Importer  WordPress plugin before 9.2, WP Ultimate CSV Importer Pro WordPress plugin before 9.0.7 do not protect the files created by their single post export feature, writing them to a publicly accessible location under a predictable name, allowing unauthenticated attackers to d",
-        "severity": "LOW",
-        "score": 3.7,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126639",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-126640",
-        "published": "2026-11-14T07:17:20Z",
-        "description": "The WP Ultimate CSV Importer  WordPress plugin before 9.3 does not escape values from imported files before using them in SQL queries when importing LifterLMS content, allowing high privilege users such as admin, including the administrator of a single site on a multisite network, to perform SQL inj",
-        "severity": "MEDIUM",
-        "score": 4.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126640",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-119258",
-        "published": "2026-11-14T07:17:19Z",
-        "description": "The Swipe WordPress plugin through 1.4 does not properly authenticate a login request before issuing a WordPress session cookie, allowing unauthenticated attackers to log in as an existing user, including an administrator, when that user has an active app session.",
-        "severity": "HIGH",
-        "score": 8.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-119258",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-123046",
-        "published": "2026-11-14T07:17:19Z",
-        "description": "The SEOJuice WordPress plugin before 2.12.0 does not correctly restrict a REST API authentication filter, disabling WordPress's REST nonce protection for the whole site and allowing unauthenticated attackers to perform any cookie-authenticated REST action, including creating a new administrator acco",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123046",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-123122",
-        "published": "2026-11-14T07:17:19Z",
-        "description": "The Checkout Files Upload for WooCommerce WordPress plugin before 2.4.1 does not verify that a file uploaded at checkout is really one of its allowed image types, and serves stored uploads inline using their detected content type, allowing unauthenticated users to upload an HTML file disguised as an",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123122",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-124649",
-        "published": "2026-11-14T07:17:19Z",
-        "description": "The Lightbox with PhotoSwipe WordPress plugin before 5.19.0 does not properly sanitise link titles and other caption sources before inserting them as HTML into the image lightbox caption, allowing unauthenticated users to perform Stored Cross-Site Scripting attacks via comments.",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124649",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-117490",
-        "published": "2026-11-14T07:17:18Z",
-        "description": "The Flatsome WordPress theme before 3.20.13 does not enforce the acting user's publish and post-type restrictions on an AJAX save action, allowing users with a role as low as Contributor to publish their own content and change its post type (for example to a product) without holding the required cap",
-        "severity": "LOW",
-        "score": 2.7,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117490",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118181",
-        "published": "2026-11-14T07:17:18Z",
-        "description": "The Duplicate Post WordPress plugin before 1.5.8 does not perform a capability check when saving its global settings, relying only on its own role-access list, which allows users of any role an administrator has given Duplicate Post WordPress plugin before 1.5.8 access to, as low as Subscriber, to o",
-        "severity": "LOW",
-        "score": 3.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118181",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118182",
-        "published": "2026-11-14T07:17:18Z",
-        "description": "The Duplicate Post WordPress plugin before 1.5.8 does not check that a user duplicating a post is allowed to edit it, which, when the slug takeover option is enabled, allows users of a role an administrator has given Duplicate Post WordPress plugin before 1.5.8 access to, such as Contributor, to mov",
-        "severity": "MEDIUM",
-        "score": 4.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118182",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118183",
-        "published": "2026-11-14T07:17:18Z",
-        "description": "The Duplicate Post WordPress plugin before 1.5.8 does not check whether a user may publish posts when duplicating one, allowing users of a role an administrator has given Duplicate Post WordPress plugin before 1.5.8 access to, such as Contributors, to create published posts, including posts attribut",
-        "severity": "MEDIUM",
-        "score": 4.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118183",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-111034",
-        "published": "2026-11-14T07:17:17Z",
-        "description": "The Countdown, Coming Soon, Maintenance  WordPress plugin through 3.0.8 does not check that the user is allowed to browse content before returning post titles from one of its AJAX actions, allowing any authenticated user, such as a subscriber, to list the titles of published entries of any post type",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111034",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116528",
-        "published": "2026-11-14T07:17:17Z",
-        "description": "The Chargely Free Subscriptions For Woocommernce WordPress plugin through 1.0 does not perform any authorization check on a REST API route that returns its stored configuration, allowing unauthenticated attackers to retrieve the live WooCommerce REST API consumer key and secret it holds, which grant",
-        "severity": "CRITICAL",
-        "score": 9.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116528",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-117487",
-        "published": "2026-11-14T07:17:17Z",
-        "description": "The Flatsome WordPress theme before 3.20.13 does not perform a capability or nonce check on an AJAX action available to unauthenticated users, and does not restrict the status of the posts it returns by ID, allowing unauthenticated users to disclose the content of unpublished (draft and pending) pos",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-117487",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-105984",
-        "published": "2026-11-14T07:17:16Z",
-        "description": "The Email Marketing 4Dem WordPress plugin through 2.0.5 does not perform authorization or capability checks on several of its AJAX actions, allowing unauthenticated users to destroy its stored configuration and delete its records.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105984",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-111033",
-        "published": "2026-11-14T07:17:16Z",
-        "description": "The Countdown, Coming Soon, Maintenance  WordPress plugin through 3.0.8 does not perform authorization or nonce checks when saving countdown data on post save, and its output-sanitization allowlist permits script tags, allowing users with Author-level access and above to store arbitrary web scripts ",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-111033",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-105983",
-        "published": "2026-11-14T07:17:12Z",
-        "description": "The Email Marketing 4Dem WordPress plugin through 2.0.5 does not perform authorization or capability checks on several of its AJAX actions and REST routes, allowing unauthenticated users to disclose the Email Marketing 4Dem WordPress plugin through 2.0.5's stored configuration and data and to modify",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105983",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-126173",
-        "published": "2026-11-14T05:18:37Z",
-        "description": "The AutomatorWP Pro plugin for WordPress' webhook addon is vulnerable to authorization bypass in all versions up to, and including, 1.4.4. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthenticated attackers to reset th",
-        "severity": "CRITICAL",
-        "score": 9.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126173",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-124969",
-        "published": "2026-11-14T05:18:32Z",
-        "description": "The Optimole – Optimize Images | Convert WebP & AVIF | CDN & Lazy Load | Image Optimization plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the replace_urls_in_value function in all versions up to, and including, 4.2.19. This makes it possibl",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124969",
         "kev": false
       }
     ]
