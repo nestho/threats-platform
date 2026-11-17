@@ -1,11 +1,99 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-17T13:04:30Z",
+  "updated_at": "2026-11-17T21:41:24Z",
   "source": "GitHub Security Advisories",
   "source_url": "https://api.github.com/advisories",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-x2vm-cf3p-m2w8",
+      "title": "libp2p: gossipsub creates a permanent topics-map entry per distinct subscription with no cap in the default config",
+      "published": "2026-11-17T21:06:20Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\nA single gossipsub peer can grow a node's `topics` map without bound by flooding subscription RPCs, because the default configuration has no global, per-peer, or topic-length cap and peer scoring does not penalise subscription volume. The peer is never greylisted, so the growth continues",
+      "link": "https://github.com/advisories/GHSA-x2vm-cf3p-m2w8"
+    },
+    {
+      "id": "GHSA-rvfr-cqwq-rc4j",
+      "title": "libp2p: ASN.1 DER decoder drives an unbounded synchronous loop on attacker-controlled length fields, stalling the Node event loop pre-auth",
+      "published": "2026-11-17T21:05:08Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\nA remote peer can stall a js-libp2p node's entire event loop for ~4–5 seconds per connection (and transiently allocate ~2 GB) by sending a ~15-byte crafted `publicKey` inside an Identify message. The malformed key reaches the DER decoder before any peer-id/signature check, so the attack ",
+      "link": "https://github.com/advisories/GHSA-rvfr-cqwq-rc4j"
+    },
+    {
+      "id": "GHSA-r7hw-jx6r-756g",
+      "title": "SAML2: Incomplete fix of CVE-2026-49283: unsigned embedded Response bypasses HTTP-Artifact signature verification (no embedded-Issuer binding)",
+      "published": "2026-11-17T21:00:58Z",
+      "ecosystem": "composer",
+      "summary": "## Summary\nCVE-2026-49283 / GHSA-6929-8p9f-26jx (\"HTTP-Artifact TLS validator confusion allows cross-IdP authentication bypass\") was fixed so that `HTTPArtifact::receive()` verifies the embedded SAML `Response` using the IdP metadata signing keys. The current implementation (master `31c72c1d`, relea",
+      "link": "https://github.com/advisories/GHSA-r7hw-jx6r-756g"
+    },
+    {
+      "id": "GHSA-8vm9-f75m-5h2m",
+      "title": "Filament Curator: Stored XSS via unsanitized SVG upload served inline",
+      "published": "2026-11-17T20:54:26Z",
+      "ecosystem": "composer",
+      "summary": "## Summary\n\n  SVG files uploaded through the Curator media panel are stored and served inline without any\n  sanitization. An authenticated user with permission to upload media can upload an SVG\n  containing embedded JavaScript. When another panel user opens that file via the **View**\n  action (which",
+      "link": "https://github.com/advisories/GHSA-8vm9-f75m-5h2m"
+    },
+    {
+      "id": "GHSA-828w-6qgx-3rcf",
+      "title": "Filament Curator: Cross-tenant media metadata disclosure via Curator picker search",
+      "published": "2026-11-17T20:49:28Z",
+      "ecosystem": "composer",
+      "summary": "Summary\n\n  In multitenant Filament panels, an authenticated user could retrieve media metadata belonging to other tenants\n  by typing in the Curator media-picker search box. The search query omitted the tenant ownership scope that the\n  normal file listing applies.\n\n  Details\n\n  CuratorPanel::update",
+      "link": "https://github.com/advisories/GHSA-828w-6qgx-3rcf"
+    },
+    {
+      "id": "GHSA-xhv5-8fpq-g7hf",
+      "title": "qbee-agent: Local Privilege Escalation and Arbitrary File Tampering via Symlink Following in createFile helper",
+      "published": "2026-11-17T20:48:02Z",
+      "ecosystem": "go",
+      "summary": "This is a Local Privilege Escalation (LPE) vulnerability stemming from improper symlink handling (CWE-59: Link Following) and improper ownership management (CWE-282) inside the qbee-agent file manager logic.\n\n### Impact\n\nAny managed device running qbee-agent up to the affected versions. The impact m",
+      "link": "https://github.com/advisories/GHSA-xhv5-8fpq-g7hf"
+    },
+    {
+      "id": "GHSA-pr4x-6fj4-gm4h",
+      "title": "EGroupware: User-Controlled Identity Provider Selection in SAML Authentication",
+      "published": "2026-11-17T20:47:22Z",
+      "ecosystem": "composer",
+      "summary": "### Summary\nThe login() function at line 130 passes the raw user-supplied value `$_REQUEST['idp']` directly to SimpleSAMLphp's `requireAuth()` with only a regex check that the string starts with 'https://'. No validation is performed against a list of configured, trusted IdP entity IDs. An unauthent",
+      "link": "https://github.com/advisories/GHSA-pr4x-6fj4-gm4h"
+    },
+    {
+      "id": "GHSA-c5q4-97jw-jggh",
+      "title": "AWS-advanced-jdbc-wrapper: Java Deserialization RCE via Cache Poisoning",
+      "published": "2026-11-17T20:39:21Z",
+      "ecosystem": "maven",
+      "summary": "### Impact\nThe AWS Advanced JDBC Wrapper is an open-source JDBC driver wrapper that extends a JDBC driver to enable Amazon Aurora and AWS Cloud features such as failover handling and caching. We identified CVE-2026-14265, an issue in the RemoteQueryCachePlugin of the AWS Advanced JDBC Wrapper. When ",
+      "link": "https://github.com/advisories/GHSA-c5q4-97jw-jggh"
+    },
+    {
+      "id": "GHSA-v858-xh7w-8jr5",
+      "title": "pympp allows excessive sponsored transaction fees through padded calldata",
+      "published": "2026-11-17T20:04:56Z",
+      "ecosystem": "pip",
+      "summary": "### Details\nWhen the server acts as the fee_payer, `pympp` 0.8.0 validates calldata using `eth_abi` decoding, which is lenient about trailing bytes. The `FeePayerPolicy` caps `gas_limit` (≤ 2 M) and `max_fee_per_gas` (≤ 100 Gwei) but does **not** check calldata length.\n\nTempo uses legacy calldata ga",
+      "link": "https://github.com/advisories/GHSA-v858-xh7w-8jr5"
+    },
+    {
+      "id": "GHSA-gfv3-m769-5xm3",
+      "title": "Phoenix: Format String Injection in applyChatTemplate",
+      "published": "2026-11-17T20:02:29Z",
+      "ecosystem": "pip",
+      "summary": "- Summary\n\nA format string injection vulnerability in the applyChatTemplate GraphQL endpoint allows an attacker to read server-side environment variables, cryptographic secrets, and internal module attributes directly from the API response. On default Phoenix installations where authentication is di",
+      "link": "https://github.com/advisories/GHSA-gfv3-m769-5xm3"
+    },
+    {
+      "id": "GHSA-vc7v-qv4w-wrv8",
+      "title": "Next.js: Cache leak across root param values in nested 'use cache' functions via delayed inner stream metadata",
+      "published": "2026-11-17T16:13:26Z",
+      "ecosystem": "npm",
+      "summary": "With Cache Components enabled, an outer `'use cache'` function can be keyed incorrectly even when its inner `'use cache'` call generates a fresh entry. If the inner function reads a root param (via `next/root-params`) and returns a value that still contains pending promises — for example an object w",
+      "link": "https://github.com/advisories/GHSA-vc7v-qv4w-wrv8"
+    },
     {
       "id": "GHSA-vx32-xf7g-9ghr",
       "title": "qbee-agent: Docker Compose build context Zip Slip writes outside context directory",
@@ -717,94 +805,6 @@
       "ecosystem": "pip",
       "summary": "## Summary\n\nMatching a selector that puts a general-sibling combinator inside `:has()`, such as `div:has(a ~ b)`, against untrusted HTML runs in O(n²) time in the number of sibling elements. A single small document with a few thousand siblings ties the process up for a minute of CPU, so an applicati",
       "link": "https://github.com/advisories/GHSA-4j63-6c4x-wfg4"
-    },
-    {
-      "id": "GHSA-f3w6-w445-fwh9",
-      "title": "Active Storage: Possible arbitrary file write and read in image analysis",
-      "published": "2026-11-12T23:46:51Z",
-      "ecosystem": "rubygems",
-      "summary": "### Impact\nA Rails application that processes attachments with ImageMagick may allow an unauthenticated attacker to write arbitrary files on the server and, when attachments are stored with the Disk service, to read arbitrary files readable by the application process. Those files typically include `",
-      "link": "https://github.com/advisories/GHSA-f3w6-w445-fwh9"
-    },
-    {
-      "id": "GHSA-rwvh-fw6r-pwvp",
-      "title": "Action Pack: Possible DoS vulnerability in Action Controller Live streaming",
-      "published": "2026-11-12T23:45:24Z",
-      "ecosystem": "rubygems",
-      "summary": "### Impact\n`ActionController::Live::Buffer#close` pushes its end-of-stream marker onto the response's bounded queue while it holds the buffer's monitor. When the client has stopped reading and the queue is full, the push blocks, and `Buffer#abort`, which runs when the client disconnects or a write t",
-      "link": "https://github.com/advisories/GHSA-rwvh-fw6r-pwvp"
-    },
-    {
-      "id": "GHSA-x6mj-8jx9-qhqv",
-      "title": "Action Pack: Possible sensitive session information leak in Active Storage proxy mode",
-      "published": "2026-11-12T23:44:39Z",
-      "ecosystem": "rubygems",
-      "summary": "### Impact\nWhen `ActionDispatch::Cookies` reads a signed or encrypted cookie that was written under a rotated secret (`config.action_dispatch.cookies_rotations`) or in the format that a `:hybrid` cookie serializer migrates from, it writes the cookie back to the response in the current format, and th",
-      "link": "https://github.com/advisories/GHSA-x6mj-8jx9-qhqv"
-    },
-    {
-      "id": "GHSA-v6rj-xm57-3p59",
-      "title": "Action View: Possible XSS vulnerability in highlight helper",
-      "published": "2026-11-12T23:41:50Z",
-      "ecosystem": "rubygems",
-      "summary": "### Impact\n`ActionView::Helpers::TextHelper#highlight` substitutes each matched phrase into the `:highlighter` string without escaping it and returns the result marked HTML-safe. Because sanitizing leaves quote characters in text unescaped, a match substituted into a quoted attribute value of the hi",
-      "link": "https://github.com/advisories/GHSA-v6rj-xm57-3p59"
-    },
-    {
-      "id": "GHSA-rq8q-p985-fjq7",
-      "title": "Action View: Possible XSS vulnerability in strip_tags",
-      "published": "2026-11-12T23:39:41Z",
-      "ecosystem": "rubygems",
-      "summary": "### Impact\n`strip_tags` in Action View returns its sanitized output marked `html_safe`, but the underlying sanitizer encodes only `&`, `<` and `>`, leaving `\"` and `'` unencoded. Because ERB does not escape a string marked `html_safe`, untrusted input passed through `strip_tags` and rendered inside ",
-      "link": "https://github.com/advisories/GHSA-rq8q-p985-fjq7"
-    },
-    {
-      "id": "GHSA-2p2f-4rq4-gjwc",
-      "title": "Action View: Possible XSS vulnerability in text helpers",
-      "published": "2026-11-12T23:38:57Z",
-      "ecosystem": "rubygems",
-      "summary": "### Impact\nWith the HTML5 sanitizer (`Rails::HTML5::Sanitizer`, the default vendor on CRuby for applications using `load_defaults 7.1` or later), Nokogiri before 1.19.5 serializes `<` and `>` unescaped inside attribute values. The Action View text helpers `highlight` and `simple_format` sanitize the",
-      "link": "https://github.com/advisories/GHSA-2p2f-4rq4-gjwc"
-    },
-    {
-      "id": "GHSA-3w93-6hmw-whh4",
-      "title": "Active Storage: Unsigned Content-Type in GCS direct uploads with cache_control",
-      "published": "2026-11-12T23:37:55Z",
-      "ecosystem": "rubygems",
-      "summary": "### Impact\nWhen a GCS service is configured with the `cache_control` option, `ActiveStorage::Service::GCSService#url_for_direct_upload` signs direct-upload URLs with V4, and the V4 signature covers only the `Cache-Control` and `Host` headers. A direct-upload client can therefore send a `Content-Type",
-      "link": "https://github.com/advisories/GHSA-3w93-6hmw-whh4"
-    },
-    {
-      "id": "GHSA-wm3x-v3qw-4jh3",
-      "title": "Action Pack: Possible Strong Parameters Bypass in Parameters#each_key",
-      "published": "2026-11-12T23:37:09Z",
-      "ecosystem": "rubygems",
-      "summary": "### Impact\n`ActionController::Parameters#each_key` delegates to the internal `ActiveSupport::HashWithIndifferentAccess` that holds the request parameters, so when called with a block it returns that hash instead of the `Parameters` instance. The hash does not respond to `permitted?`, so Active Model",
-      "link": "https://github.com/advisories/GHSA-wm3x-v3qw-4jh3"
-    },
-    {
-      "id": "GHSA-wqgw-9xfh-qf2g",
-      "title": "Pillow: Memory DoS in TIFF and EXIF IFD parsing via overlapping tag data",
-      "published": "2026-11-12T23:35:39Z",
-      "ecosystem": "pip",
-      "summary": "```\n============================================================================\nANT-2026-D7STJUWL  [medium]  CWE-770  dos\nMemory DoS in TIFF and EXIF IFD parsing via overlapping tag data\nLocation: src/PIL/TiffImagePlugin.py:927  in ImageFileDirectory_v2.load()\nCommit:   a707c6b21c313880d0771e54965d",
-      "link": "https://github.com/advisories/GHSA-wqgw-9xfh-qf2g"
-    },
-    {
-      "id": "GHSA-xcvg-w56q-r89m",
-      "title": "Pillow: Heap buffer overflow saving TIFF with libtiff when tags override image size",
-      "published": "2026-11-12T23:34:43Z",
-      "ecosystem": "pip",
-      "summary": "```\n============================================================================\nANT-2026-CS7N494P  [high]  CWE-787  memory-safety\nHeap buffer overflow saving TIFF with libtiff when tags override image size\nLocation: src/libImaging/TiffDecode.c:1035  in ImagingLibTiffEncode()\nCommit:   a707c6b21c313",
-      "link": "https://github.com/advisories/GHSA-xcvg-w56q-r89m"
-    },
-    {
-      "id": "GHSA-46wx-v44x-9hh2",
-      "title": "Hono: `csrf()` does not check requests sent by hyperlink auditing (`text/ping`)",
-      "published": "2026-11-12T23:31:25Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\n`csrf()` validates a request only when its `Content-Type` is one of the three types an HTML form can send. Chromium's hyperlink auditing (`<a ping>`) sends a cross-origin POST with the user's cookies and the content type `text/ping`, which is not in that list. The middleware does not lo",
-      "link": "https://github.com/advisories/GHSA-46wx-v44x-9hh2"
     }
   ]
 }
