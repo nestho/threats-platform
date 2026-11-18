@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-17T21:41:28Z",
+  "updated_at": "2026-11-18T03:36:26Z",
   "source": "Microsoft MSRC + Ubuntu Security Notices",
   "source_url": [
     "https://api.msrc.microsoft.com/update-guide/rss",
@@ -10,6 +10,86 @@
   "normalisation_failures": [],
   "partial": null,
   "items": [
+    {
+      "id": "USN-9132-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9132-1: apng2gif vulnerabilities",
+      "published": "2026-11-17T17:45:22Z",
+      "summary": "Dileep Kumar Jallepalli discovered that apng2gif incorrectly handled loading APNG files, leading to an integer overflow and a heap-based buffer over-read. If a user or automated system were tricked into converting a specially crafted APNG file, an attacker could possibly use this issue to obtain sen",
+      "link": "https://ubuntu.com/security/notices/USN-9132-1"
+    },
+    {
+      "id": "USN-9150-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9150-1: SWUpdate vulnerabilities",
+      "published": "2026-11-17T17:18:22Z",
+      "summary": "It was discovered that SWUpdate did not verify that a path was a directory before cleaning it up, leading to a race condition. A local attacker could possibly use this issue to escalate privileges or install untrusted content using a signed update. (CVE-2025-41259) It was discovered that SWUpdate us",
+      "link": "https://ubuntu.com/security/notices/USN-9150-1"
+    },
+    {
+      "id": "USN-9149-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9149-1: MiniMagick vulnerability",
+      "published": "2026-11-17T17:17:34Z",
+      "summary": "It was discovered that MiniMagick passed the file names and URLs given to Image.open directly to Kernel#open. If an application opened an image from an untrusted file name or URL, an attacker could possibly use this issue to execute arbitrary commands.",
+      "link": "https://ubuntu.com/security/notices/USN-9149-1"
+    },
+    {
+      "id": "USN-9148-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9148-1: Mechanize vulnerability",
+      "published": "2026-11-17T17:17:28Z",
+      "summary": "It was discovered that Mechanize used Kernel#open to open local files in several methods. If an application passed untrusted input as a local file name to one of these methods, an attacker could possibly use this issue to execute arbitrary commands.",
+      "link": "https://ubuntu.com/security/notices/USN-9148-1"
+    },
+    {
+      "id": "USN-9147-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9147-1: PyWPS vulnerability",
+      "published": "2026-11-17T17:17:04Z",
+      "summary": "It was discovered that PyWPS did not disable the resolution of XML external entities when parsing requests. A remote attacker could possibly use this issue to read arbitrary files on the server.",
+      "link": "https://ubuntu.com/security/notices/USN-9147-1"
+    },
+    {
+      "id": "USN-9146-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9146-1: Privoxy vulnerabilities",
+      "published": "2026-11-17T17:16:26Z",
+      "summary": "Joshua Rogers discovered that Privoxy incorrectly handled memory allocation, leading to a memory leak. An attacker could possibly use this issue to cause Privoxy to consume excessive resources, leading to a denial of service. (CVE-2021-44540) Artem Ivanov discovered that Privoxy did not properly enc",
+      "link": "https://ubuntu.com/security/notices/USN-9146-1"
+    },
+    {
+      "id": "USN-9145-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9145-1: OAR vulnerability",
+      "published": "2026-11-17T17:14:01Z",
+      "summary": "It was discovered that the oarsh script in OAR did not properly filter OpenSSH options. An authenticated user could possibly use this issue to obtain sensitive information or escalate privileges.",
+      "link": "https://ubuntu.com/security/notices/USN-9145-1"
+    },
+    {
+      "id": "USN-9144-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9144-1: ngIRCd vulnerability",
+      "published": "2026-11-17T17:13:18Z",
+      "summary": "It was discovered that ngIRCd incorrectly handled SERVER commands without a prefix, leading to an out-of-bounds read. A remote attacker could possibly use this issue to cause ngIRCd to crash, resulting in a denial of service.",
+      "link": "https://ubuntu.com/security/notices/USN-9144-1"
+    },
+    {
+      "id": "USN-9143-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9143-1: Mumble vulnerability",
+      "published": "2026-11-17T17:11:46Z",
+      "summary": "It was discovered that the Murmur server in Mumble did not rate limit certain client messages. A remote attacker could possibly use this issue to cause Murmur to hang or crash, resulting in a denial of service. This update adds a message rate limit, which can be configured with the messageburst and ",
+      "link": "https://ubuntu.com/security/notices/USN-9143-1"
+    },
+    {
+      "id": "USN-9142-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9142-1: Apache XML Security for Java vulnerability",
+      "published": "2026-11-17T17:10:33Z",
+      "summary": "It was discovered that Apache XML Security for Java incorrectly passed a configuration property when creating specific key elements. An attacker could possibly use this issue to abuse an XPath Transform and extract sensitive information. After this update, file: and http: URIs are only dereferenced ",
+      "link": "https://ubuntu.com/security/notices/USN-9142-1"
+    },
     {
       "id": "CVE-2026-121680",
       "vendor": "Microsoft",
@@ -81,86 +161,6 @@
       "published": "2026-11-17T16:00:00Z",
       "summary": "Updated an acknowledgement. This is an informational change only.",
       "link": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-40400"
-    },
-    {
-      "id": "USN-9131-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9131-1: CRaC JDK 25 vulnerabilities",
-      "published": "2026-11-17T01:05:37Z",
-      "summary": "It was discovered that the Security component of CRaC JDK 25 did not correctly authenticate users. A remote attacker could possibly use this issue to read or modify sensitive data. (CVE-2026-114820) It was discovered that the Security component of CRaC JDK 25 did not correctly authenticate users. A ",
-      "link": "https://ubuntu.com/security/notices/USN-9131-1"
-    },
-    {
-      "id": "USN-9115-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9115-1: Mini-XML vulnerabilities",
-      "published": "2026-11-17T00:51:50Z",
-      "summary": "It was discovered that Mini-XML used unbounded recursion when deleting and writing XML nodes. An attacker could possibly use these issues to cause Mini-XML to crash, resulting in a denial of service. These issues only affected Ubuntu 16.04 LTS. (CVE-2016-4570, CVE-2016-4571) It was discovered that M",
-      "link": "https://ubuntu.com/security/notices/USN-9115-1"
-    },
-    {
-      "id": "USN-8979-2",
-      "vendor": "Ubuntu",
-      "title": "USN-8979-2: Deluge vulnerabilities",
-      "published": "2026-11-17T00:51:34Z",
-      "summary": "USN-8979-1 fixed vulnerabilities in Deluge. Due to a packaging error, the fixes were not applied in the update for Ubuntu 16.04 LTS. This update fixes the problem. Original advisory details: It was discovered that the web UI in Deluge did not protect against cross-site request forgery. A remote atta",
-      "link": "https://ubuntu.com/security/notices/USN-8979-2"
-    },
-    {
-      "id": "USN-9130-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9130-1: zutils vulnerability",
-      "published": "2026-11-17T00:49:28Z",
-      "summary": "It was discovered that zcat in zutils incorrectly handled the -v option, leading to a buffer overflow. If a user were tricked into opening a specially crafted compressed file, an attacker could possibly use this issue to cause a denial of service or execute arbitrary code.",
-      "link": "https://ubuntu.com/security/notices/USN-9130-1"
-    },
-    {
-      "id": "USN-9129-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9129-1: ZBar vulnerability",
-      "published": "2026-11-17T00:49:13Z",
-      "summary": "It was discovered that ZBar incorrectly handled certain QR codes, leading to a heap-based buffer overflow. If a user or automated system were tricked into scanning a specially crafted QR code, an attacker could possibly use this issue to obtain sensitive information or execute arbitrary code.",
-      "link": "https://ubuntu.com/security/notices/USN-9129-1"
-    },
-    {
-      "id": "USN-9128-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9128-1: YADIFA vulnerability",
-      "published": "2026-11-17T00:49:05Z",
-      "summary": "It was discovered that YADIFA did not check for infinite pointer loops when parsing DNS packets. A remote attacker could possibly use this issue to cause YADIFA to consume excessive CPU resources, leading to a denial of service.",
-      "link": "https://ubuntu.com/security/notices/USN-9128-1"
-    },
-    {
-      "id": "USN-9127-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9127-1: Syntastic vulnerability",
-      "published": "2026-11-17T00:48:57Z",
-      "summary": "It was discovered that Syntastic searched the current directory and its parents for checker configuration files. If a user were tricked into checking a file in a directory controlled by an attacker, the attacker could possibly use this issue to execute arbitrary code. After this update, Syntastic on",
-      "link": "https://ubuntu.com/security/notices/USN-9127-1"
-    },
-    {
-      "id": "USN-9126-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9126-1: tmpreaper vulnerability",
-      "published": "2026-11-17T00:48:52Z",
-      "summary": "It was discovered that tmpreaper incorrectly handled certain mount operations, leading to a race condition. A local attacker could possibly use this issue to create arbitrary files, leading to privilege escalation.",
-      "link": "https://ubuntu.com/security/notices/USN-9126-1"
-    },
-    {
-      "id": "USN-9124-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9124-1: RenderDoc vulnerabilities",
-      "published": "2026-11-17T00:48:44Z",
-      "summary": "It was discovered that RenderDoc did not properly verify array sizes when serialising strings, leading to an integer overflow. An attacker could possibly use this issue to cause a buffer overflow, resulting in a denial of service, or possibly execute arbitrary code. (CVE-2023-33863) It was discovere",
-      "link": "https://ubuntu.com/security/notices/USN-9124-1"
-    },
-    {
-      "id": "USN-9123-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9123-1: mechanize vulnerability",
-      "published": "2026-11-17T00:48:35Z",
-      "summary": "Erik Krogh Kristensen and Rasmus Petersen discovered that mechanize used an inefficient regular expression to parse authentication headers. A malicious server could possibly use this issue to cause mechanize to consume excessive resources, leading to a denial of service.",
-      "link": "https://ubuntu.com/security/notices/USN-9123-1"
     },
     {
       "id": "CVE-2026-105544",
