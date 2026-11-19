@@ -1,11 +1,243 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-19T12:10:26Z",
+  "updated_at": "2026-11-19T20:59:14Z",
   "source": "GitHub Security Advisories",
   "source_url": "https://api.github.com/advisories",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-7589-6fvf-x4pw",
+      "title": "Effect: ReDoS in Schema.TemplateLiteral compiled regex",
+      "published": "2026-11-19T20:51:01Z",
+      "ecosystem": "npm",
+      "summary": "### Impact\n\n`Schema.TemplateLiteral` compiles each `Schema.String` span to the lazy wildcard `[\\s\\S]*?` and decodes input by running the resulting regular expression against it. When a template has two or more `Schema.String` spans, for example:\n\n```ts\nSchema.TemplateLiteral(Schema.String, \":\", Sche",
+      "link": "https://github.com/advisories/GHSA-7589-6fvf-x4pw"
+    },
+    {
+      "id": "GHSA-56v3-jrq2-4q9m",
+      "title": "iSponsorBlockTV: SSRF via Malicious SSDP Response Spoofing in Local Device Discovery",
+      "published": "2026-11-19T20:50:12Z",
+      "ecosystem": "pip",
+      "summary": "### Summary\niSponsorBlockTV discovers local smart TV devices via SSDP (Simple Service Discovery Protocol). The `LOCATION` URL from SSDP responses is used to fetch device capabilities without URL validation. A local network attacker can craft a malicious SSDP response with a `LOCATION` pointing to an",
+      "link": "https://github.com/advisories/GHSA-56v3-jrq2-4q9m"
+    },
+    {
+      "id": "GHSA-5hj8-q7fv-qrj6",
+      "title": "gosaml2: Unauthenticated panic decrypting an EncryptedAssertion with a short or empty CipherValue",
+      "published": "2026-11-19T20:49:36Z",
+      "ecosystem": "go",
+      "summary": "### Summary\n\nAn attacker who can supply a crafted SAML Response for parsing can crash a `gosaml2` service provider by sending an `EncryptedAssertion` with AES-GCM encryption metadata and a `CipherValue` shorter than the GCM nonce size (12 bytes). The library panics with `slice bounds out of range` b",
+      "link": "https://github.com/advisories/GHSA-5hj8-q7fv-qrj6"
+    },
+    {
+      "id": "GHSA-464h-4j8h-q5mf",
+      "title": "HtmlSanitizer: CSS Removal DoS",
+      "published": "2026-11-19T20:49:01Z",
+      "ecosystem": "nuget",
+      "summary": "### Impact\n\nAn unauthenticated request can occupy one synchronous application worker for seconds. Concurrent requests add CPU cost and can keep all workers busy, sustaining denial of service without user interaction.\n\n### Patches\n\nThe issue has been patched in versions  9.0.967 and 9.1.968-beta.\n\n##",
+      "link": "https://github.com/advisories/GHSA-464h-4j8h-q5mf"
+    },
+    {
+      "id": "GHSA-h5m9-42h9-vcq6",
+      "title": "Doorkeeper: When using public clients, any client can revoke any access token",
+      "published": "2026-11-19T20:47:25Z",
+      "ecosystem": "rubygems",
+      "summary": "### Summary\n\nAn improper authorization issue affects Doorkeeper's OAuth token revocation flow when public (non-confidential) clients are in use. This vulnerability can lead to tokens being revoked without correct authorization. The issue is fixed in Doorkeeper 5.9.1.",
+      "link": "https://github.com/advisories/GHSA-h5m9-42h9-vcq6"
+    },
+    {
+      "id": "GHSA-w3w6-9m25-g88p",
+      "title": "OmniFaces: SSE push channels are not bound to their owning HTTP session",
+      "published": "2026-11-19T20:47:02Z",
+      "ecosystem": "maven",
+      "summary": "## Summary\n\n[GHSA-fp43-vj7g-pg92](https://github.com/omnifaces/omnifaces/security/advisories/GHSA-fp43-vj7g-pg92) (fixed 5.4.2) bound session- and view-scoped **WebSocket** (`o:socket`) push channels to the HTTP session that registered them, so a leaked channel ID can no longer be connected to from ",
+      "link": "https://github.com/advisories/GHSA-w3w6-9m25-g88p"
+    },
+    {
+      "id": "GHSA-mqwx-84vv-mp26",
+      "title": "October: Media Library Crop Handler Bypasses Upload Extension Allowlist",
+      "published": "2026-11-19T20:46:36Z",
+      "ecosystem": "composer",
+      "summary": "The Media Library upload handler validates the destination filename against an extension allowlist (`default_extensions`), rejecting types such as `php`, `phtml`, `html`, and `htm`. The image crop handler (`MediaManager::onCropImage` / `cropImage`) did not perform this check. The destination filenam",
+      "link": "https://github.com/advisories/GHSA-mqwx-84vv-mp26"
+    },
+    {
+      "id": "GHSA-pxh3-4qqv-58mg",
+      "title": "Servo Sandbox bypass: declarative refresh can auto-navigate a sandboxed iframe",
+      "published": "2026-11-19T20:45:22Z",
+      "ecosystem": "rust",
+      "summary": "A sandboxed iframe can auto-navigate itself via declarative refresh even when automatic features should be blocked. This allows attacker-controlled embedded content to redirect itself without user action.\n\n### Summary\nServo allows a sandboxed iframe to auto-navigate itself via declarative refresh in",
+      "link": "https://github.com/advisories/GHSA-pxh3-4qqv-58mg"
+    },
+    {
+      "id": "GHSA-jmmc-wjpc-pg34",
+      "title": "XWiki Platform: HQL injection in search allows unauthenticated database extraction including password hashes",
+      "published": "2026-11-19T20:44:32Z",
+      "ecosystem": "maven",
+      "summary": "### Impact\nThe query REST API allows executing HQL queries to filter the listed pages. While this properly checks access rights for the current user, the query can be used to combine when clauses and blind queries, to recover values, through FROM clause injection to join BaseObject and StringPropert",
+      "link": "https://github.com/advisories/GHSA-jmmc-wjpc-pg34"
+    },
+    {
+      "id": "GHSA-3h63-w8jq-rrf2",
+      "title": "SharpIppNext: Unbounded IPP Document Stream Buffering Leads to Denial of Service",
+      "published": "2026-11-19T20:43:01Z",
+      "ecosystem": "nuget",
+      "summary": "### Summary\n\nSharpIppNext's `IppProtocol.ReadIppRequestAsync()` unconditionally copies the entire attacker-supplied IPP document payload into an unbounded `MemoryStream` with no size limit. Because this behavior is enabled by default (`ReadDocumentStream = true`) and the official server documentatio",
+      "link": "https://github.com/advisories/GHSA-3h63-w8jq-rrf2"
+    },
+    {
+      "id": "GHSA-mx6p-3fg7-v6pj",
+      "title": "obsidian-sync-mcp: Missing Host/Origin validation lets a public website drive a victim's Obsidian vault via DNS rebinding (no-auth mode)",
+      "published": "2026-11-19T20:41:18Z",
+      "ecosystem": "npm",
+      "summary": "When obsidian-sync-mcp runs without MCP_AUTH_TOKEN (the documented no-auth mode for local use), the HTTP MCP endpoint does not validate the Host or Origin header before dispatching MCP methods (CWE-350). The no-auth mode's \"local network only\" assumption therefore does not hold: a malicious web page",
+      "link": "https://github.com/advisories/GHSA-mx6p-3fg7-v6pj"
+    },
+    {
+      "id": "GHSA-gpcc-36pq-8qxr",
+      "title": "Tapir: Construction/decode RCE via property name -> raw case-class field (tapir-openapi-codegen)",
+      "published": "2026-11-19T20:39:27Z",
+      "ecosystem": "maven",
+      "summary": "The OpenAPI code generator (tapir-openapi-codegen-core) builds Scala source by string templating and emitted several names/values from the (untrusted) OpenAPI document without escaping or validation, allowing injection of arbitrary Scala that runs at generated-code compile time and/or endpoint-assem",
+      "link": "https://github.com/advisories/GHSA-gpcc-36pq-8qxr"
+    },
+    {
+      "id": "GHSA-833v-v58w-294h",
+      "title": "Todoist MCP Server: Browser DNS rebinding lets websites write and delete Todoist data through local MCP server",
+      "published": "2026-11-19T20:38:35Z",
+      "ecosystem": "npm",
+      "summary": "The self-hosted `todoist-mcp-http` server accepts browser-origin MCP requests with attacker-controlled `Host` and `Origin` headers. A malicious website can use DNS rebinding to route its own origin to a victim's local `127.0.0.1` MCP server, then invoke Todoist MCP tools without a caller credential.",
+      "link": "https://github.com/advisories/GHSA-833v-v58w-294h"
+    },
+    {
+      "id": "GHSA-w42c-h7hr-f67p",
+      "title": "Gortex: Arbitrary file write / repo-confinement escape in `write_file` / `edit_file` / `move_inline` MCP tools → code execution",
+      "published": "2026-11-19T20:36:31Z",
+      "ecosystem": "go",
+      "summary": "### Summary\nGortex is an MCP server exposing `write_file`, `edit_file`, and `move_inline` tools. `resolveFilePath` **exempts absolute paths** from confinement, and the write handlers — unlike `read_file` / `get_symbol_source` — **never call `guardSymlinkWithinRepo`**. A single MCP `write_file` call ",
+      "link": "https://github.com/advisories/GHSA-w42c-h7hr-f67p"
+    },
+    {
+      "id": "GHSA-4c2f-96cf-f5fc",
+      "title": "OpenID4VP: X.509 chain validation accepts a forged certificate that reuses a trusted anchor's Subject DN without verifying its signature",
+      "published": "2026-11-19T20:35:57Z",
+      "ecosystem": "npm",
+      "summary": "## Summary\n\n`ChainBuilder` (the private RFC 5280 validator behind `TrustEvaluator` and the public credential-parsing API) terminated chain building on **Subject Distinguished Name string equality** rather than on cryptographic closure to a trust anchor. A certificate whose Subject DN string matched ",
+      "link": "https://github.com/advisories/GHSA-4c2f-96cf-f5fc"
+    },
+    {
+      "id": "GHSA-j282-pjg5-j643",
+      "title": "keystore-go: Keystore integrity and password verification bypass via stripped trailing digest in Decode()",
+      "published": "2026-11-19T20:35:35Z",
+      "ecosystem": "go",
+      "summary": "### Summary\n`keystore.Decode()` fails to check the error returned when reading the trailing SHA-1 integrity digest of a JKS keystore. If an attacker removes the final 20 bytes from a `.jks` file, the digest read returns an empty slice and the byte-comparison loop never executes, so `Decode()` return",
+      "link": "https://github.com/advisories/GHSA-j282-pjg5-j643"
+    },
+    {
+      "id": "GHSA-r7wg-f7r2-8wf7",
+      "title": "Axon: Download of Code Without Integrity Check in axon-mcp",
+      "published": "2026-11-19T20:34:53Z",
+      "ecosystem": "pip",
+      "summary": "### Summary\naxon rtk-install downloads a pre-built rtkx binary from GitHub releases and executes it via subprocess.run() on every text-compression call, without verifying its integrity — no checksum, signature, or attestation check anywhere in the download/install path. If the release pipeline or a ",
+      "link": "https://github.com/advisories/GHSA-r7wg-f7r2-8wf7"
+    },
+    {
+      "id": "GHSA-q8v2-3j4h-xg2p",
+      "title": "Jane: Instantiation RCE via query parameter name -> raw PHPDoc */ breakout (jane-php/open-api-3)",
+      "published": "2026-11-19T16:18:45Z",
+      "ecosystem": "composer",
+      "summary": "### Summary\njane-php (open-api-3) builds PHP via nikic/php-parser (AST), so string literals are escaped -- but PHPDoc comment text is emitted RAW. The generated Client/Endpoint method docblocks embed the query parameter name verbatim in a `@param array{ \"<name>\"?: ... }` block. A `*/` in the query n",
+      "link": "https://github.com/advisories/GHSA-q8v2-3j4h-xg2p"
+    },
+    {
+      "id": "GHSA-x9xr-53qx-9qcf",
+      "title": "Jane: Instantiation RCE via header parameter name -> raw PHPDoc */ breakout (jane-php/open-api-3)",
+      "published": "2026-11-19T16:12:22Z",
+      "ecosystem": "composer",
+      "summary": "### Summary\njane-php (open-api-3) builds PHP via nikic/php-parser (AST), so string literals are escaped -- but PHPDoc comment text is emitted RAW. The generated Client/Endpoint method docblocks embed the header parameter name verbatim in a `@param array{ \"<name>\"?: ... }` block. A `*/` in the header",
+      "link": "https://github.com/advisories/GHSA-x9xr-53qx-9qcf"
+    },
+    {
+      "id": "GHSA-xwcw-j52r-34x4",
+      "title": "Jane: Instantiation RCE via parameter description -> raw PHPDoc */ breakout (jane-php/open-api-3)",
+      "published": "2026-11-19T16:12:11Z",
+      "ecosystem": "composer",
+      "summary": "### Summary\njane-php (open-api-3) builds PHP via nikic/php-parser (AST), so string literals are escaped -- but PHPDoc comment text is emitted RAW. The generated Client/Endpoint method docblocks embed the parameter description verbatim in a `@param array{ \"<name>\"?: ... }` block. A `*/` in the parame",
+      "link": "https://github.com/advisories/GHSA-xwcw-j52r-34x4"
+    },
+    {
+      "id": "GHSA-vg83-hcp4-5qcc",
+      "title": "DOMShell: domshell_eval classified as read-tier can execute side-effecting JavaScript without --allow-write",
+      "published": "2026-11-19T16:10:53Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nThe `domshell_eval` MCP tool (and the `eval` command inside `domshell_execute`) was classified as **read-tier**, allowing it to run without the `--allow-write` server flag. However, `eval` and the write-tier `js` command dispatch to the same handler in the extension and call CDP `Runtim",
+      "link": "https://github.com/advisories/GHSA-vg83-hcp4-5qcc"
+    },
+    {
+      "id": "GHSA-pj7p-238h-76pv",
+      "title": "djangocms-moderation: Moderation comments disclosed to non-participant staff via the admin changelist",
+      "published": "2026-11-19T16:09:30Z",
+      "ecosystem": "pip",
+      "summary": "## Summary\n\nThe Django admin views for moderation comments (`CollectionCommentAdmin` and `RequestCommentAdmin`) render the full comment body but scope access only by an attacker-controlled `id` in the URL and Django's model-level `view_*comment` permission. They perform no per-object participant che",
+      "link": "https://github.com/advisories/GHSA-pj7p-238h-76pv"
+    },
+    {
+      "id": "GHSA-8776-qf3h-26r3",
+      "title": "Mareforma: Unsigned Claims Can Be Promoted to REPLICATED via Missing Signature Enforcement in Convergence Path",
+      "published": "2026-11-19T16:07:36Z",
+      "ecosystem": "pip",
+      "summary": "### Summary\n\n`mareforma` 0.3.3 contains a critical integrity flaw in the REPLICATED convergence logic (`_maybe_update_replicated_unlocked()` in `mareforma/db/core.py:1300-1319`). The peer-selection SQL query that determines whether two independent claims \"agree\" on the same anchor does not verify th",
+      "link": "https://github.com/advisories/GHSA-8776-qf3h-26r3"
+    },
+    {
+      "id": "GHSA-xfq4-8hf9-5h43",
+      "title": "Mareforma: transparency_logged trusts the unsigned rekor block",
+      "published": "2026-11-19T16:05:07Z",
+      "ecosystem": "pip",
+      "summary": "## What's wrong\n\nDuring restore, `transparency_logged` is recomputed as `1 if (toml_logged is not False and bundle_has_rekor) else 0`, where `bundle_has_rekor` comes only from a `rekor.uuid` field inside `signature_bundle`. That derivation is wrong in both directions.\n\nFirst, the rekor block is meta",
+      "link": "https://github.com/advisories/GHSA-xfq4-8hf9-5h43"
+    },
+    {
+      "id": "GHSA-rgg9-956j-3378",
+      "title": "Mareforma: invalidated claims still promote to REPLICATED",
+      "published": "2026-11-19T16:04:43Z",
+      "ecosystem": "pip",
+      "summary": "## What's wrong\n\n`_maybe_update_replicated_unlocked` never checks `t_invalid`, so a claim that a signed contradiction verdict has marked invalid can still climb to REPLICATED through convergence detection, and it pulls an honest peer up with it.\n\nThree gaps line up:\n\n- The new-claim short-circuit re",
+      "link": "https://github.com/advisories/GHSA-rgg9-956j-3378"
+    },
+    {
+      "id": "GHSA-hxh5-gp44-rc6p",
+      "title": "Mareforma: verify_bundle never checks a per-claim signature",
+      "published": "2026-11-19T16:03:39Z",
+      "ecosystem": "pip",
+      "summary": "## What's wrong\n\n`verify_bundle` documents that it verifies \"a bundle's DSSE envelope AND each per-claim signature\", lists \"per-claim signature failure\" among its raised errors, and promises that partial verification never surfaces \"an authenticated bundle that contains some invalid claims\" as succe",
+      "link": "https://github.com/advisories/GHSA-hxh5-gp44-rc6p"
+    },
+    {
+      "id": "GHSA-m29v-3g7g-9c63",
+      "title": "Mareforma: search_claims skips verify-on-read, serving forged rows",
+      "published": "2026-11-19T16:00:52Z",
+      "ecosystem": "pip",
+      "summary": "## What's wrong\n\n`search_claims` never calls `_row_verified_on_read`. Its row loop applies only the PRELIMINARY-unenrolled filter, then appends the row. `query_claims` runs the same projection but additionally re-verifies REPLICATED/ESTABLISHED signatures on read (line 4023) and drops any row that f",
+      "link": "https://github.com/advisories/GHSA-m29v-3g7g-9c63"
+    },
+    {
+      "id": "GHSA-4g68-3pwx-5vfj",
+      "title": "NATS Server MQTT subscribe permission bypass exposes internal QoS 2 metadata",
+      "published": "2026-11-19T16:00:12Z",
+      "ecosystem": "go",
+      "summary": "### Background\n\nNATS.io is a high performance open source pub-sub distributed communication technology, built for the cloud, on-premise, IoT and edge computing.\n\nThe NATS Server MQTT support uses internal `$MQTT.*` subjects to implement MQTT protocol features such as QoS handling.\n\n### Problem Descr",
+      "link": "https://github.com/advisories/GHSA-4g68-3pwx-5vfj"
+    },
+    {
+      "id": "GHSA-qrcv-3558-gj4f",
+      "title": "NATS Server: MQTT SUBSCRIBE Protocol Injection via Leaf Node/Route Forwarding allows arbitrary NATS command injection",
+      "published": "2026-11-19T15:56:55Z",
+      "ecosystem": "go",
+      "summary": "### Background\n\nNATS.io is a high performance open source pub-sub distributed communication technology, built for the cloud, on-premise, IoT and edge computing.\n\nThe NATS Server supports MQTT clients and can bridge MQTT activity into NATS subjects across routes and leafnode connections.\n\n### Problem",
+      "link": "https://github.com/advisories/GHSA-qrcv-3558-gj4f"
+    },
     {
       "id": "GHSA-cvx8-9ff6-54xq",
       "title": "PGPainless: Unbounded Compressed Packet Descent in inline-detach and MessageInspector leads to Denial of Service (DoS)",
@@ -573,238 +805,6 @@
       "ecosystem": "pip",
       "summary": "### Summary\nPath traversal in NLTK's save_maxent_params() and load_maxent_params() allows arbitrary file write and arbitrary file read outside the directories permitted by NLTK's pathsec security mechanism.\n\nThis vulnerability was previously reported through Huntr, accepted by the NLTK project, and ",
       "link": "https://github.com/advisories/GHSA-59f9-gqg8-mqpj"
-    },
-    {
-      "id": "GHSA-89p3-fcch-88ph",
-      "title": "NLTK: Quadratic-time CPU denial of service in CCG lexicon parser (fromstring) on wide bracket bodies and operator chains",
-      "published": "2026-11-14T00:08:50Z",
-      "ecosystem": "pip",
-      "summary": "## Summary\n\nThe public CCG lexicon parser `nltk.ccg.lexicon.fromstring` parses caller-influenced lexicon text with two pure-Python loops whose cost is quadratic in the input width. A service that parses an untrusted CCG lexicon string can be driven into tens of seconds of single-threaded CPU by a fe",
-      "link": "https://github.com/advisories/GHSA-89p3-fcch-88ph"
-    },
-    {
-      "id": "GHSA-r53h-rw34-8h97",
-      "title": "NLTK: Quadratic-time CPU denial of service in Tree.chomsky_normal_form right-factor binarization via list.pop(0)",
-      "published": "2026-11-14T00:07:59Z",
-      "ecosystem": "pip",
-      "summary": "## Summary\n\n`Tree.chomsky_normal_form()` binarizes a parse tree and defaults to right factoring. For a node with N children the right-factor branch repeatedly removes the first element of a working list with `list.pop(0)`, which shifts all remaining elements each time, so binarizing one wide node co",
-      "link": "https://github.com/advisories/GHSA-r53h-rw34-8h97"
-    },
-    {
-      "id": "GHSA-v8f3-6phw-6mh9",
-      "title": "NLTK: Quadratic-time CPU denial of service in ConllCorpusReader SRL instance builder via nested span rescan",
-      "published": "2026-11-14T00:05:57Z",
-      "ecosystem": "pip",
-      "summary": "## Summary\n\n`ConllCorpusReader.srl_instances()` builds semantic-role-labeling instances from a CoNLL corpus block. For a sentence block with P predicates and P span columns, the instance builder rescans every span column (and every span within it) once per predicate while searching for each predicat",
-      "link": "https://github.com/advisories/GHSA-v8f3-6phw-6mh9"
-    },
-    {
-      "id": "GHSA-fg9w-wfp5-j933",
-      "title": "NLTK: BllipParser passes caller-supplied model paths to the bllipparser C extension with no pathsec check, enabling arbitrary read",
-      "published": "2026-11-13T23:20:56Z",
-      "ecosystem": "pip",
-      "summary": "## Summary\n\n`BllipParser` in `nltk/parse/bllip.py` hands caller-supplied filesystem paths to the native `bllipparser` C extension without routing them through NLTK's `pathsec` validation. The constructor parameters `parser_model`, `reranker_features`, and `reranker_weights`, and the alternative `fro",
-      "link": "https://github.com/advisories/GHSA-fg9w-wfp5-j933"
-    },
-    {
-      "id": "GHSA-qfx6-q44v-9qqw",
-      "title": "ag-psd can exhaust memory when parsing crafted PSD dimensions",
-      "published": "2026-11-13T23:19:38Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\nreadPsd() commits the image/layer buffers from the declared header geometry (width x height x channels x depth, and per-layer rectangles) before validating those values against the actual data. A tiny crafted PSD declaring huge geometry forces a multi-gigabyte allocation.\n\n### Impact\nOn ",
-      "link": "https://github.com/advisories/GHSA-qfx6-q44v-9qqw"
-    },
-    {
-      "id": "GHSA-pp88-jhwj-5qh5",
-      "title": "File Browser: Trailing-slash directory deletion leaves public shares active for recreated paths",
-      "published": "2026-11-13T23:12:06Z",
-      "ecosystem": "go",
-      "summary": "## Summary\n\nFile Browser v2.63.15 can leave a public directory share behind when the shared directory is deleted through a path with a trailing slash. The share cleanup path calls `DeleteWithPathPrefix(file.Path, userID)`, but the Bolt backend performs the database prefix query with the unnormalized",
-      "link": "https://github.com/advisories/GHSA-pp88-jhwj-5qh5"
-    },
-    {
-      "id": "GHSA-gpwc-27cw-rh9r",
-      "title": "NLTK: Quadratic CPU exhaustion in LegalitySyllableTokenizer.tokenize via unguarded onset reversal loop",
-      "published": "2026-11-13T21:16:34Z",
-      "ecosystem": "pip",
-      "summary": "## Summary\n\n`LegalitySyllableTokenizer.tokenize` in the NLTK tokenizer package contains an unguarded O(n^2) processing loop. When the method is called on a single token that consists of a long run of vowels (for example `\"a\" * n`), it consumes CPU time proportional to the square of the token length.",
-      "link": "https://github.com/advisories/GHSA-gpwc-27cw-rh9r"
-    },
-    {
-      "id": "GHSA-ffr9-mgrr-wcvr",
-      "title": "NLTK: Quadratic CPU exhaustion in TreebankWordTokenizer.span_tokenize via list.pop(0) in quote-restore loop",
-      "published": "2026-11-13T21:08:55Z",
-      "ecosystem": "pip",
-      "summary": "## Summary\n\n`TreebankWordTokenizer.span_tokenize` in the NLTK tokenizer package contains an unguarded O(n^2) processing loop in its quote-restoration step. When the method is invoked on text containing a long run of double-quote characters (for example `'\"' * n`), it performs a `list.pop(0)` operati",
-      "link": "https://github.com/advisories/GHSA-ffr9-mgrr-wcvr"
-    },
-    {
-      "id": "GHSA-8fx7-8jr8-84rv",
-      "title": "NLTK: Unbounded CPU consumption in SteppingRecursiveDescentParser.parse() with ambiguous or self-embedding grammars",
-      "published": "2026-11-13T21:02:19Z",
-      "ecosystem": "pip",
-      "summary": "## Summary\n\n`nltk.parse.recursivedescent.SteppingRecursiveDescentParser.parse()` performs an unbounded top-down search over ambiguous or self-embedding context-free grammars with no wall-clock or step limit. An actor who can influence the grammar and supply a short input to a caller that uses this p",
-      "link": "https://github.com/advisories/GHSA-8fx7-8jr8-84rv"
-    },
-    {
-      "id": "GHSA-qg35-44qx-7vrr",
-      "title": "NLTK: Symlink escape in YCOECorpusReader lets a psd/pos directory symlink read files outside the corpus root within the data sandbox",
-      "published": "2026-11-13T20:55:16Z",
-      "ecosystem": "pip",
-      "summary": "## Summary\n\n`YCOECorpusReader` builds two nested corpus sub-readers whose roots are derived from `self.root.join(\"psd\")` and `self.root.join(\"pos\")` (nltk/corpus/reader/ycoe.py). Because `FileSystemPathPointer.join()` (nltk/data.py) performs a purely lexical containment check and never resolves syml",
-      "link": "https://github.com/advisories/GHSA-qg35-44qx-7vrr"
-    },
-    {
-      "id": "GHSA-mw6w-2fmv-pvw3",
-      "title": "SvelteKit: adapter-node crashes with an unhandled URIError when `reroute` rewrites malformed pathnames",
-      "published": "2026-11-13T20:51:44Z",
-      "ecosystem": "npm",
-      "summary": "When `reroute` turned an invalid percent-encoded path into a valid path, it could potentially trigger a comparison that would crash the server.",
-      "link": "https://github.com/advisories/GHSA-mw6w-2fmv-pvw3"
-    },
-    {
-      "id": "GHSA-jf9x-2fg2-hx4w",
-      "title": "SvelteKit: Prerendered paths are interpreted as regular expressions in Vercel route config generated by @sveltejs/adapter-vercel and @sveltejs/adapter-static",
-      "published": "2026-11-13T20:43:23Z",
-      "ecosystem": "npm",
-      "summary": "If an attacker could influence a link that was crawled during the prerender phase, that link could later be interpreted as a regex in the Vercel routing configuration.",
-      "link": "https://github.com/advisories/GHSA-jf9x-2fg2-hx4w"
-    },
-    {
-      "id": "GHSA-5wg4-q3ww-283h",
-      "title": "SvelteKit: Prerendered redirect paths can inject arbitrary rules into the `_redirects` file generated by `@sveltejs/adapter-cloudflare`",
-      "published": "2026-11-13T20:39:15Z",
-      "ecosystem": "npm",
-      "summary": "If an attacker can influence the links crawled during prerendering, they can influence the redirects entries that are added to the Cloudflare platform redirects generated during the adapt phase of the build.",
-      "link": "https://github.com/advisories/GHSA-5wg4-q3ww-283h"
-    },
-    {
-      "id": "GHSA-rqw3-x7hx-mm3p",
-      "title": "SvelteKit: `@sveltejs/adapter-node` crashes when proxying certain requests via `fetch`",
-      "published": "2026-11-13T20:36:53Z",
-      "ecosystem": "npm",
-      "summary": "In affected versions, `@sveltejs/adapter-node` can attempt to add a header to an immutable request in a context that causes the server to crash, denying service to any other requests routed to that server.",
-      "link": "https://github.com/advisories/GHSA-rqw3-x7hx-mm3p"
-    },
-    {
-      "id": "GHSA-5cjw-f85j-cv6r",
-      "title": "Tornado: Open redirect via triple-slash redirect paths",
-      "published": "2026-11-13T20:31:22Z",
-      "ecosystem": "pip",
-      "summary": "### Summary\n\nDue to differences in the way browsers and Python's `urllib` parse urls, browsers treat a string starting with three or more slashes as a protocol-level redirect, while `urllib` does not. This means that the 6.6.0 fix for the RedirectHandler open redirect (CVE-2026-116578, commit cc75ab",
-      "link": "https://github.com/advisories/GHSA-5cjw-f85j-cv6r"
-    },
-    {
-      "id": "GHSA-vvf4-9x63-8xvv",
-      "title": "dnspython has excessive memory and CPU use",
-      "published": "2026-11-13T20:19:13Z",
-      "ecosystem": "pip",
-      "summary": "### Summary\n\nA maliciously crafted zone file could use a WKS record to consume excessive memory and CPU, possibly causing the process to exit due to memory exhaustion.\n\n### Details\n\nThe `from_text()` parser does not check that a WKS record service number is between 0 and 65535 inclusive.  It then us",
-      "link": "https://github.com/advisories/GHSA-vvf4-9x63-8xvv"
-    },
-    {
-      "id": "GHSA-r99w-jh2x-3mg9",
-      "title": "Nuxt: Incomplete fix for GHSA-9v7c-q64q-vv33: a leading `//` in the request path bypasses `server/middleware` path checks and server route rules on page routes",
-      "published": "2026-11-13T19:32:21Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\nSince `4.6.0`, Nuxt parses a request path that starts with `//` as a URL with a host before rendering a page, so `//x/admin` renders the page at `/admin`. Nitro's routing, Nitro's route rules and `server/middleware` see the path as `//x/admin`, so server-side checks keyed on `/admin` do",
-      "link": "https://github.com/advisories/GHSA-r99w-jh2x-3mg9"
-    },
-    {
-      "id": "GHSA-3v2p-hm54-8qcq",
-      "title": "OpenTelemetry JavaScript: Insertion of Sensitive Information into Log File and Exposure of Sensitive Information to an Unauthorized Actor in @opentelemetry/instrumentation-http",
-      "published": "2026-11-13T19:29:20Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\n`@opentelemetry/instrumentation-http` redacts sensitive URL query parameters on **outgoing (client) spans** but not on **incoming (server) spans**. The server-span path writes the raw query string verbatim into the `url.query` attribute, so credentials embedded in inbound request URLs —",
-      "link": "https://github.com/advisories/GHSA-3v2p-hm54-8qcq"
-    },
-    {
-      "id": "GHSA-6vhm-j9h7-f9gh",
-      "title": "AutoMapper: Uncontrolled Recursion with Constructor Parameters",
-      "published": "2026-11-13T19:21:02Z",
-      "ecosystem": "nuget",
-      "summary": "### Summary\n`MaxDepth`, whether set explicitly or applied by default (64) to self-referential type maps, was not enforced when the recursion goes through constructor parameters. Mapping a deeply nested source to a destination built through its constructor, such as a positional `record`, recurses wit",
-      "link": "https://github.com/advisories/GHSA-6vhm-j9h7-f9gh"
-    },
-    {
-      "id": "GHSA-9264-jvgf-6w2f",
-      "title": "russh kex_done: Shared-secret callback runs before server host-key verification",
-      "published": "2026-11-13T19:20:16Z",
-      "ecosystem": "rust",
-      "summary": "### Summary\n\nA malicious SSH server whose host key is rejected can still cause russh's `client::Handler::kex_done()` callback to execute with the raw key-exchange shared secret. Applications using the callback for its documented protocol-bridging purpose may derive keys, initialize a secondary data ",
-      "link": "https://github.com/advisories/GHSA-9264-jvgf-6w2f"
-    },
-    {
-      "id": "GHSA-736f-c93q-9fwx",
-      "title": "russh try_sign: asynchronous confirmation can sign after agent lock",
-      "published": "2026-11-13T19:10:46Z",
-      "ecosystem": "rust",
-      "summary": "### Summary\n\nIn russh `0.65.0`, a sign request for a confirmation-constrained key can retain\nand use the private key after another connection locks the agent. `try_sign()`\nsnapshots an `Arc<PrivateKey>` before awaiting `Agent::confirm()` and does not\nrevalidate the shared lock state after the await.",
-      "link": "https://github.com/advisories/GHSA-736f-c93q-9fwx"
-    },
-    {
-      "id": "GHSA-rrfc-gjm9-cgrj",
-      "title": "OpenTelemetry-Go: Eager W3C baggage-property materialization causes bounded memory-allocation amplification",
-      "published": "2026-11-13T19:08:10Z",
-      "ecosystem": "go",
-      "summary": "## Summary\n\nOpenTelemetry Go eagerly materializes W3C baggage metadata into property objects during parsing. Slice growth, serialization, and copying into the internal representation cause **bounded but disproportionate memory-allocation amplification** for a valid, densely populated header. In v1.4",
-      "link": "https://github.com/advisories/GHSA-rrfc-gjm9-cgrj"
-    },
-    {
-      "id": "GHSA-q7gw-24fr-5p69",
-      "title": "opentelemetry-go: AttributeValueLengthLimit is fully bypassed by attribute values composed of valid U+FFFD runes",
-      "published": "2026-11-13T19:00:55Z",
-      "ecosystem": "go",
-      "summary": "## Summary\n\nThe `AttributeValueLengthLimit` span/log-record limit can be bypassed entirely with attribute values that consist of valid U+FFFD (REPLACEMENT CHARACTER) runes. The counting-based truncation introduced by the fix for GHSA-p9f8-wvj8-2fg8 (commit `e016a78c9`, first released in v1.33.0) has",
-      "link": "https://github.com/advisories/GHSA-q7gw-24fr-5p69"
-    },
-    {
-      "id": "GHSA-4fqr-96q8-xrfx",
-      "title": "sqlite3-ruby: Possible SQL query truncation when a string is 4 GiB or larger",
-      "published": "2026-11-13T18:57:58Z",
-      "ecosystem": "rubygems",
-      "summary": "### Summary\n\nsqlite3-ruby cast Ruby string lengths (`long`) to `int` before passing them to SQLite. On 64-bit platforms, a string of 4 GiB (2^32 bytes) or larger had its length wrap, so SQLite saw only the first `length mod 2^32` bytes. An attacker who controls the length of a SQL string could trunc",
-      "link": "https://github.com/advisories/GHSA-4fqr-96q8-xrfx"
-    },
-    {
-      "id": "GHSA-63hm-g96r-2m2q",
-      "title": "Laravel: Task Output Injection - Concurrency Process",
-      "published": "2026-11-13T18:54:31Z",
-      "ecosystem": "composer",
-      "summary": "### Summary\n\nIf a concurrency task prints user-controlled text, an attacker can forge the framework's internal result message and achieve remote code execution in certain conditions\n\n### Pre-reqs\n\nInsecure code and insecure handling of user provided input (devs trust user-provided input) :\n\n1. App h",
-      "link": "https://github.com/advisories/GHSA-63hm-g96r-2m2q"
-    },
-    {
-      "id": "GHSA-gpwp-5797-mjff",
-      "title": "AutoMapper: Denial of Service via uncontrolled recursion that bypasses MaxDepth",
-      "published": "2026-11-13T18:47:17Z",
-      "ecosystem": "nuget",
-      "summary": "### Summary\nThe default and explicit `MaxDepth` limits added for CVE-2026-32933 don't apply to several mapping paths. Mapping a deeply nested source through any of them recurses without bound and throws a `StackOverflowException`, which can't be caught and terminates the process.\n\n### Affected paths",
-      "link": "https://github.com/advisories/GHSA-gpwp-5797-mjff"
-    },
-    {
-      "id": "GHSA-mh32-jxcr-mh9f",
-      "title": "Astro: XSS via attribute injection in dynamic tag names",
-      "published": "2026-11-13T18:39:54Z",
-      "ecosystem": "npm",
-      "summary": "## Summary\n\nWhen a dynamic tag (`const Tag = ...; <Tag />`) resolves to a string, Astro renders it as a raw HTML element name. The name was filtered to remove characters that could inject attributes, but the filter did not handle `/`. Because HTML parsers treat `/` inside a tag as an attribute separ",
-      "link": "https://github.com/advisories/GHSA-mh32-jxcr-mh9f"
-    },
-    {
-      "id": "GHSA-r3h5-4585-7x3w",
-      "title": "Astro: Image endpoint in @astrojs/node can read files from a case-variant sibling of the output directory on case-sensitive filesystems",
-      "published": "2026-11-13T18:35:59Z",
-      "ecosystem": "npm",
-      "summary": "## Summary\n\nThe `/_image` endpoint used by the `@astrojs/node` adapter checks that a requested local image is inside the build output directory before reading it from disk. That check compared paths case-insensitively. On case-sensitive filesystems (such as Linux), a directory whose path differs fro",
-      "link": "https://github.com/advisories/GHSA-r3h5-4585-7x3w"
-    },
-    {
-      "id": "GHSA-mjrq-cffv-q4qc",
-      "title": "Nuxt dev server serves files from a parent directory with a stray lockfile or workspace file",
-      "published": "2026-11-13T18:11:49Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\nNuxt can pick a parent directory that does not declare a workspace as its default `workspaceDir`: the farthest directory with a lockfile when the project is not inside a git repository, or the farthest directory with a `pnpm-workspace.yaml` or `deno.json` file, even one that only holds ",
-      "link": "https://github.com/advisories/GHSA-mjrq-cffv-q4qc"
     }
   ]
 }
