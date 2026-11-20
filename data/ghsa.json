@@ -1,11 +1,187 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-20T10:31:06Z",
+  "updated_at": "2026-11-20T18:50:54Z",
   "source": "GitHub Security Advisories",
   "source_url": "https://api.github.com/advisories",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-9rv8-9hvg-92mq",
+      "title": "chcon: recursive relabel not anchored to traversal dirfd (TOCTOU)",
+      "published": "2026-11-20T16:39:34Z",
+      "ecosystem": "rust",
+      "summary": "`chcon` resolved recursive targets from `fts_accpath` with a fresh path lookup, so traversal and the SELinux get/set were not bound to traversal directory state. A privileged recursive relabel can be redirected to unintended objects under rename/symlink races. Fix opens targets with `openat` against",
+      "link": "https://github.com/advisories/GHSA-9rv8-9hvg-92mq"
+    },
+    {
+      "id": "GHSA-xhrc-7f76-vh96",
+      "title": "uu_env incorrectly rejects backslashes within single-quoted strings accepted by GNU env",
+      "published": "2026-11-20T16:36:31Z",
+      "ecosystem": "rust",
+      "summary": "In `env -S`, GNU keeps backslashes literal inside single quotes (except `\\\\` and `\\'`); uutils errors on sequences like `\\a`. This is the backslash-handling issue of the broader `-S`/`--split-string` parsing divergence.\n```\nenv -S\"printf %s '\\''\\\\x'\\''\"   # GNU prints \\x ; uutils: invalid sequence '",
+      "link": "https://github.com/advisories/GHSA-xhrc-7f76-vh96"
+    },
+    {
+      "id": "GHSA-fjjq-8hw5-cf9f",
+      "title": "split: TOCTOU output-open allows truncating a swapped file",
+      "published": "2026-11-20T16:33:27Z",
+      "ecosystem": "rust",
+      "summary": "`split` checks input/output identity by path before opening the output, then opens with truncation, leaving a race window on mutable path components. GNU opens first and compares the opened output inode against the input before truncating. The race can cause `split` to truncate/write a file differen",
+      "link": "https://github.com/advisories/GHSA-fjjq-8hw5-cf9f"
+    },
+    {
+      "id": "GHSA-6499-jgj4-2wpf",
+      "title": "CKAN: Session Fixation in Registration View",
+      "published": "2026-11-20T16:25:26Z",
+      "ecosystem": "pip",
+      "summary": "## Description\n\nWeb user registration form is vulnerable to session fixation if the site is configured with server-side session storage (CKAN uses cookie-based session storage by default). The attacker would need to either set a cookie on the victim's browser or steal the victim's currently valid se",
+      "link": "https://github.com/advisories/GHSA-6499-jgj4-2wpf"
+    },
+    {
+      "id": "GHSA-cg26-4c6j-2x8h",
+      "title": "netty-incubator-codec-ohttp: OHTTP codecs retain consumed outer cumulation buffers after completed exchanges",
+      "published": "2026-11-20T16:22:09Z",
+      "ecosystem": "maven",
+      "summary": "## Summary:\n\nOHttpClientCodec and OHttpServerCodec retain the encrypted outer HttpContent in a handler-level cumulationBuffer. After a valid OHTTP exchange completes, the OHTTP request/response context is destroyed, but the outer cumulationBuffer is not released or reset. It remains referenced by th",
+      "link": "https://github.com/advisories/GHSA-cg26-4c6j-2x8h"
+    },
+    {
+      "id": "GHSA-x72p-hmqp-46hw",
+      "title": "Git LFS may execute arbitrary commands via crafted Git LFS configurations",
+      "published": "2026-11-20T14:59:40Z",
+      "ecosystem": "go",
+      "summary": "### Impact\n\nWhen fetching objects from a malicious repository, Git LFS may execute an arbitrary command or binary after failing to sufficiently restrict the set of configuration options defined in an `.lfsconfig` file in the repository.\n\nGit LFS permits a limited set of configuration options to be d",
+      "link": "https://github.com/advisories/GHSA-x72p-hmqp-46hw"
+    },
+    {
+      "id": "GHSA-xrgv-7vx6-5vx6",
+      "title": "Git LFS may execute arbitrary commands via crafted Git configurations",
+      "published": "2026-11-20T14:58:53Z",
+      "ecosystem": "go",
+      "summary": "### Impact\n\nWhen fetching objects from a malicious repository, Git LFS may execute an arbitrary command or binary after incorrectly parsing the Git configuration options defined for a submodule.\n\nGit LFS reads Git configuration options without checking for embedded line-ending control characters.  B",
+      "link": "https://github.com/advisories/GHSA-xrgv-7vx6-5vx6"
+    },
+    {
+      "id": "GHSA-3h6w-xcw3-9xjj",
+      "title": "OpenRemote: Cross-realm MQTT session disconnect without authorization",
+      "published": "2026-11-20T14:56:58Z",
+      "ecosystem": "maven",
+      "summary": "### Summary\n\nCross-realm MQTT session disconnect without authorization\n\n## Vulnerability\n\nThe `disconnectUserSession` endpoint in `UserResourceImpl.java` (line 443) accepts a `realm` path parameter but ignores it entirely, performing no authorization or realm-boundary check before force-disconnectin",
+      "link": "https://github.com/advisories/GHSA-3h6w-xcw3-9xjj"
+    },
+    {
+      "id": "GHSA-prhx-9q2h-ph2x",
+      "title": "Paymenter: Unauthenticated arbitrary method invocation in Livewire components",
+      "published": "2026-11-20T14:56:03Z",
+      "ecosystem": "composer",
+      "summary": "### Summary\n\nA Livewire function allowed attackers to call any public function, allowing attackers to call any public method on the component. Because an attacker can call any function, they can also overwrite locked data.\n\n### Technical Details\n\n`app/Livewire/Traits/HasConfirmation.php` exposed a p",
+      "link": "https://github.com/advisories/GHSA-prhx-9q2h-ph2x"
+    },
+    {
+      "id": "GHSA-vcx7-pfrh-mcfg",
+      "title": "storyblok-backup: Stored path traversal via unsanitized Storyblok component names in backup output",
+      "published": "2026-11-20T14:55:18Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\nstoryblok-backup writes files using unsanitized names for Storyblok components, which are content type or schema definitions. This allows a component name containing path traversal sequences to cause backup files to be written outside the intended backup directory. Anyone with component ",
+      "link": "https://github.com/advisories/GHSA-vcx7-pfrh-mcfg"
+    },
+    {
+      "id": "GHSA-wcqj-wx85-c75p",
+      "title": "aMQTT: Denial of Service (DoS) via Memory Leak in Unmanaged QoS 2 Session Handshakes",
+      "published": "2026-11-20T14:54:50Z",
+      "ecosystem": "pip",
+      "summary": "### Impact\n\n`amqtt` is vulnerable to a remote denial of service caused by incomplete MQTT QoS 2 transactions remaining allocated after the associated client disconnects.\n\nMQTT QoS 2 uses a four-step handshake to provide exactly-once delivery. If a client begins a QoS 2 transaction but disconnects be",
+      "link": "https://github.com/advisories/GHSA-wcqj-wx85-c75p"
+    },
+    {
+      "id": "GHSA-9657-8vc2-7g2p",
+      "title": "Poweradmin: The email second factor is an mt_rand() six-digit code verified with no attempt limit or lockout, so an attacker holding the password can brute-force it within the validity window",
+      "published": "2026-11-20T14:52:33Z",
+      "ecosystem": "composer",
+      "summary": "### Summary\n\nThe email second factor is an mt_rand() six-digit code verified with no attempt limit or lockout\n\nThe email second factor is a six-digit code drawn from `mt_rand()` and verified with no attempt limit, so an attacker who already has the password can brute-force it inside its validity win",
+      "link": "https://github.com/advisories/GHSA-9657-8vc2-7g2p"
+    },
+    {
+      "id": "GHSA-4hrh-34w3-5ww8",
+      "title": "Fabio: Access-control bypass through unnormalized request paths",
+      "published": "2026-11-20T14:51:25Z",
+      "ecosystem": "go",
+      "summary": "## Summary\n\nRoute selection uses the raw un-normalized request path, and the per-route ACL and basic-auth gates hang off that selection, so a dot-segment, encoded-dot, or double-slash variant of a protected path selects a different route, skips both gates, and is forwarded to the backend which norma",
+      "link": "https://github.com/advisories/GHSA-4hrh-34w3-5ww8"
+    },
+    {
+      "id": "GHSA-x7xj-4j4f-88xr",
+      "title": "Git LFS may leak HTTP headers after redirections",
+      "published": "2026-11-20T14:49:47Z",
+      "ecosystem": "go",
+      "summary": "### Impact\n\nAfter receiving an HTTP redirection, Git LFS may forward certain HTTP headers to a host other than the one for which they were intended.  While `Authorization` headers are never forwarded to inappropriate hosts, `Cookie` headers may be forwarded incorrectly.\n\nGit LFS has resolved this is",
+      "link": "https://github.com/advisories/GHSA-x7xj-4j4f-88xr"
+    },
+    {
+      "id": "GHSA-w3f2-pr6x-wwjc",
+      "title": "Git LFS may attempt arbitrary remote commands via crafted SSH URLs",
+      "published": "2026-11-20T14:47:01Z",
+      "ecosystem": "go",
+      "summary": "### Impact\n\nWhen Git LFS makes object transfer or authentication requests to a remote host via SSH, it passes the path component of the remote's SSH URL as part of a command to be executed, but does not properly format the URL's path component as a single argument.  By inserting shell meta-character",
+      "link": "https://github.com/advisories/GHSA-w3f2-pr6x-wwjc"
+    },
+    {
+      "id": "GHSA-66q9-mxf2-xqw6",
+      "title": "TeamPass folder re-parenting authorization bypass",
+      "published": "2026-11-20T14:45:04Z",
+      "ecosystem": "composer",
+      "summary": "## Summary\n\nMissing authorization in the update_folder action: any authenticated non-read-only user can rename, re-parent and convert to personal any folder in the instance, moving another team's credential subtree into their own personal space and removing it from the organization. Confirmed at HEA",
+      "link": "https://github.com/advisories/GHSA-66q9-mxf2-xqw6"
+    },
+    {
+      "id": "GHSA-2hjf-7455-w946",
+      "title": "aMQTT: Inefficient Regular Expression Complexity and Uncontrolled Resource Consumption and Improper Input Validation",
+      "published": "2026-11-20T14:43:41Z",
+      "ecosystem": "pip",
+      "summary": "### Impact\n\n`amqtt` is vulnerable to a remote denial of service caused by improper MQTT topic-filter validation combined with catastrophic regular-expression backtracking.\n\nA single client can freeze the entire broker by sending one specially crafted `SUBSCRIBE` packet followed by one `PUBLISH` pack",
+      "link": "https://github.com/advisories/GHSA-2hjf-7455-w946"
+    },
+    {
+      "id": "GHSA-hghq-53p7-c582",
+      "title": "go-guerrilla crashes on a bare XCLIENT command (7-byte slice off-by-one panic)",
+      "published": "2026-11-20T14:42:18Z",
+      "ecosystem": "go",
+      "summary": "The defect\n----------\nConfirmed at HEAD. server.go: cmdXCLIENT = []byte(\"XCLIENT\") is 7 bytes (line 78), so the dispatch match cmdXCLIENT.match(cmd) only guarantees len(input) >= 7. The handler then slices input[8:] (line 586):\n\n    case sc.XClientOn && cmdXCLIENT.match(cmd):\n        if toks := byte",
+      "link": "https://github.com/advisories/GHSA-hghq-53p7-c582"
+    },
+    {
+      "id": "GHSA-v9v2-98xq-627c",
+      "title": "pREST _groupby function-expression SQL injection (incomplete fix of CVE-2025-58450)",
+      "published": "2026-11-20T14:41:42Z",
+      "ecosystem": "go",
+      "summary": "What the fix did and the gap\n----------------------------\nThe v2.3.0 fix (commit e88dabb) routed the _select field through a strict new gate, sanitizeSelectField (postgres.go:947/1003/2097). The sibling _groupby path was left on the far weaker isSafeSQLExpression. adapters/postgres/postgres.go, Grou",
+      "link": "https://github.com/advisories/GHSA-v9v2-98xq-627c"
+    },
+    {
+      "id": "GHSA-3g82-77xr-68x5",
+      "title": "js-toml allows uncontrolled recursion in `load()` leading `RangeError` (stack exhaustion) on deeply nested input",
+      "published": "2026-11-20T14:40:45Z",
+      "ecosystem": "npm",
+      "summary": "## Summary\n\n`load()` parses untrusted TOML using a recursive-descent parser (Chevrotain) and a\nrecursive tree-walking interpreter. Neither the parser nor the interpreter enforces a\nmaximum nesting / key depth. A small, attacker-controlled document with deep nesting\n(arrays, inline tables) or a long ",
+      "link": "https://github.com/advisories/GHSA-3g82-77xr-68x5"
+    },
+    {
+      "id": "GHSA-x6w4-f264-3vvr",
+      "title": "Refitter: Unrestricted OpenAPI references permit build-host SSRF and file inclusion",
+      "published": "2026-11-20T14:35:29Z",
+      "ecosystem": "nuget",
+      "summary": "### Summary\n\nRefitter (the `refitter` dotnet tool, built on NJsonSchema for `$ref` resolution) fetches remote\n`http(s)` URLs and reads local files (including absolute paths and `../` traversal outside the input\ndirectory), inlining the referenced schema into the generated Refit interface/contracts. ",
+      "link": "https://github.com/advisories/GHSA-x6w4-f264-3vvr"
+    },
+    {
+      "id": "GHSA-jwgx-mp9m-jwcr",
+      "title": "appium allows unauthenticated arbitrary file/directory deletion in @appium/storage-plugin",
+      "published": "2026-11-20T14:34:30Z",
+      "ecosystem": "npm",
+      "summary": "## Summary\n\nThe Appium storage plugin exposes an HTTP endpoint `POST /storage/delete` that takes a user-supplied `name` and deletes it from the server storage folder. The handler passes `name` straight into `path.join(storageRoot, name)` and then `fs.rimraf()` **without any path sanitization**. By s",
+      "link": "https://github.com/advisories/GHSA-jwgx-mp9m-jwcr"
+    },
     {
       "id": "GHSA-mc8w-wjhw-45x5",
       "title": "Etherpad: Pre-auth arbitrary file read",
@@ -629,182 +805,6 @@
       "ecosystem": "rust",
       "summary": "A sandboxed iframe can auto-navigate itself via declarative refresh even when automatic features should be blocked. This allows attacker-controlled embedded content to redirect itself without user action.\n\n### Summary\nServo allows a sandboxed iframe to auto-navigate itself via declarative refresh in",
       "link": "https://github.com/advisories/GHSA-pxh3-4qqv-58mg"
-    },
-    {
-      "id": "GHSA-jmmc-wjpc-pg34",
-      "title": "XWiki Platform: HQL injection in search allows unauthenticated database extraction including password hashes",
-      "published": "2026-11-19T20:44:32Z",
-      "ecosystem": "maven",
-      "summary": "### Impact\nThe query REST API allows executing HQL queries to filter the listed pages. While this properly checks access rights for the current user, the query can be used to combine when clauses and blind queries, to recover values, through FROM clause injection to join BaseObject and StringPropert",
-      "link": "https://github.com/advisories/GHSA-jmmc-wjpc-pg34"
-    },
-    {
-      "id": "GHSA-3h63-w8jq-rrf2",
-      "title": "SharpIppNext: Unbounded IPP Document Stream Buffering Leads to Denial of Service",
-      "published": "2026-11-19T20:43:01Z",
-      "ecosystem": "nuget",
-      "summary": "### Summary\n\nSharpIppNext's `IppProtocol.ReadIppRequestAsync()` unconditionally copies the entire attacker-supplied IPP document payload into an unbounded `MemoryStream` with no size limit. Because this behavior is enabled by default (`ReadDocumentStream = true`) and the official server documentatio",
-      "link": "https://github.com/advisories/GHSA-3h63-w8jq-rrf2"
-    },
-    {
-      "id": "GHSA-mx6p-3fg7-v6pj",
-      "title": "obsidian-sync-mcp: Missing Host/Origin validation lets a public website drive a victim's Obsidian vault via DNS rebinding (no-auth mode)",
-      "published": "2026-11-19T20:41:18Z",
-      "ecosystem": "npm",
-      "summary": "When obsidian-sync-mcp runs without MCP_AUTH_TOKEN (the documented no-auth mode for local use), the HTTP MCP endpoint does not validate the Host or Origin header before dispatching MCP methods (CWE-350). The no-auth mode's \"local network only\" assumption therefore does not hold: a malicious web page",
-      "link": "https://github.com/advisories/GHSA-mx6p-3fg7-v6pj"
-    },
-    {
-      "id": "GHSA-gpcc-36pq-8qxr",
-      "title": "Tapir: Construction/decode RCE via property name -> raw case-class field (tapir-openapi-codegen)",
-      "published": "2026-11-19T20:39:27Z",
-      "ecosystem": "maven",
-      "summary": "The OpenAPI code generator (tapir-openapi-codegen-core) builds Scala source by string templating and emitted several names/values from the (untrusted) OpenAPI document without escaping or validation, allowing injection of arbitrary Scala that runs at generated-code compile time and/or endpoint-assem",
-      "link": "https://github.com/advisories/GHSA-gpcc-36pq-8qxr"
-    },
-    {
-      "id": "GHSA-833v-v58w-294h",
-      "title": "Todoist MCP Server: Browser DNS rebinding lets websites write and delete Todoist data through local MCP server",
-      "published": "2026-11-19T20:38:35Z",
-      "ecosystem": "npm",
-      "summary": "The self-hosted `todoist-mcp-http` server accepts browser-origin MCP requests with attacker-controlled `Host` and `Origin` headers. A malicious website can use DNS rebinding to route its own origin to a victim's local `127.0.0.1` MCP server, then invoke Todoist MCP tools without a caller credential.",
-      "link": "https://github.com/advisories/GHSA-833v-v58w-294h"
-    },
-    {
-      "id": "GHSA-w42c-h7hr-f67p",
-      "title": "Gortex: Arbitrary file write / repo-confinement escape in `write_file` / `edit_file` / `move_inline` MCP tools → code execution",
-      "published": "2026-11-19T20:36:31Z",
-      "ecosystem": "go",
-      "summary": "### Summary\nGortex is an MCP server exposing `write_file`, `edit_file`, and `move_inline` tools. `resolveFilePath` **exempts absolute paths** from confinement, and the write handlers — unlike `read_file` / `get_symbol_source` — **never call `guardSymlinkWithinRepo`**. A single MCP `write_file` call ",
-      "link": "https://github.com/advisories/GHSA-w42c-h7hr-f67p"
-    },
-    {
-      "id": "GHSA-4c2f-96cf-f5fc",
-      "title": "OpenID4VP: X.509 chain validation accepts a forged certificate that reuses a trusted anchor's Subject DN without verifying its signature",
-      "published": "2026-11-19T20:35:57Z",
-      "ecosystem": "npm",
-      "summary": "## Summary\n\n`ChainBuilder` (the private RFC 5280 validator behind `TrustEvaluator` and the public credential-parsing API) terminated chain building on **Subject Distinguished Name string equality** rather than on cryptographic closure to a trust anchor. A certificate whose Subject DN string matched ",
-      "link": "https://github.com/advisories/GHSA-4c2f-96cf-f5fc"
-    },
-    {
-      "id": "GHSA-j282-pjg5-j643",
-      "title": "keystore-go: Keystore integrity and password verification bypass via stripped trailing digest in Decode()",
-      "published": "2026-11-19T20:35:35Z",
-      "ecosystem": "go",
-      "summary": "### Summary\n`keystore.Decode()` fails to check the error returned when reading the trailing SHA-1 integrity digest of a JKS keystore. If an attacker removes the final 20 bytes from a `.jks` file, the digest read returns an empty slice and the byte-comparison loop never executes, so `Decode()` return",
-      "link": "https://github.com/advisories/GHSA-j282-pjg5-j643"
-    },
-    {
-      "id": "GHSA-r7wg-f7r2-8wf7",
-      "title": "Axon: Download of Code Without Integrity Check in axon-mcp",
-      "published": "2026-11-19T20:34:53Z",
-      "ecosystem": "pip",
-      "summary": "### Summary\naxon rtk-install downloads a pre-built rtkx binary from GitHub releases and executes it via subprocess.run() on every text-compression call, without verifying its integrity — no checksum, signature, or attestation check anywhere in the download/install path. If the release pipeline or a ",
-      "link": "https://github.com/advisories/GHSA-r7wg-f7r2-8wf7"
-    },
-    {
-      "id": "GHSA-q8v2-3j4h-xg2p",
-      "title": "Jane: Instantiation RCE via query parameter name -> raw PHPDoc */ breakout (jane-php/open-api-3)",
-      "published": "2026-11-19T16:18:45Z",
-      "ecosystem": "composer",
-      "summary": "### Summary\njane-php (open-api-3) builds PHP via nikic/php-parser (AST), so string literals are escaped -- but PHPDoc comment text is emitted RAW. The generated Client/Endpoint method docblocks embed the query parameter name verbatim in a `@param array{ \"<name>\"?: ... }` block. A `*/` in the query n",
-      "link": "https://github.com/advisories/GHSA-q8v2-3j4h-xg2p"
-    },
-    {
-      "id": "GHSA-x9xr-53qx-9qcf",
-      "title": "Jane: Instantiation RCE via header parameter name -> raw PHPDoc */ breakout (jane-php/open-api-3)",
-      "published": "2026-11-19T16:12:22Z",
-      "ecosystem": "composer",
-      "summary": "### Summary\njane-php (open-api-3) builds PHP via nikic/php-parser (AST), so string literals are escaped -- but PHPDoc comment text is emitted RAW. The generated Client/Endpoint method docblocks embed the header parameter name verbatim in a `@param array{ \"<name>\"?: ... }` block. A `*/` in the header",
-      "link": "https://github.com/advisories/GHSA-x9xr-53qx-9qcf"
-    },
-    {
-      "id": "GHSA-xwcw-j52r-34x4",
-      "title": "Jane: Instantiation RCE via parameter description -> raw PHPDoc */ breakout (jane-php/open-api-3)",
-      "published": "2026-11-19T16:12:11Z",
-      "ecosystem": "composer",
-      "summary": "### Summary\njane-php (open-api-3) builds PHP via nikic/php-parser (AST), so string literals are escaped -- but PHPDoc comment text is emitted RAW. The generated Client/Endpoint method docblocks embed the parameter description verbatim in a `@param array{ \"<name>\"?: ... }` block. A `*/` in the parame",
-      "link": "https://github.com/advisories/GHSA-xwcw-j52r-34x4"
-    },
-    {
-      "id": "GHSA-vg83-hcp4-5qcc",
-      "title": "DOMShell: domshell_eval classified as read-tier can execute side-effecting JavaScript without --allow-write",
-      "published": "2026-11-19T16:10:53Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\n\nThe `domshell_eval` MCP tool (and the `eval` command inside `domshell_execute`) was classified as **read-tier**, allowing it to run without the `--allow-write` server flag. However, `eval` and the write-tier `js` command dispatch to the same handler in the extension and call CDP `Runtim",
-      "link": "https://github.com/advisories/GHSA-vg83-hcp4-5qcc"
-    },
-    {
-      "id": "GHSA-pj7p-238h-76pv",
-      "title": "djangocms-moderation: Moderation comments disclosed to non-participant staff via the admin changelist",
-      "published": "2026-11-19T16:09:30Z",
-      "ecosystem": "pip",
-      "summary": "## Summary\n\nThe Django admin views for moderation comments (`CollectionCommentAdmin` and `RequestCommentAdmin`) render the full comment body but scope access only by an attacker-controlled `id` in the URL and Django's model-level `view_*comment` permission. They perform no per-object participant che",
-      "link": "https://github.com/advisories/GHSA-pj7p-238h-76pv"
-    },
-    {
-      "id": "GHSA-8776-qf3h-26r3",
-      "title": "Mareforma: Unsigned Claims Can Be Promoted to REPLICATED via Missing Signature Enforcement in Convergence Path",
-      "published": "2026-11-19T16:07:36Z",
-      "ecosystem": "pip",
-      "summary": "### Summary\n\n`mareforma` 0.3.3 contains a critical integrity flaw in the REPLICATED convergence logic (`_maybe_update_replicated_unlocked()` in `mareforma/db/core.py:1300-1319`). The peer-selection SQL query that determines whether two independent claims \"agree\" on the same anchor does not verify th",
-      "link": "https://github.com/advisories/GHSA-8776-qf3h-26r3"
-    },
-    {
-      "id": "GHSA-xfq4-8hf9-5h43",
-      "title": "Mareforma: transparency_logged trusts the unsigned rekor block",
-      "published": "2026-11-19T16:05:07Z",
-      "ecosystem": "pip",
-      "summary": "## What's wrong\n\nDuring restore, `transparency_logged` is recomputed as `1 if (toml_logged is not False and bundle_has_rekor) else 0`, where `bundle_has_rekor` comes only from a `rekor.uuid` field inside `signature_bundle`. That derivation is wrong in both directions.\n\nFirst, the rekor block is meta",
-      "link": "https://github.com/advisories/GHSA-xfq4-8hf9-5h43"
-    },
-    {
-      "id": "GHSA-rgg9-956j-3378",
-      "title": "Mareforma: invalidated claims still promote to REPLICATED",
-      "published": "2026-11-19T16:04:43Z",
-      "ecosystem": "pip",
-      "summary": "## What's wrong\n\n`_maybe_update_replicated_unlocked` never checks `t_invalid`, so a claim that a signed contradiction verdict has marked invalid can still climb to REPLICATED through convergence detection, and it pulls an honest peer up with it.\n\nThree gaps line up:\n\n- The new-claim short-circuit re",
-      "link": "https://github.com/advisories/GHSA-rgg9-956j-3378"
-    },
-    {
-      "id": "GHSA-hxh5-gp44-rc6p",
-      "title": "Mareforma: verify_bundle never checks a per-claim signature",
-      "published": "2026-11-19T16:03:39Z",
-      "ecosystem": "pip",
-      "summary": "## What's wrong\n\n`verify_bundle` documents that it verifies \"a bundle's DSSE envelope AND each per-claim signature\", lists \"per-claim signature failure\" among its raised errors, and promises that partial verification never surfaces \"an authenticated bundle that contains some invalid claims\" as succe",
-      "link": "https://github.com/advisories/GHSA-hxh5-gp44-rc6p"
-    },
-    {
-      "id": "GHSA-m29v-3g7g-9c63",
-      "title": "Mareforma: search_claims skips verify-on-read, serving forged rows",
-      "published": "2026-11-19T16:00:52Z",
-      "ecosystem": "pip",
-      "summary": "## What's wrong\n\n`search_claims` never calls `_row_verified_on_read`. Its row loop applies only the PRELIMINARY-unenrolled filter, then appends the row. `query_claims` runs the same projection but additionally re-verifies REPLICATED/ESTABLISHED signatures on read (line 4023) and drops any row that f",
-      "link": "https://github.com/advisories/GHSA-m29v-3g7g-9c63"
-    },
-    {
-      "id": "GHSA-4g68-3pwx-5vfj",
-      "title": "NATS Server MQTT subscribe permission bypass exposes internal QoS 2 metadata",
-      "published": "2026-11-19T16:00:12Z",
-      "ecosystem": "go",
-      "summary": "### Background\n\nNATS.io is a high performance open source pub-sub distributed communication technology, built for the cloud, on-premise, IoT and edge computing.\n\nThe NATS Server MQTT support uses internal `$MQTT.*` subjects to implement MQTT protocol features such as QoS handling.\n\n### Problem Descr",
-      "link": "https://github.com/advisories/GHSA-4g68-3pwx-5vfj"
-    },
-    {
-      "id": "GHSA-qrcv-3558-gj4f",
-      "title": "NATS Server: MQTT SUBSCRIBE Protocol Injection via Leaf Node/Route Forwarding allows arbitrary NATS command injection",
-      "published": "2026-11-19T15:56:55Z",
-      "ecosystem": "go",
-      "summary": "### Background\n\nNATS.io is a high performance open source pub-sub distributed communication technology, built for the cloud, on-premise, IoT and edge computing.\n\nThe NATS Server supports MQTT clients and can bridge MQTT activity into NATS subjects across routes and leafnode connections.\n\n### Problem",
-      "link": "https://github.com/advisories/GHSA-qrcv-3558-gj4f"
-    },
-    {
-      "id": "GHSA-cvx8-9ff6-54xq",
-      "title": "PGPainless: Unbounded Compressed Packet Descent in inline-detach and MessageInspector leads to Denial of Service (DoS)",
-      "published": "2026-11-19T00:53:49Z",
-      "ecosystem": "maven",
-      "summary": "### Summary\nAn architectural security boundary bypass in inline-detach and MessageInspector allows remote, unauthenticated attackers to force unbounded recursive decompression routines. By supplying a specially crafted OpenPGP message containing deeply nested compressed packet structures, an attacke",
-      "link": "https://github.com/advisories/GHSA-cvx8-9ff6-54xq"
     }
   ]
 }
