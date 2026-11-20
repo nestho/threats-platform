@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-20T02:37:41Z",
+  "updated_at": "2026-11-20T10:31:11Z",
   "source": "Microsoft MSRC + Ubuntu Security Notices",
   "source_url": [
     "https://api.msrc.microsoft.com/update-guide/rss",
@@ -10,6 +10,62 @@
   "normalisation_failures": [],
   "partial": null,
   "items": [
+    {
+      "id": "CVE-2024-7533",
+      "vendor": "Microsoft",
+      "title": "Chromium: CVE-2024-7533 Use after free in Sharing",
+      "published": "2026-11-20T09:06:50Z",
+      "summary": "Information published.",
+      "link": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-7532"
+    },
+    {
+      "id": "CVE-2023-1531",
+      "vendor": "Microsoft",
+      "title": "Chromium: CVE-2023-1531 Use after free in ANGLE",
+      "published": "2026-11-20T09:05:37Z",
+      "summary": "Information published.",
+      "link": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-1531"
+    },
+    {
+      "id": "USN-9182-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9182-1: nginx vulnerabilities",
+      "published": "2026-11-20T03:15:31Z",
+      "summary": "Marc Luchian and Liviu-Alexandru Bud discovered that nginx did not correctly handle certain configurations using the try_files and alias directives. A remote attacker could possibly use this issue to cause nginx to crash, resulting in a denial of service. (CVE-2026-125283) Vivek Parikh discovered th",
+      "link": "https://ubuntu.com/security/notices/USN-9182-1"
+    },
+    {
+      "id": "USN-9181-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9181-1: OpenJDK 8 vulnerabilities",
+      "published": "2026-11-20T02:42:46Z",
+      "summary": "It was discovered that the JGSS component of OpenJDK 8 did not correctly authenticate users. A remote attacker could possibly use this issue to read or modify sensitive data. (CVE-2026-114939) Nicholas Carlini discovered that the JSSE component of OpenJDK 8 did not correctly authorize users. A remot",
+      "link": "https://ubuntu.com/security/notices/USN-9181-1"
+    },
+    {
+      "id": "USN-9179-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9179-1: CRaC JDK 21 vulnerabilities",
+      "published": "2026-11-20T02:36:27Z",
+      "summary": "Albert Yang and Quang Luong discovered that the Compiler component of CRaC JDK 21 did not correctly handle certain inputs. A remote attacker could possibly use this issue to cause a denial of service or execute arbitrary code. (CVE-2026-114938) It was discovered that the JGSS component of CRaC JDK 2",
+      "link": "https://ubuntu.com/security/notices/USN-9179-1"
+    },
+    {
+      "id": "USN-9178-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9178-1: CRaC JDK 17 vulnerabilities",
+      "published": "2026-11-20T02:36:11Z",
+      "summary": "Albert Yang and Quang Luong discovered that the Compiler component of CRaC JDK 17 did not correctly handle certain inputs. A remote attacker could possibly use this issue to cause a denial of service or execute arbitrary code. (CVE-2026-114938) It was discovered that the JGSS component of CRaC JDK 1",
+      "link": "https://ubuntu.com/security/notices/USN-9178-1"
+    },
+    {
+      "id": "USN-9180-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9180-1: CRaC JDK 25 vulnerabilities",
+      "published": "2026-11-20T02:34:22Z",
+      "summary": "Albert Yang and Quang Luong discovered that the Compiler component of CRaC JDK 25 did not correctly handle certain inputs. A remote attacker could possibly use this issue to cause a denial of service or execute arbitrary code. (CVE-2026-114938) It was discovered that the JGSS component of CRaC JDK 2",
+      "link": "https://ubuntu.com/security/notices/USN-9180-1"
+    },
     {
       "id": "USN-9177-1",
       "vendor": "Ubuntu",
@@ -513,62 +569,6 @@
       "published": "2026-11-19T15:12:43Z",
       "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Multiple devices driver; - eXpress Data Path; - Kernel build system; - ARM64 architecture; - PowerPC architecture; - R",
       "link": "https://ubuntu.com/security/notices/USN-9174-1"
-    },
-    {
-      "id": "USN-9168-2",
-      "vendor": "Ubuntu",
-      "title": "USN-9168-2: Linux kernel (FIPS) vulnerabilities",
-      "published": "2026-11-19T15:12:17Z",
-      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Stream parser; - ARM64 architecture; - S390 architecture; - x86 architecture; - Compressed RAM block device driver; - ",
-      "link": "https://ubuntu.com/security/notices/USN-9168-2"
-    },
-    {
-      "id": "USN-9171-2",
-      "vendor": "Ubuntu",
-      "title": "USN-9171-2: Linux kernel (Oracle) vulnerabilities",
-      "published": "2026-11-19T15:12:06Z",
-      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - IPv4 networking; - Ethernet bridge; - Netfilter; - XFRM subsystem; (CVE-2026-98432, CVE-2026-99999)",
-      "link": "https://ubuntu.com/security/notices/USN-9171-2"
-    },
-    {
-      "id": "USN-9170-2",
-      "vendor": "Ubuntu",
-      "title": "USN-9170-2: Linux kernel (AWS FIPS) vulnerabilities",
-      "published": "2026-11-19T15:12:06Z",
-      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - IPv4 networking; - Ethernet bridge; - Netfilter; - SCTP protocol; - XFRM subsystem; (CVE-2026-64564, CVE-2026-98432, C",
-      "link": "https://ubuntu.com/security/notices/USN-9170-2"
-    },
-    {
-      "id": "USN-9172-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9172-1: Linux kernel vulnerabilities",
-      "published": "2026-11-19T13:43:11Z",
-      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - IPv4 networking; - Ethernet bridge; - Netfilter; - XFRM subsystem; (CVE-2026-98432, CVE-2026-99999)",
-      "link": "https://ubuntu.com/security/notices/USN-9172-1"
-    },
-    {
-      "id": "USN-9171-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9171-1: Linux kernel vulnerabilities",
-      "published": "2026-11-19T13:43:00Z",
-      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - IPv4 networking; - Ethernet bridge; - Netfilter; - XFRM subsystem; (CVE-2026-98432, CVE-2026-99999)",
-      "link": "https://ubuntu.com/security/notices/USN-9171-1"
-    },
-    {
-      "id": "CVE-2026-118148",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-118148 Active Directory Domain Services Elevation of Privilege Vulnerability",
-      "published": "2026-11-18T16:00:00Z",
-      "summary": "Updated the CVSS score and corrected FAQs. This is an informational change only.",
-      "link": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-118148"
-    },
-    {
-      "id": "CVE-2026-121680",
-      "vendor": "Microsoft",
-      "title": "CVE-2026-121680 Windows NTLM Spoofing Vulnerability",
-      "published": "2026-11-17T16:00:00Z",
-      "summary": "Updated an acknowledgement. This is an informational change only.",
-      "link": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-121680"
     }
   ]
 }
