@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-21T16:24:51Z",
+  "updated_at": "2026-11-21T19:34:20Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,1921 @@
   ],
   "recent": {
     "lookback_days": 3,
-    "total": 2233,
-    "items_available": 2233,
+    "total": 2286,
+    "items_available": 2286,
     "normalisation_failures": [],
-    "items_parsed": 2233,
+    "items_parsed": 2286,
     "items": [
+      {
+        "id": "CVE-2026-134006",
+        "published": "2026-11-21T19:16:32Z",
+        "description": "A weakness has been identified in Moonshot AI Kimi Code up to 2.7.2. This vulnerability affects the function guardToolExecution of the file packages/agent-core-v2/src/features/plan/planService.ts of the component Plan Mode Permission Guard. Executing a manipulation can lead to improper authorization",
+        "severity": "LOW",
+        "score": 1.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134006",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134007",
+        "published": "2026-11-21T19:16:32Z",
+        "description": "A security vulnerability has been detected in itsourcecode Banking Management System 1.0. This issue affects some unknown processing of the file manage_handover.php. The manipulation of the argument ID leads to sql injection. It is possible to initiate the attack remotely. The exploit has been discl",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134007",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-125294",
+        "published": "2026-11-21T19:16:31Z",
+        "description": "The Nexter Blocks Pro plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 5.0.10 via the `tpgb_ajax_register_user()` function. This is due to a byte-level denylist on the `tpgb_acf_key[]` and `tpgb_acf[]` parameters that fails to block Unicode look-alike ",
+        "severity": "CRITICAL",
+        "score": 9.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125294",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-133993",
+        "published": "2026-11-21T18:16:54Z",
+        "description": "A security flaw has been discovered in D-Link DIR-600L 2.17b02. This affects the function FUN_0040efb0 of the file gena.cgi of the component GENA Subscription Handler. Performing a manipulation of the argument service results in stack-based buffer overflow. The attack is possible to be carried out r",
+        "severity": "CRITICAL",
+        "score": 9.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133993",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-133990",
+        "published": "2026-11-21T18:16:53Z",
+        "description": "A vulnerability was identified in Cockpit-HQ Cockpit up to 2.14.1. Affected by this issue is some unknown functionality of the file cron.php of the component Web Worker. Such manipulation of the argument token leads to missing authentication. The attack can be executed remotely. The attack requires ",
+        "severity": "LOW",
+        "score": 2.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133990",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134458",
+        "published": "2026-11-21T17:17:11Z",
+        "description": "web-token jwt-framework and jwt-library before 3.4.12, 4.0.x before 4.0.8, 4.1.x before 4.1.10, and 4.2.x before 4.2.4, and jwt-encryption-algorithm-ecdh-es through 3.2.10, have a ConcatKDF::generate() that performs a single SHA-256 round, deriving at most 32 bytes for ECDH-ES and ECDH-SS direct key",
+        "severity": "HIGH",
+        "score": 8.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134458",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134459",
+        "published": "2026-11-21T17:17:11Z",
+        "description": "web-token jwt-framework and jwt-library before 3.4.10, 4.0.x before 4.0.7, and 4.1.x before 4.1.7 contain a padding oracle in RSACrypt::decryptWithRSA15() because RSA1_5 decryption lacks implicit rejection, so invalid padding, wrong CEK length, and valid padding take measurably different time. Remot",
+        "severity": "HIGH",
+        "score": 8.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134459",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134460",
+        "published": "2026-11-21T17:17:11Z",
+        "description": "web-token jwt-framework 1.2.0 before 3.4.10, jwt-experimental before 3.4.10, 4.0.x before 4.0.7, and 4.1.x before 4.1.7 contain a missing integrity check in the experimental Chacha20Poly1305 key-encryption algorithm, which discards the Poly1305 tag in encryptKey() and calls openssl_decrypt() without",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134460",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134461",
+        "published": "2026-11-21T17:17:11Z",
+        "description": "Web-Token jwt-framework and jwt-library before 3.4.10, 4.0.0 before 4.0.7, and 4.1.0 before 4.1.7 contain an uncontrolled resource consumption vulnerability in PBES2AESKW::unwrapKey(), which passes the attacker-controlled p2c JWE header value to hash_pbkdf2() without an upper bound. Unauthenticated ",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134461",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134451",
+        "published": "2026-11-21T17:17:10Z",
+        "description": "Dockhand before 1.0.57 contains a privilege escalation vulnerability that allows non-admin users with settings:edit permission to modify OIDC provider configuration due to an improper permission check. Attackers can send a PUT request to /api/auth/oidc/<provider-id> setting adminClaim to their own O",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134451",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134452",
+        "published": "2026-11-21T17:17:10Z",
+        "description": "Dockhand before 1.0.57 merges stack secret environment variables into the environment used to spawn docker compose during stack deploys without filtering reserved keys such as PATH. An authenticated attacker with stacks:edit permission can set PATH to a directory containing a malicious binary and tr",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134452",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134453",
+        "published": "2026-11-21T17:17:10Z",
+        "description": "Dockhand before 1.0.50 contains an improper access control vulnerability that allows authenticated unprivileged users to read restricted data by querying API endpoints lacking RBAC checks. Attackers can access /api/users, /api/license, and /api/hawser/connect to obtain user emails and roles, the ful",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134453",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134454",
+        "published": "2026-11-21T17:17:10Z",
+        "description": "Hysteria from 2.0.0 before 2.9.2 contains an ACL bypass vulnerability that allows authenticated clients to reach blocked UDP destinations by reusing an established UDP session. Attackers can open a session to an allowed destination, then send later packets to localhost or private-network addresses t",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134454",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134455",
+        "published": "2026-11-21T17:17:10Z",
+        "description": "Hysteria 1.0.0 before 2.9.2 contains a denial of service vulnerability in FragUDPMessage where UDP fragmentation fails to handle headers larger than the maximum datagram payload size. Authenticated clients can advertise a small max_datagram_frame_size and trigger a UDP response, causing a slice boun",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134455",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134456",
+        "published": "2026-11-21T17:17:10Z",
+        "description": "Hysteria 2.5.0 before 2.9.2 contains a denial of service vulnerability in the HTTP sniff implementation that fails to limit header size. Attackers can continuously send excessively large HTTP headers without terminating them, exhausting server memory and causing out-of-memory crashes.",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134456",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134457",
+        "published": "2026-11-21T17:17:10Z",
+        "description": "Hysteria 2.5.0 before 2.8.2 contains a memory allocation vulnerability when sniffing is enabled, allowing authenticated users to trigger out-of-memory conditions. Attackers with a valid password can forward a crafted QUIC packet with a huge crypto length, causing the server to exhaust memory and cra",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134457",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134434",
+        "published": "2026-11-21T17:17:09Z",
+        "description": "Frappe ERPNext 16.0.0 before 16.36.0 contains a missing authorization vulnerability in a Manufacturing module endpoint that allows authenticated users to cancel Stock Reservation Entries without record-level write permission. Low-privilege attackers can send crafted requests naming manufacturing doc",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134434",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134435",
+        "published": "2026-11-21T17:17:09Z",
+        "description": "Frappe ERPNext before 15.124.2 and 16.x before 16.50.0 contains a missing authorization vulnerability in an Accounts module endpoint that records bank clearance dates, which checks only a broad role permission before writing to caller-named payment documents. Authenticated Accounts Users can send cr",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134435",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134436",
+        "published": "2026-11-21T17:17:09Z",
+        "description": "Frappe ERPNext 15.8.0 before 15.121.4 and 16.x before 16.36.0 contains a missing authorization vulnerability in an endpoint shared across modules that returns transaction child table rows without checking permissions on the child table or parent document. Authenticated attackers, including portal us",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134436",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134448",
+        "published": "2026-11-21T17:17:09Z",
+        "description": "Finsys Dockhand 1.0.7 before 1.0.57 contains a path traversal vulnerability that allows low-privileged users to read and write arbitrary files by setting an unvalidated envPath on a stack source. Attackers with stacks:edit permission can point envPath to files like /etc/shadow or SSH keys, then use ",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134448",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134449",
+        "published": "2026-11-21T17:17:09Z",
+        "description": "Dockhand before 1.0.57 contains a cross-site request forgery vulnerability that allows attackers to perform state-changing actions by exploiting missing Origin header validation and absent CSRF tokens. Attackers can lure authenticated users to a same-site attacker page that submits forged POST reque",
+        "severity": "MEDIUM",
+        "score": 6.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134449",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134450",
+        "published": "2026-11-21T17:17:09Z",
+        "description": "Dockhand before 1.0.57 contains a clickjacking vulnerability because src/hooks.server.ts never sets X-Frame-Options or CSP frame-ancestors headers on responses. Attackers on a same-site origin can embed the UI in an invisible iframe to trick authenticated users into stopping stacks, deleting resourc",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134450",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134428",
+        "published": "2026-11-21T17:17:08Z",
+        "description": "Frappe ERPNext 13.0.0 before 15.121.4 and 16.x before 16.36.0 contains a missing authorization vulnerability in a Stock module endpoint that returns Item master records without checking whether the caller may read the requested records. Authenticated attackers, including portal users or users with n",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134428",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134429",
+        "published": "2026-11-21T17:17:08Z",
+        "description": "Frappe ERPNext before 15.121.4 and 16.x before 16.36.0 contains a missing authorization vulnerability in a CRM and Support module endpoint that returns Communications of documents without checking whether the caller may read them. Authenticated attackers with a common operational role can send craft",
+        "severity": "HIGH",
+        "score": 8.4,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134429",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134430",
+        "published": "2026-11-21T17:17:08Z",
+        "description": "Frappe ERPNext 12.0.0 before 15.121.4 and 16.x before 16.36.0 contains a missing authorization vulnerability in an Accounts module endpoint that returns the parsed content of private import-format files without checking permission on the requested records. Authenticated attackers, including portal u",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134430",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134431",
+        "published": "2026-11-21T17:17:08Z",
+        "description": "Frappe ERPNext 7.0.0 before 15.122.0 and 16.x before 16.50.0 contains an SQL injection vulnerability in endpoints that build part of a query from caller-supplied sort parameters without validation. Authenticated low-privilege users can send crafted requests whose sort parameter holds SQL that the da",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134431",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134432",
+        "published": "2026-11-21T17:17:08Z",
+        "description": "Frappe ERPNext 15.0.0 before 15.121.4 and 16.x before 16.36.0 contains a missing authorization vulnerability in a Stock module import endpoint that does not check whether the caller may create inserted records or download a named file. Authenticated attackers, including portal users or users with no",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134432",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134433",
+        "published": "2026-11-21T17:17:08Z",
+        "description": "Frappe ERPNext before 15.124.2 and 16.x before 16.53.0 fails to enforce record-level authorization in several endpoints, reports and forms, allowing authenticated low-privilege users to access data beyond their role. Attackers can send crafted requests naming out-of-scope records to read other compa",
+        "severity": "HIGH",
+        "score": 8.4,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134433",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134422",
+        "published": "2026-11-21T17:17:07Z",
+        "description": "Frappe ERPNext 13.0.0 before 15.121.4 and 16.x before 16.36.0 contains a missing authorization vulnerability in a POS endpoint that returns POS Opening Entries without verifying record-level read permissions. Authenticated users, including portal users or users with no assigned roles, can send craft",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134422",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134423",
+        "published": "2026-11-21T17:17:07Z",
+        "description": "Frappe ERPNext 6.26.0 before 15.121.4 and 16.x before 16.36.0 contains a missing authorization vulnerability in a Stock module endpoint that returns stock data without checking whether the caller may read the requested records. Authenticated attackers, including portal users or users with no assigne",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134423",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134424",
+        "published": "2026-11-21T17:17:07Z",
+        "description": "Frappe ERPNext 8.2.5 before 15.121.4 and 16.x before 16.36.0 contains a missing authorization vulnerability in a Stock module endpoint that returns on-hand stock quantities without checking record-level permissions. Authenticated attackers, including portal users or users without roles, can send cra",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134424",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134425",
+        "published": "2026-11-21T17:17:07Z",
+        "description": "Frappe ERPNext 13.0.0 before 15.121.4 and 16.x before 16.36.0 contains a missing authorization vulnerability in a Stock module endpoint that returns item valuation rates without checking whether the caller may read the requested records. Authenticated attackers, including portal users or users with ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134425",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134426",
+        "published": "2026-11-21T17:17:07Z",
+        "description": "Frappe ERPNext 15.x 11.0.0-beta before 15.121.4 and 16.x before 16.36.0 contains a missing authorization vulnerability in an Accounts module endpoint that returns Sales Order and Purchase Order values and counterparties without checking permissions on the requested records. Authenticated users, incl",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134426",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134427",
+        "published": "2026-11-21T17:17:07Z",
+        "description": "Frappe ERPNext 15.53.0 before 15.121.4 and 16.x before 16.36.0 contains a missing authorization vulnerability in an Assets module endpoint that returns cost and quantity fields of purchase and stock transactions without record-level permission checks. Authenticated users, including portal users or u",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134427",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134416",
+        "published": "2026-11-21T17:17:06Z",
+        "description": "Frappe ERPNext 15.55.0 before 15.121.4 and 16.x before 16.36.0 contains a missing authorization vulnerability in an Accounts module endpoint that returns a company's Chart of Accounts without checking whether the caller may read the requested records. Authenticated users, including portal users or u",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134416",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134417",
+        "published": "2026-11-21T17:17:06Z",
+        "description": "Frappe ERPNext 13.0.0 before 15.121.4 and 16.x before 16.36.0 contains a missing authorization vulnerability in an Accounts module endpoint that returns uploaded bank statement file content without checking record-level permissions. Authenticated attackers, including portal users or users with no as",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134417",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134418",
+        "published": "2026-11-21T17:17:06Z",
+        "description": "Frappe ERPNext 4.0.0 before 15.122.0 and 16.x before 16.50.0 contains a missing authorization vulnerability in an Accounts module endpoint that returns the taxes and charges of documents without checking record permissions. Authenticated users, including portal users or users with no roles, can requ",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134418",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134419",
+        "published": "2026-11-21T17:17:06Z",
+        "description": "Frappe ERPNext 10.0.0 before 15.122.0 and 16.x before 16.50.0 contains a missing authorization vulnerability in an Accounts module endpoint that returns Payment Terms Template rows without checking whether the caller may read the requested records. Authenticated attackers, including portal users or ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134419",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134420",
+        "published": "2026-11-21T17:17:06Z",
+        "description": "Frappe ERPNext 10.0.0 before 15.122.0 and 16.x before 16.50.0 contains a missing authorization vulnerability in an Accounts module endpoint that returns Payment Term settings without checking whether the caller may read the specific records requested. Authenticated attackers, including portal users ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134420",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134421",
+        "published": "2026-11-21T17:17:06Z",
+        "description": "Frappe ERPNext 11.0.0-beta before 15.121.4 and 16.x before 16.36.0 contains a missing authorization vulnerability in a Selling module endpoint that returns Loyalty Program terms without checking permission on the requested records. Authenticated users, including portal users or users with no assigne",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134421",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134411",
+        "published": "2026-11-21T17:17:05Z",
+        "description": "Frappe ERPNext 11.1.7 before 15.121.4 and 16.x before 16.36.0 contains a missing authorization vulnerability in a Regional module endpoint that returns private e-invoice files after checking only document-type permissions, not per-record User Permissions. Authenticated attackers with a common operat",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134411",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134412",
+        "published": "2026-11-21T17:17:05Z",
+        "description": "Frappe ERPNext 8.0.0 before 15.123.0 contains a missing authorization vulnerability in a Stock module endpoint that allows authenticated users to read restricted warehouse data. Attackers with a common operational role can send crafted requests naming warehouses excluded by their User Permissions to",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134412",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134413",
+        "published": "2026-11-21T17:17:05Z",
+        "description": "Frappe ERPNext 11.0.0-beta before 15.121.4 contains a missing authorization vulnerability that allows authenticated users to read POS Profile cashier lists by calling a POS endpoint lacking record permission checks. Attackers, including portal users or users with no roles, can send crafted requests ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134413",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134414",
+        "published": "2026-11-21T17:17:05Z",
+        "description": "Frappe ERPNext 5.0.0 before 15.122.0 contains a missing authorization vulnerability in an Accounts module endpoint that allows authenticated users to read Taxes and Charges Template rows without permission checks. Attackers, including portal users or users with no assigned roles, can send crafted re",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134414",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134415",
+        "published": "2026-11-21T17:17:05Z",
+        "description": "Frappe ERPNext 11.0.0-beta before 15.121.4 and 16.x before 16.36.0 contains a missing authorization vulnerability in a Selling module endpoint that returns customer loyalty point balances without checking the caller's permission on the requested records. Authenticated attackers, including portal use",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134415",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134405",
+        "published": "2026-11-21T17:17:04Z",
+        "description": "Frappe ERPNext 13.0.0 before 15.122.0 and 16.x before 16.50.0 contains a missing authorization vulnerability in an Accounts module endpoint that returns Bank Transaction metadata of other companies without checking whether the caller may read the requested records. Authenticated attackers, including",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134405",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134406",
+        "published": "2026-11-21T17:17:04Z",
+        "description": "Frappe ERPNext 15.94.2 before 15.122.0 and 16.x before 16.50.0 contains an incorrect authorization vulnerability in a supplier portal endpoint whose party identity check ignores party type, failing to distinguish a Customer and a Supplier that share a name. Authenticated users, including portal user",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134406",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134407",
+        "published": "2026-11-21T17:17:04Z",
+        "description": "Frappe ERPNext 11.0.0-beta before 15.124.0 and 16.x before 16.52.0 contains an authorization flaw in the customer portal Issue list, which scopes records differently from the detail view and skips permission checks on requested records. Authenticated users, including portal users without roles, can ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134407",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134408",
+        "published": "2026-11-21T17:17:04Z",
+        "description": "Frappe ERPNext 16.0.1 before 16.50.0 contains a missing authorization vulnerability in a Stock dashboard chart endpoint that returns site-wide stock value when the caller has no permitted warehouse. Authenticated users with common operational roles can send crafted requests naming records outside th",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134408",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134409",
+        "published": "2026-11-21T17:17:04Z",
+        "description": "Frappe ERPNext 5.0.0 before 15.122.0 and 16.x before 16.50.0 contains a missing authorization vulnerability in a Projects module endpoint that returns employee costing and billing rates without record-level permission checks. Authenticated users, including portal users or users without roles, can se",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134409",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134410",
+        "published": "2026-11-21T17:17:04Z",
+        "description": "Frappe ERPNext 15.0.0 before 15.122.0 and 16.x before 16.50.0 contains a missing authorization vulnerability in a Stock module endpoint that returns Serial No and Batch ledger entries without checking whether the caller may read the requested records. Authenticated attackers, including portal users ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134410",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134397",
+        "published": "2026-11-21T17:17:03Z",
+        "description": "Frappe ERPNext 15.10.4 before 15.122.0 and 16.x before 16.50.0 contains a missing authorization vulnerability in a Stock module endpoint that checks whether an inventory number exists and creates missing Serial No and Batch master records without verifying create permission. Authenticated users can ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134397",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134398",
+        "published": "2026-11-21T17:17:03Z",
+        "description": "Frappe ERPNext 15.87.0 before 15.121.4 and 16.x before 16.36.0 contains a missing authorization vulnerability in an Accounts module endpoint that changes Period Closing Voucher job status without permission checks and accepts a request method triggerable cross-site. Authenticated users without an Ac",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134398",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134399",
+        "published": "2026-11-21T17:17:03Z",
+        "description": "Frappe ERPNext 8.11.1 before 15.124.0 and 16.x before 16.52.0 is missing an authorization check in print and portal views, which fail to apply desk users' User Permissions to customer documents. Authenticated desk users with an ordinary job role can send crafted requests naming records outside their",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134399",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134400",
+        "published": "2026-11-21T17:17:03Z",
+        "description": "Frappe ERPNext 13.49.0 before 14.0.0, 14.17.2 before 15.124.0, and 16.x before 16.52.0 contains a missing authorization vulnerability in a Selling module endpoint that returns Sales Order line items without checking whether the caller may read the requested records. Authenticated attackers, includin",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134400",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134403",
+        "published": "2026-11-21T17:17:03Z",
+        "description": "Frappe ERPNext 7.0.0 before 15.124.0 and 16.x before 16.52.0 contains a missing authorization vulnerability in the customer portal Projects list, which returns every field without checking permission on the requested records. Authenticated users, including portal users or users with no assigned role",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134403",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134404",
+        "published": "2026-11-21T17:17:03Z",
+        "description": "Frappe ERPNext 6.3.0 before 15.124.0 and 16.x before 16.52.0 contains a missing authorization vulnerability in the customer and supplier portal list endpoint, which returns complete selling documents and RFQs without checking permission on the requested records. Authenticated attackers, including po",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134404",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134392",
+        "published": "2026-11-21T17:17:02Z",
+        "description": "Frappe ERPNext 15.0.0 before 15.122.0 and 16.x before 16.50.0 contains a missing validation vulnerability in a Stock module endpoint that fails to verify reserved item rows belong to the target Sales Order. Authenticated users with the Stock User role can send crafted reservation requests naming ano",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134392",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134393",
+        "published": "2026-11-21T17:17:02Z",
+        "description": "Frappe ERPNext 10.1.41 before 15.122.0 and 16.x before 16.50.0 contains a missing authorization vulnerability in a Manufacturing module endpoint that replaces BOMs without checking whether the caller may modify either BOM or the affected assemblies. Authenticated users who can create a BOM Update Lo",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134393",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134394",
+        "published": "2026-11-21T17:17:02Z",
+        "description": "Frappe ERPNext 14.44.0 before 15.122.0 and 16.x before 16.50.0 contains a missing authorization vulnerability in the Accounts module's payment unreconciliation endpoint, which does not check the caller's permission on the vouchers it unreconciles. Authenticated users with the Accounts User role can ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134394",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134395",
+        "published": "2026-11-21T17:17:02Z",
+        "description": "Frappe ERPNext 13.0.0 before 15.122.0 and 16.x before 16.50.0 contains a missing authorization vulnerability in an Accounts module endpoint that returns Bank Transaction amounts and bank accounts without checking whether the caller may read the requested records. Authenticated users with a common op",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134395",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134396",
+        "published": "2026-11-21T17:17:02Z",
+        "description": "Frappe ERPNext 13.0.0 before 15.122.0 and 16.x before 16.50.0 contains a missing authorization vulnerability in an Accounts module endpoint that reconciles Bank Transactions against caller-named vouchers, checking permission only on the Bank Transaction and not on each voucher. Authenticated users w",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134396",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134386",
+        "published": "2026-11-21T17:17:01Z",
+        "description": "Frappe ERPNext 15.111.0 before 15.121.4 and 16.22.0 before 16.36.0 contains a missing authorization vulnerability in an Accounts module endpoint that returns item rows of a caller-named inter-company invoice or order and accepts a caller-supplied document type without checking read permission. Authe",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134386",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134387",
+        "published": "2026-11-21T17:17:01Z",
+        "description": "Frappe ERPNext 12.0.0 before 15.121.4 and 16.x before 16.36.0 contains a missing authorization vulnerability in an Accounts module dashboard chart source that returns account balance history without checking chart or account permissions. Authenticated attackers, including portal users or users with ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134387",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134388",
+        "published": "2026-11-21T17:17:01Z",
+        "description": "Frappe ERPNext 14.0.0 before 15.124.0 and 16.x before 16.52.0 contains a stored cross-site scripting vulnerability in the CRM module because notes on Leads and Opportunities are saved without passing through the HTML sanitiser. Authenticated users with the Sales User role can save a note containing ",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134388",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134389",
+        "published": "2026-11-21T17:17:01Z",
+        "description": "Frappe ERPNext 6.18.0 before 15.124.0 and 16.x before 16.52.0 contains a missing authorization vulnerability in Payment Requests that lets authenticated Accounts User role holders read source documents they lack permission to access. Attackers can create a Payment Request through the generic record ",
+        "severity": "HIGH",
+        "score": 8.4,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134389",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134390",
+        "published": "2026-11-21T17:17:01Z",
+        "description": "Frappe ERPNext 13.0.0 before 15.122.0 and 16.x before 16.50.0 contains a missing authorization vulnerability in the make_merge_log endpoint that allows authenticated users to read POS Invoice data. Attackers can supply POS Invoice names outside their permitted scope to retrieve each invoice's custom",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134390",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134391",
+        "published": "2026-11-21T17:17:01Z",
+        "description": "Frappe ERPNext 12.2.0 before 15.122.0 and 16.x before 16.50.0 contains a missing authorization vulnerability in an Assets module endpoint that returns Asset details without checking whether the caller may read the requested records. Authenticated attackers, including portal users or users with no as",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134391",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134379",
+        "published": "2026-11-21T17:17:00Z",
+        "description": "Frappe ERPNext 8.2.5 before 15.121.4 and 16.x before 16.36.0 contains an incorrect authorization vulnerability in Manufacturing module endpoints that check only document-type write access, not permission on each Work Order. Authenticated users restricted by User Permissions can send crafted requests",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134379",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134381",
+        "published": "2026-11-21T17:17:00Z",
+        "description": "Frappe ERPNext 5.0.0 before 15.121.4 and 16.x before 16.36.0 contains an incorrect authorization vulnerability in the Buying module: the endpoint that closes and reopens Purchase Orders checks only document-type write permission, not per-document User Permissions. Authenticated users with Purchase O",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134381",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134382",
+        "published": "2026-11-21T17:17:00Z",
+        "description": "Frappe ERPNext 5.0.0 before 15.121.4 and 16.x before 16.36.0 contains an incorrect authorization vulnerability in a Selling module endpoint that checks only document-type write permission, not permission on each Sales Order, when closing or reopening Sales Orders. Authenticated users restricted by U",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134382",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134383",
+        "published": "2026-11-21T17:17:00Z",
+        "description": "Frappe ERPNext 14.47.0 before 15.122.0 and 16.x before 16.50.0 contains a missing authorization vulnerability in the Accounts module where a method on accounting vouchers creates and submits Repost Accounting Ledger documents with permission checks skipped. Authenticated users with read access to a ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134383",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134384",
+        "published": "2026-11-21T17:17:00Z",
+        "description": "Frappe ERPNext 13.0.0 before 15.124.2 and 16.x before 16.53.0 contains a missing authorization vulnerability in a Stock module endpoint that returns item cost data without checking the caller's permissions on the item, company, or warehouse. Authenticated attackers, including portal users or users r",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134384",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134385",
+        "published": "2026-11-21T17:17:00Z",
+        "description": "Frappe ERPNext 6.3.0 before 15.122.0 and 16.x before 16.50.0 contains a missing authorization vulnerability in an Accounts module endpoint used to choose a Tax Rule, which returns party address details without permission checks. Authenticated attackers, including portal users or users with no roles,",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134385",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134374",
+        "published": "2026-11-21T17:16:59Z",
+        "description": "Frappe ERPNext 15.0.0 before 15.124.0 and 16.x before 16.52.0 contains a missing authorization vulnerability in Assets module endpoints that return a depreciation schedule for a caller-supplied asset without checking read permission on that asset. Authenticated users can name another company's asset",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134374",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134375",
+        "published": "2026-11-21T17:16:59Z",
+        "description": "Frappe ERPNext 13.0.0 before 15.124.0 and 16.x before 16.52.0 contains an incorrect authorization vulnerability in an Accounts module endpoint that returns Payment Entries for a readable bank record without checking read permission on each Payment Entry. Authenticated users with an Accounts role can",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134375",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134376",
+        "published": "2026-11-21T17:16:59Z",
+        "description": "Frappe ERPNext 11.0.0-beta before 15.122.0 and 16.x before 16.34.0 contains a missing authorization vulnerability in an Accounts module endpoint that returns the subscription plans linked to a caller-named invoice without checking read permission on that invoice. Authenticated attackers can send cra",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134376",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134377",
+        "published": "2026-11-21T17:16:59Z",
+        "description": "Frappe ERPNext 7.1.0 before 15.121.0 and 16.x before 16.34.0 contains a missing authorization vulnerability in Projects module endpoints that return Timesheet data without restricting results to records the caller may read. Any authenticated user, including one with no assigned roles, can send craft",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134377",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134378",
+        "published": "2026-11-21T17:16:59Z",
+        "description": "Frappe ERPNext 12.7.0 before 15.124.0 and 16.x before 16.52.0 stores imported Italian supplier e-invoices as public files in the Regional module, which the server returns without authentication. Unauthenticated attackers can request predictable file URLs built from the supplier's VAT number and invo",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134378",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134364",
+        "published": "2026-11-21T17:16:58Z",
+        "description": "pypdf 3.7.1 before 7.0.0 contains an information disclosure vulnerability that allows attackers to guess placeholders in encrypted templated documents by analyzing file identifiers. Attackers with a document sharing the same template and access to other documents' file identifiers can recover placeh",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134364",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134366",
+        "published": "2026-11-21T17:16:58Z",
+        "description": "pypdf before 7.0.0 contains a resource exhaustion vulnerability that allows attackers to cause large memory usage by supplying crafted PDF cross-reference streams. Attackers can craft a PDF whose cross-reference stream offsets all point to one large object, exhausting memory in applications parsing ",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134366",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134367",
+        "published": "2026-11-21T17:16:58Z",
+        "description": "pypdf 2.4.2 before 7.0.0 contains a resource exhaustion vulnerability in its handling of XFA forms that allows attackers to cause excessive memory consumption. Attackers can supply a crafted PDF containing XFA forms with many small fields so that loading the forms consumes large amounts of memory, c",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134367",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134370",
+        "published": "2026-11-21T17:16:58Z",
+        "description": "Frappe Framework before 15.120.1 and 16.x before 16.33.1 contains a path traversal vulnerability in file attachment handling that permits arbitrary file read. Authenticated attackers holding a single ordinary role without write permissions can abuse attachment handling to read server files outside t",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134370",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134371",
+        "published": "2026-11-21T17:16:58Z",
+        "description": "Frappe 8.8.0 before 16.30.0 contains an insecure direct object reference vulnerability in the SMS Settings get_contact_number API that lets attackers read any Contact's phone numbers without permission checks. Attackers can call the endpoint, which uses an uncorrelated EXISTS subquery, to retrieve m",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134371",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134372",
+        "published": "2026-11-21T17:16:58Z",
+        "description": "Frappe ERPNext 4.3.0 before 15.121.6 and 16.x before 16.37.0 contains an SQL injection vulnerability in an endpoint of the Selling and Buying modules, where a request value validated early can be overridden by caller-supplied data that reaches a database query unvalidated. Any authenticated user, in",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134372",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134373",
+        "published": "2026-11-21T17:16:58Z",
+        "description": "Frappe ERPNext 14.0.0 before 15.121.0 and 16.x before 16.34.0 contains a missing authorization vulnerability in a Utilities module endpoint that lets any authenticated user retry failed bulk transactions without a role check. Attackers, including portal users with no roles, can send crafted requests",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134373",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134359",
+        "published": "2026-11-21T17:16:57Z",
+        "description": "AzuraCast before 0.24.1 fails to escape backslashes in Liquidsoap annotation values, allowing media managers to break out of quoted annotation strings. Attackers can set a crafted ID3 title ending in a backslash to inject a process: protocol URI, achieving OS command execution in the Liquidsoap cont",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134359",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134360",
+        "published": "2026-11-21T17:16:57Z",
+        "description": "Heym before 0.0.148 passes Playwright navigate-step URLs to page.goto() without validating the scheme and runs step-based scripts inside the backend container. A signed-in user who can run workflows can navigate to file:// URLs and use getText to read known-path files such as the Kubernetes ServiceA",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134360",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134361",
+        "published": "2026-11-21T17:16:57Z",
+        "description": "Coder 2.6.0 before 2.29.21, 2.30.0 before 2.34.10, 2.35.0 before 2.35.8, 2.36.0 before 2.36.5, and 2.37.0 before 2.37.1 contains a denial of service vulnerability in the workspace agent dRPC API, whose handlers dereference unset request sub-messages and unconfigured Tailnet providers without recover",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134361",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134362",
+        "published": "2026-11-21T17:16:57Z",
+        "description": "Coder 2.6.0 before 2.29.26, 2.30.0 before 2.34.18, 2.35.0 before 2.37.10, and 2.38.0 before 2.38.6 contains a cross-site request forgery vulnerability because CSRF exemption patterns in coderd/httpmw/csrf.go are matched as unanchored regular expressions, letting affected API routes skip CSRF token a",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134362",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134363",
+        "published": "2026-11-21T17:16:57Z",
+        "description": "Coder 2.32.0 before 2.34.17, 2.35.0 before 2.36.12, 2.37.0 before 2.37.9, and 2.38.0 before 2.38.5 contain a symlink-following flaw in the Coder Agents read_skill_file tool, which validates skill file paths lexically but follows symlinks outside the skill directory. Attackers who place a malicious s",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134363",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134351",
+        "published": "2026-11-21T17:16:56Z",
+        "description": "Rclone 1.49.0 before 1.76.0 contains an improper authentication vulnerability in Proxy.Call that lets revoked users keep access because cached auth-proxy answers are never revalidated. Revoked users of serve sftp, ftp, http, or webdav can reconnect within five minutes using their original credential",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134351",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134352",
+        "published": "2026-11-21T17:16:56Z",
+        "description": "Rclone from 1.51.0 before 1.76.0 contains an authentication bypass vulnerability in serve sftp --auth-proxy because the generateCacheKey cache key omits the authentication method. Attackers knowing a victim's base64 public key can submit it as a password from the same client IP to reuse the cached e",
+        "severity": "CRITICAL",
+        "score": 9.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134352",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134353",
+        "published": "2026-11-21T17:16:56Z",
+        "description": "rclone before 1.76.0 leaks credentials in its swift, netstorage and seafile backends, which follow HTTP redirects using Go's default policy: swift and netstorage send auth headers or passwords on cross-host or HTTPS-to-HTTP redirects, and seafile sends API tokens or passwords on same-host HTTPS-to-H",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134353",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134354",
+        "published": "2026-11-21T17:16:56Z",
+        "description": "rclone from 1.59.0 before 1.76.0 contains a confinement escape in the local backend's setXattr function that lets attackers write user.* extended attributes outside the destination root via a planted symlink. Attackers who plant a symlink to an outside directory with a pre-existing child can use --l",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134354",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134355",
+        "published": "2026-11-21T17:16:56Z",
+        "description": "AzuraCast before 0.24.1 contains an improper authorization vulnerability in the /api/station/{station_id}/profile/edit endpoint that exposes and accepts Icecast/Shoutcast passwords for users holding Manage Station Profile without Manage Station Broadcasting. Authenticated station users can read the ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134355",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134356",
+        "published": "2026-11-21T17:16:56Z",
+        "description": "AzuraCast 0.19.0 before 0.24.1 contains an improper authorization vulnerability that allows users with station media rights to add tracks to other stations' playlists by supplying foreign playlist ids to the single-file edit endpoint. Attackers can send sequential playlist ids in the playlists array",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134356",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134341",
+        "published": "2026-11-21T17:16:55Z",
+        "description": "actix-http 3.0.0 before 3.20.3 contains a denial of service vulnerability that allows unauthenticated remote attackers to exhaust memory by sending large-window brotli request bodies. Attackers can send an 850-byte body with Content-Encoding: br declaring a 2^30 window, forcing about 1 GiB of decode",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134341",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134342",
+        "published": "2026-11-21T17:16:55Z",
+        "description": "actix-http 3.18.10 before 3.20.2 contains an HTTP request smuggling vulnerability in its chunked decoder, which treats a bare LF after the last chunk as the start of a trailer section. Attackers can send a body ending in 0\\r\\n\\n through a connection-reusing proxy so the next request's body is parsed",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134342",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134347",
+        "published": "2026-11-21T17:16:55Z",
+        "description": "actix-files before 0.7.4 contains an information disclosure vulnerability that allows remote unauthenticated attackers to read hidden files by requesting Windows 8.3 short-name aliases. Attackers can request short names like ENV~1 or GIT~1/config to bypass the leading-dot check in actix_files::Files",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134347",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134348",
+        "published": "2026-11-21T17:16:55Z",
+        "description": "Rclone from 1.56.0 before 1.76.0 contains a timing side-channel vulnerability in its htpasswd authentication middleware that allows unauthenticated attackers to enumerate valid usernames. Attackers can send HTTP Basic Auth requests with wrong passwords and measure response times, because bcrypt veri",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134348",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134349",
+        "published": "2026-11-21T17:16:55Z",
+        "description": "Rclone from 1.46.0 before 1.76.0 contains a memory exhaustion vulnerability in the remote control server that allows unauthenticated clients to crash rclone by sending oversized JSON bodies. Attackers can POST large JSON payloads to protected RC methods, which handlePost decodes before authorization",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134349",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134350",
+        "published": "2026-11-21T17:16:55Z",
+        "description": "rclone 1.67.0 before 1.76.0 contains a credential leak vulnerability in the Ulozto backend that sends X-Auth-Token and X-User-Token headers to unintended hosts on HTTP redirect because downloads use the authenticated f.rest client instead of f.cdn. Attackers who can observe or redirect CDN download ",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134350",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134329",
+        "published": "2026-11-21T17:16:54Z",
+        "description": "ArcadeDB 26.2.1 before 26.11.1 contains an observable response discrepancy in MCPToolUtils.resolveDatabase, which checks database existence before authorization and returns distinct 'not authorized' and 'does not exist' errors; separately, a failed Bolt LOGON from READY leaves the previous principal",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134329",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134334",
+        "published": "2026-11-21T17:16:54Z",
+        "description": "ArcadeDB from 26.7.1 before 26.11.1 contains an information disclosure vulnerability because LSMTreeFullTextIndex computes BM25 corpus statistics over all buckets of the indexed type, ignoring bucket access control on subtypes. Authenticated users with read access to a supertype but not its subtype ",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134334",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134335",
+        "published": "2026-11-21T17:16:54Z",
+        "description": "ArcadeDB 21.10.1 before 26.11.1 contains a resource-limit bypass vulnerability that allows restricted users to evade per-group readTimeout because limits are applied to shared cached statements and plans. Attackers can run SQL text previously cached by an unrestricted principal to skip timeouts, or ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134335",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134337",
+        "published": "2026-11-21T17:16:54Z",
+        "description": "ArcadeDB native-image server builds 26.8.1 before 26.11.1 contain an authorization bypass vulnerability that allows authenticated clients to perform writes through read-only query paths by nesting statements in SELECT. Missing reflection metadata leaves SqlAstInspector with an empty AST, letting INS",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134337",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134338",
+        "published": "2026-11-21T17:16:54Z",
+        "description": "ArcadeDB 25.8.1 before 26.11.1 contains an incorrect authorization vulnerability because per-type ACLs are keyed by type name, renames are not propagated to the permission configuration, and requestAccessOnType allows unknown type names by default. Authenticated users holding only updateSchema can r",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134338",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134339",
+        "published": "2026-11-21T17:16:54Z",
+        "description": "ArcadeDB from 26.11.1-SNAPSHOT before 26.11.1 contains an authorization bypass vulnerability that allows authenticated users to skip per-type ACL checks when a database is opened on demand. Attackers can send the first POST /api/v1/batch/{database} request to a closed database to read and write type",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134339",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134320",
+        "published": "2026-11-21T17:16:53Z",
+        "description": "@better-auth/passkey 1.4.0-beta.16 before 1.7.16 and 1.8.0-beta.0 before 1.8.0-beta.5, and the passkey plugin in better-auth 1.2.0-beta.18 before 1.4.0, do not confirm WebAuthn user verification when userVerification is \"required\" and take the expected origin from the request instead of configuratio",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134320",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134321",
+        "published": "2026-11-21T17:16:53Z",
+        "description": "better-auth from 0.8.1-beta.5 before 1.7.16 and 1.8.0-beta.0 before 1.8.0-beta.5, and @better-auth/passkey from 1.6.25 before 1.7.16 and 1.8.0-beta.0 before 1.8.0-beta.5, let revoked sessions stay valid because secondary storage session lists are updated non-atomically and some routes trust cookie-c",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134321",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134322",
+        "published": "2026-11-21T17:16:53Z",
+        "description": "better-auth 0.4.12-beta.7 before 1.7.16 and 1.8.0-beta.0 before 1.8.0-beta.5 contains an improper authentication vulnerability in the phone number plugin that lets sign-up and other flows save unverified phone numbers, which phone OTP sign-in then uses to select the account. Attackers can attach a v",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134322",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134324",
+        "published": "2026-11-21T17:16:53Z",
+        "description": "ArcadeDB 26.3.1 before 26.11.1 contains a read-only bypass vulnerability that allows server administrators to commit writes through the MCP read-only query tool by submitting Groovy-fallback Gremlin scripts. GremlinQueryEngine.analyze() evaluates scripts like Graph API addVertex calls on the auto or",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134324",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134325",
+        "published": "2026-11-21T17:16:53Z",
+        "description": "ArcadeDB before 26.11.1 contains a denial of service vulnerability in the Redis protocol handler, which neither replies to nor closes a pre-authentication connection when it receives an array whose first element is not a string. Unauthenticated attackers can resend such an array just within the 30-s",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134325",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134327",
+        "published": "2026-11-21T17:16:53Z",
+        "description": "ArcadeDB before 26.11.1 contains an authorization bypass vulnerability that allows authenticated users to read schema definitions of denied types through listings ignoring per-type ACLs. Attackers can query the PostgreSQL wire catalog, GraphQL introspection, or MCP get_schema to reveal property name",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134327",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134313",
+        "published": "2026-11-21T17:16:52Z",
+        "description": "Better Auth (better-auth, @better-auth/kysely-adapter, and @better-auth/drizzle-adapter) before 1.7.16 and 1.8.0-beta.0 before 1.8.0-beta.5 contains a race condition with MySQL or MariaDB serial IDs because the inserted row's ID is read via a separate LAST_INSERT_ID() query that may run on a differe",
+        "severity": "HIGH",
+        "score": 7.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134313",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134314",
+        "published": "2026-11-21T17:16:52Z",
+        "description": "better-auth 1.3.7 before 1.7.16 and 1.8.0-beta.0 before 1.8.0-beta.5 contains a race condition in the emailOTP plugin attempt counter, collision-prone email change code keys, and accent-insensitive email lookups. Unauthenticated attackers can send concurrent guesses exceeding allowedAttempts to brut",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134314",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134315",
+        "published": "2026-11-21T17:16:52Z",
+        "description": "better-auth 1.4.0 before 1.7.16 and 1.8.0-beta.0 before 1.8.0-beta.5 contains an improper authentication vulnerability because email-change links record the old and new addresses but not the requesting user. Attackers can open a still-valid link issued for their own account after a victim registers ",
+        "severity": "HIGH",
+        "score": 7.4,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134315",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134316",
+        "published": "2026-11-21T17:16:52Z",
+        "description": "@better-auth/electron 1.5.0-beta.12 before 1.7.16 and 1.8.0-beta.0 before 1.8.0-beta.5 accepts any validly signed value as its transfer cookie and returns the full endpoint context, including the auth secret and social provider client secrets, in sign-in responses. Authenticated users can obtain the",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134316",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134317",
+        "published": "2026-11-21T17:16:52Z",
+        "description": "@better-auth/stripe 1.2.0-beta.18 before 1.7.16 and 1.8.0-beta.0 before 1.8.0-beta.5 contains an authorization bypass vulnerability because the stripeCustomerId user field accepts values from sign-up and update-user requests, letting a user replace their own Stripe customer ID with another customer'",
+        "severity": "MEDIUM",
+        "score": 6.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134317",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134318",
+        "published": "2026-11-21T17:16:52Z",
+        "description": "better-auth 1.5.5 before 1.7.16 and 1.8.0-beta.0 before 1.8.0-beta.5 contains a privilege escalation vulnerability in the organization plugin, where the creator role check compares the raw invitation role string while later checks trim it. Admins or other non-creator roles that can invite can submit",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134318",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134310",
+        "published": "2026-11-21T17:16:51Z",
+        "description": "SurrealDB from 3.2.0 before 3.3.4 contains an authorization bypass vulnerability that allows record users to update protected rows by exploiting table-level PERMISSIONS FOR update predicates referencing COMPUTED fields. Because check_update_permissions evaluates the predicate before computed fields ",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134310",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134311",
+        "published": "2026-11-21T17:16:51Z",
+        "description": "better-auth 1.3.0 before 1.7.16 and 1.8.0-beta.0 before 1.8.0-beta.5 contains an incorrect authorization vulnerability in the admin plugin's /admin/update-user endpoint that lets roles holding user:update change another user's phoneNumber and phoneNumberVerified fields. Attackers can set their own v",
+        "severity": "HIGH",
+        "score": 7.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134311",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134312",
+        "published": "2026-11-21T17:16:51Z",
+        "description": "Better Auth 0.4.9 before 1.7.16 and 1.8.0-beta.0 before 1.8.0-beta.5 contains an OAuth sign-in authentication flaw that treats unverified provider emails as verified, including string \"false\" email_verified claims, unchecked generic OAuth profile/ID-token subject mismatches, and ignored Zoom provide",
+        "severity": "HIGH",
+        "score": 7.4,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134312",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134301",
+        "published": "2026-11-21T17:16:50Z",
+        "description": "SurrealDB before 4.0.0 contains a guard bypass vulnerability that allows authenticated users to execute write subqueries by embedding them in LIVE query WHERE clauses or field projections. Attackers can inject CREATE, UPDATE, DELETE, or RELATE statements that run atomically inside other users' trigg",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134301",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134302",
+        "published": "2026-11-21T17:16:50Z",
+        "description": "SurrealDB 1.0.0 before 4.0.0 contains a denial of service vulnerability that allows any user able to run queries to crash the server by triggering unchecked decimal overflow in math::sum or math::product. Attackers can submit a query summing or multiplying large decimal literals or aggregate stored ",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134302",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134303",
+        "published": "2026-11-21T17:16:50Z",
+        "description": "SurrealKV before 1.1.0 contains an out-of-bounds read vulnerability in the safe InternalKeyRef::from_encoded constructor, which only checks key length with a debug-only assertion. Callers passing keys shorter than 16 bytes, or crafted or corrupted SSTable blocks, trigger unchecked length underflow i",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134303",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134306",
+        "published": "2026-11-21T17:16:50Z",
+        "description": "SurrealDB before 4.0.0 contains an incorrect authorization vulnerability in filter_fields_by_permission that allows authenticated record users to read denied child field values. Attackers can query rows where overlapping items[*] and items[*].secret permissions compact arrays, causing shifted elemen",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134306",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134307",
+        "published": "2026-11-21T17:16:50Z",
+        "description": "SurrealDB 3.0.0 before 4.0.0 contains a permission bypass vulnerability that allows authenticated low-privilege database users to read restricted records by calling the GET /export endpoint. Attackers can export raw records that skip table SELECT predicates and field-level SELECT permissions, exposi",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134307",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134309",
+        "published": "2026-11-21T17:16:50Z",
+        "description": "SurrealDB 1.0.0 before 4.0.0 contains an authorization bypass vulnerability that allows authenticated users to shadow protected $access, $auth, and $token variables by binding them as FOR loop variables. Attackers can wrap queries in nested FOR loops with forged values to satisfy table permission pr",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134309",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134293",
+        "published": "2026-11-21T17:16:49Z",
+        "description": "SurrealDB 3.1.0 before 4.0.0 contains an SQL injection vulnerability in its Model Context Protocol (MCP) server because the identifier validator (consume_backtick_ident and validate_identifier) treats the first backtick as the closing delimiter, ignoring escape characters that the SurrealQL parser h",
+        "severity": "HIGH",
+        "score": 8.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134293",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134294",
+        "published": "2026-11-21T17:16:49Z",
+        "description": "SurrealDB 3.0.0 before 4.0.0 contains a path traversal vulnerability in its bucket storage layer on Windows, where ObjectKey::check_no_traversal splits object keys only on forward slashes while FileStore::to_os_path treats backslashes as directory separators. Attackers can supply object keys such as",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134294",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134295",
+        "published": "2026-11-21T17:16:49Z",
+        "description": "SurrealDB 3.0.0 before 4.0.0 contains a path traversal vulnerability in direct filesystem buckets because BucketController::check_permission evaluates key-based ACLs against the un-normalized object key, while FileStore::to_os_path collapses '..' sequences without a traversal check. An authenticated",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134295",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134298",
+        "published": "2026-11-21T17:16:49Z",
+        "description": "SurrealDB 3.0.0 before 4.0.0 contains an authorization bypass that allows users with the read-only VIEWER role to modify database schema, because CREATE on a nonexistent table implicitly defines it without the DEFINE TABLE permission check applied to explicit definitions. Authenticated VIEWER users ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134298",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134299",
+        "published": "2026-11-21T17:16:49Z",
+        "description": "SurrealDB 3.0.4 before 4.0.0 does not apply operator-configured WebSocket frame, message, and buffer size limits to the GraphQL WebSocket upgrade handler at GET /graphql, falling back to permissive library defaults. Unauthenticated remote attackers who supply the target namespace and database in req",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134299",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134300",
+        "published": "2026-11-21T17:16:49Z",
+        "description": "SurrealDB from 2.2.0 before 4.0.0 contains an authorization bypass vulnerability in Document::purge_references that lets authenticated users bypass target table PERMISSIONS by triggering REFERENCE ON DELETE cascades. Attackers can delete a referenced record to delete, unset, or run CUSTOM expression",
+        "severity": "HIGH",
+        "score": 7.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134300",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134287",
+        "published": "2026-11-21T17:16:48Z",
+        "description": "OpenRemote core before 1.34.0 contains an authentication bypass vulnerability in UserAssetProvisioningMQTTHandler that allows unauthenticated attackers to impersonate provisioned devices without proof of private key possession. Attackers can publish a known device's public certificate to the provisi",
+        "severity": "CRITICAL",
+        "score": 9.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134287",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134288",
+        "published": "2026-11-21T17:16:48Z",
+        "description": "SurrealDB 3.0.0 before 4.0.0 contains an authorization bypass vulnerability that allows clients with table write access to persist writes refused by THROWing table events within interactive transactions. Attackers can run a guarded statement via RPC begin and query, ignore the returned error, and co",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134288",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134289",
+        "published": "2026-11-21T17:16:48Z",
+        "description": "SurrealDB 1.0.0 before 4.0.0 prints SURREAL_PASS and SURREAL_TOKEN environment variable values in clear text in the --help and -h output of CLI commands such as surreal start, sql, import, export, and mcp, because the arguments do not set clap's hide_env_values. Anyone who later sees that terminal o",
+        "severity": "MEDIUM",
+        "score": 4.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134289",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134290",
+        "published": "2026-11-21T17:16:48Z",
+        "description": "SurrealDB 2.2.0 before 4.0.0 includes the record id of a referencing row in the error returned when a delete is blocked by an ON DELETE REJECT reference, without checking the caller's SELECT permission on that row. An authenticated principal with DELETE permission can attempt to delete a referenced ",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134290",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134291",
+        "published": "2026-11-21T17:16:48Z",
+        "description": "SurrealDB 3.0.0 before 4.0.0 contains a path traversal vulnerability in its filesystem storage bucket that only canonicalizes the bucket root, not descendant symlinks. Attackers can reference paths through a pre-existing symlink inside the bucket that pass the lexical prefix check, reading and writi",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134291",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134292",
+        "published": "2026-11-21T17:16:48Z",
+        "description": "SurrealDB 1.0.0 before 4.0.0 contains a capability check bypass in its embedded JavaScript scripting engine, where the surrealdb.functions bridge calls the internal fnc::synchronous() and fnc::asynchronous() dispatchers without enforcing function capability checks. Authenticated users denied access ",
+        "severity": "CRITICAL",
+        "score": 9.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134292",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134279",
+        "published": "2026-11-21T17:16:47Z",
+        "description": "Vikunja from 0.20.5 before 2.8.0 contains a login cross-site request forgery vulnerability in the OpenID Connect callback in OpenIdAuth.vue that accepts a valueless state parameter. Attackers can send a crafted callback link with an empty state and their own authorization code to silently log victim",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134279",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134280",
+        "published": "2026-11-21T17:16:47Z",
+        "description": "Vikunja 0.17.0 before 2.8.0 builds the task.deleted notification and webhook payload, including related tasks, with the deleting user's permissions and sends it to all project subscribers without per-recipient authorization checks. A user subscribed to a project, or owning its webhook, receives full",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134280",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134281",
+        "published": "2026-11-21T17:16:47Z",
+        "description": "Vikunja from 2.2.0 before 2.8.0 contains an information disclosure vulnerability that allows authenticated users to read other users' private projects through the tasks.overdue webhook payload. Attackers can register a personal tasks.overdue webhook with one subscribed overdue task, then receive pro",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134281",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134282",
+        "published": "2026-11-21T17:16:47Z",
+        "description": "Vikunja from 0.14.0 before 2.8.0 contains a mass assignment vulnerability that allows authenticated users to set json-hidden fields by sending XML request bodies to the v1 API. Attackers can set BackgroundFileID on project creation to download any stored file via the background endpoint, or create b",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134282",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134284",
+        "published": "2026-11-21T17:16:47Z",
+        "description": "Vikunja from 1.0.0 before 2.8.0 contains an account takeover vulnerability that allows attackers to hijack SSO identities by planting local accounts with unverified victim emails. When emailfallback is enabled, attackers register or edit a local account using the victim's email, causing the victim's",
+        "severity": "HIGH",
+        "score": 7.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134284",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134286",
+        "published": "2026-11-21T17:16:47Z",
+        "description": "OpenRemote from 1.2.0 before 1.34.0 contains an authorization bypass vulnerability in AlarmFacade that allows restricted users with write:rules to create alarms for assets outside their ruleset subtree. Attackers can deploy a JSON asset-scoped ruleset using target.custom asset ids to create HIGH sev",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134286",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134273",
+        "published": "2026-11-21T17:16:46Z",
+        "description": "Vikunja from 2.6.0 before 2.8.0 contains a resource exhaustion vulnerability in the Planka migration converter that multiplies task allocations for duplicate list IDs. Attackers controlling a Planka server can return boards with duplicate list IDs and many cards to exhaust memory and OOM-kill the Vi",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134273",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134275",
+        "published": "2026-11-21T17:16:46Z",
+        "description": "Vikunja from 0.8.0 before 2.8.0 contains a denial of service vulnerability that allows authenticated project readers to amplify response size by repeating requested properties in CalDAV PROPFIND requests. Attackers can send PROPFIND requests to the dav projects endpoint with hundreds of duplicate ca",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134275",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134276",
+        "published": "2026-11-21T17:16:46Z",
+        "description": "Vikunja from 2.2.1 before 2.8.0 contains a TOTP replay protection bypass in ValidateTOTPPasscode that allows attackers to reuse consumed codes by padding them with whitespace. Attackers with valid credentials who observe a used passcode can resubmit it whitespace-padded to the login API within the v",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134276",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134277",
+        "published": "2026-11-21T17:16:46Z",
+        "description": "Vikunja from 0.16.0 before 2.8.0 contains an information disclosure vulnerability that writes users' Trello API tokens to application logs and Sentry by formatting provider errors verbatim in listeners.go. When a Trello migration fails with a transport error, the URL error embeds the token query par",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134277",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134278",
+        "published": "2026-11-21T17:16:46Z",
+        "description": "Vikunja 2.3.0 before 2.8.0 contains an uncontrolled memory allocation in the CSV migration module because it does not de-duplicate label column mappings or cap labels per row, and enforces the item limit only after the full import is built. Authenticated users can send one request to /api/v2/migrati",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134278",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134267",
+        "published": "2026-11-21T17:16:45Z",
+        "description": "Vikunja from 0.21.0 before 2.8.0 contains a denial of service vulnerability that allows authenticated users to exhaust memory and CPU by creating tasks with many reminders and long titles. Attackers can store a task whose ParseAlarms rendering in pkg/caldav/caldav.go uses quadratic string concatenat",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134267",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134268",
+        "published": "2026-11-21T17:16:45Z",
+        "description": "Vikunja from 0.21.0 before 2.8.0 contains a resource exhaustion vulnerability that allows authenticated users to trigger instance-wide database writes by setting a project position below 0.1. Attackers can repeatedly send PUT requests to /api/v2/projects/{id} so recalculateProjectPositions updates e",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134268",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134269",
+        "published": "2026-11-21T17:16:45Z",
+        "description": "Vikunja from 0.18.0 before 2.8.0 contains a resource amplification vulnerability in pkg/models/export.go that allows authenticated users to exhaust server memory by exporting heavily related tasks. Attackers can relate many tasks to one task with a large description and request a user export, causin",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134269",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134270",
+        "published": "2026-11-21T17:16:45Z",
+        "description": "Vikunja from 0.19.0 before 2.8.0 contains a denial of service vulnerability that allows authenticated CalDAV users to exhaust server CPU by uploading VTODO properties with many parameters. Attackers can PUT an iCalendar body with thousands of parameters on one line to any valid project ID, triggerin",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134270",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134271",
+        "published": "2026-11-21T17:16:45Z",
+        "description": "Vikunja from 1.0.0 before 2.8.0 contains a memory exhaustion vulnerability that allows authenticated users to crash the server by uploading extreme-width images as task attachments. Attackers can request the attachment preview endpoint so Lanczos resampling allocates width-proportional weight tables",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134271",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134272",
+        "published": "2026-11-21T17:16:45Z",
+        "description": "Vikunja from 0.9.0 before 2.8.0 contains an information disclosure vulnerability that allows project admins to view share creators' email addresses via the link share list endpoint. Attackers with admin permission can request the project shares endpoint and read the shared_by email field, exposing a",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134272",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134260",
+        "published": "2026-11-21T17:16:44Z",
+        "description": "Admidio 5.0.0 before 5.0.18 contains an improper authorization vulnerability in modules/profile/profile_new.php that allows authenticated Group Leaders to bypass field-level profile restrictions. Attackers can request mode=html_selection to read restricted field values and submit mode=save requests ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134260",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134261",
+        "published": "2026-11-21T17:16:44Z",
+        "description": "Admidio before 5.0.18 contains an insecure direct object reference vulnerability in mylist.php that loads list configurations by the list_uuid parameter while checking only the organization, not the owner or private flag. Authenticated users with Lists module access who know a victim's list UUID can",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134261",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134262",
+        "published": "2026-11-21T17:16:44Z",
+        "description": "Admidio 5.0.0 before 5.0.18 contains a stored cross-site scripting vulnerability that allows role administrators to inject JavaScript by placing quote-breaking payloads in role names rendered unencoded in the data-message attribute in modules/profile/roles_functions.php. Attackers can execute script",
+        "severity": "CRITICAL",
+        "score": 9.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134262",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134264",
+        "published": "2026-11-21T17:16:44Z",
+        "description": "Admidio from 5.0.2 before 5.0.17 contains an arbitrary file read vulnerability that allows any logged-in member to read server files by placing local paths in img src attributes of eCard messages. Attackers can send an eCard to their own account so sendEcard() embeds files like adm_my_files/config.p",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134264",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134265",
+        "published": "2026-11-21T17:16:44Z",
+        "description": "Vikunja from 2.4.0 before 2.8.0 contains a denial of service vulnerability in the richtext converter that allows authenticated project writers to exhaust server memory and CPU by storing tables with unbounded rowspan and colspan values. Any project reader or CalDAV client can trigger the expansion t",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134265",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134266",
+        "published": "2026-11-21T17:16:44Z",
+        "description": "Vikunja from 0.19.0 before 2.8.0 contains a denial of service vulnerability that allows authenticated users to exhaust CPU by supplying unbounded business-day operands in datemath filters. Attackers can send task or time-tracking filters like due_date > now+999999999999b, triggering a per-day loop i",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134266",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134254",
+        "published": "2026-11-21T17:16:43Z",
+        "description": "Admidio from 5.0.0 before 5.0.18 contains a path traversal vulnerability in DocumentsService::renameFile() that allows authenticated users to move files outside adm_my_files by supplying an unvalidated adm_new_name value. Attackers with folder upload permission can submit ../ sequences to file_renam",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134254",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134255",
+        "published": "2026-11-21T17:16:43Z",
+        "description": "Admidio from 5.0.17 before 5.0.18 contains a stored cross-site scripting vulnerability that allows authenticated users to inject JavaScript by saving a crafted value in their STREET profile field. Attackers can break out of the unencoded title attribute in members_assignment_data.php with an onmouse",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134255",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134256",
+        "published": "2026-11-21T17:16:43Z",
+        "description": "Admidio from 5.0.17 before 5.0.18 contains a missing authorization vulnerability that allows authenticated regular users to upload images into the announcements module by abusing the CKEditor upload handler. Attackers can send id=ann_description to ckeditor_upload_handler.php to store images under a",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134256",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134257",
+        "published": "2026-11-21T17:16:43Z",
+        "description": "Admidio before 5.0.18 contains an insufficient session expiration vulnerability that allows attackers to keep account access after a forgot-password reset because User::setPassword() deletes sessions using the visitor ID instead of the reset user's usr_id. Attackers already holding a victim's sessio",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134257",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134258",
+        "published": "2026-11-21T17:16:43Z",
+        "description": "Admidio 5.0.0 before 5.0.18 contains a path traversal vulnerability in the Documents & Files renameFile() action that allows authenticated users with folder upload rights to move files outside adm_my_files by supplying ../ sequences in adm_new_name. Attackers can relocate an uploaded SVG containing ",
+        "severity": "CRITICAL",
+        "score": 9.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134258",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134259",
+        "published": "2026-11-21T17:16:43Z",
+        "description": "Admidio from 5.0.16 before 5.0.18 contains a stored cross-site scripting vulnerability that allows users with folder upload rights to store JavaScript by uploading SVG files served inline. Attackers can upload a script-bearing SVG that downloadFile() serves as image/svg+xml inline without nosniff or",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134259",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134247",
+        "published": "2026-11-21T17:16:42Z",
+        "description": "SiYuan 3.8.0 before 3.8.10 contains an incorrect authorization vulnerability that allows anonymous attackers to read indexed asset text referenced only by publish-disabled attribute-view rows. Attackers can request /api/asset/getDocAssets on a public host document to obtain the leaked asset path, th",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134247",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134248",
+        "published": "2026-11-21T17:16:42Z",
+        "description": "SiYuan 3.6.0 before 3.8.10 contains an information disclosure vulnerability that allows authenticated Readers to read protected documents through block-reference footnote resolution in Markdown export. Attackers can request copyStdMarkdown for a public document referencing a hidden, disabled, or pas",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134248",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134249",
+        "published": "2026-11-21T17:16:42Z",
+        "description": "SiYuan before 3.8.10 contains an authentication bypass vulnerability that allows unauthenticated attackers to gain Administrator role by spoofing X-Forwarded-For through a loopback-trusted reverse proxy. Attackers can send requests with Host set to localhost and X-Forwarded-For set to 127.0.0.1 to r",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134249",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134250",
+        "published": "2026-11-21T17:16:42Z",
+        "description": "Grav Form plugin 1.1.0 before 9.1.40 contains a stored cross-site scripting vulnerability in Form::uploadFiles(), which sanitizes SVG only when a file's last extension is .svg and accepts markup under unrecognized extensions. Anonymous attackers can upload files like drawing.svg.foo through public a",
+        "severity": "HIGH",
+        "score": 8.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134250",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134251",
+        "published": "2026-11-21T17:16:42Z",
+        "description": "Grav API plugin from 1.0.16 before 1.1.11 contains an authorization bypass vulnerability that allows scoped API key holders to override page permission rules because checks read the owning account's authority instead of the key's scopes. Attackers can use keys minted on super-admin accounts to edit,",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134251",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134253",
+        "published": "2026-11-21T17:16:42Z",
+        "description": "Grav API plugin from 1.0.0 before 1.1.4 contains a remote code execution vulnerability that allows publishers with media and page write rights to write theme template files through the blueprint-upload endpoint. Attackers can upload a file into a theme's Twig templates folder and include it from san",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134253",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134242",
+        "published": "2026-11-21T17:16:41Z",
+        "description": "Parse Server 2.5.0 before 8.6.121 and 9.0.0 before 9.11.1-alpha.1 does not handle a failure to serialize an object after a beforeSave trigger, leaving the request unsettled and terminating the server process. A remote attacker able to update an object in a class with a beforeSave trigger can send a ",
+        "severity": "HIGH",
+        "score": 8.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134242",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134243",
+        "published": "2026-11-21T17:16:41Z",
+        "description": "Parse Server before 8.6.122 and 9.0.0 before 9.11.1-alpha.2 does not prevent dot notation keys from changing a field that a beforeSave trigger keeps constant or reverts, affecting Object, Array, GeoPoint, Polygon, Bytes (on MongoDB), and ACL fields on create and update. A client allowed to write the",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134243",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134244",
+        "published": "2026-11-21T17:16:41Z",
+        "description": "SiYuan 3.8.0 before 3.8.10 contains an information disclosure vulnerability in LAN sync that allows adjacent unauthenticated attackers to obtain device metadata by advertising a counterfeit peer with a replayed discovery tag. The client sends the sync scope ID, device name, OS, app version, and TLS ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134244",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134245",
+        "published": "2026-11-21T17:16:41Z",
+        "description": "SiYuan 3.8.0 before 3.8.10 contains an incorrect authorization vulnerability in the serveAssets route that allows unauthenticated attackers to read password-protected document assets via name collisions. Attackers can request GET /assets/<name> when a visible document references the same relative as",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134245",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134246",
+        "published": "2026-11-21T17:16:41Z",
+        "description": "SiYuan 3.6.0 before 3.6.2 and 3.7.3 before 3.8.10 contains a missing authorization vulnerability in the /api/block/getDOMText endpoint, which renders caller-supplied DOM without checking publish access for referenced image paths. When publish authentication is disabled, anonymous visitors can submit",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134246",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129850",
+        "published": "2026-11-21T17:16:40Z",
+        "description": "@fastify/express is a compatibility layer that lets Express middleware run inside the Fastify web framework. In versions 4.0.0 through 4.0.9, when Fastify routing is configured to be case-insensitive, the router folds the request path to lower case in a way that maps certain non-ASCII Unicode charac",
+        "severity": "HIGH",
+        "score": 7.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129850",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-133120",
+        "published": "2026-11-21T17:16:40Z",
+        "description": "@fastify/express is a compatibility layer that lets Express middleware run inside the Fastify web framework. In versions before 4.0.10, the plugin passes Express a request URL that does not always match the path Fastify's router dispatched, so path-scoped Express middleware can be skipped while the ",
+        "severity": "CRITICAL",
+        "score": 9.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133120",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-133250",
+        "published": "2026-11-21T17:16:40Z",
+        "description": "@fastify/middie is the middleware engine for the Fastify web framework. In versions up to and including 9.3.7, middie matches path-scoped middleware against its own reading of the request path, which can differ from the path Fastify's router uses to dispatch the request. When the two disagree, the r",
+        "severity": "CRITICAL",
+        "score": 9.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133250",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-133273",
+        "published": "2026-11-21T17:16:40Z",
+        "description": "@fastify/swagger-ui is the plugin that serves Swagger UI documentation for Fastify applications. In versions 2.1.0 through 6.1.4, the authentication hooks that applications register to protect the documentation are applied to every route the plugin adds except the bundled static asset instance. When",
+        "severity": "LOW",
+        "score": 3.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133273",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-133312",
+        "published": "2026-11-21T17:16:40Z",
+        "description": "@fastify/rate-limit is the rate-limiting plugin for the Fastify web framework. Starting in version 11.1.0, the plugin documented a manual flow for limiting failed login attempts that peeks at the limiter, runs the password check, and consumes a slot only on failure. Because the peek and the consume ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133312",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-133867",
+        "published": "2026-11-21T17:16:40Z",
+        "description": "@fastify/express is a compatibility layer that lets Express middleware run inside the Fastify web framework. In versions 4.0.7 through 4.0.9, the plugin does not rewrite regular-expression mount paths to account for a parameterized plugin prefix, so when middleware is mounted with a regular expressi",
+        "severity": "CRITICAL",
+        "score": 9.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133867",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-133988",
+        "published": "2026-11-21T17:16:40Z",
+        "description": "A security vulnerability has been detected in Chaterm up to 0.12.2 on Windows. The affected element is an unknown function of the file resources/app-update.yml of the component Auto-Update Mechanism. Such manipulation leads to download of code without integrity check. It is possible to launch the at",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133988",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-124626",
+        "published": "2026-11-21T17:16:39Z",
+        "description": "@fastify/express is a compatibility layer that lets Express middleware run inside the Fastify web framework. In versions 4.0.5 through 4.0.9, the plugin matches path-scoped Express middleware with a matcher that requires a non-empty value for a dynamic segment, while Fastify's router accepts an empt",
+        "severity": "CRITICAL",
+        "score": 9.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124626",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129504",
+        "published": "2026-11-21T17:16:39Z",
+        "description": "@fastify/express is a compatibility layer that lets Express middleware run inside the Fastify web framework. In versions 4.0.0 through 4.0.9, the plugin joins a path-scoped middleware's mount path to the Fastify plugin prefix by string concatenation, so when the plugin prefix ends with a slash or th",
+        "severity": "CRITICAL",
+        "score": 9.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129504",
+        "kev": false
+      },
       {
         "id": "CVE-2026-133985",
         "published": "2026-11-21T16:16:38Z",
@@ -20961,1386 +22871,6 @@
         "score": 3.3,
         "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-127096",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-73864",
-        "published": "2026-11-18T19:18:08Z",
-        "description": "install-artifact-from-github installs prebuilt native artifacts hosted by GitHub without compiling them locally. Prior to 1.7.0, bin/install-from-cache.js downloads a native .node artifact, allows RE2_DOWNLOAD_MIRROR to select a source, follows HTTP redirects including HTTPS-to-HTTP downgrades, and ",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-73864",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-75521",
-        "published": "2026-11-18T19:18:08Z",
-        "description": "Miren Runtime provides the runtime component for the Miren application platform. Prior to 0.11.1, the QUIC/HTTP3 RPC server on the default port 8443 uses tls.RequestClientCert and does not verify that presented certificates chain to the configured cluster certificate authority. The RPC authenticator",
-        "severity": "CRITICAL",
-        "score": 10.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-75521",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-61581",
-        "published": "2026-11-18T19:18:07Z",
-        "description": "The Datadog Agent collects events and metrics from hosts and sends them to Datadog. Prior to datadog-apm-inject 0.66.0, the Datadog Single Step Instrumentation injector stores helper tooling in a predictable host directory. On Linux or Kubernetes systems with SSI enabled and at least one Java servic",
-        "severity": "HIGH",
-        "score": 7.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-61581",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-61582",
-        "published": "2026-11-18T19:18:07Z",
-        "description": "Chamilo LMS is an open-source learning management system. Prior to 1.11.40, main/inc/ajax/user_manager.ajax.php exposes the update_users action without an authorization check and stores attacker-controlled firstname, lastname, and email values without HTML sanitization. An unauthenticated attacker c",
-        "severity": "MEDIUM",
-        "score": 6.4,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-61582",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-61583",
-        "published": "2026-11-18T19:18:07Z",
-        "description": "Chamilo LMS is an open-source learning management system. Prior to 1.11.40, main/dropbox/dropbox_functions.inc.php accepts a literal .htaccess filename in the course dropbox and stores it in a directory served by Apache, where the file can alter handler behavior under the required AllowOverride All ",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-61583",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-61584",
-        "published": "2026-11-18T19:18:07Z",
-        "description": "Chamilo LMS is an open-source learning management system. Prior to 1.11.40, main/inc/ajax/record_audio_rtc.ajax.php concatenates the user-controlled audio_dir parameter with the course document root and passes the result to recursive directory creation without path normalization. An authenticated co",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-61584",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-71481",
-        "published": "2026-11-18T19:18:07Z",
-        "description": "ALTCHA PHP is a lightweight PHP library for creating and verifying ALTCHA challenges. From 2.0.0 until 2.0.3, the verifySolution method skips HMAC signature verification when a challenge payload omits the signature field, even when hmacSignatureSecret is configured. An attacker can remove the signat",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-71481",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-71499",
-        "published": "2026-11-18T19:18:07Z",
-        "description": "cf-manager is an all-in-one dashboard for managing multiple Cloudflare accounts and services. Prior to 1.1.2, worker/src/routes/workers.ts uses bare fetch(url) calls to retrieve user-supplied URLs and deploys the returned content as a Worker script using stored Cloudflare credentials. The multipart ",
-        "severity": "CRITICAL",
-        "score": 10.0,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-71499",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-45142",
-        "published": "2026-11-18T19:18:06Z",
-        "description": "Chamilo LMS is an open-source learning management system. Prior to 1.11.40 and 2.0.1, main/lp/lp_ajax_save_objectives.php and public/main/lp/lp_ajax_save_objectives.php trust the request uid parameter instead of the authenticated user identity when saving SCORM learning objectives. Any authenticated",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-45142",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-54747",
-        "published": "2026-11-18T19:18:06Z",
-        "description": "Chamilo LMS is an open-source learning management system. Prior to 2.0.3, public/main/course_description/course_description_controller.php assigns contentDescription directly from a teacher's request in the Doctrine-based add and edit paths without cross-site scripting sanitization. The stored value",
-        "severity": "MEDIUM",
-        "score": 6.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-54747",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-55503",
-        "published": "2026-11-18T19:18:06Z",
-        "description": "Chamilo LMS is an open-source learning management system. Prior to 1.11.40 and 2.0.3, main/lp/scormItem.class.php and public/main/lp/scormItem.class.php store an attacker-controlled title element from imsmanifest.xml without cross-site scripting sanitization when a teacher imports a SCORM package. T",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-55503",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-55504",
-        "published": "2026-11-18T19:18:06Z",
-        "description": "Chamilo LMS is an open-source learning management system. Prior to 2.0.3, POST /api/social_posts accepts attacker-controlled content that SocialPost::setContent stores without cross-site scripting sanitization, and assets/vue/components/social/SocialWallPost.vue renders post.content through v-html w",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-55504",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-61528",
-        "published": "2026-11-18T19:18:06Z",
-        "description": "Chamilo LMS is an open-source learning management system. From 2.0.0 until 2.0.3, the BigBlueButton plugin is vulnerable to XML External Entity (XXE) injection when an authenticated administrator configures a malicious BigBlueButton server URL. Processing attacker-controlled XML from that server can",
-        "severity": "HIGH",
-        "score": 8.2,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-61528",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-61532",
-        "published": "2026-11-18T19:18:06Z",
-        "description": "Chamilo LMS is an open-source learning management system. Prior to 1.11.40 and 2.0.3, src/Chamilo/CourseBundle/Component/CourseCopy/CourseRestorer.php and src/CourseBundle/Component/CourseCopy/CourseRestorer.php use paths supplied by an imported legacy course backup without consistently confining th",
-        "severity": "CRITICAL",
-        "score": 9.0,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-61532",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-61578",
-        "published": "2026-11-18T19:18:06Z",
-        "description": "Chamilo LMS is an open-source learning management system. Prior to 1.11.40 on the 1.11 release line and in 2.0.0, plugin/cleandeletedfiles/src/ajax.php and public/plugin/CleanDeletedFiles/src/ajax.php pass the request path parameter and list parameter directly to unlink without canonicalization, fil",
-        "severity": "HIGH",
-        "score": 7.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-61578",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130785",
-        "published": "2026-11-18T19:17:55Z",
-        "description": "Incus from 7.3.0 before 7.6.0 contains an authentication bypass vulnerability in the /dev/incus guest API that allows a process in one container to impersonate another by creating a cgroup named with a forged lxc.monitor. component. Attackers can read the target container's user.* and cloud-init.* c",
-        "severity": "HIGH",
-        "score": 8.4,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130785",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130786",
-        "published": "2026-11-18T19:17:55Z",
-        "description": "Incus before 7.6.0 contains a configuration injection vulnerability that allows users who can launch instances from controlled images to inject LXC directives by embedding line breaks in OCI config.json values or oci.entrypoint and oci.cwd keys. Attackers can add liblxc hooks or crafted tmpfs lxc.mo",
-        "severity": "CRITICAL",
-        "score": 9.4,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130786",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130787",
-        "published": "2026-11-18T19:17:55Z",
-        "description": "Frappe ERPNext before 16.35.0 contains a missing authorization vulnerability in financial reporting endpoints that allows low-privilege authenticated users to generate reports outside their permitted scope. Attackers can send crafted requests to affected reporting endpoints to read other companies' ",
-        "severity": "HIGH",
-        "score": 8.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130787",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130788",
-        "published": "2026-11-18T19:17:55Z",
-        "description": "SemanticMediaWiki from 3.0.0 before 7.4.0 contains a reflected cross-site scripting vulnerability in CsvFileExportPrinter and DsvResultPrinter via unescaped valuesep and separator parameters. Attackers can craft Special:Ask links using request_type=special_page so export output renders as text/html,",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130788",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130789",
-        "published": "2026-11-18T19:17:55Z",
-        "description": "SemanticMediaWiki from 7.3.0 before 7.4.0 contains a missing authorization vulnerability in the smwtask API check-query task that allows unauthenticated attackers to bypass object-level authorization by relying on the wiki-wide edit right. Attackers can supply arbitrary subject titles, including pro",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130789",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130790",
-        "published": "2026-11-18T19:17:55Z",
-        "description": "SemanticMediaWiki from 2.5.0 before 7.4.0 contains a stored cross-site scripting vulnerability that allows users with the smw-patternedit right to inject script by seeding markup reference names in MediaWiki:Smw_allows_pattern. Once an editor annotates the matching Allows pattern value, AllowsPatter",
-        "severity": "MEDIUM",
-        "score": 4.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130790",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130791",
-        "published": "2026-11-18T19:17:55Z",
-        "description": "Finsys Dockhand before 1.0.55 contains a path traversal vulnerability that allows users with stacks:edit permission to move arbitrary server directories by supplying a crafted oldDir parameter. Attackers can send POST requests to /api/stacks/[name]/relocate with an unvalidated source path to relocat",
-        "severity": "HIGH",
-        "score": 8.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130791",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130780",
-        "published": "2026-11-18T19:17:54Z",
-        "description": "Incus before 7.6.0 contains a path traversal vulnerability that allows malicious migration peers to write outside intended directories by supplying unvalidated dependent volume and snapshot names in the migration offer header. Attackers controlling a migration source can create root-owned volumes wi",
-        "severity": "CRITICAL",
-        "score": 9.4,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130780",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130781",
-        "published": "2026-11-18T19:17:54Z",
-        "description": "Incus before 7.6.0 contains a resource exhaustion vulnerability in the storage bucket S3 listener, which buffers entire signed request bodies in memory before verifying the signature or credential role. Attackers knowing only a valid access key, or holding a read-only credential, can send many concu",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130781",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130782",
-        "published": "2026-11-18T19:17:54Z",
-        "description": "Incus before 7.6.0 contains an improper authorization vulnerability that allows restricted and view-only clients to read default project resources by requesting the default project directly. Attackers knowing resource names can read profiles, images, network zone peer keys and stored credentials, an",
-        "severity": "HIGH",
-        "score": 8.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130782",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130783",
-        "published": "2026-11-18T19:17:54Z",
-        "description": "Incus before 7.6.0 exposes certificate and cluster join token secrets through the default project event stream and skips authorization when cancelling operations without associated permissions. Restricted clients can subscribe to operation events to capture certificate tokens and enroll unrestricted",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130783",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130784",
-        "published": "2026-11-18T19:17:54Z",
-        "description": "Incus before 7.6.0 contains an authorization bypass vulnerability that allows restricted clients to create and access default project resources by exploiting entitlement checks against the requested project. Attackers can create bridge networks with raw.dnsmasq directives to execute code as root on ",
-        "severity": "CRITICAL",
-        "score": 9.4,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130784",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130777",
-        "published": "2026-11-18T19:17:53Z",
-        "description": "Incus before 7.6.0 contains an information disclosure vulnerability that allows project-restricted authenticated clients to receive other projects' OVN ACL logs because these events are broadcast with an empty project. Attackers can subscribe to network-acl events on one accessible project to observ",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130777",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130778",
-        "published": "2026-11-18T19:17:53Z",
-        "description": "Incus before 7.6.0 contains an authentication bypass vulnerability that allows remote attackers to authenticate as any trusted certificate by appending its public certificate to their presented TLS client chain. Attackers can append the server's or a cluster member's certificate to gain cluster-leve",
-        "severity": "CRITICAL",
-        "score": 10.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130778",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130779",
-        "published": "2026-11-18T19:17:53Z",
-        "description": "Incus before 7.6.0 contains a path traversal vulnerability that allows users permitted to import custom volumes to store unvalidated snapshot names from the backup index configuration section. Attackers can craft a backup with traversal sequences in snapshot names so later deletion removes arbitrary",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130779",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130774",
-        "published": "2026-11-18T19:17:52Z",
-        "description": "Incus before 7.6.0 contains a privilege escalation vulnerability: rebuilding a never-started unprivileged container makes it boot without a user namespace. Root processes inside the container run as host uid 0, keeping capabilities like sys_module, with no device cgroup restriction, letting them loa",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130774",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130775",
-        "published": "2026-11-18T19:17:52Z",
-        "description": "Incus before 7.6.0 contains an authorization bypass vulnerability in the /dev/incus guest-API image export handler that fails to pin the project parameter to the guest's own project. Container root users with the guest-API image entitlement can supply another project in the project query parameter t",
-        "severity": "HIGH",
-        "score": 8.2,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130775",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130776",
-        "published": "2026-11-18T19:17:52Z",
-        "description": "Incus before 7.6.0 contains an information disclosure vulnerability that allows clients with project event-view access to read migration websocket secrets broadcast in operation metadata. Attackers can connect to in-flight migration control and fs websockets before the legitimate peer, hijacking the",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130776",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130772",
-        "published": "2026-11-18T19:17:51Z",
-        "description": "Incus before 7.6.0 contains an improper authorization vulnerability that allows restricted TLS clients to read other projects' bucket S3 keys and profile configuration through recursive and all-projects responses. Attackers can query bucket listings with recursion=2 or profiles with all-projects=tru",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130772",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130773",
-        "published": "2026-11-18T19:17:51Z",
-        "description": "Incus before 7.6.0 contains an authorization bypass that allows restricted project users to create resources in the unrestricted default project by targeting projects lacking features.* flags. Attackers can create bridge networks with raw.dnsmasq dhcp-script injection to run scripts as root, or cust",
-        "severity": "CRITICAL",
-        "score": 9.4,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130773",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130770",
-        "published": "2026-11-18T19:17:50Z",
-        "description": "Incus before 7.6.0 creates the NBD servers used for virtual machine migration and disk export on abstract unix sockets, which have no permission checks and whose names are visible in /proc/net/unix. A local unprivileged user can connect while an operation runs to read or modify the VM disk, gaining ",
-        "severity": "CRITICAL",
-        "score": 9.2,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130770",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130771",
-        "published": "2026-11-18T19:17:50Z",
-        "description": "Incus before 7.6.0 fails to reject special files, hard links, or symlinks in backup or image metadata, allowing restricted project users to read or overwrite host files. Attackers can import crafted backups containing device nodes, a hard-linked backup.yaml, or symlinks to corrupt host storage, over",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130771",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130769",
-        "published": "2026-11-18T19:17:49Z",
-        "description": "Incus before 7.6.0 contains a denial of service vulnerability that allows clients permitted to create instances to crash the daemon by importing a backup with a null snapshot entry in index.yaml. Attackers can trigger an unrecovered nil pointer dereference during configuration rewrite, terminating t",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130769",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130766",
-        "published": "2026-11-18T19:17:48Z",
-        "description": "Obot from 0.26.0 before 0.27.0 fails to validate the resource identifier in remote MCP server protected resource metadata, allowing malicious MCP servers to steal access tokens. Attackers can name a different service and authorization server with chosen scopes, causing Obot to obtain the victim's to",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130766",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130767",
-        "published": "2026-11-18T19:17:48Z",
-        "description": "Obot from 0.9.0 before 0.27.0 contains a command injection vulnerability that allows authenticated users to execute shell commands by embedding an EOF line in file-type MCP server configuration values. Attackers can terminate the heredoc in the generated init container script to run commands, modify",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130767",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130768",
-        "published": "2026-11-18T19:17:48Z",
-        "description": "Obot from 0.14.0 before 0.27.0 contains a server-side request forgery vulnerability that allows Power Users to bypass outbound protections by supplying unspecified addresses, IPv6 transition addresses, or registry icon URLs. Attackers can add remote MCP servers pointing to 0.0.0.0, ::, or NAT64/6to4",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130768",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130761",
-        "published": "2026-11-18T19:17:47Z",
-        "description": "Fleet before 4.92.0 contains a denial of service vulnerability that allows enrolled hosts to trigger unbounded per-name database lookups by submitting osquery result logs. Attackers with a valid host node key can send one request to /api/osquery/log containing many distinct query names, exhausting d",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130761",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130762",
-        "published": "2026-11-18T19:17:47Z",
-        "description": "Fleet before 4.92.0 contains an SQL injection vulnerability that allows authenticated observer-level users to sort software listings by arbitrary columns via the order_key parameter. Attackers can order by joined hosts table columns such as node keys and use pagination as a binary-search oracle to e",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130762",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130763",
-        "published": "2026-11-18T19:17:47Z",
-        "description": "Fleet before 4.92.0 contains a CSV formula injection vulnerability in the host inventory export endpoint that allows attackers controlling an enrolled host or enroll secret to plant spreadsheet formulas. Attackers can set osquery-reported fields like hostname or hardware serial to formula values, en",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130763",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130764",
-        "published": "2026-11-18T19:17:47Z",
-        "description": "Obot from 0.8.0 before 0.27.0 contains a server-side request forgery vulnerability that allows Power User accounts to reach internal hosts by advertising a malicious OAuth token endpoint in remote MCP server metadata. Attackers can direct token exchange or refresh requests, including redirected GET ",
-        "severity": "HIGH",
-        "score": 8.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130764",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130765",
-        "published": "2026-11-18T19:17:47Z",
-        "description": "Obot before 0.27.0 contains an open redirect vulnerability that allows unauthenticated attackers to bypass same-site validation of the rd parameter by inserting a tab character. Attackers can craft sign-in or sign-out links on the Obot domain that browsers resolve to external hosts, redirecting vict",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130765",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130755",
-        "published": "2026-11-18T19:17:46Z",
-        "description": "Froxlor before 2.3.16 contains an authorization bypass vulnerability that allows authenticated customers to read hidden traffic statistics by calling the Traffic.listing API command. Attackers can authenticate to api.php with their API key and secret to retrieve HTTP, FTP, and mail traffic volumes d",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130755",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130756",
-        "published": "2026-11-18T19:17:46Z",
-        "description": "pnpm exe before 10.34.8 embeds an outdated Node.js runtime that still trusts compromised eMudhra intermediate CA certificates during registry TLS connections. Network attackers holding a recovered intermediate key can intercept standalone pnpm registry fetches and serve forged package metadata or ta",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130756",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130757",
-        "published": "2026-11-18T19:17:46Z",
-        "description": "Fleet before 4.92.0 contains an improper authentication vulnerability that allows attackers to reuse case-mutated security tokens because MySQL token columns used case-insensitive collation. Attackers holding a case-normalized invite or email-change token can redirect a victim's email for account ta",
-        "severity": "CRITICAL",
-        "score": 9.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130757",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130758",
-        "published": "2026-11-18T19:17:46Z",
-        "description": "Fleet before 4.92.0 contains an authorization bypass vulnerability in the deprecated POST /api/latest/fleet/mdm/apple/enqueue endpoint that allows team-scoped users to enqueue Apple MDM commands outside their teams. Attackers with team admin, maintainer, or GitOps roles can include one own-team host",
-        "severity": "HIGH",
-        "score": 8.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130758",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130759",
-        "published": "2026-11-18T19:17:46Z",
-        "description": "Fleet from 4.71.0 before 4.88.2 contains an authentication bypass vulnerability in the SAML SSO callback that looks up sessions using unvalidated client-supplied identifiers. Users able to run live queries or enroll secret holders can plant attacker-controlled identity provider metadata in the sessi",
-        "severity": "CRITICAL",
-        "score": 9.4,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130759",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130760",
-        "published": "2026-11-18T19:17:46Z",
-        "description": "Fleet before 4.86.2 contains a denial of service vulnerability that allows unauthenticated attackers to exhaust server memory via unbounded BER recursion in PKCS#7 parsing. Attackers can send deeply nested indefinite-length structures to Apple MDM check-in, enrollment, SCEP, or OTA endpoints to cras",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130760",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130750",
-        "published": "2026-11-18T19:17:45Z",
-        "description": "Network-AI from 5.11.0 before 5.17.2 contains a CORS misconfiguration in McpStreamableServer that reflects localhost Origins into Access-Control-Allow-Origin regardless of bind interface. Attackers controlling a localhost-origin page or DNS-rebinding name can read unauthenticated /tools and /health ",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130750",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130751",
-        "published": "2026-11-18T19:17:45Z",
-        "description": "OpenWrt LuCI luci-app-travelmate on master before 3.0.0-1, on openwrt-25.12 before 2.4.9-6, and on openwrt-24.10 and openwrt-23.05 (no fix available) grants file exec permissions for state-mutating commands in the read scope of its rpcd ACL, letting authenticated read-only users run those commands a",
-        "severity": "HIGH",
-        "score": 7.2,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130751",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130752",
-        "published": "2026-11-18T19:17:45Z",
-        "description": "OpenWrt LuCI luci-app-uhttpd before commit d38658bedbdd811b798da16b49301478c6cf21af grants '/*' file read in its rpcd read ACL, which rpcd's fnmatch matching applies to every path. Users delegated only luci-app-uhttpd read access can read any file as root, including /etc/shadow, /etc/config/* creden",
-        "severity": "MEDIUM",
-        "score": 6.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130752",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130753",
-        "published": "2026-11-18T19:17:45Z",
-        "description": "heym before 0.0.142 contains a remote code execution vulnerability in the Playwright step-mode node where _resolve_expressions_in_code substitutes workflow values directly into generated Python source. Authenticated non-admin users can craft step field values that break out of string literals to exe",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130753",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130754",
-        "published": "2026-11-18T19:17:45Z",
-        "description": "All versions of LaraDashboard contain an authentication bypass in SocialAuthService::findOrCreateUser(), which links a social login to an existing account by email without checking that the OAuth provider verified that email. Unauthenticated attackers using an OAuth/OIDC provider that asserts a vict",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130754",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130638",
-        "published": "2026-11-18T19:17:43Z",
-        "description": "Relative path traversal in the object detection dataset preparation tool in AutoGluon Multimodal before 1.6.0 might allow adversary-in-the-middle attackers to write arbitrary files with the privileges of the user running the tool via a crafted dataset archive substituted for a dataset downloaded ove",
-        "severity": "MEDIUM",
-        "score": 6.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130638",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-128664",
-        "published": "2026-11-18T19:17:40Z",
-        "description": "An insecure password reset vulnerability in the Admin Password Recovery Module of PHPGurukul News Portal Project v4.1 allows unauthenticated remote attackers to change an administrator or sub-administrator account password by providing the corresponding username and email address. The application do",
-        "severity": "HIGH",
-        "score": 8.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-128664",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-128665",
-        "published": "2026-11-18T19:17:40Z",
-        "description": "A stored cross-site scripting (XSS) vulnerability in the Public News Article Rendering Module of PHPGurukul News Portal Project v4.1 allows authenticated attackers with administrative or sub-administrative privileges to inject arbitrary HTML and JavaScript through the postdescription parameter when ",
-        "severity": "MEDIUM",
-        "score": 6.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-128665",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-128666",
-        "published": "2026-11-18T19:17:40Z",
-        "description": "A Reflected Cross-Site Scripting (XSS) vulnerability exists in PHPGurukul News Portal Project V4.1. The $currenturl variable in news-details.php is constructed using unencoded REQUEST_URI and HTTP_HOST server variables and echoed directly into the href attributes of social share links. An unauthenti",
-        "severity": "MEDIUM",
-        "score": 6.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-128666",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-128658",
-        "published": "2026-11-18T19:17:39Z",
-        "description": "PHPGurukul Beauty Parlour Management System V1.1 uses a non-cryptographic function to generate security-sensitive appointment and invoice identifiers. The identifiers are generated within a restricted numeric range and are subsequently used in record lookup operations. This implementation exposes th",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-128658",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-128660",
-        "published": "2026-11-18T19:17:39Z",
-        "description": "PHPGurukul Beauty Parlour Management System V 1.1 is vulnerable to Cross Site Scripting (XSS) in admin/search-invoices.php via the searchdata parameter.",
-        "severity": "MEDIUM",
-        "score": 4.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-128660",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-128661",
-        "published": "2026-11-18T19:17:39Z",
-        "description": "PHPGurukul Employee Leaves Management System v2.1 contains an insufficient verification vulnerability in the password recovery functionality in forgot-password.php. The application allows an unauthenticated user to access the password-change workflow by providing a valid employee ID and correspondin",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-128661",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-128662",
-        "published": "2026-11-18T19:17:39Z",
-        "description": "PHPGurukul Employee Leaves Management System V2.1 contains an information disclosure vulnerability because database backup files are stored within the publicly accessible web root. An unauthenticated remote attacker can download the SQL backup files and retrieve sensitive database contents, includin",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-128662",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115622",
-        "published": "2026-11-18T19:17:31Z",
-        "description": "A flaw was found in ansible-core. When a task or its parameters are marked no_log: true, sensitive values passed to a module's warn() or deprecate() calls are not redacted and are printed in cleartext to stdout/stderr in warning and deprecation messages. The 'warnings' and 'deprecations' keys are re",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115622",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132229",
-        "published": "2026-11-18T18:19:15Z",
-        "description": "A flaw was found in hypershift-addon. Due to an overly permissive role-based access control (RBAC) configuration that grants permissions to all authenticated users rather than restricting them to the addon service, a low-privileged authenticated user can view, modify, or delete managed cluster resou",
-        "severity": "HIGH",
-        "score": 8.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132229",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76515",
-        "published": "2026-11-18T17:17:51Z",
-        "description": "A vulnerability in the Object Linking and Embedding, 2nd Generation (OLE2) file parser for ClamAV could allow an unauthenticated, remote attacker to exceed the configured MaxScanTime and cause a DoS condition on an affected device.\r  \r This vulnerability is due to inefficiencies when parsing specifi",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76515",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76516",
-        "published": "2026-11-18T17:17:51Z",
-        "description": "A vulnerability in the eXtensible ARchive (XAR) GZIP file parser for ClamAV could allow an unauthenticated, remote attacker to exceed the configured MaxFileSize and cause a DoS condition on an affected device.\r  \r This vulnerability is due to inefficiencies when parsing specifically formatted files ",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76516",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-86403",
-        "published": "2026-11-18T17:17:51Z",
-        "description": "Mattermost versions 11.11.x <= 11.11.0, 11.7.x <= 11.7.11, 11.10.x <= 11.10.2 fail to check whether the calling session originated from an OAuth authorization grant, which allows a third-party application holding a delegated access token to register a new, independent OAuth application under the ide",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-86403",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-88902",
-        "published": "2026-11-18T17:17:51Z",
-        "description": "Mattermost versions 11.7.x <= 11.7.11, 11.10.x <= 11.10.2, 11.11.x <= 11.11.1 fail to bound the work performed while reading EXIF orientation metadata, which allows an authenticated user to cause disproportionate server-side CPU usage by uploading or linking a small image with specially structured E",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88902",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-89218",
-        "published": "2026-11-18T17:17:51Z",
-        "description": "Mattermost versions 11.11.x <= 11.11.0, 11.7.x <= 11.7.11, 11.10.x <= 11.10.2 fail to enforce the Access Control Policy's download_file_attachment check across several post- and file-serving code paths (bulk post retrieval, channel bookmarks, and persistent notification delivery), which allows an au",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-89218",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76416",
-        "published": "2026-11-18T17:17:50Z",
-        "description": "A vulnerability in the InstallShield file parser of ClamAV could allow an unauthenticated, remote attacker to cause a DoS condition on an affected device.\r\n\r This vulnerability is due to incomplete error checking when the InstallShield File Parser is performing a scan. An attacker could exploit this",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76416",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76417",
-        "published": "2026-11-18T17:17:50Z",
-        "description": "A vulnerability in Object Linking and Embedding, 2nd Generation (OLE2) file parser for ClamAV could allow an unauthenticated, remote attacker to cause a DoS condition on an affected device.\r\n\r This vulnerability is due to logic error when parsing specifically formatted files with the OLE2 file parse",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76417",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76421",
-        "published": "2026-11-18T17:17:50Z",
-        "description": "A vulnerability in the LZX data algorithm for Microsoft Compiled HTML Help (CHM) file scanning in ClamAV could allow an unauthenticated, remote attacker to cause a DoS condition on an affected device.\r\n\r This vulnerability is due to improper boundary checks when applying the LZX data algorithm to CH",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76421",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76422",
-        "published": "2026-11-18T17:17:50Z",
-        "description": "A vulnerability in the debug logging functionality of ClamAV could allow an unauthenticated, remote attacker to cause a DoS condition on an affected device.\r\n\r This vulnerability is due to improper handling of logging values. An attacker could exploit this vulnerability by submitting a file to be sc",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76422",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76430",
-        "published": "2026-11-18T17:17:50Z",
-        "description": "A vulnerability in the Ultimate Packer for eXecutables (UPX) unpacker of ClamAV could allow an unauthenticated, remote attacker to cause a DoS condition on an affected device.\r  \r This vulnerability is due to improper length checks, when unpacking the UPX files, which may result in an out-of-bounds ",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76430",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-59159",
-        "published": "2026-11-18T17:17:49Z",
-        "description": "Linux Mint Update Manager manages software updates on Linux Mint systems. From 5.4.8 until 5.5.4.3, 5.5.9.1, 5.8.8.1, 5.9.8.1, 6.0.9.1, and 6.1.5.1, mint-refresh-cache passes a user-controlled --parent-window-id value directly to the privileged Synaptic process without validating it as an integer. A",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-59159",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76411",
-        "published": "2026-11-18T17:17:49Z",
-        "description": "A vulnerability in the phishcheck functionality of ClamAV could allow an unauthenticated, remote attacker to cause a DoS condition on an affected device.\r\n\r This vulnerability is due to improper allocation of memory during processing of URLs. An attacker could exploit this vulnerability by sending a",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76411",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76414",
-        "published": "2026-11-18T17:17:49Z",
-        "description": "A vulnerability in Microsoft Compiled HTML Help (CHM) file scanning of ClamAV could allow an unauthenticated, remote attacker to cause a DoS condition on an affected device.\r\n\r This vulnerability is due to a logic error when scanning the CHM file and following the internal file pointers. An attacker",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76414",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-76415",
-        "published": "2026-11-18T17:17:49Z",
-        "description": "A vulnerability in the Yoda'a Crytper (yC) Portable Executable (PE) unpacker of ClamAV could allow an unauthenticated, remote attacker to cause a DoS condition on an affected device. .\r\n\r This vulnerability is due to lack of proper error checking for negative values when processing the PE file to be",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-76415",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-18079",
-        "published": "2026-11-18T17:17:48Z",
-        "description": "Mattermost versions 11.11.x <= 11.11.0, 11.7.x <= 11.7.11, 11.10.x <= 11.10.2 Fail to revoke a user's active sessions when a bulk import links an existing user account to a bot record or changes the account's auth_service/auth_data, which allows an attacker in possession of a session token issued be",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18079",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-18396",
-        "published": "2026-11-18T17:17:48Z",
-        "description": "Mattermost versions 11.7.x <= 11.7.11, 11.10.x <= 11.10.2, 11.11.x <= 11.11.1 fail to enforce playbook membership management permissions when creating a new playbook which allows a low-privileged user to grant the playbook_admin role to an arbitrary user via a crafted playbook creation request. Matt",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18396",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-18399",
-        "published": "2026-11-18T17:17:48Z",
-        "description": "Mattermost versions 11.7.x <= 11.7.11, 11.10.x <= 11.10.2, 11.11.x <= 11.11.1 fail to enforce the configured GitLab group/namespace restriction on the permalink code-preview feature and the {{get_projects}} MCP tool, which allows an authenticated user with a connected GitLab account to retrieve repo",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18399",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-18476",
-        "published": "2026-11-18T17:17:48Z",
-        "description": "Mattermost versions 11.7.x <= 11.7.11 fail to scope an incoming webhook's direct message target to the webhook's own team, which allows a team administrator to deliver a direct message to a user on a team they have no authority over via a webhook whose posting identity belongs to both teams.. Matter",
-        "severity": "LOW",
-        "score": 2.2,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18476",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-18553",
-        "published": "2026-11-18T17:17:48Z",
-        "description": "Mattermost versions 11.11.x <= 11.11.0, 11.7.x <= 11.7.11, 11.10.x <= 11.10.2 fail to sanitize terminal escape sequences when rendering server logs via {{mmctl logs}}, which allows an unauthenticated attacker to hijack a system administrator's clipboard or spoof terminal output via a crafted HTTP re",
-        "severity": "MEDIUM",
-        "score": 4.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18553",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-18643",
-        "published": "2026-11-18T17:17:48Z",
-        "description": "Mattermost versions 11.7.x <= 11.7.11 fail to enforce the team view permission across all filter combinations of the user listing endpoint which allows an authenticated user to enumerate the membership of a team they are not permitted to view via a crafted request to that endpoint.. Mattermost Advis",
-        "severity": "LOW",
-        "score": 3.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18643",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132250",
-        "published": "2026-11-18T17:17:47Z",
-        "description": "In JetBrains TeamCity before 2026.1.3 privilege escalation was possible via Basic authentication with a restricted access token",
-        "severity": "LOW",
-        "score": 3.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132250",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132251",
-        "published": "2026-11-18T17:17:47Z",
-        "description": "In JetBrains TeamCity before 2026.1.3 privilege escalation was possible by issuing new tokens from a restricted access token",
-        "severity": "LOW",
-        "score": 3.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132251",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-16021",
-        "published": "2026-11-18T17:17:47Z",
-        "description": "Mattermost versions 11.11.x <= 11.11.0, 11.7.x <= 11.7.11, 11.10.x <= 11.10.2 fail to bound the resources consumed while processing an uploaded custom emoji image which allows an authenticated user with default permissions to make the server unresponsive for all users via repeated custom emoji uploa",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-16021",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-16050",
-        "published": "2026-11-18T17:17:47Z",
-        "description": "Mattermost versions 11.7.x <= 11.7.11 fail to sanitize channel mentions when rendering permalinked posts, which allows an authenticated user to discover the display names of private channels they do not have access to via a permalink to a post that mentions the channel.. Mattermost Advisory ID: MMSA",
-        "severity": "LOW",
-        "score": 3.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-16050",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-17537",
-        "published": "2026-11-18T17:17:47Z",
-        "description": "Mattermost versions 11.11.x <= 11.11.0, 11.7.x <= 11.7.11, 11.10.x <= 11.10.2 fail to enforce the channel Access Control Policy's file download permission check when serving file metadata and thumbnails through the drafts, scheduled posts, and post edit history endpoints, which allows an authenticat",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-17537",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-17575",
-        "published": "2026-11-18T17:17:47Z",
-        "description": "Mattermost versions 11.8.x <= 11.8.5, 11.7.x <= 11.7.10, 11.10.x <= 11.10.2 fails to validate the type of card property fields which allows a board\nEditor to make a board or card permanently unopenable for all users via a crafted PATCH\nrequest storing a non-string property name or value.. Mattermost",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-17575",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-18045",
-        "published": "2026-11-18T17:17:47Z",
-        "description": "Mattermost versions 11.11.x <= 11.11.0, 11.7.x <= 11.7.11, 11.10.x <= 11.10.2 fail to enforce the MFA requirement on the update and delete user endpoints, which allows an authenticated user who has not configured MFA to modify or delete their own account via the API despite system-wide MFA enforceme",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18045",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-18075",
-        "published": "2026-11-18T17:17:47Z",
-        "description": "Mattermost versions 11.11.x <= 11.11.0, 11.7.x <= 11.7.11, 11.10.x <= 11.10.2 fail to invalidate cached WebSocket session state when an OAuth app is deleted, which allows a revoked OAuth integration to keep receiving real-time events, including private channel posts, via a WebSocket connection that ",
-        "severity": "LOW",
-        "score": 3.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18075",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132242",
-        "published": "2026-11-18T17:17:46Z",
-        "description": "In JetBrains TeamCity before 2026.1.3, 2025.11.7 stored XSS in the Promote build dialog was possible",
-        "severity": "HIGH",
-        "score": 7.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132242",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132243",
-        "published": "2026-11-18T17:17:46Z",
-        "description": "In JetBrains TeamCity before 2026.1.3, 2025.11.7 stored XSS on the Docker Container Info tab was possible",
-        "severity": "HIGH",
-        "score": 7.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132243",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132244",
-        "published": "2026-11-18T17:17:46Z",
-        "description": "In JetBrains TeamCity before 2026.1.3, 2025.11.7 stored XSS on the Disk Usage and Build Time pages was possible",
-        "severity": "HIGH",
-        "score": 8.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132244",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132245",
-        "published": "2026-11-18T17:17:46Z",
-        "description": "In JetBrains TeamCity before 2026.1.3, 2025.11.7 DoS via agent command results was possible",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132245",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132246",
-        "published": "2026-11-18T17:17:46Z",
-        "description": "In JetBrains TeamCity before 2026.1.3, 2025.11.7 privilege escalation to system administrator was possible after disabling per-project permissions",
-        "severity": "MEDIUM",
-        "score": 6.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132246",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132247",
-        "published": "2026-11-18T17:17:46Z",
-        "description": "In JetBrains TeamCity before 2026.1.3, 2025.11.7 improper authorization allowed viewing build process details via agent stacktraces",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132247",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132248",
-        "published": "2026-11-18T17:17:46Z",
-        "description": "In JetBrains TeamCity before 2026.1.3 improper authorization allowed project viewers to change project IDs",
-        "severity": "MEDIUM",
-        "score": 5.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132248",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132249",
-        "published": "2026-11-18T17:17:46Z",
-        "description": "In JetBrains TeamCity before 2026.1.3, 2025.11.7 stored XSS in the Shared Resources build feature was possible",
-        "severity": "MEDIUM",
-        "score": 4.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132249",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132235",
-        "published": "2026-11-18T17:17:45Z",
-        "description": "In JetBrains TeamCity before 2026.1.3, 2025.11.7 remote code execution was possible via path traversal in project import archives",
-        "severity": "HIGH",
-        "score": 7.2,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132235",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132236",
-        "published": "2026-11-18T17:17:45Z",
-        "description": "In JetBrains TeamCity before 2026.1.3, 2025.11.7 remote code execution was possible via path traversal in the pipeline YAML file path",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132236",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132237",
-        "published": "2026-11-18T17:17:45Z",
-        "description": "In JetBrains TeamCity before 2026.1.3, 2025.11.7 remote code execution was possible via path traversal in the external artifact cache",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132237",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132238",
-        "published": "2026-11-18T17:17:45Z",
-        "description": "In JetBrains TeamCity before 2026.1.3, 2025.11.8 disclosure of password parameter values to project viewers was possible",
-        "severity": "HIGH",
-        "score": 7.7,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132238",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132239",
-        "published": "2026-11-18T17:17:45Z",
-        "description": "In JetBrains TeamCity before 2026.1.3, 2025.11.7 missing authorization in the Kubernetes integration allowed project viewers to use stored credentials",
-        "severity": "HIGH",
-        "score": 7.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132239",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132240",
-        "published": "2026-11-18T17:17:45Z",
-        "description": "In JetBrains TeamCity before 2026.1.3, 2025.11.7 XXE via Maven settings file upload was possible",
-        "severity": "HIGH",
-        "score": 7.7,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132240",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132241",
-        "published": "2026-11-18T17:17:45Z",
-        "description": "In JetBrains TeamCity before 2026.1.3, 2025.11.7 XXE in the .NET build steps auto-discovery was possible",
-        "severity": "HIGH",
-        "score": 7.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132241",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132218",
-        "published": "2026-11-18T17:17:44Z",
-        "description": "Insecure Direct Object Reference (IDOR) vulnerability. Exploiting this vulnerability allows a user to view the names of other users/companies on the platform by iterating over the numerical value that identifies the customer in  'ClientesEventos' parameter in'/Clientes/ClientesEventos/'.",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132218",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132219",
-        "published": "2026-11-18T17:17:44Z",
-        "description": "Insecure Direct Object Reference (IDOR) vulnerability. Exploiting this vulnerability allows a user to view the names of other users/companies on the platform by iterating over the numerical value that identifies the customer in  'DocumentosOpcionesImprimir' parameter in'/Gestion/DocumentosOpcionesIm",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132219",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132220",
-        "published": "2026-11-18T17:17:44Z",
-        "description": "Stored Cross-Site Scripting (XSS) vulnerability in winCRM. Exploiting this vulnerability could allow a remote user to send a specially crafted URL to the victim and steal their session data by allowing JavaScript code to be injected in 'Tarea' parameter in '/Tareas/TareasCrear?ddv=cal'.",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132220",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132231",
-        "published": "2026-11-18T17:17:44Z",
-        "description": "In JetBrains TeamCity before 2026.1.3, 2025.11.7 remote code execution was possible via best-fit character mapping in Perforce settings",
-        "severity": "CRITICAL",
-        "score": 9.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132231",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132232",
-        "published": "2026-11-18T17:17:44Z",
-        "description": "In JetBrains TeamCity before 2026.1.3, 2025.11.7 remote code execution was possible via argument injection in Perforce settings",
-        "severity": "CRITICAL",
-        "score": 9.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132232",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132233",
-        "published": "2026-11-18T17:17:44Z",
-        "description": "In JetBrains TeamCity before 2026.1.3, 2025.11.7 remote code execution was possible via build attribute injection",
-        "severity": "CRITICAL",
-        "score": 9.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132233",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132234",
-        "published": "2026-11-18T17:17:44Z",
-        "description": "In JetBrains TeamCity before 2026.1.3, 2025.11.7 remote code execution was possible via argument injection in Mercurial VCS root settings",
-        "severity": "CRITICAL",
-        "score": 9.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132234",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132210",
-        "published": "2026-11-18T17:17:43Z",
-        "description": "Insecure Direct Object Reference (IDOR) vulnerability. Exploiting this vulnerability allows a user to view the names of other users/companies on the platform by iterating over the numerical value that identifies the customer in 'idCliente' parameter in'/Gestion/DocumentosCrear/'.",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132210",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132211",
-        "published": "2026-11-18T17:17:43Z",
-        "description": "Insecure Direct Object Reference (IDOR) vulnerability. Exploiting this vulnerability allows a user to view the names of other users/companies on the platform by iterating over the numerical value that identifies the customer in 'ClientesCamposAdicionales' in '/Clientes/ClientesCamposAdicionales/'.",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132211",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132212",
-        "published": "2026-11-18T17:17:43Z",
-        "description": "Insecure Direct Object Reference (IDOR) vulnerability. Exploiting this vulnerability allows a user to view the names of other users/companies on the platform by iterating over the numerical value that identifies the customer in  'ClientesClasificaciones' parameter in'/Clientes/ClientesClasificacione",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132212",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132213",
-        "published": "2026-11-18T17:17:43Z",
-        "description": "Insecure Direct Object Reference (IDOR) vulnerability. Exploiting this vulnerability allows a user to view the names of other users/companies on the platform by iterating over the numerical value that identifies the customer in  'TareasCrear' parameter in'/Tareas/TareasCrear/'.",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132213",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132214",
-        "published": "2026-11-18T17:17:43Z",
-        "description": "Insecure Direct Object Reference (IDOR) vulnerability. Exploiting this vulnerability allows a user to view the names of other users/companies on the platform by iterating over the numerical value that identifies the customer in  'ClientesEventos' parameter in'/Clientes/ClientesEventos/'.",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132214",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132215",
-        "published": "2026-11-18T17:17:43Z",
-        "description": "Insecure Direct Object Reference (IDOR) vulnerability. Exploiting this vulnerability allows a user to view the names of other users/companies on the platform by iterating over the numerical value that identifies the customer in  'ClientesEventos' parameter in'/Clientes/ClientesEventos/'.",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132215",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132216",
-        "published": "2026-11-18T17:17:43Z",
-        "description": "Insecure Direct Object Reference (IDOR) vulnerability. Exploiting this vulnerability allows a user to view the names of other users/companies on the platform by iterating over the numerical value that identifies the customer in  'ClientesEventos' parameter in'/Clientes/ClientesEventos/'.",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132216",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132217",
-        "published": "2026-11-18T17:17:43Z",
-        "description": "Insecure Direct Object Reference (IDOR) vulnerability. Exploiting this vulnerability allows a user to view the names of other users/companies on the platform by iterating over the numerical value that identifies the customer in  'ClientesEventos' parameter in'/Clientes/ClientesEventos/'.",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132217",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132208",
-        "published": "2026-11-18T17:17:42Z",
-        "description": "Hardcoded credentials in the executable file. These can be extracted using the “Strings.exe” tool and could allow an attacker unauthorized access to the database and SMTP server. winCRM.exe",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132208",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132209",
-        "published": "2026-11-18T17:17:42Z",
-        "description": "Hardcoded credentials in the executable file. These can be extracted using the “Strings.exe” tool and could allow an attacker unauthorized access to the database and SMTP server. \nwinSAT.exe",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132209",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130008",
-        "published": "2026-11-18T17:17:38Z",
-        "description": "sqlite-mcp is a Model Context Protocol server for SQLite. Prior to 0.1.2, the default read-only mode can be bypassed through execute_query, which accepts a leading SELECT while the SQLite driver executes trailing statements, and through describe_table, which interpolates the caller-controlled table_",
-        "severity": "HIGH",
-        "score": 8.2,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130008",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130154",
-        "published": "2026-11-18T17:17:38Z",
-        "description": "Zyrabit Platform provides sovereign AI infrastructure for enterprise retrieval-augmented generation. Prior to 2.4.4, import_to_vault(source_path, destination_name) accepts both caller-controlled paths, but the content-pattern guard does not confine destination_name. The vulnerable tool is implemente",
-        "severity": "CRITICAL",
-        "score": 9.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130154",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130156",
-        "published": "2026-11-18T17:17:38Z",
-        "description": "Bazarr is a companion application to Sonarr and Radarr. Prior to 1.6.3-beta.11, the /api/subtitles/subtitles-info handler uses SubtitleNameContents.get() in subtitles_contents.py and reads the caller-supplied subtitlePath after checking only its subtitle extension; because the resolved path is not c",
-        "severity": "CRITICAL",
-        "score": 9.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130156",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130007",
-        "published": "2026-11-18T17:17:37Z",
-        "description": "k8s-mcp-server manages Kubernetes clusters through the Model Context Protocol. Prior to 1.1.0, SERVER_MODE defaults to SSE, with the listener on 0.0.0.0:8080, but main.go creates the SSE server without an authentication option or context function. The GET /sse handler creates a sessionId that is onl",
-        "severity": "HIGH",
-        "score": 7.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130007",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-126675",
-        "published": "2026-11-18T17:17:35Z",
-        "description": "Incorrect default permissions in Nitro PDF Pro before 26.4 on Windows allow a local low-privileged user to execute code in the context of another user who launches the application.",
-        "severity": "HIGH",
-        "score": 7.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126675",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121591",
-        "published": "2026-11-18T17:17:30Z",
-        "description": "Mattermost Desktop App versions <=6.3 6.0.3 6.3.2.0 fail to bound the Calls widget resize dimensions before applying them to the window, which allows a configured Mattermost server to terminate the Desktop App process via a crafted resizeCallsWidget IPC message sent from the Calls widget window. Mat",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121591",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116441",
-        "published": "2026-11-18T17:17:28Z",
-        "description": "Dell PowerStore SDNAS contains an out-of-bounds write vulnerability in the storage-processor interconnect driver that could allow a malicious peer to execute code with system privileges.",
-        "severity": "CRITICAL",
-        "score": 9.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116441",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-116442",
-        "published": "2026-11-18T17:17:28Z",
-        "description": "Dell PowerStore SDNAS contains an authentication-bypass-by-replay vulnerability in the NAS NDMP service that could allow a network attacker to gain backup and restore control of the appliance.",
-        "severity": "HIGH",
-        "score": 8.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116442",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-109909",
-        "published": "2026-11-18T17:17:27Z",
-        "description": "A out of bounds read after using negative integers during offset calculation during PCF decoding in X.Org libXfont before 2.0.10 could be used by authenticated X clients to crash the X server or expose sensitive information in its memory.",
-        "severity": "MEDIUM",
-        "score": 6.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-109909",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-112160",
-        "published": "2026-11-18T17:17:27Z",
-        "description": "In PcVue version 17.0.0 through 17.0.1 included, user account security settings could be modified. \nThis could lead to unauthorized modification of password\npolicies or other security-related account settings by privileged users. \nThe\nupdate aligns user account management with the existing security-",
-        "severity": "LOW",
-        "score": 2.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-112160",
-        "kev": false
-      },
-      {
-        "id": "CVE-2025-64441",
-        "published": "2026-11-18T17:17:26Z",
-        "description": "The ownCloud Desktop Client synchronizes files between an ownCloud server and a desktop. Prior to 6.0.2, an authenticated attacker can share a specially crafted file with a victim. If the file is synced by the client and revealed in the macOS Finder, it can cause operating-system command injection o",
-        "severity": "HIGH",
-        "score": 8.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-64441",
         "kev": false
       }
     ]
