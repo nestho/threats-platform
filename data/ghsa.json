@@ -1,11 +1,131 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-20T18:50:54Z",
+  "updated_at": "2026-11-21T00:57:13Z",
   "source": "GitHub Security Advisories",
   "source_url": "https://api.github.com/advisories",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-25qc-m4pw-2w8r",
+      "title": "Budibase: Unauthenticated global-admin & database creation via tenant-confusion bypass of the one-time init guard (`POST /api/global/users/init`)",
+      "published": "2026-11-20T23:50:01Z",
+      "ecosystem": "npm",
+      "summary": "## Description\n\n### Summary\n\nOn a self-hosted, single-tenant Budibase instance (`multiTenancy:false`), the public bootstrap endpoint `POST /api/global/users/init` remains fully exploitable **after** the instance has been provisioned. Its \"already initialised\" guard (`checkAnyUserExists()`) is evalua",
+      "link": "https://github.com/advisories/GHSA-25qc-m4pw-2w8r"
+    },
+    {
+      "id": "GHSA-r2q3-7m4h-63qg",
+      "title": "Budibase: Cross-privilege Stored XSS in the Budibase Builder via broken HTML-escaping in `jsonFormatter.format()` rendered through `{@html}` in the CSP-less Builder origin",
+      "published": "2026-11-20T23:49:47Z",
+      "ecosystem": "npm",
+      "summary": "## Description\n\n### Summary\n\nA **low-privileged application end-user** (role `BASIC` - **not** a builder or admin, and on a public data-collection form, an unauthenticated visitor) can store an HTML/JavaScript payload in ordinary row data. When a **builder or admin** later opens that table in the Bu",
+      "link": "https://github.com/advisories/GHSA-r2q3-7m4h-63qg"
+    },
+    {
+      "id": "GHSA-53pm-wgxf-c6qf",
+      "title": "wcmatch: Polynomial-time ReDoS when matching untrusted names against multi-star patterns (default flags)",
+      "published": "2026-11-20T23:49:18Z",
+      "ecosystem": "pip",
+      "summary": "# Summary\n\nWith default flags, a pattern that contains several `*` wildcards takes polynomial time, O(n^k) for k stars, to reject a crafted file name. The pattern is an ordinary developer constant such as `*_*_*_*_*.csv`; only the string being matched comes from the attacker. A 255-byte file name (t",
+      "link": "https://github.com/advisories/GHSA-53pm-wgxf-c6qf"
+    },
+    {
+      "id": "GHSA-q87h-c5m7-659j",
+      "title": "Inscriptis: Quadratic memory growth from sibling <table> elements in get_text()",
+      "published": "2026-11-20T23:48:51Z",
+      "ecosystem": "pip",
+      "summary": "# Summary\n\nEvery sibling `<table>` adds another level of the parent's indentation, so the size of `get_text()` output grows quadratically with the number of tables. In the measurements below, a 240 KB HTML document produces about 1 billion characters and uses about 1 GB of memory.\n\n# Details\n\n`table",
+      "link": "https://github.com/advisories/GHSA-q87h-c5m7-659j"
+    },
+    {
+      "id": "GHSA-555j-qj3j-c8jv",
+      "title": "svglib: Exponential resource consumption via nested <use> references in svg2rlg",
+      "published": "2026-11-20T23:47:58Z",
+      "ecosystem": "pip",
+      "summary": "# Summary\n\n`svg2rlg()` expands `<use>` references without any limit on the total number of expansions. Only direct cycles are rejected (`CircularRefError`). A group containing N `<use>` elements that point to another such group multiplies the work by N per nesting level, so an SVG of about 1.4 KB ma",
+      "link": "https://github.com/advisories/GHSA-555j-qj3j-c8jv"
+    },
+    {
+      "id": "GHSA-h57j-5f5m-789v",
+      "title": "contao/core-bundle: Cross-site scripting in the frontend search results",
+      "published": "2026-11-20T23:46:56Z",
+      "ecosystem": "composer",
+      "summary": "Commit `23e8cca3136a` hardened the search-result title against insert-tag/XSS by setting `$objTemplate->title = StringUtil::specialchars(StringUtil::stripInsertTags($arrResult[$i]['title']))`. But the legacy HTML5 template does not use that `title` variable - it prints the raw `link` variable, which",
+      "link": "https://github.com/advisories/GHSA-h57j-5f5m-789v"
+    },
+    {
+      "id": "GHSA-r9qp-pqx5-8369",
+      "title": "contao/core-bundle: Non-admin users can self-grant permissions that implicitly make them administrators",
+      "published": "2026-11-20T23:45:41Z",
+      "ecosystem": "composer",
+      "summary": "Commit `2b83a60f7763` (5.7.3) hardened the template editor: it added `TemplateEditorModuleVoter` + `CheckTemplateEditorSaveListener` so a non-admin cannot self-grant the `tpl_editor` backend module (editable PHP-capable templates permit server-side code execution). That voter supports only the `modu",
+      "link": "https://github.com/advisories/GHSA-r9qp-pqx5-8369"
+    },
+    {
+      "id": "GHSA-23w9-4pg3-xwm3",
+      "title": "contao/core-bundle: Improper access control in the CSV import wizard",
+      "published": "2026-11-20T23:44:33Z",
+      "ecosystem": "composer",
+      "summary": "Custom backend module \"key\" actions are dispatched in `Backend::getBackendModule()` (Backend.php:322-327) after only the module-level `USER_CAN_ACCESS_MODULE` check - no per-record voter runs.\n\n## Impact\n\nA non-admin editor scoped to certain pages/forms can overwrite the tableitems/listitems/options",
+      "link": "https://github.com/advisories/GHSA-23w9-4pg3-xwm3"
+    },
+    {
+      "id": "GHSA-3r9g-pfhv-3228",
+      "title": "contao/newsletter-bundle: Contao newsletter custom actions bypass channel-scoped authorization",
+      "published": "2026-11-20T23:43:26Z",
+      "ecosystem": "composer",
+      "summary": "Channel access is enforced only by the DataContainer voters (`NewsletterChannelAccessVoter` / `NewsletterRecipientsAccessVoter`, requiring USER_CAN_EDIT_CHANNEL), whose `supportsType()` fires exclusively for Create/Read/Update/DeleteAction subjects dispatched inside DC_Table's create/edit/delete met",
+      "link": "https://github.com/advisories/GHSA-3r9g-pfhv-3228"
+    },
+    {
+      "id": "GHSA-72jh-722p-rqr3",
+      "title": "memtomem-stm: Concurrent LTM recovery can duplicate reconnects or reuse a cancelled transport session",
+      "published": "2026-11-20T23:38:15Z",
+      "ecosystem": "pip",
+      "summary": "Concurrent surfacing RPC failures can trigger more than one reconnect for the same dirty session, and cancellation during a post-reconnect retry can leave the replacement session reusable despite an interrupted protocol exchange. The private fix introduces monotonic session generations, one shielded",
+      "link": "https://github.com/advisories/GHSA-72jh-722p-rqr3"
+    },
+    {
+      "id": "GHSA-43hx-xm7w-3mhj",
+      "title": "memtomem-stm: Surfaced memory data can escape the Markdown compatibility boundary",
+      "published": "2026-11-20T23:37:39Z",
+      "ecosystem": "pip",
+      "summary": "Untrusted long-term and working-memory fields can introduce Markdown or HTML-compatible structure into the surfaced-memory envelope. A crafted memory may create misleading structural boundaries or visually conceal content. The private fix serializes every untrusted field as inert single-line data, v",
+      "link": "https://github.com/advisories/GHSA-43hx-xm7w-3mhj"
+    },
+    {
+      "id": "GHSA-jrjx-9jjw-747m",
+      "title": "AIT-GUI route chain allows unauthenticated Python execution in server process",
+      "published": "2026-11-20T23:36:41Z",
+      "ecosystem": "pip",
+      "summary": "## Summary\nA security issue exists where unauthenticated callers can instruct the AIT-GUI server to execute arbitrary Python scripts. The attack vector involves obtaining a session cookie through GET /, followed by a malicious POST /script/run request containing an absolute file path that bypasses t",
+      "link": "https://github.com/advisories/GHSA-jrjx-9jjw-747m"
+    },
+    {
+      "id": "GHSA-qh76-45cr-8xrc",
+      "title": "sevenz-rust2: decompress builds each output path as dest.join(entry.name()) with no traversal guard, allowing a crafted .7z to write files outside the destination (Zip-Slip)",
+      "published": "2026-11-20T23:33:14Z",
+      "ecosystem": "rust",
+      "summary": "### Summary\n\nExtracting an attacker-supplied 7z archive can write files outside the destination directory. The 7z header stores each entry's path as a UTF-16 name with nothing constraining it to a relative, in-tree path. The extractor joins that name onto the destination and writes to the result wit",
+      "link": "https://github.com/advisories/GHSA-qh76-45cr-8xrc"
+    },
+    {
+      "id": "GHSA-xxqp-5qx8-gj5q",
+      "title": "Aedes has Uncaught Exception and Uncontrolled Resource Consumption",
+      "published": "2026-11-20T23:32:35Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\nA remote Denial of Service (DoS) vulnerability, allows any remote client to cause a complete crash of the Aedes MQTT broker process. This is achieved by sending a specially crafted MQTT message (via PUBLISH or SUBSCRIBE), or by setting a Will message with such a topic, containing a highl",
+      "link": "https://github.com/advisories/GHSA-xxqp-5qx8-gj5q"
+    },
+    {
+      "id": "GHSA-p3j5-5hrq-p75h",
+      "title": "nats-server Leaf node connections bypass Nats-Trace-Dest permission check",
+      "published": "2026-11-20T23:31:59Z",
+      "ecosystem": "go",
+      "summary": "### Background\n\nNATS.io is a high performance open source pub-sub distributed communication technology, built for the cloud, on-premise, IoT and edge computing.\n\nThe NATS Server supports leafnode connections between servers and message tracing through NATS headers.\n\n### Problem Description\n\nMessage ",
+      "link": "https://github.com/advisories/GHSA-p3j5-5hrq-p75h"
+    },
     {
       "id": "GHSA-9rv8-9hvg-92mq",
       "title": "chcon: recursive relabel not anchored to traversal dirfd (TOCTOU)",
@@ -685,126 +805,6 @@
       "ecosystem": "go",
       "summary": "### Summary\n\n`bin/fzf-tmux` fails to validate layout size values given in the *attached* form (e.g. `-l50`). For `-l`/`-u` these values reach bash arithmetic expansion (`$(( max - size ))`), where an operand like `a[$(cmd)]` executes `cmd` as the invoking user during option parsing — before any tmux",
       "link": "https://github.com/advisories/GHSA-w6x2-f5m4-xw82"
-    },
-    {
-      "id": "GHSA-q433-mp6c-8v4f",
-      "title": "sqlite-mcp: Read-only mode bypass via statement chaining and SQL injection in describe_table",
-      "published": "2026-11-19T22:25:53Z",
-      "ecosystem": "go",
-      "summary": "### Summary\n\nIn read-only mode (the default), a client that can call the MCP tools can write to the database the server is meant to expose read-only, read other SQLite files, and create new SQLite files anywhere the server process can write. There are two ways in: statement chaining through `execute",
-      "link": "https://github.com/advisories/GHSA-q433-mp6c-8v4f"
-    },
-    {
-      "id": "GHSA-f3mh-rxg3-f5g2",
-      "title": "Next.js: HttpOnly cookie exposure through internal response header on Next.js Edge runtime routes",
-      "published": "2026-11-19T22:23:21Z",
-      "ecosystem": "npm",
-      "summary": "Next.js applications that set cookies through `NextResponse` on Edge runtime routes — App Router route handlers and Pages Router Edge API routes — send an internal `x-middleware-set-cookie` header in the public response, duplicating the cookie value and its attributes. This makes HttpOnly cookies, s",
-      "link": "https://github.com/advisories/GHSA-f3mh-rxg3-f5g2"
-    },
-    {
-      "id": "GHSA-7qx7-33qx-rqx2",
-      "title": "Next.js: SVG rejection bypass in the image optimization",
-      "published": "2026-11-19T22:23:06Z",
-      "ecosystem": "npm",
-      "summary": "On self-hosted deployments, the Next.js image optimizer (`/_next/image`) can be made to process an attacker-supplied SVG even when SVG support is disabled with `dangerouslyAllowSVG: false` (the default). This reaches an SVG parser the application intended to keep disabled, increasing exposure to den",
-      "link": "https://github.com/advisories/GHSA-7qx7-33qx-rqx2"
-    },
-    {
-      "id": "GHSA-pc58-hwjq-p385",
-      "title": "Next.js: Cross-client response injection and disclosure in self-hosted Next.js applications forwarding fetched responses",
-      "published": "2026-11-19T22:20:34Z",
-      "ecosystem": "npm",
-      "summary": "Self-hosted Next.js applications (App Router route handlers and the fetch cache) that return a fetched upstream response unchanged can emit a response whose declared framing does not match the body actually sent. When such an application sits behind an HTTP/1.1 reverse proxy that permits pipelined r",
-      "link": "https://github.com/advisories/GHSA-pc58-hwjq-p385"
-    },
-    {
-      "id": "GHSA-rhh4-g77r-r9qj",
-      "title": "Next.js: Cross-user cache disclosure and poisoning in Next.js use cache with binary arguments",
-      "published": "2026-11-19T22:20:11Z",
-      "ecosystem": "npm",
-      "summary": "Next.js App Router applications that pass binary arguments (such as Uint8Array or Blob values) to functions using the `use cache` directive can produce identical cache keys for distinct arguments, allowing cached results to be shared across users — cross-user disclosure of cached data or cache poiso",
-      "link": "https://github.com/advisories/GHSA-rhh4-g77r-r9qj"
-    },
-    {
-      "id": "GHSA-vvgp-ww4w-46vf",
-      "title": "Next.js: Cache poisoning of shared fallback shells in Cache Components via request-supplied placeholder route params",
-      "published": "2026-11-19T22:18:08Z",
-      "ecosystem": "npm",
-      "summary": "Self-hosted Next.js applications served with `next start` and built with `cacheComponents: true` but without Partial Prefetching accept a request-supplied route param value as a prerender placeholder. One unauthenticated GET request can poison the fallback shell cache entry that a family of routes s",
-      "link": "https://github.com/advisories/GHSA-vvgp-ww4w-46vf"
-    },
-    {
-      "id": "GHSA-4rj4-rcrq-gr92",
-      "title": "Safari MCP: JavaScript injection through single-quoted tool arguments (backslash not escaped)",
-      "published": "2026-11-19T22:17:05Z",
-      "ecosystem": "npm",
-      "summary": "### Impact\n\nSixteen places in `safari.js` placed a tool argument inside a single-quoted JavaScript string literal and escaped the single quote without first escaping backslashes. An argument containing a backslash followed by a quote therefore closed the literal, and the rest of the argument ran as ",
-      "link": "https://github.com/advisories/GHSA-4rj4-rcrq-gr92"
-    },
-    {
-      "id": "GHSA-7589-6fvf-x4pw",
-      "title": "Effect: ReDoS in Schema.TemplateLiteral compiled regex",
-      "published": "2026-11-19T20:51:01Z",
-      "ecosystem": "npm",
-      "summary": "### Impact\n\n`Schema.TemplateLiteral` compiles each `Schema.String` span to the lazy wildcard `[\\s\\S]*?` and decodes input by running the resulting regular expression against it. When a template has two or more `Schema.String` spans, for example:\n\n```ts\nSchema.TemplateLiteral(Schema.String, \":\", Sche",
-      "link": "https://github.com/advisories/GHSA-7589-6fvf-x4pw"
-    },
-    {
-      "id": "GHSA-56v3-jrq2-4q9m",
-      "title": "iSponsorBlockTV: SSRF via Malicious SSDP Response Spoofing in Local Device Discovery",
-      "published": "2026-11-19T20:50:12Z",
-      "ecosystem": "pip",
-      "summary": "### Summary\niSponsorBlockTV discovers local smart TV devices via SSDP (Simple Service Discovery Protocol). The `LOCATION` URL from SSDP responses is used to fetch device capabilities without URL validation. A local network attacker can craft a malicious SSDP response with a `LOCATION` pointing to an",
-      "link": "https://github.com/advisories/GHSA-56v3-jrq2-4q9m"
-    },
-    {
-      "id": "GHSA-5hj8-q7fv-qrj6",
-      "title": "gosaml2: Unauthenticated panic decrypting an EncryptedAssertion with a short or empty CipherValue",
-      "published": "2026-11-19T20:49:36Z",
-      "ecosystem": "go",
-      "summary": "### Summary\n\nAn attacker who can supply a crafted SAML Response for parsing can crash a `gosaml2` service provider by sending an `EncryptedAssertion` with AES-GCM encryption metadata and a `CipherValue` shorter than the GCM nonce size (12 bytes). The library panics with `slice bounds out of range` b",
-      "link": "https://github.com/advisories/GHSA-5hj8-q7fv-qrj6"
-    },
-    {
-      "id": "GHSA-464h-4j8h-q5mf",
-      "title": "HtmlSanitizer: CSS Removal DoS",
-      "published": "2026-11-19T20:49:01Z",
-      "ecosystem": "nuget",
-      "summary": "### Impact\n\nAn unauthenticated request can occupy one synchronous application worker for seconds. Concurrent requests add CPU cost and can keep all workers busy, sustaining denial of service without user interaction.\n\n### Patches\n\nThe issue has been patched in versions  9.0.967 and 9.1.968-beta.\n\n##",
-      "link": "https://github.com/advisories/GHSA-464h-4j8h-q5mf"
-    },
-    {
-      "id": "GHSA-h5m9-42h9-vcq6",
-      "title": "Doorkeeper: When using public clients, any client can revoke any access token",
-      "published": "2026-11-19T20:47:25Z",
-      "ecosystem": "rubygems",
-      "summary": "### Summary\n\nAn improper authorization issue affects Doorkeeper's OAuth token revocation flow when public (non-confidential) clients are in use. This vulnerability can lead to tokens being revoked without correct authorization. The issue is fixed in Doorkeeper 5.9.1.",
-      "link": "https://github.com/advisories/GHSA-h5m9-42h9-vcq6"
-    },
-    {
-      "id": "GHSA-w3w6-9m25-g88p",
-      "title": "OmniFaces: SSE push channels are not bound to their owning HTTP session",
-      "published": "2026-11-19T20:47:02Z",
-      "ecosystem": "maven",
-      "summary": "## Summary\n\n[GHSA-fp43-vj7g-pg92](https://github.com/omnifaces/omnifaces/security/advisories/GHSA-fp43-vj7g-pg92) (fixed 5.4.2) bound session- and view-scoped **WebSocket** (`o:socket`) push channels to the HTTP session that registered them, so a leaked channel ID can no longer be connected to from ",
-      "link": "https://github.com/advisories/GHSA-w3w6-9m25-g88p"
-    },
-    {
-      "id": "GHSA-mqwx-84vv-mp26",
-      "title": "October: Media Library Crop Handler Bypasses Upload Extension Allowlist",
-      "published": "2026-11-19T20:46:36Z",
-      "ecosystem": "composer",
-      "summary": "The Media Library upload handler validates the destination filename against an extension allowlist (`default_extensions`), rejecting types such as `php`, `phtml`, `html`, and `htm`. The image crop handler (`MediaManager::onCropImage` / `cropImage`) did not perform this check. The destination filenam",
-      "link": "https://github.com/advisories/GHSA-mqwx-84vv-mp26"
-    },
-    {
-      "id": "GHSA-pxh3-4qqv-58mg",
-      "title": "Servo Sandbox bypass: declarative refresh can auto-navigate a sandboxed iframe",
-      "published": "2026-11-19T20:45:22Z",
-      "ecosystem": "rust",
-      "summary": "A sandboxed iframe can auto-navigate itself via declarative refresh even when automatic features should be blocked. This allows attacker-controlled embedded content to redirect itself without user action.\n\n### Summary\nServo allows a sandboxed iframe to auto-navigate itself via declarative refresh in",
-      "link": "https://github.com/advisories/GHSA-pxh3-4qqv-58mg"
     }
   ]
 }
