@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-22T00:31:47Z",
+  "updated_at": "2026-11-22T02:39:48Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,601 @@
   ],
   "recent": {
     "lookback_days": 3,
-    "total": 2145,
-    "items_available": 2145,
+    "total": 2199,
+    "items_available": 2199,
     "normalisation_failures": [],
-    "items_parsed": 2145,
+    "items_parsed": 2199,
     "items": [
+      {
+        "id": "CVE-2026-134701",
+        "published": "2026-11-22T02:17:09Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a heap use-after-free vulnerability in xmt_node_end() that leaves freed child node MFURL fields in the OD link list. Attackers can supply a crafted XMT file with an extra top-level SceneReplace node, causing xmt_resolve_od_links() to read freed memory, crashing M",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134701",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134702",
+        "published": "2026-11-22T02:17:09Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a type confusion vulnerability in curve2d_check_changes() that casts a Curve2D point field node to M_Coordinate2D without type checking. Attackers can supply a crafted XMT/BIFS scene placing another node type such as LinearGradient in that field, causing an inval",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134702",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134703",
+        "published": "2026-11-22T02:17:09Z",
+        "description": "libexpat through 2.10.0 contains an improper Unicode handling vulnerability in DEFINE_UTF16_TO_UTF16 conversion functions in xmltok.c that can split valid surrogate pairs when output space is limited. In XML_UNICODE builds parsing non-native byte order UTF-16 input, attackers can supply crafted docu",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134703",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134704",
+        "published": "2026-11-22T02:17:09Z",
+        "description": "OpenShot Video Editor (openshot-qt) through 4.1.1 contains an unsafe deserialization vulnerability in ProjectDataStore.load() and read_legacy_project_file() that passes non-JSON project files to pickle.load() without restriction. Attackers can trick users into opening a crafted .osp project file con",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134704",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134696",
+        "published": "2026-11-22T02:17:08Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a use-after-free vulnerability in gf_sg_proto_del that allows attackers to free PROTOs still owned by another scene command via the GF_SG_PROTO_DELETE handler. Attackers can craft an XMT scene that declares a PROTO in one command and deletes it by ID in another, ",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134696",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134697",
+        "published": "2026-11-22T02:17:08Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a NULL pointer dereference vulnerability in gf_sg_command_apply() that allows attackers to crash the application via indexed field-replace commands lacking a payload. Attackers can craft an XMT scene whose GF_SG_XREPLACE command on an MFNode field carries no valu",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134697",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134698",
+        "published": "2026-11-22T02:17:08Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a type confusion vulnerability in ctxload_process() in src/filters/load_bt_xmt.c that casts object descriptor update entries without checking the descriptor tag. Attackers can supply a crafted XMT/BT scene placing a different descriptor type in a GF_ODUpdate comm",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134698",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134699",
+        "published": "2026-11-22T02:17:08Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a type confusion vulnerability in src/compositor/mpeg4_text.c that allows heap out-of-bounds reads by casting a Text node's fontStyle field to M_FontStyle unchecked. Attackers can craft an XMT/BIFS scene placing a smaller node like Face in fontStyle, causing buil",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134699",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134700",
+        "published": "2026-11-22T02:17:08Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a use-after-free vulnerability in the XMT loader that allows scene commands to reference PROTO sub-graph nodes freed by a scene replace command. Attackers can supply a crafted XMT file that causes gf_node_get_field() and gf_node_unregister() to access freed memor",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134700",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134690",
+        "published": "2026-11-22T02:17:07Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a NULL pointer dereference vulnerability that allows attackers to crash the application by supplying a crafted XMT scene. Attackers can modify InputSensor, Layout or EnvironmentTest nodes during parsing, triggering compositor handlers that read uninitialized priv",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134690",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134691",
+        "published": "2026-11-22T02:17:07Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a heap use-after-free vulnerability in gf_event_target_get_node() because destroyed node event targets remain in media object lists. Attackers can supply a crafted XMT scene with nodes such as InputSensor to trigger freed memory reads during gf_scene_disconnect()",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134691",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134692",
+        "published": "2026-11-22T02:17:07Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a use-after-free vulnerability because xmt_find_node() in loader_xmt.c resolves DEF names without verifying the node belongs to the current scene graph. Attackers can craft an XMT scene reusing a PROTO node across graphs, causing gf_node_unregister() to read free",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134692",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134693",
+        "published": "2026-11-22T02:17:07Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a NULL pointer dereference vulnerability in gf_sg_proto_create_node() in src/scenegraph/vrml_proto.c when cloning PROTO instances. Attackers can craft an XMT scene declaring more PROTO interface fields than the cloned instance supplies, crashing MP4Box when a use",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134693",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134694",
+        "published": "2026-11-22T02:17:07Z",
+        "description": "Gammapy through 2.1 contains a code injection vulnerability in WcsGeom.from_header() that passes the WCSSHAPE FITS header card to eval(). Attackers can supply a crafted .fits file with a Python expression in WCSSHAPE, executing code as the user who loads it via Map.read().",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134694",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134695",
+        "published": "2026-11-22T02:17:07Z",
+        "description": "GPAC MP4Box through 26.07.0 contains an out-of-bounds read vulnerability in avi_parse_input_file() in src/media_tools/avilib.c that increments track counters before checking AVI_MAX_TRACKS. Attackers can supply a crafted AVI file declaring a ninth audio stream, causing AVI_audio_format and AVI_close",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134695",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134685",
+        "published": "2026-11-22T02:17:06Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a heap use-after-free vulnerability in load_xmt_done() in src/scene_manager/loader_xmt.c that reads freed nodes during XMT parser teardown. Attackers can craft an XMT scene with a scene replace command that destroys PROTO sub-graphs, crashing MP4Box and potential",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134685",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134686",
+        "published": "2026-11-22T02:17:06Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a type confusion vulnerability in gf_sg_command_apply() in src/scenegraph/commands.c that misinterprets single node values as child lists for MFNode field replace commands. Attackers can supply a crafted XMT scene that causes an invalid node pointer to be derefer",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134686",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134687",
+        "published": "2026-11-22T02:17:06Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a NULL pointer dereference vulnerability in gf_sg_command_apply() in src/scenegraph/commands.c when handling MFNode field replace commands. Attackers can supply a crafted XMT scene with an MFNode field replace command lacking a node value to crash MP4Box, causing",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134687",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134688",
+        "published": "2026-11-22T02:17:06Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a use-after-free vulnerability in the BT/XMT context loader that frees an interaction-type decoder-specific descriptor even when UIConfig re-encoding fails. Attackers can supply a crafted XMT scene with a BIFSConfig descriptor, causing gf_odf_delete_descriptor() ",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134688",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134689",
+        "published": "2026-11-22T02:17:06Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a NULL pointer dereference vulnerability in JSScript_LoadVRML() in src/scenegraph/vrml_js.c that reads unchecked script_text pointers of Script node url entries. Attackers can supply a crafted XMT scene loading a Script node whose url entry lacks script text, cra",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134689",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134679",
+        "published": "2026-11-22T02:17:05Z",
+        "description": "WeddingShare through 1.8.2 contains a missing authorization vulnerability in the anonymous MediaViewerController.GalleryItem action that allows unauthenticated attackers to retrieve item upload paths without the gallery secret key. Attackers can enumerate sequential integer item ids to learn paths a",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134679",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134680",
+        "published": "2026-11-22T02:17:05Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a NULL pointer dereference vulnerability in TraverseForm() in src/compositor/mpeg4_form.c due to an off-by-one groupsIndex bounds check. Attackers can supply a crafted XMT scene with a Form node having constraints but an empty groupsIndex field to crash MP4Box, c",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134680",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134681",
+        "published": "2026-11-22T02:17:05Z",
+        "description": "GPAC MP4Box through 26.07.0 contains an uncontrolled recursion vulnerability in gf_sg_proto_instantiate() in src/scenegraph/vrml_proto.c that lacks cycle detection or depth limits. Attackers can craft an XMT scene whose PROTO body instantiates itself directly or indirectly, exhausting the stack and ",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134681",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134682",
+        "published": "2026-11-22T02:17:05Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a use-after-free vulnerability in scene graph teardown that allows attackers to trigger access to freed memory via crafted scene files. A node shared across multiple PROTO node_code lists is freed by gf_sg_reset(), and gf_sg_proto_del() then calls gf_node_unregis",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134682",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134683",
+        "published": "2026-11-22T02:17:05Z",
+        "description": "GPAC MP4Box through 26.07.0 contains an uncontrolled recursion vulnerability in xmt_remove_od_links_recursive() in loader_xmt.c that lacks any depth limit when walking node children. Attackers can supply a crafted XMT file with deeply nested or cyclic node and SFCommandBuffer references to exhaust t",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134683",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134684",
+        "published": "2026-11-22T02:17:05Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a heap use-after-free vulnerability in the XMT loader that leaves freed node URL fields in the pending object descriptor link list after SFNode replacement. Attackers can supply a crafted XMT scene that reassigns a single-node field, causing xmt_resolve_od_links(",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134684",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134673",
+        "published": "2026-11-22T02:17:04Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a use-after-free vulnerability in xmt_resolve_od_links() in loader_xmt.c that allows attackers to read freed heap memory via stale strstr() pointers. Attackers can persuade users to process a crafted XMT file whose MFURL field contains an entry without a URL stri",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134673",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134674",
+        "published": "2026-11-22T02:17:04Z",
+        "description": "Freedit before 0.9.9 contains an authorization bypass vulnerability in the post_lock, post_hide, post_pin and comment_hide handlers that allows inn moderators to act on content from other inns. Attackers can supply their own inn id with a foreign post or comment id to lock or hide content instance-w",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134674",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134675",
+        "published": "2026-11-22T02:17:04Z",
+        "description": "Servas before 1.2.0 contains a missing authorization vulnerability that allows authenticated users to modify and delete other users' data by supplying target resource ids. Attackers can abuse TagController update and destroy, LinkController destroy, and GroupController destroy actions to rename or d",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134675",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134676",
+        "published": "2026-11-22T02:17:04Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a heap use-after-free vulnerability in gf_odm_disconnect() in src/compositor/object_manager.c caused by a deferred scene_ns_remove_object task holding a raw object manager pointer. Attackers can supply a crafted XMT scene whose commands delete a Background2D node",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134676",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134677",
+        "published": "2026-11-22T02:17:04Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a use-after-free vulnerability in the XMT scene loader that allows attackers to access freed heap memory via stale object descriptor links. Attackers can supply a crafted XMT scene where xmt_node_end() frees a subtree containing InputSensor MFURL fields, causing ",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134677",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134678",
+        "published": "2026-11-22T02:17:04Z",
+        "description": "Freedit before 0.9.9 contains an authorization bypass vulnerability in the edit_post_post handler for POST /post/edit/:pid that skips ownership and status checks when a Private inn is submitted. Members of a Private inn can overwrite any post by sequential id, including moderator-locked posts, re-at",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134678",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134667",
+        "published": "2026-11-22T02:17:03Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a stack-based buffer overflow vulnerability in xmt_resolve_od_links() that allows attackers to corrupt stack memory via over-long object descriptor URL fragments. Attackers can craft an XMT scene file whose URL fragment overflows the fixed 5000-byte szURL buffer ",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134667",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134668",
+        "published": "2026-11-22T02:17:03Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a use-after-free vulnerability in the XMT scene loader that allows attackers to corrupt heap memory when xmt_node_end() discards an out-of-scope node without resetting command-buffer state. Attackers can supply a crafted XMT file that leaves parser->command_buffe",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134668",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134669",
+        "published": "2026-11-22T02:17:03Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a heap-based buffer over-read vulnerability in gf_xml_sax_peek_node() in src/utils/xml_parser.c that lets attackers read past the heap line buffer. Attackers can craft an XMT file whose ROUTE or command references a later-defined node, crashing MP4Box when a user",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134669",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134670",
+        "published": "2026-11-22T02:17:03Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a use-after-free vulnerability in xmt_node_end() in src/scene_manager/loader_xmt.c that writes to freed heap memory when replacing single-node field commands. Attackers can persuade users to process a crafted XMT file where a Conditional node owning the command i",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134670",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134671",
+        "published": "2026-11-22T02:17:03Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a use-after-free vulnerability in the XMT-A scene loader that allows attackers to corrupt heap memory via crafted XMT files. Attackers can persuade a user to process an XMT file whose discarded out-of-scope nodes cause gf_node_unregister() to dereference a freed ",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134671",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134672",
+        "published": "2026-11-22T02:17:03Z",
+        "description": "GPAC MP4Box through 26.07.0 contains an uncontrolled recursion vulnerability in xmt_discard_subtree() in src/scene_manager/loader_xmt.c that allows attackers to exhaust the call stack. Attackers can persuade a user to process a crafted XMT file with deeply nested discarded SFNode and MFNode fields t",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134672",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134662",
+        "published": "2026-11-22T02:17:02Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a double free vulnerability in the XMT-A scene loader that leaves a stale GF_Command pointer in a Conditional node's SFCommandBuffer when the buffer element is not properly closed. Attackers can persuade users to process a crafted XMT file with malformed nesting,",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134662",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134663",
+        "published": "2026-11-22T02:17:02Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a use-after-free vulnerability in the XMT scene loader that retains a pointer to a PROTO sub-graph freed by gf_sg_proto_del(). Attackers can supply a crafted XMT file imported with MP4Box, causing xmt_parse_command() to update the freed graph's referencing_comman",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134663",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134664",
+        "published": "2026-11-22T02:17:02Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a NULL pointer dereference vulnerability in src/compositor/mpeg4_sensors.c that allows attackers to crash the process via uninitialized sensor nodes. Attackers can supply a crafted XMT scene that makes compositor_mpeg4_get_sensor_handler_ex() call hs->IsEnabled t",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134664",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134665",
+        "published": "2026-11-22T02:17:02Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a use-after-free vulnerability in the XMT scene loader that allows attackers to access freed heap memory by supplying a crafted XMT file. When xmt_parse_element() replaces an SFNode field child, the freed node stays cached in parser->peeked_nodes and a later DEF ",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134665",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134666",
+        "published": "2026-11-22T02:17:02Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a use-after-free vulnerability in the XMT-A scene loader because xmt_node_end() frees unattached nodes but leaves them on the parser node stack. Attackers can persuade users to process a crafted XMT file whose text content makes xmt_text_content() pass the freed ",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134666",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134656",
+        "published": "2026-11-22T02:17:01Z",
+        "description": "OpenAirInterface CN5G SMF through 2.2.2 contains a missing resource release vulnerability in handle_pdu_session_release_sm_context_request() that fails to delete N7 SM policy associations at the PCF. Authenticated UEs can repeatedly establish and release PDU sessions through the AMF-initiated Releas",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134656",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134657",
+        "published": "2026-11-22T02:17:01Z",
+        "description": "OpenAirInterface CN5G PCF through 2.2.2 contains a memory leak vulnerability in pcf_smpc::delete_sm_policy_handler() that leaves stale UE IPv4, SUPI and DNN index entries after association deletion. Attackers can trigger repeated SM policy create and delete cycles over N7 via PDU session establishme",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134657",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134658",
+        "published": "2026-11-22T02:17:01Z",
+        "description": "free5GC SMF through 1.4.6 contains a missing resource release vulnerability in HandlePDUSessionSMContextCreate that leaves CHF charging sessions open when PCF session rule application fails. Attackers can repeatedly trigger failed PDU session establishments to accumulate orphaned charging sessions o",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134658",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134659",
+        "published": "2026-11-22T02:17:01Z",
+        "description": "OpenAirInterface CN5G AMF before 2.2.2 contains a missing resource release vulnerability in amf_sbi::handle_itti_message() that leaves stale PDU session contexts when NRF lookup or SMF selection fails. Authenticated UEs can request PDU sessions while no SMF is selectable, causing deregistration to w",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134659",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134660",
+        "published": "2026-11-22T02:17:01Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a type confusion vulnerability in xmt_parse_command() in src/scene_manager/loader_xmt.c that casts target nodes to GF_ParentNode without validation. Attackers can persuade users to process a crafted XMT-A file whose command targets a non-grouping node, causing gf",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134660",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134661",
+        "published": "2026-11-22T02:17:01Z",
+        "description": "GPAC MP4Box through 26.07.0 contains a NULL pointer dereference vulnerability in gf_odf_encode_ui_config() in src/odf/descriptors.c that allows attackers to crash the process. Attackers can persuade users to process a crafted XMT file declaring an interaction stream without a UIConfig descriptor, ca",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134661",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134569",
+        "published": "2026-11-22T02:17:00Z",
+        "description": "A vulnerability has been found in itsourcecode Banking Management System 1.0. This impacts an unknown function of the file /manage_request.php. Such manipulation of the argument ID leads to sql injection. The attack can be launched remotely. The exploit has been disclosed to the public and may be us",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134569",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134570",
+        "published": "2026-11-22T02:17:00Z",
+        "description": "A vulnerability was found in itsourcecode Banking Management System 1.0. Affected is an unknown function of the file manage_user.php. Performing a manipulation of the argument ID results in sql injection. The attack may be initiated remotely. The exploit has been made public and could be used.",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134570",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134571",
+        "published": "2026-11-22T02:17:00Z",
+        "description": "A vulnerability was determined in itsourcecode Insurance Management System 1.0. Affected by this vulnerability is an unknown functionality of the file addPayment.php. Executing a manipulation of the argument client_id can lead to cross site scripting. The attack may be launched remotely. The exploit",
+        "severity": "LOW",
+        "score": 2.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134571",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134654",
+        "published": "2026-11-22T02:17:00Z",
+        "description": "Mailflare before 48957fb contains a host header injection vulnerability in the password-reset request handler that allows unauthenticated attackers to poison reset links when APP_URL is unset. Attackers can submit a reset request for a victim's email with a malicious Host header, capturing the singl",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134654",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134655",
+        "published": "2026-11-22T02:17:00Z",
+        "description": "Open5GS AMF through 2.8.0 contains a missing resource release vulnerability that allows authenticated UEs to orphan SMF sessions by triggering Create SM Context response processing failures. Attackers can repeatedly release the RAN UE context while responses are pending, causing AMF_SESS_CLEAR() wit",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134655",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134568",
+        "published": "2026-11-22T02:16:58Z",
+        "description": "A flaw has been found in itsourcecode E-Logbook with Health Monitoring System 1.0. This affects an unknown function of the file log_keeper.php. This manipulation of the argument pid causes sql injection. The attack can be initiated remotely. The exploit has been published and may be used.",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134568",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134560",
+        "published": "2026-11-22T01:16:53Z",
+        "description": "A weakness has been identified in twogood unshield up to 1.6.2. Impacted is the function unshield_get_cab_descriptor of the file lib/libunshield.c of the component Cabinet Descriptor Parser. Executing a manipulation can lead to out-of-bounds read. The attack requires local access. The pull request t",
+        "severity": "MEDIUM",
+        "score": 4.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134560",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134566",
+        "published": "2026-11-22T01:16:53Z",
+        "description": "A security vulnerability has been detected in itsourcecode Document Management System 1.0. The affected element is an unknown function of the file /edit.php. The manipulation of the argument ID leads to sql injection. It is possible to initiate the attack remotely. The exploit has been disclosed pub",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134566",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134567",
+        "published": "2026-11-22T01:16:53Z",
+        "description": "A vulnerability was detected in itsourcecode Document Management System 1.0. The impacted element is an unknown function of the file /showlist.php. The manipulation of the argument condition results in sql injection. It is possible to launch the attack remotely. The exploit is now public and may be ",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134567",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134553",
+        "published": "2026-11-22T01:16:52Z",
+        "description": "A vulnerability was determined in wiroai Wiro-MCP up to 1.3.0. This affects the function upload_file of the file src/tools/upload-file.ts of the component File Upload. This manipulation of the argument url causes server-side request forgery. Remote exploitation of the attack is possible. Upgrading t",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134553",
+        "kev": false
+      },
       {
         "id": "CVE-2026-134543",
         "published": "2026-11-22T00:17:00Z",
@@ -21411,56 +22001,6 @@
         "score": 2.1,
         "cvss_version": "40",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132603",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-131914",
-        "published": "2026-11-19T02:17:20Z",
-        "description": "Deserialization of untrusted data in double-submit cookie vs. form field validation in Idunno.AntiCsrf versions through 0.9.1 Beta on ASP.NET allows remote unauthenticated attackers to execute code via object injection",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-131914",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132601",
-        "published": "2026-11-19T02:17:20Z",
-        "description": "A security vulnerability has been detected in SEO Panel 6.0.0. This affects the function mime_content_type of the file controllers/website.ctrl.php of the component Website Import. Such manipulation of the argument website_csv_file leads to unrestricted upload. It is possible to launch the attack re",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132601",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132602",
-        "published": "2026-11-19T02:17:20Z",
-        "description": "A vulnerability was detected in SEO Panel 6.0.0. This impacts an unknown function of the file controllers/siteauditor.ctrl.php of the component Site Auditor. Performing a manipulation of the argument order_col/order_val results in sql injection. The attack can be initiated remotely. The exploit is n",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132602",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132286",
-        "published": "2026-11-19T01:16:49Z",
-        "description": "A security vulnerability has been detected in yangzongzhuan RuoYi up to 4.8.3. The impacted element is an unknown function of the file ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysLoginController.java of the component User Registration Endpoint. The manipulation of the argument deptI",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132286",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132560",
-        "published": "2026-11-19T01:16:49Z",
-        "description": "A flaw has been found in MemTensor memmy-agent up to 1.1.1. This impacts an unknown function of the file /api/v1/memory/logs of the component Memory HTTP Service. This manipulation causes information disclosure. The attack is restricted to local execution. The exploit has been published and may be u",
-        "severity": "LOW",
-        "score": 1.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132560",
         "kev": false
       }
     ]
