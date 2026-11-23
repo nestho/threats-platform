@@ -1,11 +1,35 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-23T15:04:09Z",
+  "updated_at": "2026-11-23T20:34:38Z",
   "source": "GitHub Security Advisories",
   "source_url": "https://api.github.com/advisories",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-2r3w-c2vx-fv5g",
+      "title": "Xen Orchestra: Empty-object login token",
+      "published": "2026-11-23T17:29:29Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\nREST cookie parsing turns `authenticationToken=j:%7B%7D` into `{}`. REST authentication passes that object to the XO token provider without requiring a string. The token collection treats `{}` as an unfiltered lookup and returns its first token; the provider authenticates as that token'",
+      "link": "https://github.com/advisories/GHSA-2r3w-c2vx-fv5g"
+    },
+    {
+      "id": "GHSA-mqwm-5m85-gmcv",
+      "title": "Gradle causes failure to disable repositories exposing builds to malicious artifacts",
+      "published": "2026-11-23T15:41:57Z",
+      "ecosystem": "maven",
+      "summary": "### Impact\n\nWhen resolving dependencies, Gradle searches repositories in declaration order. If it encounters connection errors, Gradle will disable the repository and fail dependency resolution. This is necessary for both reproducibility and security reasons to prevent dependencies from being resolv",
+      "link": "https://github.com/advisories/GHSA-mqwm-5m85-gmcv"
+    },
+    {
+      "id": "GHSA-w78c-w6vf-rw82",
+      "title": "Gradle causes Failure to disable repositories can expose builds to malicious artifacts",
+      "published": "2026-11-23T15:33:34Z",
+      "ecosystem": "maven",
+      "summary": "### Impact\n\nWhen resolving dependencies, Gradle searches repositories in declaration order. If it encounters connection errors, Gradle will disable the repository and fail dependency resolution. This is necessary for both reproducibility and security reasons to prevent dependencies from being resolv",
+      "link": "https://github.com/advisories/GHSA-w78c-w6vf-rw82"
+    },
     {
       "id": "GHSA-25qc-m4pw-2w8r",
       "title": "Budibase: Unauthenticated global-admin & database creation via tenant-confusion bypass of the one-time init guard (`POST /api/global/users/init`)",
@@ -781,30 +805,6 @@
       "ecosystem": "pip",
       "summary": "## Resolution\n\n**Fixed in Mistune 3.3.4.** Upgrade to 3.3.4 or later.\n\n- Affected versions: `< 3.3.4`\n- First patched version: `3.3.4`\n- Fix: https://github.com/lepture/mistune/compare/v3.3.3...v3.3.4\n\nThe reported payload was reproduced against the 3.3.3 release tag and verified to scale approximat",
       "link": "https://github.com/advisories/GHSA-ww7q-mxrj-5ffg"
-    },
-    {
-      "id": "GHSA-hj9c-qx2w-g7mh",
-      "title": "tiny-secp256k1: Stale buffer after ignored wasm failure accepts invalid infinity tweak",
-      "published": "2026-11-19T22:43:45Z",
-      "ecosystem": "npm",
-      "summary": "### Summary\nThe three-argument `xOnlyPointAddTweakCheck` path ignores the wasm failure return and compares an unchanged input buffer. When the tweak result is the point at infinity, this stale-buffer comparison can return `true` for an invalid derivation.\n\n### Details\n`xOnlyPointAddTweakCheck` in `i",
-      "link": "https://github.com/advisories/GHSA-hj9c-qx2w-g7mh"
-    },
-    {
-      "id": "GHSA-7rj6-7pqx-v7rm",
-      "title": "fzf: Predictable FIFO path in zsh completion allows local symlink attack / arbitrary file overwrite as the victim user (_fzf_feed_fifo)",
-      "published": "2026-11-19T22:43:12Z",
-      "ecosystem": "go",
-      "summary": "### Summary\n\n`shell/completion.zsh` feeds every trigger-driven zsh completion through a FIFO at a predictable, PID-based path in shared `/tmp` (`fzf-complete-fifo-$$`), without checking the failure of `rm -f`/`mkfifo`. On a multi-user host, another local user can pre-create that path as a symlink to",
-      "link": "https://github.com/advisories/GHSA-7rj6-7pqx-v7rm"
-    },
-    {
-      "id": "GHSA-w6x2-f5m4-xw82",
-      "title": "fzf: Arbitrary command execution via bash arithmetic expansion on unvalidated layout size in fzf-tmux (-l/-u attached value)",
-      "published": "2026-11-19T22:41:46Z",
-      "ecosystem": "go",
-      "summary": "### Summary\n\n`bin/fzf-tmux` fails to validate layout size values given in the *attached* form (e.g. `-l50`). For `-l`/`-u` these values reach bash arithmetic expansion (`$(( max - size ))`), where an operand like `a[$(cmd)]` executes `cmd` as the invoking user during option parsing — before any tmux",
-      "link": "https://github.com/advisories/GHSA-w6x2-f5m4-xw82"
     }
   ]
 }
