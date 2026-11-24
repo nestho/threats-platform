@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-24T02:26:22Z",
+  "updated_at": "2026-11-24T04:59:18Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,541 @@
   ],
   "recent": {
     "lookback_days": 3,
-    "total": 974,
-    "items_available": 974,
+    "total": 1025,
+    "items_available": 1025,
     "normalisation_failures": [],
-    "items_parsed": 974,
+    "items_parsed": 1025,
     "items": [
+      {
+        "id": "CVE-2026-9790",
+        "published": "2026-11-24T04:17:38Z",
+        "description": "Endpoints accessible without authentication from any WiFi client (e.g., /user/hasSimCard, /user/pooling, /api/device-info).",
+        "severity": "CRITICAL",
+        "score": 10.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-9790",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135746",
+        "published": "2026-11-24T04:17:34Z",
+        "description": "An off-by-one error in String::WriteOneByte() in Samsung lwnode can cause a one-byte out-of-bounds write when copying a UTF-16 string",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135746",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135740",
+        "published": "2026-11-24T04:17:33Z",
+        "description": "FFmpeg before 9.1 contains a heap out-of-bounds write vulnerability in libavfilter/vf_readeia608.c because build_histogram() does not clamp high bit depth luma samples to the nominal maximum. Attackers can supply crafted 9, 10, 12 or 14 bit gray or YUV video to corrupt heap memory, causing crashes o",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135740",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135741",
+        "published": "2026-11-24T04:17:33Z",
+        "description": "FFmpeg before 9.1 contains a heap out-of-bounds read vulnerability in libavfilter/vf_lut2.c because the second input's pixel format is unrestricted when the output depth option is set. Attackers can supply crafted media such as monoblack BMP or PBM images to index beyond lookup tables, crashing appl",
+        "severity": "MEDIUM",
+        "score": 5.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135741",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135742",
+        "published": "2026-11-24T04:17:33Z",
+        "description": "FFmpeg before 9.1 contains a heap buffer overflow vulnerability in recv_msg() of the zmq and azmq filters that allows unauthenticated network attackers to corrupt memory by sending oversized command messages. Attackers can send a 4 GiB message to the default listening port, truncating the int buffer",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135742",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135743",
+        "published": "2026-11-24T04:17:33Z",
+        "description": "FFmpeg 4.3 before 9.1 contains a heap out-of-bounds read and write vulnerability in the dynaudnorm filter because cqueue_resize() miscalculates gain history queue element counts when gausssize changes at runtime. Attackers can send gausssize commands via asendcmd scripts or an unauthenticated azmq f",
+        "severity": "CRITICAL",
+        "score": 9.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135743",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135744",
+        "published": "2026-11-24T04:17:33Z",
+        "description": "FFmpeg before 9.1 contains an out-of-bounds read vulnerability in the lut1d filter in libavfilter/vf_lut3d.c that allows attackers to read heap memory by supplying planar high bit depth samples above the nominal depth. Attackers can craft 9, 10, 12 or 14 bit planar RGB video processed with a large 1",
+        "severity": "MEDIUM",
+        "score": 5.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135744",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135745",
+        "published": "2026-11-24T04:17:33Z",
+        "description": "FFmpeg before 9.1 contains a heap out-of-bounds read vulnerability in the curves filter in libavfilter/vf_curves.c that allows attackers to read past lookup tables by supplying planar high bit depth samples exceeding the nominal depth. Attackers can craft video files with unmasked gbrp9 to gbrp14 sa",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135745",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135734",
+        "published": "2026-11-24T04:17:32Z",
+        "description": "FFmpeg before 9.1 contains a heap out-of-bounds write vulnerability in the deflicker filter that lets attackers corrupt heap memory via unclamped high bit depth luma samples. Attackers can supply crafted video whose luma values exceed the nominal depth, making calc_avgy16() increment counters past t",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135734",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135735",
+        "published": "2026-11-24T04:17:32Z",
+        "description": "FFmpeg before 9.1 contains a heap out-of-bounds read vulnerability in filter_slice_rgba_planar() that allows attackers to read beyond lookup tables using unmasked high bit depth planar samples. Attackers can supply crafted video with samples exceeding the nominal depth, passed unchanged by rawvideo,",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135735",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135736",
+        "published": "2026-11-24T04:17:32Z",
+        "description": "FFmpeg 4.4 before 9.1 contains a heap out-of-bounds read and write vulnerability in libavfilter/vf_deband.c that allows attackers to corrupt heap memory by sending a runtime coupling command. Attackers can send a 'deband coupling 1' command via sendcmd or an unauthenticated zmq filter, making chroma",
+        "severity": "CRITICAL",
+        "score": 9.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135736",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135737",
+        "published": "2026-11-24T04:17:32Z",
+        "description": "FFmpeg before 9.1 contains a heap out-of-bounds write and read vulnerability in the tmidequalizer filter that allows attackers to corrupt memory by supplying high bit depth samples exceeding the nominal maximum. Attackers can craft planar 9, 10, 12 or 14 bit video so compute_histogram16() and apply_",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135737",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135738",
+        "published": "2026-11-24T04:17:32Z",
+        "description": "FFmpeg before 9.1 contains a heap out-of-bounds write vulnerability in libavfilter/vf_signalstats.c that allows attackers to corrupt heap memory by supplying high bit depth samples exceeding the nominal maximum. Attackers can craft planar 9 to 14 bit YUV video whose unclamped samples or saturation v",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135738",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135739",
+        "published": "2026-11-24T04:17:32Z",
+        "description": "FFmpeg 7.1 before 9.1 contains an out-of-bounds read vulnerability in libavfilter/vf_scale.c that allows attackers to read past the filter input array by sending width or height commands using ref variables. Attackers can send such commands via sendcmd scripts or unauthenticated zmq or azmq filters,",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135739",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135728",
+        "published": "2026-11-24T04:17:31Z",
+        "description": "FFmpeg before 9.1 contains a signed integer overflow vulnerability in libavformat/dashdec.c that allows attackers to crash applications by supplying a crafted DASH manifest. Attackers can craft an MPD manifest with very long BaseURL and SegmentTemplate strings to overflow max_url_size, causing under",
+        "severity": "MEDIUM",
+        "score": 5.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135728",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135729",
+        "published": "2026-11-24T04:17:31Z",
+        "description": "FFmpeg before 9.1 contains an XML injection vulnerability in write_adaptation_set() in libavformat/webmdashenc.c that writes stream language metadata unescaped into the AdaptationSet lang attribute. Attackers can supply crafted WebM files whose track language contains quotes or angle brackets to inj",
+        "severity": "MEDIUM",
+        "score": 4.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135729",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135730",
+        "published": "2026-11-24T04:17:31Z",
+        "description": "FFmpeg before 9.1 contains an uninitialized memory vulnerability in vpk_read_header() in libavformat/vpk.c that computes a last block size not divisible by the channel count. Attackers can supply a crafted VPK file with a large channel count so the last audio packet exposes leftover heap memory cont",
+        "severity": "MEDIUM",
+        "score": 4.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135730",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135731",
+        "published": "2026-11-24T04:17:31Z",
+        "description": "FFmpeg before 9.1 contains an integer overflow in send_picture() of libavformat/rtpenc_vc2hq.c that leaves the bit reader without a buffer, causing a NULL pointer dereference. Attackers can supply a Dirac/VC-2 stream with a picture data unit of about 256 MiB or more to crash applications packetizing",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135731",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135732",
+        "published": "2026-11-24T04:17:31Z",
+        "description": "FFmpeg before 9.1 contains an out-of-bounds read vulnerability in mxf_write_d10_audio_packet() in libavformat/mxfenc.c because mxf_init() accepts unsupported D-10 audio codecs. Attackers can supply a crafted input with a non-PCM multichannel audio stream remuxed to D-10 MXF to leak heap memory into ",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135732",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135733",
+        "published": "2026-11-24T04:17:31Z",
+        "description": "FFmpeg through 9.1 contains an insecure default configuration in the zmq and azmq filters of libavfilter/f_zmq.c that binds an unauthenticated command socket to all interfaces on TCP port 5555. Remote attackers can send 'TARGET COMMAND [ARG]' messages passed to avfilter_graph_send_command() to chang",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135733",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135722",
+        "published": "2026-11-24T04:17:30Z",
+        "description": "FFmpeg before 9.1 contains a heap-based buffer overflow vulnerability in peak_init_writer() and wav_write_packet() in libavformat/wavenc.c that allows attackers to corrupt heap memory by supplying audio with zero channels. Attackers can provide a crafted PCM stream declaring no channels for WAV outp",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135722",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135723",
+        "published": "2026-11-24T04:17:30Z",
+        "description": "FFmpeg before 9.1 contains a double free vulnerability in the fill_marker() function of libavformat/imf_cpl.c that frees a Marker label without clearing the pointer when default scope allocation fails. Attackers can supply a crafted Composition Playlist with a Marker Label lacking a scope attribute,",
+        "severity": "HIGH",
+        "score": 7.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135723",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135724",
+        "published": "2026-11-24T04:17:30Z",
+        "description": "FFmpeg before 9.1 contains a NULL pointer dereference vulnerability in avformat_stream_group_create() in libavformat/options.c that sets the group type before allocating parameters. Attackers can supply crafted HEIF/AVIF files whose tile grid parsing under allocation failure makes ff_free_stream_gro",
+        "severity": "MEDIUM",
+        "score": 5.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135724",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135725",
+        "published": "2026-11-24T04:17:30Z",
+        "description": "FFmpeg before 9.1 contains a stack-based buffer overflow vulnerability in ff_rtmp_packet_write() in libavformat/rtmppkt.c that allows malicious RTMP servers to overflow a 16-byte header buffer. Attackers can send a Set Chunk Size packet on a high channel id with an extended timestamp, which handle_c",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135725",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135726",
+        "published": "2026-11-24T04:17:30Z",
+        "description": "FFmpeg before 9.1 contains a NULL pointer dereference vulnerability in rdt_parse_packet() in libavformat/rdt.c that allows remote attackers to crash applications by omitting the ASMRuleBook SDP attribute. Attackers can serve an RTSP session selecting RDT transport without ASMRuleBook, then send an R",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135726",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135727",
+        "published": "2026-11-24T04:17:30Z",
+        "description": "FFmpeg before 9.1 contains an uninitialized memory disclosure vulnerability in rfc4175_handle_packet() in libavformat/rtpdec_rfc4175.c that leaks heap contents into decoded video frames. Attackers can send RTP streams containing only some scan lines of a frame, leaving av_malloc buffer bytes uniniti",
+        "severity": "MEDIUM",
+        "score": 4.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135727",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135716",
+        "published": "2026-11-24T04:17:29Z",
+        "description": "FFmpeg before 9.1 contains an out-of-bounds write vulnerability in build_frame_code() in libavformat/nutenc.c that allows attackers to corrupt the header_len[] array by supplying inputs with many audio streams. Attackers can remux a crafted input with many audio streams to NUT, causing out-of-bounds",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135716",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135717",
+        "published": "2026-11-24T04:17:29Z",
+        "description": "FFmpeg 8.0 before 9.1 contains a use of uninitialized memory vulnerability in opus_parse_packet() in libavformat/rtpdec_opus.c that reads the Opus TOC byte from stale buffer memory when parsing empty RTP payloads. A malicious RTSP server or RTP sender can deliver an empty Opus payload to cause incor",
+        "severity": "LOW",
+        "score": 2.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135717",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135718",
+        "published": "2026-11-24T04:17:29Z",
+        "description": "FFmpeg 7.0 before 9.1 contains an out-of-bounds read vulnerability in dvdvideo_audio_stream_add_all() in libavformat/dvdvideodec.c when parsing menu audio streams. Attackers can supply a crafted DVD image whose menu IFO declares more than 8 audio streams, reading past the audio_control array and cra",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135718",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135719",
+        "published": "2026-11-24T04:17:29Z",
+        "description": "FFmpeg before 9.1 contains an uninitialized memory disclosure vulnerability in dxa_read_packet() in libavformat/dxa.c that ignores short avio_read() results for CMAP palette data. Attackers can supply a crafted DXA stream over a stalling network source so uninitialized stack bytes are copied into re",
+        "severity": "LOW",
+        "score": 2.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135719",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135720",
+        "published": "2026-11-24T04:17:29Z",
+        "description": "FFmpeg 9.0 before 9.1 contains a NULL pointer dereference vulnerability in dash_read_header() in libavformat/dashdec.c when building LCEVC stream groups without checking for a missing codecs string. Attackers can supply a crafted MPD manifest with a representation declaring a dependencyId but no cod",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135720",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135721",
+        "published": "2026-11-24T04:17:29Z",
+        "description": "FFmpeg before 9.1 contains an infinite loop vulnerability in ff_rtp_send_vc2hq() in libavformat/rtpenc_vc2hq.c that accepts a Dirac next parse offset of zero. Attackers can supply crafted Dirac/VC-2 video remuxed to the RTP muxer, causing the parsing pointer to never advance and consume CPU indefini",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135721",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135710",
+        "published": "2026-11-24T04:17:28Z",
+        "description": "FFmpeg before 9.1 contains an uninitialized memory disclosure vulnerability in vmd_read_packet() in libavformat/sierravmd.c that leaves 16 packet bytes unwritten for Indeo3 frames. Attackers can supply a crafted VMD file with Indeo3 video to expose leftover heap contents in demuxed packets, such as ",
+        "severity": "MEDIUM",
+        "score": 4.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135710",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135711",
+        "published": "2026-11-24T04:17:28Z",
+        "description": "FFmpeg before 9.1 contains an XML injection vulnerability in ttml_write_header() in libavformat/ttmlenc.c that writes stream language metadata unescaped into the xml:lang attribute. Attackers can supply media files, such as Matroska subtitle tracks with crafted Language values, to inject markup into",
+        "severity": "MEDIUM",
+        "score": 4.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135711",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135712",
+        "published": "2026-11-24T04:17:28Z",
+        "description": "FFmpeg before 9.1 contains an integer overflow vulnerability in the split_planes size check of write_packet() in libavformat/img2enc.c that allows out-of-bounds heap reads. Attackers can supply a crafted input whose rawvideo stream declares very large width and height, remuxed into .y image files, t",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135712",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135713",
+        "published": "2026-11-24T04:17:28Z",
+        "description": "FFmpeg before 9.1 contains a NULL pointer dereference vulnerability in libavformat/mmst.c that allows malicious MMS servers to crash clients by sending malformed ASF headers. Attackers can send an ASF header lacking a packet size or stream properties, causing mms_open() to return success after freei",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135713",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135714",
+        "published": "2026-11-24T04:17:28Z",
+        "description": "FFmpeg before 9.1 contains an information disclosure vulnerability in amf_get_field_value2() in libavformat/rtmppkt.c that NUL-terminates truncated AMF strings at the declared length instead of bytes read. A malicious RTMP server, or connecting client in listen mode, can send truncated onStatus or _",
+        "severity": "MEDIUM",
+        "score": 4.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135714",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135715",
+        "published": "2026-11-24T04:17:28Z",
+        "description": "FFmpeg before 9.1 contains a NULL pointer dereference vulnerability in the AVIF muxer in libavformat/movenc.c that allows attackers to crash the application through streams with unknown pixel formats. Attackers can supply a crafted input whose video stream is stream-copied to AVIF, causing unchecked",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135715",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135705",
+        "published": "2026-11-24T04:17:27Z",
+        "description": "FFmpeg before 9.1 contains a stack out-of-bounds read vulnerability in ff_h264_parse_framesize() in libavformat/rtpdec_h264.c when parsing an SDP a=framesize attribute lacking a height. Attackers controlling an RTSP server DESCRIBE response or a crafted .sdp file can make atoi() read past the line b",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135705",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135706",
+        "published": "2026-11-24T04:17:27Z",
+        "description": "FFmpeg before 9.1 contains a heap buffer overflow vulnerability in modplug_read_header() in libavformat/libmodplug.c that allocates the buffer using max_size instead of sz. When max_size is set to 0, attackers can supply crafted module files that avio_read() copies into a zero-sized buffer, causing ",
+        "severity": "HIGH",
+        "score": 7.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135706",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135707",
+        "published": "2026-11-24T04:17:27Z",
+        "description": "FFmpeg before 9.1 contains an uninitialized memory vulnerability in nist_read_header() in libavformat/nistspheredec.c, where an inverted ff_alloc_extradata() return check leaves the embedded-shorten extradata byte uninitialized. Attackers can supply a crafted NIST SPHERE file declaring pcm,embedded-",
+        "severity": "MEDIUM",
+        "score": 4.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135707",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135708",
+        "published": "2026-11-24T04:17:27Z",
+        "description": "FFmpeg 8.0 before 9.1 contains an improper URL scheme validation vulnerability in the WHIP muxer that allows malicious WHIP servers to create or truncate local files via the Location header. Attackers can return a file: URL that dispose_session() opens read-write with truncation on teardown, destroy",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135708",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135709",
+        "published": "2026-11-24T04:17:27Z",
+        "description": "FFmpeg before 9.1 contains an out-of-bounds write vulnerability in ogg_buffer_data() in libavformat/oggenc.c because ogg_buffer_page() leaves a full page current after failed allocation. When page allocation fails, a memset with length (size_t)-1 or an overflowing memcpy writes past the segment tabl",
+        "severity": "HIGH",
+        "score": 7.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135709",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134880",
+        "published": "2026-11-24T04:17:26Z",
+        "description": "XML::Sig versions before 0.74 for Perl allow code execution via a document's Algorithm attribute that verify resolves to a function name and calls.\n\nThe text after the last `#` in the DigestMethod and SignatureMethod Algorithm attributes is looked up with Digest::SHA->can. That returns a code refere",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134880",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135455",
+        "published": "2026-11-24T04:17:26Z",
+        "description": "A vulnerability was determined in amirhamza05 Student-Management-System up to 449397e35d42e3779f14f0bfc654ab307103f7e3. The impacted element is an unknown function of the file page_action/nav_bar/chat_system.php of the component Live Chat. Executing a manipulation of the argument send_message_chat c",
+        "severity": "LOW",
+        "score": 2.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135455",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135456",
+        "published": "2026-11-24T04:17:26Z",
+        "description": "A vulnerability was identified in amirhamza05 Student-Management-System up to 449397e35d42e3779f14f0bfc654ab307103f7e3. This affects an unknown function of the file page_action/user/user_profile.php. The manipulation of the argument update_profile_info leads to cross-site request forgery. Remote exp",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135456",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135703",
+        "published": "2026-11-24T04:17:26Z",
+        "description": "FFmpeg before 9.1 contains an uninitialized memory use vulnerability in asfrtp_parse_packet() in libavformat/rtpdec_asf.c that allows malicious RTP sources to leak heap contents by supplying an oversized ASF packet length. Attackers controlling an RTSP server with an x-asf-pf payload can set len_off",
+        "severity": "MEDIUM",
+        "score": 4.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135703",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135704",
+        "published": "2026-11-24T04:17:26Z",
+        "description": "FFmpeg before 9.1 contains an information disclosure vulnerability in the MXG demuxer's mxg_read_packet() that allows attackers to leak uninitialized heap memory through truncated marker segments. Attackers can supply a crafted MXG file ending in a truncated APP13 segment with a large declared lengt",
+        "severity": "MEDIUM",
+        "score": 4.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135704",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-128791",
+        "published": "2026-11-24T04:17:22Z",
+        "description": "Any WiFi client can send HTTP DELETE to /meeting-recording/delete to permanently delete files without authentication.",
+        "severity": "CRITICAL",
+        "score": 10.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-128791",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135454",
+        "published": "2026-11-24T03:17:09Z",
+        "description": "A vulnerability was found in amirhamza05 Student-Management-System up to 449397e35d42e3779f14f0bfc654ab307103f7e3. The affected element is the function sql_action of the file config/connect.php of the component Student Management Module. Performing a manipulation results in sql injection. The attack",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135454",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135451",
+        "published": "2026-11-24T03:17:08Z",
+        "description": "A flaw has been found in amirhamza05 Student-Management-System up to 449397e35d42e3779f14f0bfc654ab307103f7e3. This issue affects some unknown processing of the file page_action/user/user_profile.php of the component User Profile Handler. This manipulation causes authorization bypass. The attack can",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135451",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135453",
+        "published": "2026-11-24T03:17:08Z",
+        "description": "A vulnerability has been found in amirhamza05 Student-Management-System up to 449397e35d42e3779f14f0bfc654ab307103f7e3. Impacted is the function move_uploaded_file of the file student_action.php of the component User Avatar Upload. Such manipulation of the argument File leads to unrestricted upload.",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135453",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-124283",
+        "published": "2026-11-24T03:17:07Z",
+        "description": "Deserialization of Untrusted Data vulnerability in ash-project ash allows an unauthenticated attacker to execute arbitrary code or inject SQL through a forged keyset pagination cursor.\n\nAsh.Page.Keyset.filter/4 in lib/ash/page/keyset.ex decodes the client-supplied page[:after] or page[:before] curso",
+        "severity": "HIGH",
+        "score": 8.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124283",
+        "kev": false
+      },
       {
         "id": "CVE-2026-135450",
         "published": "2026-11-24T02:17:47Z",
@@ -9731,26 +10261,6 @@
         "score": 5.5,
         "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133958",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-131651",
-        "published": "2026-11-21T04:17:20Z",
-        "description": "The rtMedia for WordPress, BuddyPress and bbPress plugin for WordPress is vulnerable to Stored DOM-Based Cross-Site Scripting via the 'media_title' parameter in all versions up to, and including, 4.7.18 due to insufficient input sanitization and output escaping. This makes it possible for authentica",
-        "severity": "MEDIUM",
-        "score": 6.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-131651",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-19793",
-        "published": "2026-11-21T04:17:20Z",
-        "description": "The WP Import Export Lite plugin for WordPress is vulnerable to Limited Code Injection in all versions up to, and including, 3.9.32 via the 'comment' parameter. This is due to a two-stage shortcode check that evaluates the raw mapping placeholder before data substitution, causing the neutralizer to ",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-19793",
         "kev": false
       }
     ]
