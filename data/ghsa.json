@@ -1,11 +1,59 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-23T20:34:38Z",
+  "updated_at": "2026-11-24T02:26:23Z",
   "source": "GitHub Security Advisories",
   "source_url": "https://api.github.com/advisories",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-j44m-77cc-p3cc",
+      "title": "AVideo API vulnerable to OS command injection through an unescaped FFmpeg process keyword",
+      "published": "2026-11-23T22:06:28Z",
+      "ecosystem": "composer",
+      "summary": "### Summary\n\nThe helper `listFFmpegProcesses($keyword)` in `plugin/API/standAlone/functions.php` builds a shell pipeline by interpolating `$keyword` inside single quotes and running it with `exec()`:\n\n```php\n$command .= \" | grep '$keyword'\";\nexec($command, $output, $status);\n```\n\nThe two callers in ",
+      "link": "https://github.com/advisories/GHSA-j44m-77cc-p3cc"
+    },
+    {
+      "id": "GHSA-9x82-4j54-863h",
+      "title": "isomorphic-git allows unbounded memory allocation from attacker-controlled delta target size (DoS)",
+      "published": "2026-11-23T21:07:02Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\nWhen applying a delta object from a packfile, isomorphic-git reads a **server-controlled** `targetSize` and calls `Buffer.alloc(targetSize)` with no upper bound. A single malicious HTTP response to `git.clone()`/`git.fetch()` can force a ~2 GB allocation → memory exhaustion / DoS (proces",
+      "link": "https://github.com/advisories/GHSA-9x82-4j54-863h"
+    },
+    {
+      "id": "GHSA-2v9w-34q6-wpqx",
+      "title": "jline3 leads to ReDoS in Built-in Less Viewer Search",
+      "published": "2026-11-23T21:02:03Z",
+      "ecosystem": "maven",
+      "summary": "### Summary\n\nThe JLine3 built-in `less` pager compiles user-supplied search patterns directly as\nJava regular expressions with no sanitization, timeout, or backtracking bound. A\nmalicious pattern such as `(a+)+b` can trigger catastrophic backtracking and hang the\nsession thread at 100% CPU. In deplo",
+      "link": "https://github.com/advisories/GHSA-2v9w-34q6-wpqx"
+    },
+    {
+      "id": "GHSA-vp2j-gqfm-r3cf",
+      "title": "secp256k1-native has a compiler-induced timing side channel in scalar multiplication",
+      "published": "2026-11-23T20:59:48Z",
+      "ecosystem": "rubygems",
+      "summary": "## Summary\n\n`Point#mul` — the default, constant-time scalar multiplication and the library's headline secret-scalar operation — could leak timing information about the secret scalar (a private key or ECDSA-style nonce in a downstream consumer) **not because of a source-level bug, but because the com",
+      "link": "https://github.com/advisories/GHSA-vp2j-gqfm-r3cf"
+    },
+    {
+      "id": "GHSA-f9h7-4mmq-vgcq",
+      "title": "Klever Go counts bitmap padding bits toward BLS quorum, allowing blocks with insufficient signatures",
+      "published": "2026-11-23T20:55:35Z",
+      "ecosystem": "go",
+      "summary": "## Summary\n\nWhen validating an incoming block header, `HeaderSigVerifier.verifyConsensusSize` counts *every* set bit in `PubKeysBitmap` — including bits that correspond to no validator (the padding bits of the final byte, which exist whenever the consensus group size is not a multiple of 8). The sub",
+      "link": "https://github.com/advisories/GHSA-f9h7-4mmq-vgcq"
+    },
+    {
+      "id": "GHSA-6jcc-5g8w-32mx",
+      "title": "i18next deepExtend recurses into inherited built-ins, allowing corruption of shared built-in objects (DoS)",
+      "published": "2026-11-23T20:53:00Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\n`deepExtend` in `src/utils.js` (reached via the public `addResourceBundle(lng, ns, data, deep, overwrite)` API) checked key existence with the `in` operator, which walks the prototype chain. A source key matching an inherited built-in (e.g. `hasOwnProperty`, `toString`, `valueOf`) there",
+      "link": "https://github.com/advisories/GHSA-6jcc-5g8w-32mx"
+    },
     {
       "id": "GHSA-2r3w-c2vx-fv5g",
       "title": "Xen Orchestra: Empty-object login token",
@@ -757,54 +805,6 @@
       "ecosystem": "rust",
       "summary": "### Maintainer resolution\n\nThe CodeWhale maintainers validated this report. CodeWhale 0.8.67 and earlier are affected. Version 0.9.0 contains the fix in commit 208421b9d23d81cea3311a1eeb2a2ea81d637686. Users should upgrade to 0.9.0 or later. The original reporter analysis is preserved below.\n\n## Sum",
       "link": "https://github.com/advisories/GHSA-3mgh-93r5-r7jf"
-    },
-    {
-      "id": "GHSA-8hp3-xxrg-v9c8",
-      "title": "CodeWhale: Automation auto_approve defaults to true, bypassing the task-path hardening fix for silent recurring agent execution",
-      "published": "2026-11-19T22:47:33Z",
-      "ecosystem": "rust",
-      "summary": "### Maintainer resolution\n\nThe CodeWhale maintainers validated this report. CodeWhale 0.8.67 and earlier are affected. Version 0.9.0 contains the fix in commit 208421b9d23d81cea3311a1eeb2a2ea81d637686. Users should upgrade to 0.9.0 or later. The original reporter analysis is preserved below.\n\n## Sum",
-      "link": "https://github.com/advisories/GHSA-8hp3-xxrg-v9c8"
-    },
-    {
-      "id": "GHSA-m4g8-47f9-h588",
-      "title": "eml_parser: Algorithmic-complexity DoS (O(n^4) regex backtracking) in Received-header parsing",
-      "published": "2026-11-19T22:47:08Z",
-      "ecosystem": "pip",
-      "summary": "### Summary\n\n`eml_parser.routing.parserouting()` dynamically builds a regex from up to four greedy `.*` groups (`from (?P<from>.*)by (?P<by>.*)with (?P<with>.*)for (?P<for>.*)`) terminated by an escaped literal of the date extracted from a **normalized** copy of the `Received` header. Because the da",
-      "link": "https://github.com/advisories/GHSA-m4g8-47f9-h588"
-    },
-    {
-      "id": "GHSA-vwhp-8p66-mq4f",
-      "title": "containerd image-triggered daemon crash via malformed digest in subject-annotated descriptor",
-      "published": "2026-11-19T22:46:24Z",
-      "ecosystem": "go",
-      "summary": "### Impact\n\nA bug in containerd's image manifest processing causes an unrecovered panic when a child descriptor contains the `io.containerd.manifest.subject` annotation and a malformed digest. Pulling or importing such an image through the transfer service (including default CRI `PullImage` requests",
-      "link": "https://github.com/advisories/GHSA-vwhp-8p66-mq4f"
-    },
-    {
-      "id": "GHSA-qx49-fqc8-xw99",
-      "title": "Model Context Protocol Python SDK: OAuth client could send credentials to an authorization server chosen by the MCP server",
-      "published": "2026-11-19T22:45:40Z",
-      "ecosystem": "pip",
-      "summary": "### Summary\nIn affected versions, the SDK's OAuth client support (`mcp.client.auth`) let the MCP server a client connected to decide where the client's OAuth credentials were sent:\n\n- the authorization server metadata `issuer` was not validated on every discovery path, and\n- stored or pre-provisione",
-      "link": "https://github.com/advisories/GHSA-qx49-fqc8-xw99"
-    },
-    {
-      "id": "GHSA-phmp-hrw4-r36r",
-      "title": "Mistune: Quadratic-time DoS in parse_link_href via unbounded parenthesis scan on empty-label links",
-      "published": "2026-11-19T22:44:42Z",
-      "ecosystem": "pip",
-      "summary": "## Resolution\n\n**Fixed in Mistune 3.3.4.** Upgrade to 3.3.4 or later.\n\n- Affected versions: `< 3.3.4`\n- First patched version: `3.3.4`\n- Fix: https://github.com/lepture/mistune/compare/v3.3.3...v3.3.4\n\nThe reported payload was reproduced against the 3.3.3 release tag and verified to scale approximat",
-      "link": "https://github.com/advisories/GHSA-phmp-hrw4-r36r"
-    },
-    {
-      "id": "GHSA-ww7q-mxrj-5ffg",
-      "title": "Mistune: Quadratic-time DoS in inline image parsing (precedence_scan) bypasses not-is-image guards",
-      "published": "2026-11-19T22:44:00Z",
-      "ecosystem": "pip",
-      "summary": "## Resolution\n\n**Fixed in Mistune 3.3.4.** Upgrade to 3.3.4 or later.\n\n- Affected versions: `< 3.3.4`\n- First patched version: `3.3.4`\n- Fix: https://github.com/lepture/mistune/compare/v3.3.3...v3.3.4\n\nThe reported payload was reproduced against the 3.3.3 release tag and verified to scale approximat",
-      "link": "https://github.com/advisories/GHSA-ww7q-mxrj-5ffg"
     }
   ]
 }
