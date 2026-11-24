@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-24T02:26:27Z",
+  "updated_at": "2026-11-24T12:48:22Z",
   "source": "Microsoft MSRC + Ubuntu Security Notices",
   "source_url": [
     "https://api.msrc.microsoft.com/update-guide/rss",
@@ -11,28 +11,84 @@
   "partial": null,
   "items": [
     {
+      "id": "USN-9192-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9192-1: Linux kernel (NVIDIA) vulnerabilities",
+      "published": "2026-11-24T08:42:57Z",
+      "summary": "It was discovered that some AMD processors did not properly perform Reverse Map Table (RMP) checks when the IOMMU accessed certain host buffers. A local attacker with hypervisor access could possibly use this to trigger an out-of-bounds condition and compromise the integrity of SEV-SNP guest memory.",
+      "link": "https://ubuntu.com/security/notices/USN-9192-1"
+    },
+    {
+      "id": "USN-9191-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9191-1: Linux kernel (Azure) vulnerabilities",
+      "published": "2026-11-24T08:42:14Z",
+      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Multiple devices driver; - eXpress Data Path; - Kernel build system; - ARM64 architecture; - PowerPC architecture; - R",
+      "link": "https://ubuntu.com/security/notices/USN-9191-1"
+    },
+    {
+      "id": "USN-9190-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9190-1: Linux kernel vulnerabilities",
+      "published": "2026-11-24T08:41:13Z",
+      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - S390 architecture; - x86 architecture; - Block layer subsystem; - Cryptographic API; - Compute Acceleration Framework;",
+      "link": "https://ubuntu.com/security/notices/USN-9190-1"
+    },
+    {
+      "id": "USN-9173-3",
+      "vendor": "Ubuntu",
+      "title": "USN-9173-3: Linux kernel (NVIDIA) vulnerabilities",
+      "published": "2026-11-24T08:41:02Z",
+      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Multiple devices driver; - eXpress Data Path; - Kernel build system; - ARM64 architecture; - PowerPC architecture; - R",
+      "link": "https://ubuntu.com/security/notices/USN-9173-3"
+    },
+    {
+      "id": "USN-9174-2",
+      "vendor": "Ubuntu",
+      "title": "USN-9174-2: Linux kernel (Low Latency NVIDIA) vulnerabilities",
+      "published": "2026-11-24T08:40:59Z",
+      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Multiple devices driver; - eXpress Data Path; - Kernel build system; - ARM64 architecture; - PowerPC architecture; - R",
+      "link": "https://ubuntu.com/security/notices/USN-9174-2"
+    },
+    {
+      "id": "USN-9167-3",
+      "vendor": "Ubuntu",
+      "title": "USN-9167-3: Linux kernel vulnerabilities",
+      "published": "2026-11-24T08:40:58Z",
+      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Stream parser; - ARM64 architecture; - S390 architecture; - x86 architecture; - Drivers core; - Compressed RAM block d",
+      "link": "https://ubuntu.com/security/notices/USN-9167-3"
+    },
+    {
+      "id": "USN-9168-4",
+      "vendor": "Ubuntu",
+      "title": "USN-9168-4: Linux kernel (Azure) vulnerabilities",
+      "published": "2026-11-24T08:40:54Z",
+      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Stream parser; - ARM64 architecture; - S390 architecture; - x86 architecture; - Compressed RAM block device driver; - ",
+      "link": "https://ubuntu.com/security/notices/USN-9168-4"
+    },
+    {
+      "id": "USN-9170-4",
+      "vendor": "Ubuntu",
+      "title": "USN-9170-4: Linux kernel (Azure) vulnerabilities",
+      "published": "2026-11-24T08:40:41Z",
+      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - IPv4 networking; - Ethernet bridge; - Netfilter; - SCTP protocol; - XFRM subsystem; (CVE-2026-64564, CVE-2026-98432, C",
+      "link": "https://ubuntu.com/security/notices/USN-9170-4"
+    },
+    {
+      "id": "USN-9165-2",
+      "vendor": "Ubuntu",
+      "title": "USN-9165-2: Linux kernel vulnerabilities",
+      "published": "2026-11-24T08:40:41Z",
+      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Cryptographic API; - File systems infrastructure; - Key management; - Key Management; - io_uring subsystem; - PID name",
+      "link": "https://ubuntu.com/security/notices/USN-9165-2"
+    },
+    {
       "id": "USN-9189-1",
       "vendor": "Ubuntu",
       "title": "USN-9189-1: Qt5Compat vulnerability",
       "published": "2026-11-23T23:21:59Z",
       "summary": "It was discovered that Qt5Compat did not correctly handle certain text codec names, which could lead to an out-of-bounds read. An attacker could possibly use this issue to cause a denial of service.",
       "link": "https://ubuntu.com/security/notices/USN-9189-1"
-    },
-    {
-      "id": "USN-9188-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9188-1: OAuthLib vulnerabilities",
-      "published": "2026-11-23T19:44:23Z",
-      "summary": "It was discovered that OAuthLib incorrectly handled JSONP callback parameters in the token revocation endpoint. A remote attacker could possibly use this issue to execute arbitrary code in a client application. (CVE-2026-49264) Elvin Latifli discovered that OAuthLib incorrectly compared PKCE code ve",
-      "link": "https://ubuntu.com/security/notices/USN-9188-1"
-    },
-    {
-      "id": "USN-9187-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9187-1: libssh vulnerabilities",
-      "published": "2026-11-23T17:32:05Z",
-      "summary": "Haruto Kimura, Rinku Das, and Yi Lin discovered that libssh did not correctly handle SSH channel open messages advertising a zero maximum packet size. An authenticated user could possibly use this issue to cause libssh to use excessive resources, leading to a denial of service. This issue only affec",
-      "link": "https://ubuntu.com/security/notices/USN-9187-1"
     },
     {
       "id": "CVE-2026-69291",
@@ -113,62 +169,6 @@
       "published": "2026-11-23T16:00:00Z",
       "summary": "Updated an acknowledgement. This is an informational change only.",
       "link": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-119848"
-    },
-    {
-      "id": "USN-9186-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9186-1: Tomcat vulnerabilities",
-      "published": "2026-11-23T13:59:37Z",
-      "summary": "Multiple security issues were discovered in Tomcat. Tomcat 10 has been updated to 10.1.61 in Ubuntu 24.04 LTS, Ubuntu 26.04 LTS and Ubuntu 26.10. Tomcat 11 has been updated to 11.0.27 in Ubuntu 26.04 LTS and Ubuntu 26.10. In addition to security fixes, the updated packages contain bug fixes, new fea",
-      "link": "https://ubuntu.com/security/notices/USN-9186-1"
-    },
-    {
-      "id": "USN-9184-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9184-1: Linux kernel (NVIDIA Tegra IGX) vulnerabilities",
-      "published": "2026-11-20T16:08:41Z",
-      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - x86 architecture; - Hardware monitoring drivers; - OCFS2 file system; - IPv4 networking; - Ethernet bridge; - Netfilte",
-      "link": "https://ubuntu.com/security/notices/USN-9184-1"
-    },
-    {
-      "id": "USN-9183-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9183-1: Linux kernel (FIPS) vulnerabilities",
-      "published": "2026-11-20T15:34:40Z",
-      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - USB Gadget drivers; - Memory management; - Multiple devices driver; - Network file systems library; - Networking core;",
-      "link": "https://ubuntu.com/security/notices/USN-9183-1"
-    },
-    {
-      "id": "USN-9173-2",
-      "vendor": "Ubuntu",
-      "title": "USN-9173-2: Linux kernel vulnerabilities",
-      "published": "2026-11-20T15:33:51Z",
-      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Multiple devices driver; - eXpress Data Path; - Kernel build system; - ARM64 architecture; - PowerPC architecture; - R",
-      "link": "https://ubuntu.com/security/notices/USN-9173-2"
-    },
-    {
-      "id": "USN-9168-3",
-      "vendor": "Ubuntu",
-      "title": "USN-9168-3: Linux kernel vulnerabilities",
-      "published": "2026-11-20T15:33:37Z",
-      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Stream parser; - ARM64 architecture; - S390 architecture; - x86 architecture; - Compressed RAM block device driver; - ",
-      "link": "https://ubuntu.com/security/notices/USN-9168-3"
-    },
-    {
-      "id": "USN-9167-2",
-      "vendor": "Ubuntu",
-      "title": "USN-9167-2: Linux kernel vulnerabilities",
-      "published": "2026-11-20T15:33:37Z",
-      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Stream parser; - ARM64 architecture; - S390 architecture; - x86 architecture; - Drivers core; - Compressed RAM block d",
-      "link": "https://ubuntu.com/security/notices/USN-9167-2"
-    },
-    {
-      "id": "USN-9169-2",
-      "vendor": "Ubuntu",
-      "title": "USN-9169-2: Linux kernel vulnerabilities",
-      "published": "2026-11-20T15:33:29Z",
-      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Stream parser; - x86 architecture; - GPU drivers; - HID subsystem; - I3C subsystem; - MemoryStick subsystem; - Network",
-      "link": "https://ubuntu.com/security/notices/USN-9169-2"
     },
     {
       "id": "CVE-2024-7533",
