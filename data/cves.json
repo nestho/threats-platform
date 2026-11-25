@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-25T01:06:07Z",
+  "updated_at": "2026-11-25T05:32:01Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,951 @@
   ],
   "recent": {
     "lookback_days": 3,
-    "total": 1485,
-    "items_available": 1485,
+    "total": 1516,
+    "items_available": 1516,
     "normalisation_failures": [],
-    "items_parsed": 1485,
+    "items_parsed": 1516,
     "items": [
+      {
+        "id": "CVE-2026-136547",
+        "published": "2026-11-25T05:18:35Z",
+        "description": "A vulnerability was determined in Tenda RX3 16.03.13.11_multi. Impacted is the function R7WebsSecurityHandler of the component httpd. Executing a manipulation can lead to improper authentication. The attack may be launched remotely. The exploit has been publicly disclosed and may be utilized.",
+        "severity": "CRITICAL",
+        "score": 9.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136547",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136679",
+        "published": "2026-11-25T05:18:35Z",
+        "description": "NULL Pointer Dereference vulnerability in Samsung Open Source Walrus allows Input Data Manipulation.",
+        "severity": "LOW",
+        "score": 3.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136679",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136680",
+        "published": "2026-11-25T05:18:35Z",
+        "description": "Reachable Assertion vulnerability in Samsung Open Source Walrus allows Input Data Manipulation.",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136680",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132145",
+        "published": "2026-11-25T05:18:30Z",
+        "description": "A flaw was found in rsyslog. When using the Datagram Transport Layer Security (DTLS) output module (omdtls) configured to authenticate receivers by name or fingerprint, the module validates the certificate chain against trusted certificate authorities but fails to verify that the certificate matches",
+        "severity": "MEDIUM",
+        "score": 5.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132145",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130336",
+        "published": "2026-11-25T05:18:29Z",
+        "description": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection') in the HWBridge custom methods command dispatcher (lib/rex/post/hwbridge/ui/console/command_dispatcher/custom_methods.rb) in Rapid7 Metasploit Framework versions prior to 6.5.10 on all platforms allows a malicious",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130336",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-118898",
+        "published": "2026-11-25T05:18:27Z",
+        "description": "Deserialization of Untrusted Data vulnerability in lasp-lang partisan allows an unauthenticated remote attacker to abort the Erlang VM of a node via Excessive Allocation. partisan_peer_service_server:handle_info/2 decodes every frame that arrives on the peer listener with binary_to_term/1, without t",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118898",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134646",
+        "published": "2026-11-25T04:17:34Z",
+        "description": "Webmin through 2.670 contains a cleartext transmission vulnerability in the SMTP service monitor that never issues STARTTLS because get_smtp_status tests an undefined $ssl variable. Passive network attackers can capture AUTH PLAIN credentials sent in plaintext each time a STARTTLS-configured monitor",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134646",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134647",
+        "published": "2026-11-25T04:17:34Z",
+        "description": "Webmin through 2.670 contains a cleartext transmission vulnerability in web-lib-funcs.pl and fastrpc.cgi that sends cluster RPC traffic over raw TCP despite SSL configuration. Network-positioned attackers can read the session ID and remote_eval payloads or alter calls in transit to execute code as r",
+        "severity": "HIGH",
+        "score": 7.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134647",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134648",
+        "published": "2026-11-25T04:17:34Z",
+        "description": "Webmin through 2.670 contains a header directive injection vulnerability in sendmail/autoreply.pl that allows unauthenticated mail senders to inject autoreply directives by placing them in inbound subject, from, date, or body fields. Attackers can inject Reply-Tracking to delete files at chosen path",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134648",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134649",
+        "published": "2026-11-25T04:17:34Z",
+        "description": "Webmin through 2.670 contains a stored cross-site scripting vulnerability in logrotate/force.cgi that prints logrotate -f diagnostic output without HTML escaping. Local OS users can create files with script-laden names in wildcard-rotated log directories, executing script in the Webmin session when ",
+        "severity": "LOW",
+        "score": 1.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134649",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134650",
+        "published": "2026-11-25T04:17:34Z",
+        "description": "Webmin through 2.670 contains a stored cross-site scripting vulnerability in useradmin/edit_user.cgi that displays home directory paths without HTML escaping to users with the autohome ACL. A Webmin user with broader Users and Groups rights can store a home path containing script via save_user.cgi, ",
+        "severity": "LOW",
+        "score": 2.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134650",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134641",
+        "published": "2026-11-25T04:17:33Z",
+        "description": "Webmin through 2.670 contains a stored cross-site scripting vulnerability in minecraft/save_backup.cgi that allows local attackers with write access to the Minecraft server directory to inject script via unescaped world directory names. Attackers can create a world directory containing HTML or scrip",
+        "severity": "LOW",
+        "score": 2.4,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134641",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134642",
+        "published": "2026-11-25T04:17:33Z",
+        "description": "Webmin through 2.670 contains a missing authentication vulnerability in fastrpc.cgi that allows unauthenticated network peers to connect to tcpwrite and tcpread file-transfer listeners without session checks. Attackers can race to connect to the predictable transfer port during cluster operations to",
+        "severity": "HIGH",
+        "score": 7.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134642",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134643",
+        "published": "2026-11-25T04:17:33Z",
+        "description": "Webmin through 2.670 contains an authentication bypass vulnerability in password_change.cgi that allows unauthenticated attackers to change passwords for accounts with empty stored hashes. When passwd_mode is 2, attackers can POST user, old, new1 and new2 with any old value to set a known password a",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134643",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134644",
+        "published": "2026-11-25T04:17:33Z",
+        "description": "Webmin through 2.670 contains a path traversal vulnerability in minecraft/minecraft-lib.pl that allows unauthenticated game players to overwrite arbitrary files as root via crafted chat messages. Attackers can send chat messages mimicking logged in lines so the root check_playtime_limits cron job re",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134644",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134645",
+        "published": "2026-11-25T04:17:33Z",
+        "description": "Webmin through 2.670 contains a stored cross-site scripting vulnerability in proc/trace.cgi that allows local unprivileged OS users to inject markup via unescaped process arguments and system call parameters. Attackers can craft process command lines or file names passed to open so that script execu",
+        "severity": "LOW",
+        "score": 2.4,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134645",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134636",
+        "published": "2026-11-25T04:17:32Z",
+        "description": "Webmin through 2.670 contains a weak randomness vulnerability that allows attackers to predict TOTP two-factor secrets generated by generate_base32_secret() using a time and PID seeded rand(). Attackers who know a user's password and estimate enrollment time can enumerate candidate seeds, reproduce ",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134636",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134637",
+        "published": "2026-11-25T04:17:32Z",
+        "description": "Webmin through 2.670 contains a STARTTLS downgrade vulnerability in send_mail in mailboxes/boxes-lib.pl that continues over plaintext when STARTTLS is rejected. Man-in-the-middle attackers can strip or reject STARTTLS to capture configured SMTP AUTH credentials, crackable CRAM-MD5 exchanges, and the",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134637",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134638",
+        "published": "2026-11-25T04:17:32Z",
+        "description": "Webmin through 2.670 contains a missing integrity verification vulnerability in usermin/upgrade.cgi that downloads Usermin upgrade packages over plaintext HTTP without signature or digest checks. On-path network attackers or DNS spoofers can supply a malicious RPM, Debian, or tar.gz package whose ma",
+        "severity": "HIGH",
+        "score": 7.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134638",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134639",
+        "published": "2026-11-25T04:17:32Z",
+        "description": "Webmin through 2.670 contains an insecure default configuration in its Windows setup.bat script that provisions an administrator account with the credentials admin/admin and SSL disabled. Unauthenticated network attackers can log in over plain HTTP on port 10000 with these unchanged credentials to g",
+        "severity": "CRITICAL",
+        "score": 9.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134639",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134640",
+        "published": "2026-11-25T04:17:32Z",
+        "description": "Webmin through 2.670 contains an improper certificate validation vulnerability in imap_login in mailboxes/folders-lib.pl that skips certificate verification and hostname checks for IMAP SSL connections. Man-in-the-middle attackers can present any certificate to capture IMAP credentials sent by the S",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134640",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134630",
+        "published": "2026-11-25T04:17:31Z",
+        "description": "Webmin through 2.670 contains a remote code execution vulnerability in the Perl Modules (cpan) module, which downloads CPAN indexes and module archives over plaintext HTTP without checksum or signature verification. On-path network attackers can answer the outbound fetch while an administrator insta",
+        "severity": "HIGH",
+        "score": 7.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134630",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134631",
+        "published": "2026-11-25T04:17:31Z",
+        "description": "Webmin through 2.670 contains a stored cross-site scripting vulnerability in ldap-useradmin/edit_user.cgi that allows attackers to inject markup through the LDAP sambaAcctFlags and sambaBadPasswordCount attributes, which are rendered without HTML encoding. Attackers with LDAP write access to these a",
+        "severity": "MEDIUM",
+        "score": 4.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134631",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134632",
+        "published": "2026-11-25T04:17:31Z",
+        "description": "Webmin through 2.670 contains an improper certificate validation vulnerability that allows man-in-the-middle attackers to capture credentials because servers/save_serv.cgi skips the selected SSL certificate check. When fast RPC is set to Automatic, attackers intercepting the /fastrpc.cgi probe can o",
+        "severity": "MEDIUM",
+        "score": 6.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134632",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134633",
+        "published": "2026-11-25T04:17:31Z",
+        "description": "Webmin through 2.670 contains a stored cross-site scripting vulnerability in init/mass_systemd.cgi that prints unescaped journalctl output when a systemd service fails to start. Attackers can inject script into the journal via logger or sshd invalid user names, executing it in an administrator's Web",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134633",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134634",
+        "published": "2026-11-25T04:17:31Z",
+        "description": "Webmin through 2.670 contains an improper certificate validation vulnerability in servers/link.cgi that accepts self-signed certificates for linked servers even when certificate checking is enabled. Man-in-the-middle attackers presenting a self-signed certificate with the correct hostname can captur",
+        "severity": "MEDIUM",
+        "score": 6.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134634",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134635",
+        "published": "2026-11-25T04:17:31Z",
+        "description": "Webmin through 2.670 contains an OS command injection vulnerability in ldap-client/check.cgi that allows LDAP directory writers to execute commands via unquoted uid values. Attackers can create a posixAccount entry with shell metacharacters in its uid, executing commands as root when an administrato",
+        "severity": "HIGH",
+        "score": 7.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134635",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134462",
+        "published": "2026-11-25T04:17:30Z",
+        "description": "Webmin through 2.670 contains a cross-site scripting vulnerability in mount/nfs_export.cgi that allows malicious NFS servers to inject scripts through unescaped export paths. Attackers controlling or spoofing an NFS server's mountd replies can return crafted export paths that execute JavaScript in t",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134462",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134463",
+        "published": "2026-11-25T04:17:30Z",
+        "description": "Webmin through 2.670 contains an improper certificate validation vulnerability in switch_smtp_to_ssl in mailboxes/boxes-lib.pl and status/smtp-monitor.pl, which calls Net::SSLeay::connect without certificate verification or a hostname check. Man-in-the-middle attackers can present any certificate wh",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134463",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134627",
+        "published": "2026-11-25T04:17:30Z",
+        "description": "Webmin through 2.670 contains a stored cross-site scripting vulnerability that allows local users or directory writers to inject script by placing markup in user names, group names or GECOS fields. Attackers can set GECOS via chfn or modify LDAP, NIS or SSSD entries so unescaped values in my_user_ch",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134627",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134628",
+        "published": "2026-11-25T04:17:30Z",
+        "description": "Webmin through 2.670 contains a stored cross-site scripting vulnerability in the Disk Quotas module that allows directory administrators to inject markup via NSS user names. Attackers who can create or rename LDAP, NIS or SSSD identities owning blocks on XFS quota filesystems can execute script in t",
+        "severity": "MEDIUM",
+        "score": 4.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134628",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134629",
+        "published": "2026-11-25T04:17:30Z",
+        "description": "Webmin through 2.670 contains a cross-site scripting vulnerability in mysql/index.cgi that renders MySQL connection error text and server version strings without escaping. Malicious MySQL server operators or on-path attackers on plaintext connections can return markup in error packets or version str",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134629",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134441",
+        "published": "2026-11-25T04:17:29Z",
+        "description": "Webmin through 2.670 contains a stored cross-site scripting vulnerability in the Upload and Download module that allows attackers to inject script via unescaped HTTP status lines from background downloads. Attackers controlling a download server can return a malicious status line stored by updown/do",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134441",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134442",
+        "published": "2026-11-25T04:17:29Z",
+        "description": "Webmin through 2.670 contains a stored cross-site scripting vulnerability in ldap-client/popup_browser.cgi that allows attackers to inject markup by storing it in LDAP attribute values printed without HTML encoding. Attackers with write access to an LDAP directory entry, needing no Webmin account, c",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134442",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134444",
+        "published": "2026-11-25T04:17:29Z",
+        "description": "Webmin through 2.670 contains a cleartext transmission vulnerability in connect_ldap_db in ldap-server/ldap-server-lib.pl that sends the LDAP root DN password unencrypted when encryption is set to Detect automatically. Passive network attackers observing traffic between Webmin and a remote LDAP serv",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134444",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134445",
+        "published": "2026-11-25T04:17:29Z",
+        "description": "Webmin through 2.670 contains a cross-site scripting vulnerability in status/edit_mon.cgi that allows attackers to inject scripts through unescaped monitor status descriptions. Malicious HTTP or FTPS server operators, on-path attackers, or local users creating crafted filenames in wildcard-monitored",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134445",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134446",
+        "published": "2026-11-25T04:17:29Z",
+        "description": "Webmin through 2.670 contains a weak random password generation vulnerability in generate_random_password() that allows attackers to predict generated account passwords because seed_random() effectively seeds Perl rand() with only time XOR process ID. When the non-default random_password option is e",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134446",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134447",
+        "published": "2026-11-25T04:17:29Z",
+        "description": "Webmin through 2.670 contains a stored cross-site scripting vulnerability in postfix/view_mailq.cgi and sendmail/view_mailq.cgi that allows unauthenticated attackers to inject script via unsanitized MIME attachment filenames. Attackers can send a message with a crafted Content-Disposition or Content",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134447",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134365",
+        "published": "2026-11-25T04:17:28Z",
+        "description": "Webmin through 2.670 contains a cross-site scripting vulnerability that allows on-path network attackers to inject script by tampering with plaintext HTTP search results rendered unescaped. Attackers who intercept rpmfind.net or Google responses can inject autofocus/onfocus payloads that execute in ",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134365",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134368",
+        "published": "2026-11-25T04:17:28Z",
+        "description": "Webmin through 2.670 contains a stored cross-site scripting vulnerability in lpadmin/list_jobs.cgi that allows local users or network IPP clients to inject script via CUPS print-job titles. Attackers can submit a print job with a crafted title, for example using lp -t, to execute script in a Printer",
+        "severity": "LOW",
+        "score": 2.4,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134368",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134437",
+        "published": "2026-11-25T04:17:28Z",
+        "description": "Webmin through 2.670 contains a stored cross-site scripting vulnerability in ldap-server/edit_browser.cgi that allows attackers with write access to LDAP entry attributes to inject script by storing markup in attribute values. When an administrator browses the entry in the LDAP Server directory brow",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134437",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134438",
+        "published": "2026-11-25T04:17:28Z",
+        "description": "Webmin through 2.670 contains an insecure download vulnerability in webmin/upgrade.cgi, cluster-webmin/upgrade.cgi and cluster-usermin/upgrade.cgi that fetches upgrade packages over plaintext HTTP with GnuPG signature verification disabled by default. On-path network attackers can substitute a malic",
+        "severity": "HIGH",
+        "score": 7.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134438",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134439",
+        "published": "2026-11-25T04:17:28Z",
+        "description": "Webmin through 2.670 contains a stored cross-site scripting vulnerability that allows attackers to inject scripts by supplying values from managed hosts that cluster modules render unescaped. Attackers who can edit a Servers Index description, control a managed host, or intercept its RPC link can in",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134439",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134440",
+        "published": "2026-11-25T04:17:28Z",
+        "description": "Webmin through 2.670 contains a Perl code injection vulnerability in cluster-useradmin/sync.cgi that allows attackers to run code by placing single quotes in home directory paths. Attackers with root on one managed host can craft a home path that breaks out of remote_eval() string literals during Sy",
+        "severity": "HIGH",
+        "score": 7.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134440",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134326",
+        "published": "2026-11-25T04:17:27Z",
+        "description": "Webmin through 2.670 contains a signature verification bypass vulnerability in webmin-lib.pl that allows attackers to install unsigned module updates when GnuPG setup fails. Attackers tampering with update downloads via network position or a custom update URL can supply malicious modules that run as",
+        "severity": "HIGH",
+        "score": 7.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134326",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134328",
+        "published": "2026-11-25T04:17:27Z",
+        "description": "Webmin through 2.670 contains a stored cross-site scripting vulnerability in mailboxes/detach.cgi that allows unauthenticated mail senders to bypass the HTML sanitizer. Attackers can send HTML attachments with entity-obfuscated javascript: schemes or encoded script tags in iframe srcdoc to execute s",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134328",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134333",
+        "published": "2026-11-25T04:17:27Z",
+        "description": "Webmin through 2.670 contains a stored cross-site scripting vulnerability in mysql/view_table.cgi that allows MySQL users to inject scripts via unescaped column names. Attackers with CREATE or ALTER privilege can create columns containing HTML payloads that execute in a Webmin administrator's sessio",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134333",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134336",
+        "published": "2026-11-25T04:17:27Z",
+        "description": "Webmin through 2.670 contains a stored cross-site scripting vulnerability that allows unauthenticated attackers to inject scripts by submitting malicious failed-login usernames. Attackers can repeatedly submit crafted usernames until blocked, executing script in administrator sessions viewing edit_b",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134336",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134340",
+        "published": "2026-11-25T04:17:27Z",
+        "description": "Webmin through 2.670 contains a stored cross-site scripting vulnerability in the Servers Index module that allows unauthenticated adjacent attackers to inject scripts via the realhost field of UDP discovery replies. Attackers on the same broadcast domain can answer discovery scans with HTML or JavaS",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134340",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134283",
+        "published": "2026-11-25T04:17:26Z",
+        "description": "Webmin through 2.670 contains an improper certificate validation vulnerability in the http_download function of web-lib-funcs.pl that skips TLS chain and hostname verification. Man-in-the-middle attackers can present any certificate and substitute downloaded modules, themes, or catalog content, lead",
+        "severity": "HIGH",
+        "score": 7.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134283",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134304",
+        "published": "2026-11-25T04:17:26Z",
+        "description": "Webmin through 2.670 contains a stored cross-site scripting vulnerability in apache/restart.cgi that displays the last five Apache ErrorLog lines without HTML escaping. Unauthenticated attackers can inject script into error_log via malformed requests or denied paths, executing in a Webmin user's ses",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134304",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134305",
+        "published": "2026-11-25T04:17:26Z",
+        "description": "Webmin through 2.670 contains a stored cross-site scripting vulnerability in ldap-useradmin/raw.cgi that allows attackers with LDAP attribute write access to inject markup. Attackers can store script in user or group attributes or the dn, which executes in an administrator's browser when viewing the",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134305",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134323",
+        "published": "2026-11-25T04:17:26Z",
+        "description": "Webmin through 2.670 contains an improper certificate validation vulnerability in generic_ldap_connect in ldap-client-lib.pl that accepts any LDAPS or StartTLS server certificate. Man-in-the-middle attackers can impersonate the LDAP server to capture the bind DN password, often the root DN, and retu",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134323",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-124606",
+        "published": "2026-11-25T04:17:23Z",
+        "description": "Improper Limitation of a Pathname to a Restricted Directory Vulnerability in Cosminexus Component Container.\n\nThis issue affects Cosminexus Component Container: from 11-20 before 11-70-04.",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124606",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136632",
+        "published": "2026-11-25T03:17:50Z",
+        "description": "OpenProject 17.2.0 before 17.5.2, 17.6.0 before 17.6.1, 17.7.0 before 17.7.3, 17.8.0 before 17.8.2, and 17.9.0 before 17.9.7 contains an externally controlled method selection vulnerability in InplaceEditFieldsController via the unvalidated attribute parameter. Users who can view a project can reque",
+        "severity": "HIGH",
+        "score": 7.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136632",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136627",
+        "published": "2026-11-25T03:17:49Z",
+        "description": "SRS 4.0.0 before 6.0.194, 7.0.0 before 7.0.214, and 8.0.0 before 8.0.73 contains a reachable assertion in RTCP decoding that lets remote WebRTC peers crash the server. Attackers opening an unauthenticated WHIP or WHEP session can send an 8-byte RTCP packet with undersized length, triggering srs_asse",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136627",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136628",
+        "published": "2026-11-25T03:17:49Z",
+        "description": "Wails before 2.17.1 on Linux contains an origin validation error in the sendMessageToBackend WebKitGTK handler that allows child-frame scripts to invoke the privileged IPC channel. Attackers controlling content loaded in an iframe can post messages that pass the top-level URI origin check and call b",
+        "severity": "HIGH",
+        "score": 7.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136628",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136629",
+        "published": "2026-11-25T03:17:49Z",
+        "description": "Nektos act 0.2.92 before 0.2.95 contains an argument injection vulnerability in readProjectArgsFile and projectFlag that allows malicious repositories to bypass the untrusted project .actrc flag allowlist. Attackers can commit a crafted .actrc smuggling disallowed flags like -P self-hosted or --priv",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136629",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136630",
+        "published": "2026-11-25T03:17:49Z",
+        "description": "Electerm before 5.9.0 contains an origin validation vulnerability in the MCP Server widget that allows remote attackers to execute commands by bypassing Host and Origin checks through DNS rebinding. Attackers can lure users to a page that rebinds to 127.0.0.1 and calls unauthenticated MCP tools on p",
+        "severity": "HIGH",
+        "score": 7.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136630",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136631",
+        "published": "2026-11-25T03:17:49Z",
+        "description": "Mastodon 4.7.4 and 4.8.0-alpha.3 before 5.0.0-beta.1 contains an authentication bypass vulnerability in authenticate_with_sign_in_token that allows authenticated local users to rebind pending login attempts to other accounts. Attackers can submit sign_in_token_resend with a victim's user[email] para",
+        "severity": "HIGH",
+        "score": 7.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136631",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136626",
+        "published": "2026-11-25T03:17:48Z",
+        "description": "SRS 4.0.0 before 6.0.194, 7.0.0 before 7.0.214, and 8.0.0 before 8.0.73 contains a heap-based buffer overflow in SrsRtcpCommon::decode and SrsRtcpTWCC::decode that lets remote WebRTC peers write past the fixed 1500-byte payload_ array. Unauthenticated attackers opening a WHIP or WHEP session can sen",
+        "severity": "HIGH",
+        "score": 8.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136626",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136624",
+        "published": "2026-11-25T03:17:35Z",
+        "description": "lightNVR before 0.44.3 contains an authorization bypass vulnerability in go2rtc_proxy_authorize_request() that allows authenticated users to access restricted cameras by exploiting inconsistent src parameter parsing. Attackers can percent-encode a second src parameter name or exceed the 255-byte tru",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136624",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136625",
+        "published": "2026-11-25T03:17:35Z",
+        "description": "ai-memory 2.6.0 before 3.3.2 contains a symlink following vulnerability in the ai-memory-wikisync companion that allows local attackers to overwrite arbitrary files by planting symlinks at predictable temporary names. Attackers can place a .wikisync-tmp-<page>.md symlink in a shared destination so a",
+        "severity": "MEDIUM",
+        "score": 5.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136625",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136623",
+        "published": "2026-11-25T03:17:34Z",
+        "description": "WeKan before 12.78 contains an access control bypass in Exporter.buildCsvStream() that ignores the Disable all export and Anonymize export users settings. Board readers or unauthenticated users of public boards can request the CSV export endpoint to export all cards and reveal real usernames in memb",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136623",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136620",
+        "published": "2026-11-25T03:17:33Z",
+        "description": "pain001-mcp 0.0.72 before 0.0.80 contains a path traversal vulnerability in the commit_payment_batch MCP tool that allows attackers to write files outside any output directory via output_file_path. Attackers can stage a batch, reuse the self-issued confirmation_token, and supply absolute, dot-dot, o",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136620",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136621",
+        "published": "2026-11-25T03:17:33Z",
+        "description": "LTplus-AG ifc-lite @ifc-lite/export before 4.13.1 and ifc-lite-export before 27.0.0 contain a STEP record injection vulnerability in the mutation writer via unescaped typed-value type names. Attackers controlling the mutations payload can place parentheses, semicolons, and newlines in typed.type to ",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136621",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136622",
+        "published": "2026-11-25T03:17:33Z",
+        "description": "WeKan before 12.78 contains an information disclosure vulnerability in Exporter.buildStream() that lets attackers retrieve checklists from other boards by supplying a checklistId export scope. Users able to export any board, or unauthenticated users via a public board, can read private checklists, t",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136622",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136618",
+        "published": "2026-11-25T03:17:32Z",
+        "description": "Karakeep before 0.35.0 contains an improper access control vulnerability in ManualList.mergeInto that allows list owners to retain collaborator bookmarks by merging shared lists without ownership checks. Owners invoking the lists.merge tRPC procedure create rows not tied to collaborator membership, ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136618",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136619",
+        "published": "2026-11-25T03:17:32Z",
+        "description": "Karakeep before 0.35.0 contains an information disclosure vulnerability that allows shared-list collaborators to learn other users' private favourited and archived bookmark state through filter queries. Viewer or editor collaborators can call bookmarks.getBookmarks on a shared list with favourited o",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136619",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136616",
+        "published": "2026-11-25T03:17:31Z",
+        "description": "COVESA Open1722 before 0.9.8 contains an out-of-bounds read vulnerability in Avtp_Vss_CalcVssPathLength in src/avtp/acf/custom/Vss.c, which reads the INTEROP path-length prefix without checking the declared ACF message length. Attackers can send header-only 12-byte INTEROP-mode VSS frames to trigger",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136616",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136617",
+        "published": "2026-11-25T03:17:31Z",
+        "description": "Shopify async-memcached before 0.11.0 contains a command injection vulnerability in Client::validate_meta_flags that allows attackers to inject extra memcached meta protocol tokens via whitespace in flags. Attackers controlling part of a meta flag can add quiet, opaque, mode or size override tokens ",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136617",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136447",
+        "published": "2026-11-25T03:17:30Z",
+        "description": "A vulnerability was found in browser-use 0.13.13/0.13.14. This impacts the function load_and_migrate_config of the file browser_use/config.py of the component SecurityWatchdog. The manipulation results in improper authorization. The attack requires a local approach. The exploit has been made public ",
+        "severity": "LOW",
+        "score": 1.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136447",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136448",
+        "published": "2026-11-25T03:17:30Z",
+        "description": "A vulnerability was identified in nliautaud pico-content-editor up to 02d5ad6c820c5050c542ab9505819b5e0a0ba1af. Affected by this vulnerability is the function Uploads::saveFile/Auth::init of the file src/Uploads.php of the component Authorization Subsystem. Such manipulation of the argument PicoCont",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136448",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136451",
+        "published": "2026-11-25T03:17:30Z",
+        "description": "A flaw was found in the Keycloak Operator. Deterministic hashes derived from Kubernetes Secrets are published in generated StatefulSet metadata and in KeycloakOIDCClient status. A user with read access to those resources may be able to recover a low-entropy credential referenced by a Secret, even wh",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136451",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136615",
+        "published": "2026-11-25T03:17:30Z",
+        "description": "league/commonmark 2.6.0 before 2.10.8 contains a denial of service vulnerability in DelimiterStack::push() that miscounts delimiter runs against the max_delimiters_per_line budget. Attackers submitting Markdown with two long emphasis character runs can produce deeply nested strong elements, causing ",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136615",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129832",
+        "published": "2026-11-25T03:17:29Z",
+        "description": "A flaw was found in rsyslog. When process identification (PID) rewriting is enabled in the imuxsock module, a local attacker with access to the logging socket can send a crafted log message with an empty tag. This triggers an invalid memory write, causing the logging service to crash and resulting i",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129832",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129839",
+        "published": "2026-11-25T03:17:29Z",
+        "description": "A flaw was found in rsyslog. When processing log entries using certain JSON (JavaScript Object Notation) formatting templates, the service fails to properly escape input composed entirely of quotation marks or backslashes. An attacker who can supply logged input can exploit this issue to generate ma",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129839",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135328",
+        "published": "2026-11-25T03:17:29Z",
+        "description": "A flaw was found in kubevirt Containerized Data Importer (CDI). The CDI clone controller derives the CommonName of a CDI-CA-signed upload client certificate from the tenant-settable cdi.kubevirt.io/uploadClientName PVC annotation without validation, and the upload server authenticates clients only b",
+        "severity": "MEDIUM",
+        "score": 5.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135328",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135813",
+        "published": "2026-11-25T03:17:29Z",
+        "description": "A flaw was found in Red Hat Enterprise Linux's qemu-kvm virtualization software. A privileged user inside a guest virtual machine could use this flaw to make the host QEMU process copy parts of its own memory into the guest's memory, where the attacker could read it. Successful exploitation could al",
+        "severity": "MEDIUM",
+        "score": 6.0,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135813",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136446",
+        "published": "2026-11-25T03:17:29Z",
+        "description": "A vulnerability has been found in JaguarJack catch-admin up to 5.4.1. This affects the function update of the file modules/Permissions/Http/Controllers/RolesController.php. The manipulation leads to dynamically-determined object attributes. The attack can be initiated remotely. The exploit has been ",
+        "severity": "LOW",
+        "score": 2.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136446",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-125734",
+        "published": "2026-11-25T03:17:28Z",
+        "description": "A flaw was found in GStreamer gst-plugins-bad mxfdemux handling of MXF Index Table Segment data. Crafted index metadata can lead to an out-of-range lookup during a seek and terminate the media process. A Fedora 43 test reproduced an assertion-triggered abort. The upstream advisory also notes possibl",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125734",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135768",
+        "published": "2026-11-25T02:17:41Z",
+        "description": "A flaw was found in the keycloak-services component of Keycloak, which is used for managing authentication and authorization flows. The issue occurs when a client policy is configured to enforce a high-assurance authentication flow requiring OTP. Due to improper validation of existing sessions, a lo",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135768",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136445",
+        "published": "2026-11-25T02:17:41Z",
+        "description": "A flaw has been found in JaguarJack catch-admin up to 5.4.1. The impacted element is the function store of the file modules/Permissions/Http/Controllers/RolesController.php. Executing a manipulation can lead to dynamically-determined object attributes. It is possible to launch the attack remotely. T",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136445",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126536",
+        "published": "2026-11-25T02:17:39Z",
+        "description": "Akaunting 3.3.0 contains a stored cross-site scripting vulnerability in the XLSX tax-import workflow. An authenticated Manager can import HTML in a tax name and associate the tax with an item. When an Administrator attempts to disable that tax, Akaunting renders the original stored name in an error ",
+        "severity": "HIGH",
+        "score": 7.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126536",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-134875",
+        "published": "2026-11-25T01:16:49Z",
+        "description": "An unencrypted RSA private key for a default HTTPS certificate is included in GeoVision GV-EBD4700 firmware V1.11 (A02-GV-EBD4700_V1.11_2026_10_13.zip) at /program/www/ssl_cert.pem and copied to /config/ssl_cert.pem during initialization. When HTTPS is enabled using the default certificate, a networ",
+        "severity": "MEDIUM",
+        "score": 4.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134875",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136146",
+        "published": "2026-11-25T01:16:49Z",
+        "description": "A security flaw has been discovered in vanna-ai vanna 2.0.0/2.0.1/2.0.2. Affected by this vulnerability is the function _load_index of the file src/vanna/integrations/faiss/agent_memory.py of the component FAISS AgentMemory Integration. Performing a manipulation results in deserialization. The attac",
+        "severity": "LOW",
+        "score": 1.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136146",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136147",
+        "published": "2026-11-25T01:16:49Z",
+        "description": "A weakness has been identified in DWS Antik Browser 1.17.0. Affected by this issue is some unknown functionality of the file src/server/index.ts of the component Local API Server. Executing a manipulation can lead to origin validation error. The attack may be launched remotely. The exploit has been ",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136147",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136444",
+        "published": "2026-11-25T01:16:49Z",
+        "description": "A vulnerability was detected in JaguarJack catch-admin up to 5.4.1. The affected element is the function Store/Update of the file modules/User/Http/Controllers/UserController.php of the component User Management. Performing a manipulation results in dynamically-determined object attributes. It is po",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136444",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-122093",
+        "published": "2026-11-25T01:16:48Z",
+        "description": "Strong::Random versions through 0.96 for Perl allow every later rand output to be predicted from three earlier ones.\n\nThe generator keeps its state in a single number. Each call multiplies the state by a factor derived from it, and the returned digits encode that factor, so three consecutive outputs",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-122093",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132255",
+        "published": "2026-11-25T01:16:48Z",
+        "description": "AutoGPT is a workflow automation platform for creating, deploying, and managing continuous artificial intelligence agents. From 0.3.4 before 0.11.0, LLM and other dynamically priced blocks run without charge when a priced input is left at its schema default. An account with a credit balance of zero ",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132255",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132256",
+        "published": "2026-11-25T01:16:48Z",
+        "description": "AutoGPT is a workflow automation platform for creating, deploying, and managing continuous artificial intelligence agents. Prior to 0.10.0, the format Jinja filter in TextFormatter accepts an unbounded width. An authenticated user who can author or run a workflow, or supply its input, can trigger a ",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132256",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132260",
+        "published": "2026-11-25T01:16:48Z",
+        "description": "AutoGPT is a workflow automation platform for creating, deploying, and managing continuous artificial intelligence agents. From 0.4.2 before 0.11.0, the E2B code-execution blocks ExecuteCodeBlock, InstantiateCodeSandboxBlock, and ClaudeCodeBlock can leave sandboxes running on the operator's shared E",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132260",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132271",
+        "published": "2026-11-25T01:16:48Z",
+        "description": "AutoGPT is a workflow automation platform for creating, deploying, and managing continuous artificial intelligence agents. Prior to 0.11.0, template rendering is not bounded in size or time. Any signed-up user who can reach a block that takes a format string, such as Fill Text Template or Agent Outp",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132271",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-133461",
+        "published": "2026-11-25T01:16:48Z",
+        "description": "AutoGPT is a workflow automation platform for creating, deploying, and managing continuous artificial intelligence agents. Prior to 0.10.0, the OAuth authorize endpoint redirects to unvalidated error redirect targets. An attacker can craft a link on the platform's own domain that redirects a signed-",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133461",
+        "kev": false
+      },
       {
         "id": "CVE-2026-16670",
         "published": "2026-11-25T00:17:12Z",
@@ -14227,640 +15167,10 @@
         "id": "CVE-2026-105394",
         "published": "2026-11-22T06:17:09Z",
         "description": "The Asset CleanUp: Page Speed Booster WordPress plugin before 1.4.0.7 does not restrict which origins it reflects into its cross-origin resource sharing response headers and pairs the reflected origin with credentialed access, allowing a page on a related origin to read a logged-in user's authentica",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105394",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134623",
-        "published": "2026-11-22T05:18:43Z",
-        "description": "A flaw has been found in Microweber up to 2.0.20. This impacts the function UserManager::make_logged of the file src/MicroweberPackages/App/Http/Controllers/ApiController.php of the component Generic API Dispatcher. This manipulation causes improper access controls. Remote exploitation of the attack",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134623",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134651",
-        "published": "2026-11-22T05:18:43Z",
-        "description": "A flaw was found in Quay. This vulnerability allows an authenticated remote attacker holding a restricted, short-lived JSON Web Token (JWT) to achieve privilege escalation. Because Quay improperly accepts scoped registry bearer tokens as valid robot account passwords, an attacker can authenticate di",
-        "severity": "MEDIUM",
-        "score": 6.8,
+        "severity": "LOW",
+        "score": 3.1,
         "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134651",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134616",
-        "published": "2026-11-22T04:17:11Z",
-        "description": "A security vulnerability has been detected in itsourcecode Insurance Management System 1.0. The affected element is an unknown function of the file /deleteClient.php. Such manipulation of the argument client_id leads to sql injection. The attack may be performed from remote. The exploit has been dis",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134616",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134572",
-        "published": "2026-11-22T03:16:38Z",
-        "description": "A vulnerability was identified in itsourcecode Insurance Management System 1.0. Affected by this issue is some unknown functionality of the file /deleteAgent.php. The manipulation of the argument agent_id leads to sql injection. Remote exploitation of the attack is possible. The exploit is publicly ",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134572",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134701",
-        "published": "2026-11-22T02:17:09Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a heap use-after-free vulnerability in xmt_node_end() that leaves freed child node MFURL fields in the OD link list. Attackers can supply a crafted XMT file with an extra top-level SceneReplace node, causing xmt_resolve_od_links() to read freed memory, crashing M",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134701",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134702",
-        "published": "2026-11-22T02:17:09Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a type confusion vulnerability in curve2d_check_changes() that casts a Curve2D point field node to M_Coordinate2D without type checking. Attackers can supply a crafted XMT/BIFS scene placing another node type such as LinearGradient in that field, causing an inval",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134702",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134703",
-        "published": "2026-11-22T02:17:09Z",
-        "description": "libexpat through 2.10.0 contains an improper Unicode handling vulnerability in DEFINE_UTF16_TO_UTF16 conversion functions in xmltok.c that can split valid surrogate pairs when output space is limited. In XML_UNICODE builds parsing non-native byte order UTF-16 input, attackers can supply crafted docu",
-        "severity": "MEDIUM",
-        "score": 6.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134703",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134704",
-        "published": "2026-11-22T02:17:09Z",
-        "description": "OpenShot Video Editor (openshot-qt) through 4.1.1 contains an unsafe deserialization vulnerability in ProjectDataStore.load() and read_legacy_project_file() that passes non-JSON project files to pickle.load() without restriction. Attackers can trick users into opening a crafted .osp project file con",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134704",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134696",
-        "published": "2026-11-22T02:17:08Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a use-after-free vulnerability in gf_sg_proto_del that allows attackers to free PROTOs still owned by another scene command via the GF_SG_PROTO_DELETE handler. Attackers can craft an XMT scene that declares a PROTO in one command and deletes it by ID in another, ",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134696",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134697",
-        "published": "2026-11-22T02:17:08Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a NULL pointer dereference vulnerability in gf_sg_command_apply() that allows attackers to crash the application via indexed field-replace commands lacking a payload. Attackers can craft an XMT scene whose GF_SG_XREPLACE command on an MFNode field carries no valu",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134697",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134698",
-        "published": "2026-11-22T02:17:08Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a type confusion vulnerability in ctxload_process() in src/filters/load_bt_xmt.c that casts object descriptor update entries without checking the descriptor tag. Attackers can supply a crafted XMT/BT scene placing a different descriptor type in a GF_ODUpdate comm",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134698",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134699",
-        "published": "2026-11-22T02:17:08Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a type confusion vulnerability in src/compositor/mpeg4_text.c that allows heap out-of-bounds reads by casting a Text node's fontStyle field to M_FontStyle unchecked. Attackers can craft an XMT/BIFS scene placing a smaller node like Face in fontStyle, causing buil",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134699",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134700",
-        "published": "2026-11-22T02:17:08Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a use-after-free vulnerability in the XMT loader that allows scene commands to reference PROTO sub-graph nodes freed by a scene replace command. Attackers can supply a crafted XMT file that causes gf_node_get_field() and gf_node_unregister() to access freed memor",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134700",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134690",
-        "published": "2026-11-22T02:17:07Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a NULL pointer dereference vulnerability that allows attackers to crash the application by supplying a crafted XMT scene. Attackers can modify InputSensor, Layout or EnvironmentTest nodes during parsing, triggering compositor handlers that read uninitialized priv",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134690",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134691",
-        "published": "2026-11-22T02:17:07Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a heap use-after-free vulnerability in gf_event_target_get_node() because destroyed node event targets remain in media object lists. Attackers can supply a crafted XMT scene with nodes such as InputSensor to trigger freed memory reads during gf_scene_disconnect()",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134691",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134692",
-        "published": "2026-11-22T02:17:07Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a use-after-free vulnerability because xmt_find_node() in loader_xmt.c resolves DEF names without verifying the node belongs to the current scene graph. Attackers can craft an XMT scene reusing a PROTO node across graphs, causing gf_node_unregister() to read free",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134692",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134693",
-        "published": "2026-11-22T02:17:07Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a NULL pointer dereference vulnerability in gf_sg_proto_create_node() in src/scenegraph/vrml_proto.c when cloning PROTO instances. Attackers can craft an XMT scene declaring more PROTO interface fields than the cloned instance supplies, crashing MP4Box when a use",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134693",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134694",
-        "published": "2026-11-22T02:17:07Z",
-        "description": "Gammapy through 2.1 contains a code injection vulnerability in WcsGeom.from_header() that passes the WCSSHAPE FITS header card to eval(). Attackers can supply a crafted .fits file with a Python expression in WCSSHAPE, executing code as the user who loads it via Map.read().",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134694",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134695",
-        "published": "2026-11-22T02:17:07Z",
-        "description": "GPAC MP4Box through 26.07.0 contains an out-of-bounds read vulnerability in avi_parse_input_file() in src/media_tools/avilib.c that increments track counters before checking AVI_MAX_TRACKS. Attackers can supply a crafted AVI file declaring a ninth audio stream, causing AVI_audio_format and AVI_close",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134695",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134685",
-        "published": "2026-11-22T02:17:06Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a heap use-after-free vulnerability in load_xmt_done() in src/scene_manager/loader_xmt.c that reads freed nodes during XMT parser teardown. Attackers can craft an XMT scene with a scene replace command that destroys PROTO sub-graphs, crashing MP4Box and potential",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134685",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134686",
-        "published": "2026-11-22T02:17:06Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a type confusion vulnerability in gf_sg_command_apply() in src/scenegraph/commands.c that misinterprets single node values as child lists for MFNode field replace commands. Attackers can supply a crafted XMT scene that causes an invalid node pointer to be derefer",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134686",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134687",
-        "published": "2026-11-22T02:17:06Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a NULL pointer dereference vulnerability in gf_sg_command_apply() in src/scenegraph/commands.c when handling MFNode field replace commands. Attackers can supply a crafted XMT scene with an MFNode field replace command lacking a node value to crash MP4Box, causing",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134687",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134688",
-        "published": "2026-11-22T02:17:06Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a use-after-free vulnerability in the BT/XMT context loader that frees an interaction-type decoder-specific descriptor even when UIConfig re-encoding fails. Attackers can supply a crafted XMT scene with a BIFSConfig descriptor, causing gf_odf_delete_descriptor() ",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134688",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134689",
-        "published": "2026-11-22T02:17:06Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a NULL pointer dereference vulnerability in JSScript_LoadVRML() in src/scenegraph/vrml_js.c that reads unchecked script_text pointers of Script node url entries. Attackers can supply a crafted XMT scene loading a Script node whose url entry lacks script text, cra",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134689",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134679",
-        "published": "2026-11-22T02:17:05Z",
-        "description": "WeddingShare through 1.8.2 contains a missing authorization vulnerability in the anonymous MediaViewerController.GalleryItem action that allows unauthenticated attackers to retrieve item upload paths without the gallery secret key. Attackers can enumerate sequential integer item ids to learn paths a",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134679",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134680",
-        "published": "2026-11-22T02:17:05Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a NULL pointer dereference vulnerability in TraverseForm() in src/compositor/mpeg4_form.c due to an off-by-one groupsIndex bounds check. Attackers can supply a crafted XMT scene with a Form node having constraints but an empty groupsIndex field to crash MP4Box, c",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134680",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134681",
-        "published": "2026-11-22T02:17:05Z",
-        "description": "GPAC MP4Box through 26.07.0 contains an uncontrolled recursion vulnerability in gf_sg_proto_instantiate() in src/scenegraph/vrml_proto.c that lacks cycle detection or depth limits. Attackers can craft an XMT scene whose PROTO body instantiates itself directly or indirectly, exhausting the stack and ",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134681",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134682",
-        "published": "2026-11-22T02:17:05Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a use-after-free vulnerability in scene graph teardown that allows attackers to trigger access to freed memory via crafted scene files. A node shared across multiple PROTO node_code lists is freed by gf_sg_reset(), and gf_sg_proto_del() then calls gf_node_unregis",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134682",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134683",
-        "published": "2026-11-22T02:17:05Z",
-        "description": "GPAC MP4Box through 26.07.0 contains an uncontrolled recursion vulnerability in xmt_remove_od_links_recursive() in loader_xmt.c that lacks any depth limit when walking node children. Attackers can supply a crafted XMT file with deeply nested or cyclic node and SFCommandBuffer references to exhaust t",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134683",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134684",
-        "published": "2026-11-22T02:17:05Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a heap use-after-free vulnerability in the XMT loader that leaves freed node URL fields in the pending object descriptor link list after SFNode replacement. Attackers can supply a crafted XMT scene that reassigns a single-node field, causing xmt_resolve_od_links(",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134684",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134673",
-        "published": "2026-11-22T02:17:04Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a use-after-free vulnerability in xmt_resolve_od_links() in loader_xmt.c that allows attackers to read freed heap memory via stale strstr() pointers. Attackers can persuade users to process a crafted XMT file whose MFURL field contains an entry without a URL stri",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134673",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134674",
-        "published": "2026-11-22T02:17:04Z",
-        "description": "Freedit before 0.9.9 contains an authorization bypass vulnerability in the post_lock, post_hide, post_pin and comment_hide handlers that allows inn moderators to act on content from other inns. Attackers can supply their own inn id with a foreign post or comment id to lock or hide content instance-w",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134674",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134675",
-        "published": "2026-11-22T02:17:04Z",
-        "description": "Servas before 1.2.0 contains a missing authorization vulnerability that allows authenticated users to modify and delete other users' data by supplying target resource ids. Attackers can abuse TagController update and destroy, LinkController destroy, and GroupController destroy actions to rename or d",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134675",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134676",
-        "published": "2026-11-22T02:17:04Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a heap use-after-free vulnerability in gf_odm_disconnect() in src/compositor/object_manager.c caused by a deferred scene_ns_remove_object task holding a raw object manager pointer. Attackers can supply a crafted XMT scene whose commands delete a Background2D node",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134676",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134677",
-        "published": "2026-11-22T02:17:04Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a use-after-free vulnerability in the XMT scene loader that allows attackers to access freed heap memory via stale object descriptor links. Attackers can supply a crafted XMT scene where xmt_node_end() frees a subtree containing InputSensor MFURL fields, causing ",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134677",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134678",
-        "published": "2026-11-22T02:17:04Z",
-        "description": "Freedit before 0.9.9 contains an authorization bypass vulnerability in the edit_post_post handler for POST /post/edit/:pid that skips ownership and status checks when a Private inn is submitted. Members of a Private inn can overwrite any post by sequential id, including moderator-locked posts, re-at",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134678",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134667",
-        "published": "2026-11-22T02:17:03Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a stack-based buffer overflow vulnerability in xmt_resolve_od_links() that allows attackers to corrupt stack memory via over-long object descriptor URL fragments. Attackers can craft an XMT scene file whose URL fragment overflows the fixed 5000-byte szURL buffer ",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134667",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134668",
-        "published": "2026-11-22T02:17:03Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a use-after-free vulnerability in the XMT scene loader that allows attackers to corrupt heap memory when xmt_node_end() discards an out-of-scope node without resetting command-buffer state. Attackers can supply a crafted XMT file that leaves parser->command_buffe",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134668",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134669",
-        "published": "2026-11-22T02:17:03Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a heap-based buffer over-read vulnerability in gf_xml_sax_peek_node() in src/utils/xml_parser.c that lets attackers read past the heap line buffer. Attackers can craft an XMT file whose ROUTE or command references a later-defined node, crashing MP4Box when a user",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134669",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134670",
-        "published": "2026-11-22T02:17:03Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a use-after-free vulnerability in xmt_node_end() in src/scene_manager/loader_xmt.c that writes to freed heap memory when replacing single-node field commands. Attackers can persuade users to process a crafted XMT file where a Conditional node owning the command i",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134670",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134671",
-        "published": "2026-11-22T02:17:03Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a use-after-free vulnerability in the XMT-A scene loader that allows attackers to corrupt heap memory via crafted XMT files. Attackers can persuade a user to process an XMT file whose discarded out-of-scope nodes cause gf_node_unregister() to dereference a freed ",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134671",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134672",
-        "published": "2026-11-22T02:17:03Z",
-        "description": "GPAC MP4Box through 26.07.0 contains an uncontrolled recursion vulnerability in xmt_discard_subtree() in src/scene_manager/loader_xmt.c that allows attackers to exhaust the call stack. Attackers can persuade a user to process a crafted XMT file with deeply nested discarded SFNode and MFNode fields t",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134672",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134662",
-        "published": "2026-11-22T02:17:02Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a double free vulnerability in the XMT-A scene loader that leaves a stale GF_Command pointer in a Conditional node's SFCommandBuffer when the buffer element is not properly closed. Attackers can persuade users to process a crafted XMT file with malformed nesting,",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134662",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134663",
-        "published": "2026-11-22T02:17:02Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a use-after-free vulnerability in the XMT scene loader that retains a pointer to a PROTO sub-graph freed by gf_sg_proto_del(). Attackers can supply a crafted XMT file imported with MP4Box, causing xmt_parse_command() to update the freed graph's referencing_comman",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134663",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134664",
-        "published": "2026-11-22T02:17:02Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a NULL pointer dereference vulnerability in src/compositor/mpeg4_sensors.c that allows attackers to crash the process via uninitialized sensor nodes. Attackers can supply a crafted XMT scene that makes compositor_mpeg4_get_sensor_handler_ex() call hs->IsEnabled t",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134664",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134665",
-        "published": "2026-11-22T02:17:02Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a use-after-free vulnerability in the XMT scene loader that allows attackers to access freed heap memory by supplying a crafted XMT file. When xmt_parse_element() replaces an SFNode field child, the freed node stays cached in parser->peeked_nodes and a later DEF ",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134665",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134666",
-        "published": "2026-11-22T02:17:02Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a use-after-free vulnerability in the XMT-A scene loader because xmt_node_end() frees unattached nodes but leaves them on the parser node stack. Attackers can persuade users to process a crafted XMT file whose text content makes xmt_text_content() pass the freed ",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134666",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134656",
-        "published": "2026-11-22T02:17:01Z",
-        "description": "OpenAirInterface CN5G SMF through 2.2.2 contains a missing resource release vulnerability in handle_pdu_session_release_sm_context_request() that fails to delete N7 SM policy associations at the PCF. Authenticated UEs can repeatedly establish and release PDU sessions through the AMF-initiated Releas",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134656",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134657",
-        "published": "2026-11-22T02:17:01Z",
-        "description": "OpenAirInterface CN5G PCF through 2.2.2 contains a memory leak vulnerability in pcf_smpc::delete_sm_policy_handler() that leaves stale UE IPv4, SUPI and DNN index entries after association deletion. Attackers can trigger repeated SM policy create and delete cycles over N7 via PDU session establishme",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134657",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134658",
-        "published": "2026-11-22T02:17:01Z",
-        "description": "free5GC SMF through 1.4.6 contains a missing resource release vulnerability in HandlePDUSessionSMContextCreate that leaves CHF charging sessions open when PCF session rule application fails. Attackers can repeatedly trigger failed PDU session establishments to accumulate orphaned charging sessions o",
-        "severity": "LOW",
-        "score": 2.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134658",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134659",
-        "published": "2026-11-22T02:17:01Z",
-        "description": "OpenAirInterface CN5G AMF before 2.2.2 contains a missing resource release vulnerability in amf_sbi::handle_itti_message() that leaves stale PDU session contexts when NRF lookup or SMF selection fails. Authenticated UEs can request PDU sessions while no SMF is selectable, causing deregistration to w",
-        "severity": "LOW",
-        "score": 2.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134659",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134660",
-        "published": "2026-11-22T02:17:01Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a type confusion vulnerability in xmt_parse_command() in src/scene_manager/loader_xmt.c that casts target nodes to GF_ParentNode without validation. Attackers can persuade users to process a crafted XMT-A file whose command targets a non-grouping node, causing gf",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134660",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134661",
-        "published": "2026-11-22T02:17:01Z",
-        "description": "GPAC MP4Box through 26.07.0 contains a NULL pointer dereference vulnerability in gf_odf_encode_ui_config() in src/odf/descriptors.c that allows attackers to crash the process. Attackers can persuade users to process a crafted XMT file declaring an interaction stream without a UIConfig descriptor, ca",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134661",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134569",
-        "published": "2026-11-22T02:17:00Z",
-        "description": "A vulnerability has been found in itsourcecode Banking Management System 1.0. This impacts an unknown function of the file /manage_request.php. Such manipulation of the argument ID leads to sql injection. The attack can be launched remotely. The exploit has been disclosed to the public and may be us",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134569",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134570",
-        "published": "2026-11-22T02:17:00Z",
-        "description": "A vulnerability was found in itsourcecode Banking Management System 1.0. Affected is an unknown function of the file manage_user.php. Performing a manipulation of the argument ID results in sql injection. The attack may be initiated remotely. The exploit has been made public and could be used.",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134570",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134571",
-        "published": "2026-11-22T02:17:00Z",
-        "description": "A vulnerability was determined in itsourcecode Insurance Management System 1.0. Affected by this vulnerability is an unknown functionality of the file addPayment.php. Executing a manipulation of the argument client_id can lead to cross site scripting. The attack may be launched remotely. The exploit",
-        "severity": "LOW",
-        "score": 2.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134571",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134654",
-        "published": "2026-11-22T02:17:00Z",
-        "description": "Mailflare before 48957fb contains a host header injection vulnerability in the password-reset request handler that allows unauthenticated attackers to poison reset links when APP_URL is unset. Attackers can submit a reset request for a victim's email with a malicious Host header, capturing the singl",
-        "severity": "HIGH",
-        "score": 8.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134654",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134655",
-        "published": "2026-11-22T02:17:00Z",
-        "description": "Open5GS AMF through 2.8.0 contains a missing resource release vulnerability that allows authenticated UEs to orphan SMF sessions by triggering Create SM Context response processing failures. Attackers can repeatedly release the RAN UE context while responses are pending, causing AMF_SESS_CLEAR() wit",
-        "severity": "LOW",
-        "score": 2.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134655",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134568",
-        "published": "2026-11-22T02:16:58Z",
-        "description": "A flaw has been found in itsourcecode E-Logbook with Health Monitoring System 1.0. This affects an unknown function of the file log_keeper.php. This manipulation of the argument pid causes sql injection. The attack can be initiated remotely. The exploit has been published and may be used.",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134568",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134560",
-        "published": "2026-11-22T01:16:53Z",
-        "description": "A weakness has been identified in twogood unshield up to 1.6.2. Impacted is the function unshield_get_cab_descriptor of the file lib/libunshield.c of the component Cabinet Descriptor Parser. Executing a manipulation can lead to out-of-bounds read. The attack requires local access. The pull request t",
-        "severity": "MEDIUM",
-        "score": 4.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134560",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134566",
-        "published": "2026-11-22T01:16:53Z",
-        "description": "A security vulnerability has been detected in itsourcecode Document Management System 1.0. The affected element is an unknown function of the file /edit.php. The manipulation of the argument ID leads to sql injection. It is possible to initiate the attack remotely. The exploit has been disclosed pub",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134566",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134567",
-        "published": "2026-11-22T01:16:53Z",
-        "description": "A vulnerability was detected in itsourcecode Document Management System 1.0. The impacted element is an unknown function of the file /showlist.php. The manipulation of the argument condition results in sql injection. It is possible to launch the attack remotely. The exploit is now public and may be ",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134567",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134553",
-        "published": "2026-11-22T01:16:52Z",
-        "description": "A vulnerability was determined in wiroai Wiro-MCP up to 1.3.0. This affects the function upload_file of the file src/tools/upload-file.ts of the component File Upload. This manipulation of the argument url causes server-side request forgery. Remote exploitation of the attack is possible. Upgrading t",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134553",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-105394",
         "kev": false
       }
     ]
