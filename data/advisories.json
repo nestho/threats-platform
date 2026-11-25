@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-25T17:27:49Z",
+  "updated_at": "2026-11-25T22:23:20Z",
   "source": "Microsoft MSRC + Ubuntu Security Notices",
   "source_url": [
     "https://api.msrc.microsoft.com/update-guide/rss",
@@ -10,6 +10,78 @@
   "normalisation_failures": [],
   "partial": null,
   "items": [
+    {
+      "id": "USN-9198-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9198-1: HTTP::Tiny vulnerability",
+      "published": "2026-11-25T21:14:58Z",
+      "summary": "It was discovered that HTTP::Tiny incorrectly forwarded credential headers supplied by the caller, such as Authorization, Cookie and Proxy-Authorization, when following cross-origin redirects, including redirects from HTTPS to HTTP. An attacker could possibly use this issue to obtain sensitive infor",
+      "link": "https://ubuntu.com/security/notices/USN-9198-1"
+    },
+    {
+      "id": "USN-9202-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9202-1: Kerberos vulnerabilities",
+      "published": "2026-11-25T20:37:30Z",
+      "summary": "It was discovered that the Kerberos KDC incorrectly handled certain ASN.1 encodings in requests. A remote attacker could possibly use this issue to cause the KDC to crash, resulting in a denial of service. (CVE-2026-107364) It was discovered that the Kerberos KDC incorrectly handled malformed client",
+      "link": "https://ubuntu.com/security/notices/USN-9202-1"
+    },
+    {
+      "id": "USN-9200-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9200-1: elfutils vulnerabilities",
+      "published": "2026-11-25T18:52:08Z",
+      "summary": "It was discovered that elfutils incorrectly handled memory when processing certain malformed DWARF data. If a user or automated system were tricked into running readelf on a specially crafted file, an attacker could possibly use this issue to cause readelf to crash, resulting in a denial of service,",
+      "link": "https://ubuntu.com/security/notices/USN-9200-1"
+    },
+    {
+      "id": "USN-9199-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9199-1: authd vulnerability",
+      "published": "2026-11-25T17:32:51Z",
+      "summary": "Adrian Dombeck discovered that authd incorrectly assigned user and group identifiers during first-time SSH logins. A remote authenticated user could possibly use this issue to access or modify files belonging to another user, potentially leading to account takeover or privilege escalation.",
+      "link": "https://ubuntu.com/security/notices/USN-9199-1"
+    },
+    {
+      "id": "USN-9197-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9197-1: Speex vulnerability",
+      "published": "2026-11-25T15:48:32Z",
+      "summary": "It was discovered that Speex incorrectly handled oversize input when appending data to a bit buffer not owned by the library. An attacker could possibly use this issue to cause Speex to crash, resulting in a denial of service, or possibly execute arbitrary code.",
+      "link": "https://ubuntu.com/security/notices/USN-9197-1"
+    },
+    {
+      "id": "USN-9196-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9196-1: Expat vulnerabilities",
+      "published": "2026-11-25T13:48:17Z",
+      "summary": "It was discovered that Expat did not properly validate UTF-16 surrogate pairs. An attacker could possibly use this issue to pass malformed characters to applications using Expat, resulting in unexpected behavior. (CVE-2026-93990) It was discovered that Expat incorrectly computed memory allocation si",
+      "link": "https://ubuntu.com/security/notices/USN-9196-1"
+    },
+    {
+      "id": "USN-9194-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9194-1: libxrender vulnerabilities",
+      "published": "2026-11-25T02:38:24Z",
+      "summary": "Adam Bedard discovered that libXrender incorrectly handled certain responses from an X server, resulting in a heap buffer overflow. If a user were tricked into connecting to a malicious X server, an attacker could possibly use this issue to cause applications using libXrender to crash, resulting in ",
+      "link": "https://ubuntu.com/security/notices/USN-9194-1"
+    },
+    {
+      "id": "USN-9193-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9193-1: PCRE vulnerability",
+      "published": "2026-11-24T21:11:52Z",
+      "summary": "Yunho Kim discovered that PCRE incorrectly handled memory when processing certain regular expressions with JIT compilation enabled. An attacker could possibly use this issue to cause applications using PCRE to expose sensitive information.",
+      "link": "https://ubuntu.com/security/notices/USN-9193-1"
+    },
+    {
+      "id": "USN-8846-2",
+      "vendor": "Ubuntu",
+      "title": "USN-8846-2: libheif vulnerabilities",
+      "published": "2026-11-24T16:53:30Z",
+      "summary": "USN-8846-1 fixed vulnerabilities in libheif. This update provides the corresponding fixes for CVE-2026-84447 on Ubuntu 22.04 LTS and Ubuntu 24.04 LTS. Original advisory details: Yuqi Qiu and Xiang Li discovered that libheif incorrectly handled certain compressed metadata. A remote attacker could pos",
+      "link": "https://ubuntu.com/security/notices/USN-8846-2"
+    },
     {
       "id": "CVE-2026-112732",
       "vendor": "Microsoft",
@@ -25,78 +97,6 @@
       "published": "2026-11-24T08:42:57Z",
       "summary": "It was discovered that some AMD processors did not properly perform Reverse Map Table (RMP) checks when the IOMMU accessed certain host buffers. A local attacker with hypervisor access could possibly use this to trigger an out-of-bounds condition and compromise the integrity of SEV-SNP guest memory.",
       "link": "https://ubuntu.com/security/notices/USN-9192-1"
-    },
-    {
-      "id": "USN-9191-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9191-1: Linux kernel (Azure) vulnerabilities",
-      "published": "2026-11-24T08:42:14Z",
-      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Multiple devices driver; - eXpress Data Path; - Kernel build system; - ARM64 architecture; - PowerPC architecture; - R",
-      "link": "https://ubuntu.com/security/notices/USN-9191-1"
-    },
-    {
-      "id": "USN-9190-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9190-1: Linux kernel vulnerabilities",
-      "published": "2026-11-24T08:41:13Z",
-      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - S390 architecture; - x86 architecture; - Block layer subsystem; - Cryptographic API; - Compute Acceleration Framework;",
-      "link": "https://ubuntu.com/security/notices/USN-9190-1"
-    },
-    {
-      "id": "USN-9173-3",
-      "vendor": "Ubuntu",
-      "title": "USN-9173-3: Linux kernel (NVIDIA) vulnerabilities",
-      "published": "2026-11-24T08:41:02Z",
-      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Multiple devices driver; - eXpress Data Path; - Kernel build system; - ARM64 architecture; - PowerPC architecture; - R",
-      "link": "https://ubuntu.com/security/notices/USN-9173-3"
-    },
-    {
-      "id": "USN-9174-2",
-      "vendor": "Ubuntu",
-      "title": "USN-9174-2: Linux kernel (Low Latency NVIDIA) vulnerabilities",
-      "published": "2026-11-24T08:40:59Z",
-      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Multiple devices driver; - eXpress Data Path; - Kernel build system; - ARM64 architecture; - PowerPC architecture; - R",
-      "link": "https://ubuntu.com/security/notices/USN-9174-2"
-    },
-    {
-      "id": "USN-9167-3",
-      "vendor": "Ubuntu",
-      "title": "USN-9167-3: Linux kernel vulnerabilities",
-      "published": "2026-11-24T08:40:58Z",
-      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Stream parser; - ARM64 architecture; - S390 architecture; - x86 architecture; - Drivers core; - Compressed RAM block d",
-      "link": "https://ubuntu.com/security/notices/USN-9167-3"
-    },
-    {
-      "id": "USN-9168-4",
-      "vendor": "Ubuntu",
-      "title": "USN-9168-4: Linux kernel (Azure) vulnerabilities",
-      "published": "2026-11-24T08:40:54Z",
-      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Stream parser; - ARM64 architecture; - S390 architecture; - x86 architecture; - Compressed RAM block device driver; - ",
-      "link": "https://ubuntu.com/security/notices/USN-9168-4"
-    },
-    {
-      "id": "USN-9170-4",
-      "vendor": "Ubuntu",
-      "title": "USN-9170-4: Linux kernel (Azure) vulnerabilities",
-      "published": "2026-11-24T08:40:41Z",
-      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - IPv4 networking; - Ethernet bridge; - Netfilter; - SCTP protocol; - XFRM subsystem; (CVE-2026-64564, CVE-2026-98432, C",
-      "link": "https://ubuntu.com/security/notices/USN-9170-4"
-    },
-    {
-      "id": "USN-9165-2",
-      "vendor": "Ubuntu",
-      "title": "USN-9165-2: Linux kernel vulnerabilities",
-      "published": "2026-11-24T08:40:41Z",
-      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Cryptographic API; - File systems infrastructure; - Key management; - Key Management; - io_uring subsystem; - PID name",
-      "link": "https://ubuntu.com/security/notices/USN-9165-2"
-    },
-    {
-      "id": "USN-9189-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9189-1: Qt5Compat vulnerability",
-      "published": "2026-11-23T23:21:59Z",
-      "summary": "It was discovered that Qt5Compat did not correctly handle certain text codec names, which could lead to an out-of-bounds read. An attacker could possibly use this issue to cause a denial of service.",
-      "link": "https://ubuntu.com/security/notices/USN-9189-1"
     },
     {
       "id": "CVE-2026-69291",

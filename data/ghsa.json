@@ -1,11 +1,43 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-25T17:27:44Z",
+  "updated_at": "2026-11-25T22:23:16Z",
   "source": "GitHub Security Advisories",
   "source_url": "https://api.github.com/advisories",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-mqg7-fw3f-mhp7",
+      "title": "TastyIgniter allows stored XSS via file upload",
+      "published": "2026-11-25T21:52:15Z",
+      "ecosystem": "composer",
+      "summary": "### Summary\nStored XSS via uploading SVG files \n\n### Details\nIt is possible to upload SVG files that contains XSS.\n\n### PoC\n\n- login as admin\n- create the following SVG file\n\n```\n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"400\" height=\"400\" viewBox=\"0 0 124 124\" fill=\"none\">\n<rect width=\"124\" hei",
+      "link": "https://github.com/advisories/GHSA-mqg7-fw3f-mhp7"
+    },
+    {
+      "id": "GHSA-vw2v-g4x7-xcqg",
+      "title": "fulgur allows Unbounded string-set value accumulation causes memory/CPU exhaustion (denial of service)",
+      "published": "2026-11-25T19:46:45Z",
+      "ecosystem": "rust",
+      "summary": "`fulgur` converts untrusted HTML/CSS into PDF, commonly on a server that\nprocesses input supplied by many tenants. In versions from 0.4.4 up to (but not\nincluding) the patched release, the CSS `string-set` named-string values\nresolved from a document were accumulated per element with no memory budge",
+      "link": "https://github.com/advisories/GHSA-vw2v-g4x7-xcqg"
+    },
+    {
+      "id": "GHSA-7fgc-3h6c-698r",
+      "title": "livewire-powergrid: SQL injection via sortDirection in naturalSort queries",
+      "published": "2026-11-25T19:44:57Z",
+      "ecosystem": "composer",
+      "summary": "## [Description]\n\nThe public Livewire property `sortDirection` is interpolated **verbatim** into a\nraw SQL `ORDER BY` clause and is not restricted to `asc`/`desc`, allowing arbitrary\nSQL injection through `POST /livewire/update`.\n\n**Data flow**\n\n- **Source** — `src/Concerns/Sorting.php`: `public str",
+      "link": "https://github.com/advisories/GHSA-7fgc-3h6c-698r"
+    },
+    {
+      "id": "GHSA-h746-qpxh-ph7g",
+      "title": "laradocs  Command injection via unescaped Node.js binary path in KaTeX SSR",
+      "published": "2026-11-25T19:41:53Z",
+      "ecosystem": "composer",
+      "summary": "### Summary\nLocal command injection (CWE-78) in server-side KaTeX rendering via an unescaped Node.js binary path in a `proc_open()` command string.\n\n### Affected versions\n>= 0.4.0, < 1.0.0\n\n### Patched versions\n>= 1.0.0 (fixed in commit `100cb1e`)\n\n### Impact\nWhen rendering KaTeX math **server-side*",
+      "link": "https://github.com/advisories/GHSA-h746-qpxh-ph7g"
+    },
     {
       "id": "GHSA-crj3-q72p-ggqm",
       "title": "@waline/client vulnerable to stored XSS through unsanitized comment edit previews",
@@ -773,38 +805,6 @@
       "ecosystem": "pip",
       "summary": "## Root Cause\nThe semantic-logic type parser `read_type` (`nltk/sem/logic.py:866`) recurses on both\nhalves of every `<a,b>` complex type (`nltk/sem/logic.py:882-884`) with no depth or length\nbound — only an `isinstance` assertion and a parenthesis-balance assertion. The\n`LogicParser.MAX_PARSE_DEPTH`",
       "link": "https://github.com/advisories/GHSA-w3pv-xfw4-ghr7"
-    },
-    {
-      "id": "GHSA-63wh-5r5m-wxr7",
-      "title": "NLTK: Uncontrolled recursion in Tree.fromlist causes denial of service via deeply nested list input",
-      "published": "2026-11-19T23:51:08Z",
-      "ecosystem": "pip",
-      "summary": "## Root Cause\n`Tree.fromlist` (`nltk/tree/tree.py:767`) converts a nested list into a `Tree` by recursing\nonce per nesting level (`nltk/tree/tree.py:780`) with no depth bound — its only validation\nis `type(l) == list and len(l) > 0`. The sibling constructor `Tree.fromstring` was hardened\nwith a `MAX",
-      "link": "https://github.com/advisories/GHSA-63wh-5r5m-wxr7"
-    },
-    {
-      "id": "GHSA-f2h2-f4fc-p978",
-      "title": "NLTK: Uncontrolled recursion in Toolbox settings helpers causes denial of service via deeply nested input",
-      "published": "2026-11-19T23:50:37Z",
-      "ecosystem": "pip",
-      "summary": "## Root Cause\nThe Toolbox settings-tree helpers recurse over the parsed element tree without any depth\nbound. `_to_settings_string` (`nltk/toolbox.py:418`), `remove_blanks`\n(`nltk/toolbox.py:432`), `add_default_fields` (`nltk/toolbox.py:451`), `_sort_fields`\n(`nltk/toolbox.py:484`), and `add_blank_l",
-      "link": "https://github.com/advisories/GHSA-f2h2-f4fc-p978"
-    },
-    {
-      "id": "GHSA-32p6-cwhc-8r78",
-      "title": "NLTK: Compile-time regex DoS in NLTK search/tokenizer sinks: quadratic regex-engine compile bypasses the match-only timeout",
-      "published": "2026-11-19T23:50:03Z",
-      "ecosystem": "pip",
-      "summary": "## Summary\n\nNLTK exposes a compile-time regular-expression denial of service in its regex-search helpers. When an application passes untrusted text as the search pattern to `TokenSearcher.findall()` / `Text.findall()`, or as the tokenizer pattern to `RegexpTokenizer`, the pattern is handed to the th",
-      "link": "https://github.com/advisories/GHSA-32p6-cwhc-8r78"
-    },
-    {
-      "id": "GHSA-53pg-5qp8-mhvr",
-      "title": "NLTK: Uncontrolled recursion in WordNet Synset hypernym walkers (max_depth/min_depth/hypernym_paths/hypernym_distances) causes DoS",
-      "published": "2026-11-19T23:49:16Z",
-      "ecosystem": "pip",
-      "summary": "## Summary\n\nFour hypernym-walking methods on the WordNet `Synset` class in `nltk/corpus/reader/wordnet.py` (`max_depth`, `min_depth`, `hypernym_paths`, and `hypernym_distances`) traverse the hypernym pointer graph by direct recursion with no visited-node set and no depth cap. WordNet `data.<pos>` fi",
-      "link": "https://github.com/advisories/GHSA-53pg-5qp8-mhvr"
     }
   ]
 }
