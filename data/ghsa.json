@@ -1,11 +1,19 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-25T10:29:53Z",
+  "updated_at": "2026-11-25T17:27:44Z",
   "source": "GitHub Security Advisories",
   "source_url": "https://api.github.com/advisories",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-crj3-q72p-ggqm",
+      "title": "@waline/client vulnerable to stored XSS through unsanitized comment edit previews",
+      "published": "2026-11-25T15:26:23Z",
+      "ecosystem": "npm",
+      "summary": "### Summary\n\n`@waline/client` renders the comment editor's live preview with `marked` and no sanitizer (`utils/markdown.ts`), and the preview is injected with `v-html`.\n\nWhen a comment is edited, the editor is seeded with the comment's raw, un-sanitized body (`orig`).\n\nOnly administrators and the co",
+      "link": "https://github.com/advisories/GHSA-crj3-q72p-ggqm"
+    },
     {
       "id": "GHSA-859w-52fx-hcm6",
       "title": "soapbar: verify_envelope_bsp accepts an unauthenticated embedded certificate (signature forgery / authentication bypass)",
@@ -797,14 +805,6 @@
       "ecosystem": "pip",
       "summary": "## Summary\n\nFour hypernym-walking methods on the WordNet `Synset` class in `nltk/corpus/reader/wordnet.py` (`max_depth`, `min_depth`, `hypernym_paths`, and `hypernym_distances`) traverse the hypernym pointer graph by direct recursion with no visited-node set and no depth cap. WordNet `data.<pos>` fi",
       "link": "https://github.com/advisories/GHSA-53pg-5qp8-mhvr"
-    },
-    {
-      "id": "GHSA-q4c8-9gwf-255x",
-      "title": "NLTK: Quadratic-time DoS in SeekableUnicodeStreamReader.readline on an unterminated corpus line via per-iteration full-buffer rescan",
-      "published": "2026-11-19T23:48:39Z",
-      "ecosystem": "pip",
-      "summary": "## Summary\n\n`SeekableUnicodeStreamReader.readline` in `nltk/data.py` assembles a line by repeatedly reading a block, appending it to a growing `chars` buffer, and recomputing `chars.splitlines(True)` over the entire buffer on every loop iteration. The read block size doubles only until it caps at 80",
-      "link": "https://github.com/advisories/GHSA-q4c8-9gwf-255x"
     }
   ]
 }
