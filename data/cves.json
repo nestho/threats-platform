@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-24T23:08:16Z",
+  "updated_at": "2026-11-25T01:06:07Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,951 @@
   ],
   "recent": {
     "lookback_days": 3,
-    "total": 1399,
-    "items_available": 1399,
+    "total": 1485,
+    "items_available": 1485,
     "normalisation_failures": [],
-    "items_parsed": 1399,
+    "items_parsed": 1485,
     "items": [
+      {
+        "id": "CVE-2026-16670",
+        "published": "2026-11-25T00:17:12Z",
+        "description": "MCUboot's PSA-crypto ECDSA adapter parses the RFC 5480 DER signature with parse_signature_from_rfc5480_encoding() in boot/bootutil/include/bootutil/crypto/ecdsa.h, which takes no length argument. bootutil_ecdsa_verify() explicitly discards the signature length ((void)slen;) and the parser walks the ",
+        "severity": "MEDIUM",
+        "score": 4.0,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-16670",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-16666",
+        "published": "2026-11-25T00:17:11Z",
+        "description": "When MCUboot resumes an interrupted image swap it takes the number of bytes to move straight from the flash-resident status trailer. In boot_swap_image() (boot/bootutil/src/loader.c) the fresh-swap branch recomputes copy_size from the image headers and is bounded — swap_run() in boot/bootutil/src/sw",
+        "severity": "MEDIUM",
+        "score": 5.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-16666",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-16667",
+        "published": "2026-11-25T00:17:11Z",
+        "description": "The Cypress/PSoC6 flash-map backend in boot/cypress/cy_flash_pal/cy_flash_map.c guards every flash access with assert() against the wrong struct field. flash_area_read(), flash_area_write(), and flash_area_erase() check assert(off < fa->fa_off) and assert(off + len < fa->fa_off), comparing the area-",
+        "severity": "MEDIUM",
+        "score": 6.2,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-16667",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-16669",
+        "published": "2026-11-25T00:17:11Z",
+        "description": "MCUboot's Espressif port omits zeroization of two sensitive stack buffers in boot/espressif/hal/src/flash_encrypt.c. In check_and_generate_encryption_keys(), the freshly generated XTS-AES flash-encryption key is held in the stack array keys[BLOCKS_NEEDED][32] (flash_encrypt.c:216), written to eFuse ",
+        "severity": "LOW",
+        "score": 2.0,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-16669",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-133459",
+        "published": "2026-11-25T00:17:10Z",
+        "description": "AutoGPT is a workflow automation platform for creating, deploying, and managing continuous artificial intelligence agents. From 0.6.63 before 0.11.0, the Office preview expands an embedded ZIP thumbnail without a size limit. A signed-in user with access to workspace file previews can exhaust the mem",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133459",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-133462",
+        "published": "2026-11-25T00:17:10Z",
+        "description": "AutoGPT is a workflow automation platform for creating, deploying, and managing continuous artificial intelligence agents. From 0.6.49 before 0.11.0, the MCPToolBlock auto-lookup allows a shared agent's author to use the MCP credentials of the user who runs it. Anyone who ran a shared agent containi",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133462",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136136",
+        "published": "2026-11-25T00:17:10Z",
+        "description": "A vulnerability was identified in Netis WF2409E up to 20261026. Affected by this issue is some unknown functionality of the file /cgi-bin/skk_set.cgi of the component CGI Interface. The manipulation of the argument app/password/new_pwd_confirm/passwd_set/mode_name/wl_link leads to improper authentic",
+        "severity": "CRITICAL",
+        "score": 9.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136136",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136139",
+        "published": "2026-11-25T00:17:10Z",
+        "description": "A vulnerability was determined in Zefan-Cai R-KV up to 6715468b9872442be72e5c97322e4d9c9a2abf55. This impacts the function _shard_files of the file FlashInfer/rkv/loader.py of the component FlashInfer weight loader. This manipulation of the argument weight_map causes path traversal. The attack can b",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136139",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136141",
+        "published": "2026-11-25T00:17:10Z",
+        "description": "A vulnerability was identified in Backdrop CMS up to 1.35.2. Affected is the function get_argument of the file core/modules/views/plugins/views_plugin_argument_default_php.inc of the component Views Module. Such manipulation leads to incorrect authorization. The attack can be launched remotely. The ",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136141",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136613",
+        "published": "2026-11-24T23:17:32Z",
+        "description": "GNU Inetutils FTP Client File Retrieval Command Injection Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of GNU Inetutils FTP Client. User interaction is required to exploit this vulnerability in that the target mus",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "30",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136613",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136614",
+        "published": "2026-11-24T23:17:32Z",
+        "description": "GNU Inetutils talkd Stack-based Buffer Overflow Denial-of-Service Vulnerability. This vulnerability allows remote attackers to create a denial-of-service condition on affected installations of GNU Inetutils. Authentication is not required to exploit this vulnerability.\n\nThe specific flaw exists with",
+        "severity": "MEDIUM",
+        "score": 5.9,
+        "cvss_version": "30",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136614",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-16668",
+        "published": "2026-11-24T23:17:32Z",
+        "description": "The vendored zcbor decoder's zcbor_any_skip() in boot/zcbor/src/zcbor_decode.c descends one C-stack frame per level of CBOR nesting. On a list or map it copies the decoder state (memcpy(&state_copy, state, sizeof(zcbor_state_t))) and recurses once per member, with no depth cap: the skip path does no",
+        "severity": "LOW",
+        "score": 2.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-16668",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-66417",
+        "published": "2026-11-24T23:17:32Z",
+        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-66417",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132743",
+        "published": "2026-11-24T23:17:31Z",
+        "description": "Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection') vulnerability in Wikimedia Foundation MediaWiki - WikiLambda Extension. This vulnerability is associated with program files includes/Special/SpecialPreviewAbstract.php.",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132743",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-133438",
+        "published": "2026-11-24T23:17:31Z",
+        "description": "Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection') vulnerability in Wikimedia Foundation MediaWiki. This vulnerability is associated with program files includes/libs/Http/MultiHttpClient.php, includes/libs/Mime/MimeAnalyzer.php. This issue affects Medi",
+        "severity": "HIGH",
+        "score": 8.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133438",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-133458",
+        "published": "2026-11-24T23:17:31Z",
+        "description": "AutoGPT is a workflow automation platform for creating, deploying, and managing continuous artificial intelligence agents. From versions 0.6.15 through 0.10.0, the value of a host-scoped credential header was exposed to other hosts via HTTP redirects. SendAuthenticatedWebRequestBlock attaches a host",
+        "severity": "MEDIUM",
+        "score": 4.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133458",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-133460",
+        "published": "2026-11-24T23:17:31Z",
+        "description": "AutoGPT is a workflow automation platform for creating, deploying, and managing continuous artificial intelligence agents. Prior to 0.11.0, public webhook endpoints woould buffer request bodies in full before verifying them. Anyone with network access to the API ccould exhaust the memory of platform",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133460",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135818",
+        "published": "2026-11-24T23:17:31Z",
+        "description": "A vulnerability was identified in Dispatcharr up to 0.32.0. Affected by this issue is the function get_permissions of the component VODLogoViewSet/M3UAccountViewSet. Such manipulation leads to incorrect authorization. The attack may be launched remotely. Upgrading to version 0.33.0 can resolve this ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135818",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136134",
+        "published": "2026-11-24T23:17:31Z",
+        "description": "A flaw has been found in mealie-recipes Mealie up to 3.29.0. Affected is the function get of the file mealie/pkgs/i18n/provider_factory.py of the component I18n Locale Provider. Executing a manipulation of the argument Accept-Language can lead to path traversal. It is possible to launch the attack r",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136134",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136135",
+        "published": "2026-11-24T23:17:31Z",
+        "description": "A vulnerability has been found in louislam uptime-kuma up to e7420f8fa546a8baa7ac4bf9d10a32545d4346e0. Affected by this vulnerability is the function disableAPIKey/enableAPIKey of the file server/socket-handlers/api-key-socket-handler.js of the component API Key Management. The manipulation leads to",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136135",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132736",
+        "published": "2026-11-24T23:17:30Z",
+        "description": "Exposure of Sensitive Information to an Unauthorized Actor vulnerability in Wikimedia Foundation MediaWiki. This vulnerability is associated with program files includes/Rest/Handler.php, includes/Rest/Handler/ParsoidHandler.php, includes/Rest/Module/Module.php, includes/Rest/Validator/UnsupportedCon",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132736",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132737",
+        "published": "2026-11-24T23:17:30Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Wikimedia Foundation MediaWiki - BetaFeatures Extension. This vulnerability is associated with program files includes/HTMLFeatureField.php. This issue affects MediaWiki - BetaFeatures Extension: 1.4",
+        "severity": "MEDIUM",
+        "score": 4.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132737",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132738",
+        "published": "2026-11-24T23:17:30Z",
+        "description": "Uncontrolled Resource Consumption vulnerability in Wikimedia Foundation MediaWiki - CentralNotice Extension. This vulnerability is associated with program files includes/api/ApiCentralNoticeQueryCampaign.php. This issue affects MediaWiki - CentralNotice Extension: 1.43, 1.45, 1.46.",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132738",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132739",
+        "published": "2026-11-24T23:17:30Z",
+        "description": "Cross-Site Request Forgery (CSRF) vulnerability in Wikimedia Foundation MediaWiki - CentralNotice Extension. This vulnerability is associated with program files includes/specials/SpecialHideBanners.php. This issue affects MediaWiki - CentralNotice Extension: 1.43, 1.45, 1.46.",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132739",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132740",
+        "published": "2026-11-24T23:17:30Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Wikimedia Foundation MediaWiki - CentralNotice Extension. This issue affects MediaWiki - CentralNotice Extension: 1.43, 1.45, 1.46.",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132740",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132741",
+        "published": "2026-11-24T23:17:30Z",
+        "description": "Improper Access Control vulnerability in Wikimedia Foundation MediaWiki - WikiLambda Extension. This vulnerability is associated with program files extension.json, includes/HookHandler/PageEditingHandler.php, includes/HookHandler/RepoHooks.php.",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132741",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132742",
+        "published": "2026-11-24T23:17:30Z",
+        "description": "Acceptance of Extraneous Untrusted Data With Trusted Data vulnerability in Wikimedia Foundation MediaWiki - WikiLambda Extension. This vulnerability is associated with program files includes/AWStorage/AWFragment.php, includes/AWStorage/AWFragmentStore.php, includes/AWStorage/MainStashAWFragmentStore",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132742",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132728",
+        "published": "2026-11-24T23:17:29Z",
+        "description": "Exposure of Sensitive Information to an Unauthorized Actor vulnerability in Wikimedia Foundation MediaWiki - AbuseFilter Extension. This vulnerability is associated with program files includes/Special/SpecialAbuseFilter.php, includes/View/AbuseFilterViewTestBatch.php. This issue affects MediaWiki - ",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132728",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132729",
+        "published": "2026-11-24T23:17:29Z",
+        "description": "Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection') vulnerability in Wikimedia Foundation MediaWiki - Score Extension. This vulnerability is associated with program files includes/Score.php. This issue affects MediaWiki - Score Extension: 1.43, 1.45, 1.",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132729",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132730",
+        "published": "2026-11-24T23:17:29Z",
+        "description": "Improper Access Control vulnerability in Wikimedia Foundation MediaWiki. This vulnerability is associated with program files includes/Specials/SpecialUserRights.php. This issue affects MediaWiki: from 1.43.0 before 1.43.12, from 1.45.0 before 1.45.7, from 1.46.0 before 1.46.3, 1.47.",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132730",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132731",
+        "published": "2026-11-24T23:17:29Z",
+        "description": "Missing Authorization vulnerability in Wikimedia Foundation MediaWiki - GuidedTour Extension. This vulnerability is associated with program files modules/ext.guidedTour.lib.internal.js. This issue affects MediaWiki - GuidedTour Extension: 1.45, 1.46, 1.47.",
+        "severity": "MEDIUM",
+        "score": 4.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132731",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132732",
+        "published": "2026-11-24T23:17:29Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Wikimedia Foundation MediaWiki - Math Extension. This vulnerability is associated with program files extension.json, modules/ext.math.popup.js. This issue affects MediaWiki - Math Extension: 1.43, 1",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132732",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132733",
+        "published": "2026-11-24T23:17:29Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Wikimedia Foundation MediaWiki - Math Extension. This vulnerability is associated with program files src/SpecialMathWikibase.php. This issue affects MediaWiki - Math Extension: 1.43, 1.45, 1.46, 1.4",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132733",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132734",
+        "published": "2026-11-24T23:17:29Z",
+        "description": "Exposure of Sensitive Information to an Unauthorized Actor vulnerability in Wikimedia Foundation MediaWiki - ExternalData Extension. This vulnerability is associated with program files includes/connectors/EDConnectorDb.php, includes/connectors/EDConnectorLdap.php, includes/presets/Test.php, includes",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132734",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132735",
+        "published": "2026-11-24T23:17:29Z",
+        "description": "Improper Access Control vulnerability in Wikimedia Foundation MediaWiki - OATHAuth Extension. This vulnerability is associated with program files src/Auth/ReauthPrimaryAuthenticationProvider.php, src/Auth/SecondaryAuthenticationProvider.php. This issue affects MediaWiki - OATHAuth Extension: 1.47.",
+        "severity": "HIGH",
+        "score": 7.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132735",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132721",
+        "published": "2026-11-24T23:17:28Z",
+        "description": "Exposure of Sensitive Information to an Unauthorized Actor vulnerability in Wikimedia Foundation MediaWiki - GrowthExperiments Extension. This vulnerability is associated with program files extension.json, includes/Api/ApiSetMentor.php, includes/MentorDashboard/MenteeOverview/StarredMenteesStore.php",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132721",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132722",
+        "published": "2026-11-24T23:17:28Z",
+        "description": "Vulnerability in Wikimedia Foundation MediaWiki - GrowthExperiments Extension. This vulnerability is associated with program files includes/Mentorship/Provider/CommunityStructuredMentorProvider.php, includes/Specials/SpecialEnrollAsMentor.php. This issue affects MediaWiki - GrowthExperiments Extensi",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132722",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132723",
+        "published": "2026-11-24T23:17:28Z",
+        "description": "Missing Authorization vulnerability in Wikimedia Foundation MediaWiki - GrowthExperiments Extension. This vulnerability is associated with program files includes/Api/ApiInvalidateImageRecommendation.php. This issue affects MediaWiki - GrowthExperiments Extension: 1.43, 1.45, 1.46, 1.47.",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132723",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132724",
+        "published": "2026-11-24T23:17:28Z",
+        "description": "Vulnerability in Wikimedia Foundation MediaWiki - EasyTimeline Extension. This vulnerability is associated with program files scripts/EasyTimeline.pl. This issue affects MediaWiki - EasyTimeline Extension: 1.43, 1.45, 1.46, 1.47.",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132724",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132725",
+        "published": "2026-11-24T23:17:28Z",
+        "description": "URL Redirection to Untrusted Site ('Open Redirect') vulnerability in Wikimedia Foundation MediaWiki - OAuth Extension. This vulnerability is associated with program files src/Frontend/SpecialPages/SpecialMWOAuth.php. This issue affects MediaWiki - OAuth Extension: 1.43, 1.45, 1.46, 1.47.",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132725",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132726",
+        "published": "2026-11-24T23:17:28Z",
+        "description": "Deserialization of Untrusted Data vulnerability in Wikimedia Foundation MediaWiki - Echo Extension. This vulnerability is associated with program files includes/Model/Event.php. This issue affects MediaWiki - Echo Extension: from 1.43.0 before 1.43.12, from 1.45.0 before 1.45.7, from 1.46.0 before 1",
+        "severity": "CRITICAL",
+        "score": 9.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132726",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132727",
+        "published": "2026-11-24T23:17:28Z",
+        "description": "Cross-Site Request Forgery (CSRF) vulnerability in Wikimedia Foundation MediaWiki - SecurePoll Extension. This vulnerability is associated with program files i18n/en.json, i18n/qqq.json, includes/Ballots/BallotStatus.php, includes/Pages/VotePage.php. This issue affects MediaWiki - SecurePoll Extensi",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132727",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132713",
+        "published": "2026-11-24T23:17:27Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Wikimedia Foundation MediaWiki - VisualEditor Extension. This vulnerability is associated with program files extension.json, modules/ve-mw/dm/nodes/ve.dm.MWLanguageVariantNode.js, modules/ve-mw/ui/c",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132713",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132714",
+        "published": "2026-11-24T23:17:27Z",
+        "description": "Exposure of Sensitive Information to an Unauthorized Actor vulnerability in Wikimedia Foundation MediaWiki. This vulnerability is associated with program files includes/Api/ApiBlock.php, includes/Api/ApiUnblock.php, includes/ParamValidator/TypeDef/UserDef.php. This issue affects MediaWiki: from 1.43",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132714",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132715",
+        "published": "2026-11-24T23:17:27Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Wikimedia Foundation MediaWiki - VisualEditor Extension. This vulnerability is associated with program files includes/SpecialEditChecks.php. This issue affects MediaWiki - VisualEditor Extension: fr",
+        "severity": "MEDIUM",
+        "score": 4.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132715",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132716",
+        "published": "2026-11-24T23:17:27Z",
+        "description": "Uncontrolled Resource Consumption vulnerability in Wikimedia Foundation MediaWiki - MobileFrontend Extension. This vulnerability is associated with program files includes/Transforms/QuickFactsTransform.php. This issue affects MediaWiki - MobileFrontend Extension: 1.47.",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132716",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132717",
+        "published": "2026-11-24T23:17:27Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Wikimedia Foundation MediaWiki - WikimediaMessages Extension, MediaWiki - MinervaNeue Skin. This vulnerability is associated with program files i18n/wikimediaoverrides/en.json. This issue affects Me",
+        "severity": "MEDIUM",
+        "score": 4.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132717",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132718",
+        "published": "2026-11-24T23:17:27Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Wikimedia Foundation MediaWiki - MobileFrontend Extension, MediaWiki - MinervaNeue Skin. This vulnerability is associated with program files resources/skins.minerva.scripts/page-issues/overlay/pageI",
+        "severity": "MEDIUM",
+        "score": 4.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132718",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132719",
+        "published": "2026-11-24T23:17:27Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Wikimedia Foundation MediaWiki. This vulnerability is associated with program files includes/parser/Sanitizer.php. This issue affects MediaWiki: from 1.43.0 before 1.43.12, from 1.45.0 before 1.45.7",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132719",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132720",
+        "published": "2026-11-24T23:17:27Z",
+        "description": "Allocation of Resources Without Limits or Throttling vulnerability in Wikimedia Foundation MediaWiki - VisualEditor Extension. This vulnerability is associated with program files includes/ApiVisualEditorEdit.php. This issue affects MediaWiki - VisualEditor Extension: from 1.43.0 before 1.43.12, from",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132720",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132706",
+        "published": "2026-11-24T23:17:26Z",
+        "description": "Exposure of Sensitive Information to an Unauthorized Actor vulnerability in Wikimedia Foundation MediaWiki. This vulnerability is associated with program files includes/Api/ApiQueryPageProps.php. This issue affects MediaWiki: from 1.43.0 before 1.43.12, from 1.45.0 before 1.45.7, from 1.46.0 before ",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132706",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132707",
+        "published": "2026-11-24T23:17:26Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Wikimedia Foundation MediaWiki, MediaWiki - Translate Extension. This vulnerability is associated with program files includes/Output/OutputPage.php. This issue affects MediaWiki, MediaWiki - Transla",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132707",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132708",
+        "published": "2026-11-24T23:17:26Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Wikimedia Foundation mediawiki/services/parsoid. This vulnerability is associated with program files wikimedia/parsoid/src/Core/Sanitizer.php. This issue affects mediawiki/services/parsoid: from 1.4",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132708",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132709",
+        "published": "2026-11-24T23:17:26Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Wikimedia Foundation mediawiki/services/parsoid. This vulnerability is associated with program files wikimedia/parsoid/src/Wt2Html/DOM/Handlers/TableFixups.php. This issue affects mediawiki/services",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132709",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132710",
+        "published": "2026-11-24T23:17:26Z",
+        "description": "Exposure of Sensitive Information to an Unauthorized Actor vulnerability in Wikimedia Foundation MediaWiki. This vulnerability is associated with program files includes/Rest/Handler/ParsoidHandler.php. This issue affects MediaWiki: from 1.46.0 before 1.46.3, 1.47.",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132710",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132711",
+        "published": "2026-11-24T23:17:26Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Wikimedia Foundation mediawiki/services/parsoid. This vulnerability is associated with program files wikimedia/parsoid/src/Wt2Html/TT/AttributeExpander.php. This issue affects mediawiki/services/par",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132711",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132712",
+        "published": "2026-11-24T23:17:26Z",
+        "description": "Improper Input Validation vulnerability in Wikimedia Foundation MediaWiki, mediawiki/services/parsoid. This vulnerability is associated with program files wikimedia/parsoid/src/Core/Sanitizer.php. This issue affects MediaWiki, mediawiki/services/parsoid: from 1.43.0 before 1.43.12, from 1.45.0 befor",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132712",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132697",
+        "published": "2026-11-24T23:17:25Z",
+        "description": "Missing Authorization vulnerability in Wikimedia Foundation MediaWiki - EmailAuth Extension. This vulnerability is associated with program files includes/EmailAuthSecondaryAuthenticationProvider.php. This issue affects MediaWiki - EmailAuth Extension: 1.43, 1.45, 1.46, 1.47.",
+        "severity": "CRITICAL",
+        "score": 9.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132697",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132698",
+        "published": "2026-11-24T23:17:25Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Wikimedia Foundation MediaWiki - ContentTranslation Extension. This vulnerability is associated with program files includes/Special/SpecialAutomaticTranslation.php, minT/src/mintHome.js, minT/src/us",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132698",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132699",
+        "published": "2026-11-24T23:17:25Z",
+        "description": "Missing Authorization vulnerability in Wikimedia Foundation MediaWiki - ContentTranslation Extension. This vulnerability is associated with program files includes/ActionApi/ApiSectionTranslationDelete.php, includes/Store/SectionTranslationStore.php. This issue affects MediaWiki - ContentTranslation ",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132699",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132700",
+        "published": "2026-11-24T23:17:25Z",
+        "description": "Missing Authorization vulnerability in Wikimedia Foundation MediaWiki - ContentTranslation Extension. This vulnerability is associated with program files includes/ActionApi/ApiContentTranslationPublish.php. This issue affects MediaWiki - ContentTranslation Extension: 1.43, 1.45, 1.46, 1.47.",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132700",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132701",
+        "published": "2026-11-24T23:17:25Z",
+        "description": "Missing Authorization vulnerability in Wikimedia Foundation MediaWiki - ContentTranslation Extension. This vulnerability is associated with program files includes/ActionApi/ApiSectionTranslationPublish.php, includes/Store/SectionTranslationStore.php. This issue affects MediaWiki - ContentTranslation",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132701",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132702",
+        "published": "2026-11-24T23:17:25Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Wikimedia Foundation MediaWiki - CommunityRequests Extension. This vulnerability is associated with program files includes/EntityDataRenderer.php. This issue affects MediaWiki - CommunityRequests Ex",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132702",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132703",
+        "published": "2026-11-24T23:17:25Z",
+        "description": "Missing Authorization vulnerability in Wikimedia Foundation MediaWiki - CommunityRequests Extension. This vulnerability is associated with program files includes/AbstractWishlistSpecialPage.php. This issue affects MediaWiki - CommunityRequests Extension: 1.45, 1.46, 1.47.",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132703",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132705",
+        "published": "2026-11-24T23:17:25Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Wikimedia Foundation MediaWiki - UrlShortener Extension. This vulnerability is associated with program files includes/SpecialUrlShortener.php. This issue affects MediaWiki - UrlShortener Extension: ",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132705",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132689",
+        "published": "2026-11-24T23:17:24Z",
+        "description": "Cross-Site Request Forgery (CSRF) vulnerability in Wikimedia Foundation MediaWiki - SecurePoll Extension. This vulnerability is associated with program files includes/Pages/TranslatePage.php. This issue affects MediaWiki - SecurePoll Extension: 1.43, 1.45, 1.46, 1.47.",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132689",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132690",
+        "published": "2026-11-24T23:17:24Z",
+        "description": "Improper Input Validation vulnerability in Wikimedia Foundation MediaWiki - SecurePoll Extension. This vulnerability is associated with program files includes/Pages/CreatePage.php. This issue affects MediaWiki - SecurePoll Extension: 1.43, 1.45, 1.46, 1.47.",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132690",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132691",
+        "published": "2026-11-24T23:17:24Z",
+        "description": "Improper Input Validation vulnerability in Wikimedia Foundation MediaWiki - SecurePoll Extension. This vulnerability is associated with program files i18n/en.json, i18n/qqq.json, includes/Pages/VotePage.php. This issue affects MediaWiki - SecurePoll Extension: 1.43, 1.45, 1.46, 1.47.",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132691",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132692",
+        "published": "2026-11-24T23:17:24Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Wikimedia Foundation MediaWiki - SecurePoll Extension. This vulnerability is associated with program files modules/ext.securepoll.htmlform/translation/pages/ResultPage.js. This issue affects MediaWi",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132692",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132693",
+        "published": "2026-11-24T23:17:24Z",
+        "description": "Improper Authentication vulnerability in Wikimedia Foundation MediaWiki. This vulnerability is associated with program files includes/SpecialPage/FormSpecialPage.php, includes/SpecialPage/SpecialPage.php. This issue affects MediaWiki: from 1.43.0 before 1.43.12, from 1.45.0 before 1.45.7, from 1.46.",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132693",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132694",
+        "published": "2026-11-24T23:17:24Z",
+        "description": "Vulnerability in Wikimedia Foundation MediaWiki - OATHAuth Extension. This vulnerability is associated with program files src/Key/WebAuthnKey.php. This issue affects MediaWiki - OATHAuth Extension: from 1.46.0 before 1.46.3, 1.47.",
+        "severity": "CRITICAL",
+        "score": 9.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132694",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132695",
+        "published": "2026-11-24T23:17:24Z",
+        "description": "Missing Authorization vulnerability in Wikimedia Foundation MediaWiki - SecurePoll Extension. This vulnerability is associated with program files i18n/en.json, i18n/qqq.json, includes/Pages/DetailsPage.php. This issue affects MediaWiki - SecurePoll Extension: 1.43, 1.45, 1.46, 1.47.",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132695",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132696",
+        "published": "2026-11-24T23:17:24Z",
+        "description": "Improper Access Control vulnerability in Wikimedia Foundation MediaWiki - OATHAuth Extension. This vulnerability is associated with program files src/HTMLForm/RecoveryCodesRemoveTemporaryForm.php, src/HTMLForm/RecoveryCodesStatusForm.php, src/Module/RecoveryCodes.php, src/Special/OATHManage.php. Thi",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132696",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132682",
+        "published": "2026-11-24T23:17:23Z",
+        "description": "Uncontrolled Resource Consumption vulnerability in Wikimedia Foundation MediaWiki - AbuseFilter Extension. This vulnerability is associated with program files includes/Parser/AbuseFilterTokenizer.php. This issue affects MediaWiki - AbuseFilter Extension: from 1.43.0 before 1.43.12, from 1.45.0 befor",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132682",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132683",
+        "published": "2026-11-24T23:17:23Z",
+        "description": "Vulnerability in Wikimedia Foundation MediaWiki - AntiSpoof Extension. This vulnerability is associated with program files includes/AntiSpoof.php. This issue affects MediaWiki - AntiSpoof Extension: 1.43, 1.45, 1.46, 1.47.",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132683",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132684",
+        "published": "2026-11-24T23:17:23Z",
+        "description": "Cross-Site Request Forgery (CSRF) vulnerability in Wikimedia Foundation MediaWiki - CentralNotice Extension. This vulnerability is associated with program files includes/specials/SpecialCentralNoticeBanners.php. This issue affects MediaWiki - CentralNotice Extension: 1.43, 1.45, 1.46, 1.47.",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132684",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132685",
+        "published": "2026-11-24T23:17:23Z",
+        "description": "Vulnerability in Wikimedia Foundation MediaWiki - CheckUser Extension. This vulnerability is associated with program files src/Api/ApiQueryCheckUserLog.php. This issue affects MediaWiki - CheckUser Extension: from 1.43.0 before 1.43.12, from 1.45.0 before 1.45.7, from 1.46.0 before 1.46.3, 1.47.",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132685",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132686",
+        "published": "2026-11-24T23:17:23Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Wikimedia Foundation MediaWiki - CheckUser Extension. This vulnerability is associated with program files modules/ext.checkUser/checkuser/checkUserHelper/buildUserElement.js. This issue affects Medi",
+        "severity": "MEDIUM",
+        "score": 4.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132686",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132687",
+        "published": "2026-11-24T23:17:23Z",
+        "description": "Vulnerability in Wikimedia Foundation MediaWiki - CheckUser Extension. This vulnerability is associated with program files src/Api/ApiQueryCheckUser.php. This issue affects MediaWiki - CheckUser Extension: from 1.43.0 before 1.43.12, from 1.45.0 before 1.45.7, from 1.46.0 before 1.46.3, 1.47.",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132687",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132688",
+        "published": "2026-11-24T23:17:23Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Wikimedia Foundation MediaWiki - CheckUser Extension. This vulnerability is associated with program files modules/ext.checkUser.tempAccounts/ipReveal.js. This issue affects MediaWiki - CheckUser Ext",
+        "severity": "MEDIUM",
+        "score": 4.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132688",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132673",
+        "published": "2026-11-24T23:17:22Z",
+        "description": "Improper Access Control vulnerability in Wikimedia Foundation MediaWiki. This vulnerability is associated with program files includes/Specials/SpecialChangeCredentials.php, includes/Specials/SpecialLinkAccounts.php, includes/Specials/SpecialUnlinkAccounts.php. This issue affects MediaWiki: from 1.43",
+        "severity": "MEDIUM",
+        "score": 4.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132673",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132674",
+        "published": "2026-11-24T23:17:22Z",
+        "description": "Uncontrolled Resource Consumption vulnerability in Wikimedia Foundation MediaWiki. This vulnerability is associated with program files includes/Media/PNGMetadataExtractor.php. This issue affects MediaWiki: from 1.43.0 before 1.43.12, from 1.45.0 before 1.45.7, from 1.46.0 before 1.46.3, 1.47.",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132674",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132675",
+        "published": "2026-11-24T23:17:22Z",
+        "description": "Exposure of Sensitive Information to an Unauthorized Actor vulnerability in Wikimedia Foundation MediaWiki - CheckUser Extension. This vulnerability is associated with program files src/Api/Rest/Handler/BatchTemporaryAccountHandler.php. This issue affects MediaWiki - CheckUser Extension: from 1.45.0",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132675",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132676",
+        "published": "2026-11-24T23:17:22Z",
+        "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Wikimedia Foundation MediaWiki - CheckUser Extension. This vulnerability is associated with program files src/SuggestedInvestigations/Formatters/StatusReasonFormatter.php. This issue affects MediaWi",
+        "severity": "MEDIUM",
+        "score": 4.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132676",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132677",
+        "published": "2026-11-24T23:17:22Z",
+        "description": "Exposure of Sensitive Information to an Unauthorized Actor vulnerability in Wikimedia Foundation MediaWiki - CheckUser Extension. This vulnerability is associated with program files src/Api/CheckUser/ApiQueryCheckUserActionsResponse.php, src/CheckUser/Pagers/CheckUserGetActionsPager.php. This issue ",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132677",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132678",
+        "published": "2026-11-24T23:17:22Z",
+        "description": "Exposure of Sensitive Information to an Unauthorized Actor vulnerability in Wikimedia Foundation MediaWiki - GlobalBlocking Extension. This vulnerability is associated with program files extension.json, includes/Api/ApiQueryGlobalBlocks.php. This issue affects MediaWiki - GlobalBlocking Extension: 1",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132678",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132679",
+        "published": "2026-11-24T23:17:22Z",
+        "description": "Missing Authorization vulnerability in Wikimedia Foundation MediaWiki - GlobalBlocking Extension. This vulnerability is associated with program files includes/Api/ApiGlobalBlock.php. This issue affects MediaWiki - GlobalBlocking Extension: 1.43, 1.45, 1.46, 1.47.",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132679",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132681",
+        "published": "2026-11-24T23:17:22Z",
+        "description": "Exposure of Sensitive Information to an Unauthorized Actor vulnerability in Wikimedia Foundation MediaWiki - AbuseFilter Extension. This vulnerability is associated with program files includes/View/AbuseFilterViewRevert.php. This issue affects MediaWiki - AbuseFilter Extension: from 1.43.0 before 1.",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132681",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132657",
+        "published": "2026-11-24T23:17:21Z",
+        "description": "URL Redirection to Untrusted Site ('Open Redirect') vulnerability in Wikimedia Foundation MediaWiki. This vulnerability is associated with program files includes/Title/Title.php. This issue affects MediaWiki: from 1.43.0 before 1.43.12, from 1.45.0 before 1.45.7, from 1.46.0 before 1.46.3, 1.47.",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132657",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132669",
+        "published": "2026-11-24T23:17:21Z",
+        "description": "Improper Access Control vulnerability in Wikimedia Foundation MediaWiki - EditAccount Extension.",
+        "severity": "CRITICAL",
+        "score": 9.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132669",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132670",
+        "published": "2026-11-24T23:17:21Z",
+        "description": "Improper Access Control vulnerability in Wikimedia Foundation MediaWiki. This vulnerability is associated with program files includes/Api/ApiQueryRevisionsBase.php. This issue affects MediaWiki: from 1.43.0 before 1.43.12, from 1.45.0 before 1.45.7, from 1.46.0 before 1.46.3, 1.47.",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132670",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132671",
+        "published": "2026-11-24T23:17:21Z",
+        "description": "Exposure of Sensitive Information to an Unauthorized Actor vulnerability in Wikimedia Foundation MediaWiki - AbuseFilter Extension. This vulnerability is associated with program files includes/View/AbuseFilterViewTestBatch.php. This issue affects MediaWiki - AbuseFilter Extension: from 1.46.0 before",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132671",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-132672",
+        "published": "2026-11-24T23:17:21Z",
+        "description": "Uncontrolled Resource Consumption vulnerability in Wikimedia Foundation MediaWiki. This vulnerability is associated with program files includes/Search/SearchHighlighter.php. This issue affects MediaWiki: from 1.43.0 before 1.43.12, from 1.45.0 before 1.45.7, from 1.46.0 before 1.46.3, 1.47.",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132672",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-123626",
+        "published": "2026-11-24T23:17:20Z",
+        "description": "Akaunting 3.3.0 contains a stored cross-site scripting vulnerability in the company localisation date format. An authenticated Manager can store an arbitrary date format. When another authenticated user opens a recurring invoice, Akaunting formats dates with that value and sends the result to a raw ",
+        "severity": "HIGH",
+        "score": 7.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123626",
+        "kev": false
+      },
       {
         "id": "CVE-2026-57838",
         "published": "2026-11-24T22:18:53Z",
@@ -13922,93 +14862,13 @@
         "cvss_version": "40",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134553",
         "kev": false
-      },
-      {
-        "id": "CVE-2026-134543",
-        "published": "2026-11-22T00:17:00Z",
-        "description": "A flaw has been found in jprocms up to 1.7.7. Affected is the function StrUtil.format of the component Database Backup Module. Executing a manipulation of the argument host/port/username/password/dbName can lead to os command injection. The attack can be launched remotely. The exploit has been publi",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134543",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134544",
-        "published": "2026-11-22T00:17:00Z",
-        "description": "A vulnerability has been found in jprocms up to 1.7.7. Affected by this vulnerability is the function validateParam of the component Expression Language Handler. The manipulation leads to os command injection. The attack may be initiated remotely. The exploit has been disclosed to the public and may",
-        "severity": "LOW",
-        "score": 2.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134544",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134545",
-        "published": "2026-11-22T00:17:00Z",
-        "description": "A vulnerability was found in Xinchen Technology Huangjintong Second-level System Third-generation Management Terminal System up to 3.2. Affected by this issue is some unknown functionality of the file /paraframework/storSelect.htm. The manipulation of the argument warehouseID results in sql injectio",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134545",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134541",
-        "published": "2026-11-22T00:16:59Z",
-        "description": "A vulnerability was detected in Surya2Developer Online Shopping System 1.0. This impacts an unknown function of the file product.php of the component GET Parameter Handler. Performing a manipulation of the argument p results in sql injection. The attack can be initiated remotely. The exploit is now ",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134541",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134540",
-        "published": "2026-11-21T23:16:55Z",
-        "description": "A security vulnerability has been detected in ggml-org llama.cpp 0.7.0-dev. This affects the function common_sampler_init of the file common/sampling.cpp of the component llama-server. Such manipulation of the argument grammar_triggers[].type leads to improper input validation. It is possible to lau",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134540",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115589",
-        "published": "2026-11-21T23:16:54Z",
-        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115589",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134534",
-        "published": "2026-11-21T23:16:54Z",
-        "description": "A security flaw has been discovered in Skyvern-AI Skyvern 1.0.56. The affected element is the function classify_url of the file skyvern/forge/sdk/browser_egress_policy.py. The manipulation results in server-side request forgery. The attack may be performed from remote. Upgrading to version 1.0.57 is",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134534",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134536",
-        "published": "2026-11-21T23:16:54Z",
-        "description": "A weakness has been identified in Drakeling Labs Operation Harsh Doorstop up to 0.14.2.1 Build 19523588. The impacted element is the function LaunchURL of the component Workshop Configuration. This manipulation causes unrestricted upload. It is possible to initiate the attack remotely. Upgrading to ",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134536",
-        "kev": false
       }
     ]
   },
   "actively_exploited": {
     "lookback_days": 90,
     "catalog_total": 1795,
-    "total": 119,
+    "total": 113,
     "items": [
       {
         "id": "CVE-2026-132224",
@@ -15139,66 +15999,6 @@
         "ransomware_use": null,
         "description": "JFrog Artifactory contains an improper limitation of a pathname to a restricted directory vulnerability. This can allow an authenticated user to write data outside the intended Docker cache path under specific remote-repository conditions.",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-66384"
-      },
-      {
-        "id": "CVE-2021-23758",
-        "vendor": "Ajax.NET Professional",
-        "product": "Ajax.NET Professional",
-        "name": "Ajax.NET Professional Deserialization of Untrusted Data Vulnerability",
-        "date_added": "2026-08-26",
-        "ransomware_use": null,
-        "description": "Ajax.NET Professional (AjaxPro) contains a deserialization of untrusted data vulnerability that could allow for remote code execution via arbitrary .NET classes. The impacted product(s) could be end-of-life (EoL) and/or end-of-service (EoS). Users are advised to discontinue use and/or transition to ",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2021-23758"
-      },
-      {
-        "id": "CVE-2015-3246",
-        "vendor": "Red Hat",
-        "product": "Libuser",
-        "name": "Red Hat Libuser Race Condition Vulnerability",
-        "date_added": "2026-08-26",
-        "ransomware_use": null,
-        "description": "Red Hat libuser contains a race condition vulnerability that allows authenticated local users to corrupt the /etc/passwd file to cause a denial of service or privilege escalation.",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2015-3246"
-      },
-      {
-        "id": "CVE-2015-5287",
-        "vendor": "Red Hat",
-        "product": "Automatic Bug Reporting Tool",
-        "name": "Red Hat Automatic Bug Reporting Tool Privilege Escalation Vulnerability",
-        "date_added": "2026-08-26",
-        "ransomware_use": null,
-        "description": "Red Hat Automatic Bug Reporting Tool (ABRT) contains a privilege escalation vulnerability that could allow local users with certain permissions to gain privileges via a symlink attack on a file with a predictable name. The impacted product(s) could be end-of-life (EoL) and/or end-of-service (EoS). U",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2015-5287"
-      },
-      {
-        "id": "CVE-2022-0995",
-        "vendor": "Linux",
-        "product": "Kernel",
-        "name": "Linux Kernel Out-of-Bounds Write Vulnerability",
-        "date_added": "2026-08-26",
-        "ransomware_use": null,
-        "description": "Linux Kernel contains an out-of-bounds memory write vulnerability which could allow a local user to gain privileged access or cause a denial of service on the system.",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2022-0995"
-      },
-      {
-        "id": "CVE-2026-8452",
-        "vendor": "Citrix",
-        "product": "NetScaler ADC and NetScaler Gateway",
-        "name": "Citrix NetScaler ADC and NetScaler Gateway Improper Restriction of Operations within the Bounds of a Memory Buffer Vulnerability",
-        "date_added": "2026-08-26",
-        "ransomware_use": null,
-        "description": "Citrix NetScaler ADC and NetScaler Gateway contain an improper restriction of operations within the bounds of a memory buffer vulnerability which could lead to denial of service.",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-8452"
-      },
-      {
-        "id": "CVE-2019-1068",
-        "vendor": "Microsoft",
-        "product": "SQL Server",
-        "name": "Microsoft SQL Server Remote Code Execution Vulnerability",
-        "date_added": "2026-08-26",
-        "ransomware_use": null,
-        "description": "Microsoft SQL Server contains a remote code execution vulnerability that could allow an attacker to execute code in the context of the SQL Server Database Engine service account.",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2019-1068"
       }
     ]
   }
