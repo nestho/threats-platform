@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-26T11:11:54Z",
+  "updated_at": "2026-11-26T20:21:23Z",
   "source": "Microsoft MSRC + Ubuntu Security Notices",
   "source_url": [
     "https://api.msrc.microsoft.com/update-guide/rss",
@@ -10,6 +10,62 @@
   "normalisation_failures": [],
   "partial": null,
   "items": [
+    {
+      "id": "USN-9214-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9214-1: GNU binutils vulnerabilities",
+      "published": "2026-11-26T19:39:59Z",
+      "summary": "It was discovered that the GNU binutils gold linker incorrectly handled certain ELF files. A local attacker could possibly use this issue to cause GNU binutils to crash, resulting in a denial of service. This issue only affected Ubuntu 22.04 LTS. (CVE-2019-1010204) Han Zheng discovered that GNU binu",
+      "link": "https://ubuntu.com/security/notices/USN-9214-1"
+    },
+    {
+      "id": "USN-9213-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9213-1: libXi vulnerabilities",
+      "published": "2026-11-26T16:54:17Z",
+      "summary": "Adam Bedard discovered that libXi did not properly validate DEVICE_RESOLUTION replies from the X server, which could result in a heap buffer overflow. A remote attacker could possibly use this issue to cause applications using libXi to crash, resulting in a denial of service. (CVE-2026-109089) Adam ",
+      "link": "https://ubuntu.com/security/notices/USN-9213-1"
+    },
+    {
+      "id": "USN-9212-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9212-1: PyJWT vulnerabilities",
+      "published": "2026-11-26T14:45:08Z",
+      "summary": "It was discovered that PyJWT incorrectly handled errors when parsing deeply nested token headers. An attacker could possibly use this issue to cause applications using PyJWT to fail unexpectedly, resulting in a denial of service. (CVE-2026-102265) It was discovered that PyJWT modified the options ma",
+      "link": "https://ubuntu.com/security/notices/USN-9212-1"
+    },
+    {
+      "id": "USN-9211-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9211-1: Plexus Utils vulnerability",
+      "published": "2026-11-26T13:25:00Z",
+      "summary": "It was discovered that Plexus Utils did not properly sanitize file paths when extracting archives. If a user or automated system were tricked into extracting a specially crafted archive, an attacker could possibly use this issue to write arbitrary files and execute arbitrary code.",
+      "link": "https://ubuntu.com/security/notices/USN-9211-1"
+    },
+    {
+      "id": "USN-9190-2",
+      "vendor": "Ubuntu",
+      "title": "USN-9190-2: Linux kernel (HWE) vulnerabilities",
+      "published": "2026-11-26T13:20:06Z",
+      "summary": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - S390 architecture; - x86 architecture; - Block layer subsystem; - Cryptographic API; - Compute Acceleration Framework;",
+      "link": "https://ubuntu.com/security/notices/USN-9190-2"
+    },
+    {
+      "id": "USN-9208-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9208-1: alsa-lib vulnerabilities",
+      "published": "2026-11-26T09:37:19Z",
+      "summary": "It was discovered that the ALSA library incorrectly handled certain crafted topology files and control element identifiers. An attacker could possibly use these issues to cause a denial of service or expose sensitive information. These issues were only addressed in Ubuntu 22.04 LTS, Ubuntu 24.04 LTS",
+      "link": "https://ubuntu.com/security/notices/USN-9208-1"
+    },
+    {
+      "id": "USN-9209-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9209-1: Simple DirectMedia Layer vulnerability",
+      "published": "2026-11-26T09:14:33Z",
+      "summary": "It was discovered that Simple DirectMedia Layer incorrectly handled memory when encountering errors during OpenGL ES streaming texture creation. An attacker could possibly use this issue to cause applications using Simple DirectMedia Layer to consume resources, resulting in a denial of service.",
+      "link": "https://ubuntu.com/security/notices/USN-9209-1"
+    },
     {
       "id": "USN-9207-1",
       "vendor": "Ubuntu",
@@ -33,62 +89,6 @@
       "published": "2026-11-25T22:41:37Z",
       "summary": "Jin Wei, Kunwei Qian, and Ping Chen discovered that libpcap did not properly validate the format of MAC addresses passed to the pcap_ether_aton() function, leading to an out-of-bounds read and write. An attacker could possibly use this issue to cause applications using libpcap to crash, resulting in",
       "link": "https://ubuntu.com/security/notices/USN-9203-1"
-    },
-    {
-      "id": "USN-9198-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9198-1: HTTP::Tiny vulnerability",
-      "published": "2026-11-25T21:14:58Z",
-      "summary": "It was discovered that HTTP::Tiny incorrectly forwarded credential headers supplied by the caller, such as Authorization, Cookie and Proxy-Authorization, when following cross-origin redirects, including redirects from HTTPS to HTTP. An attacker could possibly use this issue to obtain sensitive infor",
-      "link": "https://ubuntu.com/security/notices/USN-9198-1"
-    },
-    {
-      "id": "USN-9202-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9202-1: Kerberos vulnerabilities",
-      "published": "2026-11-25T20:37:30Z",
-      "summary": "It was discovered that the Kerberos KDC incorrectly handled certain ASN.1 encodings in requests. A remote attacker could possibly use this issue to cause the KDC to crash, resulting in a denial of service. (CVE-2026-107364) It was discovered that the Kerberos KDC incorrectly handled malformed client",
-      "link": "https://ubuntu.com/security/notices/USN-9202-1"
-    },
-    {
-      "id": "USN-9201-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9201-1: NetworkManager vulnerability",
-      "published": "2026-11-25T19:31:11Z",
-      "summary": "Juthawong Naisanguansee discovered that NetworkManager on Ubuntu incorrectly granted the whoopsie user unrestricted D-Bus access to root-only methods. A local attacker who can execute code as the whoopsie user could possibly use this issue to disrupt system networking or alter NetworkManager logging",
-      "link": "https://ubuntu.com/security/notices/USN-9201-1"
-    },
-    {
-      "id": "USN-9200-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9200-1: elfutils vulnerabilities",
-      "published": "2026-11-25T18:52:08Z",
-      "summary": "It was discovered that elfutils incorrectly handled memory when processing certain malformed DWARF data. If a user or automated system were tricked into running readelf on a specially crafted file, an attacker could possibly use this issue to cause readelf to crash, resulting in a denial of service,",
-      "link": "https://ubuntu.com/security/notices/USN-9200-1"
-    },
-    {
-      "id": "USN-9199-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9199-1: authd vulnerability",
-      "published": "2026-11-25T17:32:51Z",
-      "summary": "Adrian Dombeck discovered that authd incorrectly assigned user and group identifiers during first-time SSH logins. A remote authenticated user could possibly use this issue to access or modify files belonging to another user, potentially leading to account takeover or privilege escalation.",
-      "link": "https://ubuntu.com/security/notices/USN-9199-1"
-    },
-    {
-      "id": "USN-9197-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9197-1: Speex vulnerability",
-      "published": "2026-11-25T15:48:32Z",
-      "summary": "It was discovered that Speex incorrectly handled oversize input when appending data to a bit buffer not owned by the library. An attacker could possibly use this issue to cause Speex to crash, resulting in a denial of service, or possibly execute arbitrary code.",
-      "link": "https://ubuntu.com/security/notices/USN-9197-1"
-    },
-    {
-      "id": "USN-9196-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9196-1: Expat vulnerabilities",
-      "published": "2026-11-25T13:48:17Z",
-      "summary": "It was discovered that Expat did not properly validate UTF-16 surrogate pairs. An attacker could possibly use this issue to pass malformed characters to applications using Expat, resulting in unexpected behavior. (CVE-2026-93990) It was discovered that Expat incorrectly computed memory allocation si",
-      "link": "https://ubuntu.com/security/notices/USN-9196-1"
     },
     {
       "id": "CVE-2026-112732",
