@@ -1,11 +1,35 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-25T22:23:16Z",
+  "updated_at": "2026-11-26T01:52:28Z",
   "source": "GitHub Security Advisories",
   "source_url": "https://api.github.com/advisories",
   "total": 100,
   "normalisation_failures": [],
   "items": [
+    {
+      "id": "GHSA-rj59-9f77-mvg5",
+      "title": "TastyIgniter permits Path Traversal in Media Upload",
+      "published": "2026-11-25T22:54:30Z",
+      "ecosystem": "composer",
+      "summary": "### Summary\nArbitrary file write outside `media/uploads/`\n\n### Details\nIt is possible to perform Path Traversal in Media Manager file upload function as admin.\n\n\n### PoC\n- login as admin\n- upload a image but in the request, change the path from `/` to `/../../`.\n\nRequest\n```http\nPOST /admin/media_ma",
+      "link": "https://github.com/advisories/GHSA-rj59-9f77-mvg5"
+    },
+    {
+      "id": "GHSA-7wwv-x6mc-pxqx",
+      "title": "TastyIgniter allows Remote Code Execution (RCE) via Unrestricted file upload in Media Manager",
+      "published": "2026-11-25T22:24:36Z",
+      "ecosystem": "composer",
+      "summary": "### Summary\nMedia manager accepts `.htaccess` file which can be used to perform RCE.\n\n### Details\nThe file upload functionality from media manager somehow accepts `.htaccess` file. This file could be used to allow any extension to run PHP command. By doing so, it is possible to perform RCE.\n\n### PoC",
+      "link": "https://github.com/advisories/GHSA-7wwv-x6mc-pxqx"
+    },
+    {
+      "id": "GHSA-743w-g9pf-8p94",
+      "title": "TastyIgniter mail template editor allows remote code execution via server-side template injection",
+      "published": "2026-11-25T22:24:13Z",
+      "ecosystem": "composer",
+      "summary": "### Summary\n**Where:** `POST /admin/mail_templates/edit/{id}` → body field  \n**Who can trigger:** Any admin user with `Admin.MailTemplates` permission  \n**Impact:** Arbitrary PHP execution on the server — full RCE\n\n### Details\nThe Mail templates is vulnerable to SSTI and did not perform an validatio",
+      "link": "https://github.com/advisories/GHSA-743w-g9pf-8p94"
+    },
     {
       "id": "GHSA-mqg7-fw3f-mhp7",
       "title": "TastyIgniter allows stored XSS via file upload",
@@ -781,30 +805,6 @@
       "ecosystem": "pip",
       "summary": "### Summary\nThe recursive traversal engines behind WordNetCorpusReader's Synset.tree() and Synset.acyclic_tree() have no maximum call-depth safeguard and default to unlimited depth. They guard against literal cycles, but not against a long, genuinely acyclic relation chain — which exhausts the Pytho",
       "link": "https://github.com/advisories/GHSA-8846-p9w9-5frf"
-    },
-    {
-      "id": "GHSA-3h95-x772-4765",
-      "title": "NLTK: Uncontrolled recursion in CCG lexicon parser causes denial of service via deeply nested category input",
-      "published": "2026-11-19T23:52:54Z",
-      "ecosystem": "pip",
-      "summary": "## Root Cause\nThe CCG lexicon parser recurses on nested parenthesised categories without any depth\nbound. `matchBrackets` (`nltk/ccg/lexicon.py:154`) calls itself once per nested `(`, and\n`augParseCategory` (`nltk/ccg/lexicon.py:228,242`) recurses once per bracketed\nsub-category. Neither function tr",
-      "link": "https://github.com/advisories/GHSA-3h95-x772-4765"
-    },
-    {
-      "id": "GHSA-xfcv-m889-fmqg",
-      "title": "NLTK: Uncontrolled recursion in DependencyGraph traversal causes denial of service via deep dependency chains",
-      "published": "2026-11-19T23:52:20Z",
-      "ecosystem": "pip",
-      "summary": "## Root Cause\nThe dependency-graph traversal helpers recurse over dependency links without any depth\nbound or visited set. `DependencyGraph._tree` (`nltk/parse/dependencygraph.py:404`)\nrecurses once per dependency link, `triples` (`nltk/parse/dependencygraph.py:432`) is a\nrecursive generator, and `g",
-      "link": "https://github.com/advisories/GHSA-xfcv-m889-fmqg"
-    },
-    {
-      "id": "GHSA-w3pv-xfw4-ghr7",
-      "title": "NLTK: Uncontrolled recursion in semantic-logic type parser causes denial of service via nested type strings",
-      "published": "2026-11-19T23:51:48Z",
-      "ecosystem": "pip",
-      "summary": "## Root Cause\nThe semantic-logic type parser `read_type` (`nltk/sem/logic.py:866`) recurses on both\nhalves of every `<a,b>` complex type (`nltk/sem/logic.py:882-884`) with no depth or length\nbound — only an `isinstance` assertion and a parenthesis-balance assertion. The\n`LogicParser.MAX_PARSE_DEPTH`",
-      "link": "https://github.com/advisories/GHSA-w3pv-xfw4-ghr7"
     }
   ]
 }
