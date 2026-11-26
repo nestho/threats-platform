@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-26T20:19:47Z",
+  "updated_at": "2026-11-26T22:36:38Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,61 @@
   ],
   "recent": {
     "lookback_days": 3,
-    "total": 2101,
-    "items_available": 2101,
+    "total": 2063,
+    "items_available": 2063,
     "normalisation_failures": [],
-    "items_parsed": 2101,
+    "items_parsed": 2063,
     "items": [
+      {
+        "id": "CVE-2026-4981",
+        "published": "2026-11-26T22:17:58Z",
+        "description": "A flaw was found in Red Hat Advanced Cluster Security (ACS). An unauthenticated remote attacker can exploit a vulnerability in the login interface's OAuth callback endpoint by crafting a malicious URL. This URL, containing unvalidated `error` and `error_uri` parameters, allows the attacker to displa",
+        "severity": "MEDIUM",
+        "score": 5.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-4981",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-137621",
+        "published": "2026-11-26T22:17:55Z",
+        "description": "A weakness has been identified in RT-Thread up to 5.3.0. Affected by this vulnerability is the function bl_adc_get_value of the file bsp/bouffalo_lab/libraries/rt_drivers/drv_adc.c of the component Bouffalo ADC Driver. This manipulation of the argument channel causes improper validation of array ind",
+        "severity": "MEDIUM",
+        "score": 4.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137621",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-137620",
+        "published": "2026-11-26T21:17:16Z",
+        "description": "A security flaw has been discovered in RT-Thread up to 5.3.0. Affected is the function davinci_spi_get_prescale of the file bsp/dm365/drivers/spi-davinci.c of the component DM365 SPI Driver. The manipulation of the argument max_hz results in divide by zero. The attack requires a local approach. The ",
+        "severity": "MEDIUM",
+        "score": 5.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137620",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126139",
+        "published": "2026-11-26T21:17:15Z",
+        "description": "Docker Sandboxes re-resolves saved mount paths when replacing a sandbox container during kit changes or restarting a sandbox. An attacker able to replace a source ancestor in a shared writable workspace with a symlink can redirect another sandbox's mount to a different host directory, exposing its c",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126139",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-137618",
+        "published": "2026-11-26T21:17:15Z",
+        "description": "A vulnerability was identified in RT-Thread up to 5.3.0. This impacts the function hpm_adc_enabled of the file bsp/hpmicro/libraries/drivers/drv_adc.c of the component HPM ADC Driver. The manipulation of the argument channel leads to improper validation of array index. The attack needs to be perform",
+        "severity": "LOW",
+        "score": 1.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137618",
+        "kev": false
+      },
       {
         "id": "CVE-2026-137529",
         "published": "2026-11-26T20:17:24Z",
@@ -20591,436 +20641,6 @@
         "score": 8.7,
         "cvss_version": "40",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101869",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-93700",
-        "published": "2026-11-23T22:24:54Z",
-        "description": "An authenticated WHMCS client could potentially leverage this flaw to read sensitive configuration files on the WHMCS host, including database credentials, and to execute code on the server.",
-        "severity": "CRITICAL",
-        "score": 9.0,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93700",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-81962",
-        "published": "2026-11-23T22:23:40Z",
-        "description": "Incorrect authorization in Azure Machine Learning allows an unauthorized attacker to disclose information over a network.",
-        "severity": "HIGH",
-        "score": 8.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-81962",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-82979",
-        "published": "2026-11-23T22:23:40Z",
-        "description": "SQL injection in WHMCS could allow an authenticated client with View & Manage Contacts permission to retrieve other clients' personal, billing, and support information, as well as administrator account records and password hashes.",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82979",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-82981",
-        "published": "2026-11-23T22:23:40Z",
-        "description": "SQL injection in WHMCS could allow an unauthenticated user to retrieve clients' personal and support information, as well as administrator account records and password hashes.",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82981",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-70305",
-        "published": "2026-11-23T22:22:50Z",
-        "description": "Improper neutralization of input during web page generation ('cross-site scripting') in Azure Portal allows an unauthorized attacker to perform spoofing over a network.",
-        "severity": "CRITICAL",
-        "score": 9.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-70305",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-70193",
-        "published": "2026-11-23T22:22:36Z",
-        "description": "Improper limitation of a pathname to a restricted directory ('path traversal') in Microsoft Office SharePoint allows an authorized attacker to execute code over a network.",
-        "severity": "CRITICAL",
-        "score": 9.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-70193",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-69899",
-        "published": "2026-11-23T22:22:11Z",
-        "description": "Authentication bypass by spoofing in Azure DevTest Labs allows an unauthorized attacker to perform spoofing over a network.",
-        "severity": "CRITICAL",
-        "score": 9.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-69899",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-69437",
-        "published": "2026-11-23T22:21:30Z",
-        "description": "Missing authorization in Azure AI Foundry allows an unauthorized attacker to disclose information over a network.",
-        "severity": "HIGH",
-        "score": 8.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-69437",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-65817",
-        "published": "2026-11-23T22:20:52Z",
-        "description": "Improper neutralization of special elements used in an os command ('os command injection') in Azure Managed Instance for Apache Cassandra allows an unauthorized attacker to execute code over an adjacent network.",
-        "severity": "HIGH",
-        "score": 8.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-65817",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-62841",
-        "published": "2026-11-23T22:20:39Z",
-        "description": "Improper authentication in Azure Event Grid allows an unauthorized attacker to elevate privileges over a network.",
-        "severity": "CRITICAL",
-        "score": 10.0,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-62841",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-50691",
-        "published": "2026-11-23T22:20:16Z",
-        "description": "Improper authorization in M365 Copilot allows an authorized attacker to elevate privileges over a network.",
-        "severity": "CRITICAL",
-        "score": 9.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-50691",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132615",
-        "published": "2026-11-23T22:20:12Z",
-        "description": "The ggml-rpc server suffers from an uninitialized heap memory disclosure vulnerability where the alloc_buffer function provides new clients with buffers containing stale data from previously freed allocations. This allows an unauthenticated remote attacker to perform an in-bounds read via get_tensor",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132615",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-133981",
-        "published": "2026-11-23T22:20:12Z",
-        "description": "An issue was discovered in Elasticsearch where specially crafted compressed payloads can cause an infinite loop. A low-privileged authenticated user can submit a malformed payload to a product API endpoint that causes the node to enter a permanent CPU loop, occupying a request-processing thread inde",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133981",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134069",
-        "published": "2026-11-23T22:20:12Z",
-        "description": "Use of a default cryptographic key in the instance registration component in Amazon SSM Agent before 3.3.5226.0 on AWS-provided Windows Server AMIs released before 2026-09-09 might allow local users without administrative privileges to obtain the instance's Default Host Management Configuration role",
-        "severity": "HIGH",
-        "score": 8.2,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134069",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-129837",
-        "published": "2026-11-23T22:20:10Z",
-        "description": "A flaw was found in rsyslog. A remote, unauthenticated attacker can cause a Denial of Service (DoS) by sending a specially crafted log message with an unusual timestamp. When the service processes this message using weekday formatting templates, an out-of-bounds memory read occurs, causing the appli",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129837",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130165",
-        "published": "2026-11-23T22:20:10Z",
-        "description": "React is a JavaScript library for building user interfaces. In versions prior to 19.0.9, 19.1.10, 19.2.9 and 19.3.1, react-server-dom-webpack, react-server-dom-parcel, and react-server-dom-turbopack are vulnerable to denial of service. Specially crafted HTTP requests sent to server function endpoint",
-        "severity": "HIGH",
-        "score": 8.2,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130165",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120787",
-        "published": "2026-11-23T22:19:56Z",
-        "description": "Improper certificate validation in Microsoft Office PowerPoint allows an unauthorized attacker to execute code over a network.",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120787",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120777",
-        "published": "2026-11-23T22:19:55Z",
-        "description": "Incorrect authorization in Azure Managed Service Identity allows an authorized attacker to elevate privileges over a network.",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120777",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118285",
-        "published": "2026-11-23T22:19:30Z",
-        "description": "Server-side request forgery in Azure Machine Learning allows an authorized attacker to elevate privileges over a network.",
-        "severity": "CRITICAL",
-        "score": 9.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118285",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118286",
-        "published": "2026-11-23T22:19:30Z",
-        "description": "Improper access control in Azure Site Recovery allows an unauthorized attacker to elevate privileges over a network.",
-        "severity": "CRITICAL",
-        "score": 9.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118286",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115296",
-        "published": "2026-11-23T22:19:11Z",
-        "description": "Missing authorization in the Elastic AI Assistant for Security in Kibana can allow an authenticated assistant user to permanently delete a shared or global Security AI Assistant conversation owned by another user in the same space. The individual-delete path can treat read access to a shared convers",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115296",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-113824",
-        "published": "2026-11-23T22:19:04Z",
-        "description": "Authorization bypass through user-controlled key in Microsoft Clarity allows an unauthorized attacker to elevate privileges over a network.",
-        "severity": "CRITICAL",
-        "score": 9.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113824",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-109490",
-        "published": "2026-11-23T22:18:30Z",
-        "description": "Improper neutralization of input during web page generation ('cross-site scripting') in Authentication Methods Portal Extension allows an unauthorized attacker to elevate privileges over a network.",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-109490",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-109480",
-        "published": "2026-11-23T22:18:29Z",
-        "description": "Server-side request forgery in Profile Data Roaming Service (PDRS) allows an authorized attacker to elevate privileges over a network.",
-        "severity": "CRITICAL",
-        "score": 9.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-109480",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-82303",
-        "published": "2026-11-23T21:17:06Z",
-        "description": "A buffer over-read vulnerability in Elasticsearch transport decompression can expose data from other requests. The LZ4 decoder can read beyond the declared compressed block into a shared network buffer. A remote attacker who can reach an affected transport interface can send a specially crafted comp",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-82303",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-135472",
-        "published": "2026-11-23T21:17:02Z",
-        "description": "open62541 1.5.0 through 1.5.10 contains a use-after-free and double free vulnerability in the lookupRefType() function in src/util/ua_util.c that allows attackers to corrupt the heap of the server process by supplying a RelativePath string resolved through UA_RelativePath_parseWithServer(). When the",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135472",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-135617",
-        "published": "2026-11-23T21:17:02Z",
-        "description": "Lookyloo is a web-based URL capture and analysis platform. Prior to the fix, the authorization mechanism for private captures (seed-based access control) was not consistently enforced at the data access layer. The capture_cache method and numerous internal methods (get_info, get_meta, get_statistics",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135617",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-135128",
-        "published": "2026-11-23T21:17:01Z",
-        "description": "A vulnerability was detected in FredrikNoren ungit 1.5.30. This vulnerability affects unknown code of the file source/git-api.js of the component /api/clone. The manipulation of the argument url results in argument injection. The attack can be launched remotely. The exploit is now public and may be ",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135128",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134059",
-        "published": "2026-11-23T21:16:59Z",
-        "description": "A relative path traversal vulnerability in Kibana Fleet and Elastic Agent allows an authenticated user with both Fleet Integrations: All and Agent policies: All privileges to distribute a malicious integration policy to managed Elastic Agents. A vulnerable Elastic Agent processing that policy for a ",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134059",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-133918",
-        "published": "2026-11-23T21:16:58Z",
-        "description": "Elasticsearch ES|QL data-source and dataset registration can write storage credentials or pre-signed URL signatures to the audit log in plaintext. In affected versions, request definitions are not appropriately filtered before request-body or URL-query auditing. An attacker with access to these logs",
-        "severity": "MEDIUM",
-        "score": 4.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133918",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-133919",
-        "published": "2026-11-23T21:16:58Z",
-        "description": "Uncontrolled resource allocation in Elasticsearch mapping updates can lead to denial of service. An authenticated user with index-management privileges can submit specially crafted mapping updates that are expanded into multiple large in-memory representations. The amplification during request parsi",
-        "severity": "MEDIUM",
-        "score": 4.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133919",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-133925",
-        "published": "2026-11-23T21:16:58Z",
-        "description": "Uncontrolled resource consumption in Elasticsearch query parsing can lead to denial of service. An authenticated user with search permissions can submit a specially crafted query containing an excessive number of clauses. Expanding those clauses in memory before enforcing query complexity limits can",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133925",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-133926",
-        "published": "2026-11-23T21:16:58Z",
-        "description": "An issue was discovered in Kibana where a user with the Synthetics All privilege in one space can access Fleet agent policy metadata from other spaces through a product API endpoint. This could lead to the unauthorized disclosure of operational metadata across spaces the user is not authorized to vi",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133926",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-133935",
-        "published": "2026-11-23T21:16:58Z",
-        "description": "Unconstrained S3 endpoint settings in Elasticsearch ES|QL data sources can cause requests containing storage credentials to be sent to an attacker-controlled host. A user with data-source management privileges can configure a custom endpoint without the intended host restriction. On opted-in commerc",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133935",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-133984",
-        "published": "2026-11-23T21:16:58Z",
-        "description": "Missing authorization in Kibana Cases alert attachments can allow an authenticated user with permission to add case comments or attachments to modify case-link metadata in documents they are not authorized to access. An attacker can add false case links and prevent legitimate case linkage by exhaust",
-        "severity": "MEDIUM",
-        "score": 4.2,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133984",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-133857",
-        "published": "2026-11-23T21:16:57Z",
-        "description": "Uncontrolled resource allocation in Kibana exception-list filter creation can lead to denial of service. An authenticated user with access to the Security solution can submit a specially crafted request containing a large number of exception-list identifiers. Kibana can create an unbounded number of",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133857",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-133858",
-        "published": "2026-11-23T21:16:57Z",
-        "description": "Certain Fleet APIs in Kibana expose stored credentials to authenticated users who do not have the Fleet Settings: Read privilege. For example, a user with the Fleet Agent policies: Read privilege can retrieve credentials through Fleet output and agent binary download source APIs. The disclosed crede",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133858",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-133860",
-        "published": "2026-11-23T21:16:57Z",
-        "description": "An issue in Kibana allows Elasticsearch transforms in directly uploaded integration packages to run with Kibana's internal system identity instead of the installing user's privileges. A user with Integrations: All and Agent policies: All privileges in a single Kibana space could access or modify dat",
-        "severity": "MEDIUM",
-        "score": 4.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133860",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-133891",
-        "published": "2026-11-23T21:16:57Z",
-        "description": "Incorrect authorization in Elasticsearch columnar indices can bypass field-level security for geo_shape values. An authenticated user with access to an affected index can obtain denied geometry values through the internal source-geometry representation even when field-level security excludes the cor",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133891",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-133917",
-        "published": "2026-11-23T21:16:57Z",
-        "description": "Elasticsearch ES|QL query responses can disclose dataset storage locations and provider identity details to users who are allowed to query a dataset but cannot read its definition. Storage paths and storage-client error text can appear in read-failure messages or query-profile plan strings. An authe",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133917",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130164",
-        "published": "2026-11-23T21:16:56Z",
-        "description": "Hermes Agent is an open-source autonomous AI agent built by Nous Research for running tool-using workflows across CLI, desktop, and messaging interfaces. From 0.21.6 to 0.23.1, when Bot Desktop is hosted inside a non-local terminal backend, the agent process reads a backend-writable screen environme",
-        "severity": "HIGH",
-        "score": 7.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130164",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-129976",
-        "published": "2026-11-23T21:16:55Z",
-        "description": "Memory Allocation with Excessive Size Value (CWE-789) in Packetbeat can lead to denial of service via a specially crafted, malformed Cassandra protocol message. An unauthenticated attacker who can send traffic on a network segment that Packetbeat monitors can cause Packetbeat to allocate excessive m",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129976",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115291",
-        "published": "2026-11-23T21:16:52Z",
-        "description": "Missing authorization in Kibana Security AI Assistant conversation deletion can allow an authenticated user with access to the assistant to delete other users' conversations in the same space. The delete-all operation can issue a query without an ownership filter using the assistant's internal Elast",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115291",
         "kev": false
       }
     ]

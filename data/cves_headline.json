@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-26T20:19:47Z",
+  "updated_at": "2026-11-26T22:36:38Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,61 @@
   ],
   "note": "Bounded slice of cves.json for the homepage. Use /data/cves.json for the full window.",
   "normalisation_failures": [],
-  "recent_total": 2101,
+  "recent_total": 2063,
   "kev_total": 120,
   "kev_catalog_total": 1805,
   "total": 25,
   "items": [
+    {
+      "id": "CVE-2026-4981",
+      "published": "2026-11-26T22:17:58Z",
+      "description": "A flaw was found in Red Hat Advanced Cluster Security (ACS). An unauthenticated remote attacker can exploit a vulnerability in the login interface's OAuth callback endpoint by crafting a malicious URL. This URL, containing unvalidated `error` and `error_uri` parameters, allows the attacker to displa",
+      "severity": "MEDIUM",
+      "score": 5.4,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-4981",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-137621",
+      "published": "2026-11-26T22:17:55Z",
+      "description": "A weakness has been identified in RT-Thread up to 5.3.0. Affected by this vulnerability is the function bl_adc_get_value of the file bsp/bouffalo_lab/libraries/rt_drivers/drv_adc.c of the component Bouffalo ADC Driver. This manipulation of the argument channel causes improper validation of array ind",
+      "severity": "MEDIUM",
+      "score": 4.8,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137621",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-137620",
+      "published": "2026-11-26T21:17:16Z",
+      "description": "A security flaw has been discovered in RT-Thread up to 5.3.0. Affected is the function davinci_spi_get_prescale of the file bsp/dm365/drivers/spi-davinci.c of the component DM365 SPI Driver. The manipulation of the argument max_hz results in divide by zero. The attack requires a local approach. The ",
+      "severity": "MEDIUM",
+      "score": 5.2,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137620",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-126139",
+      "published": "2026-11-26T21:17:15Z",
+      "description": "Docker Sandboxes re-resolves saved mount paths when replacing a sandbox container during kit changes or restarting a sandbox. An attacker able to replace a source ancestor in a shared writable workspace with a symlink can redirect another sandbox's mount to a different host directory, exposing its c",
+      "severity": "MEDIUM",
+      "score": 5.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126139",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-137618",
+      "published": "2026-11-26T21:17:15Z",
+      "description": "A vulnerability was identified in RT-Thread up to 5.3.0. This impacts the function hpm_adc_enabled of the file bsp/hpmicro/libraries/drivers/drv_adc.c of the component HPM ADC Driver. The manipulation of the argument channel leads to improper validation of array index. The attack needs to be perform",
+      "severity": "LOW",
+      "score": 1.9,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137618",
+      "kev": false
+    },
     {
       "id": "CVE-2026-137529",
       "published": "2026-11-26T20:17:24Z",
@@ -211,56 +261,6 @@
       "score": 7.1,
       "cvss_version": "31",
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135039",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-137418",
-      "published": "2026-11-26T19:17:10Z",
-      "description": "A security vulnerability has been detected in Cerebras ModelZoo up to d76e028d6a5f784954b1329b3ae44721ca8da36a. Affected is the function StreamingShardedHFReader of the file src/cerebras/modelzoo/tools/checkpoint_converters/streaming_checkpoints.py of the component Checkpoint Converter. The manipula",
-      "severity": "LOW",
-      "score": 2.1,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137418",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-137436",
-      "published": "2026-11-26T19:17:10Z",
-      "description": "A vulnerability was found in SourceCodester Basic Hotel Online Reservation System 1.0. The affected element is an unknown function of the file add_reserve.php. Performing a manipulation of the argument room_id results in sql injection. Remote exploitation of the attack is possible. The exploit has b",
-      "severity": "MEDIUM",
-      "score": 5.5,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137436",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-137437",
-      "published": "2026-11-26T19:17:10Z",
-      "description": "A vulnerability was determined in SourceCodester Basic Hotel Online Reservation System 1.0. The impacted element is an unknown function of the file add_reserve.php. Executing a manipulation of the argument Date can lead to sql injection. The attack can be executed remotely. The exploit has been publ",
-      "severity": "MEDIUM",
-      "score": 5.5,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137437",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-120353",
-      "published": "2026-11-26T19:17:09Z",
-      "description": "The Apache Airflow TaskFlow decorators @task.bash, @task.sql, @task.analytics, @task.kubernetes_cmd and the common.ai decorators (@task.llm, @task.agent, @task.llm_sql, @task.llm_branch, @task.llm_file_analysis, @task.llm_schema_compare) rendered Jinja templates a second time after the task runner h",
-      "severity": null,
-      "score": null,
-      "cvss_version": null,
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120353",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-134470",
-      "published": "2026-11-26T19:17:09Z",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Host.it Fastcache by Host.it fastcache-by-host-it allows Stored XSS.This issue affects Fastcache by Host.it: from n/a through 1.7.14.",
-      "severity": "HIGH",
-      "score": 7.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134470",
       "kev": false
     }
   ]
