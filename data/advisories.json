@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-26T03:08:01Z",
+  "updated_at": "2026-11-26T11:11:54Z",
   "source": "Microsoft MSRC + Ubuntu Security Notices",
   "source_url": [
     "https://api.msrc.microsoft.com/update-guide/rss",
@@ -10,6 +10,22 @@
   "normalisation_failures": [],
   "partial": null,
   "items": [
+    {
+      "id": "USN-9207-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9207-1: Apache Commons BCEL vulnerability",
+      "published": "2026-11-26T08:23:06Z",
+      "summary": "It was discovered that Apache Commons BCEL incorrectly cached classes under their self-declared names without validating them against the requested name. An attacker could possibly use this issue to cause BCEL to return or verify a different class than the one requested.",
+      "link": "https://ubuntu.com/security/notices/USN-9207-1"
+    },
+    {
+      "id": "USN-9204-1",
+      "vendor": "Ubuntu",
+      "title": "USN-9204-1: dav1d vulnerability",
+      "published": "2026-11-26T04:26:04Z",
+      "summary": "It was discovered that dav1d incorrectly handled certain AV1 video streams with extremely large frame sizes. An attacker could possibly use this issue to cause dav1d to crash, resulting in a denial of service, or possibly execute arbitrary code.",
+      "link": "https://ubuntu.com/security/notices/USN-9204-1"
+    },
     {
       "id": "USN-9203-1",
       "vendor": "Ubuntu",
@@ -73,22 +89,6 @@
       "published": "2026-11-25T13:48:17Z",
       "summary": "It was discovered that Expat did not properly validate UTF-16 surrogate pairs. An attacker could possibly use this issue to pass malformed characters to applications using Expat, resulting in unexpected behavior. (CVE-2026-93990) It was discovered that Expat incorrectly computed memory allocation si",
       "link": "https://ubuntu.com/security/notices/USN-9196-1"
-    },
-    {
-      "id": "USN-9194-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9194-1: libxrender vulnerabilities",
-      "published": "2026-11-25T02:38:24Z",
-      "summary": "Adam Bedard discovered that libXrender incorrectly handled certain responses from an X server, resulting in a heap buffer overflow. If a user were tricked into connecting to a malicious X server, an attacker could possibly use this issue to cause applications using libXrender to crash, resulting in ",
-      "link": "https://ubuntu.com/security/notices/USN-9194-1"
-    },
-    {
-      "id": "USN-9193-1",
-      "vendor": "Ubuntu",
-      "title": "USN-9193-1: PCRE vulnerability",
-      "published": "2026-11-24T21:11:52Z",
-      "summary": "Yunho Kim discovered that PCRE incorrectly handled memory when processing certain regular expressions with JIT compilation enabled. An attacker could possibly use this issue to cause applications using PCRE to expose sensitive information.",
-      "link": "https://ubuntu.com/security/notices/USN-9193-1"
     },
     {
       "id": "CVE-2026-112732",

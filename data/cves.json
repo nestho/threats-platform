@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-26T04:53:31Z",
+  "updated_at": "2026-11-26T11:11:48Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,411 @@
   ],
   "recent": {
     "lookback_days": 3,
-    "total": 1975,
-    "items_available": 1975,
+    "total": 1989,
+    "items_available": 1989,
     "normalisation_failures": [],
-    "items_parsed": 1975,
+    "items_parsed": 1989,
     "items": [
+      {
+        "id": "CVE-2026-133472",
+        "published": "2026-11-26T10:17:08Z",
+        "description": "The CubeWP Framework plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 1.1.32 This is due to the `cubewp_frontend_role_caps()` function, registered on the `user_has_cap` filter, which excludes REST API requests via a `REST_REQUEST` guard but omits a cor",
+        "severity": "MEDIUM",
+        "score": 5.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133472",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135148",
+        "published": "2026-11-26T10:17:08Z",
+        "description": "The Download Manager plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'file[files][]' parameter in all versions up to, and including, 3.3.78 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with author-level acce",
+        "severity": "MEDIUM",
+        "score": 6.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135148",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135149",
+        "published": "2026-11-26T10:17:08Z",
+        "description": "The Download Manager plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'file[page_template], file[files][]' parameter in all versions up to, and including, 3.3.78 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, w",
+        "severity": "MEDIUM",
+        "score": 6.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135149",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135151",
+        "published": "2026-11-26T10:17:08Z",
+        "description": "The Download Manager plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 3.3.78 via the 'file[page_template]' parameter parameter. This makes it possible for authenticated attackers, with author-level access and above, to include and execute arbitrary .ph",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135151",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135266",
+        "published": "2026-11-26T10:17:08Z",
+        "description": "The Music Player for WooCommerce plugin for WordPress is vulnerable to Directory Traversal in all versions up to, and including, 1.9.4 via the '_downloadable_files' parameter parameter. This makes it possible for unauthenticated attackers to read the contents of arbitrary files on the server, which ",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135266",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135899",
+        "published": "2026-11-26T10:17:08Z",
+        "description": "JobRouter Premium, version 2025.1.11, has a stored Cross-Site Scripting (XSS) vulnerability in the Favorites feature. An authenticated user with low privileges can inject JavaScript code that is persistently stored on the server. When other users access the affected page, the code executes in their ",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135899",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-125933",
+        "published": "2026-11-26T10:17:07Z",
+        "description": "The Funnelforms Free – Multi Step Form, Contact Form & Lead Funnel Builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'document.settings.heading' parameter in all versions up to, and including, 5.0.9 due to insufficient input sanitization and output escaping. This make",
+        "severity": "MEDIUM",
+        "score": 4.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125933",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-127041",
+        "published": "2026-11-26T10:17:07Z",
+        "description": "Bizum Pay for Android incorporates static values within the APK to authenticate and sign requests to its API, including those for user registration. These values are common across different installations and can be extracted from the APK. An attacker who obtains the application could reuse them to g",
+        "severity": "HIGH",
+        "score": 8.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-127041",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-130805",
+        "published": "2026-11-26T10:17:07Z",
+        "description": "The Groundhogg plugin for WordPress is vulnerable to Cross-Site Request Forgery in versions up to, and including, 4.11 This is due to the Admin_Page::page() callback dispatching methods named directly by the $_REQUEST['action'] parameter via call_user_func([$this, $action]) without verifying a nonce",
+        "severity": "HIGH",
+        "score": 8.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130805",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-131589",
+        "published": "2026-11-26T10:17:07Z",
+        "description": "The AI Engine – MCP Server & AI Chatbot for WordPress, with Claude, ChatGPT & Gemini plugin for WordPress is vulnerable to Limited Arbitrary File Upload in all versions up to, and including, 3.9.4 via the `url` parameter of the `/mwai/v1/helpers/create_image` REST API endpoint. The vulnerability exi",
+        "severity": "HIGH",
+        "score": 7.2,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-131589",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-131687",
+        "published": "2026-11-26T10:17:07Z",
+        "description": "The ShopMagic – email automation for WordPress plugin for WordPress is vulnerable to Improper Verification of Cryptographic Signature in all versions up to, and including, 4.9.5 Although `CurrentCustomer::encode_tracking_data()` appends an md5 hash to the `shopmagic_visitor_<COOKIEHASH>` cookie to m",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-131687",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120493",
+        "published": "2026-11-26T10:17:06Z",
+        "description": "The Widgets for Social Photo Feed plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'widget-id' shortcode attribute of the [trustindex-feed] shortcode in versions up to, and including, 1.8.3 This is due to insufficient input sanitization and output escaping in the registerWid",
+        "severity": "MEDIUM",
+        "score": 6.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120493",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-120542",
+        "published": "2026-11-26T10:17:06Z",
+        "description": "The theme for WordPress is vulnerable to Stored Cross-Site Scripting via the 'metavalue (via wp-admin/post.php add_meta → post_meta key 'my_field')' parameter in all versions up to, and including, 8.3 due to insufficient input sanitization and output escaping. This makes it possible for authenticate",
+        "severity": "MEDIUM",
+        "score": 6.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120542",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-122298",
+        "published": "2026-11-26T10:17:06Z",
+        "description": "The Beautiful taxonomy filters plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'term_name (reflected from DB)' parameter in all versions up to, and including, 2.6.0 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attacker",
+        "severity": "MEDIUM",
+        "score": 6.4,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-122298",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-124211",
+        "published": "2026-11-26T10:17:06Z",
+        "description": "The Ninja Tables – Responsive Table Builder for Data, Pricing & Product Tables plugin for WordPress is vulnerable to SQL Injection via the 'dateFormat' column metadata parameter in versions up to, and including, 5.5.1 This is due to insufficient escaping on the stored 'dateFormat' value in DefaultPr",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124211",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-137390",
+        "published": "2026-11-26T09:17:10Z",
+        "description": "Mail2000 developed by Openfind has an OS Command Injection vulnerability.Authenticated remote attackers can inject arbitrary OS commands and execute them on the server.",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137390",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-133339",
+        "published": "2026-11-26T09:17:09Z",
+        "description": "Joomla Extension - vi-solutions - SQL injection via form IDs in administrative form export in Visforms extension 1.0.0-5.6.5, 6.0.0-6.2.2 - Form IDs passed to the administrative form export were not cast to integers before being added to SQL queries, allowing SQL injection by backend users.",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133339",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-133340",
+        "published": "2026-11-26T09:17:09Z",
+        "description": "Joomla Extension - vi-solutions - Missing data export permission check in administrative form export in Visforms extension 1.0.0-5.6.5, 6.0.0-6.2.2 - The administrative form export did not check the data export permission when copying form data, allowing backend users without this permission to expo",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133340",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-133341",
+        "published": "2026-11-26T09:17:09Z",
+        "description": "Joomla Extension - vi-solutions - Missing SQL statement permission check in Maxsubmissions plugin in Visforms extension 1.0.0-5.6.5, 6.0.0-6.2.2 - The SQL statement permission was not enforced when saving, importing or batch copying forms with Maxsubmissions plugin settings, allowing backend users w",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133341",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136638",
+        "published": "2026-11-26T09:17:09Z",
+        "description": "Pydantic AI Harness's PlaywrightBrowser applies an egress policy to the requests a page makes. It treated any URL containing a backslash as having no host, and it allows script and asset requests with no host. A page script could therefore add a backslash to a URL's query to send requests to private",
+        "severity": "MEDIUM",
+        "score": 5.9,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136638",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-137324",
+        "published": "2026-11-26T09:17:09Z",
+        "description": "A flaw has been found in shemaikuzwe Attendance_Management_system up to b37dbeb5bf4d9eab07480e7b6213db889fc3ebf9. Affected by this issue is some unknown functionality of the file index.php. Executing a manipulation of the argument uname/pass can lead to sql injection. The attack may be performed fro",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137324",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-137389",
+        "published": "2026-11-26T09:17:09Z",
+        "description": "MailGates/MailAudit developed by Openfind has a Command Injection vulnerability.Authenticated remote attackers can inject commands and execute them on the server.",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137389",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-131916",
+        "published": "2026-11-26T09:17:08Z",
+        "description": "GENAI Web provided by Digital Agency contains a server-side request forgery (SSRF) vulnerability. An attacker may be able to obtain information about which ports are open on devices located on the same network as the affected product.",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-131916",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-137316",
+        "published": "2026-11-26T08:17:08Z",
+        "description": "A flaw has been found in SourceCodester Online Food Ordering System 1.0. Impacted is an unknown function of the file admin/add_food.php of the component Admin Food Creation Handler. Executing a manipulation of the argument price can lead to sql injection. It is possible to launch the attack remotely",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137316",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-133337",
+        "published": "2026-11-26T08:17:07Z",
+        "description": "Joomla Extension - chronoengine.com - Unauthenticated SQL injection in table sorting in ChronoForms extension 8.0.0-8.0.53 - The order_by request parameter used for sorting DB Table and Read Data listings is insufficiently sanitized before being added to the ORDER BY clause, allowing unauthenticated",
+        "severity": "HIGH",
+        "score": 8.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133337",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-133338",
+        "published": "2026-11-26T08:17:07Z",
+        "description": "Joomla Extension - chronoengine.com - Unauthenticated stored XSS in DB Table cells in ChronoForms extension 8.0.0-8.0.53 - Values rendered in the cells of the DB Table widget are not escaped, allowing unauthenticated users to store JavaScript through form submissions that is executed when the listin",
+        "severity": "HIGH",
+        "score": 7.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133338",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-133525",
+        "published": "2026-11-26T08:17:07Z",
+        "description": "Deserialization of Untrusted Data vulnerability in ThemeFusion Fusion Builder fusion-builder allows Object Injection.This issue affects Fusion Builder: from n/a before 3.17.1.",
+        "severity": "HIGH",
+        "score": 8.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133525",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135772",
+        "published": "2026-11-26T08:17:07Z",
+        "description": "RTL8762C MCU developed by Realtek Semiconductor Corporation has an Improper Protection Against Voltage and Clock Glitches vulnerability. Unauthenticated attackers with physical access can use specialized equipment to perform voltage fault injection and bypass SWD debug authentication, thereby access",
+        "severity": "HIGH",
+        "score": 8.6,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135772",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-137035",
+        "published": "2026-11-26T08:17:07Z",
+        "description": "A flaw was found in bootc. On a sealed composefs boot with a strict composefs digest on the kernel command line, the initramfs derives fs-verity enforcement from unsigned repository metadata and can mount an image under images/refs without measuring it against that digest. An attacker with offline w",
+        "severity": "MEDIUM",
+        "score": 6.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137035",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-137036",
+        "published": "2026-11-26T08:17:07Z",
+        "description": "A flaw was found in bootc. On a sealed composefs boot, a failed bootc-root-setup.service does not fail initrd-root-fs.target, so the initramfs can switch root into the unverified physical root under the original signed UKI.",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137036",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-137315",
+        "published": "2026-11-26T08:17:07Z",
+        "description": "A vulnerability was detected in SourceCodester Online Food Ordering System 1.0. This issue affects some unknown processing of the file admin/change_pwd.php. Performing a manipulation of the argument ID results in sql injection. It is possible to initiate the attack remotely. The exploit is now publi",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137315",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-103383",
+        "published": "2026-11-26T08:17:06Z",
+        "description": "In Eclipse MWE <= 2.27.0 if you debug mwe workflows a remote attacker can cause arbitrary classes with an zero arg constructor from your mwe classpath to be instantiated in a timed attack",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-103383",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-133336",
+        "published": "2026-11-26T08:17:06Z",
+        "description": "Joomla Extension - chronoengine.com - Unauthenticated arbitrary file upload in ChronoForms extension 8.0.0-8.0.53 - When the Filename Provider option of a file field is used, the file extension check is performed against the original client filename instead of the final stored filename, allowing una",
+        "severity": "CRITICAL",
+        "score": 9.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133336",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-137313",
+        "published": "2026-11-26T07:16:41Z",
+        "description": "A weakness has been identified in SourceCodester Online Food Ordering System 1.0. This affects an unknown part of the file admin/add_admin.php of the component Admin Panel. This manipulation of the argument Username causes sql injection. The attack is possible to be carried out remotely. The exploit",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137313",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-137314",
+        "published": "2026-11-26T07:16:41Z",
+        "description": "A security vulnerability has been detected in SourceCodester Online Food Ordering System 1.0. This vulnerability affects unknown code of the file admin/edit_admin.php. Such manipulation of the argument ID leads to sql injection. The attack may be performed from remote. The exploit has been disclosed",
+        "severity": "LOW",
+        "score": 2.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137314",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-137312",
+        "published": "2026-11-26T07:16:40Z",
+        "description": "A security flaw has been discovered in SourceCodester Online Food Ordering System 1.0. Affected by this issue is some unknown functionality of the file admin/delete.php of the component Deletion Endpoint. The manipulation of the argument id/image_name results in improper authentication. The attack c",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137312",
+        "kev": false
+      },
+      {
+        "id": "CVE-2017-20291",
+        "published": "2026-11-26T07:16:36Z",
+        "description": "An XML External Entity (XXE) injection vulnerability in the Federation Web Services component (/affwebservices/router/session) of Broadcom SiteMinder (CA Single Sign-On) Secure Proxy Server / Access Gateway R12.52 SP1 prior to R12.52 SP1 CR6 allows a remote attacker to submit crafted SOAP requests t",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2017-20291",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135106",
+        "published": "2026-11-26T06:17:03Z",
+        "description": "Rejected reason: This CVE has been rejected by Upstream. Ref: https://bugzilla.samba.org/show_bug.cgi?id=16047#c4",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135106",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-137311",
+        "published": "2026-11-26T06:17:03Z",
+        "description": "A vulnerability was identified in SourceCodester Online Food Ordering System 1.0. Affected by this vulnerability is an unknown functionality of the file admin/partials/user_logged.php. The manipulation leads to missing authorization. Remote exploitation of the attack is possible. The exploit is publ",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137311",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-129838",
+        "published": "2026-11-26T06:17:02Z",
+        "description": "A flaw was found in rsyslog. This vulnerability allows a local user to spoof sender identity and cause downstream log consumers to misattribute event origins. When the imuxsock module is configured with plain trusted-property annotation, it fails to properly escape process names and executable paths",
+        "severity": "LOW",
+        "score": 3.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129838",
+        "kev": false
+      },
       {
         "id": "CVE-2026-133206",
         "published": "2026-11-26T04:17:11Z",
@@ -19501,266 +19901,6 @@
         "score": 6.5,
         "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126657",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134885",
-        "published": "2026-11-23T10:17:16Z",
-        "description": "A flaw has been found in osCommerce up to 4.14.63493. The impacted element is the function actionSuccess of the file lib/frontend/controllers/MultisafeController.php of the component MultiSafepay Payment Success Callback. Executing a manipulation of the argument customer_id can lead to improper auth",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134885",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-80466",
-        "published": "2026-11-23T10:17:16Z",
-        "description": "A vulnerability in the Web-Based Management (WBM) routing configuration allows a low-privileged remote attacker to inject shell commands into routing parameters. Due to insufficient input validation, these values are stored in a configuration file and later processed by a privileged root helper scri",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-80466",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-88850",
-        "published": "2026-11-23T10:17:16Z",
-        "description": "The Web-Based Management (WBM) authorization model does not properly enforce permissions for all PROFIBUS configuration operations. A low-privileged remote attacker can abuse an exposed configuration function to modify root-owned PROFIBUS parameters, including device addressing and SSA settings. Thi",
-        "severity": "HIGH",
-        "score": 7.2,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-88850",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-94252",
-        "published": "2026-11-23T10:17:16Z",
-        "description": "An unauthenticated stored and reflected cross-site scripting (XSS) vulnerability in the embedded web interface of Frontier Smart Technologies Venice X FS2340 running IR4.9 allows a network attacker with access to the interface to inject attacker-controlled JavaScript that may execute in the browser ",
-        "severity": "MEDIUM",
-        "score": 4.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-94252",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118888",
-        "published": "2026-11-23T10:17:15Z",
-        "description": "ZTE Z80 Ultra product has an improper access control vulnerability. Successful exploitation of this vulnerability may affect confidentiality.",
-        "severity": "LOW",
-        "score": 3.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118888",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121613",
-        "published": "2026-11-23T10:17:15Z",
-        "description": "Missing authentication and authorization on an exposed interface allows an unauthenticated remote attacker to send arbitrary commands to the affected component, which can force a device reboot or let the attacker upload malicious firmware.",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121613",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-128979",
-        "published": "2026-11-23T10:17:15Z",
-        "description": "Improper certificate validation vulnerability in Estonian Information System Authority (RIA) libdigidocpp, Estonian Information System Authority (RIA) DigiDoc4, Estonian Information System Authority (RIA) DigiDoc on Android, and Estonian Information System Authority (RIA) DigiDoc on iOS.\n\n\nThe vulne",
-        "severity": "MEDIUM",
-        "score": 6.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-128979",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134883",
-        "published": "2026-11-23T10:17:15Z",
-        "description": "A security vulnerability has been detected in osCommerce 4.14.63493. Impacted is the function actionOrdersbatch of the file lib/backend/controllers/OrdersController.php of the component Orders Batch Processing. Such manipulation of the argument orders leads to sql injection. The attack may be perfor",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134883",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134884",
-        "published": "2026-11-23T10:17:15Z",
-        "description": "A vulnerability was detected in osCommerce 4.14.63493. The affected element is an unknown function of the component Backend Administration List Controller. Performing a manipulation of the argument order[0][dir] results in sql injection. It is possible to initiate the attack remotely. The vendor was",
-        "severity": "MEDIUM",
-        "score": 5.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134884",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-93584",
-        "published": "2026-11-23T09:17:08Z",
-        "description": "An SQL injection vulnerability in OTRS versions 2024.3.1 through 2026.8.1 allows unauthenticated remote attackers to inject arbitrary SQL expressions through the Survey endpoint.\n\nThe vulnerability exists in the Kernel::System::Survey::Request::RequestGet() method, which directly incorporates an att",
-        "severity": "HIGH",
-        "score": 8.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93584",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115899",
-        "published": "2026-11-23T09:17:05Z",
-        "description": "An attacker must control pagination data returned by an upstream API or service queried by an existing REST Collector. The Collector must use affected response-based pagination and process the crafted data during a job run. Successful exploitation executes code with the Worker service account's perm",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115899",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115900",
-        "published": "2026-11-23T09:17:05Z",
-        "description": "An attacker must possess a valid Worker distribution credential, reach the Leader distribution listener, and send crafted authenticated Worker heartbeats. Where mTLS client authentication is enforced, an accepted client certificate and its private key are also required. Successful exploitation bypas",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115900",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115901",
-        "published": "2026-11-23T09:17:05Z",
-        "description": "Exploitation requires an identity admitted to a configured trusted IdP application, control of claims selected as the OIDC user identifier, acceptance by configured SSO filters, and a victim with an active Cribl session following a crafted authentication link. Script executes in the Cribl origin, di",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115901",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115903",
-        "published": "2026-11-23T09:17:05Z",
-        "description": "An authenticated attacker must reach the Edge file APIs through the Leader or directly on an Edge node. On affected managed Edge deployments with RBAC, Read Only access permits these calls. Disclosure is limited to files readable by the Edge process under its operating-system permissions and capabil",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115903",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134882",
-        "published": "2026-11-23T09:17:05Z",
-        "description": "A weakness has been identified in TOTOLINK A7100RU 7.4cu.2313_B20191024. This issue affects the function exportOvpn of the file /cgi-bin/cstecgi.cgi of the component CGI Handler. This manipulation of the argument Username causes os command injection. The attack is possible to be carried out remotely",
-        "severity": "CRITICAL",
-        "score": 10.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134882",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115873",
-        "published": "2026-11-23T09:17:04Z",
-        "description": "A remote attacker must authenticate with Read Only (GroupRead) access to at least one Worker Group and reach the Leader API. A crafted expression can exploit the nested compiler to bypass expression restrictions and execute code with the Leader service account's permissions.",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115873",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-118887",
-        "published": "2026-11-23T08:17:14Z",
-        "description": "ZTE Z80 Ultra is affected by an unauthorized access vulnerability. Successful exploitation of this vulnerability could result in an impact on integrity.",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-118887",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120382",
-        "published": "2026-11-23T08:17:14Z",
-        "description": "An improper neutralization of argument delimiters in a command vulnerability in the OAuth API in Synology DiskStation Manager (DSM) before 7.1.1-42962-10, 7.2.1-69057-14, 7.2.2-72806-11, 7.3.2-86009-6, and 7.4.1-90080-2 allows remote attackers to read or write arbitrary files and conduct denial-of-s",
-        "severity": "CRITICAL",
-        "score": 9.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120382",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121456",
-        "published": "2026-11-23T08:17:14Z",
-        "description": "A privilege escalation vulnerability in the Axivion Suite ApiToken permission restriction for OIDC and SAML users of the Axivion Dashboard. \nWhen a user creates an ApiToken with a restricted token type (for example, IDE plugin or Continuous Integration), some of that user’s permissions should be rem",
-        "severity": "MEDIUM",
-        "score": 5.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121456",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134881",
-        "published": "2026-11-23T08:17:14Z",
-        "description": "A security flaw has been discovered in HuLaSpark HuLa up to 3.0.9. This vulnerability affects the function showMsg of the file luohuo-cloud/luohuo-im/luohuo-im-biz/src/main/java/com/luohuo/flex/im/core/chat/service/strategy/msg/RecallMsgHandler.java of the component Recall Message Notification. The ",
-        "severity": "LOW",
-        "score": 2.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134881",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134935",
-        "published": "2026-11-23T08:17:14Z",
-        "description": "The dell-xps-touchpad-haptics package before 1.0.0-4 for Omarchy allows local users to change ownership of a root-owned file by making their own .config/omarchy/dell-haptic.conf file a symlink to that target file.",
-        "severity": "HIGH",
-        "score": 7.0,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134935",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-115232",
-        "published": "2026-11-23T08:17:13Z",
-        "description": "In iceoryx2 versions from 0.6.0 to 0.10.0, The C API getters that copy a service's hash into a caller-provided buffer (e.g. iox2_port_factory_pub_sub_service_hash and its other messaging protocol counterparts) write one byte past the end of the caller's buffer when `buffer_len` is less or equal to 4",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115232",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-121480",
-        "published": "2026-11-23T06:18:47Z",
-        "description": "Insufficient authorization in personal notification rules in Checkmk <2.5.0p20, <2.4.0p41 and 2.3.0 (EOL) allows authenticated users to receive notifications for hosts and services they are not a contact of by defining broad personal notification rules.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-121480",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134856",
-        "published": "2026-11-23T05:17:49Z",
-        "description": "A vulnerability was identified in Snes9x up to 1.63. The impacted element is the function S9xUnfreezeFromStream of the file snapshot.cpp of the component Save-State Screenshot Restoration. The manipulation leads to out-of-bounds read. The attack must be carried out locally. The exploit is publicly a",
-        "severity": "LOW",
-        "score": 1.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134856",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134855",
-        "published": "2026-11-23T05:17:45Z",
-        "description": "A vulnerability was determined in kchapelier qoijs 1.0.0. The affected element is the function decode of the file src/decode.js of the component QOI Decoder. Executing a manipulation of the argument arrayBuffer can lead to uncontrolled memory allocation. The attack can be launched remotely. The expl",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134855",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134854",
-        "published": "2026-11-23T05:17:44Z",
-        "description": "A vulnerability was found in andreasgal node-wav up to 0.0.2. Impacted is the function decode of the file index.js of the component WAV Decoder. Performing a manipulation results in uncontrolled memory allocation. The attack can be initiated remotely. The exploit has been made public and could be us",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134854",
         "kev": false
       }
     ]
