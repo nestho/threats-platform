@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-27T18:05:33Z",
+  "updated_at": "2026-11-27T22:10:11Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,231 @@
   ],
   "note": "Bounded slice of cves.json for the homepage. Use /data/cves.json for the full window.",
   "normalisation_failures": [],
-  "recent_total": 1841,
+  "recent_total": 1589,
   "kev_total": 120,
   "kev_catalog_total": 1805,
   "total": 25,
   "items": [
+    {
+      "id": "CVE-2026-137941",
+      "published": "2026-11-27T21:17:14Z",
+      "description": "A flaw was found in GIMP. The Levels configuration setter does not validate the channel enum before using it to index fixed-size per-channel arrays. A crafted XCF file with a non-destructive Levels filter can set an out-of-range channel (LUMINANCE or RGB), causing a heap out-of-bounds read and write",
+      "severity": "HIGH",
+      "score": 7.8,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137941",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-137974",
+      "published": "2026-11-27T21:17:14Z",
+      "description": "A flaw was found in tuned. This vulnerability allows local privilege escalation because the spindown-disk profile script does not properly validate filesystem mount sources before executing remount operations with root privileges. A local user capable of creating user-space filesystems can craft a m",
+      "severity": "HIGH",
+      "score": 7.0,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137974",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138033",
+      "published": "2026-11-27T20:18:19Z",
+      "description": "mcp-video-analyzer 0.2.0 before 0.10.1 contains a server-side request forgery vulnerability that allows attackers to reach internal addresses by supplying any http(s) URL ending in a video extension. Attackers can use prompt injection to make tools like get_frames fetch loopback, private, or cloud m",
+      "severity": "HIGH",
+      "score": 7.0,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138033",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138034",
+      "published": "2026-11-27T20:18:19Z",
+      "description": "bigcommerce-api-mcp before 1.0.1 contains a missing authentication vulnerability that allows remote unauthenticated attackers to invoke MCP tools because the /sse and /messages routes skip the authenticateRequest middleware. Attackers can open /sse to obtain a session id and POST JSON-RPC tool calls",
+      "severity": "HIGH",
+      "score": 8.7,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138034",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138048",
+      "published": "2026-11-27T20:18:19Z",
+      "description": "ntfy before v2.38.3 contains a server-side request forgery vulnerability that allows remote attackers to bypass the web push endpoint allow-list by crafting a URL containing '#' or '?' characters that satisfy the [^/]+ regex pattern used to validate mozaws.net and notify.windows.com hosts. Attackers",
+      "severity": "MEDIUM",
+      "score": 6.9,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138048",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138027",
+      "published": "2026-11-27T20:18:18Z",
+      "description": "Bagel (bagel-mcp) before 2.5.5 exposes unsandboxed DuckDB SQL execution through the read-only annotated query_messages MCP tool, allowing file access and network requests. Attackers who prompt-inject the driving LLM via recorded logs or topics can invoke read_csv_auto, COPY TO, or httpfs to read and",
+      "severity": "HIGH",
+      "score": 7.7,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138027",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138028",
+      "published": "2026-11-27T20:18:18Z",
+      "description": "Bagel (bagel-mcp) before 2.5.5 contains an argument injection vulnerability in RsyncFilesToLocalDirectory that allows attackers to inject rsync options because only --quiet and --log-format values are rejected. Attackers who influence the LLM through prompt-injected content can trigger run_pipeline ",
+      "severity": "HIGH",
+      "score": 7.7,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138028",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138029",
+      "published": "2026-11-27T20:18:18Z",
+      "description": "Wazuh-MCP-Server before commit 2bbfe12 contains a server-side request forgery vulnerability in the blueteam_check_webshell tool because WebshellCheckInput.validate_url accepts DNS hostnames without resolving them. Attackers can supply URLs whose hostnames resolve or redirect to loopback, private, or",
+      "severity": "MEDIUM",
+      "score": 5.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138029",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138030",
+      "published": "2026-11-27T20:18:18Z",
+      "description": "SylphxAI pdf-reader-mcp 2.4.1 through 3.0.14, 3.0.16, and 3.1.2 through 3.1.4 contains a server-side request forgery vulnerability in its PDF URL loader, which validates the resolved address but does not pin it for fetch(). Attackers controlling DNS for a url passed to read_pdf can return a public a",
+      "severity": "LOW",
+      "score": 2.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138030",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138031",
+      "published": "2026-11-27T20:18:18Z",
+      "description": "Typebot from 2.14.0 before 3.19.0 contains an authorization flaw that allows authenticated bot authors to reference another workspace's legacy webhook by saving a foreign webhookId in an HTTP request block. Attackers can have executeHttpRequestBlock return the victim's URL, headers and body client-s",
+      "severity": "HIGH",
+      "score": 7.6,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138031",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138032",
+      "published": "2026-11-27T20:18:18Z",
+      "description": "WhoDB from 0.88.0 before 0.132.0 contains an access control bypass in the MCP whodb_query tool, letting callers run file-writing statements without approval because the sqlguard keyword classifier omits INTO, OUTFILE and DUMPFILE. MCP clients or prompt-injected models can execute PostgreSQL lo_expor",
+      "severity": "MEDIUM",
+      "score": 6.0,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138032",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-137898",
+      "published": "2026-11-27T20:18:17Z",
+      "description": "A flaw was found in pam. When built with libeconf and an unconfigured vendor directory, the pam_econf configuration handler misinterprets the search path, causing it to look for configuration files in a relative directory within the current working directory. A local attacker can exploit this by pla",
+      "severity": "HIGH",
+      "score": 7.3,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137898",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138026",
+      "published": "2026-11-27T20:18:17Z",
+      "description": "Crypto APIs MCP server packages (@cryptoapis-io/mcp-*) before 0.4.0, mcp-blockchain-events, mcp-blockchain-fees, mcp-broadcast and mcp-prepare-transactions before 0.5.0, and mcp-aml before 0.2.0 contain a missing authentication vulnerability that allows unauthenticated network attackers to invoke to",
+      "severity": "MEDIUM",
+      "score": 6.9,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138026",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-131776",
+      "published": "2026-11-27T20:18:16Z",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Hai Zheng / Lite Speed Cache LiteSpeed Cache litespeed-cache allows Stored XSS.This issue affects LiteSpeed Cache: from n/a through 7.9.3.",
+      "severity": "HIGH",
+      "score": 7.1,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-131776",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-136117",
+      "published": "2026-11-27T19:17:00Z",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Solid Plugins, LLC Solid Affiliate solid-affiliate allows Stored XSS.This issue affects Solid Affiliate: from n/a through 3.3.0.",
+      "severity": "HIGH",
+      "score": 7.1,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136117",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-134129",
+      "published": "2026-11-27T19:16:59Z",
+      "description": "smalot/pdfparser before 2.14.0 contains an inefficient algorithmic complexity vulnerability that allows remote attackers to cause a denial of service by submitting a crafted PDF with deeply nested unbalanced parentheses in a content-stream string. Attackers can exploit the regex-based string isolati",
+      "severity": "HIGH",
+      "score": 8.7,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134129",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-136112",
+      "published": "2026-11-27T19:16:59Z",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Amit Mittal Shipment Tracker for Woocommerce shipment-tracker-for-woocommerce allows Stored XSS.This issue affects Shipment Tracker for Woocommerce: from n/a through 1.5.7.",
+      "severity": "HIGH",
+      "score": 7.1,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136112",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-136113",
+      "published": "2026-11-27T19:16:59Z",
+      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Hello Clever Pty Hello Clever Gateway for WooCommerce cleverpay-gateway allows SQL Injection.This issue affects Hello Clever Gateway for WooCommerce: from n/a through 1.8.4.",
+      "severity": "CRITICAL",
+      "score": 9.3,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136113",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-136114",
+      "published": "2026-11-27T19:16:59Z",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in e4jvikwp VikBooking Hotel Booking Engine & PMS vikbooking allows Stored XSS.This issue affects VikBooking Hotel Booking Engine & PMS: from n/a through 1.8.22.",
+      "severity": "HIGH",
+      "score": 7.1,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136114",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-136115",
+      "published": "2026-11-27T19:16:59Z",
+      "description": "Incorrect Privilege Assignment vulnerability in expresstechsoftware MemberPress Discord Addon expresstechsoftwares-memberpress-discord-add-on allows Privilege Escalation.This issue affects MemberPress Discord Addon: from n/a through 1.1.5.",
+      "severity": "CRITICAL",
+      "score": 9.8,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136115",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-136116",
+      "published": "2026-11-27T19:16:59Z",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Solid Plugins, LLC Solid Affiliate solid-affiliate allows Reflected XSS.This issue affects Solid Affiliate: from n/a through 3.3.0.",
+      "severity": "HIGH",
+      "score": 7.1,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136116",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-132876",
+      "published": "2026-11-27T18:16:46Z",
+      "description": "Dreamweaver Desktop is affected by a Dependency on Vulnerable Third-Party Component vulnerability that could result in arbitrary code execution in the context of the current user. An attacker could exploit this vulnerability to execute arbitrary code. Exploitation depends on conditions beyond the at",
+      "severity": "HIGH",
+      "score": 7.7,
+      "cvss_version": "31",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132876",
+      "kev": false
+    },
     {
       "id": "CVE-2026-81045",
       "published": "2026-11-27T17:18:02Z",
@@ -41,226 +261,6 @@
       "score": 2.9,
       "cvss_version": "31",
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-81050",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-81053",
-      "published": "2026-11-27T17:18:02Z",
-      "description": "Dell Secure Connect Gateway - Virtual Edition, versions prior to 5.36.00.16, contains a Concurrent Execution using Shared Resource with Improper Synchronization ('Race Condition') vulnerability. A low privileged remote attacker could potentially exploit this vulnerability, leading to Denial of servi",
-      "severity": "MEDIUM",
-      "score": 6.7,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-81053",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-81054",
-      "published": "2026-11-27T17:18:02Z",
-      "description": "Dell Secure Connect Gateway - Virtual Edition, versions prior to 5.36.00.16, contains an Insertion of Sensitive Information into Log File vulnerability. A low privileged local attacker could potentially exploit this vulnerability, leading to Information exposure.",
-      "severity": "MEDIUM",
-      "score": 5.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-81054",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-81055",
-      "published": "2026-11-27T17:18:02Z",
-      "description": "Dell Secure Connect Gateway - Virtual Edition, versions prior to 5.36.00.16, contains an Observable Timing Discrepancy vulnerability. A low privileged remote attacker could potentially exploit this vulnerability, leading to Session theft.",
-      "severity": "LOW",
-      "score": 2.9,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-81055",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-81041",
-      "published": "2026-11-27T17:18:01Z",
-      "description": "Dell Secure Connect Gateway - Virtual Edition, versions prior to 5.36.00.16, contains an Improper Certificate Validation vulnerability. A low privileged local attacker could potentially exploit this vulnerability, leading to Denial of service and Information exposure.",
-      "severity": "HIGH",
-      "score": 7.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-81041",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-81042",
-      "published": "2026-11-27T17:18:01Z",
-      "description": "Dell Secure Connect Gateway - Virtual Edition, versions prior to 5.36.00.16, contains an Insertion of Sensitive Information into Log File vulnerability. A low privileged local attacker could potentially exploit this vulnerability, leading to Information exposure.",
-      "severity": "LOW",
-      "score": 3.3,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-81042",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-81044",
-      "published": "2026-11-27T17:18:01Z",
-      "description": "Dell Secure Connect Gateway - Virtual Edition, versions prior to 5.36.00.16, contains an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability. A low privileged local attacker could potentially exploit this vulnerability, leading to Script injection",
-      "severity": "MEDIUM",
-      "score": 5.8,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-81044",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-137997",
-      "published": "2026-11-27T17:17:59Z",
-      "description": "HCIPy through 0.7.1 contains an insecure deserialization vulnerability that allows attackers to execute code by supplying crafted .pkl files to read_field, read_grid or read_mode_basis. Because hcipy/util/io.py selects pickle by file extension and calls pickle.load, a __reduce__ gadget in a pupil, a",
-      "severity": "HIGH",
-      "score": 8.5,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137997",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-137998",
-      "published": "2026-11-27T17:17:59Z",
-      "description": "Detoxify 0.5.3 through 0.5.4 contains an insecure deserialization vulnerability in load_checkpoint that allows attackers to execute code by supplying a crafted checkpoint file. Attackers can embed a pickle __reduce__ gadget in a .ckpt file loaded via torch.load with weights_only=False to run code wi",
-      "severity": "HIGH",
-      "score": 8.5,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137998",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-137999",
-      "published": "2026-11-27T17:17:59Z",
-      "description": "JSONSchema2PoPo2 through 3.0.3 contains a code injection vulnerability that allows attackers to inject Python code by supplying JSON Schema default or format values that are written unescaped. Attackers can place a single quote in a string property default to break out of the literal in the generate",
-      "severity": "HIGH",
-      "score": 8.5,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137999",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-137992",
-      "published": "2026-11-27T17:17:58Z",
-      "description": "libexpat through 2.11.0 contains a denial of service vulnerability in defineAttribute() of lib/xmlparse.c that fails to detect duplicate non-ID #IMPLIED or #REQUIRED attribute declarations. Attackers can supply a crafted XML document with repeated ATTLIST declarations in an internal DTD subset to ca",
-      "severity": "HIGH",
-      "score": 8.7,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137992",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-137993",
-      "published": "2026-11-27T17:17:58Z",
-      "description": "django-allauth 65.17.0 before 65.23.0 contains a denial of service vulnerability in truncate_ip() that collapses all IPv4-mapped IPv6 clients into one shared rate-limit key. Unauthenticated attackers on dual-stack deployments can exhaust per-IP limits for login, signup or password reset, blocking le",
-      "severity": "MEDIUM",
-      "score": 6.3,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137993",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-137994",
-      "published": "2026-11-27T17:17:58Z",
-      "description": "Leo through 6.8.10 contains an insecure deserialization vulnerability that allows attackers to execute code by embedding pickled data in unknown XML attributes of .leo outlines. Attackers can place a pickle __reduce__ gadget in a <t> or <v> element attribute that resolveUa passes to pickle.loads, ex",
-      "severity": "HIGH",
-      "score": 8.5,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137994",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-137995",
-      "published": "2026-11-27T17:17:58Z",
-      "description": "FOG Project before 1.6.0.119 contains an information disclosure vulnerability that allows unauthenticated attackers to obtain host tokens from status/hostgetkey.php by supplying a host MAC address. Attackers can present the token to service/hostinfo.php to retrieve decrypted Active Directory join cr",
-      "severity": "HIGH",
-      "score": 7.0,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137995",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-137996",
-      "published": "2026-11-27T17:17:58Z",
-      "description": "Zettlr before 4.11.0 fails to validate URI schemes in Markdown link targets, allowing attackers to launch arbitrary registered protocol handlers via Electron shell.openExternal without confirmation. Attackers can craft documents whose Ctrl/Cmd-clicked links use smb:// to leak NTLM credential hashes ",
-      "severity": "MEDIUM",
-      "score": 6.8,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137996",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-137684",
-      "published": "2026-11-27T17:17:56Z",
-      "description": "A security flaw has been discovered in eosphoros-ai DB-GPT up to 0.8.3. This affects the function editor_sql_run of the file packages/dbgpt-app/src/dbgpt_app/openapi/api_v1/editor/api_editor_v1.py of the component Editor SQL Run API. Performing a manipulation of the argument db_name results in autho",
-      "severity": "MEDIUM",
-      "score": 5.5,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137684",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-81040",
-      "published": "2026-11-27T16:18:13Z",
-      "description": "Dell Secure Connect Gateway - Virtual Edition, versions prior to 5.36.00.16, contains an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability. A low privileged local attacker could potentially exploit this vulnerability, leading to Filesystem access for attack",
-      "severity": "MEDIUM",
-      "score": 4.4,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-81040",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-80509",
-      "published": "2026-11-27T16:18:12Z",
-      "description": "Dell Secure Connect Gateway - Virtual Edition, versions prior to 5.36.00.16, contains a Use of a Broken or Risky Cryptographic Algorithm vulnerability. A low privileged local attacker could potentially exploit this vulnerability, leading to Script injection.",
-      "severity": "LOW",
-      "score": 2.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-80509",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-80510",
-      "published": "2026-11-27T16:18:12Z",
-      "description": "Dell Secure Connect Gateway - Virtual Edition, versions prior to 5.36.00.16, contains an Authorization Bypass Through User-Controlled Key vulnerability. An unauthenticated local attacker could potentially exploit this vulnerability, leading to Elevation of privileges.",
-      "severity": "HIGH",
-      "score": 7.7,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-80510",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-80511",
-      "published": "2026-11-27T16:18:12Z",
-      "description": "Dell Secure Connect Gateway - Virtual Edition, versions prior to 5.36.00.16, contains an Authentication Bypass by Spoofing vulnerability. A low privileged local attacker could potentially exploit this vulnerability, leading to Remote execution.",
-      "severity": "MEDIUM",
-      "score": 5.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-80511",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-80512",
-      "published": "2026-11-27T16:18:12Z",
-      "description": "Dell Secure Connect Gateway - Virtual Edition, versions prior to 5.36.00.16, contains an Insertion of Sensitive Information into Log File vulnerability. A low privileged local attacker could potentially exploit this vulnerability, leading to Information exposure.",
-      "severity": "MEDIUM",
-      "score": 5.5,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-80512",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-137970",
-      "published": "2026-11-27T16:18:10Z",
-      "description": "ToolJet before 3.21.96-LTS contains a server-side request forgery vulnerability in ssrf-protection.ts that fails to classify NAT64 (64:ff9b::/96, 64:ff9b:1::/48) and 6to4 (2002::/16) IPv6 addresses embedding internal IPv4. Authenticated users can set REST API, GraphQL, OpenAPI, or OAuth data-source ",
-      "severity": "MEDIUM",
-      "score": 5.3,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137970",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-137971",
-      "published": "2026-11-27T16:18:10Z",
-      "description": "ToolJet before 3.21.96-LTS contains a server-side request forgery vulnerability in the n8n, nocodb, baserow, couchdb, elasticsearch, influxdb, and databricks datasource plugins, which skip the validateUrlForSSRF check. Authenticated builders, or unauthenticated visitors of public apps with templated",
-      "severity": "MEDIUM",
-      "score": 6.9,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137971",
       "kev": false
     }
   ]
