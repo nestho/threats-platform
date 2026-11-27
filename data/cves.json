@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-26T22:36:38Z",
+  "updated_at": "2026-11-27T02:59:12Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,541 @@
   ],
   "recent": {
     "lookback_days": 3,
-    "total": 2063,
-    "items_available": 2063,
+    "total": 2037,
+    "items_available": 2037,
     "normalisation_failures": [],
-    "items_parsed": 2063,
+    "items_parsed": 2037,
     "items": [
+      {
+        "id": "CVE-2026-135616",
+        "published": "2026-11-27T02:16:45Z",
+        "description": "The W3 Total Cache plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 2.11.0 via deserialization of untrusted input that is injected into the Memcached object cache through request Host header key truncation. This allows authenticated attackers, with sub",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135616",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-137702",
+        "published": "2026-11-27T02:16:45Z",
+        "description": "Exim before 4.100.2 allows attackers to send SMTP traffic that triggers a heap out-of-bounds write in expansion code running as root.",
+        "severity": "HIGH",
+        "score": 8.1,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137702",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-126717",
+        "published": "2026-11-27T02:16:44Z",
+        "description": "The Translate WordPress with Weglot 2.0 – Multilingual AI Translation plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'comment' parameter in all versions up to, and including, 6.4.3 due to insufficient input sanitization and output escaping. This makes it possible for unaut",
+        "severity": "HIGH",
+        "score": 7.2,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126717",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-106125",
+        "published": "2026-11-27T02:16:43Z",
+        "description": "The Sneeit Framework plugin for WordPress is vulnerable to Remote Code Execution in versions up to, and including, 8.7 via the 'callback' parameter of the sneeit_compact_menu_mega_content AJAX action. The handler sneeit_compact_menu_mega_content_callback() is registered on the wp_ajax_nopriv_ hook a",
+        "severity": "CRITICAL",
+        "score": 9.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-106125",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-113774",
+        "published": "2026-11-27T02:16:43Z",
+        "description": "The Schema & Structured Data for WP & AMP plugin for WordPress is vulnerable to PHP Object Injection in versions up to, and including, 1.68. This is due to deserialization of untrusted input via the admin export (saswp_export_all_settings_and_schema) which calls unrestricted unserialize() on every r",
+        "severity": "HIGH",
+        "score": 8.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-113774",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-115867",
+        "published": "2026-11-27T02:16:43Z",
+        "description": "The Database for Contact Form 7, WPforms, Elementor forms plugin for WordPress is vulnerable to Arbitrary File Upload in all versions up to, and including, 1.5.5 via the copy_files function. This is due to missing file extension validation in the copy_files function, which accepts attacker-controlle",
+        "severity": "CRITICAL",
+        "score": 9.8,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115867",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-116494",
+        "published": "2026-11-27T02:16:43Z",
+        "description": "The Forminator Forms plugin for WordPress is vulnerable to Account Approval Bypass in all versions up to, and including, 1.58.3 via the forminator_replace_custom_form_data() function. This is due to the function expanding the {all_fields} merge tag before {account_approval_link}, so a submitter-supp",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-116494",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-137677",
+        "published": "2026-11-27T01:16:40Z",
+        "description": "A vulnerability has been found in code-projects Simple Laundry System 1.0. This affects an unknown function of the file viewdetailforuser.php. The manipulation of the argument serviceId leads to sql injection. The attack is possible to be carried out remotely. The exploit has been disclosed to the p",
+        "severity": "MEDIUM",
+        "score": 5.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137677",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-137668",
+        "published": "2026-11-27T00:16:45Z",
+        "description": "A flaw has been found in ONNX ONNXMLTools up to 1.16.0. This impacts the function visualize_model of the file onnxmltools/utils/visualize.py. This manipulation of the argument producer_name causes basic cross site scripting. The attack is possible to be carried out remotely. The exploit has been pub",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137668",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136974",
+        "published": "2026-11-27T00:16:44Z",
+        "description": "Configuration injection in liblxc instance configuration generation in Canonical LXD before 6.10.2, 5.21.10, 5.0.12, 4.0.16 allows an authenticated user with restricted project access or a local user of the LXD user socket to execute arbitrary commands as root on the host via line breaks in instance",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136974",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136975",
+        "published": "2026-11-27T00:16:44Z",
+        "description": "Authentication bypass by spoofing in bridged NIC MAC filtering in Canonical LXD before 4.0.16, 5.0.12, 5.21.10, 6.10.2 allows a privileged user inside an instance sharing a managed bridge to intercept and deny inbound network traffic addressed to a neighbour instance via sending frames with a spoofe",
+        "severity": "MEDIUM",
+        "score": 6.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136975",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136976",
+        "published": "2026-11-27T00:16:44Z",
+        "description": "Improper link resolution before file access in recursive file pull in Canonical LXD before 4.0.15, 5.0.11, 5.21.9, and 6.8 on case-insensitive client filesystems allows an authenticated user with write access to an instance directory or custom volume to write arbitrary files outside the target direc",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136976",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136977",
+        "published": "2026-11-27T00:16:44Z",
+        "description": "Improper authentication in the guest API connection handling in Canonical LXD before 4.0.16, 5.0.12, 5.21.10, 6.10.2 allows a root user inside an unisolated instance to impersonate another instance and read its configuration, metadata, and devices across project boundaries via holding open connectio",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136977",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136978",
+        "published": "2026-11-27T00:16:44Z",
+        "description": "Exposure of resource to wrong sphere in the instance file transfer API in Canonical LXD before 4.0.16, 5.0.12, 5.21.10, 6.10.2 allows an authenticated user with restricted project access to read and write arbitrary host block or character devices, compromise the host, and hang file transfer requests",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136978",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-137114",
+        "published": "2026-11-27T00:16:44Z",
+        "description": "Exposure of resource to wrong sphere in image and backup metadata handling in Canonical LXD before 6.10.2, 5.21.10, 5.0.12, 4.0.16 allows an authenticated user with restricted project access to read and overwrite arbitrary host files, access other projects' data, and block the daemon via importing d",
+        "severity": "MEDIUM",
+        "score": 6.4,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137114",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-137667",
+        "published": "2026-11-27T00:16:44Z",
+        "description": "A vulnerability was detected in ONNX ONNXMLTools up to 1.16.0. This affects the function get_set_node of the file onnxmltools/utils/visualize.py of the component Model Visualization. The manipulation results in cross site scripting. The attack can be executed remotely. The exploit is now public and ",
+        "severity": "LOW",
+        "score": 2.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137667",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135381",
+        "published": "2026-11-27T00:16:43Z",
+        "description": "Incorrect permission assignment for critical resources in rsync transfer sockets, instance storage directories, proxy socket paths, and disk staging mounts in Canonical LXD before 4.0.16, 5.0.12, 5.21.10, 6.10.2 allows an unprivileged local user to gain root privileges on the host, read or modify tr",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135381",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135382",
+        "published": "2026-11-27T00:16:43Z",
+        "description": "Path traversal in backup, image, storage volume, and migration handling in Canonical LXD before 4.0.16, 5.0.12, 5.21.10, 6.10.2 allows an authenticated user with restricted project access to read and write arbitrary host files as root and exhaust daemon memory via crafted symlinks, unvalidated path ",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135382",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135383",
+        "published": "2026-11-27T00:16:43Z",
+        "description": "Incorrect authorization in TLS certificate trust store and revocation handling in Canonical LXD before 4.0.16, 5.0.12, 5.21.10, 6.10.2 allows an authenticated client with a restricted or revoked TLS certificate to gain unrestricted administrative access to the server or cluster via trust-lookup race",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135383",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135384",
+        "published": "2026-11-27T00:16:43Z",
+        "description": "Improper authentication in OIDC bearer token verification in Canonical LXD before 5.0.12, 5.21.10, 6.10.2 allows a remote attacker holding a token signed by the configured identity provider to authenticate to the LXD API and gain unauthorized control or impersonate users via presenting tokens issued",
+        "severity": "CRITICAL",
+        "score": 9.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135384",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135385",
+        "published": "2026-11-27T00:16:43Z",
+        "description": "Incorrect authorization in backup export and network zone read endpoints in Canonical LXD before 6.10.2 allows an authenticated user with view-only access to export instance and custom storage volume backups and read network zone TSIG peer keys via endpoints enforcing only view permissions.",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135385",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136972",
+        "published": "2026-11-27T00:16:43Z",
+        "description": "Exposure of resource to wrong sphere in image template handling in Canonical LXD before 4.0.16, 5.0.12, 5.21.10, 6.10.2 allows an authenticated user with restricted project access to read and overwrite host block and character devices via importing device nodes in an image's templates directory and ",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136972",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-136973",
+        "published": "2026-11-27T00:16:43Z",
+        "description": "Exposure of resource to wrong sphere in optimized ZFS backup imports in Canonical LXD before 5.0.12, 5.21.10, 6.10.2 allows an authenticated user with restricted project access to mount an attacker-controlled filesystem over arbitrary host paths and execute code as root on the host via importing a f",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136973",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135374",
+        "published": "2026-11-27T00:16:42Z",
+        "description": "Insufficient verification of data authenticity in shared image handling in Canonical LXD before 4.0.16, 5.0.12, 5.21.10, 6.10.2 allows an authenticated user restricted to a single project to export private images, replace public image contents, remove other projects' images, and pin daemon memory vi",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135374",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135375",
+        "published": "2026-11-27T00:16:42Z",
+        "description": "Untrusted search path and context handling in host-side instance helpers in Canonical LXD before 4.0.16, 5.0.12, 5.21.10, 6.10.2 allows an authenticated user with restricted project access or root inside an unprivileged container to execute arbitrary code as root on the host, read daemon memory, rem",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135375",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135376",
+        "published": "2026-11-27T00:16:42Z",
+        "description": "Incorrect authorization in project restriction enforcement in Canonical LXD before 5.0.12, 5.21.10, 6.10.2 allows an authenticated user with restricted project access to bypass project limits and access forbidden storage pools, volumes, network addresses, and CPU resources via instance moves, backup",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135376",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135377",
+        "published": "2026-11-27T00:16:42Z",
+        "description": "Exposure of sensitive information in API responses, exports, and host-side artifacts in Canonical LXD before 5.0.12, 5.21.10, 6.10.2 allows an authenticated lower-privileged user or a local host user to read credentials, private keys, and other projects' metadata and inject arguments into Ceph admin",
+        "severity": "MEDIUM",
+        "score": 5.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135377",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135378",
+        "published": "2026-11-27T00:16:42Z",
+        "description": "Incorrect authorization in NIC, managed network, network zone, and ACL handling in Canonical LXD before 4.0.16, 5.0.12, 5.21.10, 6.10.2 allows an authenticated user of a restricted project or root inside an instance to manipulate host interfaces and firewall rules, read fragments of root-owned files",
+        "severity": "MEDIUM",
+        "score": 6.4,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135378",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135379",
+        "published": "2026-11-27T00:16:42Z",
+        "description": "Improper control of code generation and project restriction enforcement in container configuration handling in Canonical LXD before 4.0.16, 5.0.12, 5.21.10, 6.10.2 allows an authenticated user with restricted project access to execute arbitrary commands as root on the host, crash the daemon, and alt",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135379",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135380",
+        "published": "2026-11-27T00:16:42Z",
+        "description": "Incorrect authorization in instance, snapshot, and image operations in Canonical LXD before 4.0.16, 5.0.12, 5.21.10, 6.10.2 allows an authenticated user with restricted project or per-object permissions to read and modify other clients' resources and execute arbitrary code as root on the host via mi",
+        "severity": "MEDIUM",
+        "score": 5.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135380",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-127160",
+        "published": "2026-11-27T00:16:41Z",
+        "description": "Configuration injection in virtual machine disk device handling in Canonical LXD before 5.0.12, 5.21.10, 6.10.2 allows an authenticated user with VM creation permissions in a restricted project to bypass low-level VM restrictions and control the root QEMU process via quotes and line breaks in a disk",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-127160",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-127161",
+        "published": "2026-11-27T00:16:41Z",
+        "description": "Exposure of sensitive information in live and stateful migration operations in Canonical LXD before 5.0.12, 5.21.10, 6.10.2 allows an authenticated user with project event or operation read access to read a migrating instance's checkpointed runtime state and disrupt the migration via capturing the s",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-127161",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-127162",
+        "published": "2026-11-27T00:16:41Z",
+        "description": "Improper output encoding in Prometheus metrics exposition in Canonical LXD before 5.0.12, 5.21.10, 6.10.2 allows a user controlling a virtual machine to forge host metric labels and break metrics scraping via unescaped guest-controlled filesystem mountpoints and network interface names.",
+        "severity": "HIGH",
+        "score": 7.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-127162",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-127163",
+        "published": "2026-11-27T00:16:41Z",
+        "description": "Improper certificate validation in websocket connections in Canonical pylxd before 2.4.3 allows a network attacker to read command stdin and spoof command output via impersonating a remote LXD endpoint.",
+        "severity": "CRITICAL",
+        "score": 9.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-127163",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-133530",
+        "published": "2026-11-27T00:16:41Z",
+        "description": "The Android application \"Tokyo Fire Department Official App\" contains a path traversal vulnerability that allows a malicious application installed on a user's device to obtain sensitive information from the affected application.",
+        "severity": "LOW",
+        "score": 1.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133530",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135372",
+        "published": "2026-11-27T00:16:41Z",
+        "description": "Incorrect authorization in custom storage volume, backup, and storage bucket endpoints in Canonical LXD before 5.0.12, 5.21.10, 6.10.2 allows an authenticated user with a project-restricted certificate or per-object authorization to read, rename, move, replace, or delete other projects' storage reso",
+        "severity": "MEDIUM",
+        "score": 5.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135372",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135373",
+        "published": "2026-11-27T00:16:41Z",
+        "description": "Path traversal in container device path resolution and VM disk format detection in Canonical LXD before 4.0.16, 5.0.12, 5.21.10, 6.10.2 allows an authenticated user with project access, including an unprivileged local user through lxd-user, to read and modify arbitrary host files or Ceph RBD images ",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135373",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-127151",
+        "published": "2026-11-27T00:16:40Z",
+        "description": "Exposure of resource to wrong sphere in VM disk migration, export, and attach NBD servers in Canonical LXD before 5.0.12, 5.21.10, 6.10.2 allows an unprivileged local user in the host network namespace to read and modify a guest VM's disk and execute code inside the guest via connecting to abstract ",
+        "severity": "MEDIUM",
+        "score": 6.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-127151",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-127152",
+        "published": "2026-11-27T00:16:40Z",
+        "description": "Improper privilege management during container rebuild in Canonical LXD before 5.21.10, 6.10.2 allows a local user with container permissions to gain root privileges on the host via rebuilding a never-started unprivileged container so it starts without a user namespace or privileged-container harden",
+        "severity": "MEDIUM",
+        "score": 6.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-127152",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-127153",
+        "published": "2026-11-27T00:16:40Z",
+        "description": "Path traversal in proxy and CDI GPU device name handling in Canonical LXD before 5.0.12, 5.21.10, and 6.10.2 allows an authenticated user with access to a restricted project permitting proxy or GPU devices to read, overwrite, or delete arbitrary host files as root and terminate host processes via cr",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-127153",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-127154",
+        "published": "2026-11-27T00:16:40Z",
+        "description": "Improper link resolution in image metadata tarball unpacking in Canonical LXD before 5.0.12, 5.21.10, and 6.10.2 allows an authenticated user with a restricted client certificate to write arbitrary host files as root and execute code on the host via a crafted rootfs symlink in an image metadata tarb",
+        "severity": "MEDIUM",
+        "score": 6.4,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-127154",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-127157",
+        "published": "2026-11-27T00:16:40Z",
+        "description": "Exposure of sensitive information in token operation events in Canonical LXD before 5.0.12, 5.21.10, 6.10.2 allows an authenticated user restricted to a project to gain full server access and cancel pending token operations via capturing certificate or cluster join token secrets broadcast to default",
+        "severity": "MEDIUM",
+        "score": 6.4,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-127157",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-127158",
+        "published": "2026-11-27T00:16:40Z",
+        "description": "Exposure of sensitive information and missing requestor validation in instance, volume, and snapshot migration operations in Canonical LXD before 5.0.12, 5.21.10, 6.10.2 allows an authenticated user with project event or operation read access to read migrating configuration and filesystem data and d",
+        "severity": "MEDIUM",
+        "score": 5.1,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-127158",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-114454",
+        "published": "2026-11-27T00:16:39Z",
+        "description": "Path traversal in TPM device management in Canonical LXD from 4.8 before 5.0.12, 5.21.10, 6.10.2 allows a remote authenticated user with project access to recursively delete arbitrary files and directories on the host as root via a crafted device name during instance or device removal.",
+        "severity": "HIGH",
+        "score": 7.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-114454",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-115843",
+        "published": "2026-11-27T00:16:39Z",
+        "description": "In LXD before 4.0.16, 5.0.12, 5.21.10, 6.10.2, an improper limitation of a pathname to a restricted directory vulnerability allows an authenticated client restricted to a single project to write and delete files at arbitrary host filesystem paths as root.\n\n When a custom storage volume is pushed to ",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115843",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-115844",
+        "published": "2026-11-27T00:16:39Z",
+        "description": "In LXD before 5.21.0 and 6.10.0, an OS command injection vulnerability allows an authenticated client restricted to a single project to execute arbitrary code as root on the host.\n\n The raw.dnsmasq bridge network configuration key is not restricted to server administrators and is copied verbatim int",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-115844",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-122225",
+        "published": "2026-11-27T00:16:39Z",
+        "description": "Symbolic link following in imported VM backup config drive preparation in Canonical LXD before 4.0.16, 5.0.12, 5.21.10, 6.10.2 allows an authenticated user with project-scoped permissions to disclose sensitive host files, including LXD server and cluster keys, and overwrite host files as root via im",
+        "severity": "MEDIUM",
+        "score": 6.4,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-122225",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-7181",
+        "published": "2026-11-26T23:17:03Z",
+        "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+        "severity": null,
+        "score": null,
+        "cvss_version": null,
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-7181",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-135107",
+        "published": "2026-11-26T23:17:01Z",
+        "description": "An **uncontrolled memory allocation** flaw has been found in the smbd_smb2_ioctl_pipe_write_done() function in source3/smbd/smb2_ioctl_named_pipe.c of the SMB2 named-pipe ioctl handling in the samba package. The file server reserves memory for a named-pipe response using a size chosen by the client.",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135107",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-137596",
+        "published": "2026-11-26T23:17:01Z",
+        "description": "A server-side request forgery (SSRF) flaw was found in KubeVirt's decentralized live migration. The connectURL field of a VirtualMachineInstanceMigration object is not validated at admission, and the privileged synchronization-controller dials the attacker-specified URL. Connection and DNS errors fr",
+        "severity": "MEDIUM",
+        "score": 5.0,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137596",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-137602",
+        "published": "2026-11-26T23:17:01Z",
+        "description": "A flaw was found in Keycloak. This vulnerability enables information disclosure when the parameterized-scopes feature is enabled. The protocol mapper fails to enforce authorization checks for certain scope parameter types during token and authorization requests. An authenticated remote attacker can ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137602",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-137653",
+        "published": "2026-11-26T23:17:01Z",
+        "description": "A flaw was found in spice-server. A malicious SPICE client can send a message header declaring an arbitrarily large message body. The server sizes the receive-buffer allocation from this declared size before any message content is received; when the allocation fails, the process hosting the SPICE se",
+        "severity": "MEDIUM",
+        "score": 6.5,
+        "cvss_version": "31",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137653",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-137660",
+        "published": "2026-11-26T23:17:01Z",
+        "description": "A vulnerability has been found in stylefeng Guns up to 2.2. Affected by this issue is the function TokenAndPermissionInterceptor.preHandle of the file TokenAndPermissionInterceptor.java of the component JWT Signing. Such manipulation leads to use of hard-coded cryptographic key\r . It is possible to ",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137660",
+        "kev": false
+      },
       {
         "id": "CVE-2026-4981",
         "published": "2026-11-26T22:17:58Z",
@@ -19851,796 +20381,6 @@
         "score": 8.9,
         "cvss_version": "40",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124283",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-135450",
-        "published": "2026-11-24T02:17:47Z",
-        "description": "A vulnerability was detected in amirhamza05 Student-Management-System up to 449397e35d42e3779f14f0bfc654ab307103f7e3. This vulnerability affects unknown code of the file page_action/nav_bar/sql_editor.php of the component SQL Editor. The manipulation of the argument sql_editor_run results in missing",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135450",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-18530",
-        "published": "2026-11-24T02:17:47Z",
-        "description": "OS command injection in the a3cli restricted shell in Lantronix S2220 Series 2 allows an authenticated attacker to bypass shell restrictions and execute arbitrary operating system commands via unsanitized command substitution metacharacters, including backticks and $(), in parameters of permitted co",
-        "severity": "CRITICAL",
-        "score": 9.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-18530",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-75776",
-        "published": "2026-11-24T02:17:47Z",
-        "description": "Concurrent Execution using Shared Resource with Improper Synchronization and Use After Free in certain ASUS router models allows an unauthenticated nearby user to cause the service to write unexpected values or crash the system under specific timing conditions.\nRefer to the ' Security Update for ASU",
-        "severity": "MEDIUM",
-        "score": 6.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-75776",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-77918",
-        "published": "2026-11-24T02:17:47Z",
-        "description": "Gogs through 0.14.4 contains an information disclosure vulnerability that allows authenticated users to view private forks by querying fork listings without per-fork read checks. Attackers with read access to a private base repository can call GET /api/v1/repos/{owner}/{repo}/forks or the Forks web ",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-77918",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-93457",
-        "published": "2026-11-24T02:17:47Z",
-        "description": "Out-of-bounds write vulnerability in certain ASUS routers allows an unauthenticated nearby user to corrupt process memory, potentially resulting in a denial-of-service, via crafted LLTD packets.Refer to the ' Security Update for ASUS Router Firmware ' section on the ASUS Security Advisory for more i",
-        "severity": "HIGH",
-        "score": 7.2,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-93457",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-114203",
-        "published": "2026-11-24T02:17:46Z",
-        "description": "An Improper Neutralization of Special Elements used in an OS Command（'OS Command Injection') in the ASUS GPU Tweak III allows a remote user to execute arbitrary OS commands via a crafted request to an HTTP endpoint of the service.\nRefer to the '\nSecurity Update for ASUS GPU Tweak III  ' section on t",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-114203",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130178",
-        "published": "2026-11-24T02:17:46Z",
-        "description": "AutoGPT is a workflow automation platform for creating, deploying, and managing continuous artificial intelligence agents. In versions 0.7.1 through 0.8.4, an incomplete IPv6 blocklist in AutoGPT's outbound SSRF protection allows authenticated users to reach local or private network services. Specif",
-        "severity": "HIGH",
-        "score": 7.7,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130178",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-135693",
-        "published": "2026-11-24T01:17:33Z",
-        "description": "rConfig Core 8.0.0 before 8.2.17 and rConfig Pro before 8.4.0 contain a stored cross-site scripting vulnerability in the Config Search View Matches dialog, which renders configuration context via v-html without escaping. Attackers can place markup in device banners, interface descriptions, ACL remar",
-        "severity": "CRITICAL",
-        "score": 9.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135693",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-135694",
-        "published": "2026-11-24T01:17:33Z",
-        "description": "rConfig Core 8.1.0 before 8.2.20 and rConfig Pro before 8.4.0 contain a missing authorization vulnerability in ExportController.php that allows authenticated users to export restricted tables. Attackers can supply excluded table names to export($table), bypassing the EXCLUDED_TABLES deny list, and o",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135694",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-135695",
-        "published": "2026-11-24T01:17:33Z",
-        "description": "rConfig Core 8.0.0 before 8.2.13 and rConfig Pro before 8.4.0 contain an authorization bypass vulnerability in the users API that allows authenticated users to modify other accounts. Attackers can send a UserController::update request with an administrator's user id and new password, then log in as ",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135695",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-135696",
-        "published": "2026-11-24T01:17:33Z",
-        "description": "rConfig Core 8.2.19 before 8.2.22 contains a server-side request forgery vulnerability that allows authenticated users to bypass the DeviceIpIsValid loopback guard by supplying unresolved hostnames. Attackers can create a device with a hostname resolving to loopback and device_port_override 6379, ca",
-        "severity": "HIGH",
-        "score": 7.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135696",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-135697",
-        "published": "2026-11-24T01:17:33Z",
-        "description": "CleverReach WP before 1.5.28 contains a missing authorization vulnerability in the Article_Search controller that allows unauthenticated attackers to read non-public posts by supplying post IDs. Attackers can enumerate the id parameter in search requests to retrieve raw content of draft, pending, pr",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135697",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-135687",
-        "published": "2026-11-24T01:17:32Z",
-        "description": "Arcane before 3.0.0 fails to enforce the requiresPasswordChange account flag on the server, allowing attackers with initial or temporary credentials to obtain fully privileged access tokens. Attackers can log in via /api/auth/login and call privileged endpoints such as POST /api/users to create user",
-        "severity": "LOW",
-        "score": 2.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135687",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-135688",
-        "published": "2026-11-24T01:17:32Z",
-        "description": "Idno through 1.6.4 contains an unauthenticated blind server-side request forgery vulnerability in the /webmention/ endpoint that fetches attacker-supplied source URLs without scheme, host, or IP validation. Attackers can set target to a local page and source to loopback, private-network, or cloud me",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135688",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-135689",
-        "published": "2026-11-24T01:17:32Z",
-        "description": "Community Store for Concrete CMS before 2.8.0 contains a stored cross-site scripting vulnerability that allows unauthenticated attackers to inject script via the order email in single_pages/dashboard/store/orders.php. Attackers can place guest orders with quoted email local parts containing markup t",
-        "severity": "HIGH",
-        "score": 8.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135689",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-135690",
-        "published": "2026-11-24T01:17:32Z",
-        "description": "CivetWeb through 1.16 built with USE_HTTP2 and enable_http2 contains a heap out-of-bounds read vulnerability in hpack_decode() in src/http2.inl. Unauthenticated remote attackers can send a crafted HEADERS frame ending with a Huffman-coded string over TLS-negotiated HTTP/2 to read one byte past the h",
-        "severity": "MEDIUM",
-        "score": 6.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135690",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-135691",
-        "published": "2026-11-24T01:17:32Z",
-        "description": "Open5GS WebUI through 2.8.0 contains an incorrect authorization vulnerability in webui/server/routes/db.js that allows authenticated user-role accounts to modify the Account model. Attackers can send PATCH /api/db/Account/<username> setting roles to admin, overwrite password hashes, delete accounts,",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135691",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-135692",
-        "published": "2026-11-24T01:17:32Z",
-        "description": "rConfig Core 8.0.0 before 8.2.17 and rConfig Pro before 8.4.0 contain a PHP object injection vulnerability in app/Casts/EncryptStringCast.php that unserializes decrypted attributes without class restrictions. Authenticated attackers can store a serialized gadget chain in encrypted fields like device",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135692",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-135419",
-        "published": "2026-11-24T01:17:31Z",
-        "description": "A vulnerability was determined in itsourcecode Airline Reservation System 1.0. This affects an unknown part of the file admin/navbar.php. This manipulation of the argument page causes cross site scripting. The attack is possible to be carried out remotely. The exploit has been publicly disclosed and",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135419",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-135684",
-        "published": "2026-11-24T01:17:31Z",
-        "description": "SparkyFitness before 1.12.0 contains a missing ownership check in getNutritionixHeaders that allows authenticated users to use another user's Nutritionix API credentials via the providerId parameter. Attackers who know a victim's provider UUID can call the Nutritionix search, nutrients, item, or exe",
-        "severity": "LOW",
-        "score": 2.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135684",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-135685",
-        "published": "2026-11-24T01:17:31Z",
-        "description": "SparkyFitness before 1.12.0 contains a weak password change vulnerability that allows attackers with a victim's session to change the account password without supplying the current password. Attackers can send a POST request with only newPassword to /api/identity/update-password to lock out the legi",
-        "severity": "LOW",
-        "score": 2.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135685",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-135686",
-        "published": "2026-11-24T01:17:31Z",
-        "description": "Trilium through 0.107.0 contains an sql injection vulnerability in updateNormalEntity() that allows malicious sync partners to inject SQL by supplying crafted entity names and column keys. Attackers can abuse /api/sync/changed or PUT /api/sync/update data to copy sessions, etapi_tokens and user_data",
-        "severity": "CRITICAL",
-        "score": 9.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135686",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-133448",
-        "published": "2026-11-24T01:17:23Z",
-        "description": "AutoGPT is a workflow automation platform for creating, deploying, and managing continuous artificial intelligence agents. In versions 0.7.1 through 0.8.4, chat and prompt text passed to the Claude Code CLI is pre-processed before reaching the model, bypassing AutoPilot's tool allow-list and PreTool",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133448",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132270",
-        "published": "2026-11-24T01:17:22Z",
-        "description": "AutoGPT is a workflow automation platform for creating, deploying, and managing continuous artificial intelligence agents. In versions 0.7.1 through 0.8.4, AutoPilot prices block calls using model-supplied input but executes them with the server-resolved credential. Supplying a syntactically valid p",
-        "severity": "MEDIUM",
-        "score": 4.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132270",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134496",
-        "published": "2026-11-24T00:17:31Z",
-        "description": "Tanium addressed an improper input validation vulnerability in Core Content.",
-        "severity": "HIGH",
-        "score": 7.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134496",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134618",
-        "published": "2026-11-24T00:17:31Z",
-        "description": "Tanium addressed a local privilege escalation vulnerability in Emerging Issues Content.",
-        "severity": "HIGH",
-        "score": 7.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134618",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134619",
-        "published": "2026-11-24T00:17:31Z",
-        "description": "Tanium addressed a local privilege escalation vulnerability in Emerging Issues Content.",
-        "severity": "HIGH",
-        "score": 7.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134619",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134620",
-        "published": "2026-11-24T00:17:31Z",
-        "description": "Tanium addressed a command injection vulnerability in Engage.",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134620",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134739",
-        "published": "2026-11-24T00:17:31Z",
-        "description": "Tanium addressed a denial of service vulnerability in Tanium Server.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134739",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134740",
-        "published": "2026-11-24T00:17:31Z",
-        "description": "Tanium addressed a denial of service vulnerability in Tanium Zone Server.",
-        "severity": "MEDIUM",
-        "score": 5.9,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134740",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134746",
-        "published": "2026-11-24T00:17:31Z",
-        "description": "Tanium addressed a denial of service vulnerability in Tanium Zone Server.",
-        "severity": "LOW",
-        "score": 2.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134746",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-135121",
-        "published": "2026-11-24T00:17:31Z",
-        "description": "Tanium addressed an improper input validation vulnerability in Core Content - MSSQL.",
-        "severity": "MEDIUM",
-        "score": 5.0,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135121",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-133961",
-        "published": "2026-11-24T00:17:30Z",
-        "description": "Tanium addressed an unauthorized code execution vulnerability in the Tanium Default Content.",
-        "severity": "HIGH",
-        "score": 7.2,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133961",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134178",
-        "published": "2026-11-24T00:17:30Z",
-        "description": "Tanium addressed a server-side request forgery vulnerability in Partner Integration",
-        "severity": "MEDIUM",
-        "score": 4.2,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134178",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134346",
-        "published": "2026-11-24T00:17:30Z",
-        "description": "Tanium addressed an information disclosure vulnerability in Enforce Recovery Key Portal.",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134346",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134401",
-        "published": "2026-11-24T00:17:30Z",
-        "description": "Improper input validation in Variations in Google Chrome prior to 158.0.8127.88 allowed a remote attacker to potentially execute arbitrary code outside the sandbox via a crafted HTML page. (Chromium security severity: Critical)",
-        "severity": "CRITICAL",
-        "score": 9.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134401",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134443",
-        "published": "2026-11-24T00:17:30Z",
-        "description": "Tanium addressed an uncontrolled resource consumption vulnerability in Enforce Recovery Key Portal.",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134443",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134493",
-        "published": "2026-11-24T00:17:30Z",
-        "description": "Tanium addressed a path traversal vulnerability in Core Content.",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134493",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134494",
-        "published": "2026-11-24T00:17:30Z",
-        "description": "Tanium addressed an argument injection vulnerability in Core Content.",
-        "severity": "HIGH",
-        "score": 8.0,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134494",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-131696",
-        "published": "2026-11-24T00:17:29Z",
-        "description": "Tanium addressed an uncontrolled resource consumption vulnerability in Index.",
-        "severity": "LOW",
-        "score": 3.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-131696",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-133863",
-        "published": "2026-11-24T00:17:29Z",
-        "description": "Tanium addressed an improper access controls vulnerability in Tanium Server.",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133863",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-133864",
-        "published": "2026-11-24T00:17:29Z",
-        "description": "Tanium addressed a command injection vulnerability in Default Content.",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133864",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-133877",
-        "published": "2026-11-24T00:17:29Z",
-        "description": "Tanium addressed an insertion of sensitive information into log file vulnerability in Connect.",
-        "severity": "MEDIUM",
-        "score": 6.6,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133877",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-133880",
-        "published": "2026-11-24T00:17:29Z",
-        "description": "Tanium addressed a command injection vulnerability in Threat Response.",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133880",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-133955",
-        "published": "2026-11-24T00:17:29Z",
-        "description": "Tanium addressed an improper input validation vulnerability in Core Content.",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133955",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-133959",
-        "published": "2026-11-24T00:17:29Z",
-        "description": "Tanium addressed a command injection vulnerability in Core Content - Enhanced Tags.",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133959",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-133960",
-        "published": "2026-11-24T00:17:29Z",
-        "description": "Tanium addressed an unauthorized code execution vulnerability in the Tanium Default Content.",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133960",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-124851",
-        "published": "2026-11-24T00:17:28Z",
-        "description": "An information disclosure vulnerability in Zstandard versions 1.5.1 through 1.5.7 allows specially crafted compressed data to expose the contents of an internal buffer through decompressed output. The buffer is 64 KiB in the default configuration and may contain uninitialized memory or literals from",
-        "severity": null,
-        "score": null,
-        "cvss_version": null,
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124851",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-131650",
-        "published": "2026-11-24T00:17:28Z",
-        "description": "Tanium addressed an information disclosure vulnerability.",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-131650",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-120747",
-        "published": "2026-11-24T00:17:27Z",
-        "description": "Tanium addressed a command injection vulnerability in Comply.",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-120747",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134022",
-        "published": "2026-11-23T23:17:05Z",
-        "description": "TastyIgniter is an open-source online ordering, table reservation, and restaurant management system. Prior to 4.2.0, the User extension’s onRequestResetPassword() handler in src/Http/Controllers/Login.php calls resetPassword() and mailSendResetPasswordRequest() only when an account matches. The resu",
-        "severity": "LOW",
-        "score": 3.7,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134022",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134023",
-        "published": "2026-11-23T23:17:05Z",
-        "description": "TastyIgniter is an open-source online ordering, table reservation, and restaurant management system. Prior to 4.2.0, checkResetPasswordCode() in src/Auth/Models/User.php compares a submitted reset code with the stored 42-character token using a normal string comparison, which can return after the fi",
-        "severity": "HIGH",
-        "score": 7.4,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134023",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134024",
-        "published": "2026-11-23T23:17:05Z",
-        "description": "TastyIgniter is an open-source online ordering, table reservation, and restaurant management system. Prior to 4.4.4, addFromUrl() in src/Flame/Database/Attach/Media.php performs an outbound HTTP request to a caller-supplied URL and stores the response without validating the URL scheme or destination",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134024",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-135415",
-        "published": "2026-11-23T23:17:05Z",
-        "description": "A flaw has been found in MiniMax up to 0.7.2. Affected is the function authorizedLocalScript of the file bash-checker.ts. Executing a manipulation can lead to improper authorization. The attack may be launched remotely. The exploit has been published and may be used. The vendor was contacted early a",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135415",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-135416",
-        "published": "2026-11-23T23:17:05Z",
-        "description": "A vulnerability has been found in D-Link DIR-600L 2.17b02. Affected by this vulnerability is the function hedwigcgi_main of the file hedwig.cgi. The manipulation leads to missing authentication. Remote exploitation of the attack is possible. The exploit has been disclosed to the public and may be us",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135416",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-135418",
-        "published": "2026-11-23T23:17:05Z",
-        "description": "A vulnerability was found in jprocms up to 1.7.7. Affected by this issue is the function DbBackupFileServiceImpl.downloadFile of the file /cms/db-backup/file/download of the component Database Backup Download Endpoint. The manipulation results in path traversal. The attack can be executed remotely. ",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135418",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130167",
-        "published": "2026-11-23T23:17:04Z",
-        "description": "n8n is an open source workflow automation platform. Prior to 2.47.6, 2.48.3, and 3.2.2, the password reset link and role change operations do not protect the instance owner account from users with a custom instance role. A user whose custom instance role includes user management permissions can obta",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130167",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130169",
-        "published": "2026-11-23T23:17:04Z",
-        "description": "AutoGPT is a workflow automation platform for creating, deploying, and managing continuous artificial intelligence agents. In versions 0.6.26 through 0.7.4, AutoGPT Platform ships a publicly known, hardcoded default JWT verification key in backend/.env.default and autogpt_platform/.env.default. Beca",
-        "severity": "CRITICAL",
-        "score": 10.0,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130169",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-132257",
-        "published": "2026-11-23T23:17:04Z",
-        "description": "AutoGPT is a workflow automation platform for creating, deploying, and managing continuous artificial intelligence agents. From versions 0.6.23 and above, before 0.8.0, AutoGPT Platform ships a hardcoded default Fernet encryption key in backend/.env.default, which encrypts every user's OAuth tokens,",
-        "severity": "HIGH",
-        "score": 8.2,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-132257",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-133455",
-        "published": "2026-11-23T23:17:04Z",
-        "description": "AutoGPT is a workflow automation platform for creating, deploying, and managing continuous artificial intelligence agents. Prior to 0.9.0, nested tools invoked by OrchestratorBlock bypass the main execution queue and are charged only after succeeding, but post-run billing still refunds a failed tool",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133455",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-133930",
-        "published": "2026-11-23T23:17:04Z",
-        "description": "A pooled-buffer lifetime error in Elasticsearch ES|QL Arrow response formatting can disclose data from other users' concurrent requests. An authenticated user with read access to an index who requests Arrow output containing an affected column type can receive data from indices they are not authoriz",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-133930",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134020",
-        "published": "2026-11-23T23:17:04Z",
-        "description": "OpenEMR is a free and open source electronic health records and medical practice management application. Prior to 8.5.0, the staff-facing portal endpoints GET api/onsiteactivityviews and GET api/onsiteactivityview/{id}, mapped to OnsiteActivityView.Query and OnsiteActivityView.Read with p_acl = p_no",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134020",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-134021",
-        "published": "2026-11-23T23:17:04Z",
-        "description": "TastyIgniter is an open-source online ordering, table reservation, and restaurant management system. Prior to 4.3.1, the Mollie payment notification handler in src/Payments/Mollie.php, processNotifyUrl(), uses a payment ID supplied with the notification to retrieve a paid transaction but does not ve",
-        "severity": "HIGH",
-        "score": 7.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134021",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-122090",
-        "published": "2026-11-23T23:17:03Z",
-        "description": "Pelican 4.12.0 contains an OS command injection vulnerability in pelican-import. An attacker-controlled wp:post_name from a WordPress XML export is used in an output filename that is interpolated into a Pandoc command passed to subprocess.call with shell=True. On POSIX systems, command substitution ",
-        "severity": "HIGH",
-        "score": 8.4,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-122090",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-130166",
-        "published": "2026-11-23T23:17:03Z",
-        "description": "n8n is an open source workflow automation platform. Prior to 1.123.90 and 2.14.0, the invitation acceptance endpoint accepts inviter and invitee user IDs without a signed invitation token, allowing any preexisting member to take over a pending new user account. A member with permission to list users",
-        "severity": "HIGH",
-        "score": 7.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-130166",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-101870",
-        "published": "2026-11-23T23:17:02Z",
-        "description": "EUSurvey through 1.6, prior to commit de1145c, contains an authorization bypass vulnerability in the public POST /editcontribution/{code} endpoint that allows unauthenticated attackers to overwrite another respondent's submitted answers. The handler in ContributionController selects the survey and a",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101870",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-101871",
-        "published": "2026-11-23T23:17:02Z",
-        "description": "EUSurvey 1.5.2 through 1.6, prior to commit ffd5da7, contains a missing authorization vulnerability in the public POST /runner/delphiUpdate endpoint that allows unauthenticated attackers to submit responses to Delphi surveys after the owner has closed them. DelphiController checks only that the surv",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101871",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-101872",
-        "published": "2026-11-23T23:17:02Z",
-        "description": "EUSurvey through 1.6, prior to commit 4bf95a3, contains a blind SQL injection vulnerability in the GET /dashboard/surveys endpoint that allows authenticated attackers with the Form Manager role to infer data from the main application database. SurveyService inserts unrecognized sort values directly ",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101872",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-101873",
-        "published": "2026-11-23T23:17:02Z",
-        "description": "EUSurvey 1.5.2 through 1.6, prior to commit bb7432c, contains a stored cross-site scripting vulnerability in Delphi survey explanations that allows survey participants to execute arbitrary JavaScript in other users' browsers. Explanations submitted to POST /runner/delphiUpdate are stored by AnswerEx",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101873",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-101874",
-        "published": "2026-11-23T23:17:02Z",
-        "description": "EUSurvey through 1.6, prior to commit 6db6147, contains an insecure direct object reference vulnerability in the GET /exports/checkNew endpoint that allows authenticated attackers to read the names of other users' finished exports and suppress their notifications. ExportsController trusts a user ID ",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101874",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-101876",
-        "published": "2026-11-23T23:17:02Z",
-        "description": "EUSurvey through 1.6, prior to commit 03cc974, contains a blind server-side request forgery vulnerability in PDF export that allows authenticated attackers with the Form Manager role to make the server send HTTP or HTTPS requests to internal services. Question titles saved through POST /{shortname}/",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101876",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-101877",
-        "published": "2026-11-23T23:17:02Z",
-        "description": "EUSurvey through 1.6, prior to commit 4ff1ba0, contains a missing authorization vulnerability in the GET /pdf/survey/{surveyId} endpoint that allows attackers holding a valid invitation for one survey to download a different survey's restricted questionnaire PDF without signing in. PDFController che",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101877",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-101862",
-        "published": "2026-11-23T23:17:01Z",
-        "description": "EUSurvey through 1.6, prior to commit 0669a36, contains a path traversal vulnerability in the survey import function that allows authenticated attackers with the Form Manager role to execute arbitrary code on the server. The POST /noform/management/importSurvey endpoint trusts archive entry names wh",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101862",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-101863",
-        "published": "2026-11-23T23:17:01Z",
-        "description": "EUSurvey 1.5.5 through 1.6, prior to commit d5295d5, contains a missing authorization vulnerability in the POST /forms/bulkchange endpoint that allows any authenticated user to take over or delete other users' surveys. SurveyController accepts arbitrary survey IDs and privilege values, and BulkExecu",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101863",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-101864",
-        "published": "2026-11-23T23:17:01Z",
-        "description": "EUSurvey through 1.6, prior to commit a4161a9, contains a weak password recovery mechanism that allows attackers who obtain a still-valid password-reset link to take over accounts that use a local EUSurvey password. The /auth/reset/ flow checks only the age of a reset code and does not invalidate it",
-        "severity": "CRITICAL",
-        "score": 9.2,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101864",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-101866",
-        "published": "2026-11-23T23:17:01Z",
-        "description": "EUSurvey through 1.6, prior to commit 118facd, contains an authorization bypass vulnerability in the public POST /runner/draft/runner endpoint that allows unauthenticated attackers to overwrite another participant's saved draft and obtain its private invitation token. The draft save handler in Runne",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101866",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-101867",
-        "published": "2026-11-23T23:17:01Z",
-        "description": "EUSurvey through 1.6, prior to commit edb5021, contains an incorrect authorization vulnerability in the GET /settings/shareEdit/{shareId} and POST /settings/shares handlers that allows any authenticated user to read or modify another user's contact share. The ownership check in SettingsController de",
-        "severity": "HIGH",
-        "score": 8.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101867",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-101868",
-        "published": "2026-11-23T23:17:01Z",
-        "description": "EUSurvey through 1.6, prior to commit 4bf95a3, contains an authorization bypass vulnerability in the GET /preparepublishedcontribution/{id} endpoint that allows unauthenticated attackers to read private responses submitted to published surveys. The contribution PDF handler in ContributionController ",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101868",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-101869",
-        "published": "2026-11-23T23:17:01Z",
-        "description": "EUSurvey 1.4.4.6738 through 1.6, prior to commit de1145c, contains an SQL injection vulnerability in the public results page GET /publication/{shortname} that allows unauthenticated attackers to infer non-public response data. ReportingService builds a SQL column expression from part of a user-suppl",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-101869",
         "kev": false
       }
     ]
