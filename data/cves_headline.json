@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-28T04:02:16Z",
+  "updated_at": "2026-11-28T10:09:45Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,71 @@
   ],
   "note": "Bounded slice of cves.json for the homepage. Use /data/cves.json for the full window.",
   "normalisation_failures": [],
-  "recent_total": 1467,
+  "recent_total": 1324,
   "kev_total": 123,
   "kev_catalog_total": 1808,
   "total": 25,
   "items": [
+    {
+      "id": "CVE-2026-112232",
+      "published": "2026-11-28T06:16:42Z",
+      "description": "The Popup Builder  WordPress plugin through 4.4.6 does not properly sanitize and escape a popup shortcode attribute before it is reflected into a page and evaluated client-side, allowing users with the Contributor role and above to inject arbitrary JavaScript that executes in the session of any high",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-112232",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-112233",
+      "published": "2026-11-28T06:16:42Z",
+      "description": "The Popup Builder  WordPress plugin through 4.4.6 does not check the publish status or the visitor's capabilities before rendering a popup requested by its ID in the URL, allowing unauthenticated users to read the content and configuration of popups that are still drafts or are marked private.",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-112233",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-112234",
+      "published": "2026-11-28T06:16:42Z",
+      "description": "The Popup Builder  WordPress plugin through 4.4.6 does not validate a user-supplied URL before requesting it server-side and storing the fetched response so that it can be read back, allowing users with Administrator privileges to perform Server-Side Request Forgery (SSRF) attacks and read the respo",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-112234",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-112235",
+      "published": "2026-11-28T06:16:42Z",
+      "description": "The Popup Builder  WordPress plugin through 4.4.6 does not properly check authorization before allowing a user to store popup preview data against arbitrary posts, nor restrict who can read that content back on public requests, allowing users granted access to the Popup Builder  WordPress plugin thr",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-112235",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-123654",
+      "published": "2026-11-28T06:16:42Z",
+      "description": "Themify Base WordPress theme through 1.2.4 does not perform capability checks on its option save and read AJAX actions, which are protected only by a generic nonce that other  commonly expose on the front end, allowing users with a role as low as Subscriber to update arbitrary blog options such as t",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-123654",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-112231",
+      "published": "2026-11-28T06:16:40Z",
+      "description": "The Popup Builder  WordPress plugin through 4.4.6 does not sanitise or escape a custom styling value before storing it and printing it back into the pages a popup loads on, allowing users who are allowed to manage popups (an ability that can be delegated to lower-privileged roles) to inject JavaScri",
+      "severity": null,
+      "score": null,
+      "cvss_version": null,
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-112231",
+      "kev": false
+    },
     {
       "id": "CVE-2026-138161",
       "published": "2026-11-28T03:17:08Z",
@@ -201,66 +261,6 @@
       "score": 6.9,
       "cvss_version": "40",
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138120",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-138121",
-      "published": "2026-11-28T02:17:33Z",
-      "description": "Kestra 1.3.24 before 1.3.41 contains an insufficient credential expiration vulnerability that allows holders of a revoked administrator password to keep authenticating on peer webserver nodes through BasicAuthService's process-local verified-token cache. Attackers whose token remains cached on a pee",
-      "severity": "HIGH",
-      "score": 7.5,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138121",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-107951",
-      "published": "2026-11-28T01:16:40Z",
-      "description": "Improper Content Security Policy (CSP) configuration in the BigFix MCM WebUI allowed the data: URI scheme as a source in the img-src directive of the CSP header. This potentially weakens the application's defense-in-depth security mechanism.",
-      "severity": "LOW",
-      "score": 3.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107951",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-107967",
-      "published": "2026-11-27T23:16:36Z",
-      "description": "HCL Verse for Android included a decryption code for compatibility with locally stored values and attachment files created by older application versions (no longer used for data stored by newer versions). HCL Verse for Android version 14.5.16 (November 2026) removed the legacy decryption code.",
-      "severity": "LOW",
-      "score": 0.9,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-107967",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-138004",
-      "published": "2026-11-27T23:16:36Z",
-      "description": "A security vulnerability has been detected in TRENDnet TEW-751DR and TEW-733GR 1.03B01. Affected is the function soapcgi_main of the file /soap.cgi of the component UPnP Igd Control Endpoint. Such manipulation of the argument service leads to os command injection. The attack may be performed from re",
-      "severity": "CRITICAL",
-      "score": 9.3,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138004",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-138003",
-      "published": "2026-11-27T22:17:54Z",
-      "description": "A weakness has been identified in TRENDnet TEW-751DR 1.03B01. This impacts the function FUN_0040ed90 of the file wfadev.cgi of the component UPnP/WFA. This manipulation of the argument SOAPAction causes stack-based buffer overflow. The attack is possible to be carried out remotely. A high degree of ",
-      "severity": "CRITICAL",
-      "score": 9.0,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138003",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-137941",
-      "published": "2026-11-27T21:17:14Z",
-      "description": "A flaw was found in GIMP. The Levels configuration setter does not validate the channel enum before using it to index fixed-size per-channel arrays. A crafted XCF file with a non-destructive Levels filter can set an out-of-range channel (LUMINANCE or RGB), causing a heap out-of-bounds read and write",
-      "severity": "HIGH",
-      "score": 7.8,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137941",
       "kev": false
     }
   ]
