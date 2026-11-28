@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-28T01:24:07Z",
+  "updated_at": "2026-11-28T04:02:16Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,211 @@
   ],
   "note": "Bounded slice of cves.json for the homepage. Use /data/cves.json for the full window.",
   "normalisation_failures": [],
-  "recent_total": 1477,
+  "recent_total": 1467,
   "kev_total": 123,
   "kev_catalog_total": 1808,
   "total": 25,
   "items": [
+    {
+      "id": "CVE-2026-138161",
+      "published": "2026-11-28T03:17:08Z",
+      "description": "Gammu before 1.45.2 contains a buffer overflow vulnerability in LoadBackup() that allows attackers to corrupt memory by supplying an overlong MD5 value in a crafted backup file. Attackers can overwrite adjacent phonebook and calendar entry pointers via strcpy() into MD5Original when files are loaded",
+      "severity": "HIGH",
+      "score": 8.5,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138161",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138162",
+      "published": "2026-11-28T03:17:08Z",
+      "description": "Gammu before 1.45.2 contains a stack-based buffer overflow vulnerability in ALCATEL_EncodeString() that allows attackers to overwrite stack memory via oversized encoded phonebook text. Attackers can supply a crafted backup restored with gammu restore or addnew to an attached Alcatel phone, using GSM",
+      "severity": "HIGH",
+      "score": 7.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138162",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138163",
+      "published": "2026-11-28T03:17:08Z",
+      "description": "Gammu before 1.45.2 contains a heap-based buffer overflow in ReadWAPSettingsEntry() that allows attackers to corrupt heap memory via crafted backup files with excess WAP or MMS settings entries. Attackers can supply a backup with more than four TitleNN keys in a [WAPSettings] or [MMSSettings] sectio",
+      "severity": "HIGH",
+      "score": 8.5,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138163",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138164",
+      "published": "2026-11-28T03:17:08Z",
+      "description": "Gammu before 1.45.2 contains a stack-based buffer overflow vulnerability in SaveBackupText() in backtext.c that allows attackers to corrupt stack memory by supplying long text fields. Attackers can craft a backup with long calendar or note fields that, when converted with gammu convertbackup, writes",
+      "severity": "MEDIUM",
+      "score": 4.8,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138164",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138158",
+      "published": "2026-11-28T03:17:07Z",
+      "description": "libgphoto2 through 2.5.34 contains a stack buffer overflow in sierra_get_string_register() that lets a malicious sierra-protocol camera or USB device overwrite stack memory. When files are listed, the device can answer the file-name register with an oversized packet, writing up to 32 KB past small s",
+      "severity": "HIGH",
+      "score": 7.0,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138158",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138159",
+      "published": "2026-11-28T03:17:07Z",
+      "description": "edbrowse through 3.8.19 contains an integer overflow in stringAndBytes() that allows malicious servers to write past a heap buffer by sending response bodies larger than 2 GB. When a user browses to an attacker-controlled HTTP, FTP, or gopher server, the oversized body skips reallocation and corrupt",
+      "severity": "HIGH",
+      "score": 7.7,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138159",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138160",
+      "published": "2026-11-28T03:17:07Z",
+      "description": "Gammu before 1.45.2 contains a stack-based buffer overflow vulnerability in ReadBackupTextLen() that allows attackers to overwrite stack memory via crafted backup files. Attackers can supply overlong quoted text values decoded into a 10,000-byte stack array during convertbackup, restore, or GSM_Read",
+      "severity": "HIGH",
+      "score": 8.5,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138160",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138154",
+      "published": "2026-11-28T03:17:06Z",
+      "description": "POSTAL 2 before build 26810491 contains a sandbox escape vulnerability that allows malicious Steam Workshop mods to execute code by calling ConsoleCommand with a start file URI. Attackers can ship a batch file in a mod at the predictable workshop install path and launch it via ShellExecuteW, executi",
+      "severity": "CRITICAL",
+      "score": 9.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138154",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138153",
+      "published": "2026-11-28T02:17:35Z",
+      "description": "Otter – Page Builder Blocks & Extensions for Gutenberg before 3.2.12 contains an incorrect authorization vulnerability in the Posts Grid block and Atomic Wind query loop that allows Contributor-level attackers to read non-public post type entries. Attackers can set the postTypes or queryPostType blo",
+      "severity": "MEDIUM",
+      "score": 5.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138153",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138122",
+      "published": "2026-11-28T02:17:34Z",
+      "description": "ClassroomIO through 1.0.0 contains an insecure direct object reference vulnerability that allows authenticated course members to access other tenants' newsfeed posts by supplying a foreign feedId under their own courseId. Attackers can read, react to, and comment on cross-organization posts, while t",
+      "severity": "LOW",
+      "score": 2.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138122",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138148",
+      "published": "2026-11-28T02:17:34Z",
+      "description": "picomatch through 4.0.7 contains a glob filter bypass vulnerability because globstar (**) patterns are compiled without the dotAll flag and fail to match line terminators. Attackers who control file, object key or archive entry names containing newline characters can evade ** deny patterns, causing ",
+      "severity": "MEDIUM",
+      "score": 6.9,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138148",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138149",
+      "published": "2026-11-28T02:17:34Z",
+      "description": "FeatBit before 6.1.3 contains an authorization bypass vulnerability that allows authenticated members of one organization to read other organizations' segments by supplying foreign segment identifiers. Attackers can query the SegmentController segment, by-ids, and flag-references endpoints with thei",
+      "severity": "MEDIUM",
+      "score": 5.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138149",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138150",
+      "published": "2026-11-28T02:17:34Z",
+      "description": "SimGear through 2024.1.7 contains an infinite loop vulnerability in sgSimpleBuffer::resize() where an unsigned 32-bit wraparound in the size-doubling loop leaves the size at zero. Attackers can supply a crafted .btg scenery file with an oversized byte count exceeding 2^31 to hang the loading process",
+      "severity": "MEDIUM",
+      "score": 6.8,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138150",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138151",
+      "published": "2026-11-28T02:17:34Z",
+      "description": "bgpq4 before 1.17 contains an integer overflow vulnerability in expander.c that allows malicious IRR servers to corrupt heap memory by sending crafted A<len> replies. Attackers controlling the IRR server or tampering with the plaintext TCP connection can announce a ULONG_MAX or -1 length, wrapping t",
+      "severity": "HIGH",
+      "score": 8.2,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138151",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138152",
+      "published": "2026-11-28T02:17:34Z",
+      "description": "Otter – Page Builder Blocks & Extensions for Gutenberg before 3.2.12 contains a server-side request forgery vulnerability that allows Contributor-level attackers to make the server contact arbitrary hosts via crafted Mailchimp API keys. Attackers can POST to the otter/v1/form/editor REST route with ",
+      "severity": "MEDIUM",
+      "score": 5.3,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138152",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138117",
+      "published": "2026-11-28T02:17:33Z",
+      "description": "HyperSpy from 1.2.0 before 2.6.0 contains a code execution vulnerability that allows attackers to run Python code by embedding malicious expression strings evaluated with sympy.sympify(). Attackers can craft .hspy or .zspy files with malicious axis, Expression component, or twin function expressions",
+      "severity": "HIGH",
+      "score": 8.5,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138117",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138118",
+      "published": "2026-11-28T02:17:33Z",
+      "description": "HyperSpy from 1.4.0 before 2.6.0 contains an insecure deserialization vulnerability that allows attackers to execute arbitrary Python code by supplying crafted stored-model data in .hspy or .zspy files. Attackers can embed a malicious pickle payload in a component's _class_dump or a 'fn'-flagged _wh",
+      "severity": "HIGH",
+      "score": 8.5,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138118",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138119",
+      "published": "2026-11-28T02:17:33Z",
+      "description": "Kestra before 1.3.36 contains a reflected cross-site scripting vulnerability that allows unauthenticated attackers to execute JavaScript by injecting HTML into the executions page sort parameter. Attackers can lure logged-in users to a crafted link whose invalid sort value is rendered unsanitized in",
+      "severity": "HIGH",
+      "score": 8.7,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138119",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138120",
+      "published": "2026-11-28T02:17:33Z",
+      "description": "Kestra 1.3.24 before 2.0.0 contains a timing side-channel vulnerability in BasicAuthService.isAuthenticated() that allows unauthenticated attackers to enumerate the administrator username. Attackers can send Basic-auth requests with candidate usernames to protected API endpoints and detect slower bc",
+      "severity": "MEDIUM",
+      "score": 6.9,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138120",
+      "kev": false
+    },
+    {
+      "id": "CVE-2026-138121",
+      "published": "2026-11-28T02:17:33Z",
+      "description": "Kestra 1.3.24 before 1.3.41 contains an insufficient credential expiration vulnerability that allows holders of a revoked administrator password to keep authenticating on peer webserver nodes through BasicAuthService's process-local verified-token cache. Attackers whose token remains cached on a pee",
+      "severity": "HIGH",
+      "score": 7.5,
+      "cvss_version": "40",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138121",
+      "kev": false
+    },
     {
       "id": "CVE-2026-107951",
       "published": "2026-11-28T01:16:40Z",
@@ -61,206 +261,6 @@
       "score": 7.8,
       "cvss_version": "31",
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137941",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-137974",
-      "published": "2026-11-27T21:17:14Z",
-      "description": "A flaw was found in tuned. This vulnerability allows local privilege escalation because the spindown-disk profile script does not properly validate filesystem mount sources before executing remount operations with root privileges. A local user capable of creating user-space filesystems can craft a m",
-      "severity": "HIGH",
-      "score": 7.0,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137974",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-138033",
-      "published": "2026-11-27T20:18:19Z",
-      "description": "mcp-video-analyzer 0.2.0 before 0.10.1 contains a server-side request forgery vulnerability that allows attackers to reach internal addresses by supplying any http(s) URL ending in a video extension. Attackers can use prompt injection to make tools like get_frames fetch loopback, private, or cloud m",
-      "severity": "HIGH",
-      "score": 7.0,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138033",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-138034",
-      "published": "2026-11-27T20:18:19Z",
-      "description": "bigcommerce-api-mcp before 1.0.1 contains a missing authentication vulnerability that allows remote unauthenticated attackers to invoke MCP tools because the /sse and /messages routes skip the authenticateRequest middleware. Attackers can open /sse to obtain a session id and POST JSON-RPC tool calls",
-      "severity": "HIGH",
-      "score": 8.7,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138034",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-138048",
-      "published": "2026-11-27T20:18:19Z",
-      "description": "ntfy before v2.38.3 contains a server-side request forgery vulnerability that allows remote attackers to bypass the web push endpoint allow-list by crafting a URL containing '#' or '?' characters that satisfy the [^/]+ regex pattern used to validate mozaws.net and notify.windows.com hosts. Attackers",
-      "severity": "MEDIUM",
-      "score": 6.9,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138048",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-138027",
-      "published": "2026-11-27T20:18:18Z",
-      "description": "Bagel (bagel-mcp) before 2.5.5 exposes unsandboxed DuckDB SQL execution through the read-only annotated query_messages MCP tool, allowing file access and network requests. Attackers who prompt-inject the driving LLM via recorded logs or topics can invoke read_csv_auto, COPY TO, or httpfs to read and",
-      "severity": "HIGH",
-      "score": 7.7,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138027",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-138028",
-      "published": "2026-11-27T20:18:18Z",
-      "description": "Bagel (bagel-mcp) before 2.5.5 contains an argument injection vulnerability in RsyncFilesToLocalDirectory that allows attackers to inject rsync options because only --quiet and --log-format values are rejected. Attackers who influence the LLM through prompt-injected content can trigger run_pipeline ",
-      "severity": "HIGH",
-      "score": 7.7,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138028",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-138029",
-      "published": "2026-11-27T20:18:18Z",
-      "description": "Wazuh-MCP-Server before commit 2bbfe12 contains a server-side request forgery vulnerability in the blueteam_check_webshell tool because WebshellCheckInput.validate_url accepts DNS hostnames without resolving them. Attackers can supply URLs whose hostnames resolve or redirect to loopback, private, or",
-      "severity": "MEDIUM",
-      "score": 5.3,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138029",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-138030",
-      "published": "2026-11-27T20:18:18Z",
-      "description": "SylphxAI pdf-reader-mcp 2.4.1 through 3.0.14, 3.0.16, and 3.1.2 through 3.1.4 contains a server-side request forgery vulnerability in its PDF URL loader, which validates the resolved address but does not pin it for fetch(). Attackers controlling DNS for a url passed to read_pdf can return a public a",
-      "severity": "LOW",
-      "score": 2.3,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138030",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-138031",
-      "published": "2026-11-27T20:18:18Z",
-      "description": "Typebot from 2.14.0 before 3.19.0 contains an authorization flaw that allows authenticated bot authors to reference another workspace's legacy webhook by saving a foreign webhookId in an HTTP request block. Attackers can have executeHttpRequestBlock return the victim's URL, headers and body client-s",
-      "severity": "HIGH",
-      "score": 7.6,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138031",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-138032",
-      "published": "2026-11-27T20:18:18Z",
-      "description": "WhoDB from 0.88.0 before 0.132.0 contains an access control bypass in the MCP whodb_query tool, letting callers run file-writing statements without approval because the sqlguard keyword classifier omits INTO, OUTFILE and DUMPFILE. MCP clients or prompt-injected models can execute PostgreSQL lo_expor",
-      "severity": "MEDIUM",
-      "score": 6.0,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138032",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-137898",
-      "published": "2026-11-27T20:18:17Z",
-      "description": "A flaw was found in pam. When built with libeconf and an unconfigured vendor directory, the pam_econf configuration handler misinterprets the search path, causing it to look for configuration files in a relative directory within the current working directory. A local attacker can exploit this by pla",
-      "severity": "HIGH",
-      "score": 7.3,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-137898",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-138026",
-      "published": "2026-11-27T20:18:17Z",
-      "description": "Crypto APIs MCP server packages (@cryptoapis-io/mcp-*) before 0.4.0, mcp-blockchain-events, mcp-blockchain-fees, mcp-broadcast and mcp-prepare-transactions before 0.5.0, and mcp-aml before 0.2.0 contain a missing authentication vulnerability that allows unauthenticated network attackers to invoke to",
-      "severity": "MEDIUM",
-      "score": 6.9,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138026",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-131776",
-      "published": "2026-11-27T20:18:16Z",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Hai Zheng / Lite Speed Cache LiteSpeed Cache litespeed-cache allows Stored XSS.This issue affects LiteSpeed Cache: from n/a through 7.9.3.",
-      "severity": "HIGH",
-      "score": 7.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-131776",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-136117",
-      "published": "2026-11-27T19:17:00Z",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Solid Plugins, LLC Solid Affiliate solid-affiliate allows Stored XSS.This issue affects Solid Affiliate: from n/a through 3.3.0.",
-      "severity": "HIGH",
-      "score": 7.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136117",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-134129",
-      "published": "2026-11-27T19:16:59Z",
-      "description": "smalot/pdfparser before 2.14.0 contains an inefficient algorithmic complexity vulnerability that allows remote attackers to cause a denial of service by submitting a crafted PDF with deeply nested unbalanced parentheses in a content-stream string. Attackers can exploit the regex-based string isolati",
-      "severity": "HIGH",
-      "score": 8.7,
-      "cvss_version": "40",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-134129",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-136112",
-      "published": "2026-11-27T19:16:59Z",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Amit Mittal Shipment Tracker for Woocommerce shipment-tracker-for-woocommerce allows Stored XSS.This issue affects Shipment Tracker for Woocommerce: from n/a through 1.5.7.",
-      "severity": "HIGH",
-      "score": 7.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136112",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-136113",
-      "published": "2026-11-27T19:16:59Z",
-      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Hello Clever Pty Hello Clever Gateway for WooCommerce cleverpay-gateway allows SQL Injection.This issue affects Hello Clever Gateway for WooCommerce: from n/a through 1.8.4.",
-      "severity": "CRITICAL",
-      "score": 9.3,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136113",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-136114",
-      "published": "2026-11-27T19:16:59Z",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in e4jvikwp VikBooking Hotel Booking Engine & PMS vikbooking allows Stored XSS.This issue affects VikBooking Hotel Booking Engine & PMS: from n/a through 1.8.22.",
-      "severity": "HIGH",
-      "score": 7.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136114",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-136115",
-      "published": "2026-11-27T19:16:59Z",
-      "description": "Incorrect Privilege Assignment vulnerability in expresstechsoftware MemberPress Discord Addon expresstechsoftwares-memberpress-discord-add-on allows Privilege Escalation.This issue affects MemberPress Discord Addon: from n/a through 1.1.5.",
-      "severity": "CRITICAL",
-      "score": 9.8,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136115",
-      "kev": false
-    },
-    {
-      "id": "CVE-2026-136116",
-      "published": "2026-11-27T19:16:59Z",
-      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Solid Plugins, LLC Solid Affiliate solid-affiliate allows Reflected XSS.This issue affects Solid Affiliate: from n/a through 3.3.0.",
-      "severity": "HIGH",
-      "score": 7.1,
-      "cvss_version": "31",
-      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136116",
       "kev": false
     }
   ]
