@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-28T01:24:07Z",
+  "updated_at": "2026-11-28T04:02:16Z",
   "source": "NVD + CISA KEV",
   "source_url": [
     "https://services.nvd.nist.gov/rest/json/cves/2.0",
@@ -8,11 +8,211 @@
   ],
   "recent": {
     "lookback_days": 3,
-    "total": 1477,
-    "items_available": 1477,
+    "total": 1467,
+    "items_available": 1467,
     "normalisation_failures": [],
-    "items_parsed": 1477,
+    "items_parsed": 1467,
     "items": [
+      {
+        "id": "CVE-2026-138161",
+        "published": "2026-11-28T03:17:08Z",
+        "description": "Gammu before 1.45.2 contains a buffer overflow vulnerability in LoadBackup() that allows attackers to corrupt memory by supplying an overlong MD5 value in a crafted backup file. Attackers can overwrite adjacent phonebook and calendar entry pointers via strcpy() into MD5Original when files are loaded",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138161",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-138162",
+        "published": "2026-11-28T03:17:08Z",
+        "description": "Gammu before 1.45.2 contains a stack-based buffer overflow vulnerability in ALCATEL_EncodeString() that allows attackers to overwrite stack memory via oversized encoded phonebook text. Attackers can supply a crafted backup restored with gammu restore or addnew to an attached Alcatel phone, using GSM",
+        "severity": "HIGH",
+        "score": 7.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138162",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-138163",
+        "published": "2026-11-28T03:17:08Z",
+        "description": "Gammu before 1.45.2 contains a heap-based buffer overflow in ReadWAPSettingsEntry() that allows attackers to corrupt heap memory via crafted backup files with excess WAP or MMS settings entries. Attackers can supply a backup with more than four TitleNN keys in a [WAPSettings] or [MMSSettings] sectio",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138163",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-138164",
+        "published": "2026-11-28T03:17:08Z",
+        "description": "Gammu before 1.45.2 contains a stack-based buffer overflow vulnerability in SaveBackupText() in backtext.c that allows attackers to corrupt stack memory by supplying long text fields. Attackers can craft a backup with long calendar or note fields that, when converted with gammu convertbackup, writes",
+        "severity": "MEDIUM",
+        "score": 4.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138164",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-138158",
+        "published": "2026-11-28T03:17:07Z",
+        "description": "libgphoto2 through 2.5.34 contains a stack buffer overflow in sierra_get_string_register() that lets a malicious sierra-protocol camera or USB device overwrite stack memory. When files are listed, the device can answer the file-name register with an oversized packet, writing up to 32 KB past small s",
+        "severity": "HIGH",
+        "score": 7.0,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138158",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-138159",
+        "published": "2026-11-28T03:17:07Z",
+        "description": "edbrowse through 3.8.19 contains an integer overflow in stringAndBytes() that allows malicious servers to write past a heap buffer by sending response bodies larger than 2 GB. When a user browses to an attacker-controlled HTTP, FTP, or gopher server, the oversized body skips reallocation and corrupt",
+        "severity": "HIGH",
+        "score": 7.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138159",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-138160",
+        "published": "2026-11-28T03:17:07Z",
+        "description": "Gammu before 1.45.2 contains a stack-based buffer overflow vulnerability in ReadBackupTextLen() that allows attackers to overwrite stack memory via crafted backup files. Attackers can supply overlong quoted text values decoded into a 10,000-byte stack array during convertbackup, restore, or GSM_Read",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138160",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-138154",
+        "published": "2026-11-28T03:17:06Z",
+        "description": "POSTAL 2 before build 26810491 contains a sandbox escape vulnerability that allows malicious Steam Workshop mods to execute code by calling ConsoleCommand with a start file URI. Attackers can ship a batch file in a mod at the predictable workshop install path and launch it via ShellExecuteW, executi",
+        "severity": "CRITICAL",
+        "score": 9.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138154",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-138153",
+        "published": "2026-11-28T02:17:35Z",
+        "description": "Otter – Page Builder Blocks & Extensions for Gutenberg before 3.2.12 contains an incorrect authorization vulnerability in the Posts Grid block and Atomic Wind query loop that allows Contributor-level attackers to read non-public post type entries. Attackers can set the postTypes or queryPostType blo",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138153",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-138122",
+        "published": "2026-11-28T02:17:34Z",
+        "description": "ClassroomIO through 1.0.0 contains an insecure direct object reference vulnerability that allows authenticated course members to access other tenants' newsfeed posts by supplying a foreign feedId under their own courseId. Attackers can read, react to, and comment on cross-organization posts, while t",
+        "severity": "LOW",
+        "score": 2.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138122",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-138148",
+        "published": "2026-11-28T02:17:34Z",
+        "description": "picomatch through 4.0.7 contains a glob filter bypass vulnerability because globstar (**) patterns are compiled without the dotAll flag and fail to match line terminators. Attackers who control file, object key or archive entry names containing newline characters can evade ** deny patterns, causing ",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138148",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-138149",
+        "published": "2026-11-28T02:17:34Z",
+        "description": "FeatBit before 6.1.3 contains an authorization bypass vulnerability that allows authenticated members of one organization to read other organizations' segments by supplying foreign segment identifiers. Attackers can query the SegmentController segment, by-ids, and flag-references endpoints with thei",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138149",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-138150",
+        "published": "2026-11-28T02:17:34Z",
+        "description": "SimGear through 2024.1.7 contains an infinite loop vulnerability in sgSimpleBuffer::resize() where an unsigned 32-bit wraparound in the size-doubling loop leaves the size at zero. Attackers can supply a crafted .btg scenery file with an oversized byte count exceeding 2^31 to hang the loading process",
+        "severity": "MEDIUM",
+        "score": 6.8,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138150",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-138151",
+        "published": "2026-11-28T02:17:34Z",
+        "description": "bgpq4 before 1.17 contains an integer overflow vulnerability in expander.c that allows malicious IRR servers to corrupt heap memory by sending crafted A<len> replies. Attackers controlling the IRR server or tampering with the plaintext TCP connection can announce a ULONG_MAX or -1 length, wrapping t",
+        "severity": "HIGH",
+        "score": 8.2,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138151",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-138152",
+        "published": "2026-11-28T02:17:34Z",
+        "description": "Otter – Page Builder Blocks & Extensions for Gutenberg before 3.2.12 contains a server-side request forgery vulnerability that allows Contributor-level attackers to make the server contact arbitrary hosts via crafted Mailchimp API keys. Attackers can POST to the otter/v1/form/editor REST route with ",
+        "severity": "MEDIUM",
+        "score": 5.3,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138152",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-138117",
+        "published": "2026-11-28T02:17:33Z",
+        "description": "HyperSpy from 1.2.0 before 2.6.0 contains a code execution vulnerability that allows attackers to run Python code by embedding malicious expression strings evaluated with sympy.sympify(). Attackers can craft .hspy or .zspy files with malicious axis, Expression component, or twin function expressions",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138117",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-138118",
+        "published": "2026-11-28T02:17:33Z",
+        "description": "HyperSpy from 1.4.0 before 2.6.0 contains an insecure deserialization vulnerability that allows attackers to execute arbitrary Python code by supplying crafted stored-model data in .hspy or .zspy files. Attackers can embed a malicious pickle payload in a component's _class_dump or a 'fn'-flagged _wh",
+        "severity": "HIGH",
+        "score": 8.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138118",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-138119",
+        "published": "2026-11-28T02:17:33Z",
+        "description": "Kestra before 1.3.36 contains a reflected cross-site scripting vulnerability that allows unauthenticated attackers to execute JavaScript by injecting HTML into the executions page sort parameter. Attackers can lure logged-in users to a crafted link whose invalid sort value is rendered unsanitized in",
+        "severity": "HIGH",
+        "score": 8.7,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138119",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-138120",
+        "published": "2026-11-28T02:17:33Z",
+        "description": "Kestra 1.3.24 before 2.0.0 contains a timing side-channel vulnerability in BasicAuthService.isAuthenticated() that allows unauthenticated attackers to enumerate the administrator username. Attackers can send Basic-auth requests with candidate usernames to protected API endpoints and detect slower bc",
+        "severity": "MEDIUM",
+        "score": 6.9,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138120",
+        "kev": false
+      },
+      {
+        "id": "CVE-2026-138121",
+        "published": "2026-11-28T02:17:33Z",
+        "description": "Kestra 1.3.24 before 1.3.41 contains an insufficient credential expiration vulnerability that allows holders of a revoked administrator password to keep authenticating on peer webserver nodes through BasicAuthService's process-local verified-token cache. Attackers whose token remains cached on a pee",
+        "severity": "HIGH",
+        "score": 7.5,
+        "cvss_version": "40",
+        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-138121",
+        "kev": false
+      },
       {
         "id": "CVE-2026-107951",
         "published": "2026-11-28T01:16:40Z",
@@ -14481,306 +14681,6 @@
         "score": 7.5,
         "cvss_version": "31",
         "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-124606",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-136632",
-        "published": "2026-11-25T03:17:50Z",
-        "description": "OpenProject 17.2.0 before 17.5.2, 17.6.0 before 17.6.1, 17.7.0 before 17.7.3, 17.8.0 before 17.8.2, and 17.9.0 before 17.9.7 contains an externally controlled method selection vulnerability in InplaceEditFieldsController via the unvalidated attribute parameter. Users who can view a project can reque",
-        "severity": "HIGH",
-        "score": 7.2,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136632",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-136627",
-        "published": "2026-11-25T03:17:49Z",
-        "description": "SRS 4.0.0 before 6.0.194, 7.0.0 before 7.0.214, and 8.0.0 before 8.0.73 contains a reachable assertion in RTCP decoding that lets remote WebRTC peers crash the server. Attackers opening an unauthenticated WHIP or WHEP session can send an 8-byte RTCP packet with undersized length, triggering srs_asse",
-        "severity": "HIGH",
-        "score": 8.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136627",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-136628",
-        "published": "2026-11-25T03:17:49Z",
-        "description": "Wails before 2.17.1 on Linux contains an origin validation error in the sendMessageToBackend WebKitGTK handler that allows child-frame scripts to invoke the privileged IPC channel. Attackers controlling content loaded in an iframe can post messages that pass the top-level URI origin check and call b",
-        "severity": "HIGH",
-        "score": 7.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136628",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-136629",
-        "published": "2026-11-25T03:17:49Z",
-        "description": "Nektos act 0.2.92 before 0.2.95 contains an argument injection vulnerability in readProjectArgsFile and projectFlag that allows malicious repositories to bypass the untrusted project .actrc flag allowlist. Attackers can commit a crafted .actrc smuggling disallowed flags like -P self-hosted or --priv",
-        "severity": "HIGH",
-        "score": 8.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136629",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-136630",
-        "published": "2026-11-25T03:17:49Z",
-        "description": "Electerm before 5.9.0 contains an origin validation vulnerability in the MCP Server widget that allows remote attackers to execute commands by bypassing Host and Origin checks through DNS rebinding. Attackers can lure users to a page that rebinds to 127.0.0.1 and calls unauthenticated MCP tools on p",
-        "severity": "HIGH",
-        "score": 7.7,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136630",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-136631",
-        "published": "2026-11-25T03:17:49Z",
-        "description": "Mastodon 4.7.4 and 4.8.0-alpha.3 before 5.0.0-beta.1 contains an authentication bypass vulnerability in authenticate_with_sign_in_token that allows authenticated local users to rebind pending login attempts to other accounts. Attackers can submit sign_in_token_resend with a victim's user[email] para",
-        "severity": "HIGH",
-        "score": 7.6,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136631",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-136626",
-        "published": "2026-11-25T03:17:48Z",
-        "description": "SRS 4.0.0 before 6.0.194, 7.0.0 before 7.0.214, and 8.0.0 before 8.0.73 contains a heap-based buffer overflow in SrsRtcpCommon::decode and SrsRtcpTWCC::decode that lets remote WebRTC peers write past the fixed 1500-byte payload_ array. Unauthenticated attackers opening a WHIP or WHEP session can sen",
-        "severity": "HIGH",
-        "score": 8.8,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136626",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-136624",
-        "published": "2026-11-25T03:17:35Z",
-        "description": "lightNVR before 0.44.3 contains an authorization bypass vulnerability in go2rtc_proxy_authorize_request() that allows authenticated users to access restricted cameras by exploiting inconsistent src parameter parsing. Attackers can percent-encode a second src parameter name or exceed the 255-byte tru",
-        "severity": "HIGH",
-        "score": 7.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136624",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-136625",
-        "published": "2026-11-25T03:17:35Z",
-        "description": "ai-memory 2.6.0 before 3.3.2 contains a symlink following vulnerability in the ai-memory-wikisync companion that allows local attackers to overwrite arbitrary files by planting symlinks at predictable temporary names. Attackers can place a .wikisync-tmp-<page>.md symlink in a shared destination so a",
-        "severity": "MEDIUM",
-        "score": 5.2,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136625",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-136623",
-        "published": "2026-11-25T03:17:34Z",
-        "description": "WeKan before 12.78 contains an access control bypass in Exporter.buildCsvStream() that ignores the Disable all export and Anonymize export users settings. Board readers or unauthenticated users of public boards can request the CSV export endpoint to export all cards and reveal real usernames in memb",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136623",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-136620",
-        "published": "2026-11-25T03:17:33Z",
-        "description": "pain001-mcp 0.0.72 before 0.0.80 contains a path traversal vulnerability in the commit_payment_batch MCP tool that allows attackers to write files outside any output directory via output_file_path. Attackers can stage a batch, reuse the self-issued confirmation_token, and supply absolute, dot-dot, o",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136620",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-136621",
-        "published": "2026-11-25T03:17:33Z",
-        "description": "LTplus-AG ifc-lite @ifc-lite/export before 4.13.1 and ifc-lite-export before 27.0.0 contain a STEP record injection vulnerability in the mutation writer via unescaped typed-value type names. Attackers controlling the mutations payload can place parentheses, semicolons, and newlines in typed.type to ",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136621",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-136622",
-        "published": "2026-11-25T03:17:33Z",
-        "description": "WeKan before 12.78 contains an information disclosure vulnerability in Exporter.buildStream() that lets attackers retrieve checklists from other boards by supplying a checklistId export scope. Users able to export any board, or unauthenticated users via a public board, can read private checklists, t",
-        "severity": "MEDIUM",
-        "score": 6.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136622",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-136618",
-        "published": "2026-11-25T03:17:32Z",
-        "description": "Karakeep before 0.35.0 contains an improper access control vulnerability in ManualList.mergeInto that allows list owners to retain collaborator bookmarks by merging shared lists without ownership checks. Owners invoking the lists.merge tRPC procedure create rows not tied to collaborator membership, ",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136618",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-136619",
-        "published": "2026-11-25T03:17:32Z",
-        "description": "Karakeep before 0.35.0 contains an information disclosure vulnerability that allows shared-list collaborators to learn other users' private favourited and archived bookmark state through filter queries. Viewer or editor collaborators can call bookmarks.getBookmarks on a shared list with favourited o",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136619",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-136616",
-        "published": "2026-11-25T03:17:31Z",
-        "description": "COVESA Open1722 before 0.9.8 contains an out-of-bounds read vulnerability in Avtp_Vss_CalcVssPathLength in src/avtp/acf/custom/Vss.c, which reads the INTEROP path-length prefix without checking the declared ACF message length. Attackers can send header-only 12-byte INTEROP-mode VSS frames to trigger",
-        "severity": "LOW",
-        "score": 2.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136616",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-136617",
-        "published": "2026-11-25T03:17:31Z",
-        "description": "Shopify async-memcached before 0.11.0 contains a command injection vulnerability in Client::validate_meta_flags that allows attackers to inject extra memcached meta protocol tokens via whitespace in flags. Attackers controlling part of a meta flag can add quiet, opaque, mode or size override tokens ",
-        "severity": "MEDIUM",
-        "score": 6.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136617",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-136447",
-        "published": "2026-11-25T03:17:30Z",
-        "description": "A vulnerability was found in browser-use 0.13.13/0.13.14. This impacts the function load_and_migrate_config of the file browser_use/config.py of the component SecurityWatchdog. The manipulation results in improper authorization. The attack requires a local approach. The exploit has been made public ",
-        "severity": "LOW",
-        "score": 1.9,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136447",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-136448",
-        "published": "2026-11-25T03:17:30Z",
-        "description": "A vulnerability was identified in nliautaud pico-content-editor up to 02d5ad6c820c5050c542ab9505819b5e0a0ba1af. Affected by this vulnerability is the function Uploads::saveFile/Auth::init of the file src/Uploads.php of the component Authorization Subsystem. Such manipulation of the argument PicoCont",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136448",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-136451",
-        "published": "2026-11-25T03:17:30Z",
-        "description": "A flaw was found in the Keycloak Operator. Deterministic hashes derived from Kubernetes Secrets are published in generated StatefulSet metadata and in KeycloakOIDCClient status. A user with read access to those resources may be able to recover a low-entropy credential referenced by a Secret, even wh",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136451",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-136615",
-        "published": "2026-11-25T03:17:30Z",
-        "description": "league/commonmark 2.6.0 before 2.10.8 contains a denial of service vulnerability in DelimiterStack::push() that miscounts delimiter runs against the max_delimiters_per_line budget. Attackers submitting Markdown with two long emphasis character runs can produce deeply nested strong elements, causing ",
-        "severity": "MEDIUM",
-        "score": 6.3,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136615",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-129832",
-        "published": "2026-11-25T03:17:29Z",
-        "description": "A flaw was found in rsyslog. When process identification (PID) rewriting is enabled in the imuxsock module, a local attacker with access to the logging socket can send a crafted log message with an empty tag. This triggers an invalid memory write, causing the logging service to crash and resulting i",
-        "severity": "MEDIUM",
-        "score": 5.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129832",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-129839",
-        "published": "2026-11-25T03:17:29Z",
-        "description": "A flaw was found in rsyslog. When processing log entries using certain JSON (JavaScript Object Notation) formatting templates, the service fails to properly escape input composed entirely of quotation marks or backslashes. An attacker who can supply logged input can exploit this issue to generate ma",
-        "severity": "MEDIUM",
-        "score": 5.3,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-129839",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-135328",
-        "published": "2026-11-25T03:17:29Z",
-        "description": "A flaw was found in kubevirt Containerized Data Importer (CDI). The CDI clone controller derives the CommonName of a CDI-CA-signed upload client certificate from the tenant-settable cdi.kubevirt.io/uploadClientName PVC annotation without validation, and the upload server authenticates clients only b",
-        "severity": "MEDIUM",
-        "score": 5.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135328",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-135813",
-        "published": "2026-11-25T03:17:29Z",
-        "description": "A flaw was found in Red Hat Enterprise Linux's qemu-kvm virtualization software. A privileged user inside a guest virtual machine could use this flaw to make the host QEMU process copy parts of its own memory into the guest's memory, where the attacker could read it. Successful exploitation could al",
-        "severity": "MEDIUM",
-        "score": 6.0,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135813",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-136446",
-        "published": "2026-11-25T03:17:29Z",
-        "description": "A vulnerability has been found in JaguarJack catch-admin up to 5.4.1. This affects the function update of the file modules/Permissions/Http/Controllers/RolesController.php. The manipulation leads to dynamically-determined object attributes. The attack can be initiated remotely. The exploit has been ",
-        "severity": "LOW",
-        "score": 2.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136446",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-125734",
-        "published": "2026-11-25T03:17:28Z",
-        "description": "A flaw was found in GStreamer gst-plugins-bad mxfdemux handling of MXF Index Table Segment data. Crafted index metadata can lead to an out-of-range lookup during a seek and terminate the media process. A Fedora 43 test reproduced an assertion-triggered abort. The upstream advisory also notes possibl",
-        "severity": "MEDIUM",
-        "score": 6.5,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-125734",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-135768",
-        "published": "2026-11-25T02:17:41Z",
-        "description": "A flaw was found in the keycloak-services component of Keycloak, which is used for managing authentication and authorization flows. The issue occurs when a client policy is configured to enforce a high-assurance authentication flow requiring OTP. Due to improper validation of existing sessions, a lo",
-        "severity": "MEDIUM",
-        "score": 6.8,
-        "cvss_version": "31",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-135768",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-136445",
-        "published": "2026-11-25T02:17:41Z",
-        "description": "A flaw has been found in JaguarJack catch-admin up to 5.4.1. The impacted element is the function store of the file modules/Permissions/Http/Controllers/RolesController.php. Executing a manipulation can lead to dynamically-determined object attributes. It is possible to launch the attack remotely. T",
-        "severity": "LOW",
-        "score": 2.1,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-136445",
-        "kev": false
-      },
-      {
-        "id": "CVE-2026-126536",
-        "published": "2026-11-25T02:17:39Z",
-        "description": "Akaunting 3.3.0 contains a stored cross-site scripting vulnerability in the XLSX tax-import workflow. An authenticated Manager can import HTML in a tax name and associate the tax with an item. When an Administrator attempts to disable that tax, Akaunting renders the original stored name in an error ",
-        "severity": "HIGH",
-        "score": 7.0,
-        "cvss_version": "40",
-        "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-126536",
         "kev": false
       }
     ]
